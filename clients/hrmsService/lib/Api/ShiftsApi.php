@@ -84,9 +84,11 @@ class ShiftsApi
         ],
         'getShiftsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getShiftsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchShiftAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class ShiftsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShiftDtoListEnvelope
      */
-    public function getShiftsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
+    public function getShiftsAsync($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
     {
-        list($response) = $this->getShiftsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShiftsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShiftDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShiftsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
+    public function getShiftsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
     {
-        $request = $this->getShiftsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShiftsAsyncRequest($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShiftsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
+    public function getShiftsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
     {
-        return $this->getShiftsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShiftsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShiftsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
+    public function getShiftsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShiftDtoListEnvelope';
-        $request = $this->getShiftsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShiftsAsyncRequest($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShiftsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
+    public function getShiftsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class ShiftsApi
                 'Missing the required parameter $tenant_id when calling getShiftsAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class ShiftsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($shift_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($shift_dto_collection_query_parameters));
+            } else {
+                $httpBody = $shift_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class ShiftsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShiftsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
+    public function getShiftsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
     {
-        list($response) = $this->getShiftsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShiftsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShiftsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
+    public function getShiftsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
     {
-        $request = $this->getShiftsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShiftsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShiftsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
+    public function getShiftsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
     {
-        return $this->getShiftsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShiftsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShiftsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
+    public function getShiftsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShiftsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShiftsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class ShiftsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters $shift_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShiftsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShiftsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
+    public function getShiftsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $shift_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShiftsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class ShiftsApi
                 'Missing the required parameter $tenant_id when calling getShiftsCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class ShiftsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($shift_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($shift_dto_collection_query_parameters));
+            } else {
+                $httpBody = $shift_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class ShiftsApi
      * @param  string $shift_id shift_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShiftAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShiftAsync($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
+    public function patchShiftAsync($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
     {
-        list($response) = $this->patchShiftAsyncWithHttpInfo($tenant_id, $shift_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShiftAsyncWithHttpInfo($tenant_id, $shift_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class ShiftsApi
      * @param  string $shift_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShiftAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShiftAsyncWithHttpInfo($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
+    public function patchShiftAsyncWithHttpInfo($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
     {
-        $request = $this->patchShiftAsyncRequest($tenant_id, $shift_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShiftAsyncRequest($tenant_id, $shift_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class ShiftsApi
      * @param  string $shift_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShiftAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShiftAsyncAsync($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
+    public function patchShiftAsyncAsync($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
     {
-        return $this->patchShiftAsyncAsyncWithHttpInfo($tenant_id, $shift_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShiftAsyncAsyncWithHttpInfo($tenant_id, $shift_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class ShiftsApi
      * @param  string $shift_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShiftAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShiftAsyncAsyncWithHttpInfo($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
+    public function patchShiftAsyncAsyncWithHttpInfo($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShiftAsyncRequest($tenant_id, $shift_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShiftAsyncRequest($tenant_id, $shift_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class ShiftsApi
      * @param  string $shift_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShiftAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShiftAsyncRequest($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
+    public function patchShiftAsyncRequest($tenant_id, $shift_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShiftAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class ShiftsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

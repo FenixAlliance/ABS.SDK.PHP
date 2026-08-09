@@ -92,7 +92,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -145,10 +144,12 @@ Class | Method | HTTP request | Description
 - [CurrencyId](docs/Model/CurrencyId.md)
 - [DiscountCreateDto](docs/Model/DiscountCreateDto.md)
 - [DiscountDto](docs/Model/DiscountDto.md)
+- [DiscountDtoCollectionQueryParameters](docs/Model/DiscountDtoCollectionQueryParameters.md)
 - [DiscountDtoEnvelope](docs/Model/DiscountDtoEnvelope.md)
 - [DiscountDtoListEnvelope](docs/Model/DiscountDtoListEnvelope.md)
 - [DiscountListCreateDto](docs/Model/DiscountListCreateDto.md)
 - [DiscountListDto](docs/Model/DiscountListDto.md)
+- [DiscountListDtoCollectionQueryParameters](docs/Model/DiscountListDtoCollectionQueryParameters.md)
 - [DiscountListDtoEnvelope](docs/Model/DiscountListDtoEnvelope.md)
 - [DiscountListDtoListEnvelope](docs/Model/DiscountListDtoListEnvelope.md)
 - [DiscountListUpdateDto](docs/Model/DiscountListUpdateDto.md)
@@ -164,20 +165,23 @@ Class | Method | HTTP request | Description
 - [ItemPriceCalculationEnvelope](docs/Model/ItemPriceCalculationEnvelope.md)
 - [ItemPriceCreateDto](docs/Model/ItemPriceCreateDto.md)
 - [ItemPriceDto](docs/Model/ItemPriceDto.md)
+- [ItemPriceDtoCollectionQueryParameters](docs/Model/ItemPriceDtoCollectionQueryParameters.md)
 - [ItemPriceDtoEnvelope](docs/Model/ItemPriceDtoEnvelope.md)
 - [ItemPriceDtoListEnvelope](docs/Model/ItemPriceDtoListEnvelope.md)
 - [ItemPriceUpdateDto](docs/Model/ItemPriceUpdateDto.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [PriceListCreateDto](docs/Model/PriceListCreateDto.md)
 - [PriceListDto](docs/Model/PriceListDto.md)
+- [PriceListDtoCollectionQueryParameters](docs/Model/PriceListDtoCollectionQueryParameters.md)
 - [PriceListDtoEnvelope](docs/Model/PriceListDtoEnvelope.md)
 - [PriceListDtoListEnvelope](docs/Model/PriceListDtoListEnvelope.md)
 - [PriceListUpdateDto](docs/Model/PriceListUpdateDto.md)
 - [PricingRuleCreateDto](docs/Model/PricingRuleCreateDto.md)
 - [PricingRuleDto](docs/Model/PricingRuleDto.md)
+- [PricingRuleDtoCollectionQueryParameters](docs/Model/PricingRuleDtoCollectionQueryParameters.md)
 - [PricingRuleDtoEnvelope](docs/Model/PricingRuleDtoEnvelope.md)
 - [PricingRuleDtoListEnvelope](docs/Model/PricingRuleDtoListEnvelope.md)
 - [PricingRuleUpdateDto](docs/Model/PricingRuleUpdateDto.md)
@@ -187,6 +191,7 @@ Class | Method | HTTP request | Description
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [RoundingPolicyCreateDto](docs/Model/RoundingPolicyCreateDto.md)
 - [RoundingPolicyDto](docs/Model/RoundingPolicyDto.md)
+- [RoundingPolicyDtoCollectionQueryParameters](docs/Model/RoundingPolicyDtoCollectionQueryParameters.md)
 - [RoundingPolicyDtoEnvelope](docs/Model/RoundingPolicyDtoEnvelope.md)
 - [RoundingPolicyDtoListEnvelope](docs/Model/RoundingPolicyDtoListEnvelope.md)
 - [RoundingPolicyUpdateDto](docs/Model/RoundingPolicyUpdateDto.md)

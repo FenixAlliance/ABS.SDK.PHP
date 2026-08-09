@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemTypesAsync()`
 
 ```php
-countItemTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemTypesAsync($tenant_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item types
@@ -39,9 +39,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countItemTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemTypesAsync($tenant_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemTypesApi->countItemTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters**](../Model/ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getItemTypesAsync()`
 
 ```php
-getItemTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTypeDtoListEnvelope
+getItemTypesAsync($tenant_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemTypeDtoListEnvelope
 ```
 
 Get all item types
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemTypesAsync($tenant_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemTypesApi->getItemTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters**](../Model/ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchItemTypeAsync()`
 
 ```php
-patchItemTypeAsync($tenant_id, $item_type_id, $api_version, $x_api_version, $operation)
+patchItemTypeAsync($tenant_id, $item_type_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch an item type
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_type_id = 'item_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchItemTypeAsync($tenant_id, $item_type_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchItemTypeAsync($tenant_id, $item_type_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemTypesApi->patchItemTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -363,7 +367,7 @@ try {
 | **item_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

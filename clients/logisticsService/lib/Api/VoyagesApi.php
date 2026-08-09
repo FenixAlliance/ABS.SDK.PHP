@@ -97,15 +97,19 @@ class VoyagesApi
         ],
         'getVoyagePortCallsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getVoyagePortCallsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getVoyagesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getVoyagesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchVoyageAsync' => [
             'application/json',
@@ -2932,15 +2936,16 @@ class VoyagesApi
      * @param  string $voyage_id voyage_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\VoyagePortCallDtoListEnvelope
      */
-    public function getVoyagePortCallsAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
+    public function getVoyagePortCallsAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
     {
-        list($response) = $this->getVoyagePortCallsAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getVoyagePortCallsAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2953,15 +2958,16 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\VoyagePortCallDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVoyagePortCallsAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
+    public function getVoyagePortCallsAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
     {
-        $request = $this->getVoyagePortCallsAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagePortCallsAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3116,14 +3122,15 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagePortCallsAsyncAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
+    public function getVoyagePortCallsAsyncAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
     {
-        return $this->getVoyagePortCallsAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType)
+        return $this->getVoyagePortCallsAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3140,15 +3147,16 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagePortCallsAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
+    public function getVoyagePortCallsAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\VoyagePortCallDtoListEnvelope';
-        $request = $this->getVoyagePortCallsAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagePortCallsAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3193,12 +3201,13 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVoyagePortCallsAsyncRequest($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
+    public function getVoyagePortCallsAsyncRequest($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3214,6 +3223,7 @@ class VoyagesApi
                 'Missing the required parameter $voyage_id when calling getVoyagePortCallsAsync'
             );
         }
+
 
 
 
@@ -3266,7 +3276,14 @@ class VoyagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($voyage_port_call_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($voyage_port_call_dto_collection_query_parameters));
+            } else {
+                $httpBody = $voyage_port_call_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3321,15 +3338,16 @@ class VoyagesApi
      * @param  string $voyage_id voyage_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getVoyagePortCallsCountAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
+    public function getVoyagePortCallsCountAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
     {
-        list($response) = $this->getVoyagePortCallsCountAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getVoyagePortCallsCountAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3342,15 +3360,16 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVoyagePortCallsCountAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
+    public function getVoyagePortCallsCountAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
     {
-        $request = $this->getVoyagePortCallsCountAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagePortCallsCountAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3505,14 +3524,15 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagePortCallsCountAsyncAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
+    public function getVoyagePortCallsCountAsyncAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
     {
-        return $this->getVoyagePortCallsCountAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType)
+        return $this->getVoyagePortCallsCountAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3529,15 +3549,16 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagePortCallsCountAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
+    public function getVoyagePortCallsCountAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getVoyagePortCallsCountAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagePortCallsCountAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3582,12 +3603,13 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters $voyage_port_call_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagePortCallsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVoyagePortCallsCountAsyncRequest($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
+    public function getVoyagePortCallsCountAsyncRequest($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $voyage_port_call_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagePortCallsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3603,6 +3625,7 @@ class VoyagesApi
                 'Missing the required parameter $voyage_id when calling getVoyagePortCallsCountAsync'
             );
         }
+
 
 
 
@@ -3655,7 +3678,14 @@ class VoyagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($voyage_port_call_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($voyage_port_call_dto_collection_query_parameters));
+            } else {
+                $httpBody = $voyage_port_call_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3709,15 +3739,16 @@ class VoyagesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\VoyageDtoListEnvelope
      */
-    public function getVoyagesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
+    public function getVoyagesAsync($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
     {
-        list($response) = $this->getVoyagesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getVoyagesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3729,15 +3760,16 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\VoyageDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVoyagesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
+    public function getVoyagesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
     {
-        $request = $this->getVoyagesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagesAsyncRequest($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3926,14 +3958,15 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
+    public function getVoyagesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
     {
-        return $this->getVoyagesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getVoyagesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3949,15 +3982,16 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
+    public function getVoyagesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\VoyageDtoListEnvelope';
-        $request = $this->getVoyagesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagesAsyncRequest($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4001,12 +4035,13 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVoyagesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
+    public function getVoyagesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4015,6 +4050,7 @@ class VoyagesApi
                 'Missing the required parameter $tenant_id when calling getVoyagesAsync'
             );
         }
+
 
 
 
@@ -4059,7 +4095,14 @@ class VoyagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($voyage_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($voyage_dto_collection_query_parameters));
+            } else {
+                $httpBody = $voyage_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4113,15 +4156,16 @@ class VoyagesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getVoyagesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
+    public function getVoyagesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
     {
-        list($response) = $this->getVoyagesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getVoyagesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4133,15 +4177,16 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVoyagesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
+    public function getVoyagesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
     {
-        $request = $this->getVoyagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4295,14 +4340,15 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
+    public function getVoyagesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
     {
-        return $this->getVoyagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getVoyagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4318,15 +4364,16 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVoyagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
+    public function getVoyagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getVoyagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getVoyagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4370,12 +4417,13 @@ class VoyagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters $voyage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoyagesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVoyagesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
+    public function getVoyagesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $voyage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getVoyagesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4384,6 +4432,7 @@ class VoyagesApi
                 'Missing the required parameter $tenant_id when calling getVoyagesCountAsync'
             );
         }
+
 
 
 
@@ -4428,7 +4477,14 @@ class VoyagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($voyage_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($voyage_dto_collection_query_parameters));
+            } else {
+                $httpBody = $voyage_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4483,16 +4539,16 @@ class VoyagesApi
      * @param  string $voyage_id voyage_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyageAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchVoyageAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
+    public function patchVoyageAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
     {
-        list($response) = $this->patchVoyageAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchVoyageAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4505,16 +4561,16 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyageAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchVoyageAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
+    public function patchVoyageAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
     {
-        $request = $this->patchVoyageAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchVoyageAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4739,15 +4795,15 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyageAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchVoyageAsyncAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
+    public function patchVoyageAsyncAsync($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
     {
-        return $this->patchVoyageAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchVoyageAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4764,16 +4820,16 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyageAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchVoyageAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
+    public function patchVoyageAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchVoyageAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchVoyageAsyncRequest($tenant_id, $voyage_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4818,13 +4874,13 @@ class VoyagesApi
      * @param  string $voyage_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyageAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchVoyageAsyncRequest($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
+    public function patchVoyageAsyncRequest($tenant_id, $voyage_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyageAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4893,12 +4949,12 @@ class VoyagesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4956,16 +5012,16 @@ class VoyagesApi
      * @param  string $port_call_id port_call_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyagePortCallAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchVoyagePortCallAsync($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
+    public function patchVoyagePortCallAsync($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
     {
-        list($response) = $this->patchVoyagePortCallAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchVoyagePortCallAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4979,16 +5035,16 @@ class VoyagesApi
      * @param  string $port_call_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyagePortCallAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchVoyagePortCallAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
+    public function patchVoyagePortCallAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
     {
-        $request = $this->patchVoyagePortCallAsyncRequest($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchVoyagePortCallAsyncRequest($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5214,15 +5270,15 @@ class VoyagesApi
      * @param  string $port_call_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyagePortCallAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchVoyagePortCallAsyncAsync($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
+    public function patchVoyagePortCallAsyncAsync($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
     {
-        return $this->patchVoyagePortCallAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchVoyagePortCallAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5240,16 +5296,16 @@ class VoyagesApi
      * @param  string $port_call_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyagePortCallAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchVoyagePortCallAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
+    public function patchVoyagePortCallAsyncAsyncWithHttpInfo($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchVoyagePortCallAsyncRequest($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchVoyagePortCallAsyncRequest($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5295,13 +5351,13 @@ class VoyagesApi
      * @param  string $port_call_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchVoyagePortCallAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchVoyagePortCallAsyncRequest($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
+    public function patchVoyagePortCallAsyncRequest($tenant_id, $voyage_id, $port_call_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchVoyagePortCallAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5385,12 +5441,12 @@ class VoyagesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -200,7 +200,7 @@ No authorization required
 ## `getShipmentsAsync()`
 
 ```php
-getShipmentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShipmentDtoListEnvelope
+getShipmentsAsync($tenant_id, $api_version, $x_api_version, $shipment_dto_collection_query_parameters): \OpenAPI\Client\Model\ShipmentDtoListEnvelope
 ```
 
 Get all shipments
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ShipmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shipment_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShipmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShipmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShipmentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShipmentsAsync($tenant_id, $api_version, $x_api_version, $shipment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShipmentsApi->getShipmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shipment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShipmentDtoCollectionQueryParameters**](../Model/ShipmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getShipmentsCountAsync()`
 
 ```php
-getShipmentsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShipmentsCountAsync($tenant_id, $api_version, $x_api_version, $shipment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get shipments count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ShipmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shipment_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShipmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShipmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShipmentsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShipmentsCountAsync($tenant_id, $api_version, $x_api_version, $shipment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShipmentsApi->getShipmentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shipment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShipmentDtoCollectionQueryParameters**](../Model/ShipmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchShipmentAsync()`
 
 ```php
-patchShipmentAsync($tenant_id, $shipment_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShipmentAsync($tenant_id, $shipment_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a shipment
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $shipment_id = 'shipment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShipmentAsync($tenant_id, $shipment_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShipmentAsync($tenant_id, $shipment_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShipmentsApi->patchShipmentAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **shipment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

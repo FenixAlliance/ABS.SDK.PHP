@@ -134,7 +134,7 @@ No authorization required
 ## `getSystemBusinessDomains()`
 
 ```php
-getSystemBusinessDomains($api_version, $x_api_version): \OpenAPI\Client\Model\BusinessDomainDtoListEnvelope
+getSystemBusinessDomains($api_version, $x_api_version, $business_domain_dto_collection_query_parameters): \OpenAPI\Client\Model\BusinessDomainDtoListEnvelope
 ```
 
 Retrieve all business domains in the system
@@ -156,9 +156,10 @@ $apiInstance = new OpenAPI\Client\Api\BusinessDomainsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_domain_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemBusinessDomains($api_version, $x_api_version);
+    $result = $apiInstance->getSystemBusinessDomains($api_version, $x_api_version, $business_domain_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BusinessDomainsApi->getSystemBusinessDomains: ', $e->getMessage(), PHP_EOL;
@@ -171,6 +172,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_domain_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters**](../Model/BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -182,7 +184,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -192,7 +194,7 @@ No authorization required
 ## `getSystemBusinessDomainsCount()`
 
 ```php
-getSystemBusinessDomainsCount($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSystemBusinessDomainsCount($api_version, $x_api_version, $business_domain_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of all business domains in the system
@@ -214,9 +216,10 @@ $apiInstance = new OpenAPI\Client\Api\BusinessDomainsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_domain_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemBusinessDomainsCount($api_version, $x_api_version);
+    $result = $apiInstance->getSystemBusinessDomainsCount($api_version, $x_api_version, $business_domain_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BusinessDomainsApi->getSystemBusinessDomainsCount: ', $e->getMessage(), PHP_EOL;
@@ -229,6 +232,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_domain_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters**](../Model/BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -240,7 +244,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

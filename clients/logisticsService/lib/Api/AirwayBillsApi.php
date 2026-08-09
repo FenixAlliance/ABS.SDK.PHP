@@ -91,15 +91,19 @@ class AirwayBillsApi
         ],
         'getAirwayBillLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAirwayBillLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAirwayBillsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAirwayBillsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'issueAirwayBillAsync' => [
             'application/json',
@@ -2140,15 +2144,16 @@ class AirwayBillsApi
      * @param  string $bill_id bill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope
      */
-    public function getAirwayBillLinesAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
+    public function getAirwayBillLinesAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
     {
-        list($response) = $this->getAirwayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAirwayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2161,15 +2166,16 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAirwayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
+    public function getAirwayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
     {
-        $request = $this->getAirwayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2324,14 +2330,15 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillLinesAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
+    public function getAirwayBillLinesAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
     {
-        return $this->getAirwayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType)
+        return $this->getAirwayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2348,15 +2355,16 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
+    public function getAirwayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WaybillLineDtoListEnvelope';
-        $request = $this->getAirwayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2401,12 +2409,13 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAirwayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
+    public function getAirwayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2422,6 +2431,7 @@ class AirwayBillsApi
                 'Missing the required parameter $bill_id when calling getAirwayBillLinesAsync'
             );
         }
+
 
 
 
@@ -2474,7 +2484,14 @@ class AirwayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2529,15 +2546,16 @@ class AirwayBillsApi
      * @param  string $bill_id bill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAirwayBillLinesCountAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
+    public function getAirwayBillLinesCountAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
     {
-        list($response) = $this->getAirwayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAirwayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2550,15 +2568,16 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAirwayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
+    public function getAirwayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
     {
-        $request = $this->getAirwayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2713,14 +2732,15 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillLinesCountAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
+    public function getAirwayBillLinesCountAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
     {
-        return $this->getAirwayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType)
+        return $this->getAirwayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2737,15 +2757,16 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
+    public function getAirwayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAirwayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2790,12 +2811,13 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAirwayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
+    public function getAirwayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2811,6 +2833,7 @@ class AirwayBillsApi
                 'Missing the required parameter $bill_id when calling getAirwayBillLinesCountAsync'
             );
         }
+
 
 
 
@@ -2863,7 +2886,14 @@ class AirwayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2917,15 +2947,16 @@ class AirwayBillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AirwayBillDtoListEnvelope
      */
-    public function getAirwayBillsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
+    public function getAirwayBillsAsync($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
     {
-        list($response) = $this->getAirwayBillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAirwayBillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2937,15 +2968,16 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AirwayBillDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAirwayBillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
+    public function getAirwayBillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
     {
-        $request = $this->getAirwayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3134,14 +3166,15 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
+    public function getAirwayBillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
     {
-        return $this->getAirwayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAirwayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3157,15 +3190,16 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
+    public function getAirwayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AirwayBillDtoListEnvelope';
-        $request = $this->getAirwayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3209,12 +3243,13 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAirwayBillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
+    public function getAirwayBillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3223,6 +3258,7 @@ class AirwayBillsApi
                 'Missing the required parameter $tenant_id when calling getAirwayBillsAsync'
             );
         }
+
 
 
 
@@ -3267,7 +3303,14 @@ class AirwayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($airway_bill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($airway_bill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $airway_bill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3321,15 +3364,16 @@ class AirwayBillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAirwayBillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
+    public function getAirwayBillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
     {
-        list($response) = $this->getAirwayBillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAirwayBillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3341,15 +3385,16 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAirwayBillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
+    public function getAirwayBillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
     {
-        $request = $this->getAirwayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3503,14 +3548,15 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
+    public function getAirwayBillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
     {
-        return $this->getAirwayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAirwayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3526,15 +3572,16 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAirwayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
+    public function getAirwayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAirwayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAirwayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3578,12 +3625,13 @@ class AirwayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters $airway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAirwayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAirwayBillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
+    public function getAirwayBillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $airway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAirwayBillsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3592,6 +3640,7 @@ class AirwayBillsApi
                 'Missing the required parameter $tenant_id when calling getAirwayBillsCountAsync'
             );
         }
+
 
 
 
@@ -3636,7 +3685,14 @@ class AirwayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($airway_bill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($airway_bill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $airway_bill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5247,16 +5303,16 @@ class AirwayBillsApi
      * @param  string $bill_id bill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAirwayBillAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
+    public function patchAirwayBillAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
     {
-        list($response) = $this->patchAirwayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAirwayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5269,16 +5325,16 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAirwayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
+    public function patchAirwayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
     {
-        $request = $this->patchAirwayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAirwayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5433,15 +5489,15 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAirwayBillAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
+    public function patchAirwayBillAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
     {
-        return $this->patchAirwayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAirwayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5458,16 +5514,16 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAirwayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
+    public function patchAirwayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAirwayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAirwayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5512,13 +5568,13 @@ class AirwayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAirwayBillAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
+    public function patchAirwayBillAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5587,12 +5643,12 @@ class AirwayBillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5650,16 +5706,16 @@ class AirwayBillsApi
      * @param  string $line_id line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAirwayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
+    public function patchAirwayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
     {
-        list($response) = $this->patchAirwayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAirwayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5673,16 +5729,16 @@ class AirwayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAirwayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
+    public function patchAirwayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
     {
-        $request = $this->patchAirwayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAirwayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5838,15 +5894,15 @@ class AirwayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAirwayBillLineAsyncAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
+    public function patchAirwayBillLineAsyncAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
     {
-        return $this->patchAirwayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAirwayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5864,16 +5920,16 @@ class AirwayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAirwayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
+    public function patchAirwayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAirwayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAirwayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5919,13 +5975,13 @@ class AirwayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAirwayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAirwayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
+    public function patchAirwayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAirwayBillLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6009,12 +6065,12 @@ class AirwayBillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

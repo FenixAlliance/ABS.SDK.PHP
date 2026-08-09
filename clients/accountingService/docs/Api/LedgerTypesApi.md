@@ -202,7 +202,7 @@ No authorization required
 ## `getLedgerTypesAsync()`
 
 ```php
-getLedgerTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LedgerTypeDtoIReadOnlyListEnvelope
+getLedgerTypesAsync($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters): \OpenAPI\Client\Model\LedgerTypeDtoIReadOnlyListEnvelope
 ```
 
 Retrieves all ledger types
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\LedgerTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$ledger_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLedgerTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLedgerTypesAsync($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LedgerTypesApi->getLedgerTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **ledger_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters**](../Model/LedgerTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getLedgerTypesCountAsync()`
 
 ```php
-getLedgerTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLedgerTypesCountAsync($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts ledger types
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\LedgerTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$ledger_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLedgerTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLedgerTypesCountAsync($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LedgerTypesApi->getLedgerTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **ledger_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters**](../Model/LedgerTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchLedgerTypeAsync()`
 
 ```php
-patchLedgerTypeAsync($tenant_id, $ledger_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLedgerTypeAsync($tenant_id, $ledger_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a ledger type
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $ledger_type_id = 'ledger_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLedgerTypeAsync($tenant_id, $ledger_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLedgerTypeAsync($tenant_id, $ledger_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LedgerTypesApi->patchLedgerTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **ledger_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

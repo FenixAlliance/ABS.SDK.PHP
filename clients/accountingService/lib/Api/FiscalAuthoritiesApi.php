@@ -81,9 +81,11 @@ class FiscalAuthoritiesApi
         ],
         'getFiscalAuthorities' => [
             'application/json',
+            'application/xml',
         ],
         'getFiscalAuthoritiesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getFiscalAuthority' => [
             'application/json',
@@ -993,15 +995,16 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthorities'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FiscalAuthorityDtoListEnvelope
      */
-    public function getFiscalAuthorities($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
+    public function getFiscalAuthorities($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
     {
-        list($response) = $this->getFiscalAuthoritiesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFiscalAuthoritiesWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1013,15 +1016,16 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthorities'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FiscalAuthorityDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFiscalAuthoritiesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
+    public function getFiscalAuthoritiesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
     {
-        $request = $this->getFiscalAuthoritiesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalAuthoritiesRequest($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1210,14 +1214,15 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthorities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalAuthoritiesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
+    public function getFiscalAuthoritiesAsync($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
     {
-        return $this->getFiscalAuthoritiesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFiscalAuthoritiesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1233,15 +1238,16 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthorities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalAuthoritiesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
+    public function getFiscalAuthoritiesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FiscalAuthorityDtoListEnvelope';
-        $request = $this->getFiscalAuthoritiesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalAuthoritiesRequest($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1285,12 +1291,13 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthorities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFiscalAuthoritiesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
+    public function getFiscalAuthoritiesRequest($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthorities'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1299,6 +1306,7 @@ class FiscalAuthoritiesApi
                 'Missing the required parameter $tenant_id when calling getFiscalAuthorities'
             );
         }
+
 
 
 
@@ -1343,7 +1351,14 @@ class FiscalAuthoritiesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($fiscal_authority_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fiscal_authority_dto_collection_query_parameters));
+            } else {
+                $httpBody = $fiscal_authority_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1397,15 +1412,16 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthoritiesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getFiscalAuthoritiesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
+    public function getFiscalAuthoritiesCount($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
     {
-        list($response) = $this->getFiscalAuthoritiesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFiscalAuthoritiesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1417,15 +1433,16 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthoritiesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFiscalAuthoritiesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
+    public function getFiscalAuthoritiesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
     {
-        $request = $this->getFiscalAuthoritiesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalAuthoritiesCountRequest($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1614,14 +1631,15 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthoritiesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalAuthoritiesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
+    public function getFiscalAuthoritiesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
     {
-        return $this->getFiscalAuthoritiesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFiscalAuthoritiesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1637,15 +1655,16 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthoritiesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalAuthoritiesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
+    public function getFiscalAuthoritiesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getFiscalAuthoritiesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalAuthoritiesCountRequest($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,12 +1708,13 @@ class FiscalAuthoritiesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters $fiscal_authority_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalAuthoritiesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFiscalAuthoritiesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
+    public function getFiscalAuthoritiesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $fiscal_authority_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalAuthoritiesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1703,6 +1723,7 @@ class FiscalAuthoritiesApi
                 'Missing the required parameter $tenant_id when calling getFiscalAuthoritiesCount'
             );
         }
+
 
 
 
@@ -1747,7 +1768,14 @@ class FiscalAuthoritiesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($fiscal_authority_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fiscal_authority_dto_collection_query_parameters));
+            } else {
+                $httpBody = $fiscal_authority_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class FiscalAuthoritiesApi
      * @param  string $authority_id authority_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalAuthorityAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchFiscalAuthorityAsync($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
+    public function patchFiscalAuthorityAsync($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
     {
-        list($response) = $this->patchFiscalAuthorityAsyncWithHttpInfo($tenant_id, $authority_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchFiscalAuthorityAsyncWithHttpInfo($tenant_id, $authority_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class FiscalAuthoritiesApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalAuthorityAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchFiscalAuthorityAsyncWithHttpInfo($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
+    public function patchFiscalAuthorityAsyncWithHttpInfo($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
     {
-        $request = $this->patchFiscalAuthorityAsyncRequest($tenant_id, $authority_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFiscalAuthorityAsyncRequest($tenant_id, $authority_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class FiscalAuthoritiesApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalAuthorityAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFiscalAuthorityAsyncAsync($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
+    public function patchFiscalAuthorityAsyncAsync($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
     {
-        return $this->patchFiscalAuthorityAsyncAsyncWithHttpInfo($tenant_id, $authority_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchFiscalAuthorityAsyncAsyncWithHttpInfo($tenant_id, $authority_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class FiscalAuthoritiesApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalAuthorityAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFiscalAuthorityAsyncAsyncWithHttpInfo($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
+    public function patchFiscalAuthorityAsyncAsyncWithHttpInfo($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchFiscalAuthorityAsyncRequest($tenant_id, $authority_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFiscalAuthorityAsyncRequest($tenant_id, $authority_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class FiscalAuthoritiesApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalAuthorityAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchFiscalAuthorityAsyncRequest($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
+    public function patchFiscalAuthorityAsyncRequest($tenant_id, $authority_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalAuthorityAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class FiscalAuthoritiesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

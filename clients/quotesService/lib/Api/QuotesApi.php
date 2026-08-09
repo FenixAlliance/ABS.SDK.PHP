@@ -100,6 +100,7 @@ class QuotesApi
         ],
         'getExtendedQuotes' => [
             'application/json',
+            'application/xml',
         ],
         'getQuote' => [
             'application/json',
@@ -109,15 +110,19 @@ class QuotesApi
         ],
         'getQuoteLines' => [
             'application/json',
+            'application/xml',
         ],
         'getQuoteLinesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getQuotes' => [
             'application/json',
+            'application/xml',
         ],
         'getQuotesCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchQuoteAsync' => [
             'application/json',
@@ -3165,15 +3170,16 @@ class QuotesApi
      * Get a list of extended quotes.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters $extended_quote_dto_collection_query_parameters extended_quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedQuotes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedQuoteDtoListEnvelope
      */
-    public function getExtendedQuotes($tenant_id, string $contentType = self::contentTypes['getExtendedQuotes'][0])
+    public function getExtendedQuotes($tenant_id, $extended_quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedQuotes'][0])
     {
-        list($response) = $this->getExtendedQuotesWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getExtendedQuotesWithHttpInfo($tenant_id, $extended_quote_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3183,15 +3189,16 @@ class QuotesApi
      * Get a list of extended quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters $extended_quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedQuotes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedQuoteDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedQuotesWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedQuotes'][0])
+    public function getExtendedQuotesWithHttpInfo($tenant_id, $extended_quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedQuotes'][0])
     {
-        $request = $this->getExtendedQuotesRequest($tenant_id, $contentType);
+        $request = $this->getExtendedQuotesRequest($tenant_id, $extended_quote_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3343,14 +3350,15 @@ class QuotesApi
      * Get a list of extended quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters $extended_quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedQuotes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedQuotesAsync($tenant_id, string $contentType = self::contentTypes['getExtendedQuotes'][0])
+    public function getExtendedQuotesAsync($tenant_id, $extended_quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedQuotes'][0])
     {
-        return $this->getExtendedQuotesAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getExtendedQuotesAsyncWithHttpInfo($tenant_id, $extended_quote_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3364,15 +3372,16 @@ class QuotesApi
      * Get a list of extended quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters $extended_quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedQuotes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedQuotesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedQuotes'][0])
+    public function getExtendedQuotesAsyncWithHttpInfo($tenant_id, $extended_quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedQuotes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedQuoteDtoListEnvelope';
-        $request = $this->getExtendedQuotesRequest($tenant_id, $contentType);
+        $request = $this->getExtendedQuotesRequest($tenant_id, $extended_quote_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3414,12 +3423,13 @@ class QuotesApi
      * Create request for operation 'getExtendedQuotes'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters $extended_quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedQuotes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedQuotesRequest($tenant_id, string $contentType = self::contentTypes['getExtendedQuotes'][0])
+    public function getExtendedQuotesRequest($tenant_id, $extended_quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedQuotes'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3428,6 +3438,7 @@ class QuotesApi
                 'Missing the required parameter $tenant_id when calling getExtendedQuotes'
             );
         }
+
 
 
         $resourcePath = '/api/v2/QuotesService/Quotes/Extended';
@@ -3457,7 +3468,14 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_quote_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_quote_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_quote_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4259,15 +4277,16 @@ class QuotesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $quote_id quote_id (required)
      * @param  string $item_id item_id (optional)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLines'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\QuoteLineDtoListEnvelope
      */
-    public function getQuoteLines($tenant_id, $quote_id, $item_id = null, string $contentType = self::contentTypes['getQuoteLines'][0])
+    public function getQuoteLines($tenant_id, $quote_id, $item_id = null, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLines'][0])
     {
-        list($response) = $this->getQuoteLinesWithHttpInfo($tenant_id, $quote_id, $item_id, $contentType);
+        list($response) = $this->getQuoteLinesWithHttpInfo($tenant_id, $quote_id, $item_id, $quote_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4279,15 +4298,16 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLines'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\QuoteLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getQuoteLinesWithHttpInfo($tenant_id, $quote_id, $item_id = null, string $contentType = self::contentTypes['getQuoteLines'][0])
+    public function getQuoteLinesWithHttpInfo($tenant_id, $quote_id, $item_id = null, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLines'][0])
     {
-        $request = $this->getQuoteLinesRequest($tenant_id, $quote_id, $item_id, $contentType);
+        $request = $this->getQuoteLinesRequest($tenant_id, $quote_id, $item_id, $quote_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4441,14 +4461,15 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuoteLinesAsync($tenant_id, $quote_id, $item_id = null, string $contentType = self::contentTypes['getQuoteLines'][0])
+    public function getQuoteLinesAsync($tenant_id, $quote_id, $item_id = null, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLines'][0])
     {
-        return $this->getQuoteLinesAsyncWithHttpInfo($tenant_id, $quote_id, $item_id, $contentType)
+        return $this->getQuoteLinesAsyncWithHttpInfo($tenant_id, $quote_id, $item_id, $quote_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4464,15 +4485,16 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuoteLinesAsyncWithHttpInfo($tenant_id, $quote_id, $item_id = null, string $contentType = self::contentTypes['getQuoteLines'][0])
+    public function getQuoteLinesAsyncWithHttpInfo($tenant_id, $quote_id, $item_id = null, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLines'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuoteLineDtoListEnvelope';
-        $request = $this->getQuoteLinesRequest($tenant_id, $quote_id, $item_id, $contentType);
+        $request = $this->getQuoteLinesRequest($tenant_id, $quote_id, $item_id, $quote_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4516,12 +4538,13 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getQuoteLinesRequest($tenant_id, $quote_id, $item_id = null, string $contentType = self::contentTypes['getQuoteLines'][0])
+    public function getQuoteLinesRequest($tenant_id, $quote_id, $item_id = null, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLines'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4537,6 +4560,7 @@ class QuotesApi
                 'Missing the required parameter $quote_id when calling getQuoteLines'
             );
         }
+
 
 
 
@@ -4584,7 +4608,14 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($quote_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($quote_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $quote_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4637,15 +4668,16 @@ class QuotesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $quote_id quote_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLinesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getQuoteLinesCount($tenant_id, $quote_id, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
+    public function getQuoteLinesCount($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
     {
-        list($response) = $this->getQuoteLinesCountWithHttpInfo($tenant_id, $quote_id, $contentType);
+        list($response) = $this->getQuoteLinesCountWithHttpInfo($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4656,15 +4688,16 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLinesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getQuoteLinesCountWithHttpInfo($tenant_id, $quote_id, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
+    public function getQuoteLinesCountWithHttpInfo($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
     {
-        $request = $this->getQuoteLinesCountRequest($tenant_id, $quote_id, $contentType);
+        $request = $this->getQuoteLinesCountRequest($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4817,14 +4850,15 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuoteLinesCountAsync($tenant_id, $quote_id, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
+    public function getQuoteLinesCountAsync($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
     {
-        return $this->getQuoteLinesCountAsyncWithHttpInfo($tenant_id, $quote_id, $contentType)
+        return $this->getQuoteLinesCountAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4839,15 +4873,16 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuoteLinesCountAsyncWithHttpInfo($tenant_id, $quote_id, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
+    public function getQuoteLinesCountAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getQuoteLinesCountRequest($tenant_id, $quote_id, $contentType);
+        $request = $this->getQuoteLinesCountRequest($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4890,12 +4925,13 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters $quote_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuoteLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getQuoteLinesCountRequest($tenant_id, $quote_id, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
+    public function getQuoteLinesCountRequest($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuoteLinesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4911,6 +4947,7 @@ class QuotesApi
                 'Missing the required parameter $quote_id when calling getQuoteLinesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/QuotesService/Quotes/{quoteId}/Lines/Count';
@@ -4948,7 +4985,14 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($quote_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($quote_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $quote_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5000,15 +5044,16 @@ class QuotesApi
      * Get a list of quotes.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\QuoteDtoListEnvelope
      */
-    public function getQuotes($tenant_id, string $contentType = self::contentTypes['getQuotes'][0])
+    public function getQuotes($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotes'][0])
     {
-        list($response) = $this->getQuotesWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getQuotesWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5018,15 +5063,16 @@ class QuotesApi
      * Get a list of quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\QuoteDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getQuotesWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getQuotes'][0])
+    public function getQuotesWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotes'][0])
     {
-        $request = $this->getQuotesRequest($tenant_id, $contentType);
+        $request = $this->getQuotesRequest($tenant_id, $quote_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5178,14 +5224,15 @@ class QuotesApi
      * Get a list of quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuotesAsync($tenant_id, string $contentType = self::contentTypes['getQuotes'][0])
+    public function getQuotesAsync($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotes'][0])
     {
-        return $this->getQuotesAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getQuotesAsyncWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5199,15 +5246,16 @@ class QuotesApi
      * Get a list of quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuotesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getQuotes'][0])
+    public function getQuotesAsyncWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuoteDtoListEnvelope';
-        $request = $this->getQuotesRequest($tenant_id, $contentType);
+        $request = $this->getQuotesRequest($tenant_id, $quote_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5249,12 +5297,13 @@ class QuotesApi
      * Create request for operation 'getQuotes'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getQuotesRequest($tenant_id, string $contentType = self::contentTypes['getQuotes'][0])
+    public function getQuotesRequest($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotes'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5263,6 +5312,7 @@ class QuotesApi
                 'Missing the required parameter $tenant_id when calling getQuotes'
             );
         }
+
 
 
         $resourcePath = '/api/v2/QuotesService/Quotes';
@@ -5292,7 +5342,14 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($quote_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($quote_dto_collection_query_parameters));
+            } else {
+                $httpBody = $quote_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5344,15 +5401,16 @@ class QuotesApi
      * Get the count of quotes.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getQuotesCount($tenant_id, string $contentType = self::contentTypes['getQuotesCount'][0])
+    public function getQuotesCount($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotesCount'][0])
     {
-        list($response) = $this->getQuotesCountWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getQuotesCountWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5362,15 +5420,16 @@ class QuotesApi
      * Get the count of quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getQuotesCountWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getQuotesCount'][0])
+    public function getQuotesCountWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotesCount'][0])
     {
-        $request = $this->getQuotesCountRequest($tenant_id, $contentType);
+        $request = $this->getQuotesCountRequest($tenant_id, $quote_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5522,14 +5581,15 @@ class QuotesApi
      * Get the count of quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuotesCountAsync($tenant_id, string $contentType = self::contentTypes['getQuotesCount'][0])
+    public function getQuotesCountAsync($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotesCount'][0])
     {
-        return $this->getQuotesCountAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getQuotesCountAsyncWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5543,15 +5603,16 @@ class QuotesApi
      * Get the count of quotes.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getQuotesCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getQuotesCount'][0])
+    public function getQuotesCountAsyncWithHttpInfo($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getQuotesCountRequest($tenant_id, $contentType);
+        $request = $this->getQuotesCountRequest($tenant_id, $quote_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5593,12 +5654,13 @@ class QuotesApi
      * Create request for operation 'getQuotesCount'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getQuotesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getQuotesCountRequest($tenant_id, string $contentType = self::contentTypes['getQuotesCount'][0])
+    public function getQuotesCountRequest($tenant_id, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getQuotesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5607,6 +5669,7 @@ class QuotesApi
                 'Missing the required parameter $tenant_id when calling getQuotesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/QuotesService/Quotes/Count';
@@ -5636,7 +5699,14 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($quote_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($quote_dto_collection_query_parameters));
+            } else {
+                $httpBody = $quote_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5689,16 +5759,16 @@ class QuotesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $quote_id quote_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchQuoteAsync($tenant_id, $quote_id, $operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
+    public function patchQuoteAsync($tenant_id, $quote_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
     {
-        list($response) = $this->patchQuoteAsyncWithHttpInfo($tenant_id, $quote_id, $operation, $contentType);
+        list($response) = $this->patchQuoteAsyncWithHttpInfo($tenant_id, $quote_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5709,16 +5779,16 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchQuoteAsyncWithHttpInfo($tenant_id, $quote_id, $operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
+    public function patchQuoteAsyncWithHttpInfo($tenant_id, $quote_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
     {
-        $request = $this->patchQuoteAsyncRequest($tenant_id, $quote_id, $operation, $contentType);
+        $request = $this->patchQuoteAsyncRequest($tenant_id, $quote_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5941,15 +6011,15 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchQuoteAsyncAsync($tenant_id, $quote_id, $operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
+    public function patchQuoteAsyncAsync($tenant_id, $quote_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
     {
-        return $this->patchQuoteAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $operation, $contentType)
+        return $this->patchQuoteAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5964,16 +6034,16 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchQuoteAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
+    public function patchQuoteAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchQuoteAsyncRequest($tenant_id, $quote_id, $operation, $contentType);
+        $request = $this->patchQuoteAsyncRequest($tenant_id, $quote_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6016,13 +6086,13 @@ class QuotesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchQuoteAsyncRequest($tenant_id, $quote_id, $operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
+    public function patchQuoteAsyncRequest($tenant_id, $quote_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6076,12 +6146,12 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6137,16 +6207,16 @@ class QuotesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $quote_id quote_id (required)
      * @param  string $quote_line_id quote_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchQuoteLineAsync($tenant_id, $quote_id, $quote_line_id, $operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
+    public function patchQuoteLineAsync($tenant_id, $quote_id, $quote_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
     {
-        list($response) = $this->patchQuoteLineAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $operation, $contentType);
+        list($response) = $this->patchQuoteLineAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6158,16 +6228,16 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $quote_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchQuoteLineAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
+    public function patchQuoteLineAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
     {
-        $request = $this->patchQuoteLineAsyncRequest($tenant_id, $quote_id, $quote_line_id, $operation, $contentType);
+        $request = $this->patchQuoteLineAsyncRequest($tenant_id, $quote_id, $quote_line_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6391,15 +6461,15 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $quote_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchQuoteLineAsyncAsync($tenant_id, $quote_id, $quote_line_id, $operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
+    public function patchQuoteLineAsyncAsync($tenant_id, $quote_id, $quote_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
     {
-        return $this->patchQuoteLineAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $operation, $contentType)
+        return $this->patchQuoteLineAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6415,16 +6485,16 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $quote_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchQuoteLineAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
+    public function patchQuoteLineAsyncAsyncWithHttpInfo($tenant_id, $quote_id, $quote_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchQuoteLineAsyncRequest($tenant_id, $quote_id, $quote_line_id, $operation, $contentType);
+        $request = $this->patchQuoteLineAsyncRequest($tenant_id, $quote_id, $quote_line_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6468,13 +6538,13 @@ class QuotesApi
      * @param  string $tenant_id (required)
      * @param  string $quote_id (required)
      * @param  string $quote_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchQuoteLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchQuoteLineAsyncRequest($tenant_id, $quote_id, $quote_line_id, $operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
+    public function patchQuoteLineAsyncRequest($tenant_id, $quote_id, $quote_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchQuoteLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6543,12 +6613,12 @@ class QuotesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

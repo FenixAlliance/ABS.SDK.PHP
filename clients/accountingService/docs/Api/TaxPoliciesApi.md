@@ -474,7 +474,7 @@ No authorization required
 ## `getAppliedTaxPolicyRecords()`
 
 ```php
-getAppliedTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoListEnvelope
+getAppliedTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version, $applied_tax_policy_record_dto_collection_query_parameters): \OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoListEnvelope
 ```
 
 Get applied tax policy records
@@ -498,9 +498,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tax_policy_id = 'tax_policy_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$applied_tax_policy_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAppliedTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAppliedTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version, $applied_tax_policy_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->getAppliedTaxPolicyRecords: ', $e->getMessage(), PHP_EOL;
@@ -515,6 +516,7 @@ try {
 | **tax_policy_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **applied_tax_policy_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoCollectionQueryParameters**](../Model/AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -526,7 +528,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -536,7 +538,7 @@ No authorization required
 ## `getAppliedTaxPolicyRecordsCount()`
 
 ```php
-getAppliedTaxPolicyRecordsCount($tenant_id, $tax_policy_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAppliedTaxPolicyRecordsCount($tenant_id, $tax_policy_id, $api_version, $x_api_version, $applied_tax_policy_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get applied tax policy records count
@@ -560,9 +562,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tax_policy_id = 'tax_policy_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$applied_tax_policy_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAppliedTaxPolicyRecordsCount($tenant_id, $tax_policy_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAppliedTaxPolicyRecordsCount($tenant_id, $tax_policy_id, $api_version, $x_api_version, $applied_tax_policy_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->getAppliedTaxPolicyRecordsCount: ', $e->getMessage(), PHP_EOL;
@@ -577,6 +580,7 @@ try {
 | **tax_policy_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **applied_tax_policy_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppliedTaxPolicyRecordDtoCollectionQueryParameters**](../Model/AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -588,7 +592,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -662,7 +666,7 @@ No authorization required
 ## `getItemTaxPolicyRecords()`
 
 ```php
-getItemTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTaxPolicyRecordDtoListEnvelope
+getItemTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version, $item_tax_policy_record_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemTaxPolicyRecordDtoListEnvelope
 ```
 
 Get item tax policy records
@@ -686,9 +690,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tax_policy_id = 'tax_policy_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_tax_policy_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTaxPolicyRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTaxPolicyRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemTaxPolicyRecords($tenant_id, $tax_policy_id, $api_version, $x_api_version, $item_tax_policy_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->getItemTaxPolicyRecords: ', $e->getMessage(), PHP_EOL;
@@ -703,6 +708,7 @@ try {
 | **tax_policy_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_tax_policy_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTaxPolicyRecordDtoCollectionQueryParameters**](../Model/ItemTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -714,7 +720,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -724,7 +730,7 @@ No authorization required
 ## `getTaxPolicies()`
 
 ```php
-getTaxPolicies($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TaxPolicyDtoListEnvelope
+getTaxPolicies($tenant_id, $api_version, $x_api_version, $tax_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\TaxPolicyDtoListEnvelope
 ```
 
 Get all tax policies for a tenant
@@ -747,9 +753,10 @@ $apiInstance = new OpenAPI\Client\Api\TaxPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tax_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTaxPolicies($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTaxPolicies($tenant_id, $api_version, $x_api_version, $tax_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->getTaxPolicies: ', $e->getMessage(), PHP_EOL;
@@ -763,6 +770,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tax_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters**](../Model/TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -774,7 +782,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -784,7 +792,7 @@ No authorization required
 ## `getTaxPoliciesByAuthority()`
 
 ```php
-getTaxPoliciesByAuthority($tenant_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TaxPolicyDtoListEnvelope
+getTaxPoliciesByAuthority($tenant_id, $authority_id, $api_version, $x_api_version, $tax_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\TaxPolicyDtoListEnvelope
 ```
 
 Get tax policies by fiscal authority
@@ -808,9 +816,10 @@ $tenant_id = 'tenant_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tax_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTaxPoliciesByAuthority($tenant_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTaxPoliciesByAuthority($tenant_id, $authority_id, $api_version, $x_api_version, $tax_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->getTaxPoliciesByAuthority: ', $e->getMessage(), PHP_EOL;
@@ -825,6 +834,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tax_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters**](../Model/TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -836,7 +846,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -846,7 +856,7 @@ No authorization required
 ## `getTaxPoliciesCount()`
 
 ```php
-getTaxPoliciesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTaxPoliciesCount($tenant_id, $api_version, $x_api_version, $tax_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get tax policies count
@@ -869,9 +879,10 @@ $apiInstance = new OpenAPI\Client\Api\TaxPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tax_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTaxPoliciesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTaxPoliciesCount($tenant_id, $api_version, $x_api_version, $tax_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->getTaxPoliciesCount: ', $e->getMessage(), PHP_EOL;
@@ -885,6 +896,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tax_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaxPolicyDtoCollectionQueryParameters**](../Model/TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -896,7 +908,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -968,7 +980,7 @@ No authorization required
 ## `patchAppliedTaxPolicyRecord()`
 
 ```php
-patchAppliedTaxPolicyRecord($tenant_id, $tax_policy_id, $applied_tax_policy_record_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAppliedTaxPolicyRecord($tenant_id, $tax_policy_id, $applied_tax_policy_record_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an applied tax policy record
@@ -993,10 +1005,10 @@ $tax_policy_id = 'tax_policy_id_example'; // string
 $applied_tax_policy_record_id = 'applied_tax_policy_record_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAppliedTaxPolicyRecord($tenant_id, $tax_policy_id, $applied_tax_policy_record_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAppliedTaxPolicyRecord($tenant_id, $tax_policy_id, $applied_tax_policy_record_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->patchAppliedTaxPolicyRecord: ', $e->getMessage(), PHP_EOL;
@@ -1012,7 +1024,7 @@ try {
 | **applied_tax_policy_record_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1034,7 +1046,7 @@ No authorization required
 ## `patchItemTaxPolicyRecord()`
 
 ```php
-patchItemTaxPolicyRecord($tenant_id, $tax_policy_id, $item_tax_policy_record_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemTaxPolicyRecord($tenant_id, $tax_policy_id, $item_tax_policy_record_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an item tax policy record
@@ -1059,10 +1071,10 @@ $tax_policy_id = 'tax_policy_id_example'; // string
 $item_tax_policy_record_id = 'item_tax_policy_record_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemTaxPolicyRecord($tenant_id, $tax_policy_id, $item_tax_policy_record_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemTaxPolicyRecord($tenant_id, $tax_policy_id, $item_tax_policy_record_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->patchItemTaxPolicyRecord: ', $e->getMessage(), PHP_EOL;
@@ -1078,7 +1090,7 @@ try {
 | **item_tax_policy_record_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1100,7 +1112,7 @@ No authorization required
 ## `patchTaxPolicy()`
 
 ```php
-patchTaxPolicy($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTaxPolicy($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tax policy
@@ -1124,10 +1136,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTaxPolicy($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTaxPolicy($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxPoliciesApi->patchTaxPolicy: ', $e->getMessage(), PHP_EOL;
@@ -1142,7 +1154,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

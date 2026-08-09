@@ -3571,7 +3571,7 @@ class OAuthApplicationsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $application_id application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOAuthApplicationAsync'] to see the possible values for this operation
@@ -3580,9 +3580,9 @@ class OAuthApplicationsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchOAuthApplicationAsync($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
+    public function patchOAuthApplicationAsync($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
     {
-        list($response) = $this->patchOAuthApplicationAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType);
+        list($response) = $this->patchOAuthApplicationAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -3593,7 +3593,7 @@ class OAuthApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOAuthApplicationAsync'] to see the possible values for this operation
@@ -3602,9 +3602,9 @@ class OAuthApplicationsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchOAuthApplicationAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
+    public function patchOAuthApplicationAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
     {
-        $request = $this->patchOAuthApplicationAsyncRequest($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchOAuthApplicationAsyncRequest($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3827,7 +3827,7 @@ class OAuthApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOAuthApplicationAsync'] to see the possible values for this operation
@@ -3835,9 +3835,9 @@ class OAuthApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchOAuthApplicationAsyncAsync($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
+    public function patchOAuthApplicationAsyncAsync($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
     {
-        return $this->patchOAuthApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType)
+        return $this->patchOAuthApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3852,7 +3852,7 @@ class OAuthApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOAuthApplicationAsync'] to see the possible values for this operation
@@ -3860,10 +3860,10 @@ class OAuthApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchOAuthApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
+    public function patchOAuthApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchOAuthApplicationAsyncRequest($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchOAuthApplicationAsyncRequest($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3906,7 +3906,7 @@ class OAuthApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOAuthApplicationAsync'] to see the possible values for this operation
@@ -3914,7 +3914,7 @@ class OAuthApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchOAuthApplicationAsyncRequest($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
+    public function patchOAuthApplicationAsyncRequest($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchOAuthApplicationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3931,10 +3931,10 @@ class OAuthApplicationsApi
             );
         }
 
-        // verify the required parameter 'operation' is set
-        if ($operation === null || (is_array($operation) && count($operation) === 0)) {
+        // verify the required parameter 'patch_operation' is set
+        if ($patch_operation === null || (is_array($patch_operation) && count($patch_operation) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $operation when calling patchOAuthApplicationAsync'
+                'Missing the required parameter $patch_operation when calling patchOAuthApplicationAsync'
             );
         }
 
@@ -3989,12 +3989,12 @@ class OAuthApplicationsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

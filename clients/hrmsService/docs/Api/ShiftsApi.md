@@ -202,7 +202,7 @@ No authorization required
 ## `getShiftsAsync()`
 
 ```php
-getShiftsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShiftDtoListEnvelope
+getShiftsAsync($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters): \OpenAPI\Client\Model\ShiftDtoListEnvelope
 ```
 
 Get shifts
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\ShiftsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shift_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShiftsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShiftsAsync($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShiftsApi->getShiftsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shift_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters**](../Model/ShiftDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getShiftsCountAsync()`
 
 ```php
-getShiftsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShiftsCountAsync($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count shifts
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\ShiftsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shift_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShiftsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShiftsCountAsync($tenant_id, $api_version, $x_api_version, $shift_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShiftsApi->getShiftsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shift_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShiftDtoCollectionQueryParameters**](../Model/ShiftDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchShiftAsync()`
 
 ```php
-patchShiftAsync($tenant_id, $shift_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShiftAsync($tenant_id, $shift_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a shift
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $shift_id = 'shift_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShiftAsync($tenant_id, $shift_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShiftAsync($tenant_id, $shift_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShiftsApi->patchShiftAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **shift_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

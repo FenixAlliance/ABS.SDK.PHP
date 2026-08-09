@@ -74,9 +74,11 @@ class SigningEngineApi
     public const contentTypes = [
         'getProvidersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProvidersCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'previewAsync' => [
             'application/json',
@@ -138,15 +140,16 @@ class SigningEngineApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoListEnvelope
      */
-    public function getProvidersAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
+    public function getProvidersAsync($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
     {
-        list($response) = $this->getProvidersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProvidersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -158,15 +161,16 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProvidersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
+    public function getProvidersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
     {
-        $request = $this->getProvidersAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProvidersAsyncRequest($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -320,14 +324,15 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProvidersAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
+    public function getProvidersAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
     {
-        return $this->getProvidersAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getProvidersAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -343,15 +348,16 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProvidersAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
+    public function getProvidersAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoListEnvelope';
-        $request = $this->getProvidersAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProvidersAsyncRequest($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -395,12 +401,13 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProvidersAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
+    public function getProvidersAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -409,6 +416,7 @@ class SigningEngineApi
                 'Missing the required parameter $tenant_id when calling getProvidersAsync'
             );
         }
+
 
 
 
@@ -453,7 +461,14 @@ class SigningEngineApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($trust_signing_provider_descriptor_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($trust_signing_provider_descriptor_dto_collection_query_parameters));
+            } else {
+                $httpBody = $trust_signing_provider_descriptor_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -507,15 +522,16 @@ class SigningEngineApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProvidersCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
+    public function getProvidersCountAsync($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
     {
-        list($response) = $this->getProvidersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProvidersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -527,15 +543,16 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProvidersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
+    public function getProvidersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
     {
-        $request = $this->getProvidersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProvidersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -689,14 +706,15 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProvidersCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
+    public function getProvidersCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
     {
-        return $this->getProvidersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getProvidersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -712,15 +730,16 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProvidersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
+    public function getProvidersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProvidersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProvidersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -764,12 +783,13 @@ class SigningEngineApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters $trust_signing_provider_descriptor_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProvidersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProvidersCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
+    public function getProvidersCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $trust_signing_provider_descriptor_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProvidersCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -778,6 +798,7 @@ class SigningEngineApi
                 'Missing the required parameter $tenant_id when calling getProvidersCountAsync'
             );
         }
+
 
 
 
@@ -822,7 +843,14 @@ class SigningEngineApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($trust_signing_provider_descriptor_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($trust_signing_provider_descriptor_dto_collection_query_parameters));
+            } else {
+                $httpBody = $trust_signing_provider_descriptor_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

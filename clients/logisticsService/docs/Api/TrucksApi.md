@@ -661,7 +661,7 @@ No authorization required
 ## `getTruckTripsAsync()`
 
 ```php
-getTruckTripsAsync($tenant_id, $truck_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TruckTripDtoListEnvelope
+getTruckTripsAsync($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters): \OpenAPI\Client\Model\TruckTripDtoListEnvelope
 ```
 
 Get truck trips
@@ -685,9 +685,10 @@ $tenant_id = 'tenant_id_example'; // string
 $truck_id = 'truck_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$truck_trip_dto_collection_query_parameters = new \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTruckTripsAsync($tenant_id, $truck_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTruckTripsAsync($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrucksApi->getTruckTripsAsync: ', $e->getMessage(), PHP_EOL;
@@ -702,6 +703,7 @@ try {
 | **truck_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **truck_trip_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters**](../Model/TruckTripDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -713,7 +715,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -723,7 +725,7 @@ No authorization required
 ## `getTruckTripsCountAsync()`
 
 ```php
-getTruckTripsCountAsync($tenant_id, $truck_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTruckTripsCountAsync($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get truck trips count
@@ -747,9 +749,10 @@ $tenant_id = 'tenant_id_example'; // string
 $truck_id = 'truck_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$truck_trip_dto_collection_query_parameters = new \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTruckTripsCountAsync($tenant_id, $truck_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTruckTripsCountAsync($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrucksApi->getTruckTripsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -764,6 +767,7 @@ try {
 | **truck_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **truck_trip_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters**](../Model/TruckTripDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -775,7 +779,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -785,7 +789,7 @@ No authorization required
 ## `getTrucksAsync()`
 
 ```php
-getTrucksAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TruckDtoListEnvelope
+getTrucksAsync($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters): \OpenAPI\Client\Model\TruckDtoListEnvelope
 ```
 
 Get all trucks
@@ -808,9 +812,10 @@ $apiInstance = new OpenAPI\Client\Api\TrucksApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$truck_dto_collection_query_parameters = new \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTrucksAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrucksAsync($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrucksApi->getTrucksAsync: ', $e->getMessage(), PHP_EOL;
@@ -824,6 +829,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **truck_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TruckDtoCollectionQueryParameters**](../Model/TruckDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -835,7 +841,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -845,7 +851,7 @@ No authorization required
 ## `getTrucksCountAsync()`
 
 ```php
-getTrucksCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTrucksCountAsync($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get trucks count
@@ -868,9 +874,10 @@ $apiInstance = new OpenAPI\Client\Api\TrucksApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$truck_dto_collection_query_parameters = new \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTrucksCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrucksCountAsync($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrucksApi->getTrucksCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -884,6 +891,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **truck_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TruckDtoCollectionQueryParameters**](../Model/TruckDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -895,7 +903,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -905,7 +913,7 @@ No authorization required
 ## `patchTruckAsync()`
 
 ```php
-patchTruckAsync($tenant_id, $truck_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTruckAsync($tenant_id, $truck_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a truck
@@ -929,10 +937,10 @@ $tenant_id = 'tenant_id_example'; // string
 $truck_id = 'truck_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTruckAsync($tenant_id, $truck_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTruckAsync($tenant_id, $truck_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrucksApi->patchTruckAsync: ', $e->getMessage(), PHP_EOL;
@@ -947,7 +955,7 @@ try {
 | **truck_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -969,7 +977,7 @@ No authorization required
 ## `patchTruckTripAsync()`
 
 ```php
-patchTruckTripAsync($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTruckTripAsync($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a truck trip
@@ -994,10 +1002,10 @@ $truck_id = 'truck_id_example'; // string
 $trip_id = 'trip_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTruckTripAsync($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTruckTripAsync($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrucksApi->patchTruckTripAsync: ', $e->getMessage(), PHP_EOL;
@@ -1013,7 +1021,7 @@ try {
 | **trip_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -313,7 +313,7 @@ No authorization required
 ## `getLocationsAsync()`
 
 ```php
-getLocationsAsync($tenant_id): \OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope
+getLocationsAsync($tenant_id, $location_dto_collection_query_parameters): \OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope
 ```
 
 Get Locations
@@ -334,9 +334,10 @@ $apiInstance = new OpenAPI\Client\Api\LocationsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$location_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLocationsAsync($tenant_id);
+    $result = $apiInstance->getLocationsAsync($tenant_id, $location_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->getLocationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -348,6 +349,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **location_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocationDtoCollectionQueryParameters**](../Model/LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -359,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -369,7 +371,7 @@ No authorization required
 ## `getLocationsCountAsync()`
 
 ```php
-getLocationsCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getLocationsCountAsync($tenant_id, $location_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Locations Count
@@ -390,9 +392,10 @@ $apiInstance = new OpenAPI\Client\Api\LocationsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$location_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLocationsCountAsync($tenant_id);
+    $result = $apiInstance->getLocationsCountAsync($tenant_id, $location_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->getLocationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -404,6 +407,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **location_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocationDtoCollectionQueryParameters**](../Model/LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -415,7 +419,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -483,7 +487,7 @@ No authorization required
 ## `getWalletLocationsAsync()`
 
 ```php
-getWalletLocationsAsync($wallet_id): \OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope
+getWalletLocationsAsync($wallet_id, $location_dto_collection_query_parameters): \OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope
 ```
 
 Get Wallet Locations
@@ -504,9 +508,10 @@ $apiInstance = new OpenAPI\Client\Api\LocationsApi(
     new GuzzleHttp\Client()
 );
 $wallet_id = 'wallet_id_example'; // string
+$location_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletLocationsAsync($wallet_id);
+    $result = $apiInstance->getWalletLocationsAsync($wallet_id, $location_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->getWalletLocationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -518,6 +523,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **wallet_id** | **string**|  | |
+| **location_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocationDtoCollectionQueryParameters**](../Model/LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -529,7 +535,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -539,7 +545,7 @@ No authorization required
 ## `getWalletLocationsCountAsync()`
 
 ```php
-getWalletLocationsCountAsync($wallet_id): \OpenAPI\Client\Model\Int32Envelope
+getWalletLocationsCountAsync($wallet_id, $location_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Locations Count
@@ -560,9 +566,10 @@ $apiInstance = new OpenAPI\Client\Api\LocationsApi(
     new GuzzleHttp\Client()
 );
 $wallet_id = 'wallet_id_example'; // string
+$location_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletLocationsCountAsync($wallet_id);
+    $result = $apiInstance->getWalletLocationsCountAsync($wallet_id, $location_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->getWalletLocationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -574,6 +581,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **wallet_id** | **string**|  | |
+| **location_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocationDtoCollectionQueryParameters**](../Model/LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -585,7 +593,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -595,7 +603,7 @@ No authorization required
 ## `patchLocationAsync()`
 
 ```php
-patchLocationAsync($tenant_id, $location_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLocationAsync($tenant_id, $location_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a location
@@ -617,10 +625,10 @@ $apiInstance = new OpenAPI\Client\Api\LocationsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $location_id = 'location_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLocationAsync($tenant_id, $location_id, $operation);
+    $result = $apiInstance->patchLocationAsync($tenant_id, $location_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->patchLocationAsync: ', $e->getMessage(), PHP_EOL;
@@ -633,7 +641,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **location_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -655,7 +663,7 @@ No authorization required
 ## `patchWalletLocationAsync()`
 
 ```php
-patchWalletLocationAsync($wallet_id, $location_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWalletLocationAsync($wallet_id, $location_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a wallet location
@@ -677,10 +685,10 @@ $apiInstance = new OpenAPI\Client\Api\LocationsApi(
 );
 $wallet_id = 'wallet_id_example'; // string
 $location_id = 'location_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWalletLocationAsync($wallet_id, $location_id, $operation);
+    $result = $apiInstance->patchWalletLocationAsync($wallet_id, $location_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocationsApi->patchWalletLocationAsync: ', $e->getMessage(), PHP_EOL;
@@ -693,7 +701,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **wallet_id** | **string**|  | |
 | **location_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

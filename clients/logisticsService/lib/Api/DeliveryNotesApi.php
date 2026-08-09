@@ -84,9 +84,11 @@ class DeliveryNotesApi
         ],
         'getDeliveryNotesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getDeliveryNotesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateDeliveryNoteAsync' => [
             'application/json',
@@ -1308,15 +1310,16 @@ class DeliveryNotesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DeliveryNoteDtoListEnvelope
      */
-    public function getDeliveryNotesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
+    public function getDeliveryNotesAsync($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
     {
-        list($response) = $this->getDeliveryNotesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getDeliveryNotesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1328,15 +1331,16 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DeliveryNoteDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDeliveryNotesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
+    public function getDeliveryNotesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
     {
-        $request = $this->getDeliveryNotesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDeliveryNotesAsyncRequest($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1525,14 +1529,15 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeliveryNotesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
+    public function getDeliveryNotesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
     {
-        return $this->getDeliveryNotesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getDeliveryNotesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1548,15 +1553,16 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeliveryNotesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
+    public function getDeliveryNotesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DeliveryNoteDtoListEnvelope';
-        $request = $this->getDeliveryNotesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDeliveryNotesAsyncRequest($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1600,12 +1606,13 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDeliveryNotesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
+    public function getDeliveryNotesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1614,6 +1621,7 @@ class DeliveryNotesApi
                 'Missing the required parameter $tenant_id when calling getDeliveryNotesAsync'
             );
         }
+
 
 
 
@@ -1658,7 +1666,14 @@ class DeliveryNotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($delivery_note_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delivery_note_dto_collection_query_parameters));
+            } else {
+                $httpBody = $delivery_note_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1712,15 +1727,16 @@ class DeliveryNotesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getDeliveryNotesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
+    public function getDeliveryNotesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
     {
-        list($response) = $this->getDeliveryNotesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getDeliveryNotesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1732,15 +1748,16 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDeliveryNotesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
+    public function getDeliveryNotesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
     {
-        $request = $this->getDeliveryNotesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDeliveryNotesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1859,14 +1876,15 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeliveryNotesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
+    public function getDeliveryNotesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
     {
-        return $this->getDeliveryNotesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getDeliveryNotesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1882,15 +1900,16 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeliveryNotesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
+    public function getDeliveryNotesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getDeliveryNotesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDeliveryNotesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1934,12 +1953,13 @@ class DeliveryNotesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters $delivery_note_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryNotesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDeliveryNotesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
+    public function getDeliveryNotesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $delivery_note_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDeliveryNotesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1948,6 +1968,7 @@ class DeliveryNotesApi
                 'Missing the required parameter $tenant_id when calling getDeliveryNotesCountAsync'
             );
         }
+
 
 
 
@@ -1992,7 +2013,14 @@ class DeliveryNotesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($delivery_note_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delivery_note_dto_collection_query_parameters));
+            } else {
+                $httpBody = $delivery_note_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

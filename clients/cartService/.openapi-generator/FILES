@@ -36,7 +36,7 @@ docs/Model/ItemToCompareCartRecordDtoEnvelope.md
 docs/Model/ItemToCompareCartRecordDtoListEnvelope.md
 docs/Model/LoginRequest.md
 docs/Model/NewWishListRequest.md
-docs/Model/Operation.md
+docs/Model/PatchOperation.md
 docs/Model/ProductToWishListRequest.md
 docs/Model/RefreshRequest.md
 docs/Model/RegisterRequest.md
@@ -86,7 +86,7 @@ lib/Model/ItemToCompareCartRecordDtoListEnvelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
 lib/Model/NewWishListRequest.php
-lib/Model/Operation.php
+lib/Model/PatchOperation.php
 lib/Model/ProductToWishListRequest.php
 lib/Model/RefreshRequest.php
 lib/Model/RegisterRequest.php
@@ -100,3 +100,4 @@ lib/Model/WishListItemRecordDto.php
 lib/Model/WishListUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/PatchOperationTest.php

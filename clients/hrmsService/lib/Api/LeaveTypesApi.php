@@ -84,9 +84,11 @@ class LeaveTypesApi
         ],
         'getLeaveTypesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLeaveTypesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateLeaveTypeAsync' => [
             'application/json',
@@ -1483,15 +1485,16 @@ class LeaveTypesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LeaveTypeDtoListEnvelope
      */
-    public function getLeaveTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
+    public function getLeaveTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
     {
-        list($response) = $this->getLeaveTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLeaveTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1503,15 +1506,16 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LeaveTypeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLeaveTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
+    public function getLeaveTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
     {
-        $request = $this->getLeaveTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLeaveTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1700,14 +1704,15 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLeaveTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
+    public function getLeaveTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
     {
-        return $this->getLeaveTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLeaveTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1723,15 +1728,16 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLeaveTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
+    public function getLeaveTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LeaveTypeDtoListEnvelope';
-        $request = $this->getLeaveTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLeaveTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1775,12 +1781,13 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLeaveTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
+    public function getLeaveTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1789,6 +1796,7 @@ class LeaveTypesApi
                 'Missing the required parameter $tenant_id when calling getLeaveTypesAsync'
             );
         }
+
 
 
 
@@ -1833,7 +1841,14 @@ class LeaveTypesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($leave_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($leave_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $leave_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1887,15 +1902,16 @@ class LeaveTypesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getLeaveTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
+    public function getLeaveTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
     {
-        list($response) = $this->getLeaveTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLeaveTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1907,15 +1923,16 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLeaveTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
+    public function getLeaveTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
     {
-        $request = $this->getLeaveTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLeaveTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2104,14 +2121,15 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLeaveTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
+    public function getLeaveTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
     {
-        return $this->getLeaveTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLeaveTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2127,15 +2145,16 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLeaveTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
+    public function getLeaveTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLeaveTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLeaveTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2179,12 +2198,13 @@ class LeaveTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters $leave_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLeaveTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLeaveTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
+    public function getLeaveTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $leave_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLeaveTypesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2193,6 +2213,7 @@ class LeaveTypesApi
                 'Missing the required parameter $tenant_id when calling getLeaveTypesCountAsync'
             );
         }
+
 
 
 
@@ -2237,7 +2258,14 @@ class LeaveTypesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($leave_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($leave_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $leave_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -202,7 +202,7 @@ No authorization required
 ## `getTaxRates()`
 
 ```php
-getTaxRates($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TaxRateDtoListEnvelope
+getTaxRates($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters): \OpenAPI\Client\Model\TaxRateDtoListEnvelope
 ```
 
 Get all tax rates for a tenant
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tax_rate_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTaxRates($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTaxRates($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxRatesApi->getTaxRates: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tax_rate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters**](../Model/TaxRateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getTaxRatesCount()`
 
 ```php
-getTaxRatesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTaxRatesCount($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get tax rates count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tax_rate_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTaxRatesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTaxRatesCount($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxRatesApi->getTaxRatesCount: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tax_rate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters**](../Model/TaxRateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTaxRate()`
 
 ```php
-patchTaxRate($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTaxRate($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tax rate
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTaxRate($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTaxRate($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxRatesApi->patchTaxRate: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

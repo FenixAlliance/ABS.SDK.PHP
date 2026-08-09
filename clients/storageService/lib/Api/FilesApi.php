@@ -88,10 +88,10 @@ class FilesApi
             'application/json',
         ],
         'getFilesAsync' => [
-            'application/json',
+            'multipart/form-data',
         ],
         'getFilesCountAsync' => [
-            'application/json',
+            'multipart/form-data',
         ],
         'updateFileAsync' => [
             'multipart/form-data',
@@ -2568,15 +2568,24 @@ class FilesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  int $top top (optional)
+     * @param  int $skip skip (optional)
+     * @param  bool $count count (optional)
+     * @param  string $filter filter (optional)
+     * @param  string $order_by order_by (optional)
+     * @param  string $search search (optional)
+     * @param  string $select select (optional)
+     * @param  string $expand expand (optional)
+     * @param  bool $is_empty is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FileUploadDtoEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getFilesAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesAsync'][0])
+    public function getFilesAsync($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesAsync'][0])
     {
-        list($response) = $this->getFilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType);
         return $response;
     }
 
@@ -2586,15 +2595,24 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FileUploadDtoEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFilesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesAsync'][0])
+    public function getFilesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesAsync'][0])
     {
-        $request = $this->getFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2781,14 +2799,23 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFilesAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesAsync'][0])
+    public function getFilesAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesAsync'][0])
     {
-        return $this->getFilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2802,15 +2829,24 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFilesAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesAsync'][0])
+    public function getFilesAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FileUploadDtoEnvelope';
-        $request = $this->getFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2854,13 +2890,31 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFilesAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesAsync'][0])
+    public function getFilesAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesAsync'][0])
     {
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2898,6 +2952,42 @@ class FilesApi
         }
 
 
+        // form params
+        if ($top !== null) {
+            $formParams['top'] = ObjectSerializer::toFormValue($top);
+        }
+        // form params
+        if ($skip !== null) {
+            $formParams['skip'] = ObjectSerializer::toFormValue($skip);
+        }
+        // form params
+        if ($count !== null) {
+            $formParams['count'] = ObjectSerializer::toFormValue($count);
+        }
+        // form params
+        if ($filter !== null) {
+            $formParams['filter'] = ObjectSerializer::toFormValue($filter);
+        }
+        // form params
+        if ($order_by !== null) {
+            $formParams['orderBy'] = ObjectSerializer::toFormValue($order_by);
+        }
+        // form params
+        if ($search !== null) {
+            $formParams['search'] = ObjectSerializer::toFormValue($search);
+        }
+        // form params
+        if ($select !== null) {
+            $formParams['select'] = ObjectSerializer::toFormValue($select);
+        }
+        // form params
+        if ($expand !== null) {
+            $formParams['expand'] = ObjectSerializer::toFormValue($expand);
+        }
+        // form params
+        if ($is_empty !== null) {
+            $formParams['isEmpty'] = ObjectSerializer::toFormValue($is_empty);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json', 'image/png', ],
@@ -2958,15 +3048,24 @@ class FilesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  int $top top (optional)
+     * @param  int $skip skip (optional)
+     * @param  bool $count count (optional)
+     * @param  string $filter filter (optional)
+     * @param  string $order_by order_by (optional)
+     * @param  string $search search (optional)
+     * @param  string $select select (optional)
+     * @param  string $expand expand (optional)
+     * @param  bool $is_empty is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getFilesCountAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
+    public function getFilesCountAsync($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
     {
-        list($response) = $this->getFilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType);
         return $response;
     }
 
@@ -2976,15 +3075,24 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFilesCountAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
+    public function getFilesCountAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
     {
-        $request = $this->getFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3171,14 +3279,23 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFilesCountAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
+    public function getFilesCountAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
     {
-        return $this->getFilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3192,15 +3309,24 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFilesCountAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
+    public function getFilesCountAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3244,13 +3370,31 @@ class FilesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  int $top (optional)
+     * @param  int $skip (optional)
+     * @param  bool $count (optional)
+     * @param  string $filter (optional)
+     * @param  string $order_by (optional)
+     * @param  string $search (optional)
+     * @param  string $select (optional)
+     * @param  string $expand (optional)
+     * @param  bool $is_empty (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFilesCountAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
+    public function getFilesCountAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $top = null, $skip = null, $count = null, $filter = null, $order_by = null, $search = null, $select = null, $expand = null, $is_empty = null, string $contentType = self::contentTypes['getFilesCountAsync'][0])
     {
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3288,6 +3432,42 @@ class FilesApi
         }
 
 
+        // form params
+        if ($top !== null) {
+            $formParams['top'] = ObjectSerializer::toFormValue($top);
+        }
+        // form params
+        if ($skip !== null) {
+            $formParams['skip'] = ObjectSerializer::toFormValue($skip);
+        }
+        // form params
+        if ($count !== null) {
+            $formParams['count'] = ObjectSerializer::toFormValue($count);
+        }
+        // form params
+        if ($filter !== null) {
+            $formParams['filter'] = ObjectSerializer::toFormValue($filter);
+        }
+        // form params
+        if ($order_by !== null) {
+            $formParams['orderBy'] = ObjectSerializer::toFormValue($order_by);
+        }
+        // form params
+        if ($search !== null) {
+            $formParams['search'] = ObjectSerializer::toFormValue($search);
+        }
+        // form params
+        if ($select !== null) {
+            $formParams['select'] = ObjectSerializer::toFormValue($select);
+        }
+        // form params
+        if ($expand !== null) {
+            $formParams['expand'] = ObjectSerializer::toFormValue($expand);
+        }
+        // form params
+        if ($is_empty !== null) {
+            $formParams['isEmpty'] = ObjectSerializer::toFormValue($is_empty);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json', 'image/png', ],

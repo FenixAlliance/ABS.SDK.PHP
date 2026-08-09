@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemCategoriesAsync()`
 
 ```php
-countItemCategoriesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemCategoriesAsync($tenant_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item categories
@@ -39,9 +39,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemCategoriesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countItemCategoriesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemCategoriesAsync($tenant_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemCategoriesApi->countItemCategoriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters**](../Model/ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -199,7 +201,7 @@ No authorization required
 ## `getItemCategoriesAsync()`
 
 ```php
-getItemCategoriesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemCategoryDtoListEnvelope
+getItemCategoriesAsync($tenant_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemCategoryDtoListEnvelope
 ```
 
 Get all item categories
@@ -222,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemCategoriesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemCategoriesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemCategoriesAsync($tenant_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemCategoriesApi->getItemCategoriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters**](../Model/ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -249,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -321,7 +325,7 @@ No authorization required
 ## `patchItemCategoryAsync()`
 
 ```php
-patchItemCategoryAsync($tenant_id, $item_category_id, $api_version, $x_api_version, $operation)
+patchItemCategoryAsync($tenant_id, $item_category_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch an item category
@@ -345,10 +349,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_category_id = 'item_category_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchItemCategoryAsync($tenant_id, $item_category_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchItemCategoryAsync($tenant_id, $item_category_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemCategoriesApi->patchItemCategoryAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -362,7 +366,7 @@ try {
 | **item_category_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

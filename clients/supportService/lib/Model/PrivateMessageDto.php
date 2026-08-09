@@ -68,7 +68,10 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'receiver_social_profile_id' => 'string',
         'sent_timestamp' => '\DateTime',
         'read_timestamp' => '\DateTime',
-        'received_timestamp' => '\DateTime'
+        'received_timestamp' => '\DateTime',
+        'social_profile_name' => 'string',
+        'social_profile_avatar_url' => 'string',
+        'social_profile_type' => 'string'
     ];
 
     /**
@@ -89,7 +92,10 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'receiver_social_profile_id' => null,
         'sent_timestamp' => 'date-time',
         'read_timestamp' => 'date-time',
-        'received_timestamp' => 'date-time'
+        'received_timestamp' => 'date-time',
+        'social_profile_name' => null,
+        'social_profile_avatar_url' => null,
+        'social_profile_type' => null
     ];
 
     /**
@@ -108,7 +114,10 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'receiver_social_profile_id' => true,
         'sent_timestamp' => false,
         'read_timestamp' => false,
-        'received_timestamp' => false
+        'received_timestamp' => false,
+        'social_profile_name' => true,
+        'social_profile_avatar_url' => true,
+        'social_profile_type' => true
     ];
 
     /**
@@ -207,7 +216,10 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'receiver_social_profile_id' => 'receiverSocialProfileId',
         'sent_timestamp' => 'sentTimestamp',
         'read_timestamp' => 'readTimestamp',
-        'received_timestamp' => 'receivedTimestamp'
+        'received_timestamp' => 'receivedTimestamp',
+        'social_profile_name' => 'socialProfileName',
+        'social_profile_avatar_url' => 'socialProfileAvatarUrl',
+        'social_profile_type' => 'socialProfileType'
     ];
 
     /**
@@ -226,7 +238,10 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'receiver_social_profile_id' => 'setReceiverSocialProfileId',
         'sent_timestamp' => 'setSentTimestamp',
         'read_timestamp' => 'setReadTimestamp',
-        'received_timestamp' => 'setReceivedTimestamp'
+        'received_timestamp' => 'setReceivedTimestamp',
+        'social_profile_name' => 'setSocialProfileName',
+        'social_profile_avatar_url' => 'setSocialProfileAvatarUrl',
+        'social_profile_type' => 'setSocialProfileType'
     ];
 
     /**
@@ -245,7 +260,10 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'receiver_social_profile_id' => 'getReceiverSocialProfileId',
         'sent_timestamp' => 'getSentTimestamp',
         'read_timestamp' => 'getReadTimestamp',
-        'received_timestamp' => 'getReceivedTimestamp'
+        'received_timestamp' => 'getReceivedTimestamp',
+        'social_profile_name' => 'getSocialProfileName',
+        'social_profile_avatar_url' => 'getSocialProfileAvatarUrl',
+        'social_profile_type' => 'getSocialProfileType'
     ];
 
     /**
@@ -289,6 +307,23 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const SOCIAL_PROFILE_TYPE_USER = 'User';
+    public const SOCIAL_PROFILE_TYPE_TENANT = 'Tenant';
+    public const SOCIAL_PROFILE_TYPE_CONTACT = 'Contact';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSocialProfileTypeAllowableValues()
+    {
+        return [
+            self::SOCIAL_PROFILE_TYPE_USER,
+            self::SOCIAL_PROFILE_TYPE_TENANT,
+            self::SOCIAL_PROFILE_TYPE_CONTACT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -316,6 +351,9 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('sent_timestamp', $data ?? [], null);
         $this->setIfExists('read_timestamp', $data ?? [], null);
         $this->setIfExists('received_timestamp', $data ?? [], null);
+        $this->setIfExists('social_profile_name', $data ?? [], null);
+        $this->setIfExists('social_profile_avatar_url', $data ?? [], null);
+        $this->setIfExists('social_profile_type', $data ?? [], null);
     }
 
     /**
@@ -344,6 +382,15 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSocialProfileTypeAllowableValues();
+        if (!is_null($this->container['social_profile_type']) && !in_array($this->container['social_profile_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'social_profile_type', must be one of '%s'",
+                $this->container['social_profile_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -702,6 +749,118 @@ class PrivateMessageDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable received_timestamp cannot be null');
         }
         $this->container['received_timestamp'] = $received_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_profile_name
+     *
+     * @return string|null
+     */
+    public function getSocialProfileName()
+    {
+        return $this->container['social_profile_name'];
+    }
+
+    /**
+     * Sets social_profile_name
+     *
+     * @param string|null $social_profile_name social_profile_name
+     *
+     * @return self
+     */
+    public function setSocialProfileName($social_profile_name)
+    {
+        if (is_null($social_profile_name)) {
+            array_push($this->openAPINullablesSetToNull, 'social_profile_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_profile_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['social_profile_name'] = $social_profile_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_profile_avatar_url
+     *
+     * @return string|null
+     */
+    public function getSocialProfileAvatarUrl()
+    {
+        return $this->container['social_profile_avatar_url'];
+    }
+
+    /**
+     * Sets social_profile_avatar_url
+     *
+     * @param string|null $social_profile_avatar_url social_profile_avatar_url
+     *
+     * @return self
+     */
+    public function setSocialProfileAvatarUrl($social_profile_avatar_url)
+    {
+        if (is_null($social_profile_avatar_url)) {
+            array_push($this->openAPINullablesSetToNull, 'social_profile_avatar_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_profile_avatar_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['social_profile_avatar_url'] = $social_profile_avatar_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_profile_type
+     *
+     * @return string|null
+     */
+    public function getSocialProfileType()
+    {
+        return $this->container['social_profile_type'];
+    }
+
+    /**
+     * Sets social_profile_type
+     *
+     * @param string|null $social_profile_type social_profile_type
+     *
+     * @return self
+     */
+    public function setSocialProfileType($social_profile_type)
+    {
+        if (is_null($social_profile_type)) {
+            array_push($this->openAPINullablesSetToNull, 'social_profile_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_profile_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSocialProfileTypeAllowableValues();
+        if (!is_null($social_profile_type) && !in_array($social_profile_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'social_profile_type', must be one of '%s'",
+                    $social_profile_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['social_profile_type'] = $social_profile_type;
 
         return $this;
     }

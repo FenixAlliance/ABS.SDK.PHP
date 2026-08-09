@@ -84,9 +84,11 @@ class WorkstationsApi
         ],
         'getWorkstationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWorkstationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchWorkstationAsync' => [
             'application/json',
@@ -1127,15 +1129,16 @@ class WorkstationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WorkstationDtoListEnvelope
      */
-    public function getWorkstationsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
+    public function getWorkstationsAsync($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
     {
-        list($response) = $this->getWorkstationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWorkstationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1147,15 +1150,16 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WorkstationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkstationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
+    public function getWorkstationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
     {
-        $request = $this->getWorkstationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkstationsAsyncRequest($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,14 +1313,15 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkstationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
+    public function getWorkstationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
     {
-        return $this->getWorkstationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWorkstationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,15 +1337,16 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkstationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
+    public function getWorkstationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WorkstationDtoListEnvelope';
-        $request = $this->getWorkstationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkstationsAsyncRequest($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,12 +1390,13 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWorkstationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
+    public function getWorkstationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1398,6 +1405,7 @@ class WorkstationsApi
                 'Missing the required parameter $tenant_id when calling getWorkstationsAsync'
             );
         }
+
 
 
 
@@ -1442,7 +1450,14 @@ class WorkstationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($workstation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($workstation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $workstation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1496,15 +1511,16 @@ class WorkstationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWorkstationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
+    public function getWorkstationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
     {
-        list($response) = $this->getWorkstationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWorkstationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1516,15 +1532,16 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkstationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
+    public function getWorkstationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
     {
-        $request = $this->getWorkstationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkstationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1678,14 +1695,15 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkstationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
+    public function getWorkstationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
     {
-        return $this->getWorkstationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWorkstationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,15 +1719,16 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkstationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
+    public function getWorkstationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWorkstationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkstationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,12 +1772,13 @@ class WorkstationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters $workstation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkstationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWorkstationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
+    public function getWorkstationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $workstation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkstationsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1767,6 +1787,7 @@ class WorkstationsApi
                 'Missing the required parameter $tenant_id when calling getWorkstationsCountAsync'
             );
         }
+
 
 
 
@@ -1811,7 +1832,14 @@ class WorkstationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($workstation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($workstation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $workstation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1866,16 +1894,16 @@ class WorkstationsApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkstationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWorkstationAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
+    public function patchWorkstationAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
     {
-        list($response) = $this->patchWorkstationAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchWorkstationAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1888,16 +1916,16 @@ class WorkstationsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkstationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWorkstationAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
+    public function patchWorkstationAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
     {
-        $request = $this->patchWorkstationAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWorkstationAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2087,15 +2115,15 @@ class WorkstationsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkstationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWorkstationAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
+    public function patchWorkstationAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
     {
-        return $this->patchWorkstationAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWorkstationAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,16 +2140,16 @@ class WorkstationsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkstationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWorkstationAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
+    public function patchWorkstationAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWorkstationAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWorkstationAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2166,13 +2194,13 @@ class WorkstationsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkstationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWorkstationAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
+    public function patchWorkstationAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkstationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class WorkstationsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

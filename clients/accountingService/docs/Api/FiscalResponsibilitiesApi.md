@@ -140,7 +140,7 @@ No authorization required
 ## `getFiscalResponsibilities()`
 
 ```php
-getFiscalResponsibilities($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalResponsibilityDtoListEnvelope
+getFiscalResponsibilities($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version, $fiscal_responsibility_dto_collection_query_parameters): \OpenAPI\Client\Model\FiscalResponsibilityDtoListEnvelope
 ```
 
 Get fiscal responsibilities for an authority
@@ -165,9 +165,10 @@ $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_responsibility_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalResponsibilityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalResponsibilityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalResponsibilities($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalResponsibilities($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version, $fiscal_responsibility_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalResponsibilitiesApi->getFiscalResponsibilities: ', $e->getMessage(), PHP_EOL;
@@ -183,6 +184,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_responsibility_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalResponsibilityDtoCollectionQueryParameters**](../Model/FiscalResponsibilityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -194,7 +196,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -204,7 +206,7 @@ No authorization required
 ## `getFiscalResponsibilitiesCount()`
 
 ```php
-getFiscalResponsibilitiesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFiscalResponsibilitiesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version, $fiscal_responsibility_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get fiscal responsibilities count
@@ -228,9 +230,10 @@ $tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_responsibility_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalResponsibilityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalResponsibilityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalResponsibilitiesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalResponsibilitiesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version, $fiscal_responsibility_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalResponsibilitiesApi->getFiscalResponsibilitiesCount: ', $e->getMessage(), PHP_EOL;
@@ -245,6 +248,7 @@ try {
 | **fiscal_authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_responsibility_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalResponsibilityDtoCollectionQueryParameters**](../Model/FiscalResponsibilityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,7 +260,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -330,7 +334,7 @@ No authorization required
 ## `patchFiscalResponsibilityAsync()`
 
 ```php
-patchFiscalResponsibilityAsync($tenant_id, $fiscal_responsibility_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFiscalResponsibilityAsync($tenant_id, $fiscal_responsibility_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a fiscal responsibility
@@ -354,10 +358,10 @@ $tenant_id = 'tenant_id_example'; // string
 $fiscal_responsibility_id = 'fiscal_responsibility_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFiscalResponsibilityAsync($tenant_id, $fiscal_responsibility_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFiscalResponsibilityAsync($tenant_id, $fiscal_responsibility_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalResponsibilitiesApi->patchFiscalResponsibilityAsync: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +376,7 @@ try {
 | **fiscal_responsibility_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

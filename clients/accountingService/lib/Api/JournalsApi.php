@@ -74,12 +74,19 @@ class JournalsApi
     public const contentTypes = [
         'aggregateJournalEntryCreditsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'aggregateJournalEntryDebitsAsync' => [
             'application/json',
+            'application/xml',
+        ],
+        'assignJournalToBookAsync' => [
+            'application/json',
+            'application/xml',
         ],
         'countJournalsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createJournalAsync' => [
             'application/json',
@@ -100,15 +107,18 @@ class JournalsApi
         ],
         'getJournalEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getJournalEntriesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getJournalEntryDetailsAsync' => [
             'application/json',
         ],
         'getJournalsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchJournalAsync' => [
             'application/json',
@@ -191,15 +201,16 @@ class JournalsApi
      * @param  string $currency_id currency_id (optional, default to 'USD.USA')
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryCreditsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function aggregateJournalEntryCreditsAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
+    public function aggregateJournalEntryCreditsAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
     {
-        list($response) = $this->aggregateJournalEntryCreditsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->aggregateJournalEntryCreditsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -213,15 +224,16 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryCreditsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aggregateJournalEntryCreditsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
+    public function aggregateJournalEntryCreditsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
     {
-        $request = $this->aggregateJournalEntryCreditsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType);
+        $request = $this->aggregateJournalEntryCreditsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -412,14 +424,15 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryCreditsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateJournalEntryCreditsAsyncAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
+    public function aggregateJournalEntryCreditsAsyncAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
     {
-        return $this->aggregateJournalEntryCreditsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType)
+        return $this->aggregateJournalEntryCreditsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -437,15 +450,16 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryCreditsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateJournalEntryCreditsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
+    public function aggregateJournalEntryCreditsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->aggregateJournalEntryCreditsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType);
+        $request = $this->aggregateJournalEntryCreditsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -491,12 +505,13 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryCreditsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aggregateJournalEntryCreditsAsyncRequest($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
+    public function aggregateJournalEntryCreditsAsyncRequest($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryCreditsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -512,6 +527,7 @@ class JournalsApi
                 'Missing the required parameter $journal_id when calling aggregateJournalEntryCreditsAsync'
             );
         }
+
 
 
 
@@ -574,7 +590,14 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -630,15 +653,16 @@ class JournalsApi
      * @param  string $currency_id currency_id (optional, default to 'USD.USA')
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryDebitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function aggregateJournalEntryDebitsAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
+    public function aggregateJournalEntryDebitsAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
     {
-        list($response) = $this->aggregateJournalEntryDebitsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->aggregateJournalEntryDebitsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -652,15 +676,16 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryDebitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aggregateJournalEntryDebitsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
+    public function aggregateJournalEntryDebitsAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
     {
-        $request = $this->aggregateJournalEntryDebitsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType);
+        $request = $this->aggregateJournalEntryDebitsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -851,14 +876,15 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryDebitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateJournalEntryDebitsAsyncAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
+    public function aggregateJournalEntryDebitsAsyncAsync($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
     {
-        return $this->aggregateJournalEntryDebitsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType)
+        return $this->aggregateJournalEntryDebitsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -876,15 +902,16 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryDebitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateJournalEntryDebitsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
+    public function aggregateJournalEntryDebitsAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->aggregateJournalEntryDebitsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $contentType);
+        $request = $this->aggregateJournalEntryDebitsAsyncRequest($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -930,12 +957,13 @@ class JournalsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateJournalEntryDebitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aggregateJournalEntryDebitsAsyncRequest($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
+    public function aggregateJournalEntryDebitsAsyncRequest($tenant_id, $journal_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateJournalEntryDebitsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -951,6 +979,7 @@ class JournalsApi
                 'Missing the required parameter $journal_id when calling aggregateJournalEntryDebitsAsync'
             );
         }
+
 
 
 
@@ -1013,7 +1042,14 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1060,6 +1096,478 @@ class JournalsApi
     }
 
     /**
+     * Operation assignJournalToBookAsync
+     *
+     * Bind a journal to a financial book
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $journal_id journal_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AssignJournalToBookRequest $assign_journal_to_book_request assign_journal_to_book_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignJournalToBookAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
+     */
+    public function assignJournalToBookAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $assign_journal_to_book_request = null, string $contentType = self::contentTypes['assignJournalToBookAsync'][0])
+    {
+        list($response) = $this->assignJournalToBookAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $assign_journal_to_book_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation assignJournalToBookAsyncWithHttpInfo
+     *
+     * Bind a journal to a financial book
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $journal_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AssignJournalToBookRequest $assign_journal_to_book_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignJournalToBookAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function assignJournalToBookAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $assign_journal_to_book_request = null, string $contentType = self::contentTypes['assignJournalToBookAsync'][0])
+    {
+        $request = $this->assignJournalToBookAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $assign_journal_to_book_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation assignJournalToBookAsyncAsync
+     *
+     * Bind a journal to a financial book
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $journal_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AssignJournalToBookRequest $assign_journal_to_book_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignJournalToBookAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function assignJournalToBookAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $assign_journal_to_book_request = null, string $contentType = self::contentTypes['assignJournalToBookAsync'][0])
+    {
+        return $this->assignJournalToBookAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $assign_journal_to_book_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation assignJournalToBookAsyncAsyncWithHttpInfo
+     *
+     * Bind a journal to a financial book
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $journal_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AssignJournalToBookRequest $assign_journal_to_book_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignJournalToBookAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function assignJournalToBookAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $assign_journal_to_book_request = null, string $contentType = self::contentTypes['assignJournalToBookAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->assignJournalToBookAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $assign_journal_to_book_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'assignJournalToBookAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $journal_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AssignJournalToBookRequest $assign_journal_to_book_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignJournalToBookAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function assignJournalToBookAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $assign_journal_to_book_request = null, string $contentType = self::contentTypes['assignJournalToBookAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling assignJournalToBookAsync'
+            );
+        }
+
+        // verify the required parameter 'journal_id' is set
+        if ($journal_id === null || (is_array($journal_id) && count($journal_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $journal_id when calling assignJournalToBookAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/AccountingService/Journals/{journalId}/AssignToBook';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($journal_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'journalId' . '}',
+                ObjectSerializer::toPathValue($journal_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($assign_journal_to_book_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($assign_journal_to_book_request));
+            } else {
+                $httpBody = $assign_journal_to_book_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation countJournalsAsync
      *
      * Count journals
@@ -1067,15 +1575,16 @@ class JournalsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countJournalsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function countJournalsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
+    public function countJournalsAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
     {
-        list($response) = $this->countJournalsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countJournalsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1087,15 +1596,16 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countJournalsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countJournalsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
+    public function countJournalsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
     {
-        $request = $this->countJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1284,14 +1794,15 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countJournalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countJournalsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
+    public function countJournalsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
     {
-        return $this->countJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1307,15 +1818,16 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countJournalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
+    public function countJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1359,12 +1871,13 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countJournalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countJournalsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
+    public function countJournalsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countJournalsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1373,6 +1886,7 @@ class JournalsApi
                 'Missing the required parameter $tenant_id when calling countJournalsAsync'
             );
         }
+
 
 
 
@@ -1417,7 +1931,14 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3618,15 +4139,16 @@ class JournalsApi
      * @param  string $journal_id journal_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\JournalEntryDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getJournalEntriesAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
+    public function getJournalEntriesAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
     {
-        list($response) = $this->getJournalEntriesAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJournalEntriesAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3639,15 +4161,16 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\JournalEntryDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJournalEntriesAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
+    public function getJournalEntriesAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
     {
-        $request = $this->getJournalEntriesAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJournalEntriesAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3837,14 +4360,15 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalEntriesAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
+    public function getJournalEntriesAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
     {
-        return $this->getJournalEntriesAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $contentType)
+        return $this->getJournalEntriesAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3861,15 +4385,16 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalEntriesAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
+    public function getJournalEntriesAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\JournalEntryDtoIReadOnlyListEnvelope';
-        $request = $this->getJournalEntriesAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJournalEntriesAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3914,12 +4439,13 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJournalEntriesAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
+    public function getJournalEntriesAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3935,6 +4461,7 @@ class JournalsApi
                 'Missing the required parameter $journal_id when calling getJournalEntriesAsync'
             );
         }
+
 
 
 
@@ -3987,7 +4514,14 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4042,15 +4576,16 @@ class JournalsApi
      * @param  string $journal_id journal_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getJournalEntriesCountAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
+    public function getJournalEntriesCountAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
     {
-        list($response) = $this->getJournalEntriesCountAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJournalEntriesCountAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4063,15 +4598,16 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJournalEntriesCountAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
+    public function getJournalEntriesCountAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
     {
-        $request = $this->getJournalEntriesCountAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJournalEntriesCountAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4261,14 +4797,15 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalEntriesCountAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
+    public function getJournalEntriesCountAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
     {
-        return $this->getJournalEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $contentType)
+        return $this->getJournalEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4285,15 +4822,16 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
+    public function getJournalEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getJournalEntriesCountAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJournalEntriesCountAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4338,12 +4876,13 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJournalEntriesCountAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
+    public function getJournalEntriesCountAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalEntriesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4359,6 +4898,7 @@ class JournalsApi
                 'Missing the required parameter $journal_id when calling getJournalEntriesCountAsync'
             );
         }
+
 
 
 
@@ -4411,7 +4951,14 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4909,15 +5456,16 @@ class JournalsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\JournalDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getJournalsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
+    public function getJournalsAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
     {
-        list($response) = $this->getJournalsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJournalsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4929,15 +5477,16 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\JournalDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJournalsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
+    public function getJournalsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
     {
-        $request = $this->getJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5126,14 +5675,15 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
+    public function getJournalsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
     {
-        return $this->getJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5149,15 +5699,16 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
+    public function getJournalsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\JournalDtoIReadOnlyListEnvelope';
-        $request = $this->getJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJournalsAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5201,12 +5752,13 @@ class JournalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters $journal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJournalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJournalsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
+    public function getJournalsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $journal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJournalsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5215,6 +5767,7 @@ class JournalsApi
                 'Missing the required parameter $tenant_id when calling getJournalsAsync'
             );
         }
+
 
 
 
@@ -5259,7 +5812,14 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5314,16 +5874,16 @@ class JournalsApi
      * @param  string $journal_id journal_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchJournalAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
+    public function patchJournalAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
     {
-        list($response) = $this->patchJournalAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchJournalAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5336,16 +5896,16 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchJournalAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
+    public function patchJournalAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
     {
-        $request = $this->patchJournalAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJournalAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5535,15 +6095,15 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJournalAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
+    public function patchJournalAsyncAsync($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
     {
-        return $this->patchJournalAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchJournalAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5560,16 +6120,16 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJournalAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
+    public function patchJournalAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchJournalAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJournalAsyncRequest($tenant_id, $journal_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5614,13 +6174,13 @@ class JournalsApi
      * @param  string $journal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchJournalAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
+    public function patchJournalAsyncRequest($tenant_id, $journal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5689,12 +6249,12 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5752,16 +6312,16 @@ class JournalsApi
      * @param  string $entry_id entry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchJournalEntryAsync($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
+    public function patchJournalEntryAsync($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
     {
-        list($response) = $this->patchJournalEntryAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchJournalEntryAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5775,16 +6335,16 @@ class JournalsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchJournalEntryAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
+    public function patchJournalEntryAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
     {
-        $request = $this->patchJournalEntryAsyncRequest($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJournalEntryAsyncRequest($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5975,15 +6535,15 @@ class JournalsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJournalEntryAsyncAsync($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
+    public function patchJournalEntryAsyncAsync($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
     {
-        return $this->patchJournalEntryAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchJournalEntryAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6001,16 +6561,16 @@ class JournalsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJournalEntryAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
+    public function patchJournalEntryAsyncAsyncWithHttpInfo($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchJournalEntryAsyncRequest($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJournalEntryAsyncRequest($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6056,13 +6616,13 @@ class JournalsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJournalEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchJournalEntryAsyncRequest($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
+    public function patchJournalEntryAsyncRequest($tenant_id, $journal_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJournalEntryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6146,12 +6706,12 @@ class JournalsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

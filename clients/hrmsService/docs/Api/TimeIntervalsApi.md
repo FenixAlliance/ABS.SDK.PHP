@@ -202,7 +202,7 @@ No authorization required
 ## `getTimeIntervalsAsync()`
 
 ```php
-getTimeIntervalsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TimeIntervalDtoListEnvelope
+getTimeIntervalsAsync($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters): \OpenAPI\Client\Model\TimeIntervalDtoListEnvelope
 ```
 
 Get time intervals
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\TimeIntervalsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$time_interval_dto_collection_query_parameters = new \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTimeIntervalsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTimeIntervalsAsync($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeIntervalsApi->getTimeIntervalsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **time_interval_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters**](../Model/TimeIntervalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getTimeIntervalsCountAsync()`
 
 ```php
-getTimeIntervalsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTimeIntervalsCountAsync($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count time intervals
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\TimeIntervalsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$time_interval_dto_collection_query_parameters = new \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTimeIntervalsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTimeIntervalsCountAsync($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeIntervalsApi->getTimeIntervalsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **time_interval_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters**](../Model/TimeIntervalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTimeIntervalAsync()`
 
 ```php
-patchTimeIntervalAsync($tenant_id, $time_interval_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTimeIntervalAsync($tenant_id, $time_interval_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a time interval
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $time_interval_id = 'time_interval_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTimeIntervalAsync($tenant_id, $time_interval_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTimeIntervalAsync($tenant_id, $time_interval_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeIntervalsApi->patchTimeIntervalAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **time_interval_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

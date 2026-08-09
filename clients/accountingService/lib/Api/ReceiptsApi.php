@@ -84,9 +84,11 @@ class ReceiptsApi
         ],
         'getReceiptsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getReceiptsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchReceiptAsync' => [
             'application/json',
@@ -1136,15 +1138,16 @@ class ReceiptsApi
      * Retrieves tenant receipts
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReceiptDtoIReadOnlyListEnvelope
      */
-    public function getReceiptsAsync($tenant_id, string $contentType = self::contentTypes['getReceiptsAsync'][0])
+    public function getReceiptsAsync($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsAsync'][0])
     {
-        list($response) = $this->getReceiptsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getReceiptsAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1154,15 +1157,16 @@ class ReceiptsApi
      * Retrieves tenant receipts
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReceiptDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getReceiptsAsync'][0])
+    public function getReceiptsAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsAsync'][0])
     {
-        $request = $this->getReceiptsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getReceiptsAsyncRequest($tenant_id, $receipt_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1279,14 +1283,15 @@ class ReceiptsApi
      * Retrieves tenant receipts
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getReceiptsAsync'][0])
+    public function getReceiptsAsyncAsync($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsAsync'][0])
     {
-        return $this->getReceiptsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getReceiptsAsyncAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1300,15 +1305,16 @@ class ReceiptsApi
      * Retrieves tenant receipts
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getReceiptsAsync'][0])
+    public function getReceiptsAsyncAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReceiptDtoIReadOnlyListEnvelope';
-        $request = $this->getReceiptsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getReceiptsAsyncRequest($tenant_id, $receipt_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1350,12 +1356,13 @@ class ReceiptsApi
      * Create request for operation 'getReceiptsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReceiptsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getReceiptsAsync'][0])
+    public function getReceiptsAsyncRequest($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1364,6 +1371,7 @@ class ReceiptsApi
                 'Missing the required parameter $tenant_id when calling getReceiptsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/AccountingService/Receipts';
@@ -1393,7 +1401,14 @@ class ReceiptsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($receipt_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($receipt_dto_collection_query_parameters));
+            } else {
+                $httpBody = $receipt_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1445,15 +1460,16 @@ class ReceiptsApi
      * Gets count of tenant receipts
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getReceiptsCountAsync($tenant_id, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
+    public function getReceiptsCountAsync($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
     {
-        list($response) = $this->getReceiptsCountAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getReceiptsCountAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1463,15 +1479,16 @@ class ReceiptsApi
      * Gets count of tenant receipts
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptsCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
+    public function getReceiptsCountAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
     {
-        $request = $this->getReceiptsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getReceiptsCountAsyncRequest($tenant_id, $receipt_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1588,14 +1605,15 @@ class ReceiptsApi
      * Gets count of tenant receipts
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsCountAsyncAsync($tenant_id, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
+    public function getReceiptsCountAsyncAsync($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
     {
-        return $this->getReceiptsCountAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getReceiptsCountAsyncAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1609,15 +1627,16 @@ class ReceiptsApi
      * Gets count of tenant receipts
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsCountAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
+    public function getReceiptsCountAsyncAsyncWithHttpInfo($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getReceiptsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getReceiptsCountAsyncRequest($tenant_id, $receipt_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1659,12 +1678,13 @@ class ReceiptsApi
      * Create request for operation 'getReceiptsCountAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters $receipt_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReceiptsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReceiptsCountAsyncRequest($tenant_id, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
+    public function getReceiptsCountAsyncRequest($tenant_id, $receipt_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReceiptsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1673,6 +1693,7 @@ class ReceiptsApi
                 'Missing the required parameter $tenant_id when calling getReceiptsCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/AccountingService/Receipts/Count';
@@ -1702,7 +1723,14 @@ class ReceiptsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($receipt_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($receipt_dto_collection_query_parameters));
+            } else {
+                $httpBody = $receipt_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1755,16 +1783,16 @@ class ReceiptsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $receipt_id receipt_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReceiptAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchReceiptAsync($tenant_id, $receipt_id, $operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
+    public function patchReceiptAsync($tenant_id, $receipt_id, $patch_operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
     {
-        list($response) = $this->patchReceiptAsyncWithHttpInfo($tenant_id, $receipt_id, $operation, $contentType);
+        list($response) = $this->patchReceiptAsyncWithHttpInfo($tenant_id, $receipt_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1775,16 +1803,16 @@ class ReceiptsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $receipt_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReceiptAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchReceiptAsyncWithHttpInfo($tenant_id, $receipt_id, $operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
+    public function patchReceiptAsyncWithHttpInfo($tenant_id, $receipt_id, $patch_operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
     {
-        $request = $this->patchReceiptAsyncRequest($tenant_id, $receipt_id, $operation, $contentType);
+        $request = $this->patchReceiptAsyncRequest($tenant_id, $receipt_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1972,15 +2000,15 @@ class ReceiptsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $receipt_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReceiptAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchReceiptAsyncAsync($tenant_id, $receipt_id, $operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
+    public function patchReceiptAsyncAsync($tenant_id, $receipt_id, $patch_operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
     {
-        return $this->patchReceiptAsyncAsyncWithHttpInfo($tenant_id, $receipt_id, $operation, $contentType)
+        return $this->patchReceiptAsyncAsyncWithHttpInfo($tenant_id, $receipt_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1995,16 +2023,16 @@ class ReceiptsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $receipt_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReceiptAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchReceiptAsyncAsyncWithHttpInfo($tenant_id, $receipt_id, $operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
+    public function patchReceiptAsyncAsyncWithHttpInfo($tenant_id, $receipt_id, $patch_operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchReceiptAsyncRequest($tenant_id, $receipt_id, $operation, $contentType);
+        $request = $this->patchReceiptAsyncRequest($tenant_id, $receipt_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2047,13 +2075,13 @@ class ReceiptsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $receipt_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReceiptAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchReceiptAsyncRequest($tenant_id, $receipt_id, $operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
+    public function patchReceiptAsyncRequest($tenant_id, $receipt_id, $patch_operation = null, string $contentType = self::contentTypes['patchReceiptAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2107,12 +2135,12 @@ class ReceiptsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

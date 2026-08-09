@@ -202,7 +202,7 @@ No authorization required
 ## `getBillingProfilesAsync()`
 
 ```php
-getBillingProfilesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BillingProfileDtoIReadOnlyListEnvelope
+getBillingProfilesAsync($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\BillingProfileDtoIReadOnlyListEnvelope
 ```
 
 Gets all billing profiles
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\BillingProfilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$billing_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillingProfilesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillingProfilesAsync($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingProfilesApi->getBillingProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **billing_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters**](../Model/BillingProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getBillingProfilesCountAsync()`
 
 ```php
-getBillingProfilesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBillingProfilesCountAsync($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of billing profiles
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\BillingProfilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$billing_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillingProfilesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillingProfilesCountAsync($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingProfilesApi->getBillingProfilesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **billing_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters**](../Model/BillingProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchBillingProfileAsync()`
 
 ```php
-patchBillingProfileAsync($tenant_id, $billing_profile_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBillingProfileAsync($tenant_id, $billing_profile_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a billing profile
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $billing_profile_id = 'billing_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBillingProfileAsync($tenant_id, $billing_profile_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBillingProfileAsync($tenant_id, $billing_profile_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingProfilesApi->patchBillingProfileAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **billing_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

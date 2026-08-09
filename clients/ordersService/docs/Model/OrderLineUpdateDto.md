@@ -87,7 +87,6 @@ Name | Type | Description | Notes
 **price_list_item_id** | **string** |  | [optional]
 **unit_id** | **string** |  | [optional]
 **unit_group_id** | **string** |  | [optional]
-**forex_rates_snapshot** | **string** |  | [optional]
 **total_base_amount_in_usd** | **float** |  | [optional]
 **total_profit_in_usd** | **float** |  | [optional]
 **total_detail_amount_in_usd** | **float** |  | [optional]

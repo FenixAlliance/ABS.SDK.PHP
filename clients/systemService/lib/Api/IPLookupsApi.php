@@ -80,9 +80,11 @@ class IPLookupsApi
         ],
         'getSystemIPLookups' => [
             'application/json',
+            'application/xml',
         ],
         'getSystemIPLookupsCount' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -945,15 +947,16 @@ class IPLookupsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\IPLookupDtoListEnvelope
      */
-    public function getSystemIPLookups($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
+    public function getSystemIPLookups($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
     {
-        list($response) = $this->getSystemIPLookupsWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemIPLookupsWithHttpInfo($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -964,15 +967,16 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\IPLookupDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemIPLookupsWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
+    public function getSystemIPLookupsWithHttpInfo($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
     {
-        $request = $this->getSystemIPLookupsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemIPLookupsRequest($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1160,14 +1164,15 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemIPLookupsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
+    public function getSystemIPLookupsAsync($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
     {
-        return $this->getSystemIPLookupsAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSystemIPLookupsAsyncWithHttpInfo($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1182,15 +1187,16 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemIPLookupsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
+    public function getSystemIPLookupsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
     {
         $returnType = '\OpenAPI\Client\Model\IPLookupDtoListEnvelope';
-        $request = $this->getSystemIPLookupsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemIPLookupsRequest($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1233,13 +1239,15 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemIPLookupsRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
+    public function getSystemIPLookupsRequest($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookups'][0])
     {
+
 
 
 
@@ -1275,7 +1283,14 @@ class IPLookupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($ip_lookup_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ip_lookup_dto_collection_query_parameters));
+            } else {
+                $httpBody = $ip_lookup_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1328,15 +1343,16 @@ class IPLookupsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookupsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSystemIPLookupsCount($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
+    public function getSystemIPLookupsCount($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
     {
-        list($response) = $this->getSystemIPLookupsCountWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemIPLookupsCountWithHttpInfo($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1347,15 +1363,16 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookupsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemIPLookupsCountWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
+    public function getSystemIPLookupsCountWithHttpInfo($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
     {
-        $request = $this->getSystemIPLookupsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemIPLookupsCountRequest($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1543,14 +1560,15 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookupsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemIPLookupsCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
+    public function getSystemIPLookupsCountAsync($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
     {
-        return $this->getSystemIPLookupsCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSystemIPLookupsCountAsyncWithHttpInfo($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1565,15 +1583,16 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookupsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemIPLookupsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
+    public function getSystemIPLookupsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSystemIPLookupsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemIPLookupsCountRequest($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1616,13 +1635,15 @@ class IPLookupsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters $ip_lookup_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemIPLookupsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemIPLookupsCountRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
+    public function getSystemIPLookupsCountRequest($api_version = null, $x_api_version = null, $ip_lookup_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemIPLookupsCount'][0])
     {
+
 
 
 
@@ -1658,7 +1679,14 @@ class IPLookupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($ip_lookup_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ip_lookup_dto_collection_query_parameters));
+            } else {
+                $httpBody = $ip_lookup_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

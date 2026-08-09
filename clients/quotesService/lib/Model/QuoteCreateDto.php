@@ -67,6 +67,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'string',
         'payment_term_id' => 'string',
         'organization_id' => 'string',
+        'receiver_tenant_id' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'company_name' => 'string',
@@ -107,7 +108,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'string',
         'cart_id' => 'string',
         'deal_unit_id' => 'string',
-        'receiver_tenant_id' => 'string',
         'effective_to' => '\DateTime',
         'effective_from' => '\DateTime',
         'quote_status' => 'string',
@@ -131,6 +131,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => null,
         'payment_term_id' => null,
         'organization_id' => null,
+        'receiver_tenant_id' => null,
         'first_name' => null,
         'last_name' => null,
         'company_name' => null,
@@ -171,7 +172,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => null,
         'cart_id' => null,
         'deal_unit_id' => null,
-        'receiver_tenant_id' => null,
         'effective_to' => 'date-time',
         'effective_from' => 'date-time',
         'quote_status' => null,
@@ -193,6 +193,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => true,
         'payment_term_id' => true,
         'organization_id' => true,
+        'receiver_tenant_id' => true,
         'first_name' => true,
         'last_name' => true,
         'company_name' => true,
@@ -233,7 +234,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => false,
         'cart_id' => true,
         'deal_unit_id' => true,
-        'receiver_tenant_id' => true,
         'effective_to' => true,
         'effective_from' => true,
         'quote_status' => false,
@@ -335,6 +335,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'individualId',
         'payment_term_id' => 'paymentTermId',
         'organization_id' => 'organizationId',
+        'receiver_tenant_id' => 'receiverTenantId',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
         'company_name' => 'companyName',
@@ -375,7 +376,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'taxCalculationMethod',
         'cart_id' => 'cartId',
         'deal_unit_id' => 'dealUnitId',
-        'receiver_tenant_id' => 'receiverTenantId',
         'effective_to' => 'effectiveTo',
         'effective_from' => 'effectiveFrom',
         'quote_status' => 'quoteStatus',
@@ -397,6 +397,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'setIndividualId',
         'payment_term_id' => 'setPaymentTermId',
         'organization_id' => 'setOrganizationId',
+        'receiver_tenant_id' => 'setReceiverTenantId',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'company_name' => 'setCompanyName',
@@ -437,7 +438,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'setTaxCalculationMethod',
         'cart_id' => 'setCartId',
         'deal_unit_id' => 'setDealUnitId',
-        'receiver_tenant_id' => 'setReceiverTenantId',
         'effective_to' => 'setEffectiveTo',
         'effective_from' => 'setEffectiveFrom',
         'quote_status' => 'setQuoteStatus',
@@ -459,6 +459,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'getIndividualId',
         'payment_term_id' => 'getPaymentTermId',
         'organization_id' => 'getOrganizationId',
+        'receiver_tenant_id' => 'getReceiverTenantId',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'company_name' => 'getCompanyName',
@@ -499,7 +500,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'getTaxCalculationMethod',
         'cart_id' => 'getCartId',
         'deal_unit_id' => 'getDealUnitId',
-        'receiver_tenant_id' => 'getReceiverTenantId',
         'effective_to' => 'getEffectiveTo',
         'effective_from' => 'getEffectiveFrom',
         'quote_status' => 'getQuoteStatus',
@@ -623,6 +623,7 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('individual_id', $data ?? [], null);
         $this->setIfExists('payment_term_id', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('company_name', $data ?? [], null);
@@ -663,7 +664,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tax_calculation_method', $data ?? [], null);
         $this->setIfExists('cart_id', $data ?? [], null);
         $this->setIfExists('deal_unit_id', $data ?? [], null);
-        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
         $this->setIfExists('effective_to', $data ?? [], null);
         $this->setIfExists('effective_from', $data ?? [], null);
         $this->setIfExists('quote_status', $data ?? [], null);
@@ -1020,6 +1020,40 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['organization_id'] = $organization_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_tenant_id
+     *
+     * @return string|null
+     */
+    public function getReceiverTenantId()
+    {
+        return $this->container['receiver_tenant_id'];
+    }
+
+    /**
+     * Sets receiver_tenant_id
+     *
+     * @param string|null $receiver_tenant_id receiver_tenant_id
+     *
+     * @return self
+     */
+    public function setReceiverTenantId($receiver_tenant_id)
+    {
+        if (is_null($receiver_tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
 
         return $this;
     }
@@ -2295,40 +2329,6 @@ class QuoteCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['deal_unit_id'] = $deal_unit_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets receiver_tenant_id
-     *
-     * @return string|null
-     */
-    public function getReceiverTenantId()
-    {
-        return $this->container['receiver_tenant_id'];
-    }
-
-    /**
-     * Sets receiver_tenant_id
-     *
-     * @param string|null $receiver_tenant_id receiver_tenant_id
-     *
-     * @return self
-     */
-    public function setReceiverTenantId($receiver_tenant_id)
-    {
-        if (is_null($receiver_tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
 
         return $this;
     }

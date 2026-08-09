@@ -264,7 +264,7 @@ No authorization required
 ## `getUserOptions()`
 
 ```php
-getUserOptions($portal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\OptionDtoListEnvelope
+getUserOptions($portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters): \OpenAPI\Client\Model\OptionDtoListEnvelope
 ```
 
 Retrieve a list of user options
@@ -287,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\OptionsApi(
 $portal_id = 'portal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$option_dto_collection_query_parameters = new \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUserOptions($portal_id, $api_version, $x_api_version);
+    $result = $apiInstance->getUserOptions($portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OptionsApi->getUserOptions: ', $e->getMessage(), PHP_EOL;
@@ -303,6 +304,7 @@ try {
 | **portal_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **option_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OptionDtoCollectionQueryParameters**](../Model/OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -314,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -324,7 +326,7 @@ No authorization required
 ## `getUserOptionsCount()`
 
 ```php
-getUserOptionsCount($portal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getUserOptionsCount($portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of user options
@@ -347,9 +349,10 @@ $apiInstance = new OpenAPI\Client\Api\OptionsApi(
 $portal_id = 'portal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$option_dto_collection_query_parameters = new \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUserOptionsCount($portal_id, $api_version, $x_api_version);
+    $result = $apiInstance->getUserOptionsCount($portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OptionsApi->getUserOptionsCount: ', $e->getMessage(), PHP_EOL;
@@ -363,6 +366,7 @@ try {
 | **portal_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **option_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OptionDtoCollectionQueryParameters**](../Model/OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -374,7 +378,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -384,7 +388,7 @@ No authorization required
 ## `patchUserOption()`
 
 ```php
-patchUserOption($option_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchUserOption($option_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a user option
@@ -407,10 +411,10 @@ $apiInstance = new OpenAPI\Client\Api\OptionsApi(
 $option_id = 'option_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchUserOption($option_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchUserOption($option_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OptionsApi->patchUserOption: ', $e->getMessage(), PHP_EOL;
@@ -424,7 +428,7 @@ try {
 | **option_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

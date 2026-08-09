@@ -202,7 +202,7 @@ No authorization required
 ## `getEmailSignaturesCountAsync()`
 
 ```php
-getEmailSignaturesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getEmailSignaturesCountAsync($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get email signatures count
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$email_signature_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmailSignaturesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmailSignaturesCountAsync($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailSignaturesApi->getEmailSignaturesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **email_signature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters**](../Model/EmailSignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getEmailSignaturesODataAsync()`
 
 ```php
-getEmailSignaturesODataAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailSignatureDtoListEnvelope
+getEmailSignaturesODataAsync($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters): \OpenAPI\Client\Model\EmailSignatureDtoListEnvelope
 ```
 
 Get email signatures
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$email_signature_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmailSignaturesODataAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmailSignaturesODataAsync($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailSignaturesApi->getEmailSignaturesODataAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **email_signature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters**](../Model/EmailSignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchEmailSignatureAsync()`
 
 ```php
-patchEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an email signature
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $emailsignature_id = 'emailsignature_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailSignaturesApi->patchEmailSignatureAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **emailsignature_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

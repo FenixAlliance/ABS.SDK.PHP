@@ -74,6 +74,7 @@ class WebComponentsApi
     public const contentTypes = [
         'countWebComponentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createWebComponentAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class WebComponentsApi
         ],
         'getWebComponentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateWebComponentAsync' => [
             'application/json',
@@ -148,15 +150,16 @@ class WebComponentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countWebComponentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
+    public function countWebComponentsAsync($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
     {
-        list($response) = $this->countWebComponentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countWebComponentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -168,15 +171,16 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countWebComponentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
+    public function countWebComponentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
     {
-        $request = $this->countWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -365,14 +369,15 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countWebComponentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
+    public function countWebComponentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
     {
-        return $this->countWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -388,15 +393,16 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
+    public function countWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,12 +446,13 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countWebComponentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
+    public function countWebComponentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebComponentsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -454,6 +461,7 @@ class WebComponentsApi
                 'Missing the required parameter $tenant_id when calling countWebComponentsAsync'
             );
         }
+
 
 
 
@@ -498,7 +506,14 @@ class WebComponentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_component_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_component_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_component_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1823,15 +1838,16 @@ class WebComponentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebComponentDtoListEnvelope
      */
-    public function getWebComponentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
+    public function getWebComponentsAsync($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
     {
-        list($response) = $this->getWebComponentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebComponentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1843,15 +1859,16 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebComponentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebComponentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
+    public function getWebComponentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
     {
-        $request = $this->getWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2040,14 +2057,15 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebComponentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
+    public function getWebComponentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
     {
-        return $this->getWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2063,15 +2081,16 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
+    public function getWebComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WebComponentDtoListEnvelope';
-        $request = $this->getWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $web_component_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2115,12 +2134,13 @@ class WebComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebComponentDtoCollectionQueryParameters $web_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebComponentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
+    public function getWebComponentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $web_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebComponentsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2129,6 +2149,7 @@ class WebComponentsApi
                 'Missing the required parameter $tenant_id when calling getWebComponentsAsync'
             );
         }
+
 
 
 
@@ -2173,7 +2194,14 @@ class WebComponentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_component_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_component_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_component_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

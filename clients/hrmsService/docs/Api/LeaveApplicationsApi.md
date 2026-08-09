@@ -202,7 +202,7 @@ No authorization required
 ## `getLeaveApplicationsAsync()`
 
 ```php
-getLeaveApplicationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LeaveApplicationDtoListEnvelope
+getLeaveApplicationsAsync($tenant_id, $api_version, $x_api_version, $leave_application_dto_collection_query_parameters): \OpenAPI\Client\Model\LeaveApplicationDtoListEnvelope
 ```
 
 Get leave applications
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaveApplicationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$leave_application_dto_collection_query_parameters = new \OpenAPI\Client\Model\LeaveApplicationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LeaveApplicationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLeaveApplicationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLeaveApplicationsAsync($tenant_id, $api_version, $x_api_version, $leave_application_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaveApplicationsApi->getLeaveApplicationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **leave_application_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LeaveApplicationDtoCollectionQueryParameters**](../Model/LeaveApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getLeaveApplicationsCountAsync()`
 
 ```php
-getLeaveApplicationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLeaveApplicationsCountAsync($tenant_id, $api_version, $x_api_version, $leave_application_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count leave applications
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaveApplicationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$leave_application_dto_collection_query_parameters = new \OpenAPI\Client\Model\LeaveApplicationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LeaveApplicationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLeaveApplicationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLeaveApplicationsCountAsync($tenant_id, $api_version, $x_api_version, $leave_application_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaveApplicationsApi->getLeaveApplicationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **leave_application_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LeaveApplicationDtoCollectionQueryParameters**](../Model/LeaveApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchLeaveApplicationAsync()`
 
 ```php
-patchLeaveApplicationAsync($tenant_id, $leave_application_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLeaveApplicationAsync($tenant_id, $leave_application_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a leave application
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $leave_application_id = 'leave_application_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLeaveApplicationAsync($tenant_id, $leave_application_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLeaveApplicationAsync($tenant_id, $leave_application_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaveApplicationsApi->patchLeaveApplicationAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **leave_application_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -202,7 +202,7 @@ No authorization required
 ## `getServiceLevelAgreementsAsync()`
 
 ```php
-getServiceLevelAgreementsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ServiceLevelAgreementDtoIReadOnlyListEnvelope
+getServiceLevelAgreementsAsync($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters): \OpenAPI\Client\Model\ServiceLevelAgreementDtoIReadOnlyListEnvelope
 ```
 
 Get all service level agreements
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\ServiceLevelAgreementsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_level_agreement_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getServiceLevelAgreementsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getServiceLevelAgreementsAsync($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelAgreementsApi->getServiceLevelAgreementsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_level_agreement_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters**](../Model/ServiceLevelAgreementDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getServiceLevelAgreementsCountAsync()`
 
 ```php
-getServiceLevelAgreementsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getServiceLevelAgreementsCountAsync($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get service level agreements count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\ServiceLevelAgreementsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_level_agreement_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getServiceLevelAgreementsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getServiceLevelAgreementsCountAsync($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelAgreementsApi->getServiceLevelAgreementsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_level_agreement_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters**](../Model/ServiceLevelAgreementDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchServiceLevelAgreementAsync()`
 
 ```php
-patchServiceLevelAgreementAsync($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\Envelope
+patchServiceLevelAgreementAsync($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\Envelope
 ```
 
 Patch a service level agreement
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $service_level_agreement_id = 'service_level_agreement_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchServiceLevelAgreementAsync($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchServiceLevelAgreementAsync($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelAgreementsApi->patchServiceLevelAgreementAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **service_level_agreement_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

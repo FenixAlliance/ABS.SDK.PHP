@@ -200,7 +200,7 @@ No authorization required
 ## `getLicensingCertificatesAsync()`
 
 ```php
-getLicensingCertificatesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LicensingCertificateDtoListEnvelope
+getLicensingCertificatesAsync($tenant_id, $api_version, $x_api_version, $licensing_certificate_dto_collection_query_parameters): \OpenAPI\Client\Model\LicensingCertificateDtoListEnvelope
 ```
 
 Get all licensing certificates
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\LicensingCertificatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$licensing_certificate_dto_collection_query_parameters = new \OpenAPI\Client\Model\LicensingCertificateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LicensingCertificateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLicensingCertificatesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicensingCertificatesAsync($tenant_id, $api_version, $x_api_version, $licensing_certificate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingCertificatesApi->getLicensingCertificatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **licensing_certificate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LicensingCertificateDtoCollectionQueryParameters**](../Model/LicensingCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getLicensingCertificatesCountAsync()`
 
 ```php
-getLicensingCertificatesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLicensingCertificatesCountAsync($tenant_id, $api_version, $x_api_version, $licensing_certificate_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get licensing certificates count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\LicensingCertificatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$licensing_certificate_dto_collection_query_parameters = new \OpenAPI\Client\Model\LicensingCertificateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LicensingCertificateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLicensingCertificatesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicensingCertificatesCountAsync($tenant_id, $api_version, $x_api_version, $licensing_certificate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingCertificatesApi->getLicensingCertificatesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **licensing_certificate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LicensingCertificateDtoCollectionQueryParameters**](../Model/LicensingCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchLicensingCertificateAsync()`
 
 ```php
-patchLicensingCertificateAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLicensingCertificateAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a licensing certificate
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLicensingCertificateAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLicensingCertificateAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingCertificatesApi->patchLicensingCertificateAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -84,9 +84,11 @@ class ApplicationsApi
         ],
         'getBusinessApplicationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBusinessApplicationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPermissionsByApplicationAsync' => [
             'application/json',
@@ -1499,15 +1501,16 @@ class ApplicationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BusinessApplicationDtoListEnvelope
      */
-    public function getBusinessApplicationsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
+    public function getBusinessApplicationsAsync($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
     {
-        list($response) = $this->getBusinessApplicationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBusinessApplicationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1519,15 +1522,16 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BusinessApplicationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessApplicationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
+    public function getBusinessApplicationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
     {
-        $request = $this->getBusinessApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1716,14 +1720,15 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessApplicationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
+    public function getBusinessApplicationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
     {
-        return $this->getBusinessApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBusinessApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1739,15 +1744,16 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
+    public function getBusinessApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BusinessApplicationDtoListEnvelope';
-        $request = $this->getBusinessApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1791,12 +1797,13 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessApplicationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
+    public function getBusinessApplicationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1805,6 +1812,7 @@ class ApplicationsApi
                 'Missing the required parameter $tenant_id when calling getBusinessApplicationsAsync'
             );
         }
+
 
 
 
@@ -1849,7 +1857,14 @@ class ApplicationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($business_application_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($business_application_dto_collection_query_parameters));
+            } else {
+                $httpBody = $business_application_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1903,15 +1918,16 @@ class ApplicationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBusinessApplicationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
+    public function getBusinessApplicationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
     {
-        list($response) = $this->getBusinessApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBusinessApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1923,15 +1939,16 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
+    public function getBusinessApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
     {
-        $request = $this->getBusinessApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2120,14 +2137,15 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessApplicationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
+    public function getBusinessApplicationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
     {
-        return $this->getBusinessApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBusinessApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2143,15 +2161,16 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
+    public function getBusinessApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBusinessApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2195,12 +2214,13 @@ class ApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters $business_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessApplicationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
+    public function getBusinessApplicationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $business_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessApplicationsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2209,6 +2229,7 @@ class ApplicationsApi
                 'Missing the required parameter $tenant_id when calling getBusinessApplicationsCountAsync'
             );
         }
+
 
 
 
@@ -2253,7 +2274,14 @@ class ApplicationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($business_application_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($business_application_dto_collection_query_parameters));
+            } else {
+                $httpBody = $business_application_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3154,7 +3182,7 @@ class ApplicationsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $application_id application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessApplicationAsync'] to see the possible values for this operation
@@ -3163,9 +3191,9 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchBusinessApplicationAsync($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
+    public function patchBusinessApplicationAsync($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
     {
-        list($response) = $this->patchBusinessApplicationAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType);
+        list($response) = $this->patchBusinessApplicationAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -3176,7 +3204,7 @@ class ApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessApplicationAsync'] to see the possible values for this operation
@@ -3185,9 +3213,9 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBusinessApplicationAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
+    public function patchBusinessApplicationAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
     {
-        $request = $this->patchBusinessApplicationAsyncRequest($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchBusinessApplicationAsyncRequest($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3410,7 +3438,7 @@ class ApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessApplicationAsync'] to see the possible values for this operation
@@ -3418,9 +3446,9 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBusinessApplicationAsyncAsync($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
+    public function patchBusinessApplicationAsyncAsync($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
     {
-        return $this->patchBusinessApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType)
+        return $this->patchBusinessApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3435,7 +3463,7 @@ class ApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessApplicationAsync'] to see the possible values for this operation
@@ -3443,10 +3471,10 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBusinessApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
+    public function patchBusinessApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBusinessApplicationAsyncRequest($tenant_id, $application_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchBusinessApplicationAsyncRequest($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3489,7 +3517,7 @@ class ApplicationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $application_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessApplicationAsync'] to see the possible values for this operation
@@ -3497,7 +3525,7 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBusinessApplicationAsyncRequest($tenant_id, $application_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
+    public function patchBusinessApplicationAsyncRequest($tenant_id, $application_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchBusinessApplicationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3514,10 +3542,10 @@ class ApplicationsApi
             );
         }
 
-        // verify the required parameter 'operation' is set
-        if ($operation === null || (is_array($operation) && count($operation) === 0)) {
+        // verify the required parameter 'patch_operation' is set
+        if ($patch_operation === null || (is_array($patch_operation) && count($patch_operation) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $operation when calling patchBusinessApplicationAsync'
+                'Missing the required parameter $patch_operation when calling patchBusinessApplicationAsync'
             );
         }
 
@@ -3572,12 +3600,12 @@ class ApplicationsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

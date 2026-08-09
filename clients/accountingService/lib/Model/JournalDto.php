@@ -67,7 +67,9 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'string',
         'fiscal_year_id' => 'string',
         'journal_type_id' => 'string',
-        'parent_journal_id' => 'string'
+        'parent_journal_id' => 'string',
+        'financial_book_id' => 'string',
+        'code' => 'string'
     ];
 
     /**
@@ -87,7 +89,9 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => null,
         'fiscal_year_id' => null,
         'journal_type_id' => null,
-        'parent_journal_id' => null
+        'parent_journal_id' => null,
+        'financial_book_id' => null,
+        'code' => null
     ];
 
     /**
@@ -105,7 +109,9 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => true,
         'fiscal_year_id' => true,
         'journal_type_id' => true,
-        'parent_journal_id' => true
+        'parent_journal_id' => true,
+        'financial_book_id' => true,
+        'code' => true
     ];
 
     /**
@@ -203,7 +209,9 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'enrollmentId',
         'fiscal_year_id' => 'fiscalYearId',
         'journal_type_id' => 'journalTypeId',
-        'parent_journal_id' => 'parentJournalId'
+        'parent_journal_id' => 'parentJournalId',
+        'financial_book_id' => 'financialBookId',
+        'code' => 'code'
     ];
 
     /**
@@ -221,7 +229,9 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'setEnrollmentId',
         'fiscal_year_id' => 'setFiscalYearId',
         'journal_type_id' => 'setJournalTypeId',
-        'parent_journal_id' => 'setParentJournalId'
+        'parent_journal_id' => 'setParentJournalId',
+        'financial_book_id' => 'setFinancialBookId',
+        'code' => 'setCode'
     ];
 
     /**
@@ -239,7 +249,9 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'getEnrollmentId',
         'fiscal_year_id' => 'getFiscalYearId',
         'journal_type_id' => 'getJournalTypeId',
-        'parent_journal_id' => 'getParentJournalId'
+        'parent_journal_id' => 'getParentJournalId',
+        'financial_book_id' => 'getFinancialBookId',
+        'code' => 'getCode'
     ];
 
     /**
@@ -309,6 +321,8 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('fiscal_year_id', $data ?? [], null);
         $this->setIfExists('journal_type_id', $data ?? [], null);
         $this->setIfExists('parent_journal_id', $data ?? [], null);
+        $this->setIfExists('financial_book_id', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
     }
 
     /**
@@ -689,6 +703,74 @@ class JournalDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['parent_journal_id'] = $parent_journal_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets financial_book_id
+     *
+     * @return string|null
+     */
+    public function getFinancialBookId()
+    {
+        return $this->container['financial_book_id'];
+    }
+
+    /**
+     * Sets financial_book_id
+     *
+     * @param string|null $financial_book_id financial_book_id
+     *
+     * @return self
+     */
+    public function setFinancialBookId($financial_book_id)
+    {
+        if (is_null($financial_book_id)) {
+            array_push($this->openAPINullablesSetToNull, 'financial_book_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('financial_book_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['financial_book_id'] = $financial_book_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code code
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['code'] = $code;
 
         return $this;
     }

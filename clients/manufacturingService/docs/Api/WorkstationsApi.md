@@ -200,7 +200,7 @@ No authorization required
 ## `getWorkstationsAsync()`
 
 ```php
-getWorkstationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WorkstationDtoListEnvelope
+getWorkstationsAsync($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters): \OpenAPI\Client\Model\WorkstationDtoListEnvelope
 ```
 
 Get all workstations
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\WorkstationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$workstation_dto_collection_query_parameters = new \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWorkstationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWorkstationsAsync($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkstationsApi->getWorkstationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **workstation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters**](../Model/WorkstationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getWorkstationsCountAsync()`
 
 ```php
-getWorkstationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWorkstationsCountAsync($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get workstations count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\WorkstationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$workstation_dto_collection_query_parameters = new \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWorkstationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWorkstationsCountAsync($tenant_id, $api_version, $x_api_version, $workstation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkstationsApi->getWorkstationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **workstation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WorkstationDtoCollectionQueryParameters**](../Model/WorkstationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchWorkstationAsync()`
 
 ```php
-patchWorkstationAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWorkstationAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a workstation
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWorkstationAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchWorkstationAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkstationsApi->patchWorkstationAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

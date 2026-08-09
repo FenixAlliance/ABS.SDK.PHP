@@ -91,15 +91,19 @@ class RailWaybillsApi
         ],
         'getRailWaybillLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRailWaybillLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRailWaybillsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRailWaybillsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'issueRailWaybillAsync' => [
             'application/json',
@@ -2137,15 +2141,16 @@ class RailWaybillsApi
      * @param  string $waybill_id waybill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope
      */
-    public function getRailWaybillLinesAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
+    public function getRailWaybillLinesAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
     {
-        list($response) = $this->getRailWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRailWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2158,15 +2163,16 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRailWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
+    public function getRailWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
     {
-        $request = $this->getRailWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2321,14 +2327,15 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillLinesAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
+    public function getRailWaybillLinesAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
     {
-        return $this->getRailWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType)
+        return $this->getRailWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2345,15 +2352,16 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
+    public function getRailWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WaybillLineDtoListEnvelope';
-        $request = $this->getRailWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2398,12 +2406,13 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRailWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
+    public function getRailWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2419,6 +2428,7 @@ class RailWaybillsApi
                 'Missing the required parameter $waybill_id when calling getRailWaybillLinesAsync'
             );
         }
+
 
 
 
@@ -2471,7 +2481,14 @@ class RailWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2526,15 +2543,16 @@ class RailWaybillsApi
      * @param  string $waybill_id waybill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRailWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
+    public function getRailWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
     {
-        list($response) = $this->getRailWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRailWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2547,15 +2565,16 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRailWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
+    public function getRailWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
     {
-        $request = $this->getRailWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2710,14 +2729,15 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillLinesCountAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
+    public function getRailWaybillLinesCountAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
     {
-        return $this->getRailWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType)
+        return $this->getRailWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2734,15 +2754,16 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
+    public function getRailWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRailWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2787,12 +2808,13 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRailWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
+    public function getRailWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2808,6 +2830,7 @@ class RailWaybillsApi
                 'Missing the required parameter $waybill_id when calling getRailWaybillLinesCountAsync'
             );
         }
+
 
 
 
@@ -2860,7 +2883,14 @@ class RailWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2914,15 +2944,16 @@ class RailWaybillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\RailWaybillDtoListEnvelope
      */
-    public function getRailWaybillsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
+    public function getRailWaybillsAsync($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
     {
-        list($response) = $this->getRailWaybillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRailWaybillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2934,15 +2965,16 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\RailWaybillDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRailWaybillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
+    public function getRailWaybillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
     {
-        $request = $this->getRailWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3131,14 +3163,15 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
+    public function getRailWaybillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
     {
-        return $this->getRailWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRailWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3154,15 +3187,16 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
+    public function getRailWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RailWaybillDtoListEnvelope';
-        $request = $this->getRailWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3206,12 +3240,13 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRailWaybillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
+    public function getRailWaybillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3220,6 +3255,7 @@ class RailWaybillsApi
                 'Missing the required parameter $tenant_id when calling getRailWaybillsAsync'
             );
         }
+
 
 
 
@@ -3264,7 +3300,14 @@ class RailWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($rail_waybill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($rail_waybill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $rail_waybill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3318,15 +3361,16 @@ class RailWaybillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRailWaybillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
+    public function getRailWaybillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
     {
-        list($response) = $this->getRailWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRailWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3338,15 +3382,16 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRailWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
+    public function getRailWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
     {
-        $request = $this->getRailWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3500,14 +3545,15 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
+    public function getRailWaybillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
     {
-        return $this->getRailWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRailWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3523,15 +3569,16 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRailWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
+    public function getRailWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRailWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRailWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3575,12 +3622,13 @@ class RailWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters $rail_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRailWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRailWaybillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
+    public function getRailWaybillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $rail_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRailWaybillsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3589,6 +3637,7 @@ class RailWaybillsApi
                 'Missing the required parameter $tenant_id when calling getRailWaybillsCountAsync'
             );
         }
+
 
 
 
@@ -3633,7 +3682,14 @@ class RailWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($rail_waybill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($rail_waybill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $rail_waybill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4855,16 +4911,16 @@ class RailWaybillsApi
      * @param  string $waybill_id waybill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRailWaybillAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
+    public function patchRailWaybillAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
     {
-        list($response) = $this->patchRailWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchRailWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4877,16 +4933,16 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRailWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
+    public function patchRailWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
     {
-        $request = $this->patchRailWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRailWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5041,15 +5097,15 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRailWaybillAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
+    public function patchRailWaybillAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
     {
-        return $this->patchRailWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchRailWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5066,16 +5122,16 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRailWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
+    public function patchRailWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRailWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRailWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5120,13 +5176,13 @@ class RailWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRailWaybillAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
+    public function patchRailWaybillAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5195,12 +5251,12 @@ class RailWaybillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5258,16 +5314,16 @@ class RailWaybillsApi
      * @param  string $line_id line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRailWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
+    public function patchRailWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
     {
-        list($response) = $this->patchRailWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchRailWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5281,16 +5337,16 @@ class RailWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRailWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
+    public function patchRailWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
     {
-        $request = $this->patchRailWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRailWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5446,15 +5502,15 @@ class RailWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRailWaybillLineAsyncAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
+    public function patchRailWaybillLineAsyncAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
     {
-        return $this->patchRailWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchRailWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5472,16 +5528,16 @@ class RailWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRailWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
+    public function patchRailWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRailWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRailWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5527,13 +5583,13 @@ class RailWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRailWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRailWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
+    public function patchRailWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRailWaybillLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5617,12 +5673,12 @@ class RailWaybillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

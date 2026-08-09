@@ -65,7 +65,8 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'to_date' => '\DateTime',
         'tenant_id' => 'string',
         'enrollment_id' => 'string',
-        'fiscal_year_id' => 'string'
+        'fiscal_year_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -83,7 +84,8 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'to_date' => 'date-time',
         'tenant_id' => null,
         'enrollment_id' => null,
-        'fiscal_year_id' => null
+        'fiscal_year_id' => null,
+        'status' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'to_date' => false,
         'tenant_id' => true,
         'enrollment_id' => true,
-        'fiscal_year_id' => true
+        'fiscal_year_id' => true,
+        'status' => false
     ];
 
     /**
@@ -195,7 +198,8 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'to_date' => 'toDate',
         'tenant_id' => 'tenantId',
         'enrollment_id' => 'enrollmentId',
-        'fiscal_year_id' => 'fiscalYearId'
+        'fiscal_year_id' => 'fiscalYearId',
+        'status' => 'status'
     ];
 
     /**
@@ -211,7 +215,8 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'to_date' => 'setToDate',
         'tenant_id' => 'setTenantId',
         'enrollment_id' => 'setEnrollmentId',
-        'fiscal_year_id' => 'setFiscalYearId'
+        'fiscal_year_id' => 'setFiscalYearId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -227,7 +232,8 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'to_date' => 'getToDate',
         'tenant_id' => 'getTenantId',
         'enrollment_id' => 'getEnrollmentId',
-        'fiscal_year_id' => 'getFiscalYearId'
+        'fiscal_year_id' => 'getFiscalYearId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -271,6 +277,23 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STATUS_OPEN = 'Open';
+    public const STATUS_CLOSED = 'Closed';
+    public const STATUS_LOCKED = 'Locked';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_OPEN,
+            self::STATUS_CLOSED,
+            self::STATUS_LOCKED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -295,6 +318,7 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('fiscal_year_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -323,6 +347,15 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -593,6 +626,43 @@ class FiscalPeriodDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['fiscal_year_id'] = $fiscal_year_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

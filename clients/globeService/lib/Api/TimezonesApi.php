@@ -74,12 +74,14 @@ class TimezonesApi
     public const contentTypes = [
         'countTimezonesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTimeZoneByIdAsync' => [
             'application/json',
         ],
         'getTimeZonesAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -136,15 +138,16 @@ class TimezonesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countTimezonesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
+    public function countTimezonesAsync($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
     {
-        list($response) = $this->countTimezonesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countTimezonesAsyncWithHttpInfo($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -155,15 +158,16 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countTimezonesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
+    public function countTimezonesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
     {
-        $request = $this->countTimezonesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countTimezonesAsyncRequest($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countTimezonesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
+    public function countTimezonesAsyncAsync($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
     {
-        return $this->countTimezonesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countTimezonesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -373,15 +378,16 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countTimezonesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
+    public function countTimezonesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countTimezonesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countTimezonesAsyncRequest($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -424,13 +430,15 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countTimezonesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
+    public function countTimezonesAsyncRequest($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesAsync'][0])
     {
+
 
 
 
@@ -466,7 +474,14 @@ class TimezonesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($timezone_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($timezone_dto_collection_query_parameters));
+            } else {
+                $httpBody = $timezone_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -922,15 +937,16 @@ class TimezonesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TimezoneDtoListEnvelope
      */
-    public function getTimeZonesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
+    public function getTimeZonesAsync($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
     {
-        list($response) = $this->getTimeZonesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getTimeZonesAsyncWithHttpInfo($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -941,15 +957,16 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TimezoneDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeZonesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
+    public function getTimeZonesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
     {
-        $request = $this->getTimeZonesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getTimeZonesAsyncRequest($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1137,14 +1154,15 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeZonesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
+    public function getTimeZonesAsyncAsync($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
     {
-        return $this->getTimeZonesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getTimeZonesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,15 +1177,16 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeZonesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
+    public function getTimeZonesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TimezoneDtoListEnvelope';
-        $request = $this->getTimeZonesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getTimeZonesAsyncRequest($api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1210,13 +1229,15 @@ class TimezonesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeZonesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
+    public function getTimeZonesAsyncRequest($api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesAsync'][0])
     {
+
 
 
 
@@ -1252,7 +1273,14 @@ class TimezonesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($timezone_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($timezone_dto_collection_query_parameters));
+            } else {
+                $httpBody = $timezone_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

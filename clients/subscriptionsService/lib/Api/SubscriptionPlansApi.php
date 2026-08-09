@@ -84,9 +84,11 @@ class SubscriptionPlansApi
         ],
         'getSubscriptionPlansAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSubscriptionPlansCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSubscriptionPlanAsync' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class SubscriptionPlansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SubscriptionPlanDtoIReadOnlyListEnvelope
      */
-    public function getSubscriptionPlansAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
+    public function getSubscriptionPlansAsync($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
     {
-        list($response) = $this->getSubscriptionPlansAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSubscriptionPlansAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SubscriptionPlanDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubscriptionPlansAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
+    public function getSubscriptionPlansAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
     {
-        $request = $this->getSubscriptionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSubscriptionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlansAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
+    public function getSubscriptionPlansAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
     {
-        return $this->getSubscriptionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSubscriptionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
+    public function getSubscriptionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SubscriptionPlanDtoIReadOnlyListEnvelope';
-        $request = $this->getSubscriptionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSubscriptionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSubscriptionPlansAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
+    public function getSubscriptionPlansAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class SubscriptionPlansApi
                 'Missing the required parameter $tenant_id when calling getSubscriptionPlansAsync'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class SubscriptionPlansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($subscription_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($subscription_dto_collection_query_parameters));
+            } else {
+                $httpBody = $subscription_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class SubscriptionPlansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSubscriptionPlansCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
+    public function getSubscriptionPlansCountAsync($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
     {
-        list($response) = $this->getSubscriptionPlansCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSubscriptionPlansCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSubscriptionPlansCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
+    public function getSubscriptionPlansCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
     {
-        $request = $this->getSubscriptionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSubscriptionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlansCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
+    public function getSubscriptionPlansCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
     {
-        return $this->getSubscriptionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSubscriptionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSubscriptionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
+    public function getSubscriptionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSubscriptionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSubscriptionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class SubscriptionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters $subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSubscriptionPlansCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
+    public function getSubscriptionPlansCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSubscriptionPlansCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class SubscriptionPlansApi
                 'Missing the required parameter $tenant_id when calling getSubscriptionPlansCountAsync'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class SubscriptionPlansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($subscription_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($subscription_dto_collection_query_parameters));
+            } else {
+                $httpBody = $subscription_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class SubscriptionPlansApi
      * @param  string $plan_id plan_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSubscriptionPlanAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSubscriptionPlanAsync($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
+    public function patchSubscriptionPlanAsync($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
     {
-        list($response) = $this->patchSubscriptionPlanAsyncWithHttpInfo($tenant_id, $plan_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSubscriptionPlanAsyncWithHttpInfo($tenant_id, $plan_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class SubscriptionPlansApi
      * @param  string $plan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSubscriptionPlanAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSubscriptionPlanAsyncWithHttpInfo($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
+    public function patchSubscriptionPlanAsyncWithHttpInfo($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
     {
-        $request = $this->patchSubscriptionPlanAsyncRequest($tenant_id, $plan_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSubscriptionPlanAsyncRequest($tenant_id, $plan_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class SubscriptionPlansApi
      * @param  string $plan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSubscriptionPlanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSubscriptionPlanAsyncAsync($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
+    public function patchSubscriptionPlanAsyncAsync($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
     {
-        return $this->patchSubscriptionPlanAsyncAsyncWithHttpInfo($tenant_id, $plan_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSubscriptionPlanAsyncAsyncWithHttpInfo($tenant_id, $plan_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class SubscriptionPlansApi
      * @param  string $plan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSubscriptionPlanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSubscriptionPlanAsyncAsyncWithHttpInfo($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
+    public function patchSubscriptionPlanAsyncAsyncWithHttpInfo($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSubscriptionPlanAsyncRequest($tenant_id, $plan_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSubscriptionPlanAsyncRequest($tenant_id, $plan_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class SubscriptionPlansApi
      * @param  string $plan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSubscriptionPlanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSubscriptionPlanAsyncRequest($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
+    public function patchSubscriptionPlanAsyncRequest($tenant_id, $plan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSubscriptionPlanAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class SubscriptionPlansApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -84,9 +84,11 @@ class TimeIntervalsApi
         ],
         'getTimeIntervalsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTimeIntervalsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchTimeIntervalAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class TimeIntervalsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TimeIntervalDtoListEnvelope
      */
-    public function getTimeIntervalsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
+    public function getTimeIntervalsAsync($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
     {
-        list($response) = $this->getTimeIntervalsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTimeIntervalsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TimeIntervalDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeIntervalsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
+    public function getTimeIntervalsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
     {
-        $request = $this->getTimeIntervalsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTimeIntervalsAsyncRequest($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeIntervalsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
+    public function getTimeIntervalsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
     {
-        return $this->getTimeIntervalsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTimeIntervalsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeIntervalsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
+    public function getTimeIntervalsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TimeIntervalDtoListEnvelope';
-        $request = $this->getTimeIntervalsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTimeIntervalsAsyncRequest($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeIntervalsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
+    public function getTimeIntervalsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class TimeIntervalsApi
                 'Missing the required parameter $tenant_id when calling getTimeIntervalsAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class TimeIntervalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($time_interval_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_interval_dto_collection_query_parameters));
+            } else {
+                $httpBody = $time_interval_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class TimeIntervalsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTimeIntervalsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
+    public function getTimeIntervalsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
     {
-        list($response) = $this->getTimeIntervalsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTimeIntervalsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeIntervalsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
+    public function getTimeIntervalsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
     {
-        $request = $this->getTimeIntervalsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTimeIntervalsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeIntervalsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
+    public function getTimeIntervalsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
     {
-        return $this->getTimeIntervalsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTimeIntervalsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeIntervalsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
+    public function getTimeIntervalsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTimeIntervalsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTimeIntervalsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $time_interval_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class TimeIntervalsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimeIntervalDtoCollectionQueryParameters $time_interval_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeIntervalsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeIntervalsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
+    public function getTimeIntervalsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $time_interval_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeIntervalsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class TimeIntervalsApi
                 'Missing the required parameter $tenant_id when calling getTimeIntervalsCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class TimeIntervalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($time_interval_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($time_interval_dto_collection_query_parameters));
+            } else {
+                $httpBody = $time_interval_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class TimeIntervalsApi
      * @param  string $time_interval_id time_interval_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTimeIntervalAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTimeIntervalAsync($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
+    public function patchTimeIntervalAsync($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
     {
-        list($response) = $this->patchTimeIntervalAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTimeIntervalAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class TimeIntervalsApi
      * @param  string $time_interval_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTimeIntervalAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTimeIntervalAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
+    public function patchTimeIntervalAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
     {
-        $request = $this->patchTimeIntervalAsyncRequest($tenant_id, $time_interval_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTimeIntervalAsyncRequest($tenant_id, $time_interval_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class TimeIntervalsApi
      * @param  string $time_interval_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTimeIntervalAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTimeIntervalAsyncAsync($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
+    public function patchTimeIntervalAsyncAsync($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
     {
-        return $this->patchTimeIntervalAsyncAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTimeIntervalAsyncAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class TimeIntervalsApi
      * @param  string $time_interval_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTimeIntervalAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTimeIntervalAsyncAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
+    public function patchTimeIntervalAsyncAsyncWithHttpInfo($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTimeIntervalAsyncRequest($tenant_id, $time_interval_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTimeIntervalAsyncRequest($tenant_id, $time_interval_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class TimeIntervalsApi
      * @param  string $time_interval_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTimeIntervalAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTimeIntervalAsyncRequest($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
+    public function patchTimeIntervalAsyncRequest($tenant_id, $time_interval_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTimeIntervalAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class TimeIntervalsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

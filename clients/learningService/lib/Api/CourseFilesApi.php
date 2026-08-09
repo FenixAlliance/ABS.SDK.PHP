@@ -84,9 +84,11 @@ class CourseFilesApi
         ],
         'getCourseFilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseFilesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCourseFileAsync' => [
             'application/json',
@@ -1055,15 +1057,16 @@ class CourseFilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseFileDto[]
      */
-    public function getCourseFilesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
+    public function getCourseFilesAsync($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
     {
-        list($response) = $this->getCourseFilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseFilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1075,15 +1078,16 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseFileDto[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseFilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
+    public function getCourseFilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
     {
-        $request = $this->getCourseFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1237,14 +1241,15 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseFilesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
+    public function getCourseFilesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
     {
-        return $this->getCourseFilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseFilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1260,15 +1265,16 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseFilesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
+    public function getCourseFilesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseFileDto[]';
-        $request = $this->getCourseFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseFilesAsyncRequest($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1312,12 +1318,13 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseFilesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
+    public function getCourseFilesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1326,6 +1333,7 @@ class CourseFilesApi
                 'Missing the required parameter $tenant_id when calling getCourseFilesAsync'
             );
         }
+
 
 
 
@@ -1370,7 +1378,14 @@ class CourseFilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_file_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_file_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_file_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1424,15 +1439,16 @@ class CourseFilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|int
      */
-    public function getCourseFilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
+    public function getCourseFilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
     {
-        list($response) = $this->getCourseFilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseFilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1444,15 +1460,16 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|int, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseFilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
+    public function getCourseFilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
     {
-        $request = $this->getCourseFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1606,14 +1623,15 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseFilesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
+    public function getCourseFilesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
     {
-        return $this->getCourseFilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseFilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1629,15 +1647,16 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseFilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
+    public function getCourseFilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getCourseFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseFilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1681,12 +1700,13 @@ class CourseFilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters $course_file_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseFilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseFilesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
+    public function getCourseFilesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_file_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseFilesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1695,6 +1715,7 @@ class CourseFilesApi
                 'Missing the required parameter $tenant_id when calling getCourseFilesCountAsync'
             );
         }
+
 
 
 
@@ -1739,7 +1760,14 @@ class CourseFilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_file_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_file_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_file_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1794,16 +1822,16 @@ class CourseFilesApi
      * @param  string $file_id file_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseFileAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchCourseFileAsync($tenant_id, $file_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
+    public function patchCourseFileAsync($tenant_id, $file_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
     {
-        $this->patchCourseFileAsyncWithHttpInfo($tenant_id, $file_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchCourseFileAsyncWithHttpInfo($tenant_id, $file_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1815,16 +1843,16 @@ class CourseFilesApi
      * @param  string $file_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseFileAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseFileAsyncWithHttpInfo($tenant_id, $file_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
+    public function patchCourseFileAsyncWithHttpInfo($tenant_id, $file_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
     {
-        $request = $this->patchCourseFileAsyncRequest($tenant_id, $file_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseFileAsyncRequest($tenant_id, $file_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1875,15 +1903,15 @@ class CourseFilesApi
      * @param  string $file_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseFileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseFileAsyncAsync($tenant_id, $file_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
+    public function patchCourseFileAsyncAsync($tenant_id, $file_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
     {
-        return $this->patchCourseFileAsyncAsyncWithHttpInfo($tenant_id, $file_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseFileAsyncAsyncWithHttpInfo($tenant_id, $file_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1900,16 +1928,16 @@ class CourseFilesApi
      * @param  string $file_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseFileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseFileAsyncAsyncWithHttpInfo($tenant_id, $file_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
+    public function patchCourseFileAsyncAsyncWithHttpInfo($tenant_id, $file_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchCourseFileAsyncRequest($tenant_id, $file_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseFileAsyncRequest($tenant_id, $file_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1941,13 +1969,13 @@ class CourseFilesApi
      * @param  string $file_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseFileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseFileAsyncRequest($tenant_id, $file_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
+    public function patchCourseFileAsyncRequest($tenant_id, $file_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseFileAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2016,12 +2044,12 @@ class CourseFilesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

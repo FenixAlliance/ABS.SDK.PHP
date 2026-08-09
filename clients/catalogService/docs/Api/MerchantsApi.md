@@ -72,7 +72,7 @@ No authorization required
 ## `getMerchants()`
 
 ```php
-getMerchants($api_version, $x_api_version): \OpenAPI\Client\Model\MerchantDtoListEnvelope
+getMerchants($api_version, $x_api_version, $merchant_dto_collection_query_parameters): \OpenAPI\Client\Model\MerchantDtoListEnvelope
 ```
 
 Get all merchants
@@ -94,9 +94,10 @@ $apiInstance = new OpenAPI\Client\Api\MerchantsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$merchant_dto_collection_query_parameters = new \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMerchants($api_version, $x_api_version);
+    $result = $apiInstance->getMerchants($api_version, $x_api_version, $merchant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MerchantsApi->getMerchants: ', $e->getMessage(), PHP_EOL;
@@ -109,6 +110,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **merchant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters**](../Model/MerchantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -120,7 +122,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -130,7 +132,7 @@ No authorization required
 ## `getMerchantsCount()`
 
 ```php
-getMerchantsCount($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getMerchantsCount($api_version, $x_api_version, $merchant_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count merchants
@@ -152,9 +154,10 @@ $apiInstance = new OpenAPI\Client\Api\MerchantsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$merchant_dto_collection_query_parameters = new \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMerchantsCount($api_version, $x_api_version);
+    $result = $apiInstance->getMerchantsCount($api_version, $x_api_version, $merchant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MerchantsApi->getMerchantsCount: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +170,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **merchant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters**](../Model/MerchantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -178,7 +182,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

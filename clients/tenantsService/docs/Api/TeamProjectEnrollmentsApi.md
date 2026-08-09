@@ -202,7 +202,7 @@ No authorization required
 ## `getTenantTeamProjectEnrollments()`
 
 ```php
-getTenantTeamProjectEnrollments($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoListEnvelope
+getTenantTeamProjectEnrollments($tenant_id, $api_version, $x_api_version, $tenant_team_project_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoListEnvelope
 ```
 
 Retrieve a list of tenant team project enrollments
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\TeamProjectEnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_team_project_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantTeamProjectEnrollments($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantTeamProjectEnrollments($tenant_id, $api_version, $x_api_version, $tenant_team_project_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TeamProjectEnrollmentsApi->getTenantTeamProjectEnrollments: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_team_project_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoCollectionQueryParameters**](../Model/TenantTeamProjectEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getTenantTeamProjectEnrollmentsCount()`
 
 ```php
-getTenantTeamProjectEnrollmentsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantTeamProjectEnrollmentsCount($tenant_id, $api_version, $x_api_version, $tenant_team_project_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant team project enrollments
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\TeamProjectEnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_team_project_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantTeamProjectEnrollmentsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantTeamProjectEnrollmentsCount($tenant_id, $api_version, $x_api_version, $tenant_team_project_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TeamProjectEnrollmentsApi->getTenantTeamProjectEnrollmentsCount: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_team_project_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantTeamProjectEnrollmentDtoCollectionQueryParameters**](../Model/TenantTeamProjectEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTenantTeamProjectEnrollment()`
 
 ```php
-patchTenantTeamProjectEnrollment($tenant_id, $tenant_team_project_enrollment_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenantTeamProjectEnrollment($tenant_id, $tenant_team_project_enrollment_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tenant team project enrollment
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tenant_team_project_enrollment_id = 'tenant_team_project_enrollment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenantTeamProjectEnrollment($tenant_id, $tenant_team_project_enrollment_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenantTeamProjectEnrollment($tenant_id, $tenant_team_project_enrollment_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TeamProjectEnrollmentsApi->patchTenantTeamProjectEnrollment: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **tenant_team_project_enrollment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

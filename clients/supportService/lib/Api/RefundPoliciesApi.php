@@ -81,9 +81,11 @@ class RefundPoliciesApi
         ],
         'getRefundPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRefundPoliciesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRefundPolicyAsync' => [
             'application/json',
@@ -993,15 +995,16 @@ class RefundPoliciesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope
      */
-    public function getRefundPoliciesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
+    public function getRefundPoliciesAsync($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
     {
-        list($response) = $this->getRefundPoliciesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRefundPoliciesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1013,15 +1016,16 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRefundPoliciesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
+    public function getRefundPoliciesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
     {
-        $request = $this->getRefundPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRefundPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1210,14 +1214,15 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRefundPoliciesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
+    public function getRefundPoliciesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
     {
-        return $this->getRefundPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRefundPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1233,15 +1238,16 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRefundPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
+    public function getRefundPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope';
-        $request = $this->getRefundPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRefundPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1285,12 +1291,13 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRefundPoliciesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
+    public function getRefundPoliciesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1299,6 +1306,7 @@ class RefundPoliciesApi
                 'Missing the required parameter $tenant_id when calling getRefundPoliciesAsync'
             );
         }
+
 
 
 
@@ -1343,7 +1351,14 @@ class RefundPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_refund_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_refund_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_refund_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1397,15 +1412,16 @@ class RefundPoliciesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRefundPoliciesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
+    public function getRefundPoliciesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
     {
-        list($response) = $this->getRefundPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRefundPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1417,15 +1433,16 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRefundPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
+    public function getRefundPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
     {
-        $request = $this->getRefundPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRefundPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1614,14 +1631,15 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRefundPoliciesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
+    public function getRefundPoliciesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
     {
-        return $this->getRefundPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRefundPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1637,15 +1655,16 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRefundPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
+    public function getRefundPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRefundPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRefundPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,12 +1708,13 @@ class RefundPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRefundPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRefundPoliciesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
+    public function getRefundPoliciesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRefundPoliciesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1703,6 +1723,7 @@ class RefundPoliciesApi
                 'Missing the required parameter $tenant_id when calling getRefundPoliciesCountAsync'
             );
         }
+
 
 
 
@@ -1747,7 +1768,14 @@ class RefundPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_refund_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_refund_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_refund_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class RefundPoliciesApi
      * @param  string $refund_policy_id refund_policy_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRefundPolicyAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRefundPolicyAsync($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
+    public function patchRefundPolicyAsync($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
     {
-        list($response) = $this->patchRefundPolicyAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchRefundPolicyAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class RefundPoliciesApi
      * @param  string $refund_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRefundPolicyAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRefundPolicyAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
+    public function patchRefundPolicyAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
     {
-        $request = $this->patchRefundPolicyAsyncRequest($tenant_id, $refund_policy_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRefundPolicyAsyncRequest($tenant_id, $refund_policy_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class RefundPoliciesApi
      * @param  string $refund_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRefundPolicyAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRefundPolicyAsyncAsync($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
+    public function patchRefundPolicyAsyncAsync($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
     {
-        return $this->patchRefundPolicyAsyncAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchRefundPolicyAsyncAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class RefundPoliciesApi
      * @param  string $refund_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRefundPolicyAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRefundPolicyAsyncAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
+    public function patchRefundPolicyAsyncAsyncWithHttpInfo($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRefundPolicyAsyncRequest($tenant_id, $refund_policy_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRefundPolicyAsyncRequest($tenant_id, $refund_policy_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class RefundPoliciesApi
      * @param  string $refund_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRefundPolicyAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRefundPolicyAsyncRequest($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
+    public function patchRefundPolicyAsyncRequest($tenant_id, $refund_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRefundPolicyAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class RefundPoliciesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

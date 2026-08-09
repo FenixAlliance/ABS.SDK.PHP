@@ -200,7 +200,7 @@ No authorization required
 ## `getItemQuestionsAsync()`
 
 ```php
-getItemQuestionsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemQuestionDtoListEnvelope
+getItemQuestionsAsync($tenant_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemQuestionDtoListEnvelope
 ```
 
 Get all item questions
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemQuestionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_question_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemQuestionsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemQuestionsAsync($tenant_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemQuestionsApi->getItemQuestionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_question_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters**](../Model/ItemQuestionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `patchItemQuestionAsync()`
 
 ```php
-patchItemQuestionAsync($tenant_id, $item_question_id, $api_version, $x_api_version, $operation)
+patchItemQuestionAsync($tenant_id, $item_question_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch an item question
@@ -284,10 +286,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_question_id = 'item_question_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchItemQuestionAsync($tenant_id, $item_question_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchItemQuestionAsync($tenant_id, $item_question_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemQuestionsApi->patchItemQuestionAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -301,7 +303,7 @@ try {
 | **item_question_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

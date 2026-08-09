@@ -91,18 +91,22 @@ class ItemRestocksApi
         ],
         'getItemRestockEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemRestockEntriesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemRestockEntryByIdAsync' => [
             'application/json',
         ],
         'getItemRestocksAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemRestocksCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemRestockAsync' => [
             'application/json',
@@ -2148,15 +2152,16 @@ class ItemRestocksApi
      * @param  string $restock_id restock_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemRestockEntryDtoListEnvelope
      */
-    public function getItemRestockEntriesAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
+    public function getItemRestockEntriesAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
     {
-        list($response) = $this->getItemRestockEntriesAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemRestockEntriesAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2169,15 +2174,16 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemRestockEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemRestockEntriesAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
+    public function getItemRestockEntriesAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
     {
-        $request = $this->getItemRestockEntriesAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestockEntriesAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2297,14 +2303,15 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestockEntriesAsyncAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
+    public function getItemRestockEntriesAsyncAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
     {
-        return $this->getItemRestockEntriesAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemRestockEntriesAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2321,15 +2328,16 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestockEntriesAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
+    public function getItemRestockEntriesAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemRestockEntryDtoListEnvelope';
-        $request = $this->getItemRestockEntriesAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestockEntriesAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2374,12 +2382,13 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemRestockEntriesAsyncRequest($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
+    public function getItemRestockEntriesAsyncRequest($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2395,6 +2404,7 @@ class ItemRestocksApi
                 'Missing the required parameter $restock_id when calling getItemRestockEntriesAsync'
             );
         }
+
 
 
 
@@ -2447,7 +2457,14 @@ class ItemRestocksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_restock_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_restock_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_restock_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2502,15 +2519,16 @@ class ItemRestocksApi
      * @param  string $restock_id restock_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemRestockEntriesCountAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
+    public function getItemRestockEntriesCountAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
     {
-        list($response) = $this->getItemRestockEntriesCountAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemRestockEntriesCountAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2523,15 +2541,16 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemRestockEntriesCountAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
+    public function getItemRestockEntriesCountAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
     {
-        $request = $this->getItemRestockEntriesCountAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestockEntriesCountAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2651,14 +2670,15 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestockEntriesCountAsyncAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
+    public function getItemRestockEntriesCountAsyncAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
     {
-        return $this->getItemRestockEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemRestockEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2675,15 +2695,16 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestockEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
+    public function getItemRestockEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemRestockEntriesCountAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestockEntriesCountAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2728,12 +2749,13 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters $item_restock_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestockEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemRestockEntriesCountAsyncRequest($tenant_id, $restock_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
+    public function getItemRestockEntriesCountAsyncRequest($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $item_restock_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestockEntriesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2749,6 +2771,7 @@ class ItemRestocksApi
                 'Missing the required parameter $restock_id when calling getItemRestockEntriesCountAsync'
             );
         }
+
 
 
 
@@ -2801,7 +2824,14 @@ class ItemRestocksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_restock_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_restock_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_restock_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3264,15 +3294,16 @@ class ItemRestocksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemRestockDtoListEnvelope
      */
-    public function getItemRestocksAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
+    public function getItemRestocksAsync($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
     {
-        list($response) = $this->getItemRestocksAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemRestocksAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3284,15 +3315,16 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemRestockDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemRestocksAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
+    public function getItemRestocksAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
     {
-        $request = $this->getItemRestocksAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestocksAsyncRequest($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3481,14 +3513,15 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestocksAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
+    public function getItemRestocksAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
     {
-        return $this->getItemRestocksAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemRestocksAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3504,15 +3537,16 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestocksAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
+    public function getItemRestocksAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemRestockDtoListEnvelope';
-        $request = $this->getItemRestocksAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestocksAsyncRequest($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3556,12 +3590,13 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemRestocksAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
+    public function getItemRestocksAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3570,6 +3605,7 @@ class ItemRestocksApi
                 'Missing the required parameter $tenant_id when calling getItemRestocksAsync'
             );
         }
+
 
 
 
@@ -3614,7 +3650,14 @@ class ItemRestocksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_restock_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_restock_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_restock_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3668,15 +3711,16 @@ class ItemRestocksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemRestocksCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
+    public function getItemRestocksCountAsync($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
     {
-        list($response) = $this->getItemRestocksCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemRestocksCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3688,15 +3732,16 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemRestocksCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
+    public function getItemRestocksCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
     {
-        $request = $this->getItemRestocksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestocksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3815,14 +3860,15 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestocksCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
+    public function getItemRestocksCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
     {
-        return $this->getItemRestocksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemRestocksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3838,15 +3884,16 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemRestocksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
+    public function getItemRestocksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemRestocksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemRestocksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3890,12 +3937,13 @@ class ItemRestocksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters $item_restock_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemRestocksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemRestocksCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
+    public function getItemRestocksCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_restock_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemRestocksCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3904,6 +3952,7 @@ class ItemRestocksApi
                 'Missing the required parameter $tenant_id when calling getItemRestocksCountAsync'
             );
         }
+
 
 
 
@@ -3948,7 +3997,14 @@ class ItemRestocksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_restock_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_restock_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_restock_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4003,16 +4059,16 @@ class ItemRestocksApi
      * @param  string $restock_id restock_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemRestockAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
+    public function patchItemRestockAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
     {
-        list($response) = $this->patchItemRestockAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemRestockAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4025,16 +4081,16 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemRestockAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
+    public function patchItemRestockAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
     {
-        $request = $this->patchItemRestockAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemRestockAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4189,15 +4245,15 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemRestockAsyncAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
+    public function patchItemRestockAsyncAsync($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
     {
-        return $this->patchItemRestockAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemRestockAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4214,16 +4270,16 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemRestockAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
+    public function patchItemRestockAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemRestockAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemRestockAsyncRequest($tenant_id, $restock_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4268,13 +4324,13 @@ class ItemRestocksApi
      * @param  string $restock_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemRestockAsyncRequest($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
+    public function patchItemRestockAsyncRequest($tenant_id, $restock_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4343,12 +4399,12 @@ class ItemRestocksApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4406,16 +4462,16 @@ class ItemRestocksApi
      * @param  string $entry_id entry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemRestockEntryAsync($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
+    public function patchItemRestockEntryAsync($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
     {
-        list($response) = $this->patchItemRestockEntryAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemRestockEntryAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4429,16 +4485,16 @@ class ItemRestocksApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemRestockEntryAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
+    public function patchItemRestockEntryAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
     {
-        $request = $this->patchItemRestockEntryAsyncRequest($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemRestockEntryAsyncRequest($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4594,15 +4650,15 @@ class ItemRestocksApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemRestockEntryAsyncAsync($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
+    public function patchItemRestockEntryAsyncAsync($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
     {
-        return $this->patchItemRestockEntryAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemRestockEntryAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4620,16 +4676,16 @@ class ItemRestocksApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemRestockEntryAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
+    public function patchItemRestockEntryAsyncAsyncWithHttpInfo($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemRestockEntryAsyncRequest($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemRestockEntryAsyncRequest($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4675,13 +4731,13 @@ class ItemRestocksApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemRestockEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemRestockEntryAsyncRequest($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
+    public function patchItemRestockEntryAsyncRequest($tenant_id, $restock_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemRestockEntryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4765,12 +4821,12 @@ class ItemRestocksApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -101,21 +101,26 @@ class CostCentresApi
         ],
         'getCostCentreBudgets' => [
             'application/json',
+            'application/xml',
         ],
         'getCostCentreGroup' => [
             'application/json',
         ],
         'getCostCentreGroups' => [
             'application/json',
+            'application/xml',
         ],
         'getCostCentreGroupsCount' => [
             'application/json',
+            'application/xml',
         ],
         'getCostCentres' => [
             'application/json',
+            'application/xml',
         ],
         'getCostCentresCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchCostCentre' => [
             'application/json',
@@ -3586,15 +3591,16 @@ class CostCentresApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters $cost_centre_budget_dto_collection_query_parameters cost_centre_budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreBudgets'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CostCentreBudgetDtoListEnvelope
      */
-    public function getCostCentreBudgets($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
+    public function getCostCentreBudgets($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
     {
-        list($response) = $this->getCostCentreBudgetsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCostCentreBudgetsWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_budget_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3606,15 +3612,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters $cost_centre_budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreBudgets'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CostCentreBudgetDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCostCentreBudgetsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
+    public function getCostCentreBudgetsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
     {
-        $request = $this->getCostCentreBudgetsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentreBudgetsRequest($tenant_id, $api_version, $x_api_version, $cost_centre_budget_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3803,14 +3810,15 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters $cost_centre_budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentreBudgetsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
+    public function getCostCentreBudgetsAsync($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
     {
-        return $this->getCostCentreBudgetsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCostCentreBudgetsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_budget_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3826,15 +3834,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters $cost_centre_budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentreBudgetsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
+    public function getCostCentreBudgetsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CostCentreBudgetDtoListEnvelope';
-        $request = $this->getCostCentreBudgetsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentreBudgetsRequest($tenant_id, $api_version, $x_api_version, $cost_centre_budget_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3878,12 +3887,13 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters $cost_centre_budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreBudgets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCostCentreBudgetsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
+    public function getCostCentreBudgetsRequest($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreBudgets'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3892,6 +3902,7 @@ class CostCentresApi
                 'Missing the required parameter $tenant_id when calling getCostCentreBudgets'
             );
         }
+
 
 
 
@@ -3936,7 +3947,14 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($cost_centre_budget_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cost_centre_budget_dto_collection_query_parameters));
+            } else {
+                $httpBody = $cost_centre_budget_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4414,15 +4432,16 @@ class CostCentresApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CostCentreGroupDtoListEnvelope
      */
-    public function getCostCentreGroups($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
+    public function getCostCentreGroups($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
     {
-        list($response) = $this->getCostCentreGroupsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCostCentreGroupsWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4434,15 +4453,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroups'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CostCentreGroupDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCostCentreGroupsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
+    public function getCostCentreGroupsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
     {
-        $request = $this->getCostCentreGroupsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentreGroupsRequest($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4631,14 +4651,15 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentreGroupsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
+    public function getCostCentreGroupsAsync($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
     {
-        return $this->getCostCentreGroupsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCostCentreGroupsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4654,15 +4675,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentreGroupsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
+    public function getCostCentreGroupsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CostCentreGroupDtoListEnvelope';
-        $request = $this->getCostCentreGroupsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentreGroupsRequest($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4706,12 +4728,13 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCostCentreGroupsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
+    public function getCostCentreGroupsRequest($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroups'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4720,6 +4743,7 @@ class CostCentresApi
                 'Missing the required parameter $tenant_id when calling getCostCentreGroups'
             );
         }
+
 
 
 
@@ -4764,7 +4788,14 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($cost_centre_group_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cost_centre_group_dto_collection_query_parameters));
+            } else {
+                $httpBody = $cost_centre_group_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4818,15 +4849,16 @@ class CostCentresApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroupsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getCostCentreGroupsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
+    public function getCostCentreGroupsCount($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
     {
-        list($response) = $this->getCostCentreGroupsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCostCentreGroupsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4838,15 +4870,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroupsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCostCentreGroupsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
+    public function getCostCentreGroupsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
     {
-        $request = $this->getCostCentreGroupsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentreGroupsCountRequest($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5035,14 +5068,15 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroupsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentreGroupsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
+    public function getCostCentreGroupsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
     {
-        return $this->getCostCentreGroupsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCostCentreGroupsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5058,15 +5092,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroupsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentreGroupsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
+    public function getCostCentreGroupsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getCostCentreGroupsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentreGroupsCountRequest($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5110,12 +5145,13 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters $cost_centre_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentreGroupsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCostCentreGroupsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
+    public function getCostCentreGroupsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentreGroupsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5124,6 +5160,7 @@ class CostCentresApi
                 'Missing the required parameter $tenant_id when calling getCostCentreGroupsCount'
             );
         }
+
 
 
 
@@ -5168,7 +5205,14 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($cost_centre_group_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cost_centre_group_dto_collection_query_parameters));
+            } else {
+                $httpBody = $cost_centre_group_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5222,15 +5266,16 @@ class CostCentresApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentres'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CostCentreDtoListEnvelope
      */
-    public function getCostCentres($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentres'][0])
+    public function getCostCentres($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentres'][0])
     {
-        list($response) = $this->getCostCentresWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCostCentresWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5242,15 +5287,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentres'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CostCentreDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCostCentresWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentres'][0])
+    public function getCostCentresWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentres'][0])
     {
-        $request = $this->getCostCentresRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentresRequest($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5439,14 +5485,15 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentres'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentresAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentres'][0])
+    public function getCostCentresAsync($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentres'][0])
     {
-        return $this->getCostCentresAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCostCentresAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5462,15 +5509,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentres'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentresAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentres'][0])
+    public function getCostCentresAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentres'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CostCentreDtoListEnvelope';
-        $request = $this->getCostCentresRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentresRequest($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5514,12 +5562,13 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentres'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCostCentresRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentres'][0])
+    public function getCostCentresRequest($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentres'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5528,6 +5577,7 @@ class CostCentresApi
                 'Missing the required parameter $tenant_id when calling getCostCentres'
             );
         }
+
 
 
 
@@ -5572,7 +5622,14 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($cost_centre_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cost_centre_dto_collection_query_parameters));
+            } else {
+                $httpBody = $cost_centre_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5626,15 +5683,16 @@ class CostCentresApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentresCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getCostCentresCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
+    public function getCostCentresCount($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
     {
-        list($response) = $this->getCostCentresCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCostCentresCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5646,15 +5704,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentresCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCostCentresCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
+    public function getCostCentresCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
     {
-        $request = $this->getCostCentresCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentresCountRequest($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5843,14 +5902,15 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentresCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentresCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
+    public function getCostCentresCountAsync($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
     {
-        return $this->getCostCentresCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCostCentresCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5866,15 +5926,16 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentresCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCostCentresCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
+    public function getCostCentresCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getCostCentresCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCostCentresCountRequest($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5918,12 +5979,13 @@ class CostCentresApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters $cost_centre_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCostCentresCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCostCentresCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
+    public function getCostCentresCountRequest($tenant_id, $api_version = null, $x_api_version = null, $cost_centre_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCostCentresCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5932,6 +5994,7 @@ class CostCentresApi
                 'Missing the required parameter $tenant_id when calling getCostCentresCount'
             );
         }
+
 
 
 
@@ -5976,7 +6039,14 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($cost_centre_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cost_centre_dto_collection_query_parameters));
+            } else {
+                $httpBody = $cost_centre_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6031,16 +6101,16 @@ class CostCentresApi
      * @param  string $cost_centre_id cost_centre_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentre'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCostCentre($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
+    public function patchCostCentre($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
     {
-        list($response) = $this->patchCostCentreWithHttpInfo($tenant_id, $cost_centre_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCostCentreWithHttpInfo($tenant_id, $cost_centre_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6053,16 +6123,16 @@ class CostCentresApi
      * @param  string $cost_centre_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentre'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCostCentreWithHttpInfo($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
+    public function patchCostCentreWithHttpInfo($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
     {
-        $request = $this->patchCostCentreRequest($tenant_id, $cost_centre_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCostCentreRequest($tenant_id, $cost_centre_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6252,15 +6322,15 @@ class CostCentresApi
      * @param  string $cost_centre_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentre'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCostCentreAsync($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
+    public function patchCostCentreAsync($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
     {
-        return $this->patchCostCentreAsyncWithHttpInfo($tenant_id, $cost_centre_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCostCentreAsyncWithHttpInfo($tenant_id, $cost_centre_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6277,16 +6347,16 @@ class CostCentresApi
      * @param  string $cost_centre_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentre'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCostCentreAsyncWithHttpInfo($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
+    public function patchCostCentreAsyncWithHttpInfo($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCostCentreRequest($tenant_id, $cost_centre_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCostCentreRequest($tenant_id, $cost_centre_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6331,13 +6401,13 @@ class CostCentresApi
      * @param  string $cost_centre_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentre'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCostCentreRequest($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
+    public function patchCostCentreRequest($tenant_id, $cost_centre_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentre'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6406,12 +6476,12 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6468,16 +6538,16 @@ class CostCentresApi
      * @param  string $budget_id budget_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreBudget'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCostCentreBudget($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
+    public function patchCostCentreBudget($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
     {
-        list($response) = $this->patchCostCentreBudgetWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCostCentreBudgetWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6490,16 +6560,16 @@ class CostCentresApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreBudget'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCostCentreBudgetWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
+    public function patchCostCentreBudgetWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
     {
-        $request = $this->patchCostCentreBudgetRequest($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCostCentreBudgetRequest($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6689,15 +6759,15 @@ class CostCentresApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCostCentreBudgetAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
+    public function patchCostCentreBudgetAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
     {
-        return $this->patchCostCentreBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCostCentreBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6714,16 +6784,16 @@ class CostCentresApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCostCentreBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
+    public function patchCostCentreBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCostCentreBudgetRequest($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCostCentreBudgetRequest($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6768,13 +6838,13 @@ class CostCentresApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreBudget'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCostCentreBudgetRequest($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
+    public function patchCostCentreBudgetRequest($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreBudget'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6843,12 +6913,12 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6905,16 +6975,16 @@ class CostCentresApi
      * @param  string $group_id group_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCostCentreGroup($tenant_id, $group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
+    public function patchCostCentreGroup($tenant_id, $group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
     {
-        list($response) = $this->patchCostCentreGroupWithHttpInfo($tenant_id, $group_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCostCentreGroupWithHttpInfo($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6927,16 +6997,16 @@ class CostCentresApi
      * @param  string $group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreGroup'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCostCentreGroupWithHttpInfo($tenant_id, $group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
+    public function patchCostCentreGroupWithHttpInfo($tenant_id, $group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
     {
-        $request = $this->patchCostCentreGroupRequest($tenant_id, $group_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCostCentreGroupRequest($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7126,15 +7196,15 @@ class CostCentresApi
      * @param  string $group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCostCentreGroupAsync($tenant_id, $group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
+    public function patchCostCentreGroupAsync($tenant_id, $group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
     {
-        return $this->patchCostCentreGroupAsyncWithHttpInfo($tenant_id, $group_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCostCentreGroupAsyncWithHttpInfo($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7151,16 +7221,16 @@ class CostCentresApi
      * @param  string $group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCostCentreGroupAsyncWithHttpInfo($tenant_id, $group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
+    public function patchCostCentreGroupAsyncWithHttpInfo($tenant_id, $group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCostCentreGroupRequest($tenant_id, $group_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCostCentreGroupRequest($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7205,13 +7275,13 @@ class CostCentresApi
      * @param  string $group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCostCentreGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCostCentreGroupRequest($tenant_id, $group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
+    public function patchCostCentreGroupRequest($tenant_id, $group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCostCentreGroup'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7280,12 +7350,12 @@ class CostCentresApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

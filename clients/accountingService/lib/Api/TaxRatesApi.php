@@ -84,9 +84,11 @@ class TaxRatesApi
         ],
         'getTaxRates' => [
             'application/json',
+            'application/xml',
         ],
         'getTaxRatesCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchTaxRate' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class TaxRatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRates'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TaxRateDtoListEnvelope
      */
-    public function getTaxRates($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRates'][0])
+    public function getTaxRates($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRates'][0])
     {
-        list($response) = $this->getTaxRatesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTaxRatesWithHttpInfo($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRates'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TaxRateDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaxRatesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRates'][0])
+    public function getTaxRatesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRates'][0])
     {
-        $request = $this->getTaxRatesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTaxRatesRequest($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRatesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRates'][0])
+    public function getTaxRatesAsync($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRates'][0])
     {
-        return $this->getTaxRatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTaxRatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRates'][0])
+    public function getTaxRatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRates'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TaxRateDtoListEnvelope';
-        $request = $this->getTaxRatesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTaxRatesRequest($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTaxRatesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRates'][0])
+    public function getTaxRatesRequest($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRates'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class TaxRatesApi
                 'Missing the required parameter $tenant_id when calling getTaxRates'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class TaxRatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tax_rate_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tax_rate_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tax_rate_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class TaxRatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRatesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTaxRatesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
+    public function getTaxRatesCount($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
     {
-        list($response) = $this->getTaxRatesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTaxRatesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRatesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaxRatesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
+    public function getTaxRatesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
     {
-        $request = $this->getTaxRatesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTaxRatesCountRequest($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRatesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRatesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
+    public function getTaxRatesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
     {
-        return $this->getTaxRatesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTaxRatesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRatesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRatesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
+    public function getTaxRatesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTaxRatesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTaxRatesCountRequest($tenant_id, $api_version, $x_api_version, $tax_rate_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class TaxRatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TaxRateDtoCollectionQueryParameters $tax_rate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRatesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTaxRatesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
+    public function getTaxRatesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tax_rate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTaxRatesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class TaxRatesApi
                 'Missing the required parameter $tenant_id when calling getTaxRatesCount'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class TaxRatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tax_rate_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tax_rate_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tax_rate_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class TaxRatesApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaxRate'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTaxRate($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
+    public function patchTaxRate($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
     {
-        list($response) = $this->patchTaxRateWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTaxRateWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class TaxRatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaxRate'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTaxRateWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
+    public function patchTaxRateWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
     {
-        $request = $this->patchTaxRateRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTaxRateRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class TaxRatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTaxRateAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
+    public function patchTaxRateAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
     {
-        return $this->patchTaxRateAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTaxRateAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class TaxRatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTaxRateAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
+    public function patchTaxRateAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTaxRateRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTaxRateRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class TaxRatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTaxRateRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
+    public function patchTaxRateRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTaxRate'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class TaxRatesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

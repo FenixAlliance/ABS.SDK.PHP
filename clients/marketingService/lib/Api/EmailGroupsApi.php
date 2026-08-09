@@ -84,9 +84,11 @@ class EmailGroupsApi
         ],
         'getEmailGroupsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getEmailGroupsODataAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchEmailGroupAsync' => [
             'application/json',
@@ -1528,15 +1530,16 @@ class EmailGroupsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getEmailGroupsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
+    public function getEmailGroupsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
     {
-        list($response) = $this->getEmailGroupsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEmailGroupsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1548,15 +1551,16 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailGroupsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
+    public function getEmailGroupsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
     {
-        $request = $this->getEmailGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1780,14 +1784,15 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailGroupsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
+    public function getEmailGroupsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
     {
-        return $this->getEmailGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getEmailGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1803,15 +1808,16 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
+    public function getEmailGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getEmailGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1855,12 +1861,13 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailGroupsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
+    public function getEmailGroupsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1869,6 +1876,7 @@ class EmailGroupsApi
                 'Missing the required parameter $tenant_id when calling getEmailGroupsCountAsync'
             );
         }
+
 
 
 
@@ -1913,7 +1921,14 @@ class EmailGroupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($email_group_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($email_group_dto_collection_query_parameters));
+            } else {
+                $httpBody = $email_group_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1967,15 +1982,16 @@ class EmailGroupsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmailGroupDtoListEnvelope
      */
-    public function getEmailGroupsODataAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
+    public function getEmailGroupsODataAsync($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
     {
-        list($response) = $this->getEmailGroupsODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEmailGroupsODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1987,15 +2003,16 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmailGroupDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailGroupsODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
+    public function getEmailGroupsODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
     {
-        $request = $this->getEmailGroupsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailGroupsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2184,14 +2201,15 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailGroupsODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
+    public function getEmailGroupsODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
     {
-        return $this->getEmailGroupsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getEmailGroupsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2207,15 +2225,16 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailGroupsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
+    public function getEmailGroupsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmailGroupDtoListEnvelope';
-        $request = $this->getEmailGroupsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailGroupsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $email_group_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2259,12 +2278,13 @@ class EmailGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailGroupDtoCollectionQueryParameters $email_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailGroupsODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailGroupsODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
+    public function getEmailGroupsODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $email_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailGroupsODataAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2273,6 +2293,7 @@ class EmailGroupsApi
                 'Missing the required parameter $tenant_id when calling getEmailGroupsODataAsync'
             );
         }
+
 
 
 
@@ -2317,7 +2338,14 @@ class EmailGroupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($email_group_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($email_group_dto_collection_query_parameters));
+            } else {
+                $httpBody = $email_group_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2372,16 +2400,16 @@ class EmailGroupsApi
      * @param  string $emailgroup_id emailgroup_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailGroupAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchEmailGroupAsync($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
+    public function patchEmailGroupAsync($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
     {
-        list($response) = $this->patchEmailGroupAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchEmailGroupAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2394,16 +2422,16 @@ class EmailGroupsApi
      * @param  string $emailgroup_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailGroupAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchEmailGroupAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
+    public function patchEmailGroupAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
     {
-        $request = $this->patchEmailGroupAsyncRequest($tenant_id, $emailgroup_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchEmailGroupAsyncRequest($tenant_id, $emailgroup_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2593,15 +2621,15 @@ class EmailGroupsApi
      * @param  string $emailgroup_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailGroupAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchEmailGroupAsyncAsync($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
+    public function patchEmailGroupAsyncAsync($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
     {
-        return $this->patchEmailGroupAsyncAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchEmailGroupAsyncAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2618,16 +2646,16 @@ class EmailGroupsApi
      * @param  string $emailgroup_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailGroupAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchEmailGroupAsyncAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
+    public function patchEmailGroupAsyncAsyncWithHttpInfo($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchEmailGroupAsyncRequest($tenant_id, $emailgroup_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchEmailGroupAsyncRequest($tenant_id, $emailgroup_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2672,13 +2700,13 @@ class EmailGroupsApi
      * @param  string $emailgroup_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailGroupAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchEmailGroupAsyncRequest($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
+    public function patchEmailGroupAsyncRequest($tenant_id, $emailgroup_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailGroupAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2747,12 +2775,12 @@ class EmailGroupsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

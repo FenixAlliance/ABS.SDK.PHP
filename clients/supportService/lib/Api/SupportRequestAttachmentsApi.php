@@ -84,9 +84,11 @@ class SupportRequestAttachmentsApi
         ],
         'getSupportRequestAttachmentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSupportRequestAttachmentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSupportRequestAttachmentAsync' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope
      */
-    public function getSupportRequestAttachmentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
+    public function getSupportRequestAttachmentsAsync($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
     {
-        list($response) = $this->getSupportRequestAttachmentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportRequestAttachmentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportRequestAttachmentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
+    public function getSupportRequestAttachmentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
     {
-        $request = $this->getSupportRequestAttachmentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportRequestAttachmentsAsyncRequest($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportRequestAttachmentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
+    public function getSupportRequestAttachmentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
     {
-        return $this->getSupportRequestAttachmentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportRequestAttachmentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportRequestAttachmentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
+    public function getSupportRequestAttachmentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope';
-        $request = $this->getSupportRequestAttachmentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportRequestAttachmentsAsyncRequest($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportRequestAttachmentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
+    public function getSupportRequestAttachmentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class SupportRequestAttachmentsApi
                 'Missing the required parameter $tenant_id when calling getSupportRequestAttachmentsAsync'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class SupportRequestAttachmentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_request_attachment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_request_attachment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_request_attachment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSupportRequestAttachmentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
+    public function getSupportRequestAttachmentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
     {
-        list($response) = $this->getSupportRequestAttachmentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportRequestAttachmentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportRequestAttachmentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
+    public function getSupportRequestAttachmentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
     {
-        $request = $this->getSupportRequestAttachmentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportRequestAttachmentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportRequestAttachmentsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
+    public function getSupportRequestAttachmentsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
     {
-        return $this->getSupportRequestAttachmentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportRequestAttachmentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportRequestAttachmentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
+    public function getSupportRequestAttachmentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSupportRequestAttachmentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportRequestAttachmentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class SupportRequestAttachmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters $support_request_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportRequestAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportRequestAttachmentsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
+    public function getSupportRequestAttachmentsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $support_request_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportRequestAttachmentsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class SupportRequestAttachmentsApi
                 'Missing the required parameter $tenant_id when calling getSupportRequestAttachmentsCountAsync'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class SupportRequestAttachmentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_request_attachment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_request_attachment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_request_attachment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class SupportRequestAttachmentsApi
      * @param  string $support_request_attachment_id support_request_attachment_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportRequestAttachmentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
+    public function patchSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
     {
-        list($response) = $this->patchSupportRequestAttachmentAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSupportRequestAttachmentAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class SupportRequestAttachmentsApi
      * @param  string $support_request_attachment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportRequestAttachmentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSupportRequestAttachmentAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
+    public function patchSupportRequestAttachmentAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
     {
-        $request = $this->patchSupportRequestAttachmentAsyncRequest($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupportRequestAttachmentAsyncRequest($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class SupportRequestAttachmentsApi
      * @param  string $support_request_attachment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportRequestAttachmentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupportRequestAttachmentAsyncAsync($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
+    public function patchSupportRequestAttachmentAsyncAsync($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
     {
-        return $this->patchSupportRequestAttachmentAsyncAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSupportRequestAttachmentAsyncAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class SupportRequestAttachmentsApi
      * @param  string $support_request_attachment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportRequestAttachmentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupportRequestAttachmentAsyncAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
+    public function patchSupportRequestAttachmentAsyncAsyncWithHttpInfo($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSupportRequestAttachmentAsyncRequest($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupportRequestAttachmentAsyncRequest($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class SupportRequestAttachmentsApi
      * @param  string $support_request_attachment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportRequestAttachmentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSupportRequestAttachmentAsyncRequest($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
+    public function patchSupportRequestAttachmentAsyncRequest($tenant_id, $support_request_attachment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportRequestAttachmentAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class SupportRequestAttachmentsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

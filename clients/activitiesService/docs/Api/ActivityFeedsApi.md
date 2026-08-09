@@ -27,7 +27,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countActivityTypesAsync()`
 
 ```php
-countActivityTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countActivityTypesAsync($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Activity Types
@@ -50,9 +50,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityFeedsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countActivityTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countActivityTypesAsync($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->countActivityTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -66,6 +67,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters**](../Model/ActivityTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -77,7 +79,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -339,7 +341,7 @@ No authorization required
 ## `getActivitiesAsync()`
 
 ```php
-getActivitiesAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ActivityRecordDtoListEnvelope
+getActivitiesAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters): \OpenAPI\Client\Model\ActivityRecordDtoListEnvelope
 ```
 
 Get activities
@@ -363,9 +365,10 @@ $tenant_id = 'tenant_id_example'; // string
 $activity_feed_id = 'activity_feed_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getActivitiesAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version);
+    $result = $apiInstance->getActivitiesAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->getActivitiesAsync: ', $e->getMessage(), PHP_EOL;
@@ -380,6 +383,7 @@ try {
 | **activity_feed_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters**](../Model/ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -391,7 +395,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -401,7 +405,7 @@ No authorization required
 ## `getActivitiesCountAsync()`
 
 ```php
-getActivitiesCountAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getActivitiesCountAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count activities
@@ -425,9 +429,10 @@ $tenant_id = 'tenant_id_example'; // string
 $activity_feed_id = 'activity_feed_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getActivitiesCountAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version);
+    $result = $apiInstance->getActivitiesCountAsync($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->getActivitiesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -442,6 +447,7 @@ try {
 | **activity_feed_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters**](../Model/ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +459,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -589,7 +595,7 @@ No authorization required
 ## `getActivityFeedsAsync()`
 
 ```php
-getActivityFeedsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ActivityFeedDtoListEnvelope
+getActivityFeedsAsync($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters): \OpenAPI\Client\Model\ActivityFeedDtoListEnvelope
 ```
 
 Get activity feeds
@@ -612,9 +618,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityFeedsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_feed_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getActivityFeedsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getActivityFeedsAsync($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->getActivityFeedsAsync: ', $e->getMessage(), PHP_EOL;
@@ -628,6 +635,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_feed_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters**](../Model/ActivityFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -639,7 +647,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -649,7 +657,7 @@ No authorization required
 ## `getActivityFeedsCountAsync()`
 
 ```php
-getActivityFeedsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getActivityFeedsCountAsync($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count activity feeds
@@ -672,9 +680,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityFeedsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_feed_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getActivityFeedsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getActivityFeedsCountAsync($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->getActivityFeedsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -688,6 +697,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_feed_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters**](../Model/ActivityFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -699,7 +709,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -709,7 +719,7 @@ No authorization required
 ## `getActivityRecordsCountAsync()`
 
 ```php
-getActivityRecordsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getActivityRecordsCountAsync($tenant_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count activity records
@@ -732,9 +742,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityFeedsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getActivityRecordsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getActivityRecordsCountAsync($tenant_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->getActivityRecordsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -748,6 +759,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters**](../Model/ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -759,7 +771,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -831,7 +843,7 @@ No authorization required
 ## `getActivityTypesAsync()`
 
 ```php
-getActivityTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ActivityTypeDtoListEnvelope
+getActivityTypesAsync($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters): \OpenAPI\Client\Model\ActivityTypeDtoListEnvelope
 ```
 
 Get Activity Types
@@ -854,9 +866,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityFeedsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getActivityTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getActivityTypesAsync($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->getActivityTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -870,6 +883,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **activity_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters**](../Model/ActivityTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -881,7 +895,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -891,7 +905,7 @@ No authorization required
 ## `patchActivityAsync()`
 
 ```php
-patchActivityAsync($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchActivityAsync($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an activity
@@ -916,10 +930,10 @@ $activity_feed_id = 'activity_feed_id_example'; // string
 $activity_id = 'activity_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchActivityAsync($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchActivityAsync($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->patchActivityAsync: ', $e->getMessage(), PHP_EOL;
@@ -935,7 +949,7 @@ try {
 | **activity_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -957,7 +971,7 @@ No authorization required
 ## `patchActivityTypeAsync()`
 
 ```php
-patchActivityTypeAsync($tenant_id, $activity_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchActivityTypeAsync($tenant_id, $activity_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch Activity Type
@@ -981,10 +995,10 @@ $tenant_id = 'tenant_id_example'; // string
 $activity_type_id = 'activity_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchActivityTypeAsync($tenant_id, $activity_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchActivityTypeAsync($tenant_id, $activity_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->patchActivityTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -999,7 +1013,7 @@ try {
 | **activity_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

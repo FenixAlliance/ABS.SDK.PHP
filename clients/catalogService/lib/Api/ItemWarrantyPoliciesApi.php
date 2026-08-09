@@ -74,9 +74,11 @@ class ItemWarrantyPoliciesApi
     public const contentTypes = [
         'countItemWarrantyPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemWarrantyPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemWarrantyPolicyByIdAsync' => [
             'application/json',
@@ -144,15 +146,16 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id item_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countItemWarrantyPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
+    public function countItemWarrantyPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
     {
-        list($response) = $this->countItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -165,15 +168,16 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
+    public function countItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
     {
-        $request = $this->countItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -363,14 +367,15 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countItemWarrantyPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
+    public function countItemWarrantyPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
     {
-        return $this->countItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->countItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -387,15 +392,16 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
+    public function countItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,13 +446,15 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countItemWarrantyPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
+    public function countItemWarrantyPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemWarrantyPoliciesAsync'][0])
     {
+
 
 
 
@@ -502,7 +510,14 @@ class ItemWarrantyPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_warranty_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_warranty_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_warranty_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -557,15 +572,16 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id item_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope
      */
-    public function getItemWarrantyPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
+    public function getItemWarrantyPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
     {
-        list($response) = $this->getItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -578,15 +594,16 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
+    public function getItemWarrantyPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
     {
-        $request = $this->getItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -776,14 +793,15 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemWarrantyPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
+    public function getItemWarrantyPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
     {
-        return $this->getItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -800,15 +818,16 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
+    public function getItemWarrantyPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope';
-        $request = $this->getItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemWarrantyPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -853,13 +872,15 @@ class ItemWarrantyPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemWarrantyPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemWarrantyPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
+    public function getItemWarrantyPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemWarrantyPoliciesAsync'][0])
     {
+
 
 
 
@@ -915,7 +936,14 @@ class ItemWarrantyPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_warranty_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_warranty_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_warranty_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

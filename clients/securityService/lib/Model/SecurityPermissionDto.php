@@ -62,6 +62,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => '\DateTime',
         'name' => 'string',
         'tenant_id' => 'string',
+        'category' => 'string',
         'description' => 'string',
         'is_system_permission' => 'bool'
     ];
@@ -78,6 +79,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'date-time',
         'name' => null,
         'tenant_id' => null,
+        'category' => null,
         'description' => null,
         'is_system_permission' => null
     ];
@@ -92,6 +94,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => true,
         'name' => true,
         'tenant_id' => true,
+        'category' => true,
         'description' => true,
         'is_system_permission' => false
     ];
@@ -186,6 +189,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'timestamp',
         'name' => 'name',
         'tenant_id' => 'tenantId',
+        'category' => 'category',
         'description' => 'description',
         'is_system_permission' => 'isSystemPermission'
     ];
@@ -200,6 +204,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
         'tenant_id' => 'setTenantId',
+        'category' => 'setCategory',
         'description' => 'setDescription',
         'is_system_permission' => 'setIsSystemPermission'
     ];
@@ -214,6 +219,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
         'tenant_id' => 'getTenantId',
+        'category' => 'getCategory',
         'description' => 'getDescription',
         'is_system_permission' => 'getIsSystemPermission'
     ];
@@ -279,6 +285,7 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('tenant_id', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('is_system_permission', $data ?? [], null);
     }
@@ -457,6 +464,40 @@ class SecurityPermissionDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['tenant_id'] = $tenant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }

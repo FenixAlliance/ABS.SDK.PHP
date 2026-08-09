@@ -63,7 +63,10 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'string',
         'message' => 'string',
         'social_feed_id' => 'string',
-        'social_profile_id' => 'string'
+        'social_profile_id' => 'string',
+        'body_html' => 'string',
+        'body_format' => 'string',
+        'background_style' => 'string'
     ];
 
     /**
@@ -79,7 +82,10 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => null,
         'message' => null,
         'social_feed_id' => null,
-        'social_profile_id' => null
+        'social_profile_id' => null,
+        'body_html' => null,
+        'body_format' => null,
+        'background_style' => null
     ];
 
     /**
@@ -93,7 +99,10 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => true,
         'message' => true,
         'social_feed_id' => true,
-        'social_profile_id' => true
+        'social_profile_id' => true,
+        'body_html' => true,
+        'body_format' => true,
+        'background_style' => true
     ];
 
     /**
@@ -187,7 +196,10 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'title',
         'message' => 'message',
         'social_feed_id' => 'socialFeedId',
-        'social_profile_id' => 'socialProfileId'
+        'social_profile_id' => 'socialProfileId',
+        'body_html' => 'bodyHtml',
+        'body_format' => 'bodyFormat',
+        'background_style' => 'backgroundStyle'
     ];
 
     /**
@@ -201,7 +213,10 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'setTitle',
         'message' => 'setMessage',
         'social_feed_id' => 'setSocialFeedId',
-        'social_profile_id' => 'setSocialProfileId'
+        'social_profile_id' => 'setSocialProfileId',
+        'body_html' => 'setBodyHtml',
+        'body_format' => 'setBodyFormat',
+        'background_style' => 'setBackgroundStyle'
     ];
 
     /**
@@ -215,7 +230,10 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'getTitle',
         'message' => 'getMessage',
         'social_feed_id' => 'getSocialFeedId',
-        'social_profile_id' => 'getSocialProfileId'
+        'social_profile_id' => 'getSocialProfileId',
+        'body_html' => 'getBodyHtml',
+        'body_format' => 'getBodyFormat',
+        'background_style' => 'getBackgroundStyle'
     ];
 
     /**
@@ -259,6 +277,21 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const BODY_FORMAT_PLAIN_TEXT = 'PlainText';
+    public const BODY_FORMAT_HTML = 'Html';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBodyFormatAllowableValues()
+    {
+        return [
+            self::BODY_FORMAT_PLAIN_TEXT,
+            self::BODY_FORMAT_HTML,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -281,6 +314,9 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('social_feed_id', $data ?? [], null);
         $this->setIfExists('social_profile_id', $data ?? [], null);
+        $this->setIfExists('body_html', $data ?? [], null);
+        $this->setIfExists('body_format', $data ?? [], null);
+        $this->setIfExists('background_style', $data ?? [], null);
     }
 
     /**
@@ -309,6 +345,23 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['body_html']) && (mb_strlen($this->container['body_html']) > 8000)) {
+            $invalidProperties[] = "invalid value for 'body_html', the character length must be smaller than or equal to 8000.";
+        }
+
+        $allowedValues = $this->getBodyFormatAllowableValues();
+        if (!is_null($this->container['body_format']) && !in_array($this->container['body_format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'body_format', must be one of '%s'",
+                $this->container['body_format'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['background_style']) && (mb_strlen($this->container['background_style']) > 64)) {
+            $invalidProperties[] = "invalid value for 'background_style', the character length must be smaller than or equal to 64.";
+        }
 
         return $invalidProperties;
     }
@@ -511,6 +564,126 @@ class SocialFeedPostCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['social_profile_id'] = $social_profile_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets body_html
+     *
+     * @return string|null
+     */
+    public function getBodyHtml()
+    {
+        return $this->container['body_html'];
+    }
+
+    /**
+     * Sets body_html
+     *
+     * @param string|null $body_html body_html
+     *
+     * @return self
+     */
+    public function setBodyHtml($body_html)
+    {
+        if (is_null($body_html)) {
+            array_push($this->openAPINullablesSetToNull, 'body_html');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('body_html', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($body_html) && (mb_strlen($body_html) > 8000)) {
+            throw new \InvalidArgumentException('invalid length for $body_html when calling SocialFeedPostCreateDto., must be smaller than or equal to 8000.');
+        }
+
+        $this->container['body_html'] = $body_html;
+
+        return $this;
+    }
+
+    /**
+     * Gets body_format
+     *
+     * @return string|null
+     */
+    public function getBodyFormat()
+    {
+        return $this->container['body_format'];
+    }
+
+    /**
+     * Sets body_format
+     *
+     * @param string|null $body_format body_format
+     *
+     * @return self
+     */
+    public function setBodyFormat($body_format)
+    {
+        if (is_null($body_format)) {
+            array_push($this->openAPINullablesSetToNull, 'body_format');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('body_format', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getBodyFormatAllowableValues();
+        if (!is_null($body_format) && !in_array($body_format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'body_format', must be one of '%s'",
+                    $body_format,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['body_format'] = $body_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets background_style
+     *
+     * @return string|null
+     */
+    public function getBackgroundStyle()
+    {
+        return $this->container['background_style'];
+    }
+
+    /**
+     * Sets background_style
+     *
+     * @param string|null $background_style background_style
+     *
+     * @return self
+     */
+    public function setBackgroundStyle($background_style)
+    {
+        if (is_null($background_style)) {
+            array_push($this->openAPINullablesSetToNull, 'background_style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('background_style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($background_style) && (mb_strlen($background_style) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $background_style when calling SocialFeedPostCreateDto., must be smaller than or equal to 64.');
+        }
+
+        $this->container['background_style'] = $background_style;
 
         return $this;
     }

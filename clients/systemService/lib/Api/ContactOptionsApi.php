@@ -84,9 +84,11 @@ class ContactOptionsApi
         ],
         'getSystemContactOptions' => [
             'application/json',
+            'application/xml',
         ],
         'getSystemContactOptionsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchSystemContactOption' => [
             'application/json',
@@ -1451,15 +1453,16 @@ class ContactOptionsApi
      * @param  string $portal_id portal_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OptionDtoListEnvelope
      */
-    public function getSystemContactOptions($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
+    public function getSystemContactOptions($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
     {
-        list($response) = $this->getSystemContactOptionsWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemContactOptionsWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1472,15 +1475,16 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OptionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemContactOptionsWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
+    public function getSystemContactOptionsWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
     {
-        $request = $this->getSystemContactOptionsRequest($contact_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemContactOptionsRequest($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1670,14 +1674,15 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemContactOptionsAsync($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
+    public function getSystemContactOptionsAsync($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
     {
-        return $this->getSystemContactOptionsAsyncWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $contentType)
+        return $this->getSystemContactOptionsAsyncWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1694,15 +1699,16 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemContactOptionsAsyncWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
+    public function getSystemContactOptionsAsyncWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OptionDtoListEnvelope';
-        $request = $this->getSystemContactOptionsRequest($contact_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemContactOptionsRequest($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1747,12 +1753,13 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemContactOptionsRequest($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
+    public function getSystemContactOptionsRequest($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptions'][0])
     {
 
         // verify the required parameter 'contact_id' is set
@@ -1761,6 +1768,7 @@ class ContactOptionsApi
                 'Missing the required parameter $contact_id when calling getSystemContactOptions'
             );
         }
+
 
 
 
@@ -1814,7 +1822,14 @@ class ContactOptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($option_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($option_dto_collection_query_parameters));
+            } else {
+                $httpBody = $option_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1869,15 +1884,16 @@ class ContactOptionsApi
      * @param  string $portal_id portal_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptionsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSystemContactOptionsCount($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
+    public function getSystemContactOptionsCount($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
     {
-        list($response) = $this->getSystemContactOptionsCountWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemContactOptionsCountWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1890,15 +1906,16 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptionsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemContactOptionsCountWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
+    public function getSystemContactOptionsCountWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
     {
-        $request = $this->getSystemContactOptionsCountRequest($contact_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemContactOptionsCountRequest($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2088,14 +2105,15 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemContactOptionsCountAsync($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
+    public function getSystemContactOptionsCountAsync($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
     {
-        return $this->getSystemContactOptionsCountAsyncWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $contentType)
+        return $this->getSystemContactOptionsCountAsyncWithHttpInfo($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,15 +2130,16 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemContactOptionsCountAsyncWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
+    public function getSystemContactOptionsCountAsyncWithHttpInfo($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSystemContactOptionsCountRequest($contact_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemContactOptionsCountRequest($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2165,12 +2184,13 @@ class ContactOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemContactOptionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemContactOptionsCountRequest($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
+    public function getSystemContactOptionsCountRequest($contact_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemContactOptionsCount'][0])
     {
 
         // verify the required parameter 'contact_id' is set
@@ -2179,6 +2199,7 @@ class ContactOptionsApi
                 'Missing the required parameter $contact_id when calling getSystemContactOptionsCount'
             );
         }
+
 
 
 
@@ -2232,7 +2253,14 @@ class ContactOptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($option_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($option_dto_collection_query_parameters));
+            } else {
+                $httpBody = $option_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2287,16 +2315,16 @@ class ContactOptionsApi
      * @param  string $option_id option_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemContactOption'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSystemContactOption($contact_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
+    public function patchSystemContactOption($contact_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
     {
-        list($response) = $this->patchSystemContactOptionWithHttpInfo($contact_id, $option_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSystemContactOptionWithHttpInfo($contact_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2309,16 +2337,16 @@ class ContactOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemContactOption'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSystemContactOptionWithHttpInfo($contact_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
+    public function patchSystemContactOptionWithHttpInfo($contact_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
     {
-        $request = $this->patchSystemContactOptionRequest($contact_id, $option_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSystemContactOptionRequest($contact_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2508,15 +2536,15 @@ class ContactOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemContactOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSystemContactOptionAsync($contact_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
+    public function patchSystemContactOptionAsync($contact_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
     {
-        return $this->patchSystemContactOptionAsyncWithHttpInfo($contact_id, $option_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSystemContactOptionAsyncWithHttpInfo($contact_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2533,16 +2561,16 @@ class ContactOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemContactOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSystemContactOptionAsyncWithHttpInfo($contact_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
+    public function patchSystemContactOptionAsyncWithHttpInfo($contact_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSystemContactOptionRequest($contact_id, $option_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSystemContactOptionRequest($contact_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2587,13 +2615,13 @@ class ContactOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemContactOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSystemContactOptionRequest($contact_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
+    public function patchSystemContactOptionRequest($contact_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemContactOption'][0])
     {
 
         // verify the required parameter 'contact_id' is set
@@ -2661,12 +2689,12 @@ class ContactOptionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

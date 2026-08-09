@@ -464,7 +464,7 @@ No authorization required
 ## `getLoanApplicationsAsync()`
 
 ```php
-getLoanApplicationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LoanApplicationDtoIReadOnlyListEnvelope
+getLoanApplicationsAsync($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters): \OpenAPI\Client\Model\LoanApplicationDtoIReadOnlyListEnvelope
 ```
 
 Gets all loan applications
@@ -487,9 +487,10 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$loan_application_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoanApplicationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLoanApplicationsAsync($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->getLoanApplicationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -503,6 +504,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **loan_application_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters**](../Model/LoanApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -514,7 +516,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -524,7 +526,7 @@ No authorization required
 ## `getLoanApplicationsCountAsync()`
 
 ```php
-getLoanApplicationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLoanApplicationsCountAsync($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts loan applications
@@ -547,9 +549,10 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$loan_application_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoanApplicationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLoanApplicationsCountAsync($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->getLoanApplicationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -563,6 +566,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **loan_application_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters**](../Model/LoanApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -574,7 +578,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -708,7 +712,7 @@ No authorization required
 ## `getLoanTypesAsync()`
 
 ```php
-getLoanTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LoanTypeDtoIReadOnlyListEnvelope
+getLoanTypesAsync($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters): \OpenAPI\Client\Model\LoanTypeDtoIReadOnlyListEnvelope
 ```
 
 Gets all loan types
@@ -731,9 +735,10 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$loan_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoanTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLoanTypesAsync($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->getLoanTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -747,6 +752,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **loan_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters**](../Model/LoanTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -758,7 +764,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -768,7 +774,7 @@ No authorization required
 ## `getLoanTypesCountAsync()`
 
 ```php
-getLoanTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLoanTypesCountAsync($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts loan types
@@ -791,9 +797,10 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$loan_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoanTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLoanTypesCountAsync($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->getLoanTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -807,6 +814,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **loan_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters**](../Model/LoanTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -818,7 +826,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -828,7 +836,7 @@ No authorization required
 ## `getLoansAsync()`
 
 ```php
-getLoansAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LoanDtoIReadOnlyListEnvelope
+getLoansAsync($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters): \OpenAPI\Client\Model\LoanDtoIReadOnlyListEnvelope
 ```
 
 Gets all loans
@@ -851,9 +859,10 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$loan_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoansAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLoansAsync($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->getLoansAsync: ', $e->getMessage(), PHP_EOL;
@@ -867,6 +876,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **loan_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoanDtoCollectionQueryParameters**](../Model/LoanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -878,7 +888,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -888,7 +898,7 @@ No authorization required
 ## `getLoansCountAsync()`
 
 ```php
-getLoansCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLoansCountAsync($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts loans
@@ -911,9 +921,10 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$loan_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoansCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLoansCountAsync($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->getLoansCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -927,6 +938,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **loan_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoanDtoCollectionQueryParameters**](../Model/LoanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -938,7 +950,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -948,7 +960,7 @@ No authorization required
 ## `patchLoanApplicationAsync()`
 
 ```php
-patchLoanApplicationAsync($tenant_id, $application_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLoanApplicationAsync($tenant_id, $application_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a loan application
@@ -972,10 +984,10 @@ $tenant_id = 'tenant_id_example'; // string
 $application_id = 'application_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLoanApplicationAsync($tenant_id, $application_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLoanApplicationAsync($tenant_id, $application_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->patchLoanApplicationAsync: ', $e->getMessage(), PHP_EOL;
@@ -990,7 +1002,7 @@ try {
 | **application_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1012,7 +1024,7 @@ No authorization required
 ## `patchLoanAsync()`
 
 ```php
-patchLoanAsync($tenant_id, $loan_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLoanAsync($tenant_id, $loan_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a loan
@@ -1036,10 +1048,10 @@ $tenant_id = 'tenant_id_example'; // string
 $loan_id = 'loan_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLoanAsync($tenant_id, $loan_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLoanAsync($tenant_id, $loan_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->patchLoanAsync: ', $e->getMessage(), PHP_EOL;
@@ -1054,7 +1066,7 @@ try {
 | **loan_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1076,7 +1088,7 @@ No authorization required
 ## `patchLoanTypeAsync()`
 
 ```php
-patchLoanTypeAsync($tenant_id, $loan_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLoanTypeAsync($tenant_id, $loan_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a loan type
@@ -1100,10 +1112,10 @@ $tenant_id = 'tenant_id_example'; // string
 $loan_type_id = 'loan_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLoanTypeAsync($tenant_id, $loan_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLoanTypeAsync($tenant_id, $loan_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->patchLoanTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -1118,7 +1130,7 @@ try {
 | **loan_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -74,9 +74,11 @@ class ItemShippingPoliciesApi
     public const contentTypes = [
         'countItemShippingPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCatalogItemShippingPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCatalogItemShippingPolicyByIdAsync' => [
             'application/json',
@@ -144,15 +146,16 @@ class ItemShippingPoliciesApi
      * @param  string $item_id item_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countItemShippingPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
+    public function countItemShippingPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
     {
-        list($response) = $this->countItemShippingPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countItemShippingPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -165,15 +168,16 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countItemShippingPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
+    public function countItemShippingPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
     {
-        $request = $this->countItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -363,14 +367,15 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countItemShippingPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
+    public function countItemShippingPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
     {
-        return $this->countItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->countItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -387,15 +392,16 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
+    public function countItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,13 +446,15 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countItemShippingPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
+    public function countItemShippingPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemShippingPoliciesAsync'][0])
     {
+
 
 
 
@@ -502,7 +510,14 @@ class ItemShippingPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_shipping_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_shipping_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_shipping_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -557,15 +572,16 @@ class ItemShippingPoliciesApi
      * @param  string $item_id item_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
      */
-    public function getCatalogItemShippingPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
+    public function getCatalogItemShippingPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
     {
-        list($response) = $this->getCatalogItemShippingPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCatalogItemShippingPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -578,15 +594,16 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCatalogItemShippingPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
+    public function getCatalogItemShippingPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
     {
-        $request = $this->getCatalogItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCatalogItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -776,14 +793,15 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogItemShippingPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
+    public function getCatalogItemShippingPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
     {
-        return $this->getCatalogItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->getCatalogItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -800,15 +818,16 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
+    public function getCatalogItemShippingPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope';
-        $request = $this->getCatalogItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCatalogItemShippingPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -853,13 +872,15 @@ class ItemShippingPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItemShippingPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCatalogItemShippingPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
+    public function getCatalogItemShippingPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCatalogItemShippingPoliciesAsync'][0])
     {
+
 
 
 
@@ -915,7 +936,14 @@ class ItemShippingPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_shipping_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_shipping_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_shipping_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countLoyaltyProgramsAsync()`
 
 ```php
-countLoyaltyProgramsAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+countLoyaltyProgramsAsync($tenant_id, $loyalty_program_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get loyalty programs count
@@ -37,9 +37,10 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltyProgramsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$loyalty_program_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countLoyaltyProgramsAsync($tenant_id);
+    $result = $apiInstance->countLoyaltyProgramsAsync($tenant_id, $loyalty_program_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoyaltyProgramsApi->countLoyaltyProgramsAsync: ', $e->getMessage(), PHP_EOL;
@@ -51,6 +52,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **loyalty_program_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters**](../Model/LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -62,7 +64,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -246,7 +248,7 @@ No authorization required
 ## `getLoyaltyProgramsAsync()`
 
 ```php
-getLoyaltyProgramsAsync($tenant_id): \OpenAPI\Client\Model\LoyaltyProgramDtoListEnvelope
+getLoyaltyProgramsAsync($tenant_id, $loyalty_program_dto_collection_query_parameters): \OpenAPI\Client\Model\LoyaltyProgramDtoListEnvelope
 ```
 
 Get loyalty programs
@@ -267,9 +269,10 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltyProgramsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$loyalty_program_dto_collection_query_parameters = new \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLoyaltyProgramsAsync($tenant_id);
+    $result = $apiInstance->getLoyaltyProgramsAsync($tenant_id, $loyalty_program_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoyaltyProgramsApi->getLoyaltyProgramsAsync: ', $e->getMessage(), PHP_EOL;
@@ -281,6 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **loyalty_program_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters**](../Model/LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -292,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -302,7 +306,7 @@ No authorization required
 ## `patchLoyaltyProgramAsync()`
 
 ```php
-patchLoyaltyProgramAsync($tenant_id, $loyalty_program_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLoyaltyProgramAsync($tenant_id, $loyalty_program_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a loyalty program
@@ -324,10 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltyProgramsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $loyalty_program_id = 'loyalty_program_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLoyaltyProgramAsync($tenant_id, $loyalty_program_id, $operation);
+    $result = $apiInstance->patchLoyaltyProgramAsync($tenant_id, $loyalty_program_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoyaltyProgramsApi->patchLoyaltyProgramAsync: ', $e->getMessage(), PHP_EOL;
@@ -340,7 +344,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **loyalty_program_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

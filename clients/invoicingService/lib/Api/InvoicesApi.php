@@ -138,9 +138,11 @@ class InvoicesApi
         ],
         'getExtendedInvoices' => [
             'application/json',
+            'application/xml',
         ],
         'getExtendedInvoicesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoice' => [
             'application/json',
@@ -150,51 +152,65 @@ class InvoicesApi
         ],
         'getInvoiceAdjustments' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceAdjustmentsCount' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceLine' => [
             'application/json',
         ],
         'getInvoiceLineTaxes' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceLineTaxesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceLines' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceLinesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoicePayments' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoicePaymentsCount' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceReference' => [
             'application/json',
         ],
         'getInvoiceReferences' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoiceReferencesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoices' => [
             'application/json',
+            'application/xml',
         ],
         'getInvoicesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getPurchaseInvoicesSum' => [
             'application/json',
+            'application/xml',
         ],
         'getSalesInvoicesSum' => [
             'application/json',
+            'application/xml',
         ],
         'patchInvoice' => [
             'application/json',
@@ -6615,15 +6631,16 @@ class InvoicesApi
      * Get a list of extended invoices.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoices'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedInvoiceDtoListEnvelope
      */
-    public function getExtendedInvoices($tenant_id, string $contentType = self::contentTypes['getExtendedInvoices'][0])
+    public function getExtendedInvoices($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoices'][0])
     {
-        list($response) = $this->getExtendedInvoicesWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getExtendedInvoicesWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6633,15 +6650,16 @@ class InvoicesApi
      * Get a list of extended invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoices'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedInvoiceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedInvoicesWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedInvoices'][0])
+    public function getExtendedInvoicesWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoices'][0])
     {
-        $request = $this->getExtendedInvoicesRequest($tenant_id, $contentType);
+        $request = $this->getExtendedInvoicesRequest($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6793,14 +6811,15 @@ class InvoicesApi
      * Get a list of extended invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedInvoicesAsync($tenant_id, string $contentType = self::contentTypes['getExtendedInvoices'][0])
+    public function getExtendedInvoicesAsync($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoices'][0])
     {
-        return $this->getExtendedInvoicesAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getExtendedInvoicesAsyncWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6814,15 +6833,16 @@ class InvoicesApi
      * Get a list of extended invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedInvoicesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedInvoices'][0])
+    public function getExtendedInvoicesAsyncWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoices'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedInvoiceDtoListEnvelope';
-        $request = $this->getExtendedInvoicesRequest($tenant_id, $contentType);
+        $request = $this->getExtendedInvoicesRequest($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6864,12 +6884,13 @@ class InvoicesApi
      * Create request for operation 'getExtendedInvoices'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedInvoicesRequest($tenant_id, string $contentType = self::contentTypes['getExtendedInvoices'][0])
+    public function getExtendedInvoicesRequest($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoices'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6878,6 +6899,7 @@ class InvoicesApi
                 'Missing the required parameter $tenant_id when calling getExtendedInvoices'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/Extended';
@@ -6907,7 +6929,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6959,15 +6988,16 @@ class InvoicesApi
      * Get the count of extended invoices.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoicesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getExtendedInvoicesCount($tenant_id, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
+    public function getExtendedInvoicesCount($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
     {
-        list($response) = $this->getExtendedInvoicesCountWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getExtendedInvoicesCountWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6977,15 +7007,16 @@ class InvoicesApi
      * Get the count of extended invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoicesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedInvoicesCountWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
+    public function getExtendedInvoicesCountWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
     {
-        $request = $this->getExtendedInvoicesCountRequest($tenant_id, $contentType);
+        $request = $this->getExtendedInvoicesCountRequest($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7137,14 +7168,15 @@ class InvoicesApi
      * Get the count of extended invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoicesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedInvoicesCountAsync($tenant_id, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
+    public function getExtendedInvoicesCountAsync($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
     {
-        return $this->getExtendedInvoicesCountAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getExtendedInvoicesCountAsyncWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7158,15 +7190,16 @@ class InvoicesApi
      * Get the count of extended invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoicesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedInvoicesCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
+    public function getExtendedInvoicesCountAsyncWithHttpInfo($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getExtendedInvoicesCountRequest($tenant_id, $contentType);
+        $request = $this->getExtendedInvoicesCountRequest($tenant_id, $extended_invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7208,12 +7241,13 @@ class InvoicesApi
      * Create request for operation 'getExtendedInvoicesCount'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters $extended_invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedInvoicesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedInvoicesCountRequest($tenant_id, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
+    public function getExtendedInvoicesCountRequest($tenant_id, $extended_invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedInvoicesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7222,6 +7256,7 @@ class InvoicesApi
                 'Missing the required parameter $tenant_id when calling getExtendedInvoicesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/Extended/Count';
@@ -7251,7 +7286,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8017,15 +8059,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InvoiceAdjustmentDtoIReadOnlyListEnvelope
      */
-    public function getInvoiceAdjustments($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
+    public function getInvoiceAdjustments($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
     {
-        list($response) = $this->getInvoiceAdjustmentsWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoiceAdjustmentsWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8036,15 +8079,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InvoiceAdjustmentDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceAdjustmentsWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
+    public function getInvoiceAdjustmentsWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
     {
-        $request = $this->getInvoiceAdjustmentsRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceAdjustmentsRequest($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8162,14 +8206,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAdjustmentsAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
+    public function getInvoiceAdjustmentsAsync($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
     {
-        return $this->getInvoiceAdjustmentsAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoiceAdjustmentsAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8184,15 +8229,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAdjustmentsAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
+    public function getInvoiceAdjustmentsAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceAdjustmentDtoIReadOnlyListEnvelope';
-        $request = $this->getInvoiceAdjustmentsRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceAdjustmentsRequest($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8235,12 +8281,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceAdjustmentsRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
+    public function getInvoiceAdjustmentsRequest($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustments'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -8256,6 +8303,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoiceAdjustments'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments';
@@ -8293,7 +8341,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_adjustment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_adjustment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_adjustment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8346,15 +8401,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustmentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getInvoiceAdjustmentsCount($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
+    public function getInvoiceAdjustmentsCount($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
     {
-        list($response) = $this->getInvoiceAdjustmentsCountWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoiceAdjustmentsCountWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8365,15 +8421,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustmentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceAdjustmentsCountWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
+    public function getInvoiceAdjustmentsCountWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
     {
-        $request = $this->getInvoiceAdjustmentsCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceAdjustmentsCountRequest($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8491,14 +8548,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAdjustmentsCountAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
+    public function getInvoiceAdjustmentsCountAsync($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
     {
-        return $this->getInvoiceAdjustmentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoiceAdjustmentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8513,15 +8571,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAdjustmentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
+    public function getInvoiceAdjustmentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getInvoiceAdjustmentsCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceAdjustmentsCountRequest($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8564,12 +8623,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters $invoice_adjustment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceAdjustmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceAdjustmentsCountRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
+    public function getInvoiceAdjustmentsCountRequest($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceAdjustmentsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -8585,6 +8645,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoiceAdjustmentsCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count';
@@ -8622,7 +8683,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_adjustment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_adjustment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_adjustment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9025,15 +9093,16 @@ class InvoicesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
      * @param  string $invoice_line_id invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
      */
-    public function getInvoiceLineTaxes($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
+    public function getInvoiceLineTaxes($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
     {
-        list($response) = $this->getInvoiceLineTaxesWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $contentType);
+        list($response) = $this->getInvoiceLineTaxesWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9045,15 +9114,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceLineTaxesWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
+    public function getInvoiceLineTaxesWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
     {
-        $request = $this->getInvoiceLineTaxesRequest($tenant_id, $invoice_id, $invoice_line_id, $contentType);
+        $request = $this->getInvoiceLineTaxesRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9172,14 +9242,15 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLineTaxesAsync($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
+    public function getInvoiceLineTaxesAsync($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
     {
-        return $this->getInvoiceLineTaxesAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $contentType)
+        return $this->getInvoiceLineTaxesAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9195,15 +9266,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLineTaxesAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
+    public function getInvoiceLineTaxesAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope';
-        $request = $this->getInvoiceLineTaxesRequest($tenant_id, $invoice_id, $invoice_line_id, $contentType);
+        $request = $this->getInvoiceLineTaxesRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9247,12 +9319,13 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceLineTaxesRequest($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
+    public function getInvoiceLineTaxesRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxes'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9275,6 +9348,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_line_id when calling getInvoiceLineTaxes'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes';
@@ -9320,7 +9394,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_line_applied_tax_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_line_applied_tax_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_line_applied_tax_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9374,15 +9455,16 @@ class InvoicesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
      * @param  string $invoice_line_id invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getInvoiceLineTaxesCount($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
+    public function getInvoiceLineTaxesCount($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
     {
-        list($response) = $this->getInvoiceLineTaxesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $contentType);
+        list($response) = $this->getInvoiceLineTaxesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9394,15 +9476,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceLineTaxesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
+    public function getInvoiceLineTaxesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
     {
-        $request = $this->getInvoiceLineTaxesCountRequest($tenant_id, $invoice_id, $invoice_line_id, $contentType);
+        $request = $this->getInvoiceLineTaxesCountRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9521,14 +9604,15 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLineTaxesCountAsync($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
+    public function getInvoiceLineTaxesCountAsync($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
     {
-        return $this->getInvoiceLineTaxesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $contentType)
+        return $this->getInvoiceLineTaxesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9544,15 +9628,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLineTaxesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
+    public function getInvoiceLineTaxesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getInvoiceLineTaxesCountRequest($tenant_id, $invoice_id, $invoice_line_id, $contentType);
+        $request = $this->getInvoiceLineTaxesCountRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9596,12 +9681,13 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters $invoice_line_applied_tax_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceLineTaxesCountRequest($tenant_id, $invoice_id, $invoice_line_id, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
+    public function getInvoiceLineTaxesCountRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLineTaxesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9624,6 +9710,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_line_id when calling getInvoiceLineTaxesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count';
@@ -9669,7 +9756,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_line_applied_tax_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_line_applied_tax_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_line_applied_tax_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9723,15 +9817,16 @@ class InvoicesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
      * @param  string $item_id item_id (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLines'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InvoiceLineDtoListEnvelope
      */
-    public function getInvoiceLines($tenant_id, $invoice_id, $item_id = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
+    public function getInvoiceLines($tenant_id, $invoice_id, $item_id = null, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
     {
-        list($response) = $this->getInvoiceLinesWithHttpInfo($tenant_id, $invoice_id, $item_id, $contentType);
+        list($response) = $this->getInvoiceLinesWithHttpInfo($tenant_id, $invoice_id, $item_id, $invoice_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9743,15 +9838,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLines'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InvoiceLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceLinesWithHttpInfo($tenant_id, $invoice_id, $item_id = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
+    public function getInvoiceLinesWithHttpInfo($tenant_id, $invoice_id, $item_id = null, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
     {
-        $request = $this->getInvoiceLinesRequest($tenant_id, $invoice_id, $item_id, $contentType);
+        $request = $this->getInvoiceLinesRequest($tenant_id, $invoice_id, $item_id, $invoice_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9870,14 +9966,15 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLinesAsync($tenant_id, $invoice_id, $item_id = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
+    public function getInvoiceLinesAsync($tenant_id, $invoice_id, $item_id = null, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
     {
-        return $this->getInvoiceLinesAsyncWithHttpInfo($tenant_id, $invoice_id, $item_id, $contentType)
+        return $this->getInvoiceLinesAsyncWithHttpInfo($tenant_id, $invoice_id, $item_id, $invoice_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9893,15 +9990,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLinesAsyncWithHttpInfo($tenant_id, $invoice_id, $item_id = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
+    public function getInvoiceLinesAsyncWithHttpInfo($tenant_id, $invoice_id, $item_id = null, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceLineDtoListEnvelope';
-        $request = $this->getInvoiceLinesRequest($tenant_id, $invoice_id, $item_id, $contentType);
+        $request = $this->getInvoiceLinesRequest($tenant_id, $invoice_id, $item_id, $invoice_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9945,12 +10043,13 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceLinesRequest($tenant_id, $invoice_id, $item_id = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
+    public function getInvoiceLinesRequest($tenant_id, $invoice_id, $item_id = null, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLines'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9966,6 +10065,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoiceLines'
             );
         }
+
 
 
 
@@ -10013,7 +10113,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10066,15 +10173,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLinesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getInvoiceLinesCount($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
+    public function getInvoiceLinesCount($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
     {
-        list($response) = $this->getInvoiceLinesCountWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoiceLinesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10085,15 +10193,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLinesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceLinesCountWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
+    public function getInvoiceLinesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
     {
-        $request = $this->getInvoiceLinesCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceLinesCountRequest($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10211,14 +10320,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLinesCountAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
+    public function getInvoiceLinesCountAsync($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
     {
-        return $this->getInvoiceLinesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoiceLinesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10233,15 +10343,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceLinesCountAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
+    public function getInvoiceLinesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getInvoiceLinesCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceLinesCountRequest($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10284,12 +10395,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters $invoice_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceLinesCountRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
+    public function getInvoiceLinesCountRequest($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceLinesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -10305,6 +10417,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoiceLinesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count';
@@ -10342,7 +10455,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10395,15 +10515,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePayments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope
      */
-    public function getInvoicePayments($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePayments'][0])
+    public function getInvoicePayments($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePayments'][0])
     {
-        list($response) = $this->getInvoicePaymentsWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoicePaymentsWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10414,15 +10535,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePayments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoicePaymentsWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePayments'][0])
+    public function getInvoicePaymentsWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePayments'][0])
     {
-        $request = $this->getInvoicePaymentsRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoicePaymentsRequest($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10540,14 +10662,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePayments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicePaymentsAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePayments'][0])
+    public function getInvoicePaymentsAsync($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePayments'][0])
     {
-        return $this->getInvoicePaymentsAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoicePaymentsAsyncWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10562,15 +10685,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePayments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicePaymentsAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePayments'][0])
+    public function getInvoicePaymentsAsyncWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePayments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope';
-        $request = $this->getInvoicePaymentsRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoicePaymentsRequest($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10613,12 +10737,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePayments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoicePaymentsRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePayments'][0])
+    public function getInvoicePaymentsRequest($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePayments'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -10634,6 +10759,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoicePayments'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Payments';
@@ -10671,7 +10797,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10724,15 +10857,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePaymentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getInvoicePaymentsCount($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
+    public function getInvoicePaymentsCount($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
     {
-        list($response) = $this->getInvoicePaymentsCountWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoicePaymentsCountWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10743,15 +10877,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePaymentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoicePaymentsCountWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
+    public function getInvoicePaymentsCountWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
     {
-        $request = $this->getInvoicePaymentsCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoicePaymentsCountRequest($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10869,14 +11004,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePaymentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicePaymentsCountAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
+    public function getInvoicePaymentsCountAsync($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
     {
-        return $this->getInvoicePaymentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoicePaymentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10891,15 +11027,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePaymentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicePaymentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
+    public function getInvoicePaymentsCountAsyncWithHttpInfo($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getInvoicePaymentsCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoicePaymentsCountRequest($tenant_id, $invoice_id, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10942,12 +11079,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicePaymentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoicePaymentsCountRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
+    public function getInvoicePaymentsCountRequest($tenant_id, $invoice_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicePaymentsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -10963,6 +11101,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoicePaymentsCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count';
@@ -11000,7 +11139,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11402,15 +11548,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferences'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InvoiceReferenceDtoIReadOnlyListEnvelope
      */
-    public function getInvoiceReferences($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferences'][0])
+    public function getInvoiceReferences($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferences'][0])
     {
-        list($response) = $this->getInvoiceReferencesWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoiceReferencesWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11421,15 +11568,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferences'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InvoiceReferenceDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceReferencesWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferences'][0])
+    public function getInvoiceReferencesWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferences'][0])
     {
-        $request = $this->getInvoiceReferencesRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceReferencesRequest($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11547,14 +11695,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceReferencesAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferences'][0])
+    public function getInvoiceReferencesAsync($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferences'][0])
     {
-        return $this->getInvoiceReferencesAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoiceReferencesAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11569,15 +11718,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceReferencesAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferences'][0])
+    public function getInvoiceReferencesAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferences'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceReferenceDtoIReadOnlyListEnvelope';
-        $request = $this->getInvoiceReferencesRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceReferencesRequest($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11620,12 +11770,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceReferencesRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferences'][0])
+    public function getInvoiceReferencesRequest($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferences'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -11641,6 +11792,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoiceReferences'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/References';
@@ -11678,7 +11830,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_reference_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_reference_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_reference_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11731,15 +11890,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferencesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getInvoiceReferencesCount($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
+    public function getInvoiceReferencesCount($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
     {
-        list($response) = $this->getInvoiceReferencesCountWithHttpInfo($tenant_id, $invoice_id, $contentType);
+        list($response) = $this->getInvoiceReferencesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11750,15 +11910,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferencesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceReferencesCountWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
+    public function getInvoiceReferencesCountWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
     {
-        $request = $this->getInvoiceReferencesCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceReferencesCountRequest($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11876,14 +12037,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferencesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceReferencesCountAsync($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
+    public function getInvoiceReferencesCountAsync($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
     {
-        return $this->getInvoiceReferencesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $contentType)
+        return $this->getInvoiceReferencesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11898,15 +12060,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferencesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceReferencesCountAsyncWithHttpInfo($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
+    public function getInvoiceReferencesCountAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getInvoiceReferencesCountRequest($tenant_id, $invoice_id, $contentType);
+        $request = $this->getInvoiceReferencesCountRequest($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11949,12 +12112,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters $invoice_reference_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceReferencesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceReferencesCountRequest($tenant_id, $invoice_id, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
+    public function getInvoiceReferencesCountRequest($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceReferencesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -11970,6 +12134,7 @@ class InvoicesApi
                 'Missing the required parameter $invoice_id when calling getInvoiceReferencesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/{invoiceId}/References/Count';
@@ -12007,7 +12172,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_reference_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_reference_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_reference_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12059,15 +12231,16 @@ class InvoicesApi
      * Get a list of invoices.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope
      */
-    public function getInvoices($tenant_id, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoices($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        list($response) = $this->getInvoicesWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getInvoicesWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12077,15 +12250,16 @@ class InvoicesApi
      * Get a list of invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoicesWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        $request = $this->getInvoicesRequest($tenant_id, $contentType);
+        $request = $this->getInvoicesRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12237,14 +12411,15 @@ class InvoicesApi
      * Get a list of invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesAsync($tenant_id, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesAsync($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        return $this->getInvoicesAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getInvoicesAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12258,15 +12433,16 @@ class InvoicesApi
      * Get a list of invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceDtoListEnvelope';
-        $request = $this->getInvoicesRequest($tenant_id, $contentType);
+        $request = $this->getInvoicesRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12308,12 +12484,13 @@ class InvoicesApi
      * Create request for operation 'getInvoices'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoicesRequest($tenant_id, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesRequest($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -12322,6 +12499,7 @@ class InvoicesApi
                 'Missing the required parameter $tenant_id when calling getInvoices'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices';
@@ -12351,7 +12529,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12403,15 +12588,16 @@ class InvoicesApi
      * Get the count of invoices.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getInvoicesCount($tenant_id, string $contentType = self::contentTypes['getInvoicesCount'][0])
+    public function getInvoicesCount($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicesCount'][0])
     {
-        list($response) = $this->getInvoicesCountWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getInvoicesCountWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12421,15 +12607,16 @@ class InvoicesApi
      * Get the count of invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoicesCountWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getInvoicesCount'][0])
+    public function getInvoicesCountWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicesCount'][0])
     {
-        $request = $this->getInvoicesCountRequest($tenant_id, $contentType);
+        $request = $this->getInvoicesCountRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12581,14 +12768,15 @@ class InvoicesApi
      * Get the count of invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesCountAsync($tenant_id, string $contentType = self::contentTypes['getInvoicesCount'][0])
+    public function getInvoicesCountAsync($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicesCount'][0])
     {
-        return $this->getInvoicesCountAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getInvoicesCountAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12602,15 +12790,16 @@ class InvoicesApi
      * Get the count of invoices.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getInvoicesCount'][0])
+    public function getInvoicesCountAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getInvoicesCountRequest($tenant_id, $contentType);
+        $request = $this->getInvoicesCountRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12652,12 +12841,13 @@ class InvoicesApi
      * Create request for operation 'getInvoicesCount'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoicesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoicesCountRequest($tenant_id, string $contentType = self::contentTypes['getInvoicesCount'][0])
+    public function getInvoicesCountRequest($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoicesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -12666,6 +12856,7 @@ class InvoicesApi
                 'Missing the required parameter $tenant_id when calling getInvoicesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/Count';
@@ -12695,7 +12886,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12747,15 +12945,16 @@ class InvoicesApi
      * Sum tenant purchase-invoice totals.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPurchaseInvoicesSum'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope
      */
-    public function getPurchaseInvoicesSum($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
+    public function getPurchaseInvoicesSum($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
-        list($response) = $this->getPurchaseInvoicesSumWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getPurchaseInvoicesSumWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12765,15 +12964,16 @@ class InvoicesApi
      * Sum tenant purchase-invoice totals.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPurchaseInvoicesSum'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPurchaseInvoicesSumWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
+    public function getPurchaseInvoicesSumWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
-        $request = $this->getPurchaseInvoicesSumRequest($tenant_id, $contentType);
+        $request = $this->getPurchaseInvoicesSumRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12960,14 +13160,15 @@ class InvoicesApi
      * Sum tenant purchase-invoice totals.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPurchaseInvoicesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseInvoicesSumAsync($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
+    public function getPurchaseInvoicesSumAsync($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
-        return $this->getPurchaseInvoicesSumAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getPurchaseInvoicesSumAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12981,15 +13182,16 @@ class InvoicesApi
      * Sum tenant purchase-invoice totals.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPurchaseInvoicesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseInvoicesSumAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
+    public function getPurchaseInvoicesSumAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->getPurchaseInvoicesSumRequest($tenant_id, $contentType);
+        $request = $this->getPurchaseInvoicesSumRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13031,12 +13233,13 @@ class InvoicesApi
      * Create request for operation 'getPurchaseInvoicesSum'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPurchaseInvoicesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPurchaseInvoicesSumRequest($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
+    public function getPurchaseInvoicesSumRequest($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -13045,6 +13248,7 @@ class InvoicesApi
                 'Missing the required parameter $tenant_id when calling getPurchaseInvoicesSum'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum';
@@ -13074,7 +13278,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13126,15 +13337,16 @@ class InvoicesApi
      * Sum tenant sales-invoice totals.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesInvoicesSum'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope
      */
-    public function getSalesInvoicesSum($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
+    public function getSalesInvoicesSum($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
-        list($response) = $this->getSalesInvoicesSumWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getSalesInvoicesSumWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13144,15 +13356,16 @@ class InvoicesApi
      * Sum tenant sales-invoice totals.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesInvoicesSum'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSalesInvoicesSumWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
+    public function getSalesInvoicesSumWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
-        $request = $this->getSalesInvoicesSumRequest($tenant_id, $contentType);
+        $request = $this->getSalesInvoicesSumRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13339,14 +13552,15 @@ class InvoicesApi
      * Sum tenant sales-invoice totals.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesInvoicesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesInvoicesSumAsync($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
+    public function getSalesInvoicesSumAsync($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
-        return $this->getSalesInvoicesSumAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getSalesInvoicesSumAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13360,15 +13574,16 @@ class InvoicesApi
      * Sum tenant sales-invoice totals.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesInvoicesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesInvoicesSumAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
+    public function getSalesInvoicesSumAsyncWithHttpInfo($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->getSalesInvoicesSumRequest($tenant_id, $contentType);
+        $request = $this->getSalesInvoicesSumRequest($tenant_id, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13410,12 +13625,13 @@ class InvoicesApi
      * Create request for operation 'getSalesInvoicesSum'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesInvoicesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSalesInvoicesSumRequest($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
+    public function getSalesInvoicesSumRequest($tenant_id, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -13424,6 +13640,7 @@ class InvoicesApi
                 'Missing the required parameter $tenant_id when calling getSalesInvoicesSum'
             );
         }
+
 
 
         $resourcePath = '/api/v2/InvoicingService/Invoices/SalesInvoices/Sum';
@@ -13453,7 +13670,14 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13506,16 +13730,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoice'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchInvoice($tenant_id, $invoice_id, $operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
+    public function patchInvoice($tenant_id, $invoice_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
     {
-        list($response) = $this->patchInvoiceWithHttpInfo($tenant_id, $invoice_id, $operation, $contentType);
+        list($response) = $this->patchInvoiceWithHttpInfo($tenant_id, $invoice_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -13526,16 +13750,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoice'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchInvoiceWithHttpInfo($tenant_id, $invoice_id, $operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
+    public function patchInvoiceWithHttpInfo($tenant_id, $invoice_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
     {
-        $request = $this->patchInvoiceRequest($tenant_id, $invoice_id, $operation, $contentType);
+        $request = $this->patchInvoiceRequest($tenant_id, $invoice_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13688,15 +13912,15 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceAsync($tenant_id, $invoice_id, $operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
+    public function patchInvoiceAsync($tenant_id, $invoice_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
     {
-        return $this->patchInvoiceAsyncWithHttpInfo($tenant_id, $invoice_id, $operation, $contentType)
+        return $this->patchInvoiceAsyncWithHttpInfo($tenant_id, $invoice_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13711,16 +13935,16 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceAsyncWithHttpInfo($tenant_id, $invoice_id, $operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
+    public function patchInvoiceAsyncWithHttpInfo($tenant_id, $invoice_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchInvoiceRequest($tenant_id, $invoice_id, $operation, $contentType);
+        $request = $this->patchInvoiceRequest($tenant_id, $invoice_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13763,13 +13987,13 @@ class InvoicesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchInvoiceRequest($tenant_id, $invoice_id, $operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
+    public function patchInvoiceRequest($tenant_id, $invoice_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoice'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -13823,12 +14047,12 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -13884,16 +14108,16 @@ class InvoicesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
      * @param  string $invoice_adjustment_id invoice_adjustment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceAdjustment'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchInvoiceAdjustment($tenant_id, $invoice_id, $invoice_adjustment_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
+    public function patchInvoiceAdjustment($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
     {
-        list($response) = $this->patchInvoiceAdjustmentWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $operation, $contentType);
+        list($response) = $this->patchInvoiceAdjustmentWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -13905,16 +14129,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_adjustment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceAdjustment'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchInvoiceAdjustmentWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
+    public function patchInvoiceAdjustmentWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
     {
-        $request = $this->patchInvoiceAdjustmentRequest($tenant_id, $invoice_id, $invoice_adjustment_id, $operation, $contentType);
+        $request = $this->patchInvoiceAdjustmentRequest($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14068,15 +14292,15 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_adjustment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceAdjustment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceAdjustmentAsync($tenant_id, $invoice_id, $invoice_adjustment_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
+    public function patchInvoiceAdjustmentAsync($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
     {
-        return $this->patchInvoiceAdjustmentAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $operation, $contentType)
+        return $this->patchInvoiceAdjustmentAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14092,16 +14316,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_adjustment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceAdjustment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceAdjustmentAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
+    public function patchInvoiceAdjustmentAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchInvoiceAdjustmentRequest($tenant_id, $invoice_id, $invoice_adjustment_id, $operation, $contentType);
+        $request = $this->patchInvoiceAdjustmentRequest($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14145,13 +14369,13 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_adjustment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceAdjustment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchInvoiceAdjustmentRequest($tenant_id, $invoice_id, $invoice_adjustment_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
+    public function patchInvoiceAdjustmentRequest($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceAdjustment'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -14220,12 +14444,12 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -14281,16 +14505,16 @@ class InvoicesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
      * @param  string $invoice_line_id invoice_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLine'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchInvoiceLine($tenant_id, $invoice_id, $invoice_line_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
+    public function patchInvoiceLine($tenant_id, $invoice_id, $invoice_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
     {
-        list($response) = $this->patchInvoiceLineWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $operation, $contentType);
+        list($response) = $this->patchInvoiceLineWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -14302,16 +14526,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLine'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchInvoiceLineWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
+    public function patchInvoiceLineWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
     {
-        $request = $this->patchInvoiceLineRequest($tenant_id, $invoice_id, $invoice_line_id, $operation, $contentType);
+        $request = $this->patchInvoiceLineRequest($tenant_id, $invoice_id, $invoice_line_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14465,15 +14689,15 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLine'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceLineAsync($tenant_id, $invoice_id, $invoice_line_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
+    public function patchInvoiceLineAsync($tenant_id, $invoice_id, $invoice_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
     {
-        return $this->patchInvoiceLineAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $operation, $contentType)
+        return $this->patchInvoiceLineAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14489,16 +14713,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLine'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceLineAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
+    public function patchInvoiceLineAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchInvoiceLineRequest($tenant_id, $invoice_id, $invoice_line_id, $operation, $contentType);
+        $request = $this->patchInvoiceLineRequest($tenant_id, $invoice_id, $invoice_line_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14542,13 +14766,13 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLine'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchInvoiceLineRequest($tenant_id, $invoice_id, $invoice_line_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
+    public function patchInvoiceLineRequest($tenant_id, $invoice_id, $invoice_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLine'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -14617,12 +14841,12 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -14679,16 +14903,16 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $invoice_line_id invoice_line_id (required)
      * @param  string $invoice_line_tax_id invoice_line_tax_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLineTax'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchInvoiceLineTax($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
+    public function patchInvoiceLineTax($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
     {
-        list($response) = $this->patchInvoiceLineTaxWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation, $contentType);
+        list($response) = $this->patchInvoiceLineTaxWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -14701,16 +14925,16 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
      * @param  string $invoice_line_tax_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLineTax'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchInvoiceLineTaxWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
+    public function patchInvoiceLineTaxWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
     {
-        $request = $this->patchInvoiceLineTaxRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation, $contentType);
+        $request = $this->patchInvoiceLineTaxRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14830,15 +15054,15 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
      * @param  string $invoice_line_tax_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLineTax'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceLineTaxAsync($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
+    public function patchInvoiceLineTaxAsync($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
     {
-        return $this->patchInvoiceLineTaxAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation, $contentType)
+        return $this->patchInvoiceLineTaxAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14855,16 +15079,16 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
      * @param  string $invoice_line_tax_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLineTax'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceLineTaxAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
+    public function patchInvoiceLineTaxAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchInvoiceLineTaxRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation, $contentType);
+        $request = $this->patchInvoiceLineTaxRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14909,13 +15133,13 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $invoice_line_id (required)
      * @param  string $invoice_line_tax_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceLineTax'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchInvoiceLineTaxRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
+    public function patchInvoiceLineTaxRequest($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceLineTax'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -14999,12 +15223,12 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15060,16 +15284,16 @@ class InvoicesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $invoice_id invoice_id (required)
      * @param  string $invoice_reference_id invoice_reference_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceReference'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchInvoiceReference($tenant_id, $invoice_id, $invoice_reference_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
+    public function patchInvoiceReference($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
     {
-        list($response) = $this->patchInvoiceReferenceWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $operation, $contentType);
+        list($response) = $this->patchInvoiceReferenceWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -15081,16 +15305,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_reference_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceReference'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchInvoiceReferenceWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
+    public function patchInvoiceReferenceWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
     {
-        $request = $this->patchInvoiceReferenceRequest($tenant_id, $invoice_id, $invoice_reference_id, $operation, $contentType);
+        $request = $this->patchInvoiceReferenceRequest($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15209,15 +15433,15 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_reference_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceReference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceReferenceAsync($tenant_id, $invoice_id, $invoice_reference_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
+    public function patchInvoiceReferenceAsync($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
     {
-        return $this->patchInvoiceReferenceAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $operation, $contentType)
+        return $this->patchInvoiceReferenceAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15233,16 +15457,16 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_reference_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceReference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceReferenceAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
+    public function patchInvoiceReferenceAsyncWithHttpInfo($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchInvoiceReferenceRequest($tenant_id, $invoice_id, $invoice_reference_id, $operation, $contentType);
+        $request = $this->patchInvoiceReferenceRequest($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15286,13 +15510,13 @@ class InvoicesApi
      * @param  string $tenant_id (required)
      * @param  string $invoice_id (required)
      * @param  string $invoice_reference_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceReference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchInvoiceReferenceRequest($tenant_id, $invoice_id, $invoice_reference_id, $operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
+    public function patchInvoiceReferenceRequest($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceReference'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -15361,12 +15585,12 @@ class InvoicesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

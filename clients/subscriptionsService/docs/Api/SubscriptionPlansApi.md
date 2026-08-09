@@ -202,7 +202,7 @@ No authorization required
 ## `getSubscriptionPlansAsync()`
 
 ```php
-getSubscriptionPlansAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SubscriptionPlanDtoIReadOnlyListEnvelope
+getSubscriptionPlansAsync($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters): \OpenAPI\Client\Model\SubscriptionPlanDtoIReadOnlyListEnvelope
 ```
 
 Get all subscription plans
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SubscriptionPlansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$subscription_dto_collection_query_parameters = new \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSubscriptionPlansAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSubscriptionPlansAsync($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionPlansApi->getSubscriptionPlansAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **subscription_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters**](../Model/SubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSubscriptionPlansCountAsync()`
 
 ```php
-getSubscriptionPlansCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSubscriptionPlansCountAsync($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get subscription plans count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SubscriptionPlansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$subscription_dto_collection_query_parameters = new \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSubscriptionPlansCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSubscriptionPlansCountAsync($tenant_id, $api_version, $x_api_version, $subscription_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionPlansApi->getSubscriptionPlansCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **subscription_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SubscriptionDtoCollectionQueryParameters**](../Model/SubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSubscriptionPlanAsync()`
 
 ```php
-patchSubscriptionPlanAsync($tenant_id, $plan_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSubscriptionPlanAsync($tenant_id, $plan_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a subscription plan
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $plan_id = 'plan_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSubscriptionPlanAsync($tenant_id, $plan_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSubscriptionPlanAsync($tenant_id, $plan_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubscriptionPlansApi->patchSubscriptionPlanAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **plan_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

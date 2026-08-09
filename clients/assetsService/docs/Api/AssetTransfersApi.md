@@ -190,7 +190,7 @@ No authorization required
 ## `getAssetTransfersAsync()`
 
 ```php
-getAssetTransfersAsync($tenant_id): \OpenAPI\Client\Model\AssetTransferDtoListEnvelope
+getAssetTransfersAsync($tenant_id, $asset_transfer_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetTransferDtoListEnvelope
 ```
 
 Gets a list of asset transfers
@@ -211,9 +211,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetTransfersApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_transfer_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetTransfersAsync($tenant_id);
+    $result = $apiInstance->getAssetTransfersAsync($tenant_id, $asset_transfer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetTransfersApi->getAssetTransfersAsync: ', $e->getMessage(), PHP_EOL;
@@ -225,6 +226,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_transfer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters**](../Model/AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -236,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -246,7 +248,7 @@ No authorization required
 ## `getAssetTransfersCountAsync()`
 
 ```php
-getAssetTransfersCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetTransfersCountAsync($tenant_id, $asset_transfer_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of asset transfers
@@ -267,9 +269,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetTransfersApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_transfer_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetTransfersCountAsync($tenant_id);
+    $result = $apiInstance->getAssetTransfersCountAsync($tenant_id, $asset_transfer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetTransfersApi->getAssetTransfersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -281,6 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_transfer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters**](../Model/AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -292,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -302,7 +306,7 @@ No authorization required
 ## `patchAssetTransferAsync()`
 
 ```php
-patchAssetTransferAsync($tenant_id, $transfer_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetTransferAsync($tenant_id, $transfer_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an existing asset transfer
@@ -324,10 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetTransfersApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $transfer_id = 'transfer_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetTransferAsync($tenant_id, $transfer_id, $operation);
+    $result = $apiInstance->patchAssetTransferAsync($tenant_id, $transfer_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetTransfersApi->patchAssetTransferAsync: ', $e->getMessage(), PHP_EOL;
@@ -340,7 +344,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **transfer_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseCohortsAsync()`
 
 ```php
-getCourseCohortsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseCohortDto[]
+getCourseCohortsAsync($tenant_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseCohortDto[]
 ```
 
 Get all course cohorts
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseCohortsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_cohort_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseCohortsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseCohortsAsync($tenant_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseCohortsApi->getCourseCohortsAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_cohort_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters**](../Model/CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseCohortsCountAsync()`
 
 ```php
-getCourseCohortsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseCohortsCountAsync($tenant_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters): int
 ```
 
 Get course cohorts count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseCohortsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_cohort_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseCohortsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseCohortsCountAsync($tenant_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseCohortsApi->getCourseCohortsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_cohort_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters**](../Model/CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseCohortAsync()`
 
 ```php
-patchCourseCohortAsync($tenant_id, $cohort_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseCohortAsync($tenant_id, $cohort_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course cohort
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $cohort_id = 'cohort_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseCohortAsync($tenant_id, $cohort_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseCohortAsync($tenant_id, $cohort_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseCohortsApi->patchCourseCohortAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **cohort_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

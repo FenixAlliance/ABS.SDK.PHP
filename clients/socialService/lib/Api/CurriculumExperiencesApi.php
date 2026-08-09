@@ -84,9 +84,11 @@ class CurriculumExperiencesApi
         ],
         'getCurriculumExperiencesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCurriculumExperiencesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCurriculumExperienceAsync' => [
             'application/json',
@@ -1594,15 +1596,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CurriculumExperienceDtoListEnvelope
      */
-    public function getCurriculumExperiencesAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
+    public function getCurriculumExperiencesAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
     {
-        list($response) = $this->getCurriculumExperiencesAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurriculumExperiencesAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1616,15 +1619,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CurriculumExperienceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurriculumExperiencesAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
+    public function getCurriculumExperiencesAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
     {
-        $request = $this->getCurriculumExperiencesAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCurriculumExperiencesAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1815,14 +1819,15 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurriculumExperiencesAsyncAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
+    public function getCurriculumExperiencesAsyncAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
     {
-        return $this->getCurriculumExperiencesAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCurriculumExperiencesAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1840,15 +1845,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurriculumExperiencesAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
+    public function getCurriculumExperiencesAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CurriculumExperienceDtoListEnvelope';
-        $request = $this->getCurriculumExperiencesAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCurriculumExperiencesAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1894,12 +1900,13 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurriculumExperiencesAsyncRequest($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
+    public function getCurriculumExperiencesAsyncRequest($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesAsync'][0])
     {
 
         // verify the required parameter 'curriculum_id' is set
@@ -1915,6 +1922,7 @@ class CurriculumExperiencesApi
                 'Missing the required parameter $social_profile_id when calling getCurriculumExperiencesAsync'
             );
         }
+
 
 
 
@@ -1977,7 +1985,14 @@ class CurriculumExperiencesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($curriculum_experience_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($curriculum_experience_dto_collection_query_parameters));
+            } else {
+                $httpBody = $curriculum_experience_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2033,15 +2048,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getCurriculumExperiencesCountAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
+    public function getCurriculumExperiencesCountAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
     {
-        list($response) = $this->getCurriculumExperiencesCountAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurriculumExperiencesCountAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2055,15 +2071,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurriculumExperiencesCountAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
+    public function getCurriculumExperiencesCountAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
     {
-        $request = $this->getCurriculumExperiencesCountAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCurriculumExperiencesCountAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2254,14 +2271,15 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurriculumExperiencesCountAsyncAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
+    public function getCurriculumExperiencesCountAsyncAsync($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
     {
-        return $this->getCurriculumExperiencesCountAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCurriculumExperiencesCountAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2279,15 +2297,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurriculumExperiencesCountAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
+    public function getCurriculumExperiencesCountAsyncAsyncWithHttpInfo($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getCurriculumExperiencesCountAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCurriculumExperiencesCountAsyncRequest($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2333,12 +2352,13 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters $curriculum_experience_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurriculumExperiencesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurriculumExperiencesCountAsyncRequest($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
+    public function getCurriculumExperiencesCountAsyncRequest($curriculum_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $curriculum_experience_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurriculumExperiencesCountAsync'][0])
     {
 
         // verify the required parameter 'curriculum_id' is set
@@ -2354,6 +2374,7 @@ class CurriculumExperiencesApi
                 'Missing the required parameter $social_profile_id when calling getCurriculumExperiencesCountAsync'
             );
         }
+
 
 
 
@@ -2416,7 +2437,14 @@ class CurriculumExperiencesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($curriculum_experience_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($curriculum_experience_dto_collection_query_parameters));
+            } else {
+                $httpBody = $curriculum_experience_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2473,16 +2501,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurriculumExperienceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCurriculumExperienceAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
+    public function patchCurriculumExperienceAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
     {
-        list($response) = $this->patchCurriculumExperienceAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCurriculumExperienceAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2497,16 +2525,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurriculumExperienceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCurriculumExperienceAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
+    public function patchCurriculumExperienceAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
     {
-        $request = $this->patchCurriculumExperienceAsyncRequest($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCurriculumExperienceAsyncRequest($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2733,15 +2761,15 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurriculumExperienceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCurriculumExperienceAsyncAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
+    public function patchCurriculumExperienceAsyncAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
     {
-        return $this->patchCurriculumExperienceAsyncAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCurriculumExperienceAsyncAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2760,16 +2788,16 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurriculumExperienceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCurriculumExperienceAsyncAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
+    public function patchCurriculumExperienceAsyncAsyncWithHttpInfo($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCurriculumExperienceAsyncRequest($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCurriculumExperienceAsyncRequest($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2816,13 +2844,13 @@ class CurriculumExperiencesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurriculumExperienceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCurriculumExperienceAsyncRequest($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
+    public function patchCurriculumExperienceAsyncRequest($curriculum_id, $experience_id, $social_profile_id, $tenant_id = null, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurriculumExperienceAsync'][0])
     {
 
         // verify the required parameter 'curriculum_id' is set
@@ -2916,12 +2944,12 @@ class CurriculumExperiencesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

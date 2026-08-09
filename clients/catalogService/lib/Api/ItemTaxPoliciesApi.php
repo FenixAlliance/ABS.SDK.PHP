@@ -74,9 +74,11 @@ class ItemTaxPoliciesApi
     public const contentTypes = [
         'countItemTaxPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemTaxPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemTaxPolicyByIdAsync' => [
             'application/json',
@@ -144,15 +146,16 @@ class ItemTaxPoliciesApi
      * @param  string $item_id item_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countItemTaxPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
+    public function countItemTaxPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
     {
-        list($response) = $this->countItemTaxPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countItemTaxPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -165,15 +168,16 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countItemTaxPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
+    public function countItemTaxPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
     {
-        $request = $this->countItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -363,14 +367,15 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countItemTaxPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
+    public function countItemTaxPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
     {
-        return $this->countItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->countItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -387,15 +392,16 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
+    public function countItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,13 +446,15 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countItemTaxPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
+    public function countItemTaxPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countItemTaxPoliciesAsync'][0])
     {
+
 
 
 
@@ -502,7 +510,14 @@ class ItemTaxPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_tax_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_tax_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_tax_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -557,15 +572,16 @@ class ItemTaxPoliciesApi
      * @param  string $item_id item_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope
      */
-    public function getItemTaxPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
+    public function getItemTaxPoliciesAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
     {
-        list($response) = $this->getItemTaxPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemTaxPoliciesAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -578,15 +594,16 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemTaxPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
+    public function getItemTaxPoliciesAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
     {
-        $request = $this->getItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -776,14 +793,15 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemTaxPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
+    public function getItemTaxPoliciesAsyncAsync($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
     {
-        return $this->getItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -800,15 +818,16 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
+    public function getItemTaxPoliciesAsyncAsyncWithHttpInfo($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope';
-        $request = $this->getItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemTaxPoliciesAsyncRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -853,13 +872,15 @@ class ItemTaxPoliciesApi
      * @param  string $item_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTaxPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemTaxPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
+    public function getItemTaxPoliciesAsyncRequest($tenant_id = null, $item_id = null, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTaxPoliciesAsync'][0])
     {
+
 
 
 
@@ -915,7 +936,14 @@ class ItemTaxPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_tax_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_tax_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_tax_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

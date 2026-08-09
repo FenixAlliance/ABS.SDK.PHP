@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countWebTemplatesAsync()`
 
 ```php
-countWebTemplatesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countWebTemplatesAsync($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count web templates
@@ -39,9 +39,10 @@ $apiInstance = new OpenAPI\Client\Api\WebTemplatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_template_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countWebTemplatesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countWebTemplatesAsync($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebTemplatesApi->countWebTemplatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_template_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters**](../Model/WebTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getWebTemplatesAsync()`
 
 ```php
-getWebTemplatesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebTemplateDtoListEnvelope
+getWebTemplatesAsync($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters): \OpenAPI\Client\Model\WebTemplateDtoListEnvelope
 ```
 
 Get web templates
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\WebTemplatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_template_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWebTemplatesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWebTemplatesAsync($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebTemplatesApi->getWebTemplatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_template_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters**](../Model/WebTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchWebTemplateAsync()`
 
 ```php
-patchWebTemplateAsync($tenant_id, $web_template_id, $api_version, $x_api_version, $operation)
+patchWebTemplateAsync($tenant_id, $web_template_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a web template
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $web_template_id = 'web_template_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchWebTemplateAsync($tenant_id, $web_template_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchWebTemplateAsync($tenant_id, $web_template_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling WebTemplatesApi->patchWebTemplateAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -361,7 +365,7 @@ try {
 | **web_template_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -84,9 +84,11 @@ class TeamsApi
         ],
         'getTenantTeams' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantTeamsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchTenantTeam' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class TeamsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeams'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantTeamDtoListEnvelope
      */
-    public function getTenantTeams($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeams'][0])
+    public function getTenantTeams($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeams'][0])
     {
-        list($response) = $this->getTenantTeamsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantTeamsWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeams'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantTeamDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantTeamsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeams'][0])
+    public function getTenantTeamsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeams'][0])
     {
-        $request = $this->getTenantTeamsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTeamsRequest($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTeamsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeams'][0])
+    public function getTenantTeamsAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeams'][0])
     {
-        return $this->getTenantTeamsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantTeamsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTeamsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeams'][0])
+    public function getTenantTeamsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeams'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantTeamDtoListEnvelope';
-        $request = $this->getTenantTeamsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTeamsRequest($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantTeamsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeams'][0])
+    public function getTenantTeamsRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeams'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class TeamsApi
                 'Missing the required parameter $tenant_id when calling getTenantTeams'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class TeamsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_team_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_team_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_team_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class TeamsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeamsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantTeamsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
+    public function getTenantTeamsCount($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
     {
-        list($response) = $this->getTenantTeamsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantTeamsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeamsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantTeamsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
+    public function getTenantTeamsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
     {
-        $request = $this->getTenantTeamsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTeamsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeamsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTeamsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
+    public function getTenantTeamsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
     {
-        return $this->getTenantTeamsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantTeamsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeamsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTeamsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
+    public function getTenantTeamsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantTeamsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTeamsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_team_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class TeamsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTeamDtoCollectionQueryParameters $tenant_team_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTeamsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantTeamsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
+    public function getTenantTeamsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_team_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTeamsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class TeamsApi
                 'Missing the required parameter $tenant_id when calling getTenantTeamsCount'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class TeamsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_team_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_team_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_team_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class TeamsApi
      * @param  string $tenant_team_id tenant_team_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTeam'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTenantTeam($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
+    public function patchTenantTeam($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
     {
-        list($response) = $this->patchTenantTeamWithHttpInfo($tenant_id, $tenant_team_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTenantTeamWithHttpInfo($tenant_id, $tenant_team_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class TeamsApi
      * @param  string $tenant_team_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTeam'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTenantTeamWithHttpInfo($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
+    public function patchTenantTeamWithHttpInfo($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
     {
-        $request = $this->patchTenantTeamRequest($tenant_id, $tenant_team_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantTeamRequest($tenant_id, $tenant_team_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class TeamsApi
      * @param  string $tenant_team_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTeam'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantTeamAsync($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
+    public function patchTenantTeamAsync($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
     {
-        return $this->patchTenantTeamAsyncWithHttpInfo($tenant_id, $tenant_team_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTenantTeamAsyncWithHttpInfo($tenant_id, $tenant_team_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class TeamsApi
      * @param  string $tenant_team_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTeam'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantTeamAsyncWithHttpInfo($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
+    public function patchTenantTeamAsyncWithHttpInfo($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTenantTeamRequest($tenant_id, $tenant_team_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantTeamRequest($tenant_id, $tenant_team_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class TeamsApi
      * @param  string $tenant_team_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTeam'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTenantTeamRequest($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
+    public function patchTenantTeamRequest($tenant_id, $tenant_team_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTeam'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class TeamsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

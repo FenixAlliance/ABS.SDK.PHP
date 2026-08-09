@@ -99,12 +99,14 @@ class PermissionsApi
         ],
         'getPermissionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPermissionsByEnrollmentAsync' => [
             'application/json',
         ],
         'getPermissionsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRolesByPermissionAsync' => [
             'application/json',
@@ -3808,15 +3810,16 @@ class PermissionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SecurityPermissionDtoListEnvelope
      */
-    public function getPermissionsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
+    public function getPermissionsAsync($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
     {
-        list($response) = $this->getPermissionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPermissionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3828,15 +3831,16 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SecurityPermissionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPermissionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
+    public function getPermissionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
     {
-        $request = $this->getPermissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPermissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4025,14 +4029,15 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPermissionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
+    public function getPermissionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
     {
-        return $this->getPermissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPermissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4048,15 +4053,16 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPermissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
+    public function getPermissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SecurityPermissionDtoListEnvelope';
-        $request = $this->getPermissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPermissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4100,12 +4106,13 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPermissionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
+    public function getPermissionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4114,6 +4121,7 @@ class PermissionsApi
                 'Missing the required parameter $tenant_id when calling getPermissionsAsync'
             );
         }
+
 
 
 
@@ -4158,7 +4166,14 @@ class PermissionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($security_permission_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($security_permission_dto_collection_query_parameters));
+            } else {
+                $httpBody = $security_permission_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4636,15 +4651,16 @@ class PermissionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPermissionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
+    public function getPermissionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
     {
-        list($response) = $this->getPermissionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPermissionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4656,15 +4672,16 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPermissionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
+    public function getPermissionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
     {
-        $request = $this->getPermissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPermissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4853,14 +4870,15 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPermissionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
+    public function getPermissionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
     {
-        return $this->getPermissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPermissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4876,15 +4894,16 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPermissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
+    public function getPermissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPermissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPermissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4928,12 +4947,13 @@ class PermissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters $security_permission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPermissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPermissionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
+    public function getPermissionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $security_permission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPermissionsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4942,6 +4962,7 @@ class PermissionsApi
                 'Missing the required parameter $tenant_id when calling getPermissionsCountAsync'
             );
         }
+
 
 
 
@@ -4986,7 +5007,14 @@ class PermissionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($security_permission_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($security_permission_dto_collection_query_parameters));
+            } else {
+                $httpBody = $security_permission_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5463,7 +5491,7 @@ class PermissionsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $security_permission_id security_permission_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPermissionAsync'] to see the possible values for this operation
@@ -5472,9 +5500,9 @@ class PermissionsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPermissionAsync($tenant_id, $security_permission_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
+    public function patchPermissionAsync($tenant_id, $security_permission_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
     {
-        list($response) = $this->patchPermissionAsyncWithHttpInfo($tenant_id, $security_permission_id, $operation, $api_version, $x_api_version, $contentType);
+        list($response) = $this->patchPermissionAsyncWithHttpInfo($tenant_id, $security_permission_id, $patch_operation, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -5485,7 +5513,7 @@ class PermissionsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_permission_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPermissionAsync'] to see the possible values for this operation
@@ -5494,9 +5522,9 @@ class PermissionsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPermissionAsyncWithHttpInfo($tenant_id, $security_permission_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
+    public function patchPermissionAsyncWithHttpInfo($tenant_id, $security_permission_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
     {
-        $request = $this->patchPermissionAsyncRequest($tenant_id, $security_permission_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchPermissionAsyncRequest($tenant_id, $security_permission_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5719,7 +5747,7 @@ class PermissionsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_permission_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPermissionAsync'] to see the possible values for this operation
@@ -5727,9 +5755,9 @@ class PermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPermissionAsyncAsync($tenant_id, $security_permission_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
+    public function patchPermissionAsyncAsync($tenant_id, $security_permission_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
     {
-        return $this->patchPermissionAsyncAsyncWithHttpInfo($tenant_id, $security_permission_id, $operation, $api_version, $x_api_version, $contentType)
+        return $this->patchPermissionAsyncAsyncWithHttpInfo($tenant_id, $security_permission_id, $patch_operation, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5744,7 +5772,7 @@ class PermissionsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_permission_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPermissionAsync'] to see the possible values for this operation
@@ -5752,10 +5780,10 @@ class PermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPermissionAsyncAsyncWithHttpInfo($tenant_id, $security_permission_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
+    public function patchPermissionAsyncAsyncWithHttpInfo($tenant_id, $security_permission_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPermissionAsyncRequest($tenant_id, $security_permission_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchPermissionAsyncRequest($tenant_id, $security_permission_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5798,7 +5826,7 @@ class PermissionsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_permission_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPermissionAsync'] to see the possible values for this operation
@@ -5806,7 +5834,7 @@ class PermissionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPermissionAsyncRequest($tenant_id, $security_permission_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
+    public function patchPermissionAsyncRequest($tenant_id, $security_permission_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchPermissionAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5823,10 +5851,10 @@ class PermissionsApi
             );
         }
 
-        // verify the required parameter 'operation' is set
-        if ($operation === null || (is_array($operation) && count($operation) === 0)) {
+        // verify the required parameter 'patch_operation' is set
+        if ($patch_operation === null || (is_array($patch_operation) && count($patch_operation) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $operation when calling patchPermissionAsync'
+                'Missing the required parameter $patch_operation when calling patchPermissionAsync'
             );
         }
 
@@ -5881,12 +5909,12 @@ class PermissionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

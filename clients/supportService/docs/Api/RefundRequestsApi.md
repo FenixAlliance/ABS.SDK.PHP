@@ -196,7 +196,7 @@ No authorization required
 ## `getRefundRequestsAsync()`
 
 ```php
-getRefundRequestsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\RefundRequestDtoListEnvelope
+getRefundRequestsAsync($tenant_id, $api_version, $x_api_version, $refund_request_dto_collection_query_parameters): \OpenAPI\Client\Model\RefundRequestDtoListEnvelope
 ```
 
 Retrieve refund requests
@@ -217,9 +217,10 @@ $apiInstance = new OpenAPI\Client\Api\RefundRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$refund_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\RefundRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RefundRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRefundRequestsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRefundRequestsAsync($tenant_id, $api_version, $x_api_version, $refund_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RefundRequestsApi->getRefundRequestsAsync: ', $e->getMessage(), PHP_EOL;
@@ -233,6 +234,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **refund_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RefundRequestDtoCollectionQueryParameters**](../Model/RefundRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -254,7 +256,7 @@ No authorization required
 ## `getRefundRequestsCountAsync()`
 
 ```php
-getRefundRequestsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRefundRequestsCountAsync($tenant_id, $api_version, $x_api_version, $refund_request_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get refund requests count
@@ -275,9 +277,10 @@ $apiInstance = new OpenAPI\Client\Api\RefundRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$refund_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\RefundRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RefundRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRefundRequestsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRefundRequestsCountAsync($tenant_id, $api_version, $x_api_version, $refund_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RefundRequestsApi->getRefundRequestsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -291,6 +294,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **refund_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RefundRequestDtoCollectionQueryParameters**](../Model/RefundRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -302,7 +306,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -312,7 +316,7 @@ No authorization required
 ## `patchRefundRequestAsync()`
 
 ```php
-patchRefundRequestAsync($tenant_id, $refund_request_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchRefundRequestAsync($tenant_id, $refund_request_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a refund request
@@ -336,10 +340,10 @@ $tenant_id = 'tenant_id_example'; // string
 $refund_request_id = 'refund_request_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchRefundRequestAsync($tenant_id, $refund_request_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchRefundRequestAsync($tenant_id, $refund_request_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RefundRequestsApi->patchRefundRequestAsync: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +358,7 @@ try {
 | **refund_request_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

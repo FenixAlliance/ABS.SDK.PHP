@@ -202,7 +202,7 @@ No authorization required
 ## `getServiceCasesAsync()`
 
 ```php
-getServiceCasesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ServiceCaseDtoIReadOnlyListEnvelope
+getServiceCasesAsync($tenant_id, $api_version, $x_api_version, $service_case_dto_collection_query_parameters): \OpenAPI\Client\Model\ServiceCaseDtoIReadOnlyListEnvelope
 ```
 
 Get all service cases
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\ServiceCasesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_case_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceCaseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceCaseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getServiceCasesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getServiceCasesAsync($tenant_id, $api_version, $x_api_version, $service_case_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceCasesApi->getServiceCasesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_case_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceCaseDtoCollectionQueryParameters**](../Model/ServiceCaseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getServiceCasesCountAsync()`
 
 ```php
-getServiceCasesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getServiceCasesCountAsync($tenant_id, $api_version, $x_api_version, $service_case_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get service cases count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\ServiceCasesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_case_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceCaseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceCaseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getServiceCasesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getServiceCasesCountAsync($tenant_id, $api_version, $x_api_version, $service_case_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceCasesApi->getServiceCasesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_case_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceCaseDtoCollectionQueryParameters**](../Model/ServiceCaseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchServiceCaseAsync()`
 
 ```php
-patchServiceCaseAsync($tenant_id, $service_case_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\Envelope
+patchServiceCaseAsync($tenant_id, $service_case_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\Envelope
 ```
 
 Patch a service case
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $service_case_id = 'service_case_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchServiceCaseAsync($tenant_id, $service_case_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchServiceCaseAsync($tenant_id, $service_case_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceCasesApi->patchServiceCaseAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **service_case_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

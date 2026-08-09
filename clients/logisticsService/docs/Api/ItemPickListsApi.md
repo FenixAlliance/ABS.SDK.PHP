@@ -337,7 +337,7 @@ No authorization required
 ## `getItemPickListEntriesAsync()`
 
 ```php
-getItemPickListEntriesAsync($tenant_id, $pick_list_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemPickListEntryDtoListEnvelope
+getItemPickListEntriesAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemPickListEntryDtoListEnvelope
 ```
 
 Get pick list entries
@@ -361,9 +361,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pick_list_id = 'pick_list_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_pick_list_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPickListEntriesAsync($tenant_id, $pick_list_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPickListEntriesAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPickListsApi->getItemPickListEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -378,6 +379,7 @@ try {
 | **pick_list_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_pick_list_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters**](../Model/ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -389,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -399,7 +401,7 @@ No authorization required
 ## `getItemPickListEntriesCountAsync()`
 
 ```php
-getItemPickListEntriesCountAsync($tenant_id, $pick_list_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemPickListEntriesCountAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get pick list entries count
@@ -423,9 +425,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pick_list_id = 'pick_list_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_pick_list_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPickListEntriesCountAsync($tenant_id, $pick_list_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPickListEntriesCountAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPickListsApi->getItemPickListEntriesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -440,6 +443,7 @@ try {
 | **pick_list_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_pick_list_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters**](../Model/ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -451,7 +455,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +529,7 @@ No authorization required
 ## `getItemPickListsAsync()`
 
 ```php
-getItemPickListsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemPickListDtoListEnvelope
+getItemPickListsAsync($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemPickListDtoListEnvelope
 ```
 
 Get all item pick lists
@@ -548,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemPickListsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_pick_list_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPickListsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPickListsAsync($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPickListsApi->getItemPickListsAsync: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_pick_list_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters**](../Model/ItemPickListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -585,7 +591,7 @@ No authorization required
 ## `getItemPickListsCountAsync()`
 
 ```php
-getItemPickListsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemPickListsCountAsync($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get item pick lists count
@@ -608,9 +614,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemPickListsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_pick_list_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPickListsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPickListsCountAsync($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPickListsApi->getItemPickListsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -624,6 +631,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_pick_list_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters**](../Model/ItemPickListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -645,7 +653,7 @@ No authorization required
 ## `patchItemPickListAsync()`
 
 ```php
-patchItemPickListAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemPickListAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an item pick list
@@ -669,10 +677,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pick_list_id = 'pick_list_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemPickListAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemPickListAsync($tenant_id, $pick_list_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPickListsApi->patchItemPickListAsync: ', $e->getMessage(), PHP_EOL;
@@ -687,7 +695,7 @@ try {
 | **pick_list_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -709,7 +717,7 @@ No authorization required
 ## `patchItemPickListEntryAsync()`
 
 ```php
-patchItemPickListEntryAsync($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemPickListEntryAsync($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a pick list entry
@@ -734,10 +742,10 @@ $pick_list_id = 'pick_list_id_example'; // string
 $entry_id = 'entry_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemPickListEntryAsync($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemPickListEntryAsync($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPickListsApi->patchItemPickListEntryAsync: ', $e->getMessage(), PHP_EOL;
@@ -753,7 +761,7 @@ try {
 | **entry_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -819,7 +819,7 @@ No authorization required
 ## `getAssetAssetCategories()`
 
 ```php
-getAssetAssetCategories($tenant_id): \OpenAPI\Client\Model\AssetCategoryDtoListEnvelope
+getAssetAssetCategories($tenant_id, $asset_category_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetCategoryDtoListEnvelope
 ```
 
 Gets all asset categories
@@ -840,9 +840,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetAssetCategories($tenant_id);
+    $result = $apiInstance->getAssetAssetCategories($tenant_id, $asset_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetAssetCategories: ', $e->getMessage(), PHP_EOL;
@@ -854,6 +855,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters**](../Model/AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -865,7 +867,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -875,7 +877,7 @@ No authorization required
 ## `getAssetAssetCategoriesCount()`
 
 ```php
-getAssetAssetCategoriesCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetAssetCategoriesCount($tenant_id, $asset_category_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of asset categories
@@ -896,9 +898,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetAssetCategoriesCount($tenant_id);
+    $result = $apiInstance->getAssetAssetCategoriesCount($tenant_id, $asset_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetAssetCategoriesCount: ', $e->getMessage(), PHP_EOL;
@@ -910,6 +913,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters**](../Model/AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -921,7 +925,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1049,7 +1053,7 @@ No authorization required
 ## `getAssetDepreciationRecords()`
 
 ```php
-getAssetDepreciationRecords($tenant_id, $asset_id): \OpenAPI\Client\Model\AssetDepreciationRecordDtoListEnvelope
+getAssetDepreciationRecords($tenant_id, $asset_id, $asset_depreciation_record_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetDepreciationRecordDtoListEnvelope
 ```
 
 Gets depreciation records for a specific asset
@@ -1071,9 +1075,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_depreciation_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetDepreciationRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetDepreciationRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetDepreciationRecords($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetDepreciationRecords($tenant_id, $asset_id, $asset_depreciation_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetDepreciationRecords: ', $e->getMessage(), PHP_EOL;
@@ -1086,6 +1091,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_depreciation_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetDepreciationRecordDtoCollectionQueryParameters**](../Model/AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1097,7 +1103,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1107,7 +1113,7 @@ No authorization required
 ## `getAssetDepreciationRecordsCount()`
 
 ```php
-getAssetDepreciationRecordsCount($tenant_id, $asset_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetDepreciationRecordsCount($tenant_id, $asset_id, $asset_depreciation_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets count of depreciation records for a specific asset
@@ -1129,9 +1135,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_depreciation_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetDepreciationRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetDepreciationRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetDepreciationRecordsCount($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetDepreciationRecordsCount($tenant_id, $asset_id, $asset_depreciation_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetDepreciationRecordsCount: ', $e->getMessage(), PHP_EOL;
@@ -1144,6 +1151,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_depreciation_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetDepreciationRecordDtoCollectionQueryParameters**](../Model/AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1155,7 +1163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1225,7 +1233,7 @@ No authorization required
 ## `getAssetRepairs()`
 
 ```php
-getAssetRepairs($tenant_id, $asset_id): \OpenAPI\Client\Model\AssetRepairDtoListEnvelope
+getAssetRepairs($tenant_id, $asset_id, $asset_repair_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetRepairDtoListEnvelope
 ```
 
 Gets repairs for a specific asset
@@ -1247,9 +1255,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_repair_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetRepairDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetRepairDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetRepairs($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetRepairs($tenant_id, $asset_id, $asset_repair_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetRepairs: ', $e->getMessage(), PHP_EOL;
@@ -1262,6 +1271,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_repair_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetRepairDtoCollectionQueryParameters**](../Model/AssetRepairDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1273,7 +1283,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1283,7 +1293,7 @@ No authorization required
 ## `getAssetRepairsCount()`
 
 ```php
-getAssetRepairsCount($tenant_id, $asset_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetRepairsCount($tenant_id, $asset_id, $asset_repair_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets count of repairs for a specific asset
@@ -1305,9 +1315,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_repair_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetRepairDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetRepairDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetRepairsCount($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetRepairsCount($tenant_id, $asset_id, $asset_repair_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetRepairsCount: ', $e->getMessage(), PHP_EOL;
@@ -1320,6 +1331,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_repair_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetRepairDtoCollectionQueryParameters**](../Model/AssetRepairDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1331,7 +1343,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1401,7 +1413,7 @@ No authorization required
 ## `getAssetTransfers()`
 
 ```php
-getAssetTransfers($tenant_id, $asset_id): \OpenAPI\Client\Model\AssetTransferDtoListEnvelope
+getAssetTransfers($tenant_id, $asset_id, $asset_transfer_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetTransferDtoListEnvelope
 ```
 
 Gets transfers for a specific asset
@@ -1423,9 +1435,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_transfer_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetTransfers($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetTransfers($tenant_id, $asset_id, $asset_transfer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetTransfers: ', $e->getMessage(), PHP_EOL;
@@ -1438,6 +1451,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_transfer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters**](../Model/AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1449,7 +1463,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1459,7 +1473,7 @@ No authorization required
 ## `getAssetTransfersCount()`
 
 ```php
-getAssetTransfersCount($tenant_id, $asset_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetTransfersCount($tenant_id, $asset_id, $asset_transfer_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets count of transfers for a specific asset
@@ -1481,9 +1495,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_transfer_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetTransfersCount($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetTransfersCount($tenant_id, $asset_id, $asset_transfer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetTransfersCount: ', $e->getMessage(), PHP_EOL;
@@ -1496,6 +1511,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_transfer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters**](../Model/AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1507,7 +1523,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1577,7 +1593,7 @@ No authorization required
 ## `getAssetValueAmends()`
 
 ```php
-getAssetValueAmends($tenant_id, $asset_id): \OpenAPI\Client\Model\AssetValueAmendDtoListEnvelope
+getAssetValueAmends($tenant_id, $asset_id, $asset_value_amend_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetValueAmendDtoListEnvelope
 ```
 
 Gets value amendments for a specific asset
@@ -1599,9 +1615,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_value_amend_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetValueAmendDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetValueAmendDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetValueAmends($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetValueAmends($tenant_id, $asset_id, $asset_value_amend_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetValueAmends: ', $e->getMessage(), PHP_EOL;
@@ -1614,6 +1631,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_value_amend_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetValueAmendDtoCollectionQueryParameters**](../Model/AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1625,7 +1643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1635,7 +1653,7 @@ No authorization required
 ## `getAssetValueAmendsCount()`
 
 ```php
-getAssetValueAmendsCount($tenant_id, $asset_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetValueAmendsCount($tenant_id, $asset_id, $asset_value_amend_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets count of value amendments for a specific asset
@@ -1657,9 +1675,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
+$asset_value_amend_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetValueAmendDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetValueAmendDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetValueAmendsCount($tenant_id, $asset_id);
+    $result = $apiInstance->getAssetValueAmendsCount($tenant_id, $asset_id, $asset_value_amend_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetValueAmendsCount: ', $e->getMessage(), PHP_EOL;
@@ -1672,6 +1691,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
+| **asset_value_amend_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetValueAmendDtoCollectionQueryParameters**](../Model/AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1683,7 +1703,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1693,7 +1713,7 @@ No authorization required
 ## `getAssets()`
 
 ```php
-getAssets($tenant_id): \OpenAPI\Client\Model\AssetDtoListEnvelope
+getAssets($tenant_id, $asset_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetDtoListEnvelope
 ```
 
 Gets all assets for the current tenant
@@ -1714,9 +1734,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssets($tenant_id);
+    $result = $apiInstance->getAssets($tenant_id, $asset_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssets: ', $e->getMessage(), PHP_EOL;
@@ -1728,6 +1749,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetDtoCollectionQueryParameters**](../Model/AssetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1739,7 +1761,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1749,7 +1771,7 @@ No authorization required
 ## `getAssetsCount()`
 
 ```php
-getAssetsCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetsCount($tenant_id, $asset_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of assets
@@ -1770,9 +1792,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetsCount($tenant_id);
+    $result = $apiInstance->getAssetsCount($tenant_id, $asset_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->getAssetsCount: ', $e->getMessage(), PHP_EOL;
@@ -1784,6 +1807,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetDtoCollectionQueryParameters**](../Model/AssetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1795,7 +1819,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1805,7 +1829,7 @@ No authorization required
 ## `patchAsset()`
 
 ```php
-patchAsset($tenant_id, $asset_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAsset($tenant_id, $asset_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an existing asset
@@ -1827,10 +1851,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAsset($tenant_id, $asset_id, $operation);
+    $result = $apiInstance->patchAsset($tenant_id, $asset_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->patchAsset: ', $e->getMessage(), PHP_EOL;
@@ -1843,7 +1867,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1865,7 +1889,7 @@ No authorization required
 ## `patchAssetAssetCategory()`
 
 ```php
-patchAssetAssetCategory($tenant_id, $category_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetAssetCategory($tenant_id, $category_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an existing asset category
@@ -1887,10 +1911,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $category_id = 'category_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetAssetCategory($tenant_id, $category_id, $operation);
+    $result = $apiInstance->patchAssetAssetCategory($tenant_id, $category_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->patchAssetAssetCategory: ', $e->getMessage(), PHP_EOL;
@@ -1903,7 +1927,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **category_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1925,7 +1949,7 @@ No authorization required
 ## `patchAssetDepreciationRecord()`
 
 ```php
-patchAssetDepreciationRecord($tenant_id, $asset_id, $record_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetDepreciationRecord($tenant_id, $asset_id, $record_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates a depreciation record for an asset
@@ -1948,10 +1972,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
 $record_id = 'record_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetDepreciationRecord($tenant_id, $asset_id, $record_id, $operation);
+    $result = $apiInstance->patchAssetDepreciationRecord($tenant_id, $asset_id, $record_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->patchAssetDepreciationRecord: ', $e->getMessage(), PHP_EOL;
@@ -1965,7 +1989,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
 | **record_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1987,7 +2011,7 @@ No authorization required
 ## `patchAssetRepair()`
 
 ```php
-patchAssetRepair($tenant_id, $asset_id, $repair_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetRepair($tenant_id, $asset_id, $repair_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates a repair for an asset
@@ -2010,10 +2034,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
 $repair_id = 'repair_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetRepair($tenant_id, $asset_id, $repair_id, $operation);
+    $result = $apiInstance->patchAssetRepair($tenant_id, $asset_id, $repair_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->patchAssetRepair: ', $e->getMessage(), PHP_EOL;
@@ -2027,7 +2051,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
 | **repair_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2049,7 +2073,7 @@ No authorization required
 ## `patchAssetTransfer()`
 
 ```php
-patchAssetTransfer($tenant_id, $asset_id, $transfer_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetTransfer($tenant_id, $asset_id, $transfer_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates a transfer for an asset
@@ -2072,10 +2096,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
 $transfer_id = 'transfer_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetTransfer($tenant_id, $asset_id, $transfer_id, $operation);
+    $result = $apiInstance->patchAssetTransfer($tenant_id, $asset_id, $transfer_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->patchAssetTransfer: ', $e->getMessage(), PHP_EOL;
@@ -2089,7 +2113,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
 | **transfer_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2111,7 +2135,7 @@ No authorization required
 ## `patchAssetValueAmend()`
 
 ```php
-patchAssetValueAmend($tenant_id, $asset_id, $amend_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetValueAmend($tenant_id, $asset_id, $amend_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates a value amendment for an asset
@@ -2134,10 +2158,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetsApi(
 $tenant_id = 'tenant_id_example'; // string
 $asset_id = 'asset_id_example'; // string
 $amend_id = 'amend_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetValueAmend($tenant_id, $asset_id, $amend_id, $operation);
+    $result = $apiInstance->patchAssetValueAmend($tenant_id, $asset_id, $amend_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsApi->patchAssetValueAmend: ', $e->getMessage(), PHP_EOL;
@@ -2151,7 +2175,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **asset_id** | **string**|  | |
 | **amend_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

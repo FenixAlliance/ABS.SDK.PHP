@@ -4,14 +4,19 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createSocialCommentReactionAsync()**](SocialPostsApi.md#createSocialCommentReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction |
 | [**createSocialPostAsync()**](SocialPostsApi.md#createSocialPostAsync) | **POST** /api/v2/SocialService/SocialPosts | Create a social post |
 | [**createSocialPostAttachmentAsync()**](SocialPostsApi.md#createSocialPostAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment |
 | [**createSocialPostCommentAsync()**](SocialPostsApi.md#createSocialPostCommentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment |
 | [**createSocialPostReactionAsync()**](SocialPostsApi.md#createSocialPostReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction |
+| [**deleteSocialCommentReactionAsync()**](SocialPostsApi.md#deleteSocialCommentReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction |
 | [**deleteSocialPostAsync()**](SocialPostsApi.md#deleteSocialPostAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post |
 | [**deleteSocialPostAttachmentAsync()**](SocialPostsApi.md#deleteSocialPostAttachmentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment |
 | [**deleteSocialPostCommentAsync()**](SocialPostsApi.md#deleteSocialPostCommentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment |
 | [**deleteSocialPostReactionAsync()**](SocialPostsApi.md#deleteSocialPostReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction |
+| [**getSocialCommentReactionAsync()**](SocialPostsApi.md#getSocialCommentReactionAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID |
+| [**getSocialCommentReactionsAsync()**](SocialPostsApi.md#getSocialCommentReactionsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions |
+| [**getSocialCommentReactionsCountAsync()**](SocialPostsApi.md#getSocialCommentReactionsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions |
 | [**getSocialPostAsync()**](SocialPostsApi.md#getSocialPostAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID |
 | [**getSocialPostAttachmentAsync()**](SocialPostsApi.md#getSocialPostAttachmentAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID |
 | [**getSocialPostAttachmentsAsync()**](SocialPostsApi.md#getSocialPostAttachmentsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments |
@@ -25,11 +30,79 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getSocialPostsAsync()**](SocialPostsApi.md#getSocialPostsAsync) | **GET** /api/v2/SocialService/SocialPosts | Get social posts |
 | [**getSocialPostsCountAsync()**](SocialPostsApi.md#getSocialPostsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts |
 | [**patchSocialPostAsync()**](SocialPostsApi.md#patchSocialPostAsync) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post |
+| [**updateSocialCommentReactionAsync()**](SocialPostsApi.md#updateSocialCommentReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction |
 | [**updateSocialPostAsync()**](SocialPostsApi.md#updateSocialPostAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post |
 | [**updateSocialPostAttachmentAsync()**](SocialPostsApi.md#updateSocialPostAttachmentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment |
 | [**updateSocialPostCommentAsync()**](SocialPostsApi.md#updateSocialPostCommentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment |
 | [**updateSocialPostReactionAsync()**](SocialPostsApi.md#updateSocialPostReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction |
+| [**uploadSocialPostImageAttachmentAsync()**](SocialPostsApi.md#uploadSocialPostImageAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment |
 
+
+## `createSocialCommentReactionAsync()`
+
+```php
+createSocialCommentReactionAsync($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto): \OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope
+```
+
+Create a social comment reaction
+
+Creates a new reaction on a specific social comment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$comment_id = 'comment_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$social_reaction_create_dto = new \OpenAPI\Client\Model\SocialReactionCreateDto(); // \OpenAPI\Client\Model\SocialReactionCreateDto
+
+try {
+    $result = $apiInstance->createSocialCommentReactionAsync($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->createSocialCommentReactionAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **comment_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **social_reaction_create_dto** | [**\OpenAPI\Client\Model\SocialReactionCreateDto**](../Model/SocialReactionCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope**](../Model/SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createSocialPostAsync()`
 
@@ -224,7 +297,7 @@ No authorization required
 ## `createSocialPostReactionAsync()`
 
 ```php
-createSocialPostReactionAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto): \OpenAPI\Client\Model\SocialReactionDtoEnvelope
+createSocialPostReactionAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto): \OpenAPI\Client\Model\SocialPostReactionDtoEnvelope
 ```
 
 Create a social post reaction
@@ -270,7 +343,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SocialReactionDtoEnvelope**](../Model/SocialReactionDtoEnvelope.md)
+[**\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope**](../Model/SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -279,6 +352,72 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteSocialCommentReactionAsync()`
+
+```php
+deleteSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Delete a social comment reaction
+
+Deletes a reaction from a specific social comment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$comment_id = 'comment_id_example'; // string
+$reaction_id = 'reaction_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->deleteSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->deleteSocialCommentReactionAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **comment_id** | **string**|  | |
+| **reaction_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -539,6 +678,202 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSocialCommentReactionAsync()`
+
+```php
+getSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope
+```
+
+Get social comment reaction by ID
+
+Retrieves a specific reaction from a social comment by its ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$comment_id = 'comment_id_example'; // string
+$reaction_id = 'reaction_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->getSocialCommentReactionAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **comment_id** | **string**|  | |
+| **reaction_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope**](../Model/SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSocialCommentReactionsAsync()`
+
+```php
+getSocialCommentReactionsAsync($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope
+```
+
+Get social comment reactions
+
+Retrieves a list of reactions for a specific social comment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$comment_id = 'comment_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$social_comment_reaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters
+
+try {
+    $result = $apiInstance->getSocialCommentReactionsAsync($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->getSocialCommentReactionsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **comment_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **social_comment_reaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters**](../Model/SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope**](../Model/SocialCommentReactionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSocialCommentReactionsCountAsync()`
+
+```php
+getSocialCommentReactionsCountAsync($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Count social comment reactions
+
+Returns the count of reactions for a specific social comment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$comment_id = 'comment_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$social_comment_reaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters
+
+try {
+    $result = $apiInstance->getSocialCommentReactionsCountAsync($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->getSocialCommentReactionsCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **comment_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **social_comment_reaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters**](../Model/SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSocialPostAsync()`
 
 ```php
@@ -666,7 +1001,7 @@ No authorization required
 ## `getSocialPostAttachmentsAsync()`
 
 ```php
-getSocialPostAttachmentsAsync($social_post_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialPostAttachmentDtoListEnvelope
+getSocialPostAttachmentsAsync($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialPostAttachmentDtoListEnvelope
 ```
 
 Get social post attachments
@@ -689,9 +1024,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
 $social_post_id = 'social_post_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_attachment_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostAttachmentsAsync($social_post_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostAttachmentsAsync($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostAttachmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -705,6 +1041,7 @@ try {
 | **social_post_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_attachment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters**](../Model/SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -716,7 +1053,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -726,7 +1063,7 @@ No authorization required
 ## `getSocialPostAttachmentsCountAsync()`
 
 ```php
-getSocialPostAttachmentsCountAsync($social_post_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSocialPostAttachmentsCountAsync($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social post attachments
@@ -749,9 +1086,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
 $social_post_id = 'social_post_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_attachment_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostAttachmentsCountAsync($social_post_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostAttachmentsCountAsync($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostAttachmentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -765,6 +1103,7 @@ try {
 | **social_post_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_attachment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters**](../Model/SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -776,7 +1115,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -850,7 +1189,7 @@ No authorization required
 ## `getSocialPostCommentsAsync()`
 
 ```php
-getSocialPostCommentsAsync($social_profile_id, $social_post_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialPostCommentDtoListEnvelope
+getSocialPostCommentsAsync($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialPostCommentDtoListEnvelope
 ```
 
 Get social post comments
@@ -872,11 +1211,13 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
 );
 $social_profile_id = 'social_profile_id_example'; // string
 $social_post_id = 'social_post_id_example'; // string
+$parent_comment_id = 'parent_comment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_comment_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostCommentsAsync($social_profile_id, $social_post_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostCommentsAsync($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostCommentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -889,8 +1230,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **social_profile_id** | **string**|  | |
 | **social_post_id** | **string**|  | |
+| **parent_comment_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_comment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters**](../Model/SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -902,7 +1245,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -912,7 +1255,7 @@ No authorization required
 ## `getSocialPostCommentsCountAsync()`
 
 ```php
-getSocialPostCommentsCountAsync($social_profile_id, $social_post_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSocialPostCommentsCountAsync($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social post comments
@@ -934,11 +1277,13 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
 );
 $social_profile_id = 'social_profile_id_example'; // string
 $social_post_id = 'social_post_id_example'; // string
+$parent_comment_id = 'parent_comment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_comment_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostCommentsCountAsync($social_profile_id, $social_post_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostCommentsCountAsync($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostCommentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -951,8 +1296,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **social_profile_id** | **string**|  | |
 | **social_post_id** | **string**|  | |
+| **parent_comment_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_comment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters**](../Model/SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -964,7 +1311,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1036,7 +1383,7 @@ No authorization required
 ## `getSocialPostReactionsAsync()`
 
 ```php
-getSocialPostReactionsAsync($social_post_id, $social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialReactionDtoListEnvelope
+getSocialPostReactionsAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialReactionDtoListEnvelope
 ```
 
 Get social post reactions
@@ -1060,9 +1407,10 @@ $social_post_id = 'social_post_id_example'; // string
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_reaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostReactionsAsync($social_post_id, $social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostReactionsAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostReactionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1077,6 +1425,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_reaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters**](../Model/SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1088,7 +1437,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1098,7 +1447,7 @@ No authorization required
 ## `getSocialPostReactionsCountAsync()`
 
 ```php
-getSocialPostReactionsCountAsync($social_post_id, $social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSocialPostReactionsCountAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social post reactions
@@ -1122,9 +1471,10 @@ $social_post_id = 'social_post_id_example'; // string
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_reaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostReactionsCountAsync($social_post_id, $social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostReactionsCountAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostReactionsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1139,6 +1489,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_reaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters**](../Model/SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1150,7 +1501,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1160,7 +1511,7 @@ No authorization required
 ## `getSocialPostsAsync()`
 
 ```php
-getSocialPostsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialPostDtoListEnvelope
+getSocialPostsAsync($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialPostDtoListEnvelope
 ```
 
 Get social posts
@@ -1183,9 +1534,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostsAsync($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1199,6 +1551,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters**](../Model/SocialPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1210,7 +1563,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1220,7 +1573,7 @@ No authorization required
 ## `getSocialPostsCountAsync()`
 
 ```php
-getSocialPostsCountAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSocialPostsCountAsync($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social posts
@@ -1243,9 +1596,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostsCountAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostsCountAsync($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->getSocialPostsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1259,6 +1613,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters**](../Model/SocialPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1270,7 +1625,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1280,7 +1635,7 @@ No authorization required
 ## `patchSocialPostAsync()`
 
 ```php
-patchSocialPostAsync($social_profile_id, $social_post_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSocialPostAsync($social_profile_id, $social_post_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a social post
@@ -1304,10 +1659,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $social_post_id = 'social_post_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSocialPostAsync($social_profile_id, $social_post_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSocialPostAsync($social_profile_id, $social_post_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostsApi->patchSocialPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -1322,11 +1677,79 @@ try {
 | **social_post_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
 [**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSocialCommentReactionAsync()`
+
+```php
+updateSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_update_dto): \OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope
+```
+
+Update a social comment reaction
+
+Updates an existing reaction on a specific social comment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$comment_id = 'comment_id_example'; // string
+$reaction_id = 'reaction_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$social_reaction_update_dto = new \OpenAPI\Client\Model\SocialReactionUpdateDto(); // \OpenAPI\Client\Model\SocialReactionUpdateDto
+
+try {
+    $result = $apiInstance->updateSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->updateSocialCommentReactionAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **comment_id** | **string**|  | |
+| **reaction_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **social_reaction_update_dto** | [**\OpenAPI\Client\Model\SocialReactionUpdateDto**](../Model/SocialReactionUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope**](../Model/SocialCommentReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1540,7 +1963,7 @@ No authorization required
 ## `updateSocialPostReactionAsync()`
 
 ```php
-updateSocialPostReactionAsync($social_profile_id, $social_post_id, $reaction_id, $api_version, $x_api_version, $social_reaction_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+updateSocialPostReactionAsync($social_profile_id, $social_post_id, $reaction_id, $api_version, $x_api_version, $social_reaction_update_dto): \OpenAPI\Client\Model\SocialPostReactionDtoEnvelope
 ```
 
 Update a social post reaction
@@ -1588,7 +2011,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+[**\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope**](../Model/SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1597,6 +2020,70 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadSocialPostImageAttachmentAsync()`
+
+```php
+uploadSocialPostImageAttachmentAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $file): \OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope
+```
+
+Upload a social post image attachment
+
+Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialPostsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_post_id = 'social_post_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $result = $apiInstance->uploadSocialPostImageAttachmentAsync($social_post_id, $social_profile_id, $api_version, $x_api_version, $file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialPostsApi->uploadSocialPostImageAttachmentAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_post_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope**](../Model/SocialPostAttachmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`, `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

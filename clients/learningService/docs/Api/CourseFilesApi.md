@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseFilesAsync()`
 
 ```php
-getCourseFilesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseFileDto[]
+getCourseFilesAsync($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseFileDto[]
 ```
 
 Get all course files
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseFilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_file_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseFilesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseFilesAsync($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseFilesApi->getCourseFilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_file_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters**](../Model/CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseFilesCountAsync()`
 
 ```php
-getCourseFilesCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseFilesCountAsync($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters): int
 ```
 
 Get course files count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseFilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_file_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseFilesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseFilesCountAsync($tenant_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseFilesApi->getCourseFilesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_file_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters**](../Model/CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseFileAsync()`
 
 ```php
-patchCourseFileAsync($tenant_id, $file_id, $api_version, $x_api_version, $operation)
+patchCourseFileAsync($tenant_id, $file_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a course file
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $file_id = 'file_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchCourseFileAsync($tenant_id, $file_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchCourseFileAsync($tenant_id, $file_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling CourseFilesApi->patchCourseFileAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -359,7 +363,7 @@ try {
 | **file_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

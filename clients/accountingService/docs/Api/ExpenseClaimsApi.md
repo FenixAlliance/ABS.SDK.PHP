@@ -202,7 +202,7 @@ No authorization required
 ## `getExpenseClaims()`
 
 ```php
-getExpenseClaims($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExpenseClaimDtoListEnvelope
+getExpenseClaims($tenant_id, $api_version, $x_api_version, $expense_claim_dto_collection_query_parameters): \OpenAPI\Client\Model\ExpenseClaimDtoListEnvelope
 ```
 
 Get all expense claims for a tenant
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpenseClaimsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$expense_claim_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExpenseClaimDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExpenseClaimDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExpenseClaims($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExpenseClaims($tenant_id, $api_version, $x_api_version, $expense_claim_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpenseClaimsApi->getExpenseClaims: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **expense_claim_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExpenseClaimDtoCollectionQueryParameters**](../Model/ExpenseClaimDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getExpenseClaimsCount()`
 
 ```php
-getExpenseClaimsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getExpenseClaimsCount($tenant_id, $api_version, $x_api_version, $expense_claim_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of expense claims for a tenant
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\ExpenseClaimsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$expense_claim_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExpenseClaimDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExpenseClaimDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExpenseClaimsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExpenseClaimsCount($tenant_id, $api_version, $x_api_version, $expense_claim_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpenseClaimsApi->getExpenseClaimsCount: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **expense_claim_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExpenseClaimDtoCollectionQueryParameters**](../Model/ExpenseClaimDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchExpenseClaim()`
 
 ```php
-patchExpenseClaim($tenant_id, $expense_claim_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchExpenseClaim($tenant_id, $expense_claim_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an expense claim
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $expense_claim_id = 'expense_claim_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchExpenseClaim($tenant_id, $expense_claim_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchExpenseClaim($tenant_id, $expense_claim_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExpenseClaimsApi->patchExpenseClaim: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **expense_claim_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -143,7 +143,7 @@ No authorization required
 ## `getBillableLineTaxes()`
 
 ```php
-getBillableLineTaxes($tenant_id, $billable_line_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AppliedItemTaxRecordDtoIReadOnlyListEnvelope
+getBillableLineTaxes($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters): \OpenAPI\Client\Model\AppliedItemTaxRecordDtoIReadOnlyListEnvelope
 ```
 
 Get taxes for a billable line.
@@ -167,9 +167,10 @@ $tenant_id = 'tenant_id_example'; // string
 $billable_line_id = 'billable_line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$applied_item_tax_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillableLineTaxes($tenant_id, $billable_line_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillableLineTaxes($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableLineTaxesApi->getBillableLineTaxes: ', $e->getMessage(), PHP_EOL;
@@ -184,6 +185,7 @@ try {
 | **billable_line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **applied_item_tax_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters**](../Model/AppliedItemTaxRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -195,7 +197,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -205,7 +207,7 @@ No authorization required
 ## `getBillableLineTaxesCount()`
 
 ```php
-getBillableLineTaxesCount($tenant_id, $billable_line_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBillableLineTaxesCount($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of taxes for a billable line.
@@ -229,9 +231,10 @@ $tenant_id = 'tenant_id_example'; // string
 $billable_line_id = 'billable_line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$applied_item_tax_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillableLineTaxesCount($tenant_id, $billable_line_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillableLineTaxesCount($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableLineTaxesApi->getBillableLineTaxesCount: ', $e->getMessage(), PHP_EOL;
@@ -246,6 +249,7 @@ try {
 | **billable_line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **applied_item_tax_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters**](../Model/AppliedItemTaxRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -257,7 +261,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -267,7 +271,7 @@ No authorization required
 ## `patchBillableLineTaxAsync()`
 
 ```php
-patchBillableLineTaxAsync($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBillableLineTaxAsync($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a billable line tax
@@ -292,10 +296,10 @@ $billable_line_id = 'billable_line_id_example'; // string
 $tax_id = 'tax_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBillableLineTaxAsync($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBillableLineTaxAsync($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillableLineTaxesApi->patchBillableLineTaxAsync: ', $e->getMessage(), PHP_EOL;
@@ -311,7 +315,7 @@ try {
 | **tax_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

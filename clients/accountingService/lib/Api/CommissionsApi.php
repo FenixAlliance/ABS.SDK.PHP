@@ -91,18 +91,22 @@ class CommissionsApi
         ],
         'getCommissionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCommissionsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPaymentCommissionAsync' => [
             'application/json',
         ],
         'getPaymentCommissionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPaymentCommissionsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCommissionAsync' => [
             'application/json',
@@ -2294,15 +2298,16 @@ class CommissionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CommissionDtoListEnvelope
      */
-    public function getCommissionsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
+    public function getCommissionsAsync($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
     {
-        list($response) = $this->getCommissionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCommissionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2314,15 +2319,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CommissionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCommissionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
+    public function getCommissionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
     {
-        $request = $this->getCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2511,14 +2517,15 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCommissionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
+    public function getCommissionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
     {
-        return $this->getCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2534,15 +2541,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
+    public function getCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CommissionDtoListEnvelope';
-        $request = $this->getCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2586,12 +2594,13 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCommissionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
+    public function getCommissionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2600,6 +2609,7 @@ class CommissionsApi
                 'Missing the required parameter $tenant_id when calling getCommissionsAsync'
             );
         }
+
 
 
 
@@ -2644,7 +2654,14 @@ class CommissionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($commission_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($commission_dto_collection_query_parameters));
+            } else {
+                $httpBody = $commission_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2698,15 +2715,16 @@ class CommissionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getCommissionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
+    public function getCommissionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
     {
-        list($response) = $this->getCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2718,15 +2736,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
+    public function getCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
     {
-        $request = $this->getCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2915,14 +2934,15 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCommissionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
+    public function getCommissionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
     {
-        return $this->getCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2938,15 +2958,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
+    public function getCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2990,12 +3011,13 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters $commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCommissionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
+    public function getCommissionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommissionsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3004,6 +3026,7 @@ class CommissionsApi
                 'Missing the required parameter $tenant_id when calling getCommissionsCountAsync'
             );
         }
+
 
 
 
@@ -3048,7 +3071,14 @@ class CommissionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($commission_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($commission_dto_collection_query_parameters));
+            } else {
+                $httpBody = $commission_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3526,15 +3556,16 @@ class CommissionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentCommissionDtoListEnvelope
      */
-    public function getPaymentCommissionsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
+    public function getPaymentCommissionsAsync($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
     {
-        list($response) = $this->getPaymentCommissionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPaymentCommissionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3546,15 +3577,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentCommissionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentCommissionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
+    public function getPaymentCommissionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
     {
-        $request = $this->getPaymentCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPaymentCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3743,14 +3775,15 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentCommissionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
+    public function getPaymentCommissionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
     {
-        return $this->getPaymentCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPaymentCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3766,15 +3799,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
+    public function getPaymentCommissionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentCommissionDtoListEnvelope';
-        $request = $this->getPaymentCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPaymentCommissionsAsyncRequest($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3818,12 +3852,13 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaymentCommissionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
+    public function getPaymentCommissionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3832,6 +3867,7 @@ class CommissionsApi
                 'Missing the required parameter $tenant_id when calling getPaymentCommissionsAsync'
             );
         }
+
 
 
 
@@ -3876,7 +3912,14 @@ class CommissionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_commission_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_commission_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_commission_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3930,15 +3973,16 @@ class CommissionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPaymentCommissionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
+    public function getPaymentCommissionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
     {
-        list($response) = $this->getPaymentCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPaymentCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3950,15 +3994,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
+    public function getPaymentCommissionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
     {
-        $request = $this->getPaymentCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPaymentCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4147,14 +4192,15 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentCommissionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
+    public function getPaymentCommissionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
     {
-        return $this->getPaymentCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPaymentCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4170,15 +4216,16 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
+    public function getPaymentCommissionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPaymentCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPaymentCommissionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4222,12 +4269,13 @@ class CommissionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters $payment_commission_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentCommissionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaymentCommissionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
+    public function getPaymentCommissionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $payment_commission_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentCommissionsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4236,6 +4284,7 @@ class CommissionsApi
                 'Missing the required parameter $tenant_id when calling getPaymentCommissionsCountAsync'
             );
         }
+
 
 
 
@@ -4280,7 +4329,14 @@ class CommissionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_commission_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_commission_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_commission_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4335,16 +4391,16 @@ class CommissionsApi
      * @param  string $commission_id commission_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCommissionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCommissionAsync($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
+    public function patchCommissionAsync($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
     {
-        list($response) = $this->patchCommissionAsyncWithHttpInfo($tenant_id, $commission_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCommissionAsyncWithHttpInfo($tenant_id, $commission_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4357,16 +4413,16 @@ class CommissionsApi
      * @param  string $commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCommissionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCommissionAsyncWithHttpInfo($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
+    public function patchCommissionAsyncWithHttpInfo($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
     {
-        $request = $this->patchCommissionAsyncRequest($tenant_id, $commission_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCommissionAsyncRequest($tenant_id, $commission_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4556,15 +4612,15 @@ class CommissionsApi
      * @param  string $commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCommissionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCommissionAsyncAsync($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
+    public function patchCommissionAsyncAsync($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
     {
-        return $this->patchCommissionAsyncAsyncWithHttpInfo($tenant_id, $commission_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCommissionAsyncAsyncWithHttpInfo($tenant_id, $commission_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4581,16 +4637,16 @@ class CommissionsApi
      * @param  string $commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCommissionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCommissionAsyncAsyncWithHttpInfo($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
+    public function patchCommissionAsyncAsyncWithHttpInfo($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCommissionAsyncRequest($tenant_id, $commission_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCommissionAsyncRequest($tenant_id, $commission_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4635,13 +4691,13 @@ class CommissionsApi
      * @param  string $commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCommissionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCommissionAsyncRequest($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
+    public function patchCommissionAsyncRequest($tenant_id, $commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCommissionAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4710,12 +4766,12 @@ class CommissionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4772,16 +4828,16 @@ class CommissionsApi
      * @param  string $payment_commission_id payment_commission_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentCommissionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPaymentCommissionAsync($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
+    public function patchPaymentCommissionAsync($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
     {
-        list($response) = $this->patchPaymentCommissionAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchPaymentCommissionAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4794,16 +4850,16 @@ class CommissionsApi
      * @param  string $payment_commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentCommissionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPaymentCommissionAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
+    public function patchPaymentCommissionAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
     {
-        $request = $this->patchPaymentCommissionAsyncRequest($tenant_id, $payment_commission_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchPaymentCommissionAsyncRequest($tenant_id, $payment_commission_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4993,15 +5049,15 @@ class CommissionsApi
      * @param  string $payment_commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentCommissionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPaymentCommissionAsyncAsync($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
+    public function patchPaymentCommissionAsyncAsync($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
     {
-        return $this->patchPaymentCommissionAsyncAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchPaymentCommissionAsyncAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5018,16 +5074,16 @@ class CommissionsApi
      * @param  string $payment_commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentCommissionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPaymentCommissionAsyncAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
+    public function patchPaymentCommissionAsyncAsyncWithHttpInfo($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPaymentCommissionAsyncRequest($tenant_id, $payment_commission_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchPaymentCommissionAsyncRequest($tenant_id, $payment_commission_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5072,13 +5128,13 @@ class CommissionsApi
      * @param  string $payment_commission_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentCommissionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPaymentCommissionAsyncRequest($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
+    public function patchPaymentCommissionAsyncRequest($tenant_id, $payment_commission_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentCommissionAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5147,12 +5203,12 @@ class CommissionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

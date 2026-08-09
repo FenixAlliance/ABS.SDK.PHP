@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**message** | **string** |  |
+**message** | **string** |  | [optional]
 **body_html** | **string** |  | [optional]
 **body_format** | **string** |  | [optional]
 **parent_comment_id** | **string** |  | [optional]

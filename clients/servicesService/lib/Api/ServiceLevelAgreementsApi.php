@@ -84,9 +84,11 @@ class ServiceLevelAgreementsApi
         ],
         'getServiceLevelAgreementsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getServiceLevelAgreementsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchServiceLevelAgreementAsync' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ServiceLevelAgreementDtoIReadOnlyListEnvelope
      */
-    public function getServiceLevelAgreementsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
+    public function getServiceLevelAgreementsAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
     {
-        list($response) = $this->getServiceLevelAgreementsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getServiceLevelAgreementsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ServiceLevelAgreementDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getServiceLevelAgreementsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
+    public function getServiceLevelAgreementsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
     {
-        $request = $this->getServiceLevelAgreementsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelAgreementsAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelAgreementsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
+    public function getServiceLevelAgreementsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
     {
-        return $this->getServiceLevelAgreementsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getServiceLevelAgreementsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelAgreementsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
+    public function getServiceLevelAgreementsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceLevelAgreementDtoIReadOnlyListEnvelope';
-        $request = $this->getServiceLevelAgreementsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelAgreementsAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getServiceLevelAgreementsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
+    public function getServiceLevelAgreementsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class ServiceLevelAgreementsApi
                 'Missing the required parameter $tenant_id when calling getServiceLevelAgreementsAsync'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class ServiceLevelAgreementsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($service_level_agreement_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($service_level_agreement_dto_collection_query_parameters));
+            } else {
+                $httpBody = $service_level_agreement_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getServiceLevelAgreementsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
+    public function getServiceLevelAgreementsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
     {
-        list($response) = $this->getServiceLevelAgreementsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getServiceLevelAgreementsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getServiceLevelAgreementsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
+    public function getServiceLevelAgreementsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
     {
-        $request = $this->getServiceLevelAgreementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelAgreementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelAgreementsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
+    public function getServiceLevelAgreementsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
     {
-        return $this->getServiceLevelAgreementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getServiceLevelAgreementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelAgreementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
+    public function getServiceLevelAgreementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getServiceLevelAgreementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelAgreementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_agreement_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class ServiceLevelAgreementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelAgreementDtoCollectionQueryParameters $service_level_agreement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelAgreementsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getServiceLevelAgreementsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
+    public function getServiceLevelAgreementsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $service_level_agreement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelAgreementsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class ServiceLevelAgreementsApi
                 'Missing the required parameter $tenant_id when calling getServiceLevelAgreementsCountAsync'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class ServiceLevelAgreementsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($service_level_agreement_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($service_level_agreement_dto_collection_query_parameters));
+            } else {
+                $httpBody = $service_level_agreement_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class ServiceLevelAgreementsApi
      * @param  string $service_level_agreement_id service_level_agreement_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAgreementAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Envelope
      */
-    public function patchServiceLevelAgreementAsync($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
+    public function patchServiceLevelAgreementAsync($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
     {
-        list($response) = $this->patchServiceLevelAgreementAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchServiceLevelAgreementAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class ServiceLevelAgreementsApi
      * @param  string $service_level_agreement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAgreementAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchServiceLevelAgreementAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
+    public function patchServiceLevelAgreementAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
     {
-        $request = $this->patchServiceLevelAgreementAsyncRequest($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchServiceLevelAgreementAsyncRequest($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class ServiceLevelAgreementsApi
      * @param  string $service_level_agreement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAgreementAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchServiceLevelAgreementAsyncAsync($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
+    public function patchServiceLevelAgreementAsyncAsync($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
     {
-        return $this->patchServiceLevelAgreementAsyncAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchServiceLevelAgreementAsyncAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class ServiceLevelAgreementsApi
      * @param  string $service_level_agreement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAgreementAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchServiceLevelAgreementAsyncAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
+    public function patchServiceLevelAgreementAsyncAsyncWithHttpInfo($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Envelope';
-        $request = $this->patchServiceLevelAgreementAsyncRequest($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchServiceLevelAgreementAsyncRequest($tenant_id, $service_level_agreement_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class ServiceLevelAgreementsApi
      * @param  string $service_level_agreement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAgreementAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchServiceLevelAgreementAsyncRequest($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
+    public function patchServiceLevelAgreementAsyncRequest($tenant_id, $service_level_agreement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAgreementAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class ServiceLevelAgreementsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -140,7 +140,7 @@ No authorization required
 ## `getTenantTerritories()`
 
 ```php
-getTenantTerritories($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantTerritoryDtoListEnvelope
+getTenantTerritories($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantTerritoryDtoListEnvelope
 ```
 
 Retrieve a list of tenant territories
@@ -163,9 +163,10 @@ $apiInstance = new OpenAPI\Client\Api\TerritoriesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_territory_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantTerritories($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantTerritories($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TerritoriesApi->getTenantTerritories: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_territory_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters**](../Model/TenantTerritoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -190,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,7 +202,7 @@ No authorization required
 ## `getTenantTerritoriesCount()`
 
 ```php
-getTenantTerritoriesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantTerritoriesCount($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant territories
@@ -223,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\TerritoriesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_territory_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantTerritoriesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantTerritoriesCount($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TerritoriesApi->getTenantTerritoriesCount: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_territory_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters**](../Model/TenantTerritoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTenantTerritory()`
 
 ```php
-patchTenantTerritory($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenantTerritory($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tenant territory
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tenant_territory_id = 'tenant_territory_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenantTerritory($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenantTerritory($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TerritoriesApi->patchTenantTerritory: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **tenant_territory_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

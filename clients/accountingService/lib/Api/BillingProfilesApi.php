@@ -84,9 +84,11 @@ class BillingProfilesApi
         ],
         'getBillingProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBillingProfilesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchBillingProfileAsync' => [
             'application/json',
@@ -1213,15 +1215,16 @@ class BillingProfilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BillingProfileDtoIReadOnlyListEnvelope
      */
-    public function getBillingProfilesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
+    public function getBillingProfilesAsync($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
     {
-        list($response) = $this->getBillingProfilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillingProfilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1233,15 +1236,16 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BillingProfileDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillingProfilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
+    public function getBillingProfilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
     {
-        $request = $this->getBillingProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillingProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1360,14 +1364,15 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillingProfilesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
+    public function getBillingProfilesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
     {
-        return $this->getBillingProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillingProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1383,15 +1388,16 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillingProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
+    public function getBillingProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BillingProfileDtoIReadOnlyListEnvelope';
-        $request = $this->getBillingProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillingProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1435,12 +1441,13 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillingProfilesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
+    public function getBillingProfilesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1449,6 +1456,7 @@ class BillingProfilesApi
                 'Missing the required parameter $tenant_id when calling getBillingProfilesAsync'
             );
         }
+
 
 
 
@@ -1493,7 +1501,14 @@ class BillingProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($billing_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($billing_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $billing_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1547,15 +1562,16 @@ class BillingProfilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBillingProfilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
+    public function getBillingProfilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
     {
-        list($response) = $this->getBillingProfilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillingProfilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1567,15 +1583,16 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillingProfilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
+    public function getBillingProfilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
     {
-        $request = $this->getBillingProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillingProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1694,14 +1711,15 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillingProfilesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
+    public function getBillingProfilesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
     {
-        return $this->getBillingProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillingProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1717,15 +1735,16 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillingProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
+    public function getBillingProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBillingProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillingProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $billing_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1769,12 +1788,13 @@ class BillingProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillingProfileDtoCollectionQueryParameters $billing_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillingProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillingProfilesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
+    public function getBillingProfilesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $billing_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillingProfilesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1783,6 +1803,7 @@ class BillingProfilesApi
                 'Missing the required parameter $tenant_id when calling getBillingProfilesCountAsync'
             );
         }
+
 
 
 
@@ -1827,7 +1848,14 @@ class BillingProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($billing_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($billing_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $billing_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1882,16 +1910,16 @@ class BillingProfilesApi
      * @param  string $billing_profile_id billing_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillingProfileAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchBillingProfileAsync($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
+    public function patchBillingProfileAsync($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
     {
-        list($response) = $this->patchBillingProfileAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchBillingProfileAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1904,16 +1932,16 @@ class BillingProfilesApi
      * @param  string $billing_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillingProfileAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBillingProfileAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
+    public function patchBillingProfileAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
     {
-        $request = $this->patchBillingProfileAsyncRequest($tenant_id, $billing_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillingProfileAsyncRequest($tenant_id, $billing_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2103,15 +2131,15 @@ class BillingProfilesApi
      * @param  string $billing_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillingProfileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillingProfileAsyncAsync($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
+    public function patchBillingProfileAsyncAsync($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
     {
-        return $this->patchBillingProfileAsyncAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchBillingProfileAsyncAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2128,16 +2156,16 @@ class BillingProfilesApi
      * @param  string $billing_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillingProfileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillingProfileAsyncAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
+    public function patchBillingProfileAsyncAsyncWithHttpInfo($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBillingProfileAsyncRequest($tenant_id, $billing_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillingProfileAsyncRequest($tenant_id, $billing_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2182,13 +2210,13 @@ class BillingProfilesApi
      * @param  string $billing_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillingProfileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBillingProfileAsyncRequest($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
+    public function patchBillingProfileAsyncRequest($tenant_id, $billing_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillingProfileAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2257,12 +2285,12 @@ class BillingProfilesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

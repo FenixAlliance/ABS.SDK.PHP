@@ -74,9 +74,11 @@ class SecurityCertificatesApi
     public const contentTypes = [
         'getSecurityCertificatesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSecurityCertificatesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -134,15 +136,16 @@ class SecurityCertificatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SecurityCertificateDtoListEnvelope
      */
-    public function getSecurityCertificatesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
+    public function getSecurityCertificatesAsync($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
     {
-        list($response) = $this->getSecurityCertificatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSecurityCertificatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -154,15 +157,16 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SecurityCertificateDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSecurityCertificatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
+    public function getSecurityCertificatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
     {
-        $request = $this->getSecurityCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSecurityCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSecurityCertificatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
+    public function getSecurityCertificatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
     {
-        return $this->getSecurityCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSecurityCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -374,15 +379,16 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSecurityCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
+    public function getSecurityCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SecurityCertificateDtoListEnvelope';
-        $request = $this->getSecurityCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSecurityCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -426,12 +432,13 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSecurityCertificatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
+    public function getSecurityCertificatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -440,6 +447,7 @@ class SecurityCertificatesApi
                 'Missing the required parameter $tenant_id when calling getSecurityCertificatesAsync'
             );
         }
+
 
 
 
@@ -484,7 +492,14 @@ class SecurityCertificatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($security_certificate_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($security_certificate_dto_collection_query_parameters));
+            } else {
+                $httpBody = $security_certificate_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -538,15 +553,16 @@ class SecurityCertificatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSecurityCertificatesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
+    public function getSecurityCertificatesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
     {
-        list($response) = $this->getSecurityCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSecurityCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -558,15 +574,16 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSecurityCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
+    public function getSecurityCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
     {
-        $request = $this->getSecurityCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSecurityCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -755,14 +772,15 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSecurityCertificatesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
+    public function getSecurityCertificatesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
     {
-        return $this->getSecurityCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSecurityCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -778,15 +796,16 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSecurityCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
+    public function getSecurityCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSecurityCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSecurityCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -830,12 +849,13 @@ class SecurityCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters $security_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSecurityCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSecurityCertificatesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
+    public function getSecurityCertificatesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $security_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSecurityCertificatesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -844,6 +864,7 @@ class SecurityCertificatesApi
                 'Missing the required parameter $tenant_id when calling getSecurityCertificatesCountAsync'
             );
         }
+
 
 
 
@@ -888,7 +909,14 @@ class SecurityCertificatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($security_certificate_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($security_certificate_dto_collection_query_parameters));
+            } else {
+                $httpBody = $security_certificate_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

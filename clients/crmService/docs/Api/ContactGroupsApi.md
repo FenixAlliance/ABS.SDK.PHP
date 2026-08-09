@@ -200,7 +200,7 @@ No authorization required
 ## `getContactGroupsAsync()`
 
 ```php
-getContactGroupsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactsGroupDtoListEnvelope
+getContactGroupsAsync($tenant_id, $api_version, $x_api_version, $contacts_group_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactsGroupDtoListEnvelope
 ```
 
 Get all contact groups
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contacts_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactsGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactsGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactGroupsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactGroupsAsync($tenant_id, $api_version, $x_api_version, $contacts_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactGroupsApi->getContactGroupsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contacts_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactsGroupDtoCollectionQueryParameters**](../Model/ContactsGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getContactGroupsCountAsync()`
 
 ```php
-getContactGroupsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getContactGroupsCountAsync($tenant_id, $api_version, $x_api_version, $contacts_group_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get contact groups count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contacts_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactsGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactsGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactGroupsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactGroupsCountAsync($tenant_id, $api_version, $x_api_version, $contacts_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactGroupsApi->getContactGroupsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contacts_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactsGroupDtoCollectionQueryParameters**](../Model/ContactsGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchContactGroupAsync()`
 
 ```php
-patchContactGroupAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchContactGroupAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a contact group
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchContactGroupAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchContactGroupAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactGroupsApi->patchContactGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

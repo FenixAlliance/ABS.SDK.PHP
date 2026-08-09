@@ -201,7 +201,7 @@ No authorization required
 ## `getAppraisalStagesAsync()`
 
 ```php
-getAppraisalStagesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AppraisalStageDtoListEnvelope
+getAppraisalStagesAsync($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters): \OpenAPI\Client\Model\AppraisalStageDtoListEnvelope
 ```
 
 Get appraisal stages
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\AppraisalStagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$appraisal_stage_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAppraisalStagesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAppraisalStagesAsync($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppraisalStagesApi->getAppraisalStagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **appraisal_stage_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters**](../Model/AppraisalStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getAppraisalStagesCountAsync()`
 
 ```php
-getAppraisalStagesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAppraisalStagesCountAsync($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count appraisal stages
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\AppraisalStagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$appraisal_stage_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAppraisalStagesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAppraisalStagesCountAsync($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppraisalStagesApi->getAppraisalStagesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **appraisal_stage_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters**](../Model/AppraisalStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

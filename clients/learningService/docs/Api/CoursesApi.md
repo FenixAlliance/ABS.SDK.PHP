@@ -173,7 +173,7 @@ No authorization required
 ## `getCourseArticlesByCourseWikiAsync()`
 
 ```php
-getCourseArticlesByCourseWikiAsync($course_id, $wiki_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseArticleDto[]
+getCourseArticlesByCourseWikiAsync($course_id, $wiki_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseArticleDto[]
 ```
 
 Get course articles by course wiki
@@ -197,9 +197,10 @@ $course_id = 'course_id_example'; // string
 $wiki_id = 'wiki_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_article_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseArticlesByCourseWikiAsync($course_id, $wiki_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseArticlesByCourseWikiAsync($course_id, $wiki_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseArticlesByCourseWikiAsync: ', $e->getMessage(), PHP_EOL;
@@ -214,6 +215,7 @@ try {
 | **wiki_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_article_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters**](../Model/CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -225,7 +227,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -235,7 +237,7 @@ No authorization required
 ## `getCourseArticlesByCourseWikiCountAsync()`
 
 ```php
-getCourseArticlesByCourseWikiCountAsync($course_id, $wiki_id, $api_version, $x_api_version): int
+getCourseArticlesByCourseWikiCountAsync($course_id, $wiki_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters): int
 ```
 
 Get course articles by course wiki count
@@ -259,9 +261,10 @@ $course_id = 'course_id_example'; // string
 $wiki_id = 'wiki_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_article_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseArticlesByCourseWikiCountAsync($course_id, $wiki_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseArticlesByCourseWikiCountAsync($course_id, $wiki_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseArticlesByCourseWikiCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -276,6 +279,7 @@ try {
 | **wiki_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_article_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters**](../Model/CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -287,7 +291,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -297,7 +301,7 @@ No authorization required
 ## `getCourseAssignmentsByCourseAsync()`
 
 ```php
-getCourseAssignmentsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseAssignmentDto[]
+getCourseAssignmentsByCourseAsync($course_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseAssignmentDto[]
 ```
 
 Get course assignments by course
@@ -320,9 +324,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_assignment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseAssignmentsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseAssignmentsByCourseAsync($course_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseAssignmentsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -336,6 +341,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_assignment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters**](../Model/CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -347,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -357,7 +363,7 @@ No authorization required
 ## `getCourseAssignmentsByCourseCountAsync()`
 
 ```php
-getCourseAssignmentsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseAssignmentsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters): int
 ```
 
 Get course assignments by course count
@@ -380,9 +386,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_assignment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseAssignmentsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseAssignmentsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseAssignmentsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -396,6 +403,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_assignment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters**](../Model/CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -407,7 +415,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -479,7 +487,7 @@ No authorization required
 ## `getCourseCategoriesByCourseAsync()`
 
 ```php
-getCourseCategoriesByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseCategoryDto[]
+getCourseCategoriesByCourseAsync($course_id, $api_version, $x_api_version, $course_category_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseCategoryDto[]
 ```
 
 Get course categories by course
@@ -502,9 +510,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseCategoriesByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseCategoriesByCourseAsync($course_id, $api_version, $x_api_version, $course_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseCategoriesByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -518,6 +527,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCategoryDtoCollectionQueryParameters**](../Model/CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -529,7 +539,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -539,7 +549,7 @@ No authorization required
 ## `getCourseCategoriesByCourseCountAsync()`
 
 ```php
-getCourseCategoriesByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseCategoriesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_category_dto_collection_query_parameters): int
 ```
 
 Get course categories by course count
@@ -562,9 +572,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseCategoriesByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseCategoriesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseCategoriesByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -578,6 +589,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCategoryDtoCollectionQueryParameters**](../Model/CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -589,7 +601,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -599,7 +611,7 @@ No authorization required
 ## `getCourseCohortsByCourseAsync()`
 
 ```php
-getCourseCohortsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseCohortDto[]
+getCourseCohortsByCourseAsync($course_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseCohortDto[]
 ```
 
 Get course cohorts by course
@@ -622,9 +634,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_cohort_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseCohortsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseCohortsByCourseAsync($course_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseCohortsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -638,6 +651,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_cohort_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters**](../Model/CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -649,7 +663,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -659,7 +673,7 @@ No authorization required
 ## `getCourseCohortsByCourseCountAsync()`
 
 ```php
-getCourseCohortsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseCohortsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters): int
 ```
 
 Get course cohorts by course count
@@ -682,9 +696,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_cohort_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseCohortsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseCohortsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_cohort_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseCohortsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -698,6 +713,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_cohort_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCohortDtoCollectionQueryParameters**](../Model/CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -709,7 +725,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -719,7 +735,7 @@ No authorization required
 ## `getCourseEnrollmentsByCourseAsync()`
 
 ```php
-getCourseEnrollmentsByCourseAsync($tenant_id, $course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseEnrollmentDto[]
+getCourseEnrollmentsByCourseAsync($tenant_id, $course_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseEnrollmentDto[]
 ```
 
 Get enrollments by course
@@ -743,9 +759,10 @@ $tenant_id = 'tenant_id_example'; // string
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseEnrollmentsByCourseAsync($tenant_id, $course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseEnrollmentsByCourseAsync($tenant_id, $course_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseEnrollmentsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -760,6 +777,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters**](../Model/CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -771,7 +789,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -781,7 +799,7 @@ No authorization required
 ## `getCourseFilesByCourseAsync()`
 
 ```php
-getCourseFilesByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseFileDto[]
+getCourseFilesByCourseAsync($course_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseFileDto[]
 ```
 
 Get course files by course
@@ -804,9 +822,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_file_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseFilesByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseFilesByCourseAsync($course_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseFilesByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -820,6 +839,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_file_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters**](../Model/CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -831,7 +851,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -841,7 +861,7 @@ No authorization required
 ## `getCourseFilesByCourseCountAsync()`
 
 ```php
-getCourseFilesByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseFilesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters): int
 ```
 
 Get course files by course count
@@ -864,9 +884,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_file_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseFilesByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseFilesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_file_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseFilesByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -880,6 +901,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_file_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseFileDtoCollectionQueryParameters**](../Model/CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -891,7 +913,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -901,7 +923,7 @@ No authorization required
 ## `getCourseForumsByCourseAsync()`
 
 ```php
-getCourseForumsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseForumDto[]
+getCourseForumsByCourseAsync($course_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseForumDto[]
 ```
 
 Get course forums by course
@@ -924,9 +946,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_forum_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseForumsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseForumsByCourseAsync($course_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseForumsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -940,6 +963,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_forum_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters**](../Model/CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -951,7 +975,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -961,7 +985,7 @@ No authorization required
 ## `getCourseForumsByCourseCountAsync()`
 
 ```php
-getCourseForumsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseForumsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters): int
 ```
 
 Get course forums by course count
@@ -984,9 +1008,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_forum_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseForumsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseForumsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseForumsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1000,6 +1025,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_forum_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters**](../Model/CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1011,7 +1037,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1021,7 +1047,7 @@ No authorization required
 ## `getCourseHandoutsByCourseAsync()`
 
 ```php
-getCourseHandoutsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseHandoutDto[]
+getCourseHandoutsByCourseAsync($course_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseHandoutDto[]
 ```
 
 Get course handouts by course
@@ -1044,9 +1070,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_handout_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseHandoutsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseHandoutsByCourseAsync($course_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseHandoutsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1060,6 +1087,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_handout_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters**](../Model/CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1071,7 +1099,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1081,7 +1109,7 @@ No authorization required
 ## `getCourseHandoutsByCourseCountAsync()`
 
 ```php
-getCourseHandoutsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseHandoutsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters): int
 ```
 
 Get course handouts by course count
@@ -1104,9 +1132,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_handout_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseHandoutsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseHandoutsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseHandoutsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1120,6 +1149,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_handout_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters**](../Model/CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1131,7 +1161,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1141,7 +1171,7 @@ No authorization required
 ## `getCourseLibrariesByCourseAsync()`
 
 ```php
-getCourseLibrariesByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseLibraryDto[]
+getCourseLibrariesByCourseAsync($course_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseLibraryDto[]
 ```
 
 Get course libraries by course
@@ -1164,9 +1194,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_library_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseLibrariesByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseLibrariesByCourseAsync($course_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseLibrariesByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1180,6 +1211,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_library_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters**](../Model/CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1191,7 +1223,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1201,7 +1233,7 @@ No authorization required
 ## `getCourseLibrariesByCourseCountAsync()`
 
 ```php
-getCourseLibrariesByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseLibrariesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters): int
 ```
 
 Get course libraries by course count
@@ -1224,9 +1256,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_library_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseLibrariesByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseLibrariesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseLibrariesByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1240,6 +1273,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_library_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters**](../Model/CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1251,7 +1285,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1261,7 +1295,7 @@ No authorization required
 ## `getCoursePagesByCourseAsync()`
 
 ```php
-getCoursePagesByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CoursePageDto[]
+getCoursePagesByCourseAsync($course_id, $api_version, $x_api_version, $course_page_dto_collection_query_parameters): \OpenAPI\Client\Model\CoursePageDto[]
 ```
 
 Get course pages by course
@@ -1284,9 +1318,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_page_dto_collection_query_parameters = new \OpenAPI\Client\Model\CoursePageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CoursePageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCoursePagesByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCoursePagesByCourseAsync($course_id, $api_version, $x_api_version, $course_page_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCoursePagesByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1300,6 +1335,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_page_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CoursePageDtoCollectionQueryParameters**](../Model/CoursePageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1311,7 +1347,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1321,7 +1357,7 @@ No authorization required
 ## `getCoursePagesByCourseCountAsync()`
 
 ```php
-getCoursePagesByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCoursePagesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_page_dto_collection_query_parameters): int
 ```
 
 Get course pages by course count
@@ -1344,9 +1380,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_page_dto_collection_query_parameters = new \OpenAPI\Client\Model\CoursePageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CoursePageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCoursePagesByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCoursePagesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_page_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCoursePagesByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1360,6 +1397,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_page_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CoursePageDtoCollectionQueryParameters**](../Model/CoursePageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1371,7 +1409,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1381,7 +1419,7 @@ No authorization required
 ## `getCourseProblemSetsByCourseAsync()`
 
 ```php
-getCourseProblemSetsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseProblemSetDto[]
+getCourseProblemSetsByCourseAsync($course_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseProblemSetDto[]
 ```
 
 Get course problem sets by course
@@ -1404,9 +1442,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_problem_set_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseProblemSetsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseProblemSetsByCourseAsync($course_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseProblemSetsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1420,6 +1459,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_problem_set_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters**](../Model/CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1431,7 +1471,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1441,7 +1481,7 @@ No authorization required
 ## `getCourseProblemSetsByCourseCountAsync()`
 
 ```php
-getCourseProblemSetsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseProblemSetsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters): int
 ```
 
 Get course problem sets by course count
@@ -1464,9 +1504,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_problem_set_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseProblemSetsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseProblemSetsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseProblemSetsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1480,6 +1521,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_problem_set_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters**](../Model/CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1491,7 +1533,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1501,7 +1543,7 @@ No authorization required
 ## `getCourseSectionsByCourseAsync()`
 
 ```php
-getCourseSectionsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseSectionDto[]
+getCourseSectionsByCourseAsync($course_id, $api_version, $x_api_version, $course_section_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseSectionDto[]
 ```
 
 Get course sections by course
@@ -1524,9 +1566,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_section_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseSectionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseSectionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseSectionsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseSectionsByCourseAsync($course_id, $api_version, $x_api_version, $course_section_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseSectionsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1540,6 +1583,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_section_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseSectionDtoCollectionQueryParameters**](../Model/CourseSectionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1551,7 +1595,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1561,7 +1605,7 @@ No authorization required
 ## `getCourseSectionsByCourseCountAsync()`
 
 ```php
-getCourseSectionsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseSectionsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_section_dto_collection_query_parameters): int
 ```
 
 Get course sections by course count
@@ -1584,9 +1628,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_section_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseSectionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseSectionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseSectionsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseSectionsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_section_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseSectionsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1600,6 +1645,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_section_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseSectionDtoCollectionQueryParameters**](../Model/CourseSectionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1611,7 +1657,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1621,7 +1667,7 @@ No authorization required
 ## `getCourseUnitComponentsByCourseAsync()`
 
 ```php
-getCourseUnitComponentsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseUnitComponentDto[]
+getCourseUnitComponentsByCourseAsync($course_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseUnitComponentDto[]
 ```
 
 Get course unit components by course
@@ -1644,9 +1690,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_unit_component_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUnitComponentsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUnitComponentsByCourseAsync($course_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseUnitComponentsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1660,6 +1707,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_unit_component_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters**](../Model/CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1671,7 +1719,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1681,7 +1729,7 @@ No authorization required
 ## `getCourseUnitComponentsByCourseCountAsync()`
 
 ```php
-getCourseUnitComponentsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseUnitComponentsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters): int
 ```
 
 Get course unit components by course count
@@ -1704,9 +1752,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_unit_component_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUnitComponentsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUnitComponentsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseUnitComponentsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1720,6 +1769,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_unit_component_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters**](../Model/CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1731,7 +1781,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1741,7 +1791,7 @@ No authorization required
 ## `getCourseUnitsBySectionAsync()`
 
 ```php
-getCourseUnitsBySectionAsync($course_id, $section_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseUnitDto[]
+getCourseUnitsBySectionAsync($course_id, $section_id, $api_version, $x_api_version, $course_unit_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseUnitDto[]
 ```
 
 Get course units by section
@@ -1765,9 +1815,10 @@ $course_id = 'course_id_example'; // string
 $section_id = 'section_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUnitsBySectionAsync($course_id, $section_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUnitsBySectionAsync($course_id, $section_id, $api_version, $x_api_version, $course_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseUnitsBySectionAsync: ', $e->getMessage(), PHP_EOL;
@@ -1782,6 +1833,7 @@ try {
 | **section_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseUnitDtoCollectionQueryParameters**](../Model/CourseUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1793,7 +1845,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1803,7 +1855,7 @@ No authorization required
 ## `getCourseUnitsBySectionCountAsync()`
 
 ```php
-getCourseUnitsBySectionCountAsync($course_id, $section_id, $api_version, $x_api_version): int
+getCourseUnitsBySectionCountAsync($course_id, $section_id, $api_version, $x_api_version, $course_unit_dto_collection_query_parameters): int
 ```
 
 Get course units by section count
@@ -1827,9 +1879,10 @@ $course_id = 'course_id_example'; // string
 $section_id = 'section_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUnitsBySectionCountAsync($course_id, $section_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUnitsBySectionCountAsync($course_id, $section_id, $api_version, $x_api_version, $course_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseUnitsBySectionCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1844,6 +1897,7 @@ try {
 | **section_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseUnitDtoCollectionQueryParameters**](../Model/CourseUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1855,7 +1909,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1865,7 +1919,7 @@ No authorization required
 ## `getCourseUpdatesByCourseAsync()`
 
 ```php
-getCourseUpdatesByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseNewsDto[]
+getCourseUpdatesByCourseAsync($course_id, $api_version, $x_api_version, $course_news_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseNewsDto[]
 ```
 
 Get course updates by course
@@ -1888,9 +1942,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_news_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseNewsDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseNewsDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUpdatesByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUpdatesByCourseAsync($course_id, $api_version, $x_api_version, $course_news_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseUpdatesByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -1904,6 +1959,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_news_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseNewsDtoCollectionQueryParameters**](../Model/CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1915,7 +1971,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1925,7 +1981,7 @@ No authorization required
 ## `getCourseUpdatesByCourseCountAsync()`
 
 ```php
-getCourseUpdatesByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseUpdatesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_news_dto_collection_query_parameters): int
 ```
 
 Get course updates by course count
@@ -1948,9 +2004,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_news_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseNewsDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseNewsDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUpdatesByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUpdatesByCourseCountAsync($course_id, $api_version, $x_api_version, $course_news_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseUpdatesByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1964,6 +2021,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_news_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseNewsDtoCollectionQueryParameters**](../Model/CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1975,7 +2033,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1985,7 +2043,7 @@ No authorization required
 ## `getCourseWikisByCourseAsync()`
 
 ```php
-getCourseWikisByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseWikiDto[]
+getCourseWikisByCourseAsync($course_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseWikiDto[]
 ```
 
 Get course wikis by course
@@ -2008,9 +2066,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_wiki_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseWikisByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseWikisByCourseAsync($course_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseWikisByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -2024,6 +2083,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_wiki_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters**](../Model/CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2035,7 +2095,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2045,7 +2105,7 @@ No authorization required
 ## `getCourseWikisByCourseCountAsync()`
 
 ```php
-getCourseWikisByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseWikisByCourseCountAsync($course_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters): int
 ```
 
 Get course wikis by course count
@@ -2068,9 +2128,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_wiki_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseWikisByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseWikisByCourseCountAsync($course_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseWikisByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2084,6 +2145,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_wiki_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters**](../Model/CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2095,7 +2157,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2105,7 +2167,7 @@ No authorization required
 ## `getCoursesAsync()`
 
 ```php
-getCoursesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseDto[]
+getCoursesAsync($tenant_id, $api_version, $x_api_version, $course_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseDto[]
 ```
 
 Get courses
@@ -2128,9 +2190,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCoursesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCoursesAsync($tenant_id, $api_version, $x_api_version, $course_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCoursesAsync: ', $e->getMessage(), PHP_EOL;
@@ -2144,6 +2207,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseDtoCollectionQueryParameters**](../Model/CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2155,7 +2219,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2165,7 +2229,7 @@ No authorization required
 ## `getCoursesCountAsync()`
 
 ```php
-getCoursesCountAsync($tenant_id, $api_version, $x_api_version): int
+getCoursesCountAsync($tenant_id, $api_version, $x_api_version, $course_dto_collection_query_parameters): int
 ```
 
 Get courses count
@@ -2188,9 +2252,10 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCoursesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCoursesCountAsync($tenant_id, $api_version, $x_api_version, $course_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCoursesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2204,6 +2269,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseDtoCollectionQueryParameters**](../Model/CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2215,7 +2281,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2465,7 +2531,7 @@ No authorization required
 ## `patchCourseAsync()`
 
 ```php
-patchCourseAsync($tenant_id, $course_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseAsync($tenant_id, $course_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course
@@ -2489,10 +2555,10 @@ $tenant_id = 'tenant_id_example'; // string
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseAsync($tenant_id, $course_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseAsync($tenant_id, $course_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->patchCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -2507,7 +2573,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

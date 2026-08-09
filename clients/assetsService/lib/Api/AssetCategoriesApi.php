@@ -81,9 +81,11 @@ class AssetCategoriesApi
         ],
         'getAssetCategories' => [
             'application/json',
+            'application/xml',
         ],
         'getAssetCategoriesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getAssetCategory' => [
             'application/json',
@@ -839,15 +841,16 @@ class AssetCategoriesApi
      * Gets all asset categories for the current tenant
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategories'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AssetCategoryDtoListEnvelope
      */
-    public function getAssetCategories($tenant_id, string $contentType = self::contentTypes['getAssetCategories'][0])
+    public function getAssetCategories($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategories'][0])
     {
-        list($response) = $this->getAssetCategoriesWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getAssetCategoriesWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -857,15 +860,16 @@ class AssetCategoriesApi
      * Gets all asset categories for the current tenant
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategories'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AssetCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAssetCategoriesWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetCategories'][0])
+    public function getAssetCategoriesWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategories'][0])
     {
-        $request = $this->getAssetCategoriesRequest($tenant_id, $contentType);
+        $request = $this->getAssetCategoriesRequest($tenant_id, $asset_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1052,14 +1056,15 @@ class AssetCategoriesApi
      * Gets all asset categories for the current tenant
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetCategoriesAsync($tenant_id, string $contentType = self::contentTypes['getAssetCategories'][0])
+    public function getAssetCategoriesAsync($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategories'][0])
     {
-        return $this->getAssetCategoriesAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getAssetCategoriesAsyncWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1073,15 +1078,16 @@ class AssetCategoriesApi
      * Gets all asset categories for the current tenant
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetCategoriesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetCategories'][0])
+    public function getAssetCategoriesAsyncWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategories'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetCategoryDtoListEnvelope';
-        $request = $this->getAssetCategoriesRequest($tenant_id, $contentType);
+        $request = $this->getAssetCategoriesRequest($tenant_id, $asset_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1123,12 +1129,13 @@ class AssetCategoriesApi
      * Create request for operation 'getAssetCategories'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAssetCategoriesRequest($tenant_id, string $contentType = self::contentTypes['getAssetCategories'][0])
+    public function getAssetCategoriesRequest($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategories'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1137,6 +1144,7 @@ class AssetCategoriesApi
                 'Missing the required parameter $tenant_id when calling getAssetCategories'
             );
         }
+
 
 
         $resourcePath = '/api/v2/AssetsService/AssetCategories';
@@ -1166,7 +1174,14 @@ class AssetCategoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($asset_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($asset_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $asset_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1218,15 +1233,16 @@ class AssetCategoriesApi
      * Gets the count of asset categories
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategoriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAssetCategoriesCount($tenant_id, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
+    public function getAssetCategoriesCount($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
     {
-        list($response) = $this->getAssetCategoriesCountWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getAssetCategoriesCountWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1236,15 +1252,16 @@ class AssetCategoriesApi
      * Gets the count of asset categories
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategoriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAssetCategoriesCountWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
+    public function getAssetCategoriesCountWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
     {
-        $request = $this->getAssetCategoriesCountRequest($tenant_id, $contentType);
+        $request = $this->getAssetCategoriesCountRequest($tenant_id, $asset_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1431,14 +1448,15 @@ class AssetCategoriesApi
      * Gets the count of asset categories
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetCategoriesCountAsync($tenant_id, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
+    public function getAssetCategoriesCountAsync($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
     {
-        return $this->getAssetCategoriesCountAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getAssetCategoriesCountAsyncWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1452,15 +1470,16 @@ class AssetCategoriesApi
      * Gets the count of asset categories
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetCategoriesCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
+    public function getAssetCategoriesCountAsyncWithHttpInfo($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAssetCategoriesCountRequest($tenant_id, $contentType);
+        $request = $this->getAssetCategoriesCountRequest($tenant_id, $asset_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1502,12 +1521,13 @@ class AssetCategoriesApi
      * Create request for operation 'getAssetCategoriesCount'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters $asset_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetCategoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAssetCategoriesCountRequest($tenant_id, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
+    public function getAssetCategoriesCountRequest($tenant_id, $asset_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetCategoriesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1516,6 +1536,7 @@ class AssetCategoriesApi
                 'Missing the required parameter $tenant_id when calling getAssetCategoriesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/AssetsService/AssetCategories/count';
@@ -1545,7 +1566,14 @@ class AssetCategoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($asset_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($asset_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $asset_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2032,16 +2060,16 @@ class AssetCategoriesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $category_id category_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetCategory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAssetCategory($tenant_id, $category_id, $operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
+    public function patchAssetCategory($tenant_id, $category_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
     {
-        list($response) = $this->patchAssetCategoryWithHttpInfo($tenant_id, $category_id, $operation, $contentType);
+        list($response) = $this->patchAssetCategoryWithHttpInfo($tenant_id, $category_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2052,16 +2080,16 @@ class AssetCategoriesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $category_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetCategory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAssetCategoryWithHttpInfo($tenant_id, $category_id, $operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
+    public function patchAssetCategoryWithHttpInfo($tenant_id, $category_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
     {
-        $request = $this->patchAssetCategoryRequest($tenant_id, $category_id, $operation, $contentType);
+        $request = $this->patchAssetCategoryRequest($tenant_id, $category_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2319,15 +2347,15 @@ class AssetCategoriesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $category_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAssetCategoryAsync($tenant_id, $category_id, $operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
+    public function patchAssetCategoryAsync($tenant_id, $category_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
     {
-        return $this->patchAssetCategoryAsyncWithHttpInfo($tenant_id, $category_id, $operation, $contentType)
+        return $this->patchAssetCategoryAsyncWithHttpInfo($tenant_id, $category_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2342,16 +2370,16 @@ class AssetCategoriesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $category_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAssetCategoryAsyncWithHttpInfo($tenant_id, $category_id, $operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
+    public function patchAssetCategoryAsyncWithHttpInfo($tenant_id, $category_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAssetCategoryRequest($tenant_id, $category_id, $operation, $contentType);
+        $request = $this->patchAssetCategoryRequest($tenant_id, $category_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2394,13 +2422,13 @@ class AssetCategoriesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $category_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAssetCategoryRequest($tenant_id, $category_id, $operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
+    public function patchAssetCategoryRequest($tenant_id, $category_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetCategory'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2454,12 +2482,12 @@ class AssetCategoriesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

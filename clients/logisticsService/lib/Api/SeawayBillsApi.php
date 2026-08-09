@@ -91,15 +91,19 @@ class SeawayBillsApi
         ],
         'getSeawayBillLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSeawayBillLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSeawayBillsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSeawayBillsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'issueSeawayBillAsync' => [
             'application/json',
@@ -2140,15 +2144,16 @@ class SeawayBillsApi
      * @param  string $bill_id bill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope
      */
-    public function getSeawayBillLinesAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
+    public function getSeawayBillLinesAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
     {
-        list($response) = $this->getSeawayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSeawayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2161,15 +2166,16 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSeawayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
+    public function getSeawayBillLinesAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
     {
-        $request = $this->getSeawayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2324,14 +2330,15 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillLinesAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
+    public function getSeawayBillLinesAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
     {
-        return $this->getSeawayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType)
+        return $this->getSeawayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2348,15 +2355,16 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
+    public function getSeawayBillLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WaybillLineDtoListEnvelope';
-        $request = $this->getSeawayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2401,12 +2409,13 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSeawayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
+    public function getSeawayBillLinesAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2422,6 +2431,7 @@ class SeawayBillsApi
                 'Missing the required parameter $bill_id when calling getSeawayBillLinesAsync'
             );
         }
+
 
 
 
@@ -2474,7 +2484,14 @@ class SeawayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2529,15 +2546,16 @@ class SeawayBillsApi
      * @param  string $bill_id bill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSeawayBillLinesCountAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
+    public function getSeawayBillLinesCountAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
     {
-        list($response) = $this->getSeawayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSeawayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2550,15 +2568,16 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSeawayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
+    public function getSeawayBillLinesCountAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
     {
-        $request = $this->getSeawayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2713,14 +2732,15 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillLinesCountAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
+    public function getSeawayBillLinesCountAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
     {
-        return $this->getSeawayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $contentType)
+        return $this->getSeawayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2737,15 +2757,16 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
+    public function getSeawayBillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSeawayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2790,12 +2811,13 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSeawayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
+    public function getSeawayBillLinesCountAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2811,6 +2833,7 @@ class SeawayBillsApi
                 'Missing the required parameter $bill_id when calling getSeawayBillLinesCountAsync'
             );
         }
+
 
 
 
@@ -2863,7 +2886,14 @@ class SeawayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2917,15 +2947,16 @@ class SeawayBillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SeawayBillDtoListEnvelope
      */
-    public function getSeawayBillsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
+    public function getSeawayBillsAsync($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
     {
-        list($response) = $this->getSeawayBillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSeawayBillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2937,15 +2968,16 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SeawayBillDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSeawayBillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
+    public function getSeawayBillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
     {
-        $request = $this->getSeawayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3134,14 +3166,15 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
+    public function getSeawayBillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
     {
-        return $this->getSeawayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSeawayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3157,15 +3190,16 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
+    public function getSeawayBillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SeawayBillDtoListEnvelope';
-        $request = $this->getSeawayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillsAsyncRequest($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3209,12 +3243,13 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSeawayBillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
+    public function getSeawayBillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3223,6 +3258,7 @@ class SeawayBillsApi
                 'Missing the required parameter $tenant_id when calling getSeawayBillsAsync'
             );
         }
+
 
 
 
@@ -3267,7 +3303,14 @@ class SeawayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($seaway_bill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($seaway_bill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $seaway_bill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3321,15 +3364,16 @@ class SeawayBillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSeawayBillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
+    public function getSeawayBillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
     {
-        list($response) = $this->getSeawayBillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSeawayBillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3341,15 +3385,16 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSeawayBillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
+    public function getSeawayBillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
     {
-        $request = $this->getSeawayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3503,14 +3548,15 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
+    public function getSeawayBillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
     {
-        return $this->getSeawayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSeawayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3526,15 +3572,16 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSeawayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
+    public function getSeawayBillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSeawayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSeawayBillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3578,12 +3625,13 @@ class SeawayBillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters $seaway_bill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSeawayBillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSeawayBillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
+    public function getSeawayBillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $seaway_bill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSeawayBillsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3592,6 +3640,7 @@ class SeawayBillsApi
                 'Missing the required parameter $tenant_id when calling getSeawayBillsCountAsync'
             );
         }
+
 
 
 
@@ -3636,7 +3685,14 @@ class SeawayBillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($seaway_bill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($seaway_bill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $seaway_bill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4858,16 +4914,16 @@ class SeawayBillsApi
      * @param  string $bill_id bill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSeawayBillAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
+    public function patchSeawayBillAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
     {
-        list($response) = $this->patchSeawayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSeawayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4880,16 +4936,16 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSeawayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
+    public function patchSeawayBillAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
     {
-        $request = $this->patchSeawayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSeawayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5044,15 +5100,15 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSeawayBillAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
+    public function patchSeawayBillAsyncAsync($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
     {
-        return $this->patchSeawayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSeawayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5069,16 +5125,16 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSeawayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
+    public function patchSeawayBillAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSeawayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSeawayBillAsyncRequest($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5123,13 +5179,13 @@ class SeawayBillsApi
      * @param  string $bill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSeawayBillAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
+    public function patchSeawayBillAsyncRequest($tenant_id, $bill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5198,12 +5254,12 @@ class SeawayBillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5261,16 +5317,16 @@ class SeawayBillsApi
      * @param  string $line_id line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSeawayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
+    public function patchSeawayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
     {
-        list($response) = $this->patchSeawayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSeawayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5284,16 +5340,16 @@ class SeawayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSeawayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
+    public function patchSeawayBillLineAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
     {
-        $request = $this->patchSeawayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSeawayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5449,15 +5505,15 @@ class SeawayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSeawayBillLineAsyncAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
+    public function patchSeawayBillLineAsyncAsync($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
     {
-        return $this->patchSeawayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSeawayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5475,16 +5531,16 @@ class SeawayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSeawayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
+    public function patchSeawayBillLineAsyncAsyncWithHttpInfo($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSeawayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSeawayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5530,13 +5586,13 @@ class SeawayBillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSeawayBillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSeawayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
+    public function patchSeawayBillLineAsyncRequest($tenant_id, $bill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSeawayBillLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5620,12 +5676,12 @@ class SeawayBillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -84,9 +84,11 @@ class EmailSignaturesApi
         ],
         'getEmailSignaturesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getEmailSignaturesODataAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchEmailSignatureAsync' => [
             'application/json',
@@ -1528,15 +1530,16 @@ class EmailSignaturesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getEmailSignaturesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
+    public function getEmailSignaturesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
     {
-        list($response) = $this->getEmailSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEmailSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1548,15 +1551,16 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
+    public function getEmailSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
     {
-        $request = $this->getEmailSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1780,14 +1784,15 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailSignaturesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
+    public function getEmailSignaturesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
     {
-        return $this->getEmailSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getEmailSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1803,15 +1808,16 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
+    public function getEmailSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getEmailSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1855,12 +1861,13 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailSignaturesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
+    public function getEmailSignaturesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1869,6 +1876,7 @@ class EmailSignaturesApi
                 'Missing the required parameter $tenant_id when calling getEmailSignaturesCountAsync'
             );
         }
+
 
 
 
@@ -1913,7 +1921,14 @@ class EmailSignaturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($email_signature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($email_signature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $email_signature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1967,15 +1982,16 @@ class EmailSignaturesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmailSignatureDtoListEnvelope
      */
-    public function getEmailSignaturesODataAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
+    public function getEmailSignaturesODataAsync($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
     {
-        list($response) = $this->getEmailSignaturesODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEmailSignaturesODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1987,15 +2003,16 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmailSignatureDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailSignaturesODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
+    public function getEmailSignaturesODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
     {
-        $request = $this->getEmailSignaturesODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailSignaturesODataAsyncRequest($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2184,14 +2201,15 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailSignaturesODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
+    public function getEmailSignaturesODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
     {
-        return $this->getEmailSignaturesODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getEmailSignaturesODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2207,15 +2225,16 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailSignaturesODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
+    public function getEmailSignaturesODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmailSignatureDtoListEnvelope';
-        $request = $this->getEmailSignaturesODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmailSignaturesODataAsyncRequest($tenant_id, $api_version, $x_api_version, $email_signature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2259,12 +2278,13 @@ class EmailSignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmailSignatureDtoCollectionQueryParameters $email_signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmailSignaturesODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailSignaturesODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
+    public function getEmailSignaturesODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $email_signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmailSignaturesODataAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2273,6 +2293,7 @@ class EmailSignaturesApi
                 'Missing the required parameter $tenant_id when calling getEmailSignaturesODataAsync'
             );
         }
+
 
 
 
@@ -2317,7 +2338,14 @@ class EmailSignaturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($email_signature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($email_signature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $email_signature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2372,16 +2400,16 @@ class EmailSignaturesApi
      * @param  string $emailsignature_id emailsignature_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailSignatureAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
+    public function patchEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
     {
-        list($response) = $this->patchEmailSignatureAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchEmailSignatureAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2394,16 +2422,16 @@ class EmailSignaturesApi
      * @param  string $emailsignature_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailSignatureAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchEmailSignatureAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
+    public function patchEmailSignatureAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
     {
-        $request = $this->patchEmailSignatureAsyncRequest($tenant_id, $emailsignature_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchEmailSignatureAsyncRequest($tenant_id, $emailsignature_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2593,15 +2621,15 @@ class EmailSignaturesApi
      * @param  string $emailsignature_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailSignatureAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchEmailSignatureAsyncAsync($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
+    public function patchEmailSignatureAsyncAsync($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
     {
-        return $this->patchEmailSignatureAsyncAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchEmailSignatureAsyncAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2618,16 +2646,16 @@ class EmailSignaturesApi
      * @param  string $emailsignature_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailSignatureAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchEmailSignatureAsyncAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
+    public function patchEmailSignatureAsyncAsyncWithHttpInfo($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchEmailSignatureAsyncRequest($tenant_id, $emailsignature_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchEmailSignatureAsyncRequest($tenant_id, $emailsignature_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2672,13 +2700,13 @@ class EmailSignaturesApi
      * @param  string $emailsignature_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmailSignatureAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchEmailSignatureAsyncRequest($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
+    public function patchEmailSignatureAsyncRequest($tenant_id, $emailsignature_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmailSignatureAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2747,12 +2775,12 @@ class EmailSignaturesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

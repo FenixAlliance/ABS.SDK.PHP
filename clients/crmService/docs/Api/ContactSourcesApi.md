@@ -200,7 +200,7 @@ No authorization required
 ## `getContactSourcesAsync()`
 
 ```php
-getContactSourcesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactSourceDtoListEnvelope
+getContactSourcesAsync($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactSourceDtoListEnvelope
 ```
 
 Get all contact sources
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactSourcesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_source_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactSourcesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactSourcesAsync($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactSourcesApi->getContactSourcesAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_source_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters**](../Model/ContactSourceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getContactSourcesCountAsync()`
 
 ```php
-getContactSourcesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getContactSourcesCountAsync($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get contact sources count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactSourcesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_source_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactSourcesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactSourcesCountAsync($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactSourcesApi->getContactSourcesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_source_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters**](../Model/ContactSourceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchContactSourceAsync()`
 
 ```php
-patchContactSourceAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchContactSourceAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a contact source
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchContactSourceAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchContactSourceAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactSourcesApi->patchContactSourceAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseTeamMembershipsAsync()`
 
 ```php
-getCourseTeamMembershipsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseTeamMembershipDto[]
+getCourseTeamMembershipsAsync($tenant_id, $api_version, $x_api_version, $course_team_membership_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseTeamMembershipDto[]
 ```
 
 Get all course team memberships
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseTeamMembershipsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_team_membership_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseTeamMembershipDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseTeamMembershipDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseTeamMembershipsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseTeamMembershipsAsync($tenant_id, $api_version, $x_api_version, $course_team_membership_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseTeamMembershipsApi->getCourseTeamMembershipsAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_team_membership_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseTeamMembershipDtoCollectionQueryParameters**](../Model/CourseTeamMembershipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseTeamMembershipsCountAsync()`
 
 ```php
-getCourseTeamMembershipsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseTeamMembershipsCountAsync($tenant_id, $api_version, $x_api_version, $course_team_membership_dto_collection_query_parameters): int
 ```
 
 Get course team memberships count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseTeamMembershipsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_team_membership_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseTeamMembershipDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseTeamMembershipDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseTeamMembershipsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseTeamMembershipsCountAsync($tenant_id, $api_version, $x_api_version, $course_team_membership_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseTeamMembershipsApi->getCourseTeamMembershipsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_team_membership_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseTeamMembershipDtoCollectionQueryParameters**](../Model/CourseTeamMembershipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseTeamMembershipAsync()`
 
 ```php
-patchCourseTeamMembershipAsync($tenant_id, $membership_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseTeamMembershipAsync($tenant_id, $membership_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course team membership
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $membership_id = 'membership_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseTeamMembershipAsync($tenant_id, $membership_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseTeamMembershipAsync($tenant_id, $membership_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseTeamMembershipsApi->patchCourseTeamMembershipAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **membership_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

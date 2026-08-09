@@ -136,7 +136,7 @@ No authorization required
 ## `getReturnPoliciesAsync()`
 
 ```php
-getReturnPoliciesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
+getReturnPoliciesAsync($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
 ```
 
 Retrieve a list of return policies
@@ -157,9 +157,10 @@ $apiInstance = new OpenAPI\Client\Api\ReturnPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_return_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getReturnPoliciesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getReturnPoliciesAsync($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnPoliciesApi->getReturnPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -173,6 +174,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_return_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters**](../Model/ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -184,7 +186,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -194,7 +196,7 @@ No authorization required
 ## `getReturnPoliciesCountAsync()`
 
 ```php
-getReturnPoliciesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getReturnPoliciesCountAsync($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of return policies
@@ -215,9 +217,10 @@ $apiInstance = new OpenAPI\Client\Api\ReturnPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_return_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getReturnPoliciesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getReturnPoliciesCountAsync($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnPoliciesApi->getReturnPoliciesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -231,6 +234,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_return_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters**](../Model/ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -242,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -312,7 +316,7 @@ No authorization required
 ## `patchReturnPolicyAsync()`
 
 ```php
-patchReturnPolicyAsync($tenant_id, $return_policy_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchReturnPolicyAsync($tenant_id, $return_policy_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a return policy
@@ -336,10 +340,10 @@ $tenant_id = 'tenant_id_example'; // string
 $return_policy_id = 'return_policy_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchReturnPolicyAsync($tenant_id, $return_policy_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchReturnPolicyAsync($tenant_id, $return_policy_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnPoliciesApi->patchReturnPolicyAsync: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +358,7 @@ try {
 | **return_policy_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

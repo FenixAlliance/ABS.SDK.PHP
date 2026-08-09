@@ -15,7 +15,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countLocalizationStringsAsync()`
 
 ```php
-countLocalizationStringsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countLocalizationStringsAsync($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count localization strings
@@ -38,9 +38,10 @@ $apiInstance = new OpenAPI\Client\Api\LocalizationStringsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$localization_string_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countLocalizationStringsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countLocalizationStringsAsync($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalizationStringsApi->countLocalizationStringsAsync: ', $e->getMessage(), PHP_EOL;
@@ -54,6 +55,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **localization_string_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters**](../Model/LocalizationStringDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getLocalizationStringsAsync()`
 
 ```php
-getLocalizationStringsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LocalizationStringDtoListEnvelope
+getLocalizationStringsAsync($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters): \OpenAPI\Client\Model\LocalizationStringDtoListEnvelope
 ```
 
 Get localization strings
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\LocalizationStringsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$localization_string_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLocalizationStringsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLocalizationStringsAsync($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalizationStringsApi->getLocalizationStringsAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **localization_string_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters**](../Model/LocalizationStringDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

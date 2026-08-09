@@ -90,9 +90,11 @@ class TruckDriversApi
         ],
         'getTruckDriversAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTruckDriversCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchTruckDriverAsync' => [
             'application/json',
@@ -2096,15 +2098,16 @@ class TruckDriversApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TruckDriverDtoListEnvelope
      */
-    public function getTruckDriversAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
+    public function getTruckDriversAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
     {
-        list($response) = $this->getTruckDriversAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTruckDriversAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2116,15 +2119,16 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TruckDriverDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTruckDriversAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
+    public function getTruckDriversAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
     {
-        $request = $this->getTruckDriversAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckDriversAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2313,14 +2317,15 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckDriversAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
+    public function getTruckDriversAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
     {
-        return $this->getTruckDriversAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTruckDriversAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2336,15 +2341,16 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckDriversAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
+    public function getTruckDriversAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TruckDriverDtoListEnvelope';
-        $request = $this->getTruckDriversAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckDriversAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2388,12 +2394,13 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTruckDriversAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
+    public function getTruckDriversAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2402,6 +2409,7 @@ class TruckDriversApi
                 'Missing the required parameter $tenant_id when calling getTruckDriversAsync'
             );
         }
+
 
 
 
@@ -2446,7 +2454,14 @@ class TruckDriversApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($truck_driver_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($truck_driver_dto_collection_query_parameters));
+            } else {
+                $httpBody = $truck_driver_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2500,15 +2515,16 @@ class TruckDriversApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTruckDriversCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
+    public function getTruckDriversCountAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
     {
-        list($response) = $this->getTruckDriversCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTruckDriversCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2520,15 +2536,16 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTruckDriversCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
+    public function getTruckDriversCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
     {
-        $request = $this->getTruckDriversCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckDriversCountAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2682,14 +2699,15 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckDriversCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
+    public function getTruckDriversCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
     {
-        return $this->getTruckDriversCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTruckDriversCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2705,15 +2723,16 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckDriversCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
+    public function getTruckDriversCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTruckDriversCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckDriversCountAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2757,12 +2776,13 @@ class TruckDriversApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters $truck_driver_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckDriversCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTruckDriversCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
+    public function getTruckDriversCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $truck_driver_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckDriversCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2771,6 +2791,7 @@ class TruckDriversApi
                 'Missing the required parameter $tenant_id when calling getTruckDriversCountAsync'
             );
         }
+
 
 
 
@@ -2815,7 +2836,14 @@ class TruckDriversApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($truck_driver_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($truck_driver_dto_collection_query_parameters));
+            } else {
+                $httpBody = $truck_driver_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2870,16 +2898,16 @@ class TruckDriversApi
      * @param  string $driver_id driver_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckDriverAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTruckDriverAsync($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
+    public function patchTruckDriverAsync($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
     {
-        list($response) = $this->patchTruckDriverAsyncWithHttpInfo($tenant_id, $driver_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTruckDriverAsyncWithHttpInfo($tenant_id, $driver_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2892,16 +2920,16 @@ class TruckDriversApi
      * @param  string $driver_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckDriverAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTruckDriverAsyncWithHttpInfo($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
+    public function patchTruckDriverAsyncWithHttpInfo($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
     {
-        $request = $this->patchTruckDriverAsyncRequest($tenant_id, $driver_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTruckDriverAsyncRequest($tenant_id, $driver_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3126,15 +3154,15 @@ class TruckDriversApi
      * @param  string $driver_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckDriverAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTruckDriverAsyncAsync($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
+    public function patchTruckDriverAsyncAsync($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
     {
-        return $this->patchTruckDriverAsyncAsyncWithHttpInfo($tenant_id, $driver_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTruckDriverAsyncAsyncWithHttpInfo($tenant_id, $driver_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3151,16 +3179,16 @@ class TruckDriversApi
      * @param  string $driver_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckDriverAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTruckDriverAsyncAsyncWithHttpInfo($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
+    public function patchTruckDriverAsyncAsyncWithHttpInfo($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTruckDriverAsyncRequest($tenant_id, $driver_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTruckDriverAsyncRequest($tenant_id, $driver_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3205,13 +3233,13 @@ class TruckDriversApi
      * @param  string $driver_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckDriverAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTruckDriverAsyncRequest($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
+    public function patchTruckDriverAsyncRequest($tenant_id, $driver_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckDriverAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3280,12 +3308,12 @@ class TruckDriversApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

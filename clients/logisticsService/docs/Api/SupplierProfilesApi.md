@@ -202,7 +202,7 @@ No authorization required
 ## `getSupplierProfilesAsync()`
 
 ```php
-getSupplierProfilesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupplierProfileDtoListEnvelope
+getSupplierProfilesAsync($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\SupplierProfileDtoListEnvelope
 ```
 
 Get all supplier profiles
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SupplierProfilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$supplier_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupplierProfilesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupplierProfilesAsync($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupplierProfilesApi->getSupplierProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **supplier_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters**](../Model/SupplierProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSupplierProfilesCountAsync()`
 
 ```php
-getSupplierProfilesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSupplierProfilesCountAsync($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get supplier profiles count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SupplierProfilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$supplier_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupplierProfilesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupplierProfilesCountAsync($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupplierProfilesApi->getSupplierProfilesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **supplier_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters**](../Model/SupplierProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSupplierProfileAsync()`
 
 ```php
-patchSupplierProfileAsync($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSupplierProfileAsync($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a supplier profile
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $supplier_profile_id = 'supplier_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSupplierProfileAsync($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSupplierProfileAsync($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupplierProfilesApi->patchSupplierProfileAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **supplier_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

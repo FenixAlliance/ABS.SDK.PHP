@@ -76,7 +76,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -137,26 +136,31 @@ Class | Method | HTTP request | Description
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LicenseAttributeCreateDto](docs/Model/LicenseAttributeCreateDto.md)
 - [LicenseAttributeDto](docs/Model/LicenseAttributeDto.md)
+- [LicenseAttributeDtoCollectionQueryParameters](docs/Model/LicenseAttributeDtoCollectionQueryParameters.md)
 - [LicenseAttributeDtoListEnvelope](docs/Model/LicenseAttributeDtoListEnvelope.md)
 - [LicenseAttributeUpdateDto](docs/Model/LicenseAttributeUpdateDto.md)
 - [LicenseCreateDto](docs/Model/LicenseCreateDto.md)
 - [LicenseDto](docs/Model/LicenseDto.md)
+- [LicenseDtoCollectionQueryParameters](docs/Model/LicenseDtoCollectionQueryParameters.md)
 - [LicenseDtoListEnvelope](docs/Model/LicenseDtoListEnvelope.md)
 - [LicenseFeatureCreateDto](docs/Model/LicenseFeatureCreateDto.md)
 - [LicenseFeatureDto](docs/Model/LicenseFeatureDto.md)
+- [LicenseFeatureDtoCollectionQueryParameters](docs/Model/LicenseFeatureDtoCollectionQueryParameters.md)
 - [LicenseFeatureDtoListEnvelope](docs/Model/LicenseFeatureDtoListEnvelope.md)
 - [LicenseFeatureUpdateDto](docs/Model/LicenseFeatureUpdateDto.md)
 - [LicenseTypeCreateDto](docs/Model/LicenseTypeCreateDto.md)
 - [LicenseTypeDto](docs/Model/LicenseTypeDto.md)
+- [LicenseTypeDtoCollectionQueryParameters](docs/Model/LicenseTypeDtoCollectionQueryParameters.md)
 - [LicenseTypeDtoListEnvelope](docs/Model/LicenseTypeDtoListEnvelope.md)
 - [LicenseTypeUpdateDto](docs/Model/LicenseTypeUpdateDto.md)
 - [LicenseUpdateDto](docs/Model/LicenseUpdateDto.md)
 - [LicensingCertificateCreateDto](docs/Model/LicensingCertificateCreateDto.md)
 - [LicensingCertificateDto](docs/Model/LicensingCertificateDto.md)
+- [LicensingCertificateDtoCollectionQueryParameters](docs/Model/LicensingCertificateDtoCollectionQueryParameters.md)
 - [LicensingCertificateDtoListEnvelope](docs/Model/LicensingCertificateDtoListEnvelope.md)
 - [LicensingCertificateUpdateDto](docs/Model/LicensingCertificateUpdateDto.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)

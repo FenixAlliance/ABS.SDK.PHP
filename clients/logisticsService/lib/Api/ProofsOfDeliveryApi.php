@@ -104,15 +104,19 @@ class ProofsOfDeliveryApi
         ],
         'getProofOfDeliveryLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProofOfDeliveryLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProofsOfDeliveryAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProofsOfDeliveryCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchProofOfDeliveryAsync' => [
             'application/json',
@@ -3758,15 +3762,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id pod_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProofOfDeliveryLineDtoListEnvelope
      */
-    public function getProofOfDeliveryLinesAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
+    public function getProofOfDeliveryLinesAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
     {
-        list($response) = $this->getProofOfDeliveryLinesAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProofOfDeliveryLinesAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3779,15 +3784,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProofOfDeliveryLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProofOfDeliveryLinesAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
+    public function getProofOfDeliveryLinesAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
     {
-        $request = $this->getProofOfDeliveryLinesAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofOfDeliveryLinesAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3942,14 +3948,15 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofOfDeliveryLinesAsyncAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
+    public function getProofOfDeliveryLinesAsyncAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
     {
-        return $this->getProofOfDeliveryLinesAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $contentType)
+        return $this->getProofOfDeliveryLinesAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3966,15 +3973,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofOfDeliveryLinesAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
+    public function getProofOfDeliveryLinesAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProofOfDeliveryLineDtoListEnvelope';
-        $request = $this->getProofOfDeliveryLinesAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofOfDeliveryLinesAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4019,12 +4027,13 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProofOfDeliveryLinesAsyncRequest($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
+    public function getProofOfDeliveryLinesAsyncRequest($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4040,6 +4049,7 @@ class ProofsOfDeliveryApi
                 'Missing the required parameter $pod_id when calling getProofOfDeliveryLinesAsync'
             );
         }
+
 
 
 
@@ -4092,7 +4102,14 @@ class ProofsOfDeliveryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($proof_of_delivery_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($proof_of_delivery_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $proof_of_delivery_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4147,15 +4164,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id pod_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProofOfDeliveryLinesCountAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
+    public function getProofOfDeliveryLinesCountAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
     {
-        list($response) = $this->getProofOfDeliveryLinesCountAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProofOfDeliveryLinesCountAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4168,15 +4186,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProofOfDeliveryLinesCountAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
+    public function getProofOfDeliveryLinesCountAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
     {
-        $request = $this->getProofOfDeliveryLinesCountAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofOfDeliveryLinesCountAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4331,14 +4350,15 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofOfDeliveryLinesCountAsyncAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
+    public function getProofOfDeliveryLinesCountAsyncAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
     {
-        return $this->getProofOfDeliveryLinesCountAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $contentType)
+        return $this->getProofOfDeliveryLinesCountAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4355,15 +4375,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofOfDeliveryLinesCountAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
+    public function getProofOfDeliveryLinesCountAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProofOfDeliveryLinesCountAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofOfDeliveryLinesCountAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4408,12 +4429,13 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters $proof_of_delivery_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofOfDeliveryLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProofOfDeliveryLinesCountAsyncRequest($tenant_id, $pod_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
+    public function getProofOfDeliveryLinesCountAsyncRequest($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $proof_of_delivery_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofOfDeliveryLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4429,6 +4451,7 @@ class ProofsOfDeliveryApi
                 'Missing the required parameter $pod_id when calling getProofOfDeliveryLinesCountAsync'
             );
         }
+
 
 
 
@@ -4481,7 +4504,14 @@ class ProofsOfDeliveryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($proof_of_delivery_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($proof_of_delivery_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $proof_of_delivery_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4535,15 +4565,16 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProofOfDeliveryDtoListEnvelope
      */
-    public function getProofsOfDeliveryAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
+    public function getProofsOfDeliveryAsync($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
     {
-        list($response) = $this->getProofsOfDeliveryAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProofsOfDeliveryAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4555,15 +4586,16 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProofOfDeliveryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProofsOfDeliveryAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
+    public function getProofsOfDeliveryAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
     {
-        $request = $this->getProofsOfDeliveryAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofsOfDeliveryAsyncRequest($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4752,14 +4784,15 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofsOfDeliveryAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
+    public function getProofsOfDeliveryAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
     {
-        return $this->getProofsOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getProofsOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4775,15 +4808,16 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofsOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
+    public function getProofsOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProofOfDeliveryDtoListEnvelope';
-        $request = $this->getProofsOfDeliveryAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofsOfDeliveryAsyncRequest($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4827,12 +4861,13 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProofsOfDeliveryAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
+    public function getProofsOfDeliveryAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4841,6 +4876,7 @@ class ProofsOfDeliveryApi
                 'Missing the required parameter $tenant_id when calling getProofsOfDeliveryAsync'
             );
         }
+
 
 
 
@@ -4885,7 +4921,14 @@ class ProofsOfDeliveryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($proof_of_delivery_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($proof_of_delivery_dto_collection_query_parameters));
+            } else {
+                $httpBody = $proof_of_delivery_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4939,15 +4982,16 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProofsOfDeliveryCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
+    public function getProofsOfDeliveryCountAsync($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
     {
-        list($response) = $this->getProofsOfDeliveryCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProofsOfDeliveryCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4959,15 +5003,16 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProofsOfDeliveryCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
+    public function getProofsOfDeliveryCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
     {
-        $request = $this->getProofsOfDeliveryCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofsOfDeliveryCountAsyncRequest($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5121,14 +5166,15 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofsOfDeliveryCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
+    public function getProofsOfDeliveryCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
     {
-        return $this->getProofsOfDeliveryCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getProofsOfDeliveryCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5144,15 +5190,16 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProofsOfDeliveryCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
+    public function getProofsOfDeliveryCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProofsOfDeliveryCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProofsOfDeliveryCountAsyncRequest($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5196,12 +5243,13 @@ class ProofsOfDeliveryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters $proof_of_delivery_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProofsOfDeliveryCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProofsOfDeliveryCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
+    public function getProofsOfDeliveryCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $proof_of_delivery_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProofsOfDeliveryCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5210,6 +5258,7 @@ class ProofsOfDeliveryApi
                 'Missing the required parameter $tenant_id when calling getProofsOfDeliveryCountAsync'
             );
         }
+
 
 
 
@@ -5254,7 +5303,14 @@ class ProofsOfDeliveryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($proof_of_delivery_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($proof_of_delivery_dto_collection_query_parameters));
+            } else {
+                $httpBody = $proof_of_delivery_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5309,16 +5365,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id pod_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchProofOfDeliveryAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
+    public function patchProofOfDeliveryAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
     {
-        list($response) = $this->patchProofOfDeliveryAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchProofOfDeliveryAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5331,16 +5387,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProofOfDeliveryAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
+    public function patchProofOfDeliveryAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
     {
-        $request = $this->patchProofOfDeliveryAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProofOfDeliveryAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5565,15 +5621,15 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProofOfDeliveryAsyncAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
+    public function patchProofOfDeliveryAsyncAsync($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
     {
-        return $this->patchProofOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchProofOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5590,16 +5646,16 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProofOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
+    public function patchProofOfDeliveryAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchProofOfDeliveryAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProofOfDeliveryAsyncRequest($tenant_id, $pod_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5644,13 +5700,13 @@ class ProofsOfDeliveryApi
      * @param  string $pod_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProofOfDeliveryAsyncRequest($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
+    public function patchProofOfDeliveryAsyncRequest($tenant_id, $pod_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5719,12 +5775,12 @@ class ProofsOfDeliveryApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5782,16 +5838,16 @@ class ProofsOfDeliveryApi
      * @param  string $line_id line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchProofOfDeliveryLineAsync($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
+    public function patchProofOfDeliveryLineAsync($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
     {
-        list($response) = $this->patchProofOfDeliveryLineAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchProofOfDeliveryLineAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5805,16 +5861,16 @@ class ProofsOfDeliveryApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProofOfDeliveryLineAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
+    public function patchProofOfDeliveryLineAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
     {
-        $request = $this->patchProofOfDeliveryLineAsyncRequest($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProofOfDeliveryLineAsyncRequest($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6040,15 +6096,15 @@ class ProofsOfDeliveryApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProofOfDeliveryLineAsyncAsync($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
+    public function patchProofOfDeliveryLineAsyncAsync($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
     {
-        return $this->patchProofOfDeliveryLineAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchProofOfDeliveryLineAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6066,16 +6122,16 @@ class ProofsOfDeliveryApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProofOfDeliveryLineAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
+    public function patchProofOfDeliveryLineAsyncAsyncWithHttpInfo($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchProofOfDeliveryLineAsyncRequest($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProofOfDeliveryLineAsyncRequest($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6121,13 +6177,13 @@ class ProofsOfDeliveryApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProofOfDeliveryLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProofOfDeliveryLineAsyncRequest($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
+    public function patchProofOfDeliveryLineAsyncRequest($tenant_id, $pod_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProofOfDeliveryLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6211,12 +6267,12 @@ class ProofsOfDeliveryApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

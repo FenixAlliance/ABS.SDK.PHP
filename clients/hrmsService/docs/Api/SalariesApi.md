@@ -140,7 +140,7 @@ No authorization required
 ## `getSalariesAsync()`
 
 ```php
-getSalariesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SalaryDtoListEnvelope
+getSalariesAsync($tenant_id, $api_version, $x_api_version, $salary_dto_collection_query_parameters): \OpenAPI\Client\Model\SalaryDtoListEnvelope
 ```
 
 Get salaries
@@ -163,9 +163,10 @@ $apiInstance = new OpenAPI\Client\Api\SalariesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$salary_dto_collection_query_parameters = new \OpenAPI\Client\Model\SalaryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SalaryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSalariesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSalariesAsync($tenant_id, $api_version, $x_api_version, $salary_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalariesApi->getSalariesAsync: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **salary_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SalaryDtoCollectionQueryParameters**](../Model/SalaryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -190,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,7 +202,7 @@ No authorization required
 ## `getSalariesCountAsync()`
 
 ```php
-getSalariesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSalariesCountAsync($tenant_id, $api_version, $x_api_version, $salary_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count salaries
@@ -223,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SalariesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$salary_dto_collection_query_parameters = new \OpenAPI\Client\Model\SalaryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SalaryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSalariesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSalariesCountAsync($tenant_id, $api_version, $x_api_version, $salary_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalariesApi->getSalariesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **salary_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SalaryDtoCollectionQueryParameters**](../Model/SalaryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSalaryAsync()`
 
 ```php
-patchSalaryAsync($tenant_id, $salary_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSalaryAsync($tenant_id, $salary_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a salary
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $salary_id = 'salary_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSalaryAsync($tenant_id, $salary_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSalaryAsync($tenant_id, $salary_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalariesApi->patchSalaryAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **salary_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

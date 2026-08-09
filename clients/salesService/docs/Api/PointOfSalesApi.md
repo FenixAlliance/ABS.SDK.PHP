@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countPointOfSalesAsync()`
 
 ```php
-countPointOfSalesAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+countPointOfSalesAsync($tenant_id, $point_of_sale_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get point of sales count
@@ -37,9 +37,10 @@ $apiInstance = new OpenAPI\Client\Api\PointOfSalesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$point_of_sale_dto_collection_query_parameters = new \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countPointOfSalesAsync($tenant_id);
+    $result = $apiInstance->countPointOfSalesAsync($tenant_id, $point_of_sale_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PointOfSalesApi->countPointOfSalesAsync: ', $e->getMessage(), PHP_EOL;
@@ -51,6 +52,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **point_of_sale_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters**](../Model/PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -62,7 +64,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -246,7 +248,7 @@ No authorization required
 ## `getPointOfSalesAsync()`
 
 ```php
-getPointOfSalesAsync($tenant_id): \OpenAPI\Client\Model\PointOfSaleDtoListEnvelope
+getPointOfSalesAsync($tenant_id, $point_of_sale_dto_collection_query_parameters): \OpenAPI\Client\Model\PointOfSaleDtoListEnvelope
 ```
 
 Get point of sales
@@ -267,9 +269,10 @@ $apiInstance = new OpenAPI\Client\Api\PointOfSalesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$point_of_sale_dto_collection_query_parameters = new \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPointOfSalesAsync($tenant_id);
+    $result = $apiInstance->getPointOfSalesAsync($tenant_id, $point_of_sale_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PointOfSalesApi->getPointOfSalesAsync: ', $e->getMessage(), PHP_EOL;
@@ -281,6 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **point_of_sale_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters**](../Model/PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -292,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -302,7 +306,7 @@ No authorization required
 ## `patchPointOfSaleAsync()`
 
 ```php
-patchPointOfSaleAsync($tenant_id, $point_of_sale_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPointOfSaleAsync($tenant_id, $point_of_sale_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a point of sale
@@ -324,10 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\PointOfSalesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $point_of_sale_id = 'point_of_sale_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPointOfSaleAsync($tenant_id, $point_of_sale_id, $operation);
+    $result = $apiInstance->patchPointOfSaleAsync($tenant_id, $point_of_sale_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PointOfSalesApi->patchPointOfSaleAsync: ', $e->getMessage(), PHP_EOL;
@@ -340,7 +344,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **point_of_sale_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

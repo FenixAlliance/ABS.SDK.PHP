@@ -202,7 +202,7 @@ No authorization required
 ## `getSupportRequestAttachmentsAsync()`
 
 ```php
-getSupportRequestAttachmentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope
+getSupportRequestAttachmentsAsync($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters): \OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope
 ```
 
 Retrieve a list of support request attachments
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_request_attachment_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportRequestAttachmentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportRequestAttachmentsAsync($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportRequestAttachmentsApi->getSupportRequestAttachmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_request_attachment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters**](../Model/SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSupportRequestAttachmentsCountAsync()`
 
 ```php
-getSupportRequestAttachmentsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSupportRequestAttachmentsCountAsync($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of support request attachments
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_request_attachment_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportRequestAttachmentsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportRequestAttachmentsCountAsync($tenant_id, $api_version, $x_api_version, $support_request_attachment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportRequestAttachmentsApi->getSupportRequestAttachmentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_request_attachment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportRequestAttachmentDtoCollectionQueryParameters**](../Model/SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSupportRequestAttachmentAsync()`
 
 ```php
-patchSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a support request attachment
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $support_request_attachment_id = 'support_request_attachment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportRequestAttachmentsApi->patchSupportRequestAttachmentAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **support_request_attachment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

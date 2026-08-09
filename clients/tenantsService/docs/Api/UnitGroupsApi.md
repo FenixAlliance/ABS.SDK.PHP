@@ -401,7 +401,7 @@ No authorization required
 ## `getUnitGroupsAsync()`
 
 ```php
-getUnitGroupsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\UnitGroupDtoListEnvelope
+getUnitGroupsAsync($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters): \OpenAPI\Client\Model\UnitGroupDtoListEnvelope
 ```
 
 Retrieve a list of unit groups
@@ -424,9 +424,10 @@ $apiInstance = new OpenAPI\Client\Api\UnitGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$unit_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUnitGroupsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getUnitGroupsAsync($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitGroupsApi->getUnitGroupsAsync: ', $e->getMessage(), PHP_EOL;
@@ -440,6 +441,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **unit_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters**](../Model/UnitGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -451,7 +453,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -461,7 +463,7 @@ No authorization required
 ## `getUnitGroupsCountAsync()`
 
 ```php
-getUnitGroupsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getUnitGroupsCountAsync($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of unit groups
@@ -484,9 +486,10 @@ $apiInstance = new OpenAPI\Client\Api\UnitGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$unit_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUnitGroupsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getUnitGroupsCountAsync($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitGroupsApi->getUnitGroupsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -500,6 +503,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **unit_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters**](../Model/UnitGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -511,7 +515,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -521,7 +525,7 @@ No authorization required
 ## `getUnitsAsync()`
 
 ```php
-getUnitsAsync($tenant_id, $unit_group_id, $api_version, $x_api_version): \OpenAPI\Client\Model\UnitDtoListEnvelope
+getUnitsAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters): \OpenAPI\Client\Model\UnitDtoListEnvelope
 ```
 
 Retrieve units for a unit group
@@ -545,9 +549,10 @@ $tenant_id = 'tenant_id_example'; // string
 $unit_group_id = 'unit_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUnitsAsync($tenant_id, $unit_group_id, $api_version, $x_api_version);
+    $result = $apiInstance->getUnitsAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitGroupsApi->getUnitsAsync: ', $e->getMessage(), PHP_EOL;
@@ -562,6 +567,7 @@ try {
 | **unit_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\UnitDtoCollectionQueryParameters**](../Model/UnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -573,7 +579,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -583,7 +589,7 @@ No authorization required
 ## `getUnitsCountAsync()`
 
 ```php
-getUnitsCountAsync($tenant_id, $unit_group_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getUnitsCountAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of units in a unit group
@@ -607,9 +613,10 @@ $tenant_id = 'tenant_id_example'; // string
 $unit_group_id = 'unit_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUnitsCountAsync($tenant_id, $unit_group_id, $api_version, $x_api_version);
+    $result = $apiInstance->getUnitsCountAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitGroupsApi->getUnitsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -624,6 +631,7 @@ try {
 | **unit_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\UnitDtoCollectionQueryParameters**](../Model/UnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -645,7 +653,7 @@ No authorization required
 ## `patchUnitAsync()`
 
 ```php
-patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a unit within a unit group
@@ -670,10 +678,10 @@ $unit_group_id = 'unit_group_id_example'; // string
 $unit_id = 'unit_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitGroupsApi->patchUnitAsync: ', $e->getMessage(), PHP_EOL;
@@ -689,7 +697,7 @@ try {
 | **unit_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -711,7 +719,7 @@ No authorization required
 ## `patchUnitGroupAsync()`
 
 ```php
-patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a unit group
@@ -735,10 +743,10 @@ $tenant_id = 'tenant_id_example'; // string
 $unit_group_id = 'unit_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitGroupsApi->patchUnitGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -753,7 +761,7 @@ try {
 | **unit_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

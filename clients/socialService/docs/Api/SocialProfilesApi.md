@@ -25,6 +25,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getMessagesAsync()**](SocialProfilesApi.md#getMessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages |
 | [**getNotificationByIdAsync()**](SocialProfilesApi.md#getNotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification |
 | [**getNotificationsAsync()**](SocialProfilesApi.md#getNotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications |
+| [**getOrCreateDirectConversationAsync()**](SocialProfilesApi.md#getOrCreateDirectConversationAsync) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation |
 | [**getSocialProfileAsync()**](SocialProfilesApi.md#getSocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile |
 | [**getSocialProfilesAsync()**](SocialProfilesApi.md#getSocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles |
 | [**unfollowAsync()**](SocialProfilesApi.md#unfollowAsync) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow |
@@ -34,7 +35,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countConversationsAsync()`
 
 ```php
-countConversationsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countConversationsAsync($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Conversations
@@ -57,9 +58,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$conversation_dto_collection_query_parameters = new \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countConversationsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->countConversationsAsync($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countConversationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -73,6 +75,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **conversation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters**](../Model/ConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -84,7 +87,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -94,7 +97,7 @@ No authorization required
 ## `countFollowedProfilesAsync()`
 
 ```php
-countFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Followed Profiles
@@ -117,9 +120,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->countFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countFollowedProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -133,6 +137,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters**](../Model/SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -144,7 +149,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -154,7 +159,7 @@ No authorization required
 ## `countFollowerProfilesAsync()`
 
 ```php
-countFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Follower Profiles
@@ -177,9 +182,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->countFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countFollowerProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -193,6 +199,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters**](../Model/SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -204,7 +211,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -214,7 +221,7 @@ No authorization required
 ## `countFollowersAsync()`
 
 ```php
-countFollowersAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countFollowersAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Followers
@@ -237,9 +244,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countFollowersAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->countFollowersAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countFollowersAsync: ', $e->getMessage(), PHP_EOL;
@@ -253,6 +261,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,7 +273,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -274,7 +283,7 @@ No authorization required
 ## `countFollowsAsync()`
 
 ```php
-countFollowsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countFollowsAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Follows
@@ -297,9 +306,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countFollowsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->countFollowsAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countFollowsAsync: ', $e->getMessage(), PHP_EOL;
@@ -313,6 +323,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -324,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -334,7 +345,7 @@ No authorization required
 ## `countMessagesAsync()`
 
 ```php
-countMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Messages
@@ -358,9 +369,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $conversation_id = 'conversation_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$private_message_dto_collection_query_parameters = new \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version);
+    $result = $apiInstance->countMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countMessagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -375,6 +387,7 @@ try {
 | **conversation_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **private_message_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters**](../Model/PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -386,7 +399,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -396,7 +409,7 @@ No authorization required
 ## `countNotificationsAsync()`
 
 ```php
-countNotificationsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countNotificationsAsync($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Notifications
@@ -419,9 +432,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$notification_dto_collection_query_parameters = new \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countNotificationsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->countNotificationsAsync($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countNotificationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -435,6 +449,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **notification_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters**](../Model/NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -446,7 +461,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -456,7 +471,7 @@ No authorization required
 ## `countSocialProfilesAsync()`
 
 ```php
-countSocialProfilesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countSocialProfilesAsync($api_version, $x_api_version, $social_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Social Profiles
@@ -478,9 +493,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countSocialProfilesAsync($api_version, $x_api_version);
+    $result = $apiInstance->countSocialProfilesAsync($api_version, $x_api_version, $social_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countSocialProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -493,6 +509,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters**](../Model/SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -504,7 +521,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -828,7 +845,7 @@ No authorization required
 ## `getConversationsAsync()`
 
 ```php
-getConversationsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ConversationDtoListEnvelope
+getConversationsAsync($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters): \OpenAPI\Client\Model\ConversationDtoListEnvelope
 ```
 
 Get Conversations
@@ -851,9 +868,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$conversation_dto_collection_query_parameters = new \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getConversationsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getConversationsAsync($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getConversationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -867,6 +885,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **conversation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters**](../Model/ConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -878,7 +897,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -888,7 +907,7 @@ No authorization required
 ## `getFollowedProfilesAsync()`
 
 ```php
-getFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialProfileDtoListEnvelope
+getFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialProfileDtoListEnvelope
 ```
 
 Get Followed Profiles
@@ -911,9 +930,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFollowedProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getFollowedProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -927,6 +947,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters**](../Model/SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -938,7 +959,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -948,7 +969,7 @@ No authorization required
 ## `getFollowerProfilesAsync()`
 
 ```php
-getFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialProfileDtoListEnvelope
+getFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialProfileDtoListEnvelope
 ```
 
 Get Follower Profiles
@@ -971,9 +992,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFollowerProfilesAsync($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getFollowerProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -987,6 +1009,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters**](../Model/SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -998,7 +1021,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1008,7 +1031,7 @@ No authorization required
 ## `getFollowersAsync()`
 
 ```php
-getFollowersAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
+getFollowersAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
 ```
 
 Get Followers
@@ -1031,9 +1054,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFollowersAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFollowersAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getFollowersAsync: ', $e->getMessage(), PHP_EOL;
@@ -1047,6 +1071,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1058,7 +1083,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1068,7 +1093,7 @@ No authorization required
 ## `getFollowsAsync()`
 
 ```php
-getFollowsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
+getFollowsAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
 ```
 
 Get Follows
@@ -1091,9 +1116,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFollowsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFollowsAsync($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getFollowsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1107,6 +1133,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1118,7 +1145,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1128,7 +1155,7 @@ No authorization required
 ## `getMessagesAsync()`
 
 ```php
-getMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PrivateMessageDtoListEnvelope
+getMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters): \OpenAPI\Client\Model\PrivateMessageDtoListEnvelope
 ```
 
 Get Messages
@@ -1152,9 +1179,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $conversation_id = 'conversation_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$private_message_dto_collection_query_parameters = new \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version);
+    $result = $apiInstance->getMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getMessagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1169,6 +1197,7 @@ try {
 | **conversation_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **private_message_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters**](../Model/PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1180,7 +1209,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1252,7 +1281,7 @@ No authorization required
 ## `getNotificationsAsync()`
 
 ```php
-getNotificationsAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\NotificationDtoListEnvelope
+getNotificationsAsync($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters): \OpenAPI\Client\Model\NotificationDtoListEnvelope
 ```
 
 Get Notifications
@@ -1275,9 +1304,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$notification_dto_collection_query_parameters = new \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNotificationsAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNotificationsAsync($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getNotificationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1291,6 +1321,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **notification_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters**](../Model/NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1302,7 +1333,69 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getOrCreateDirectConversationAsync()`
+
+```php
+getOrCreateDirectConversationAsync($social_profile_id, $api_version, $x_api_version, $body): \OpenAPI\Client\Model\ConversationDtoEnvelope
+```
+
+Get or Create Direct Conversation
+
+Get or create the direct two-party conversation between the acting profile and a counterparty.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_profile_id = 'social_profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$body = 'body_example'; // string
+
+try {
+    $result = $apiInstance->getOrCreateDirectConversationAsync($social_profile_id, $api_version, $x_api_version, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialProfilesApi->getOrCreateDirectConversationAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **body** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ConversationDtoEnvelope**](../Model/ConversationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1372,7 +1465,7 @@ No authorization required
 ## `getSocialProfilesAsync()`
 
 ```php
-getSocialProfilesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\SocialProfileDtoListEnvelope
+getSocialProfilesAsync($api_version, $x_api_version, $social_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialProfileDtoListEnvelope
 ```
 
 Get Social Profiles
@@ -1394,9 +1487,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialProfilesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getSocialProfilesAsync($api_version, $x_api_version, $social_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getSocialProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1409,6 +1503,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters**](../Model/SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1420,7 +1515,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

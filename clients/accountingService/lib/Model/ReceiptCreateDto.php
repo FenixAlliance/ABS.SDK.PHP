@@ -60,6 +60,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
+        'closed' => 'bool',
         'title' => 'string',
         'price_list_id' => 'string',
         'description' => 'string',
@@ -77,6 +78,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'string',
         'state_id' => 'string',
         'city_id' => 'string',
+        'forex_rate' => 'float',
         'currency_id' => 'string',
         'total_detail' => 'float',
         'total_detail_currency_id' => 'string',
@@ -105,10 +107,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'string',
         'tax_calculation_method' => 'string',
         'payment_id' => 'string',
-        'forex_rate' => 'float',
         'total_amount' => 'float',
         'total_amount_in_usd' => 'float',
-        'closed' => 'bool',
         'contact_id' => 'string',
         'receipt_type' => 'string',
         'order_id' => 'string',
@@ -125,6 +125,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
+        'closed' => null,
         'title' => null,
         'price_list_id' => null,
         'description' => null,
@@ -142,6 +143,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => null,
         'state_id' => null,
         'city_id' => null,
+        'forex_rate' => 'double',
         'currency_id' => null,
         'total_detail' => 'double',
         'total_detail_currency_id' => null,
@@ -170,10 +172,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => null,
         'tax_calculation_method' => null,
         'payment_id' => null,
-        'forex_rate' => 'double',
         'total_amount' => 'double',
         'total_amount_in_usd' => 'double',
-        'closed' => null,
         'contact_id' => null,
         'receipt_type' => null,
         'order_id' => null,
@@ -188,6 +188,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
+        'closed' => false,
         'title' => true,
         'price_list_id' => true,
         'description' => true,
@@ -205,6 +206,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => true,
         'state_id' => true,
         'city_id' => true,
+        'forex_rate' => false,
         'currency_id' => true,
         'total_detail' => false,
         'total_detail_currency_id' => true,
@@ -233,10 +235,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => false,
         'tax_calculation_method' => false,
         'payment_id' => true,
-        'forex_rate' => false,
         'total_amount' => false,
         'total_amount_in_usd' => false,
-        'closed' => false,
         'contact_id' => true,
         'receipt_type' => false,
         'order_id' => true,
@@ -331,6 +331,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
+        'closed' => 'closed',
         'title' => 'title',
         'price_list_id' => 'priceListId',
         'description' => 'description',
@@ -348,6 +349,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'countryId',
         'state_id' => 'stateId',
         'city_id' => 'cityId',
+        'forex_rate' => 'forexRate',
         'currency_id' => 'currencyId',
         'total_detail' => 'totalDetail',
         'total_detail_currency_id' => 'totalDetailCurrencyId',
@@ -376,10 +378,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'costCalculationMethod',
         'tax_calculation_method' => 'taxCalculationMethod',
         'payment_id' => 'paymentId',
-        'forex_rate' => 'forexRate',
         'total_amount' => 'totalAmount',
         'total_amount_in_usd' => 'totalAmountInUSD',
-        'closed' => 'closed',
         'contact_id' => 'contactId',
         'receipt_type' => 'receiptType',
         'order_id' => 'orderId',
@@ -394,6 +394,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
+        'closed' => 'setClosed',
         'title' => 'setTitle',
         'price_list_id' => 'setPriceListId',
         'description' => 'setDescription',
@@ -411,6 +412,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'setCountryId',
         'state_id' => 'setStateId',
         'city_id' => 'setCityId',
+        'forex_rate' => 'setForexRate',
         'currency_id' => 'setCurrencyId',
         'total_detail' => 'setTotalDetail',
         'total_detail_currency_id' => 'setTotalDetailCurrencyId',
@@ -439,10 +441,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'setCostCalculationMethod',
         'tax_calculation_method' => 'setTaxCalculationMethod',
         'payment_id' => 'setPaymentId',
-        'forex_rate' => 'setForexRate',
         'total_amount' => 'setTotalAmount',
         'total_amount_in_usd' => 'setTotalAmountInUsd',
-        'closed' => 'setClosed',
         'contact_id' => 'setContactId',
         'receipt_type' => 'setReceiptType',
         'order_id' => 'setOrderId',
@@ -457,6 +457,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
+        'closed' => 'getClosed',
         'title' => 'getTitle',
         'price_list_id' => 'getPriceListId',
         'description' => 'getDescription',
@@ -474,6 +475,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'getCountryId',
         'state_id' => 'getStateId',
         'city_id' => 'getCityId',
+        'forex_rate' => 'getForexRate',
         'currency_id' => 'getCurrencyId',
         'total_detail' => 'getTotalDetail',
         'total_detail_currency_id' => 'getTotalDetailCurrencyId',
@@ -502,10 +504,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'getCostCalculationMethod',
         'tax_calculation_method' => 'getTaxCalculationMethod',
         'payment_id' => 'getPaymentId',
-        'forex_rate' => 'getForexRate',
         'total_amount' => 'getTotalAmount',
         'total_amount_in_usd' => 'getTotalAmountInUsd',
-        'closed' => 'getClosed',
         'contact_id' => 'getContactId',
         'receipt_type' => 'getReceiptType',
         'order_id' => 'getOrderId',
@@ -616,6 +616,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
+        $this->setIfExists('closed', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('price_list_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
@@ -633,6 +634,7 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('country_id', $data ?? [], null);
         $this->setIfExists('state_id', $data ?? [], null);
         $this->setIfExists('city_id', $data ?? [], null);
+        $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('total_detail', $data ?? [], null);
         $this->setIfExists('total_detail_currency_id', $data ?? [], null);
@@ -661,10 +663,8 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cost_calculation_method', $data ?? [], null);
         $this->setIfExists('tax_calculation_method', $data ?? [], null);
         $this->setIfExists('payment_id', $data ?? [], null);
-        $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('total_amount', $data ?? [], null);
         $this->setIfExists('total_amount_in_usd', $data ?? [], null);
-        $this->setIfExists('closed', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
         $this->setIfExists('receipt_type', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
@@ -790,6 +790,33 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets closed
+     *
+     * @return bool|null
+     */
+    public function getClosed()
+    {
+        return $this->container['closed'];
+    }
+
+    /**
+     * Sets closed
+     *
+     * @param bool|null $closed closed
+     *
+     * @return self
+     */
+    public function setClosed($closed)
+    {
+        if (is_null($closed)) {
+            throw new \InvalidArgumentException('non-nullable closed cannot be null');
+        }
+        $this->container['closed'] = $closed;
 
         return $this;
     }
@@ -1368,6 +1395,33 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['city_id'] = $city_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets forex_rate
+     *
+     * @return float|null
+     */
+    public function getForexRate()
+    {
+        return $this->container['forex_rate'];
+    }
+
+    /**
+     * Sets forex_rate
+     *
+     * @param float|null $forex_rate forex_rate
+     *
+     * @return self
+     */
+    public function setForexRate($forex_rate)
+    {
+        if (is_null($forex_rate)) {
+            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
+        }
+        $this->container['forex_rate'] = $forex_rate;
 
         return $this;
     }
@@ -2247,33 +2301,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets forex_rate
-     *
-     * @return float|null
-     */
-    public function getForexRate()
-    {
-        return $this->container['forex_rate'];
-    }
-
-    /**
-     * Sets forex_rate
-     *
-     * @param float|null $forex_rate forex_rate
-     *
-     * @return self
-     */
-    public function setForexRate($forex_rate)
-    {
-        if (is_null($forex_rate)) {
-            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
-        }
-        $this->container['forex_rate'] = $forex_rate;
-
-        return $this;
-    }
-
-    /**
      * Gets total_amount
      *
      * @return float|null
@@ -2323,33 +2350,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable total_amount_in_usd cannot be null');
         }
         $this->container['total_amount_in_usd'] = $total_amount_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets closed
-     *
-     * @return bool|null
-     */
-    public function getClosed()
-    {
-        return $this->container['closed'];
-    }
-
-    /**
-     * Sets closed
-     *
-     * @param bool|null $closed closed
-     *
-     * @return self
-     */
-    public function setClosed($closed)
-    {
-        if (is_null($closed)) {
-            throw new \InvalidArgumentException('non-nullable closed cannot be null');
-        }
-        $this->container['closed'] = $closed;
 
         return $this;
     }

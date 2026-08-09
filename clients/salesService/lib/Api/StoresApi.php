@@ -74,6 +74,7 @@ class StoresApi
     public const contentTypes = [
         'countStoresAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createStoreAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class StoresApi
         ],
         'getStoresAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchStoreAsync' => [
             'application/json',
@@ -150,15 +152,16 @@ class StoresApi
      * Get stores count
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStoresAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countStoresAsync($tenant_id, string $contentType = self::contentTypes['countStoresAsync'][0])
+    public function countStoresAsync($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStoresAsync'][0])
     {
-        list($response) = $this->countStoresAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->countStoresAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -168,15 +171,16 @@ class StoresApi
      * Get stores count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStoresAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countStoresAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countStoresAsync'][0])
+    public function countStoresAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStoresAsync'][0])
     {
-        $request = $this->countStoresAsyncRequest($tenant_id, $contentType);
+        $request = $this->countStoresAsyncRequest($tenant_id, $store_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -328,14 +332,15 @@ class StoresApi
      * Get stores count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStoresAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countStoresAsyncAsync($tenant_id, string $contentType = self::contentTypes['countStoresAsync'][0])
+    public function countStoresAsyncAsync($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStoresAsync'][0])
     {
-        return $this->countStoresAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->countStoresAsyncAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -349,15 +354,16 @@ class StoresApi
      * Get stores count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStoresAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countStoresAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countStoresAsync'][0])
+    public function countStoresAsyncAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStoresAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countStoresAsyncRequest($tenant_id, $contentType);
+        $request = $this->countStoresAsyncRequest($tenant_id, $store_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -399,12 +405,13 @@ class StoresApi
      * Create request for operation 'countStoresAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStoresAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countStoresAsyncRequest($tenant_id, string $contentType = self::contentTypes['countStoresAsync'][0])
+    public function countStoresAsyncRequest($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStoresAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -413,6 +420,7 @@ class StoresApi
                 'Missing the required parameter $tenant_id when calling countStoresAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/Stores/Count';
@@ -442,7 +450,14 @@ class StoresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($store_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($store_dto_collection_query_parameters));
+            } else {
+                $httpBody = $store_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1579,15 +1594,16 @@ class StoresApi
      * Get stores
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStoresAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\StoreDtoListEnvelope
      */
-    public function getStoresAsync($tenant_id, string $contentType = self::contentTypes['getStoresAsync'][0])
+    public function getStoresAsync($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStoresAsync'][0])
     {
-        list($response) = $this->getStoresAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getStoresAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1597,15 +1613,16 @@ class StoresApi
      * Get stores
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStoresAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\StoreDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStoresAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getStoresAsync'][0])
+    public function getStoresAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStoresAsync'][0])
     {
-        $request = $this->getStoresAsyncRequest($tenant_id, $contentType);
+        $request = $this->getStoresAsyncRequest($tenant_id, $store_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1757,14 +1774,15 @@ class StoresApi
      * Get stores
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStoresAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStoresAsyncAsync($tenant_id, string $contentType = self::contentTypes['getStoresAsync'][0])
+    public function getStoresAsyncAsync($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStoresAsync'][0])
     {
-        return $this->getStoresAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getStoresAsyncAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1778,15 +1796,16 @@ class StoresApi
      * Get stores
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStoresAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStoresAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getStoresAsync'][0])
+    public function getStoresAsyncAsyncWithHttpInfo($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStoresAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\StoreDtoListEnvelope';
-        $request = $this->getStoresAsyncRequest($tenant_id, $contentType);
+        $request = $this->getStoresAsyncRequest($tenant_id, $store_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1828,12 +1847,13 @@ class StoresApi
      * Create request for operation 'getStoresAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters $store_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStoresAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStoresAsyncRequest($tenant_id, string $contentType = self::contentTypes['getStoresAsync'][0])
+    public function getStoresAsyncRequest($tenant_id, $store_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStoresAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1842,6 +1862,7 @@ class StoresApi
                 'Missing the required parameter $tenant_id when calling getStoresAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/Stores';
@@ -1871,7 +1892,14 @@ class StoresApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($store_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($store_dto_collection_query_parameters));
+            } else {
+                $httpBody = $store_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1924,16 +1952,16 @@ class StoresApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $store_id store_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStoreAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchStoreAsync($tenant_id, $store_id, $operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
+    public function patchStoreAsync($tenant_id, $store_id, $patch_operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
     {
-        list($response) = $this->patchStoreAsyncWithHttpInfo($tenant_id, $store_id, $operation, $contentType);
+        list($response) = $this->patchStoreAsyncWithHttpInfo($tenant_id, $store_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1944,16 +1972,16 @@ class StoresApi
      *
      * @param  string $tenant_id (required)
      * @param  string $store_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStoreAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchStoreAsyncWithHttpInfo($tenant_id, $store_id, $operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
+    public function patchStoreAsyncWithHttpInfo($tenant_id, $store_id, $patch_operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
     {
-        $request = $this->patchStoreAsyncRequest($tenant_id, $store_id, $operation, $contentType);
+        $request = $this->patchStoreAsyncRequest($tenant_id, $store_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2106,15 +2134,15 @@ class StoresApi
      *
      * @param  string $tenant_id (required)
      * @param  string $store_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStoreAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchStoreAsyncAsync($tenant_id, $store_id, $operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
+    public function patchStoreAsyncAsync($tenant_id, $store_id, $patch_operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
     {
-        return $this->patchStoreAsyncAsyncWithHttpInfo($tenant_id, $store_id, $operation, $contentType)
+        return $this->patchStoreAsyncAsyncWithHttpInfo($tenant_id, $store_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2129,16 +2157,16 @@ class StoresApi
      *
      * @param  string $tenant_id (required)
      * @param  string $store_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStoreAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchStoreAsyncAsyncWithHttpInfo($tenant_id, $store_id, $operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
+    public function patchStoreAsyncAsyncWithHttpInfo($tenant_id, $store_id, $patch_operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchStoreAsyncRequest($tenant_id, $store_id, $operation, $contentType);
+        $request = $this->patchStoreAsyncRequest($tenant_id, $store_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2181,13 +2209,13 @@ class StoresApi
      *
      * @param  string $tenant_id (required)
      * @param  string $store_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStoreAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchStoreAsyncRequest($tenant_id, $store_id, $operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
+    public function patchStoreAsyncRequest($tenant_id, $store_id, $patch_operation = null, string $contentType = self::contentTypes['patchStoreAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class StoresApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

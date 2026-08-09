@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countSocialGroupsAsync()`
 
 ```php
-countSocialGroupsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countSocialGroupsAsync($tenant_id, $api_version, $x_api_version, $social_group_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social groups
@@ -39,9 +39,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countSocialGroupsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countSocialGroupsAsync($tenant_id, $api_version, $x_api_version, $social_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialGroupsApi->countSocialGroupsAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialGroupDtoCollectionQueryParameters**](../Model/SocialGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -266,7 +268,7 @@ No authorization required
 ## `getSocialGroupsAsync()`
 
 ```php
-getSocialGroupsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialGroupDtoListEnvelope
+getSocialGroupsAsync($tenant_id, $api_version, $x_api_version, $social_group_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialGroupDtoListEnvelope
 ```
 
 Get social groups
@@ -289,9 +291,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialGroupsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialGroupsAsync($tenant_id, $api_version, $x_api_version, $social_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialGroupsApi->getSocialGroupsAsync: ', $e->getMessage(), PHP_EOL;
@@ -305,6 +308,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialGroupDtoCollectionQueryParameters**](../Model/SocialGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -316,7 +320,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -326,7 +330,7 @@ No authorization required
 ## `patchSocialGroupAsync()`
 
 ```php
-patchSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a social group
@@ -351,10 +355,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $social_group_id = 'social_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialGroupsApi->patchSocialGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -370,7 +374,7 @@ try {
 | **social_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

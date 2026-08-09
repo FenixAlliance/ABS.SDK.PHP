@@ -77,9 +77,11 @@ class SignaturesApi
         ],
         'getSignaturesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSignaturesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -561,15 +563,16 @@ class SignaturesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SignatureDtoListEnvelope
      */
-    public function getSignaturesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
+    public function getSignaturesAsync($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
     {
-        list($response) = $this->getSignaturesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSignaturesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -581,15 +584,16 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SignatureDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSignaturesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
+    public function getSignaturesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
     {
-        $request = $this->getSignaturesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignaturesAsyncRequest($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -743,14 +747,15 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignaturesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
+    public function getSignaturesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
     {
-        return $this->getSignaturesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSignaturesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -766,15 +771,16 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignaturesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
+    public function getSignaturesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SignatureDtoListEnvelope';
-        $request = $this->getSignaturesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignaturesAsyncRequest($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -818,12 +824,13 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSignaturesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
+    public function getSignaturesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -832,6 +839,7 @@ class SignaturesApi
                 'Missing the required parameter $tenant_id when calling getSignaturesAsync'
             );
         }
+
 
 
 
@@ -876,7 +884,14 @@ class SignaturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -930,15 +945,16 @@ class SignaturesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSignaturesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
+    public function getSignaturesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
     {
-        list($response) = $this->getSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -950,15 +966,16 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
+    public function getSignaturesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
     {
-        $request = $this->getSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1112,14 +1129,15 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignaturesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
+    public function getSignaturesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
     {
-        return $this->getSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1135,15 +1153,16 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
+    public function getSignaturesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignaturesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1187,12 +1206,13 @@ class SignaturesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters $signature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignaturesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSignaturesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
+    public function getSignaturesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignaturesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1201,6 +1221,7 @@ class SignaturesApi
                 'Missing the required parameter $tenant_id when calling getSignaturesCountAsync'
             );
         }
+
 
 
 
@@ -1245,7 +1266,14 @@ class SignaturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

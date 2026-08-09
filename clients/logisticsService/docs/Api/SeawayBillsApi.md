@@ -339,7 +339,7 @@ No authorization required
 ## `getSeawayBillLinesAsync()`
 
 ```php
-getSeawayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
+getSeawayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
 ```
 
 Get seaway bill lines
@@ -363,9 +363,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_id = 'bill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSeawayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSeawayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SeawayBillsApi->getSeawayBillLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -380,6 +381,7 @@ try {
 | **bill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -391,7 +393,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -401,7 +403,7 @@ No authorization required
 ## `getSeawayBillLinesCountAsync()`
 
 ```php
-getSeawayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSeawayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get seaway bill lines count
@@ -425,9 +427,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_id = 'bill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSeawayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSeawayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SeawayBillsApi->getSeawayBillLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -442,6 +445,7 @@ try {
 | **bill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +457,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -463,7 +467,7 @@ No authorization required
 ## `getSeawayBillsAsync()`
 
 ```php
-getSeawayBillsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SeawayBillDtoListEnvelope
+getSeawayBillsAsync($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters): \OpenAPI\Client\Model\SeawayBillDtoListEnvelope
 ```
 
 Get all seaway bills
@@ -486,9 +490,10 @@ $apiInstance = new OpenAPI\Client\Api\SeawayBillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$seaway_bill_dto_collection_query_parameters = new \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSeawayBillsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSeawayBillsAsync($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SeawayBillsApi->getSeawayBillsAsync: ', $e->getMessage(), PHP_EOL;
@@ -502,6 +507,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **seaway_bill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters**](../Model/SeawayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -513,7 +519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -523,7 +529,7 @@ No authorization required
 ## `getSeawayBillsCountAsync()`
 
 ```php
-getSeawayBillsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSeawayBillsCountAsync($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get seaway bills count
@@ -546,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\SeawayBillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$seaway_bill_dto_collection_query_parameters = new \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSeawayBillsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSeawayBillsCountAsync($tenant_id, $api_version, $x_api_version, $seaway_bill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SeawayBillsApi->getSeawayBillsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -562,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **seaway_bill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SeawayBillDtoCollectionQueryParameters**](../Model/SeawayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -573,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -769,7 +777,7 @@ No authorization required
 ## `patchSeawayBillAsync()`
 
 ```php
-patchSeawayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSeawayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a seaway bill
@@ -793,10 +801,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_id = 'bill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSeawayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSeawayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SeawayBillsApi->patchSeawayBillAsync: ', $e->getMessage(), PHP_EOL;
@@ -811,7 +819,7 @@ try {
 | **bill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -833,7 +841,7 @@ No authorization required
 ## `patchSeawayBillLineAsync()`
 
 ```php
-patchSeawayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSeawayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a seaway bill line
@@ -858,10 +866,10 @@ $bill_id = 'bill_id_example'; // string
 $line_id = 'line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSeawayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSeawayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SeawayBillsApi->patchSeawayBillLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -877,7 +885,7 @@ try {
 | **line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

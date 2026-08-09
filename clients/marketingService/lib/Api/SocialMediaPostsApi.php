@@ -84,9 +84,11 @@ class SocialMediaPostsApi
         ],
         'getSocialMediaPostsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialMediaPostsODataAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSocialMediaPostAsync' => [
             'application/json',
@@ -1528,15 +1530,16 @@ class SocialMediaPostsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSocialMediaPostsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
+    public function getSocialMediaPostsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
     {
-        list($response) = $this->getSocialMediaPostsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialMediaPostsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1548,15 +1551,16 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialMediaPostsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
+    public function getSocialMediaPostsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
     {
-        $request = $this->getSocialMediaPostsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialMediaPostsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1780,14 +1784,15 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialMediaPostsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
+    public function getSocialMediaPostsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
     {
-        return $this->getSocialMediaPostsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialMediaPostsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1803,15 +1808,16 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialMediaPostsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
+    public function getSocialMediaPostsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSocialMediaPostsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialMediaPostsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1855,12 +1861,13 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialMediaPostsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
+    public function getSocialMediaPostsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1869,6 +1876,7 @@ class SocialMediaPostsApi
                 'Missing the required parameter $tenant_id when calling getSocialMediaPostsCountAsync'
             );
         }
+
 
 
 
@@ -1913,7 +1921,14 @@ class SocialMediaPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_media_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_media_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_media_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1967,15 +1982,16 @@ class SocialMediaPostsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialMediaPostDtoListEnvelope
      */
-    public function getSocialMediaPostsODataAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
+    public function getSocialMediaPostsODataAsync($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
     {
-        list($response) = $this->getSocialMediaPostsODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialMediaPostsODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1987,15 +2003,16 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialMediaPostDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialMediaPostsODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
+    public function getSocialMediaPostsODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
     {
-        $request = $this->getSocialMediaPostsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialMediaPostsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2184,14 +2201,15 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialMediaPostsODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
+    public function getSocialMediaPostsODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
     {
-        return $this->getSocialMediaPostsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialMediaPostsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2207,15 +2225,16 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialMediaPostsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
+    public function getSocialMediaPostsODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialMediaPostDtoListEnvelope';
-        $request = $this->getSocialMediaPostsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialMediaPostsODataAsyncRequest($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2259,12 +2278,13 @@ class SocialMediaPostsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters $social_media_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialMediaPostsODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialMediaPostsODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
+    public function getSocialMediaPostsODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $social_media_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialMediaPostsODataAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2273,6 +2293,7 @@ class SocialMediaPostsApi
                 'Missing the required parameter $tenant_id when calling getSocialMediaPostsODataAsync'
             );
         }
+
 
 
 
@@ -2317,7 +2338,14 @@ class SocialMediaPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_media_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_media_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_media_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2372,16 +2400,16 @@ class SocialMediaPostsApi
      * @param  string $socialmediapost_id socialmediapost_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialMediaPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSocialMediaPostAsync($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
+    public function patchSocialMediaPostAsync($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
     {
-        list($response) = $this->patchSocialMediaPostAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSocialMediaPostAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2394,16 +2422,16 @@ class SocialMediaPostsApi
      * @param  string $socialmediapost_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialMediaPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSocialMediaPostAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
+    public function patchSocialMediaPostAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
     {
-        $request = $this->patchSocialMediaPostAsyncRequest($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSocialMediaPostAsyncRequest($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2593,15 +2621,15 @@ class SocialMediaPostsApi
      * @param  string $socialmediapost_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialMediaPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSocialMediaPostAsyncAsync($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
+    public function patchSocialMediaPostAsyncAsync($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
     {
-        return $this->patchSocialMediaPostAsyncAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSocialMediaPostAsyncAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2618,16 +2646,16 @@ class SocialMediaPostsApi
      * @param  string $socialmediapost_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialMediaPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSocialMediaPostAsyncAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
+    public function patchSocialMediaPostAsyncAsyncWithHttpInfo($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSocialMediaPostAsyncRequest($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSocialMediaPostAsyncRequest($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2672,13 +2700,13 @@ class SocialMediaPostsApi
      * @param  string $socialmediapost_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialMediaPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSocialMediaPostAsyncRequest($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
+    public function patchSocialMediaPostAsyncRequest($tenant_id, $socialmediapost_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialMediaPostAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2747,12 +2775,12 @@ class SocialMediaPostsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

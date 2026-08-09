@@ -74,12 +74,14 @@ class CurrenciesApi
     public const contentTypes = [
         'countCurrenciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCurrencyByIdAsync' => [
             'application/json',
         ],
         'getEnabledCurrenciesAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -136,15 +138,16 @@ class CurrenciesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCurrenciesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
+    public function countCurrenciesAsync($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
     {
-        list($response) = $this->countCurrenciesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countCurrenciesAsyncWithHttpInfo($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -155,15 +158,16 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCurrenciesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
+    public function countCurrenciesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
     {
-        $request = $this->countCurrenciesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrenciesAsyncRequest($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrenciesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
+    public function countCurrenciesAsyncAsync($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
     {
-        return $this->countCurrenciesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countCurrenciesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -373,15 +378,16 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrenciesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
+    public function countCurrenciesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCurrenciesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrenciesAsyncRequest($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -424,13 +430,15 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCurrenciesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
+    public function countCurrenciesAsyncRequest($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrenciesAsync'][0])
     {
+
 
 
 
@@ -466,7 +474,14 @@ class CurrenciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($currency_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($currency_dto_collection_query_parameters));
+            } else {
+                $httpBody = $currency_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -922,15 +937,16 @@ class CurrenciesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CurrencyDtoListEnvelope
      */
-    public function getEnabledCurrenciesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
+    public function getEnabledCurrenciesAsync($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
     {
-        list($response) = $this->getEnabledCurrenciesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getEnabledCurrenciesAsyncWithHttpInfo($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -941,15 +957,16 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CurrencyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEnabledCurrenciesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
+    public function getEnabledCurrenciesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
     {
-        $request = $this->getEnabledCurrenciesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getEnabledCurrenciesAsyncRequest($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1137,14 +1154,15 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEnabledCurrenciesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
+    public function getEnabledCurrenciesAsyncAsync($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
     {
-        return $this->getEnabledCurrenciesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getEnabledCurrenciesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,15 +1177,16 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEnabledCurrenciesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
+    public function getEnabledCurrenciesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CurrencyDtoListEnvelope';
-        $request = $this->getEnabledCurrenciesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getEnabledCurrenciesAsyncRequest($api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1210,13 +1229,15 @@ class CurrenciesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEnabledCurrenciesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
+    public function getEnabledCurrenciesAsyncRequest($api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesAsync'][0])
     {
+
 
 
 
@@ -1252,7 +1273,14 @@ class CurrenciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($currency_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($currency_dto_collection_query_parameters));
+            } else {
+                $httpBody = $currency_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

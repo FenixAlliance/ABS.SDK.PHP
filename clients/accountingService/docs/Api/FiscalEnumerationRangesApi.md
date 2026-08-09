@@ -204,7 +204,7 @@ No authorization required
 ## `getInvoiceEnumerationRanges()`
 
 ```php
-getInvoiceEnumerationRanges($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope
+getInvoiceEnumerationRanges($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope
 ```
 
 Get invoice enumeration ranges for an authority
@@ -229,9 +229,10 @@ $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_enumeration_range_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceEnumerationRanges($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getInvoiceEnumerationRanges($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalEnumerationRangesApi->getInvoiceEnumerationRanges: ', $e->getMessage(), PHP_EOL;
@@ -247,6 +248,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_enumeration_range_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters**](../Model/InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -258,7 +260,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -268,7 +270,7 @@ No authorization required
 ## `getInvoiceEnumerationRangesCount()`
 
 ```php
-getInvoiceEnumerationRangesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getInvoiceEnumerationRangesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get invoice enumeration ranges count
@@ -292,9 +294,10 @@ $tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_enumeration_range_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceEnumerationRangesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getInvoiceEnumerationRangesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalEnumerationRangesApi->getInvoiceEnumerationRangesCount: ', $e->getMessage(), PHP_EOL;
@@ -309,6 +312,7 @@ try {
 | **fiscal_authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_enumeration_range_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters**](../Model/InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -320,7 +324,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -330,7 +334,7 @@ No authorization required
 ## `patchFiscalEnumerationRangeAsync()`
 
 ```php
-patchFiscalEnumerationRangeAsync($tenant_id, $enumeration_range_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFiscalEnumerationRangeAsync($tenant_id, $enumeration_range_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an invoice enumeration range
@@ -354,10 +358,10 @@ $tenant_id = 'tenant_id_example'; // string
 $enumeration_range_id = 'enumeration_range_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFiscalEnumerationRangeAsync($tenant_id, $enumeration_range_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFiscalEnumerationRangeAsync($tenant_id, $enumeration_range_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalEnumerationRangesApi->patchFiscalEnumerationRangeAsync: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +376,7 @@ try {
 | **enumeration_range_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

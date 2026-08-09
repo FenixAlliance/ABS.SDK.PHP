@@ -12,7 +12,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countLanguagesAsync()`
 
 ```php
-countLanguagesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countLanguagesAsync($api_version, $x_api_version, $country_language_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count languages
@@ -34,9 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\LanguagesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_language_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countLanguagesAsync($api_version, $x_api_version);
+    $result = $apiInstance->countLanguagesAsync($api_version, $x_api_version, $country_language_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LanguagesApi->countLanguagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +50,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_language_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters**](../Model/CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -130,7 +132,7 @@ No authorization required
 ## `getLanguagesAsync()`
 
 ```php
-getLanguagesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CountryLanguageDtoListEnvelope
+getLanguagesAsync($api_version, $x_api_version, $country_language_dto_collection_query_parameters): \OpenAPI\Client\Model\CountryLanguageDtoListEnvelope
 ```
 
 Get all languages
@@ -152,9 +154,10 @@ $apiInstance = new OpenAPI\Client\Api\LanguagesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_language_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLanguagesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getLanguagesAsync($api_version, $x_api_version, $country_language_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LanguagesApi->getLanguagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +170,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_language_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters**](../Model/CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -178,7 +182,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

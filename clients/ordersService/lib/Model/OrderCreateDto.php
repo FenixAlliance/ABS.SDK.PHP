@@ -67,6 +67,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'string',
         'payment_term_id' => 'string',
         'organization_id' => 'string',
+        'receiver_tenant_id' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'company_name' => 'string',
@@ -115,7 +116,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_status' => 'string',
         'quote_status' => 'string',
         'freight_terms' => 'string',
-        'receiver_tenant_id' => 'string',
         'shipping_location_id' => 'string',
         'qualified_identifier' => 'string',
         'total_taxes_in_usd' => 'float',
@@ -146,6 +146,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => null,
         'payment_term_id' => null,
         'organization_id' => null,
+        'receiver_tenant_id' => null,
         'first_name' => null,
         'last_name' => null,
         'company_name' => null,
@@ -194,7 +195,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_status' => null,
         'quote_status' => null,
         'freight_terms' => null,
-        'receiver_tenant_id' => null,
         'shipping_location_id' => null,
         'qualified_identifier' => null,
         'total_taxes_in_usd' => 'double',
@@ -223,6 +223,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => true,
         'payment_term_id' => true,
         'organization_id' => true,
+        'receiver_tenant_id' => true,
         'first_name' => true,
         'last_name' => true,
         'company_name' => true,
@@ -271,7 +272,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_status' => false,
         'quote_status' => false,
         'freight_terms' => false,
-        'receiver_tenant_id' => true,
         'shipping_location_id' => true,
         'qualified_identifier' => true,
         'total_taxes_in_usd' => false,
@@ -380,6 +380,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'individualId',
         'payment_term_id' => 'paymentTermId',
         'organization_id' => 'organizationId',
+        'receiver_tenant_id' => 'receiverTenantId',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
         'company_name' => 'companyName',
@@ -428,7 +429,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_status' => 'orderStatus',
         'quote_status' => 'quoteStatus',
         'freight_terms' => 'freightTerms',
-        'receiver_tenant_id' => 'receiverTenantId',
         'shipping_location_id' => 'shippingLocationId',
         'qualified_identifier' => 'qualifiedIdentifier',
         'total_taxes_in_usd' => 'totalTaxesInUsd',
@@ -457,6 +457,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'setIndividualId',
         'payment_term_id' => 'setPaymentTermId',
         'organization_id' => 'setOrganizationId',
+        'receiver_tenant_id' => 'setReceiverTenantId',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'company_name' => 'setCompanyName',
@@ -505,7 +506,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_status' => 'setOrderStatus',
         'quote_status' => 'setQuoteStatus',
         'freight_terms' => 'setFreightTerms',
-        'receiver_tenant_id' => 'setReceiverTenantId',
         'shipping_location_id' => 'setShippingLocationId',
         'qualified_identifier' => 'setQualifiedIdentifier',
         'total_taxes_in_usd' => 'setTotalTaxesInUsd',
@@ -534,6 +534,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'individual_id' => 'getIndividualId',
         'payment_term_id' => 'getPaymentTermId',
         'organization_id' => 'getOrganizationId',
+        'receiver_tenant_id' => 'getReceiverTenantId',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'company_name' => 'getCompanyName',
@@ -582,7 +583,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_status' => 'getOrderStatus',
         'quote_status' => 'getQuoteStatus',
         'freight_terms' => 'getFreightTerms',
-        'receiver_tenant_id' => 'getReceiverTenantId',
         'shipping_location_id' => 'getShippingLocationId',
         'qualified_identifier' => 'getQualifiedIdentifier',
         'total_taxes_in_usd' => 'getTotalTaxesInUsd',
@@ -759,6 +759,7 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('individual_id', $data ?? [], null);
         $this->setIfExists('payment_term_id', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('company_name', $data ?? [], null);
@@ -807,7 +808,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('order_status', $data ?? [], null);
         $this->setIfExists('quote_status', $data ?? [], null);
         $this->setIfExists('freight_terms', $data ?? [], null);
-        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
         $this->setIfExists('shipping_location_id', $data ?? [], null);
         $this->setIfExists('qualified_identifier', $data ?? [], null);
         $this->setIfExists('total_taxes_in_usd', $data ?? [], null);
@@ -1189,6 +1189,40 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['organization_id'] = $organization_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_tenant_id
+     *
+     * @return string|null
+     */
+    public function getReceiverTenantId()
+    {
+        return $this->container['receiver_tenant_id'];
+    }
+
+    /**
+     * Sets receiver_tenant_id
+     *
+     * @param string|null $receiver_tenant_id receiver_tenant_id
+     *
+     * @return self
+     */
+    public function setReceiverTenantId($receiver_tenant_id)
+    {
+        if (is_null($receiver_tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
 
         return $this;
     }
@@ -2745,40 +2779,6 @@ class OrderCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['freight_terms'] = $freight_terms;
-
-        return $this;
-    }
-
-    /**
-     * Gets receiver_tenant_id
-     *
-     * @return string|null
-     */
-    public function getReceiverTenantId()
-    {
-        return $this->container['receiver_tenant_id'];
-    }
-
-    /**
-     * Sets receiver_tenant_id
-     *
-     * @param string|null $receiver_tenant_id receiver_tenant_id
-     *
-     * @return self
-     */
-    public function setReceiverTenantId($receiver_tenant_id)
-    {
-        if (is_null($receiver_tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
 
         return $this;
     }

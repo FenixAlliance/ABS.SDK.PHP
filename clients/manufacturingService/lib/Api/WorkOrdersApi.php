@@ -84,9 +84,11 @@ class WorkOrdersApi
         ],
         'getWorkOrdersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWorkOrdersCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchWorkOrderAsync' => [
             'application/json',
@@ -1127,15 +1129,16 @@ class WorkOrdersApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WorkOrderDtoListEnvelope
      */
-    public function getWorkOrdersAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
+    public function getWorkOrdersAsync($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
     {
-        list($response) = $this->getWorkOrdersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWorkOrdersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1147,15 +1150,16 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WorkOrderDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkOrdersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
+    public function getWorkOrdersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
     {
-        $request = $this->getWorkOrdersAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkOrdersAsyncRequest($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,14 +1313,15 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkOrdersAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
+    public function getWorkOrdersAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
     {
-        return $this->getWorkOrdersAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWorkOrdersAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,15 +1337,16 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkOrdersAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
+    public function getWorkOrdersAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WorkOrderDtoListEnvelope';
-        $request = $this->getWorkOrdersAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkOrdersAsyncRequest($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,12 +1390,13 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWorkOrdersAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
+    public function getWorkOrdersAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1398,6 +1405,7 @@ class WorkOrdersApi
                 'Missing the required parameter $tenant_id when calling getWorkOrdersAsync'
             );
         }
+
 
 
 
@@ -1442,7 +1450,14 @@ class WorkOrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($work_order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($work_order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $work_order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1496,15 +1511,16 @@ class WorkOrdersApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWorkOrdersCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
+    public function getWorkOrdersCountAsync($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
     {
-        list($response) = $this->getWorkOrdersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWorkOrdersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1516,15 +1532,16 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkOrdersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
+    public function getWorkOrdersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
     {
-        $request = $this->getWorkOrdersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkOrdersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1678,14 +1695,15 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkOrdersCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
+    public function getWorkOrdersCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
     {
-        return $this->getWorkOrdersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWorkOrdersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,15 +1719,16 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkOrdersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
+    public function getWorkOrdersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWorkOrdersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWorkOrdersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $work_order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,12 +1772,13 @@ class WorkOrdersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WorkOrderDtoCollectionQueryParameters $work_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWorkOrdersCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
+    public function getWorkOrdersCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $work_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWorkOrdersCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1767,6 +1787,7 @@ class WorkOrdersApi
                 'Missing the required parameter $tenant_id when calling getWorkOrdersCountAsync'
             );
         }
+
 
 
 
@@ -1811,7 +1832,14 @@ class WorkOrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($work_order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($work_order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $work_order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1866,16 +1894,16 @@ class WorkOrdersApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkOrderAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWorkOrderAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
+    public function patchWorkOrderAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
     {
-        list($response) = $this->patchWorkOrderAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchWorkOrderAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1888,16 +1916,16 @@ class WorkOrdersApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkOrderAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWorkOrderAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
+    public function patchWorkOrderAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
     {
-        $request = $this->patchWorkOrderAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWorkOrderAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2087,15 +2115,15 @@ class WorkOrdersApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkOrderAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWorkOrderAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
+    public function patchWorkOrderAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
     {
-        return $this->patchWorkOrderAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWorkOrderAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,16 +2140,16 @@ class WorkOrdersApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkOrderAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWorkOrderAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
+    public function patchWorkOrderAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWorkOrderAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWorkOrderAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2166,13 +2194,13 @@ class WorkOrdersApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkOrderAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWorkOrderAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
+    public function patchWorkOrderAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWorkOrderAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class WorkOrdersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

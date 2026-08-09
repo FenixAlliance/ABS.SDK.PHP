@@ -140,7 +140,7 @@ No authorization required
 ## `getRoundingPoliciesAsync()`
 
 ```php
-getRoundingPoliciesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\RoundingPolicyDtoListEnvelope
+getRoundingPoliciesAsync($tenant_id, $api_version, $x_api_version, $rounding_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\RoundingPolicyDtoListEnvelope
 ```
 
 Gets all rounding policies
@@ -163,9 +163,10 @@ $apiInstance = new OpenAPI\Client\Api\RoundingPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$rounding_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\RoundingPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RoundingPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRoundingPoliciesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRoundingPoliciesAsync($tenant_id, $api_version, $x_api_version, $rounding_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoundingPoliciesApi->getRoundingPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **rounding_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RoundingPolicyDtoCollectionQueryParameters**](../Model/RoundingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -190,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,7 +202,7 @@ No authorization required
 ## `getRoundingPoliciesCountAsync()`
 
 ```php
-getRoundingPoliciesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRoundingPoliciesCountAsync($tenant_id, $api_version, $x_api_version, $rounding_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts rounding policies
@@ -223,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\RoundingPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$rounding_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\RoundingPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RoundingPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRoundingPoliciesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRoundingPoliciesCountAsync($tenant_id, $api_version, $x_api_version, $rounding_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoundingPoliciesApi->getRoundingPoliciesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **rounding_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RoundingPolicyDtoCollectionQueryParameters**](../Model/RoundingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchRoundingPolicyAsync()`
 
 ```php
-patchRoundingPolicyAsync($tenant_id, $rounding_policy_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchRoundingPolicyAsync($tenant_id, $rounding_policy_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a rounding policy
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $rounding_policy_id = 'rounding_policy_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchRoundingPolicyAsync($tenant_id, $rounding_policy_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchRoundingPolicyAsync($tenant_id, $rounding_policy_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoundingPoliciesApi->patchRoundingPolicyAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **rounding_policy_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

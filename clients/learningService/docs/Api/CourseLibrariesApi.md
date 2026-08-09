@@ -139,7 +139,7 @@ No authorization required
 ## `getCourseLibrariesAsync()`
 
 ```php
-getCourseLibrariesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseLibraryDto[]
+getCourseLibrariesAsync($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseLibraryDto[]
 ```
 
 Get all course libraries
@@ -162,9 +162,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseLibrariesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_library_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseLibrariesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseLibrariesAsync($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseLibrariesApi->getCourseLibrariesAsync: ', $e->getMessage(), PHP_EOL;
@@ -178,6 +179,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_library_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters**](../Model/CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -189,7 +191,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -199,7 +201,7 @@ No authorization required
 ## `getCourseLibrariesCountAsync()`
 
 ```php
-getCourseLibrariesCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseLibrariesCountAsync($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters): int
 ```
 
 Get course libraries count
@@ -222,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseLibrariesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_library_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseLibrariesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseLibrariesCountAsync($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseLibrariesApi->getCourseLibrariesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_library_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters**](../Model/CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -249,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -319,7 +323,7 @@ No authorization required
 ## `patchCourseLibraryAsync()`
 
 ```php
-patchCourseLibraryAsync($tenant_id, $library_id, $api_version, $x_api_version, $operation)
+patchCourseLibraryAsync($tenant_id, $library_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a course library
@@ -343,10 +347,10 @@ $tenant_id = 'tenant_id_example'; // string
 $library_id = 'library_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchCourseLibraryAsync($tenant_id, $library_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchCourseLibraryAsync($tenant_id, $library_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling CourseLibrariesApi->patchCourseLibraryAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -360,7 +364,7 @@ try {
 | **library_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

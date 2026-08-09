@@ -189,7 +189,7 @@ No authorization required
 ## `getAssetTypes()`
 
 ```php
-getAssetTypes($tenant_id): \OpenAPI\Client\Model\AssetTypeDtoListEnvelope
+getAssetTypes($tenant_id, $asset_type_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetTypeDtoListEnvelope
 ```
 
 Gets all asset types for the current tenant
@@ -210,9 +210,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetTypesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetTypes($tenant_id);
+    $result = $apiInstance->getAssetTypes($tenant_id, $asset_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetTypesApi->getAssetTypes: ', $e->getMessage(), PHP_EOL;
@@ -224,6 +225,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetTypeDtoCollectionQueryParameters**](../Model/AssetTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -235,7 +237,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -245,7 +247,7 @@ No authorization required
 ## `getAssetTypesCount()`
 
 ```php
-getAssetTypesCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetTypesCount($tenant_id, $asset_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of asset types
@@ -266,9 +268,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetTypesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetTypesCount($tenant_id);
+    $result = $apiInstance->getAssetTypesCount($tenant_id, $asset_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetTypesApi->getAssetTypesCount: ', $e->getMessage(), PHP_EOL;
@@ -280,6 +283,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetTypeDtoCollectionQueryParameters**](../Model/AssetTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -291,7 +295,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -301,7 +305,7 @@ No authorization required
 ## `patchAssetType()`
 
 ```php
-patchAssetType($tenant_id, $type_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetType($tenant_id, $type_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an existing asset type
@@ -323,10 +327,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetTypesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $type_id = 'type_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetType($tenant_id, $type_id, $operation);
+    $result = $apiInstance->patchAssetType($tenant_id, $type_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetTypesApi->patchAssetType: ', $e->getMessage(), PHP_EOL;
@@ -339,7 +343,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **type_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

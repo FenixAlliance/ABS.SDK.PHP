@@ -94,15 +94,19 @@ class BillsOfLadingApi
         ],
         'getBillOfLadingLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBillOfLadingLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBillsOfLadingAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBillsOfLadingCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchBillOfLadingAsync' => [
             'application/json',
@@ -2557,15 +2561,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id bill_of_lading_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BillOfLadingLineDtoListEnvelope
      */
-    public function getBillOfLadingLinesAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
+    public function getBillOfLadingLinesAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
     {
-        list($response) = $this->getBillOfLadingLinesAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillOfLadingLinesAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2578,15 +2583,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BillOfLadingLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillOfLadingLinesAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
+    public function getBillOfLadingLinesAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
     {
-        $request = $this->getBillOfLadingLinesAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillOfLadingLinesAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2741,14 +2747,15 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillOfLadingLinesAsyncAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
+    public function getBillOfLadingLinesAsyncAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
     {
-        return $this->getBillOfLadingLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillOfLadingLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2765,15 +2772,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillOfLadingLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
+    public function getBillOfLadingLinesAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BillOfLadingLineDtoListEnvelope';
-        $request = $this->getBillOfLadingLinesAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillOfLadingLinesAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2818,12 +2826,13 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillOfLadingLinesAsyncRequest($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
+    public function getBillOfLadingLinesAsyncRequest($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2839,6 +2848,7 @@ class BillsOfLadingApi
                 'Missing the required parameter $bill_of_lading_id when calling getBillOfLadingLinesAsync'
             );
         }
+
 
 
 
@@ -2891,7 +2901,14 @@ class BillsOfLadingApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bill_of_lading_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bill_of_lading_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bill_of_lading_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2946,15 +2963,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id bill_of_lading_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBillOfLadingLinesCountAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
+    public function getBillOfLadingLinesCountAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
     {
-        list($response) = $this->getBillOfLadingLinesCountAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillOfLadingLinesCountAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2967,15 +2985,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillOfLadingLinesCountAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
+    public function getBillOfLadingLinesCountAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
     {
-        $request = $this->getBillOfLadingLinesCountAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillOfLadingLinesCountAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3095,14 +3114,15 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillOfLadingLinesCountAsyncAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
+    public function getBillOfLadingLinesCountAsyncAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
     {
-        return $this->getBillOfLadingLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillOfLadingLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3119,15 +3139,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillOfLadingLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
+    public function getBillOfLadingLinesCountAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBillOfLadingLinesCountAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillOfLadingLinesCountAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3172,12 +3193,13 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters $bill_of_lading_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillOfLadingLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillOfLadingLinesCountAsyncRequest($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
+    public function getBillOfLadingLinesCountAsyncRequest($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $bill_of_lading_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillOfLadingLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3193,6 +3215,7 @@ class BillsOfLadingApi
                 'Missing the required parameter $bill_of_lading_id when calling getBillOfLadingLinesCountAsync'
             );
         }
+
 
 
 
@@ -3245,7 +3268,14 @@ class BillsOfLadingApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bill_of_lading_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bill_of_lading_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bill_of_lading_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3299,15 +3329,16 @@ class BillsOfLadingApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BillOfLadingDtoListEnvelope
      */
-    public function getBillsOfLadingAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
+    public function getBillsOfLadingAsync($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
     {
-        list($response) = $this->getBillsOfLadingAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillsOfLadingAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3319,15 +3350,16 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BillOfLadingDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillsOfLadingAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
+    public function getBillsOfLadingAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
     {
-        $request = $this->getBillsOfLadingAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillsOfLadingAsyncRequest($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3516,14 +3548,15 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillsOfLadingAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
+    public function getBillsOfLadingAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
     {
-        return $this->getBillsOfLadingAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillsOfLadingAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3539,15 +3572,16 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillsOfLadingAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
+    public function getBillsOfLadingAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BillOfLadingDtoListEnvelope';
-        $request = $this->getBillsOfLadingAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillsOfLadingAsyncRequest($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3591,12 +3625,13 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillsOfLadingAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
+    public function getBillsOfLadingAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3605,6 +3640,7 @@ class BillsOfLadingApi
                 'Missing the required parameter $tenant_id when calling getBillsOfLadingAsync'
             );
         }
+
 
 
 
@@ -3649,7 +3685,14 @@ class BillsOfLadingApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bill_of_lading_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bill_of_lading_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bill_of_lading_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3703,15 +3746,16 @@ class BillsOfLadingApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBillsOfLadingCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
+    public function getBillsOfLadingCountAsync($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
     {
-        list($response) = $this->getBillsOfLadingCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillsOfLadingCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3723,15 +3767,16 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillsOfLadingCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
+    public function getBillsOfLadingCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
     {
-        $request = $this->getBillsOfLadingCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillsOfLadingCountAsyncRequest($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3885,14 +3930,15 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillsOfLadingCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
+    public function getBillsOfLadingCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
     {
-        return $this->getBillsOfLadingCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillsOfLadingCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3908,15 +3954,16 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillsOfLadingCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
+    public function getBillsOfLadingCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBillsOfLadingCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillsOfLadingCountAsyncRequest($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3960,12 +4007,13 @@ class BillsOfLadingApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters $bill_of_lading_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillsOfLadingCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillsOfLadingCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
+    public function getBillsOfLadingCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $bill_of_lading_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillsOfLadingCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3974,6 +4022,7 @@ class BillsOfLadingApi
                 'Missing the required parameter $tenant_id when calling getBillsOfLadingCountAsync'
             );
         }
+
 
 
 
@@ -4018,7 +4067,14 @@ class BillsOfLadingApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bill_of_lading_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bill_of_lading_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bill_of_lading_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4073,16 +4129,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id bill_of_lading_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchBillOfLadingAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
+    public function patchBillOfLadingAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
     {
-        list($response) = $this->patchBillOfLadingAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchBillOfLadingAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4095,16 +4151,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBillOfLadingAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
+    public function patchBillOfLadingAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
     {
-        $request = $this->patchBillOfLadingAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillOfLadingAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4329,15 +4385,15 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillOfLadingAsyncAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
+    public function patchBillOfLadingAsyncAsync($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
     {
-        return $this->patchBillOfLadingAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchBillOfLadingAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4354,16 +4410,16 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillOfLadingAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
+    public function patchBillOfLadingAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBillOfLadingAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillOfLadingAsyncRequest($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4408,13 +4464,13 @@ class BillsOfLadingApi
      * @param  string $bill_of_lading_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBillOfLadingAsyncRequest($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
+    public function patchBillOfLadingAsyncRequest($tenant_id, $bill_of_lading_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4483,12 +4539,12 @@ class BillsOfLadingApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4546,16 +4602,16 @@ class BillsOfLadingApi
      * @param  string $line_id line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchBillOfLadingLineAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
+    public function patchBillOfLadingLineAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
     {
-        list($response) = $this->patchBillOfLadingLineAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchBillOfLadingLineAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4569,16 +4625,16 @@ class BillsOfLadingApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBillOfLadingLineAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
+    public function patchBillOfLadingLineAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
     {
-        $request = $this->patchBillOfLadingLineAsyncRequest($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillOfLadingLineAsyncRequest($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4804,15 +4860,15 @@ class BillsOfLadingApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillOfLadingLineAsyncAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
+    public function patchBillOfLadingLineAsyncAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
     {
-        return $this->patchBillOfLadingLineAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchBillOfLadingLineAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4830,16 +4886,16 @@ class BillsOfLadingApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillOfLadingLineAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
+    public function patchBillOfLadingLineAsyncAsyncWithHttpInfo($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBillOfLadingLineAsyncRequest($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillOfLadingLineAsyncRequest($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4885,13 +4941,13 @@ class BillsOfLadingApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillOfLadingLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBillOfLadingLineAsyncRequest($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
+    public function patchBillOfLadingLineAsyncRequest($tenant_id, $bill_of_lading_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillOfLadingLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4975,12 +5031,12 @@ class BillsOfLadingApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

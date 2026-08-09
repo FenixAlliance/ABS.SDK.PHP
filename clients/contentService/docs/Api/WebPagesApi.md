@@ -24,7 +24,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countWebPagesAsync()`
 
 ```php
-countWebPagesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countWebPagesAsync($tenant_id, $api_version, $x_api_version, $web_page_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count web pages
@@ -47,9 +47,10 @@ $apiInstance = new OpenAPI\Client\Api\WebPagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_page_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countWebPagesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countWebPagesAsync($tenant_id, $api_version, $x_api_version, $web_page_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebPagesApi->countWebPagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -63,6 +64,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_page_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPageDtoCollectionQueryParameters**](../Model/WebPageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -74,7 +76,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -332,7 +334,7 @@ No authorization required
 ## `getCategoriesByWebPageAsync()`
 
 ```php
-getCategoriesByWebPageAsync($web_page_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebPageCategoryDtoListEnvelope
+getCategoriesByWebPageAsync($web_page_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters): \OpenAPI\Client\Model\WebPageCategoryDtoListEnvelope
 ```
 
 Get categories by web page
@@ -355,9 +357,10 @@ $apiInstance = new OpenAPI\Client\Api\WebPagesApi(
 $web_page_id = 'web_page_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_page_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCategoriesByWebPageAsync($web_page_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCategoriesByWebPageAsync($web_page_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebPagesApi->getCategoriesByWebPageAsync: ', $e->getMessage(), PHP_EOL;
@@ -371,6 +374,7 @@ try {
 | **web_page_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_page_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters**](../Model/WebPageCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -382,7 +386,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -392,7 +396,7 @@ No authorization required
 ## `getTagsByWebPageAsync()`
 
 ```php
-getTagsByWebPageAsync($web_page_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebPageTagDtoListEnvelope
+getTagsByWebPageAsync($web_page_id, $api_version, $x_api_version, $web_page_tag_dto_collection_query_parameters): \OpenAPI\Client\Model\WebPageTagDtoListEnvelope
 ```
 
 Get tags by web page
@@ -415,9 +419,10 @@ $apiInstance = new OpenAPI\Client\Api\WebPagesApi(
 $web_page_id = 'web_page_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_page_tag_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPageTagDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPageTagDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTagsByWebPageAsync($web_page_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTagsByWebPageAsync($web_page_id, $api_version, $x_api_version, $web_page_tag_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebPagesApi->getTagsByWebPageAsync: ', $e->getMessage(), PHP_EOL;
@@ -431,6 +436,7 @@ try {
 | **web_page_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_page_tag_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPageTagDtoCollectionQueryParameters**](../Model/WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -442,7 +448,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -514,7 +520,7 @@ No authorization required
 ## `getWebPagesAsync()`
 
 ```php
-getWebPagesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebPageDtoListEnvelope
+getWebPagesAsync($tenant_id, $api_version, $x_api_version, $web_page_dto_collection_query_parameters): \OpenAPI\Client\Model\WebPageDtoListEnvelope
 ```
 
 Get web pages
@@ -537,9 +543,10 @@ $apiInstance = new OpenAPI\Client\Api\WebPagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_page_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWebPagesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWebPagesAsync($tenant_id, $api_version, $x_api_version, $web_page_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebPagesApi->getWebPagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -553,6 +560,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_page_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPageDtoCollectionQueryParameters**](../Model/WebPageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -564,7 +572,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -574,7 +582,7 @@ No authorization required
 ## `patchWebPageAsync()`
 
 ```php
-patchWebPageAsync($tenant_id, $web_page_id, $api_version, $x_api_version, $operation)
+patchWebPageAsync($tenant_id, $web_page_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a web page
@@ -598,10 +606,10 @@ $tenant_id = 'tenant_id_example'; // string
 $web_page_id = 'web_page_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchWebPageAsync($tenant_id, $web_page_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchWebPageAsync($tenant_id, $web_page_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling WebPagesApi->patchWebPageAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -615,7 +623,7 @@ try {
 | **web_page_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

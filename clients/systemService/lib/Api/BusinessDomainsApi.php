@@ -80,9 +80,11 @@ class BusinessDomainsApi
         ],
         'getSystemBusinessDomains' => [
             'application/json',
+            'application/xml',
         ],
         'getSystemBusinessDomainsCount' => [
             'application/json',
+            'application/xml',
         ],
         'verifySystemBusinessDomain' => [
             'application/json',
@@ -948,15 +950,16 @@ class BusinessDomainsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomains'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BusinessDomainDtoListEnvelope
      */
-    public function getSystemBusinessDomains($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
+    public function getSystemBusinessDomains($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
     {
-        list($response) = $this->getSystemBusinessDomainsWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemBusinessDomainsWithHttpInfo($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -967,15 +970,16 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomains'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BusinessDomainDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemBusinessDomainsWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
+    public function getSystemBusinessDomainsWithHttpInfo($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
     {
-        $request = $this->getSystemBusinessDomainsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemBusinessDomainsRequest($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1163,14 +1167,15 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomains'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemBusinessDomainsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
+    public function getSystemBusinessDomainsAsync($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
     {
-        return $this->getSystemBusinessDomainsAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSystemBusinessDomainsAsyncWithHttpInfo($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1185,15 +1190,16 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomains'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemBusinessDomainsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
+    public function getSystemBusinessDomainsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BusinessDomainDtoListEnvelope';
-        $request = $this->getSystemBusinessDomainsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemBusinessDomainsRequest($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1236,13 +1242,15 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomains'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemBusinessDomainsRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
+    public function getSystemBusinessDomainsRequest($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomains'][0])
     {
+
 
 
 
@@ -1278,7 +1286,14 @@ class BusinessDomainsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($business_domain_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($business_domain_dto_collection_query_parameters));
+            } else {
+                $httpBody = $business_domain_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1331,15 +1346,16 @@ class BusinessDomainsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomainsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSystemBusinessDomainsCount($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
+    public function getSystemBusinessDomainsCount($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
     {
-        list($response) = $this->getSystemBusinessDomainsCountWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemBusinessDomainsCountWithHttpInfo($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1350,15 +1366,16 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomainsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemBusinessDomainsCountWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
+    public function getSystemBusinessDomainsCountWithHttpInfo($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
     {
-        $request = $this->getSystemBusinessDomainsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemBusinessDomainsCountRequest($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1546,14 +1563,15 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomainsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemBusinessDomainsCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
+    public function getSystemBusinessDomainsCountAsync($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
     {
-        return $this->getSystemBusinessDomainsCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSystemBusinessDomainsCountAsyncWithHttpInfo($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1568,15 +1586,16 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomainsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemBusinessDomainsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
+    public function getSystemBusinessDomainsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSystemBusinessDomainsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemBusinessDomainsCountRequest($api_version, $x_api_version, $business_domain_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1619,13 +1638,15 @@ class BusinessDomainsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessDomainDtoCollectionQueryParameters $business_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemBusinessDomainsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemBusinessDomainsCountRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
+    public function getSystemBusinessDomainsCountRequest($api_version = null, $x_api_version = null, $business_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemBusinessDomainsCount'][0])
     {
+
 
 
 
@@ -1661,7 +1682,14 @@ class BusinessDomainsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($business_domain_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($business_domain_dto_collection_query_parameters));
+            } else {
+                $httpBody = $business_domain_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -202,7 +202,7 @@ No authorization required
 ## `getPaymentModesAsync()`
 
 ```php
-getPaymentModesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentModeDtoIReadOnlyListEnvelope
+getPaymentModesAsync($tenant_id, $api_version, $x_api_version, $payment_mode_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentModeDtoIReadOnlyListEnvelope
 ```
 
 Retrieves all payment modes
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\PaymentModesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_mode_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentModeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentModeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentModesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPaymentModesAsync($tenant_id, $api_version, $x_api_version, $payment_mode_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentModesApi->getPaymentModesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_mode_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentModeDtoCollectionQueryParameters**](../Model/PaymentModeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getPaymentModesCountAsync()`
 
 ```php
-getPaymentModesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPaymentModesCountAsync($tenant_id, $api_version, $x_api_version, $payment_mode_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts payment modes
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\PaymentModesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_mode_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentModeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentModeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentModesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPaymentModesCountAsync($tenant_id, $api_version, $x_api_version, $payment_mode_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentModesApi->getPaymentModesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_mode_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentModeDtoCollectionQueryParameters**](../Model/PaymentModeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchPaymentModeAsync()`
 
 ```php
-patchPaymentModeAsync($tenant_id, $payment_mode_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPaymentModeAsync($tenant_id, $payment_mode_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a payment mode
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $payment_mode_id = 'payment_mode_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPaymentModeAsync($tenant_id, $payment_mode_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchPaymentModeAsync($tenant_id, $payment_mode_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentModesApi->patchPaymentModeAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **payment_mode_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

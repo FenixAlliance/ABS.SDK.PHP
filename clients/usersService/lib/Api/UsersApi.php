@@ -74,18 +74,28 @@ class UsersApi
     public const contentTypes = [
         'countCurrentUserFollowersAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'countCurrentUserFollowsAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'countCurrentUserNotificationsAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'countCurrentUserTenantsAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'getCurrentUserAddressesAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'getCurrentUserAsync' => [
             'application/json',
@@ -104,15 +114,21 @@ class UsersApi
         ],
         'getCurrentUserFollowersAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'getCurrentUserFollowsAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'getCurrentUserInvitationAsync' => [
             'application/json',
         ],
         'getCurrentUserNotificationsAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'getCurrentUserSettingsAsync' => [
             'application/json',
@@ -122,6 +138,8 @@ class UsersApi
         ],
         'getCurrentUserTenantsAsync' => [
             'application/json',
+            'application/xml',
+            'multipart/form-data',
         ],
         'getCurrentUserTenantsExtendedAsync' => [
             'application/json',
@@ -210,15 +228,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCurrentUserFollowersAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
+    public function countCurrentUserFollowersAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
     {
-        list($response) = $this->countCurrentUserFollowersAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countCurrentUserFollowersAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -229,15 +248,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCurrentUserFollowersAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
+    public function countCurrentUserFollowersAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
     {
-        $request = $this->countCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -390,14 +410,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserFollowersAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
+    public function countCurrentUserFollowersAsyncAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
     {
-        return $this->countCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -412,15 +433,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
+    public function countCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -463,13 +485,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCurrentUserFollowersAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
+    public function countCurrentUserFollowersAsyncRequest($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowersAsync'][0])
     {
+
 
 
 
@@ -505,7 +529,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -558,15 +589,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCurrentUserFollowsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
+    public function countCurrentUserFollowsAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
     {
-        list($response) = $this->countCurrentUserFollowsAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countCurrentUserFollowsAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -577,15 +609,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCurrentUserFollowsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
+    public function countCurrentUserFollowsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
     {
-        $request = $this->countCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -738,14 +771,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserFollowsAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
+    public function countCurrentUserFollowsAsyncAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
     {
-        return $this->countCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -760,15 +794,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
+    public function countCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -811,13 +846,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCurrentUserFollowsAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
+    public function countCurrentUserFollowsAsyncRequest($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserFollowsAsync'][0])
     {
+
 
 
 
@@ -853,7 +890,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -906,15 +950,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCurrentUserNotificationsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
+    public function countCurrentUserNotificationsAsync($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
     {
-        list($response) = $this->countCurrentUserNotificationsAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countCurrentUserNotificationsAsyncWithHttpInfo($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -925,15 +970,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCurrentUserNotificationsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
+    public function countCurrentUserNotificationsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
     {
-        $request = $this->countCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1086,14 +1132,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserNotificationsAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
+    public function countCurrentUserNotificationsAsyncAsync($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
     {
-        return $this->countCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1108,15 +1155,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
+    public function countCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1159,13 +1207,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCurrentUserNotificationsAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
+    public function countCurrentUserNotificationsAsyncRequest($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserNotificationsAsync'][0])
     {
+
 
 
 
@@ -1201,7 +1251,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($notification_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($notification_dto_collection_query_parameters));
+            } else {
+                $httpBody = $notification_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1254,15 +1311,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCurrentUserTenantsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
+    public function countCurrentUserTenantsAsync($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
     {
-        list($response) = $this->countCurrentUserTenantsAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countCurrentUserTenantsAsyncWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1273,15 +1331,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCurrentUserTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
+    public function countCurrentUserTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
     {
-        $request = $this->countCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1469,14 +1528,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserTenantsAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
+    public function countCurrentUserTenantsAsyncAsync($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
     {
-        return $this->countCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1491,15 +1551,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
+    public function countCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1542,13 +1603,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCurrentUserTenantsAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
+    public function countCurrentUserTenantsAsyncRequest($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCurrentUserTenantsAsync'][0])
     {
+
 
 
 
@@ -1584,7 +1647,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1637,15 +1707,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters $address_dto_collection_query_parameters address_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserAddressesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AddressDtoListEnvelope
      */
-    public function getCurrentUserAddressesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
+    public function getCurrentUserAddressesAsync($api_version = null, $x_api_version = null, $address_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
     {
-        list($response) = $this->getCurrentUserAddressesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurrentUserAddressesAsyncWithHttpInfo($api_version, $x_api_version, $address_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1656,15 +1727,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters $address_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserAddressesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AddressDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrentUserAddressesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
+    public function getCurrentUserAddressesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $address_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
     {
-        $request = $this->getCurrentUserAddressesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserAddressesAsyncRequest($api_version, $x_api_version, $address_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1817,14 +1889,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters $address_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserAddressesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserAddressesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
+    public function getCurrentUserAddressesAsyncAsync($api_version = null, $x_api_version = null, $address_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
     {
-        return $this->getCurrentUserAddressesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getCurrentUserAddressesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $address_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1839,15 +1912,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters $address_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserAddressesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserAddressesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
+    public function getCurrentUserAddressesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $address_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AddressDtoListEnvelope';
-        $request = $this->getCurrentUserAddressesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserAddressesAsyncRequest($api_version, $x_api_version, $address_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1890,13 +1964,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters $address_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserAddressesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurrentUserAddressesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
+    public function getCurrentUserAddressesAsyncRequest($api_version = null, $x_api_version = null, $address_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserAddressesAsync'][0])
     {
+
 
 
 
@@ -1932,7 +2008,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($address_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($address_dto_collection_query_parameters));
+            } else {
+                $httpBody = $address_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3760,15 +3843,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope
      */
-    public function getCurrentUserFollowersAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
+    public function getCurrentUserFollowersAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
     {
-        list($response) = $this->getCurrentUserFollowersAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurrentUserFollowersAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3779,15 +3863,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrentUserFollowersAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
+    public function getCurrentUserFollowersAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
     {
-        $request = $this->getCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3940,14 +4025,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserFollowersAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
+    public function getCurrentUserFollowersAsyncAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
     {
-        return $this->getCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3962,15 +4048,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
+    public function getCurrentUserFollowersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FollowRecordDtoListEnvelope';
-        $request = $this->getCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserFollowersAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4013,13 +4100,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurrentUserFollowersAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
+    public function getCurrentUserFollowersAsyncRequest($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowersAsync'][0])
     {
+
 
 
 
@@ -4055,7 +4144,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4108,15 +4204,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope
      */
-    public function getCurrentUserFollowsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
+    public function getCurrentUserFollowsAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
     {
-        list($response) = $this->getCurrentUserFollowsAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurrentUserFollowsAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4127,15 +4224,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrentUserFollowsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
+    public function getCurrentUserFollowsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
     {
-        $request = $this->getCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4288,14 +4386,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserFollowsAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
+    public function getCurrentUserFollowsAsyncAsync($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
     {
-        return $this->getCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4310,15 +4409,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
+    public function getCurrentUserFollowsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FollowRecordDtoListEnvelope';
-        $request = $this->getCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserFollowsAsyncRequest($api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4361,13 +4461,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurrentUserFollowsAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
+    public function getCurrentUserFollowsAsyncRequest($api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserFollowsAsync'][0])
     {
+
 
 
 
@@ -4403,7 +4505,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4804,15 +4913,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NotificationDtoListEnvelope
      */
-    public function getCurrentUserNotificationsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
+    public function getCurrentUserNotificationsAsync($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
     {
-        list($response) = $this->getCurrentUserNotificationsAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurrentUserNotificationsAsyncWithHttpInfo($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4823,15 +4933,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NotificationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrentUserNotificationsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
+    public function getCurrentUserNotificationsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
     {
-        $request = $this->getCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4984,14 +5095,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserNotificationsAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
+    public function getCurrentUserNotificationsAsyncAsync($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
     {
-        return $this->getCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5006,15 +5118,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
+    public function getCurrentUserNotificationsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationDtoListEnvelope';
-        $request = $this->getCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserNotificationsAsyncRequest($api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5057,13 +5170,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurrentUserNotificationsAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
+    public function getCurrentUserNotificationsAsyncRequest($api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserNotificationsAsync'][0])
     {
+
 
 
 
@@ -5099,7 +5214,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($notification_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($notification_dto_collection_query_parameters));
+            } else {
+                $httpBody = $notification_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5848,15 +5970,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantDtoListEnvelope
      */
-    public function getCurrentUserTenantsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
+    public function getCurrentUserTenantsAsync($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
     {
-        list($response) = $this->getCurrentUserTenantsAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getCurrentUserTenantsAsyncWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5867,15 +5990,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrentUserTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
+    public function getCurrentUserTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
     {
-        $request = $this->getCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6063,14 +6187,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserTenantsAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
+    public function getCurrentUserTenantsAsyncAsync($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
     {
-        return $this->getCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6085,15 +6210,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
+    public function getCurrentUserTenantsAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantDtoListEnvelope';
-        $request = $this->getCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getCurrentUserTenantsAsyncRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6136,13 +6262,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUserTenantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCurrentUserTenantsAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
+    public function getCurrentUserTenantsAsyncRequest($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCurrentUserTenantsAsync'][0])
     {
+
 
 
 
@@ -6178,7 +6306,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7678,16 +7813,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurrentUserAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchCurrentUserAsync($api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
+    public function patchCurrentUserAsync($api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
     {
-        list($response) = $this->patchCurrentUserAsyncWithHttpInfo($api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCurrentUserAsyncWithHttpInfo($api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -7698,16 +7833,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurrentUserAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCurrentUserAsyncWithHttpInfo($api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
+    public function patchCurrentUserAsyncWithHttpInfo($api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
     {
-        $request = $this->patchCurrentUserAsyncRequest($api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCurrentUserAsyncRequest($api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7860,15 +7995,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurrentUserAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCurrentUserAsyncAsync($api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
+    public function patchCurrentUserAsyncAsync($api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
     {
-        return $this->patchCurrentUserAsyncAsyncWithHttpInfo($api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCurrentUserAsyncAsyncWithHttpInfo($api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7883,16 +8018,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurrentUserAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCurrentUserAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
+    public function patchCurrentUserAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCurrentUserAsyncRequest($api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCurrentUserAsyncRequest($api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7935,13 +8070,13 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCurrentUserAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCurrentUserAsyncRequest($api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
+    public function patchCurrentUserAsyncRequest($api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCurrentUserAsync'][0])
     {
 
 
@@ -7979,12 +8114,12 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

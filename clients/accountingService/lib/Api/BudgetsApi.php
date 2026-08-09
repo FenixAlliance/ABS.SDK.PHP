@@ -88,6 +88,7 @@ class BudgetsApi
         ],
         'getBudgetAccountEntriesCollectionAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBudgetAccountEntryAsync' => [
             'application/json',
@@ -97,9 +98,11 @@ class BudgetsApi
         ],
         'getBudgetsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBudgetsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchBudgetAccountEntryAsync' => [
             'application/json',
@@ -1908,15 +1911,16 @@ class BudgetsApi
      * @param  string $budget_id budget_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetAccountEntryDtoCollectionQueryParameters $budget_account_entry_dto_collection_query_parameters budget_account_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetAccountEntriesCollectionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BudgetAccountEntryDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getBudgetAccountEntriesCollectionAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
+    public function getBudgetAccountEntriesCollectionAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $budget_account_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
     {
-        list($response) = $this->getBudgetAccountEntriesCollectionAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBudgetAccountEntriesCollectionAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $budget_account_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1929,15 +1933,16 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetAccountEntryDtoCollectionQueryParameters $budget_account_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetAccountEntriesCollectionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BudgetAccountEntryDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBudgetAccountEntriesCollectionAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
+    public function getBudgetAccountEntriesCollectionAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $budget_account_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
     {
-        $request = $this->getBudgetAccountEntriesCollectionAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBudgetAccountEntriesCollectionAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $budget_account_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2127,14 +2132,15 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetAccountEntryDtoCollectionQueryParameters $budget_account_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetAccountEntriesCollectionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBudgetAccountEntriesCollectionAsyncAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
+    public function getBudgetAccountEntriesCollectionAsyncAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $budget_account_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
     {
-        return $this->getBudgetAccountEntriesCollectionAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $contentType)
+        return $this->getBudgetAccountEntriesCollectionAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $budget_account_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2151,15 +2157,16 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetAccountEntryDtoCollectionQueryParameters $budget_account_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetAccountEntriesCollectionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBudgetAccountEntriesCollectionAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
+    public function getBudgetAccountEntriesCollectionAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $budget_account_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BudgetAccountEntryDtoIReadOnlyListEnvelope';
-        $request = $this->getBudgetAccountEntriesCollectionAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBudgetAccountEntriesCollectionAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $budget_account_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2204,12 +2211,13 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetAccountEntryDtoCollectionQueryParameters $budget_account_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetAccountEntriesCollectionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBudgetAccountEntriesCollectionAsyncRequest($tenant_id, $budget_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
+    public function getBudgetAccountEntriesCollectionAsyncRequest($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $budget_account_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetAccountEntriesCollectionAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2225,6 +2233,7 @@ class BudgetsApi
                 'Missing the required parameter $budget_id when calling getBudgetAccountEntriesCollectionAsync'
             );
         }
+
 
 
 
@@ -2277,7 +2286,14 @@ class BudgetsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($budget_account_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($budget_account_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $budget_account_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3199,15 +3215,16 @@ class BudgetsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BudgetDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getBudgetsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
+    public function getBudgetsAsync($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
     {
-        list($response) = $this->getBudgetsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBudgetsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3219,15 +3236,16 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BudgetDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBudgetsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
+    public function getBudgetsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
     {
-        $request = $this->getBudgetsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBudgetsAsyncRequest($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3416,14 +3434,15 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBudgetsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
+    public function getBudgetsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
     {
-        return $this->getBudgetsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBudgetsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3439,15 +3458,16 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBudgetsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
+    public function getBudgetsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BudgetDtoIReadOnlyListEnvelope';
-        $request = $this->getBudgetsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBudgetsAsyncRequest($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3491,12 +3511,13 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBudgetsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
+    public function getBudgetsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3505,6 +3526,7 @@ class BudgetsApi
                 'Missing the required parameter $tenant_id when calling getBudgetsAsync'
             );
         }
+
 
 
 
@@ -3549,7 +3571,14 @@ class BudgetsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($budget_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($budget_dto_collection_query_parameters));
+            } else {
+                $httpBody = $budget_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3603,15 +3632,16 @@ class BudgetsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBudgetsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
+    public function getBudgetsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
     {
-        list($response) = $this->getBudgetsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBudgetsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3623,15 +3653,16 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBudgetsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
+    public function getBudgetsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
     {
-        $request = $this->getBudgetsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBudgetsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3820,14 +3851,15 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBudgetsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
+    public function getBudgetsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
     {
-        return $this->getBudgetsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBudgetsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3843,15 +3875,16 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBudgetsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
+    public function getBudgetsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBudgetsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBudgetsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $budget_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3895,12 +3928,13 @@ class BudgetsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BudgetDtoCollectionQueryParameters $budget_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBudgetsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBudgetsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
+    public function getBudgetsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $budget_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBudgetsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3909,6 +3943,7 @@ class BudgetsApi
                 'Missing the required parameter $tenant_id when calling getBudgetsCountAsync'
             );
         }
+
 
 
 
@@ -3953,7 +3988,14 @@ class BudgetsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($budget_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($budget_dto_collection_query_parameters));
+            } else {
+                $httpBody = $budget_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4009,16 +4051,16 @@ class BudgetsApi
      * @param  string $entry_id entry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchBudgetAccountEntryAsync($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
+    public function patchBudgetAccountEntryAsync($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
     {
-        list($response) = $this->patchBudgetAccountEntryAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchBudgetAccountEntryAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4032,16 +4074,16 @@ class BudgetsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBudgetAccountEntryAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
+    public function patchBudgetAccountEntryAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
     {
-        $request = $this->patchBudgetAccountEntryAsyncRequest($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBudgetAccountEntryAsyncRequest($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4267,15 +4309,15 @@ class BudgetsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBudgetAccountEntryAsyncAsync($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
+    public function patchBudgetAccountEntryAsyncAsync($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
     {
-        return $this->patchBudgetAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchBudgetAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4293,16 +4335,16 @@ class BudgetsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBudgetAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
+    public function patchBudgetAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBudgetAccountEntryAsyncRequest($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBudgetAccountEntryAsyncRequest($tenant_id, $budget_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4348,13 +4390,13 @@ class BudgetsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBudgetAccountEntryAsyncRequest($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
+    public function patchBudgetAccountEntryAsyncRequest($tenant_id, $budget_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAccountEntryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4438,12 +4480,12 @@ class BudgetsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4500,16 +4542,16 @@ class BudgetsApi
      * @param  string $budget_id budget_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchBudgetAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
+    public function patchBudgetAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
     {
-        list($response) = $this->patchBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4522,16 +4564,16 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
+    public function patchBudgetAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
     {
-        $request = $this->patchBudgetAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBudgetAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4756,15 +4798,15 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBudgetAsyncAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
+    public function patchBudgetAsyncAsync($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
     {
-        return $this->patchBudgetAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchBudgetAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4781,16 +4823,16 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBudgetAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
+    public function patchBudgetAsyncAsyncWithHttpInfo($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBudgetAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBudgetAsyncRequest($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4835,13 +4877,13 @@ class BudgetsApi
      * @param  string $budget_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBudgetAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBudgetAsyncRequest($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
+    public function patchBudgetAsyncRequest($tenant_id, $budget_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBudgetAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4910,12 +4952,12 @@ class BudgetsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

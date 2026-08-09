@@ -103,108 +103,139 @@ class WalletsApi
         ],
         'getIncomingPaymentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getIncomingPaymentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getIncomingWalletInvoicesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getIncomingWalletInvoicesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLocationForWalletAsync' => [
             'application/json',
         ],
         'getLocationsForWalletAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLocationsForWalletCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getOutgoingPaymentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getOutgoingPaymentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getOutgoingWalletInvoicesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getOutgoingWalletInvoicesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletBankAccountAsync' => [
             'application/json',
         ],
         'getWalletBankAccountsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletBankAccountsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletChargebacksAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletChargebacksCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletDetailsAsync' => [
             'application/json',
         ],
         'getWalletExtendedOrdersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletInvoicesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletInvoicesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletOrdersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletOrdersCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletPaymentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletPaymentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletQuotesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletQuotesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletRefundsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletRefundsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletTokenAsync' => [
             'application/json',
         ],
         'getWalletTokensAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletTokensCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletWithdrawRequestsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletWithdrawRequestsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletWithdrawsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletWithdrawsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchWalletBankAccountAsync' => [
             'application/json',
@@ -3631,15 +3662,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope
      */
-    public function getIncomingPaymentsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
+    public function getIncomingPaymentsAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
     {
-        list($response) = $this->getIncomingPaymentsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getIncomingPaymentsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3651,15 +3683,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIncomingPaymentsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
+    public function getIncomingPaymentsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
     {
-        $request = $this->getIncomingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3848,14 +3881,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingPaymentsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
+    public function getIncomingPaymentsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
     {
-        return $this->getIncomingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getIncomingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3871,15 +3905,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
+    public function getIncomingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentDtoListEnvelope';
-        $request = $this->getIncomingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3923,12 +3958,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getIncomingPaymentsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
+    public function getIncomingPaymentsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -3937,6 +3973,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getIncomingPaymentsAsync'
             );
         }
+
 
 
 
@@ -3980,7 +4017,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4034,15 +4078,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getIncomingPaymentsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
+    public function getIncomingPaymentsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
     {
-        list($response) = $this->getIncomingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getIncomingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4054,15 +4099,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIncomingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
+    public function getIncomingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
     {
-        $request = $this->getIncomingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4251,14 +4297,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingPaymentsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
+    public function getIncomingPaymentsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
     {
-        return $this->getIncomingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getIncomingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4274,15 +4321,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
+    public function getIncomingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getIncomingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4326,12 +4374,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getIncomingPaymentsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
+    public function getIncomingPaymentsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingPaymentsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -4340,6 +4389,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getIncomingPaymentsCountAsync'
             );
         }
+
 
 
 
@@ -4383,7 +4433,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4437,15 +4494,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope
      */
-    public function getIncomingWalletInvoicesAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
+    public function getIncomingWalletInvoicesAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
     {
-        list($response) = $this->getIncomingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getIncomingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4457,15 +4515,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIncomingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
+    public function getIncomingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
     {
-        $request = $this->getIncomingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4654,14 +4713,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingWalletInvoicesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
+    public function getIncomingWalletInvoicesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
     {
-        return $this->getIncomingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getIncomingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4677,15 +4737,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
+    public function getIncomingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceDtoListEnvelope';
-        $request = $this->getIncomingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4729,12 +4790,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getIncomingWalletInvoicesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
+    public function getIncomingWalletInvoicesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -4743,6 +4805,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getIncomingWalletInvoicesAsync'
             );
         }
+
 
 
 
@@ -4786,7 +4849,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4840,15 +4910,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getIncomingWalletInvoicesCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
+    public function getIncomingWalletInvoicesCountAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
     {
-        list($response) = $this->getIncomingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getIncomingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4860,15 +4931,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIncomingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
+    public function getIncomingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
     {
-        $request = $this->getIncomingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5057,14 +5129,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingWalletInvoicesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
+    public function getIncomingWalletInvoicesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
     {
-        return $this->getIncomingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getIncomingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5080,15 +5153,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
+    public function getIncomingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getIncomingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5132,12 +5206,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getIncomingWalletInvoicesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
+    public function getIncomingWalletInvoicesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomingWalletInvoicesCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -5146,6 +5221,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getIncomingWalletInvoicesCountAsync'
             );
         }
+
 
 
 
@@ -5189,7 +5265,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5666,15 +5749,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocationDtoListEnvelope
      */
-    public function getLocationsForWalletAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
+    public function getLocationsForWalletAsync($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
     {
-        list($response) = $this->getLocationsForWalletAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLocationsForWalletAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5686,15 +5770,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationsForWalletAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
+    public function getLocationsForWalletAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
     {
-        $request = $this->getLocationsForWalletAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLocationsForWalletAsyncRequest($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5883,14 +5968,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsForWalletAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
+    public function getLocationsForWalletAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
     {
-        return $this->getLocationsForWalletAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getLocationsForWalletAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5906,15 +5992,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsForWalletAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
+    public function getLocationsForWalletAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LocationDtoListEnvelope';
-        $request = $this->getLocationsForWalletAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLocationsForWalletAsyncRequest($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5958,12 +6045,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationsForWalletAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
+    public function getLocationsForWalletAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -5972,6 +6060,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getLocationsForWalletAsync'
             );
         }
+
 
 
 
@@ -6015,7 +6104,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($location_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($location_dto_collection_query_parameters));
+            } else {
+                $httpBody = $location_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6069,15 +6165,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getLocationsForWalletCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
+    public function getLocationsForWalletCountAsync($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
     {
-        list($response) = $this->getLocationsForWalletCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLocationsForWalletCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6089,15 +6186,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationsForWalletCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
+    public function getLocationsForWalletCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
     {
-        $request = $this->getLocationsForWalletCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLocationsForWalletCountAsyncRequest($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6286,14 +6384,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsForWalletCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
+    public function getLocationsForWalletCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
     {
-        return $this->getLocationsForWalletCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getLocationsForWalletCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6309,15 +6408,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsForWalletCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
+    public function getLocationsForWalletCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLocationsForWalletCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLocationsForWalletCountAsyncRequest($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6361,12 +6461,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsForWalletCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationsForWalletCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
+    public function getLocationsForWalletCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsForWalletCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -6375,6 +6476,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getLocationsForWalletCountAsync'
             );
         }
+
 
 
 
@@ -6418,7 +6520,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($location_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($location_dto_collection_query_parameters));
+            } else {
+                $httpBody = $location_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6472,15 +6581,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope
      */
-    public function getOutgoingPaymentsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
+    public function getOutgoingPaymentsAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
     {
-        list($response) = $this->getOutgoingPaymentsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getOutgoingPaymentsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6492,15 +6602,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOutgoingPaymentsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
+    public function getOutgoingPaymentsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
     {
-        $request = $this->getOutgoingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6689,14 +6800,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingPaymentsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
+    public function getOutgoingPaymentsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
     {
-        return $this->getOutgoingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getOutgoingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6712,15 +6824,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
+    public function getOutgoingPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentDtoListEnvelope';
-        $request = $this->getOutgoingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6764,12 +6877,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOutgoingPaymentsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
+    public function getOutgoingPaymentsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -6778,6 +6892,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getOutgoingPaymentsAsync'
             );
         }
+
 
 
 
@@ -6821,7 +6936,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6875,15 +6997,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getOutgoingPaymentsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
+    public function getOutgoingPaymentsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
     {
-        list($response) = $this->getOutgoingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getOutgoingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6895,15 +7018,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOutgoingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
+    public function getOutgoingPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
     {
-        $request = $this->getOutgoingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7092,14 +7216,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingPaymentsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
+    public function getOutgoingPaymentsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
     {
-        return $this->getOutgoingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getOutgoingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7115,15 +7240,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
+    public function getOutgoingPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getOutgoingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7167,12 +7293,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOutgoingPaymentsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
+    public function getOutgoingPaymentsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingPaymentsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -7181,6 +7308,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getOutgoingPaymentsCountAsync'
             );
         }
+
 
 
 
@@ -7224,7 +7352,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7278,15 +7413,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope
      */
-    public function getOutgoingWalletInvoicesAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
+    public function getOutgoingWalletInvoicesAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
     {
-        list($response) = $this->getOutgoingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getOutgoingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7298,15 +7434,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOutgoingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
+    public function getOutgoingWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
     {
-        $request = $this->getOutgoingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7495,14 +7632,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingWalletInvoicesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
+    public function getOutgoingWalletInvoicesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
     {
-        return $this->getOutgoingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getOutgoingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7518,15 +7656,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
+    public function getOutgoingWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceDtoListEnvelope';
-        $request = $this->getOutgoingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7570,12 +7709,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOutgoingWalletInvoicesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
+    public function getOutgoingWalletInvoicesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -7584,6 +7724,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getOutgoingWalletInvoicesAsync'
             );
         }
+
 
 
 
@@ -7627,7 +7768,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7681,15 +7829,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getOutgoingWalletInvoicesCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
+    public function getOutgoingWalletInvoicesCountAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
     {
-        list($response) = $this->getOutgoingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getOutgoingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7701,15 +7850,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOutgoingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
+    public function getOutgoingWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
     {
-        $request = $this->getOutgoingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7898,14 +8048,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingWalletInvoicesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
+    public function getOutgoingWalletInvoicesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
     {
-        return $this->getOutgoingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getOutgoingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7921,15 +8072,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutgoingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
+    public function getOutgoingWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getOutgoingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getOutgoingWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7973,12 +8125,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutgoingWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOutgoingWalletInvoicesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
+    public function getOutgoingWalletInvoicesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOutgoingWalletInvoicesCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -7987,6 +8140,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getOutgoingWalletInvoicesCountAsync'
             );
         }
+
 
 
 
@@ -8030,7 +8184,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8507,15 +8668,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BankAccountDtoListEnvelope
      */
-    public function getWalletBankAccountsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
+    public function getWalletBankAccountsAsync($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
     {
-        list($response) = $this->getWalletBankAccountsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletBankAccountsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8527,15 +8689,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BankAccountDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletBankAccountsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
+    public function getWalletBankAccountsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
     {
-        $request = $this->getWalletBankAccountsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletBankAccountsAsyncRequest($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8724,14 +8887,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletBankAccountsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
+    public function getWalletBankAccountsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
     {
-        return $this->getWalletBankAccountsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletBankAccountsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8747,15 +8911,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletBankAccountsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
+    public function getWalletBankAccountsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BankAccountDtoListEnvelope';
-        $request = $this->getWalletBankAccountsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletBankAccountsAsyncRequest($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8799,12 +8964,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletBankAccountsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
+    public function getWalletBankAccountsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -8813,6 +8979,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletBankAccountsAsync'
             );
         }
+
 
 
 
@@ -8856,7 +9023,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bank_account_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bank_account_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bank_account_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8910,15 +9084,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletBankAccountsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
+    public function getWalletBankAccountsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
     {
-        list($response) = $this->getWalletBankAccountsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletBankAccountsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8930,15 +9105,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletBankAccountsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
+    public function getWalletBankAccountsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
     {
-        $request = $this->getWalletBankAccountsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletBankAccountsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9127,14 +9303,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletBankAccountsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
+    public function getWalletBankAccountsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
     {
-        return $this->getWalletBankAccountsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletBankAccountsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9150,15 +9327,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletBankAccountsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
+    public function getWalletBankAccountsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletBankAccountsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletBankAccountsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9202,12 +9380,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters $bank_account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletBankAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletBankAccountsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
+    public function getWalletBankAccountsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $bank_account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletBankAccountsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -9216,6 +9395,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletBankAccountsCountAsync'
             );
         }
+
 
 
 
@@ -9259,7 +9439,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bank_account_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bank_account_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bank_account_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9313,15 +9500,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentChargebackDtoListEnvelope
      */
-    public function getWalletChargebacksAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
+    public function getWalletChargebacksAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
     {
-        list($response) = $this->getWalletChargebacksAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletChargebacksAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9333,15 +9521,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentChargebackDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletChargebacksAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
+    public function getWalletChargebacksAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
     {
-        $request = $this->getWalletChargebacksAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletChargebacksAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9530,14 +9719,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletChargebacksAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
+    public function getWalletChargebacksAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
     {
-        return $this->getWalletChargebacksAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletChargebacksAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9553,15 +9743,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletChargebacksAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
+    public function getWalletChargebacksAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentChargebackDtoListEnvelope';
-        $request = $this->getWalletChargebacksAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletChargebacksAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9605,12 +9796,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletChargebacksAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
+    public function getWalletChargebacksAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -9619,6 +9811,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletChargebacksAsync'
             );
         }
+
 
 
 
@@ -9662,7 +9855,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_chargeback_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_chargeback_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_chargeback_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9716,15 +9916,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletChargebacksCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
+    public function getWalletChargebacksCountAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
     {
-        list($response) = $this->getWalletChargebacksCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletChargebacksCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9736,15 +9937,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletChargebacksCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
+    public function getWalletChargebacksCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
     {
-        $request = $this->getWalletChargebacksCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletChargebacksCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9933,14 +10135,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletChargebacksCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
+    public function getWalletChargebacksCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
     {
-        return $this->getWalletChargebacksCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletChargebacksCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9956,15 +10159,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletChargebacksCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
+    public function getWalletChargebacksCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletChargebacksCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletChargebacksCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10008,12 +10212,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters $payment_chargeback_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletChargebacksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletChargebacksCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
+    public function getWalletChargebacksCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_chargeback_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletChargebacksCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -10022,6 +10227,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletChargebacksCountAsync'
             );
         }
+
 
 
 
@@ -10065,7 +10271,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_chargeback_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_chargeback_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_chargeback_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10522,15 +10735,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletExtendedOrdersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope
      */
-    public function getWalletExtendedOrdersAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
+    public function getWalletExtendedOrdersAsync($wallet_id, $api_version = null, $x_api_version = null, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
     {
-        list($response) = $this->getWalletExtendedOrdersAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletExtendedOrdersAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $extended_order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10542,15 +10756,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletExtendedOrdersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletExtendedOrdersAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
+    public function getWalletExtendedOrdersAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
     {
-        $request = $this->getWalletExtendedOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletExtendedOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $extended_order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10739,14 +10954,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletExtendedOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletExtendedOrdersAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
+    public function getWalletExtendedOrdersAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
     {
-        return $this->getWalletExtendedOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletExtendedOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $extended_order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10762,15 +10978,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletExtendedOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletExtendedOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
+    public function getWalletExtendedOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope';
-        $request = $this->getWalletExtendedOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletExtendedOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $extended_order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10814,12 +11031,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletExtendedOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletExtendedOrdersAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
+    public function getWalletExtendedOrdersAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletExtendedOrdersAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -10828,6 +11046,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletExtendedOrdersAsync'
             );
         }
+
 
 
 
@@ -10871,7 +11090,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10925,15 +11151,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope
      */
-    public function getWalletInvoicesAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
+    public function getWalletInvoicesAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
     {
-        list($response) = $this->getWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10945,15 +11172,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
+    public function getWalletInvoicesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
     {
-        $request = $this->getWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11142,14 +11370,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletInvoicesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
+    public function getWalletInvoicesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
     {
-        return $this->getWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11165,15 +11394,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
+    public function getWalletInvoicesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceDtoListEnvelope';
-        $request = $this->getWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletInvoicesAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11217,12 +11447,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletInvoicesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
+    public function getWalletInvoicesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -11231,6 +11462,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletInvoicesAsync'
             );
         }
+
 
 
 
@@ -11274,7 +11506,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11328,15 +11567,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletInvoicesCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
+    public function getWalletInvoicesCountAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
     {
-        list($response) = $this->getWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11348,15 +11588,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
+    public function getWalletInvoicesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
     {
-        $request = $this->getWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11545,14 +11786,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletInvoicesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
+    public function getWalletInvoicesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
     {
-        return $this->getWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11568,15 +11810,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
+    public function getWalletInvoicesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletInvoicesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11620,12 +11863,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters $invoice_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletInvoicesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletInvoicesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
+    public function getWalletInvoicesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $invoice_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletInvoicesCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -11634,6 +11878,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletInvoicesCountAsync'
             );
         }
+
 
 
 
@@ -11677,7 +11922,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11731,15 +11983,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OrderDtoListEnvelope
      */
-    public function getWalletOrdersAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
+    public function getWalletOrdersAsync($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
     {
-        list($response) = $this->getWalletOrdersAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletOrdersAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11751,15 +12004,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OrderDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletOrdersAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
+    public function getWalletOrdersAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
     {
-        $request = $this->getWalletOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11948,14 +12202,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletOrdersAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
+    public function getWalletOrdersAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
     {
-        return $this->getWalletOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11971,15 +12226,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
+    public function getWalletOrdersAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderDtoListEnvelope';
-        $request = $this->getWalletOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletOrdersAsyncRequest($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12023,12 +12279,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletOrdersAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
+    public function getWalletOrdersAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -12037,6 +12294,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletOrdersAsync'
             );
         }
+
 
 
 
@@ -12080,7 +12338,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12134,15 +12399,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletOrdersCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
+    public function getWalletOrdersCountAsync($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
     {
-        list($response) = $this->getWalletOrdersCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletOrdersCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12154,15 +12420,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletOrdersCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
+    public function getWalletOrdersCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
     {
-        $request = $this->getWalletOrdersCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletOrdersCountAsyncRequest($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12351,14 +12618,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletOrdersCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
+    public function getWalletOrdersCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
     {
-        return $this->getWalletOrdersCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletOrdersCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12374,15 +12642,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletOrdersCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
+    public function getWalletOrdersCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletOrdersCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletOrdersCountAsyncRequest($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12426,12 +12695,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletOrdersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletOrdersCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
+    public function getWalletOrdersCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletOrdersCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -12440,6 +12710,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletOrdersCountAsync'
             );
         }
+
 
 
 
@@ -12483,7 +12754,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12537,15 +12815,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope
      */
-    public function getWalletPaymentsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
+    public function getWalletPaymentsAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
     {
-        list($response) = $this->getWalletPaymentsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletPaymentsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12557,15 +12836,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletPaymentsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
+    public function getWalletPaymentsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
     {
-        $request = $this->getWalletPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12754,14 +13034,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletPaymentsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
+    public function getWalletPaymentsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
     {
-        return $this->getWalletPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12777,15 +13058,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
+    public function getWalletPaymentsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentDtoListEnvelope';
-        $request = $this->getWalletPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletPaymentsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12829,12 +13111,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletPaymentsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
+    public function getWalletPaymentsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -12843,6 +13126,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletPaymentsAsync'
             );
         }
+
 
 
 
@@ -12886,7 +13170,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12940,15 +13231,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletPaymentsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
+    public function getWalletPaymentsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
     {
-        list($response) = $this->getWalletPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12960,15 +13252,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
+    public function getWalletPaymentsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
     {
-        $request = $this->getWalletPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13157,14 +13450,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletPaymentsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
+    public function getWalletPaymentsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
     {
-        return $this->getWalletPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13180,15 +13474,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
+    public function getWalletPaymentsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletPaymentsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13232,12 +13527,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletPaymentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletPaymentsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
+    public function getWalletPaymentsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletPaymentsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -13246,6 +13542,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletPaymentsCountAsync'
             );
         }
+
 
 
 
@@ -13289,7 +13586,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13343,15 +13647,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\QuoteDtoListEnvelope
      */
-    public function getWalletQuotesAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
+    public function getWalletQuotesAsync($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
     {
-        list($response) = $this->getWalletQuotesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletQuotesAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13363,15 +13668,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\QuoteDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletQuotesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
+    public function getWalletQuotesAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
     {
-        $request = $this->getWalletQuotesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletQuotesAsyncRequest($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13560,14 +13866,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletQuotesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
+    public function getWalletQuotesAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
     {
-        return $this->getWalletQuotesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletQuotesAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13583,15 +13890,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletQuotesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
+    public function getWalletQuotesAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\QuoteDtoListEnvelope';
-        $request = $this->getWalletQuotesAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletQuotesAsyncRequest($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13635,12 +13943,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletQuotesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
+    public function getWalletQuotesAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -13649,6 +13958,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletQuotesAsync'
             );
         }
+
 
 
 
@@ -13692,7 +14002,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($quote_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($quote_dto_collection_query_parameters));
+            } else {
+                $httpBody = $quote_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13746,15 +14063,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletQuotesCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
+    public function getWalletQuotesCountAsync($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
     {
-        list($response) = $this->getWalletQuotesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletQuotesCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13766,15 +14084,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletQuotesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
+    public function getWalletQuotesCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
     {
-        $request = $this->getWalletQuotesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletQuotesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13963,14 +14282,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletQuotesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
+    public function getWalletQuotesCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
     {
-        return $this->getWalletQuotesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletQuotesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13986,15 +14306,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletQuotesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
+    public function getWalletQuotesCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletQuotesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletQuotesCountAsyncRequest($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14038,12 +14359,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters $quote_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletQuotesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletQuotesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
+    public function getWalletQuotesCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $quote_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletQuotesCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -14052,6 +14374,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletQuotesCountAsync'
             );
         }
+
 
 
 
@@ -14095,7 +14418,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($quote_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($quote_dto_collection_query_parameters));
+            } else {
+                $httpBody = $quote_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -14149,15 +14479,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentRefundDtoListEnvelope
      */
-    public function getWalletRefundsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
+    public function getWalletRefundsAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
     {
-        list($response) = $this->getWalletRefundsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletRefundsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -14169,15 +14500,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentRefundDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletRefundsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
+    public function getWalletRefundsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
     {
-        $request = $this->getWalletRefundsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletRefundsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14366,14 +14698,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletRefundsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
+    public function getWalletRefundsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
     {
-        return $this->getWalletRefundsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletRefundsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14389,15 +14722,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletRefundsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
+    public function getWalletRefundsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentRefundDtoListEnvelope';
-        $request = $this->getWalletRefundsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletRefundsAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14441,12 +14775,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletRefundsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
+    public function getWalletRefundsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -14455,6 +14790,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletRefundsAsync'
             );
         }
+
 
 
 
@@ -14498,7 +14834,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_refund_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_refund_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_refund_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -14552,15 +14895,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletRefundsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
+    public function getWalletRefundsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
     {
-        list($response) = $this->getWalletRefundsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletRefundsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -14572,15 +14916,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletRefundsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
+    public function getWalletRefundsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
     {
-        $request = $this->getWalletRefundsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletRefundsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14769,14 +15114,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletRefundsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
+    public function getWalletRefundsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
     {
-        return $this->getWalletRefundsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletRefundsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14792,15 +15138,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletRefundsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
+    public function getWalletRefundsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletRefundsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletRefundsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14844,12 +15191,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters $payment_refund_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletRefundsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletRefundsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
+    public function getWalletRefundsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_refund_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletRefundsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -14858,6 +15206,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletRefundsCountAsync'
             );
         }
+
 
 
 
@@ -14901,7 +15250,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_refund_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_refund_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_refund_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -15378,15 +15734,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentTokenDtoListEnvelope
      */
-    public function getWalletTokensAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
+    public function getWalletTokensAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
     {
-        list($response) = $this->getWalletTokensAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletTokensAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -15398,15 +15755,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentTokenDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletTokensAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
+    public function getWalletTokensAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
     {
-        $request = $this->getWalletTokensAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletTokensAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15595,14 +15953,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletTokensAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
+    public function getWalletTokensAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
     {
-        return $this->getWalletTokensAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletTokensAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15618,15 +15977,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletTokensAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
+    public function getWalletTokensAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentTokenDtoListEnvelope';
-        $request = $this->getWalletTokensAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletTokensAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15670,12 +16030,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletTokensAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
+    public function getWalletTokensAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -15684,6 +16045,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletTokensAsync'
             );
         }
+
 
 
 
@@ -15727,7 +16089,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_token_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_token_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_token_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -15781,15 +16150,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletTokensCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
+    public function getWalletTokensCountAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
     {
-        list($response) = $this->getWalletTokensCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletTokensCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -15801,15 +16171,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletTokensCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
+    public function getWalletTokensCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
     {
-        $request = $this->getWalletTokensCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletTokensCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15998,14 +16369,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletTokensCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
+    public function getWalletTokensCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
     {
-        return $this->getWalletTokensCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletTokensCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16021,15 +16393,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletTokensCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
+    public function getWalletTokensCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletTokensCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletTokensCountAsyncRequest($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16073,12 +16446,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters $payment_token_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletTokensCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletTokensCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
+    public function getWalletTokensCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $payment_token_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletTokensCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -16087,6 +16461,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletTokensCountAsync'
             );
         }
+
 
 
 
@@ -16130,7 +16505,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_token_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_token_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_token_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -16184,15 +16566,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WalletWithdrawRequestDtoListEnvelope
      */
-    public function getWalletWithdrawRequestsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
+    public function getWalletWithdrawRequestsAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
     {
-        list($response) = $this->getWalletWithdrawRequestsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletWithdrawRequestsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -16204,15 +16587,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WalletWithdrawRequestDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletWithdrawRequestsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
+    public function getWalletWithdrawRequestsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
     {
-        $request = $this->getWalletWithdrawRequestsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawRequestsAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16401,14 +16785,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawRequestsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
+    public function getWalletWithdrawRequestsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
     {
-        return $this->getWalletWithdrawRequestsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletWithdrawRequestsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16424,15 +16809,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawRequestsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
+    public function getWalletWithdrawRequestsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WalletWithdrawRequestDtoListEnvelope';
-        $request = $this->getWalletWithdrawRequestsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawRequestsAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16476,12 +16862,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletWithdrawRequestsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
+    public function getWalletWithdrawRequestsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -16490,6 +16877,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletWithdrawRequestsAsync'
             );
         }
+
 
 
 
@@ -16533,7 +16921,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($wallet_withdraw_request_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($wallet_withdraw_request_dto_collection_query_parameters));
+            } else {
+                $httpBody = $wallet_withdraw_request_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -16587,15 +16982,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletWithdrawRequestsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
+    public function getWalletWithdrawRequestsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
     {
-        list($response) = $this->getWalletWithdrawRequestsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletWithdrawRequestsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -16607,15 +17003,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletWithdrawRequestsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
+    public function getWalletWithdrawRequestsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
     {
-        $request = $this->getWalletWithdrawRequestsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawRequestsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16804,14 +17201,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawRequestsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
+    public function getWalletWithdrawRequestsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
     {
-        return $this->getWalletWithdrawRequestsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletWithdrawRequestsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16827,15 +17225,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawRequestsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
+    public function getWalletWithdrawRequestsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletWithdrawRequestsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawRequestsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16879,12 +17278,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters $wallet_withdraw_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletWithdrawRequestsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
+    public function getWalletWithdrawRequestsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawRequestsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -16893,6 +17293,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletWithdrawRequestsCountAsync'
             );
         }
+
 
 
 
@@ -16936,7 +17337,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($wallet_withdraw_request_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($wallet_withdraw_request_dto_collection_query_parameters));
+            } else {
+                $httpBody = $wallet_withdraw_request_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -16990,15 +17398,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WalletWithdrawDtoListEnvelope
      */
-    public function getWalletWithdrawsAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
+    public function getWalletWithdrawsAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
     {
-        list($response) = $this->getWalletWithdrawsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletWithdrawsAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -17010,15 +17419,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WalletWithdrawDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletWithdrawsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
+    public function getWalletWithdrawsAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
     {
-        $request = $this->getWalletWithdrawsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawsAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17207,14 +17617,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
+    public function getWalletWithdrawsAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
     {
-        return $this->getWalletWithdrawsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletWithdrawsAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17230,15 +17641,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
+    public function getWalletWithdrawsAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WalletWithdrawDtoListEnvelope';
-        $request = $this->getWalletWithdrawsAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawsAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17282,12 +17694,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletWithdrawsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
+    public function getWalletWithdrawsAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -17296,6 +17709,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletWithdrawsAsync'
             );
         }
+
 
 
 
@@ -17339,7 +17753,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($wallet_withdraw_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($wallet_withdraw_dto_collection_query_parameters));
+            } else {
+                $httpBody = $wallet_withdraw_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -17393,15 +17814,16 @@ class WalletsApi
      * @param  string $wallet_id wallet_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletWithdrawsCountAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
+    public function getWalletWithdrawsCountAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
     {
-        list($response) = $this->getWalletWithdrawsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWalletWithdrawsCountAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -17413,15 +17835,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletWithdrawsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
+    public function getWalletWithdrawsCountAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
     {
-        $request = $this->getWalletWithdrawsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17610,14 +18033,15 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
+    public function getWalletWithdrawsCountAsyncAsync($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
     {
-        return $this->getWalletWithdrawsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $contentType)
+        return $this->getWalletWithdrawsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17633,15 +18057,16 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletWithdrawsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
+    public function getWalletWithdrawsCountAsyncAsyncWithHttpInfo($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletWithdrawsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWalletWithdrawsCountAsyncRequest($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17685,12 +18110,13 @@ class WalletsApi
      * @param  string $wallet_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters $wallet_withdraw_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletWithdrawsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletWithdrawsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
+    public function getWalletWithdrawsCountAsyncRequest($wallet_id, $api_version = null, $x_api_version = null, $wallet_withdraw_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletWithdrawsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -17699,6 +18125,7 @@ class WalletsApi
                 'Missing the required parameter $wallet_id when calling getWalletWithdrawsCountAsync'
             );
         }
+
 
 
 
@@ -17742,7 +18169,14 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($wallet_withdraw_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($wallet_withdraw_dto_collection_query_parameters));
+            } else {
+                $httpBody = $wallet_withdraw_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -17797,16 +18231,16 @@ class WalletsApi
      * @param  string $bank_account_id bank_account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletBankAccountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWalletBankAccountAsync($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
+    public function patchWalletBankAccountAsync($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
     {
-        list($response) = $this->patchWalletBankAccountAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchWalletBankAccountAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -17819,16 +18253,16 @@ class WalletsApi
      * @param  string $bank_account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletBankAccountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWalletBankAccountAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
+    public function patchWalletBankAccountAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
     {
-        $request = $this->patchWalletBankAccountAsyncRequest($wallet_id, $bank_account_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWalletBankAccountAsyncRequest($wallet_id, $bank_account_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18018,15 +18452,15 @@ class WalletsApi
      * @param  string $bank_account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletBankAccountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWalletBankAccountAsyncAsync($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
+    public function patchWalletBankAccountAsyncAsync($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
     {
-        return $this->patchWalletBankAccountAsyncAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWalletBankAccountAsyncAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18043,16 +18477,16 @@ class WalletsApi
      * @param  string $bank_account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletBankAccountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWalletBankAccountAsyncAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
+    public function patchWalletBankAccountAsyncAsyncWithHttpInfo($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWalletBankAccountAsyncRequest($wallet_id, $bank_account_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWalletBankAccountAsyncRequest($wallet_id, $bank_account_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18097,13 +18531,13 @@ class WalletsApi
      * @param  string $bank_account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletBankAccountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWalletBankAccountAsyncRequest($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
+    public function patchWalletBankAccountAsyncRequest($wallet_id, $bank_account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletBankAccountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -18171,12 +18605,12 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -18233,16 +18667,16 @@ class WalletsApi
      * @param  string $token_id token_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletTokenAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWalletTokenAsync($wallet_id, $token_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
+    public function patchWalletTokenAsync($wallet_id, $token_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
     {
-        list($response) = $this->patchWalletTokenAsyncWithHttpInfo($wallet_id, $token_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchWalletTokenAsyncWithHttpInfo($wallet_id, $token_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -18255,16 +18689,16 @@ class WalletsApi
      * @param  string $token_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletTokenAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWalletTokenAsyncWithHttpInfo($wallet_id, $token_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
+    public function patchWalletTokenAsyncWithHttpInfo($wallet_id, $token_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
     {
-        $request = $this->patchWalletTokenAsyncRequest($wallet_id, $token_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWalletTokenAsyncRequest($wallet_id, $token_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18454,15 +18888,15 @@ class WalletsApi
      * @param  string $token_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletTokenAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWalletTokenAsyncAsync($wallet_id, $token_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
+    public function patchWalletTokenAsyncAsync($wallet_id, $token_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
     {
-        return $this->patchWalletTokenAsyncAsyncWithHttpInfo($wallet_id, $token_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWalletTokenAsyncAsyncWithHttpInfo($wallet_id, $token_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18479,16 +18913,16 @@ class WalletsApi
      * @param  string $token_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletTokenAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWalletTokenAsyncAsyncWithHttpInfo($wallet_id, $token_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
+    public function patchWalletTokenAsyncAsyncWithHttpInfo($wallet_id, $token_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWalletTokenAsyncRequest($wallet_id, $token_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWalletTokenAsyncRequest($wallet_id, $token_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18533,13 +18967,13 @@ class WalletsApi
      * @param  string $token_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletTokenAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWalletTokenAsyncRequest($wallet_id, $token_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
+    public function patchWalletTokenAsyncRequest($wallet_id, $token_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWalletTokenAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -18607,12 +19041,12 @@ class WalletsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

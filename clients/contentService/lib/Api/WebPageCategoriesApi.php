@@ -74,6 +74,7 @@ class WebPageCategoriesApi
     public const contentTypes = [
         'countWebPageCategoriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createWebPageCategoryAsync' => [
             'application/json',
@@ -84,6 +85,7 @@ class WebPageCategoriesApi
         ],
         'getWebPageCategoriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWebPageCategoryByIdAsync' => [
             'application/json',
@@ -152,15 +154,16 @@ class WebPageCategoriesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countWebPageCategoriesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
+    public function countWebPageCategoriesAsync($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
     {
-        list($response) = $this->countWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -172,15 +175,16 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
+    public function countWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
     {
-        $request = $this->countWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -369,14 +373,15 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countWebPageCategoriesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
+    public function countWebPageCategoriesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
     {
-        return $this->countWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -392,15 +397,16 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
+    public function countWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -444,12 +450,13 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countWebPageCategoriesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
+    public function countWebPageCategoriesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebPageCategoriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -458,6 +465,7 @@ class WebPageCategoriesApi
                 'Missing the required parameter $tenant_id when calling countWebPageCategoriesAsync'
             );
         }
+
 
 
 
@@ -502,7 +510,14 @@ class WebPageCategoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_page_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_page_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_page_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1397,15 +1412,16 @@ class WebPageCategoriesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebPageCategoryDtoListEnvelope
      */
-    public function getWebPageCategoriesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
+    public function getWebPageCategoriesAsync($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
     {
-        list($response) = $this->getWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1417,15 +1433,16 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebPageCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
+    public function getWebPageCategoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
     {
-        $request = $this->getWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1614,14 +1631,15 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebPageCategoriesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
+    public function getWebPageCategoriesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
     {
-        return $this->getWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1637,15 +1655,16 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
+    public function getWebPageCategoriesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WebPageCategoryDtoListEnvelope';
-        $request = $this->getWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebPageCategoriesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_page_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,12 +1708,13 @@ class WebPageCategoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPageCategoryDtoCollectionQueryParameters $web_page_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebPageCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebPageCategoriesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
+    public function getWebPageCategoriesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $web_page_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebPageCategoriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1703,6 +1723,7 @@ class WebPageCategoriesApi
                 'Missing the required parameter $tenant_id when calling getWebPageCategoriesAsync'
             );
         }
+
 
 
 
@@ -1747,7 +1768,14 @@ class WebPageCategoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_page_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_page_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_page_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class WebPageCategoriesApi
      * @param  string $web_page_category_id web_page_category_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebPageCategoryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWebPageCategoryAsync($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
+    public function patchWebPageCategoryAsync($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
     {
-        list($response) = $this->patchWebPageCategoryAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchWebPageCategoryAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class WebPageCategoriesApi
      * @param  string $web_page_category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebPageCategoryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWebPageCategoryAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
+    public function patchWebPageCategoryAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
     {
-        $request = $this->patchWebPageCategoryAsyncRequest($tenant_id, $web_page_category_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWebPageCategoryAsyncRequest($tenant_id, $web_page_category_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class WebPageCategoriesApi
      * @param  string $web_page_category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebPageCategoryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWebPageCategoryAsyncAsync($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
+    public function patchWebPageCategoryAsyncAsync($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
     {
-        return $this->patchWebPageCategoryAsyncAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWebPageCategoryAsyncAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class WebPageCategoriesApi
      * @param  string $web_page_category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebPageCategoryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWebPageCategoryAsyncAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
+    public function patchWebPageCategoryAsyncAsyncWithHttpInfo($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWebPageCategoryAsyncRequest($tenant_id, $web_page_category_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWebPageCategoryAsyncRequest($tenant_id, $web_page_category_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class WebPageCategoriesApi
      * @param  string $web_page_category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebPageCategoryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWebPageCategoryAsyncRequest($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
+    public function patchWebPageCategoryAsyncRequest($tenant_id, $web_page_category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebPageCategoryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class WebPageCategoriesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -91,18 +91,22 @@ class DiscountListsApi
         ],
         'getDiscountListEntries' => [
             'application/json',
+            'application/xml',
         ],
         'getDiscountListEntriesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getDiscountListEntry' => [
             'application/json',
         ],
         'getDiscountLists' => [
             'application/json',
+            'application/xml',
         ],
         'getDiscountListsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchDiscountList' => [
             'application/json',
@@ -2371,15 +2375,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $discount_list_id discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DiscountDtoListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getDiscountListEntries($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntries'][0])
+    public function getDiscountListEntries($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntries'][0])
     {
-        list($response) = $this->getDiscountListEntriesWithHttpInfo($tenant_id, $discount_list_id, $contentType);
+        list($response) = $this->getDiscountListEntriesWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2390,15 +2395,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DiscountDtoListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDiscountListEntriesWithHttpInfo($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntries'][0])
+    public function getDiscountListEntriesWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntries'][0])
     {
-        $request = $this->getDiscountListEntriesRequest($tenant_id, $discount_list_id, $contentType);
+        $request = $this->getDiscountListEntriesRequest($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2621,14 +2627,15 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListEntriesAsync($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntries'][0])
+    public function getDiscountListEntriesAsync($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntries'][0])
     {
-        return $this->getDiscountListEntriesAsyncWithHttpInfo($tenant_id, $discount_list_id, $contentType)
+        return $this->getDiscountListEntriesAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2643,15 +2650,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListEntriesAsyncWithHttpInfo($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntries'][0])
+    public function getDiscountListEntriesAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntries'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DiscountDtoListEnvelope';
-        $request = $this->getDiscountListEntriesRequest($tenant_id, $discount_list_id, $contentType);
+        $request = $this->getDiscountListEntriesRequest($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2694,12 +2702,13 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDiscountListEntriesRequest($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntries'][0])
+    public function getDiscountListEntriesRequest($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntries'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2715,6 +2724,7 @@ class DiscountListsApi
                 'Missing the required parameter $discount_list_id when calling getDiscountListEntries'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/DiscountLists/{discountListId}/Discounts';
@@ -2752,7 +2762,14 @@ class DiscountListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($discount_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($discount_dto_collection_query_parameters));
+            } else {
+                $httpBody = $discount_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2805,15 +2822,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $discount_list_id discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getDiscountListEntriesCount($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
+    public function getDiscountListEntriesCount($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
     {
-        list($response) = $this->getDiscountListEntriesCountWithHttpInfo($tenant_id, $discount_list_id, $contentType);
+        list($response) = $this->getDiscountListEntriesCountWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2824,15 +2842,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDiscountListEntriesCountWithHttpInfo($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
+    public function getDiscountListEntriesCountWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
     {
-        $request = $this->getDiscountListEntriesCountRequest($tenant_id, $discount_list_id, $contentType);
+        $request = $this->getDiscountListEntriesCountRequest($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3055,14 +3074,15 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListEntriesCountAsync($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
+    public function getDiscountListEntriesCountAsync($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
     {
-        return $this->getDiscountListEntriesCountAsyncWithHttpInfo($tenant_id, $discount_list_id, $contentType)
+        return $this->getDiscountListEntriesCountAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3077,15 +3097,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListEntriesCountAsyncWithHttpInfo($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
+    public function getDiscountListEntriesCountAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getDiscountListEntriesCountRequest($tenant_id, $discount_list_id, $contentType);
+        $request = $this->getDiscountListEntriesCountRequest($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3128,12 +3149,13 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters $discount_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListEntriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDiscountListEntriesCountRequest($tenant_id, $discount_list_id, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
+    public function getDiscountListEntriesCountRequest($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListEntriesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3149,6 +3171,7 @@ class DiscountListsApi
                 'Missing the required parameter $discount_list_id when calling getDiscountListEntriesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count';
@@ -3186,7 +3209,14 @@ class DiscountListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($discount_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($discount_dto_collection_query_parameters));
+            } else {
+                $httpBody = $discount_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3692,15 +3722,16 @@ class DiscountListsApi
      * Retrieves all discount lists
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountLists'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DiscountListDtoListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getDiscountLists($tenant_id, string $contentType = self::contentTypes['getDiscountLists'][0])
+    public function getDiscountLists($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountLists'][0])
     {
-        list($response) = $this->getDiscountListsWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getDiscountListsWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3710,15 +3741,16 @@ class DiscountListsApi
      * Retrieves all discount lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountLists'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DiscountListDtoListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDiscountListsWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDiscountLists'][0])
+    public function getDiscountListsWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountLists'][0])
     {
-        $request = $this->getDiscountListsRequest($tenant_id, $contentType);
+        $request = $this->getDiscountListsRequest($tenant_id, $discount_list_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3940,14 +3972,15 @@ class DiscountListsApi
      * Retrieves all discount lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountLists'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListsAsync($tenant_id, string $contentType = self::contentTypes['getDiscountLists'][0])
+    public function getDiscountListsAsync($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountLists'][0])
     {
-        return $this->getDiscountListsAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getDiscountListsAsyncWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3961,15 +3994,16 @@ class DiscountListsApi
      * Retrieves all discount lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountLists'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDiscountLists'][0])
+    public function getDiscountListsAsyncWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountLists'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DiscountListDtoListEnvelope';
-        $request = $this->getDiscountListsRequest($tenant_id, $contentType);
+        $request = $this->getDiscountListsRequest($tenant_id, $discount_list_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4011,12 +4045,13 @@ class DiscountListsApi
      * Create request for operation 'getDiscountLists'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountLists'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDiscountListsRequest($tenant_id, string $contentType = self::contentTypes['getDiscountLists'][0])
+    public function getDiscountListsRequest($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountLists'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4025,6 +4060,7 @@ class DiscountListsApi
                 'Missing the required parameter $tenant_id when calling getDiscountLists'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/DiscountLists';
@@ -4054,7 +4090,14 @@ class DiscountListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($discount_list_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($discount_list_dto_collection_query_parameters));
+            } else {
+                $httpBody = $discount_list_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4106,15 +4149,16 @@ class DiscountListsApi
      * Counts discount lists
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getDiscountListsCount($tenant_id, string $contentType = self::contentTypes['getDiscountListsCount'][0])
+    public function getDiscountListsCount($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListsCount'][0])
     {
-        list($response) = $this->getDiscountListsCountWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getDiscountListsCountWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4124,15 +4168,16 @@ class DiscountListsApi
      * Counts discount lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDiscountListsCountWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDiscountListsCount'][0])
+    public function getDiscountListsCountWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListsCount'][0])
     {
-        $request = $this->getDiscountListsCountRequest($tenant_id, $contentType);
+        $request = $this->getDiscountListsCountRequest($tenant_id, $discount_list_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4354,14 +4399,15 @@ class DiscountListsApi
      * Counts discount lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListsCountAsync($tenant_id, string $contentType = self::contentTypes['getDiscountListsCount'][0])
+    public function getDiscountListsCountAsync($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListsCount'][0])
     {
-        return $this->getDiscountListsCountAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getDiscountListsCountAsyncWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4375,15 +4421,16 @@ class DiscountListsApi
      * Counts discount lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDiscountListsCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDiscountListsCount'][0])
+    public function getDiscountListsCountAsyncWithHttpInfo($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getDiscountListsCountRequest($tenant_id, $contentType);
+        $request = $this->getDiscountListsCountRequest($tenant_id, $discount_list_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4425,12 +4472,13 @@ class DiscountListsApi
      * Create request for operation 'getDiscountListsCount'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters $discount_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDiscountListsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDiscountListsCountRequest($tenant_id, string $contentType = self::contentTypes['getDiscountListsCount'][0])
+    public function getDiscountListsCountRequest($tenant_id, $discount_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDiscountListsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4439,6 +4487,7 @@ class DiscountListsApi
                 'Missing the required parameter $tenant_id when calling getDiscountListsCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/DiscountLists/Count';
@@ -4468,7 +4517,14 @@ class DiscountListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($discount_list_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($discount_list_dto_collection_query_parameters));
+            } else {
+                $httpBody = $discount_list_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4521,16 +4577,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $discount_list_id discount_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchDiscountList($tenant_id, $discount_list_id, $operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
+    public function patchDiscountList($tenant_id, $discount_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
     {
-        list($response) = $this->patchDiscountListWithHttpInfo($tenant_id, $discount_list_id, $operation, $contentType);
+        list($response) = $this->patchDiscountListWithHttpInfo($tenant_id, $discount_list_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4541,16 +4597,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDiscountListWithHttpInfo($tenant_id, $discount_list_id, $operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
+    public function patchDiscountListWithHttpInfo($tenant_id, $discount_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
     {
-        $request = $this->patchDiscountListRequest($tenant_id, $discount_list_id, $operation, $contentType);
+        $request = $this->patchDiscountListRequest($tenant_id, $discount_list_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4773,15 +4829,15 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDiscountListAsync($tenant_id, $discount_list_id, $operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
+    public function patchDiscountListAsync($tenant_id, $discount_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
     {
-        return $this->patchDiscountListAsyncWithHttpInfo($tenant_id, $discount_list_id, $operation, $contentType)
+        return $this->patchDiscountListAsyncWithHttpInfo($tenant_id, $discount_list_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4796,16 +4852,16 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDiscountListAsyncWithHttpInfo($tenant_id, $discount_list_id, $operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
+    public function patchDiscountListAsyncWithHttpInfo($tenant_id, $discount_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchDiscountListRequest($tenant_id, $discount_list_id, $operation, $contentType);
+        $request = $this->patchDiscountListRequest($tenant_id, $discount_list_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4848,13 +4904,13 @@ class DiscountListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDiscountListRequest($tenant_id, $discount_list_id, $operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
+    public function patchDiscountListRequest($tenant_id, $discount_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountList'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4908,12 +4964,12 @@ class DiscountListsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4969,16 +5025,16 @@ class DiscountListsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $discount_list_id discount_list_id (required)
      * @param  string $discount_list_entry_id discount_list_entry_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountListEntry'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchDiscountListEntry($tenant_id, $discount_list_id, $discount_list_entry_id, $operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
+    public function patchDiscountListEntry($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
     {
-        list($response) = $this->patchDiscountListEntryWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $operation, $contentType);
+        list($response) = $this->patchDiscountListEntryWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4990,16 +5046,16 @@ class DiscountListsApi
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
      * @param  string $discount_list_entry_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountListEntry'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDiscountListEntryWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
+    public function patchDiscountListEntryWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
     {
-        $request = $this->patchDiscountListEntryRequest($tenant_id, $discount_list_id, $discount_list_entry_id, $operation, $contentType);
+        $request = $this->patchDiscountListEntryRequest($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5223,15 +5279,15 @@ class DiscountListsApi
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
      * @param  string $discount_list_entry_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountListEntry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDiscountListEntryAsync($tenant_id, $discount_list_id, $discount_list_entry_id, $operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
+    public function patchDiscountListEntryAsync($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
     {
-        return $this->patchDiscountListEntryAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $operation, $contentType)
+        return $this->patchDiscountListEntryAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5247,16 +5303,16 @@ class DiscountListsApi
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
      * @param  string $discount_list_entry_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountListEntry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDiscountListEntryAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
+    public function patchDiscountListEntryAsyncWithHttpInfo($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchDiscountListEntryRequest($tenant_id, $discount_list_id, $discount_list_entry_id, $operation, $contentType);
+        $request = $this->patchDiscountListEntryRequest($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5300,13 +5356,13 @@ class DiscountListsApi
      * @param  string $tenant_id (required)
      * @param  string $discount_list_id (required)
      * @param  string $discount_list_entry_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDiscountListEntry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDiscountListEntryRequest($tenant_id, $discount_list_id, $discount_list_entry_id, $operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
+    public function patchDiscountListEntryRequest($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation = null, string $contentType = self::contentTypes['patchDiscountListEntry'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5375,12 +5431,12 @@ class DiscountListsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

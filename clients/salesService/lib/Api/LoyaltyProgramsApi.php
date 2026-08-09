@@ -74,6 +74,7 @@ class LoyaltyProgramsApi
     public const contentTypes = [
         'countLoyaltyProgramsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createLoyaltyProgramAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class LoyaltyProgramsApi
         ],
         'getLoyaltyProgramsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchLoyaltyProgramAsync' => [
             'application/json',
@@ -150,15 +152,16 @@ class LoyaltyProgramsApi
      * Get loyalty programs count
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countLoyaltyProgramsAsync($tenant_id, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
+    public function countLoyaltyProgramsAsync($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
     {
-        list($response) = $this->countLoyaltyProgramsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->countLoyaltyProgramsAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -168,15 +171,16 @@ class LoyaltyProgramsApi
      * Get loyalty programs count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countLoyaltyProgramsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
+    public function countLoyaltyProgramsAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
     {
-        $request = $this->countLoyaltyProgramsAsyncRequest($tenant_id, $contentType);
+        $request = $this->countLoyaltyProgramsAsyncRequest($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -328,14 +332,15 @@ class LoyaltyProgramsApi
      * Get loyalty programs count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countLoyaltyProgramsAsyncAsync($tenant_id, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
+    public function countLoyaltyProgramsAsyncAsync($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
     {
-        return $this->countLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->countLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -349,15 +354,16 @@ class LoyaltyProgramsApi
      * Get loyalty programs count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
+    public function countLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countLoyaltyProgramsAsyncRequest($tenant_id, $contentType);
+        $request = $this->countLoyaltyProgramsAsyncRequest($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -399,12 +405,13 @@ class LoyaltyProgramsApi
      * Create request for operation 'countLoyaltyProgramsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countLoyaltyProgramsAsyncRequest($tenant_id, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
+    public function countLoyaltyProgramsAsyncRequest($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLoyaltyProgramsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -413,6 +420,7 @@ class LoyaltyProgramsApi
                 'Missing the required parameter $tenant_id when calling countLoyaltyProgramsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/LoyaltyPrograms/Count';
@@ -442,7 +450,14 @@ class LoyaltyProgramsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loyalty_program_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loyalty_program_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loyalty_program_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1579,15 +1594,16 @@ class LoyaltyProgramsApi
      * Get loyalty programs
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LoyaltyProgramDtoListEnvelope
      */
-    public function getLoyaltyProgramsAsync($tenant_id, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
+    public function getLoyaltyProgramsAsync($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
     {
-        list($response) = $this->getLoyaltyProgramsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getLoyaltyProgramsAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1597,15 +1613,16 @@ class LoyaltyProgramsApi
      * Get loyalty programs
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LoyaltyProgramDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoyaltyProgramsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
+    public function getLoyaltyProgramsAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
     {
-        $request = $this->getLoyaltyProgramsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getLoyaltyProgramsAsyncRequest($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1757,14 +1774,15 @@ class LoyaltyProgramsApi
      * Get loyalty programs
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
+    public function getLoyaltyProgramsAsyncAsync($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
     {
-        return $this->getLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1778,15 +1796,16 @@ class LoyaltyProgramsApi
      * Get loyalty programs
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
+    public function getLoyaltyProgramsAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LoyaltyProgramDtoListEnvelope';
-        $request = $this->getLoyaltyProgramsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getLoyaltyProgramsAsyncRequest($tenant_id, $loyalty_program_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1828,12 +1847,13 @@ class LoyaltyProgramsApi
      * Create request for operation 'getLoyaltyProgramsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LoyaltyProgramDtoCollectionQueryParameters $loyalty_program_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoyaltyProgramsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoyaltyProgramsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
+    public function getLoyaltyProgramsAsyncRequest($tenant_id, $loyalty_program_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoyaltyProgramsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1842,6 +1862,7 @@ class LoyaltyProgramsApi
                 'Missing the required parameter $tenant_id when calling getLoyaltyProgramsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/LoyaltyPrograms';
@@ -1871,7 +1892,14 @@ class LoyaltyProgramsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loyalty_program_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loyalty_program_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loyalty_program_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1924,16 +1952,16 @@ class LoyaltyProgramsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $loyalty_program_id loyalty_program_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoyaltyProgramAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchLoyaltyProgramAsync($tenant_id, $loyalty_program_id, $operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
+    public function patchLoyaltyProgramAsync($tenant_id, $loyalty_program_id, $patch_operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
     {
-        list($response) = $this->patchLoyaltyProgramAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $operation, $contentType);
+        list($response) = $this->patchLoyaltyProgramAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1944,16 +1972,16 @@ class LoyaltyProgramsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $loyalty_program_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoyaltyProgramAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLoyaltyProgramAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
+    public function patchLoyaltyProgramAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $patch_operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
     {
-        $request = $this->patchLoyaltyProgramAsyncRequest($tenant_id, $loyalty_program_id, $operation, $contentType);
+        $request = $this->patchLoyaltyProgramAsyncRequest($tenant_id, $loyalty_program_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2106,15 +2134,15 @@ class LoyaltyProgramsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $loyalty_program_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoyaltyProgramAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoyaltyProgramAsyncAsync($tenant_id, $loyalty_program_id, $operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
+    public function patchLoyaltyProgramAsyncAsync($tenant_id, $loyalty_program_id, $patch_operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
     {
-        return $this->patchLoyaltyProgramAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $operation, $contentType)
+        return $this->patchLoyaltyProgramAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2129,16 +2157,16 @@ class LoyaltyProgramsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $loyalty_program_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoyaltyProgramAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoyaltyProgramAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
+    public function patchLoyaltyProgramAsyncAsyncWithHttpInfo($tenant_id, $loyalty_program_id, $patch_operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLoyaltyProgramAsyncRequest($tenant_id, $loyalty_program_id, $operation, $contentType);
+        $request = $this->patchLoyaltyProgramAsyncRequest($tenant_id, $loyalty_program_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2181,13 +2209,13 @@ class LoyaltyProgramsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $loyalty_program_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoyaltyProgramAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLoyaltyProgramAsyncRequest($tenant_id, $loyalty_program_id, $operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
+    public function patchLoyaltyProgramAsyncRequest($tenant_id, $loyalty_program_id, $patch_operation = null, string $contentType = self::contentTypes['patchLoyaltyProgramAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class LoyaltyProgramsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

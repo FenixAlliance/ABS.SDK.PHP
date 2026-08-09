@@ -92,8 +92,13 @@ class UsersApi
         ],
         'getExtendedUsersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getExtendedUsersCountAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'getUserAdminDetailAsync' => [
             'application/json',
         ],
         'getUserAsync' => [
@@ -101,11 +106,21 @@ class UsersApi
         ],
         'getUsersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getUsersCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchAccountHolderAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'setUserPasswordAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'updateAccountHolderAdminProfileAsync' => [
             'application/json',
             'application/xml',
         ],
@@ -2057,15 +2072,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedUserDtoListEnvelope
      */
-    public function getExtendedUsersAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
+    public function getExtendedUsersAsync($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
     {
-        list($response) = $this->getExtendedUsersAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getExtendedUsersAsyncWithHttpInfo($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2076,15 +2092,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedUserDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedUsersAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
+    public function getExtendedUsersAsyncWithHttpInfo($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
     {
-        $request = $this->getExtendedUsersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getExtendedUsersAsyncRequest($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2272,14 +2289,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedUsersAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
+    public function getExtendedUsersAsyncAsync($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
     {
-        return $this->getExtendedUsersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getExtendedUsersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2294,15 +2312,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedUsersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
+    public function getExtendedUsersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedUserDtoListEnvelope';
-        $request = $this->getExtendedUsersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getExtendedUsersAsyncRequest($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2345,13 +2364,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedUsersAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
+    public function getExtendedUsersAsyncRequest($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersAsync'][0])
     {
+
 
 
 
@@ -2387,7 +2408,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_user_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_user_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_user_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2440,15 +2468,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getExtendedUsersCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
+    public function getExtendedUsersCountAsync($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
     {
-        list($response) = $this->getExtendedUsersCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getExtendedUsersCountAsyncWithHttpInfo($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2459,15 +2488,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedUsersCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
+    public function getExtendedUsersCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
     {
-        $request = $this->getExtendedUsersCountAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getExtendedUsersCountAsyncRequest($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2655,14 +2685,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedUsersCountAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
+    public function getExtendedUsersCountAsyncAsync($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
     {
-        return $this->getExtendedUsersCountAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getExtendedUsersCountAsyncAsyncWithHttpInfo($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2677,15 +2708,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedUsersCountAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
+    public function getExtendedUsersCountAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getExtendedUsersCountAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getExtendedUsersCountAsyncRequest($api_version, $x_api_version, $extended_user_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2728,13 +2760,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters $extended_user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedUsersCountAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
+    public function getExtendedUsersCountAsyncRequest($api_version = null, $x_api_version = null, $extended_user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedUsersCountAsync'][0])
     {
+
 
 
 
@@ -2761,6 +2795,437 @@ class UsersApi
             $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
         }
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($extended_user_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_user_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_user_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getUserAdminDetailAsync
+     *
+     * Retrieve the admin detail aggregate for a user
+     *
+     * @param  string $user_id user_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAdminDetailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope
+     */
+    public function getUserAdminDetailAsync($user_id, $tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUserAdminDetailAsync'][0])
+    {
+        list($response) = $this->getUserAdminDetailAsyncWithHttpInfo($user_id, $tenant_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getUserAdminDetailAsyncWithHttpInfo
+     *
+     * Retrieve the admin detail aggregate for a user
+     *
+     * @param  string $user_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAdminDetailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUserAdminDetailAsyncWithHttpInfo($user_id, $tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUserAdminDetailAsync'][0])
+    {
+        $request = $this->getUserAdminDetailAsyncRequest($user_id, $tenant_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getUserAdminDetailAsyncAsync
+     *
+     * Retrieve the admin detail aggregate for a user
+     *
+     * @param  string $user_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAdminDetailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserAdminDetailAsyncAsync($user_id, $tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUserAdminDetailAsync'][0])
+    {
+        return $this->getUserAdminDetailAsyncAsyncWithHttpInfo($user_id, $tenant_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUserAdminDetailAsyncAsyncWithHttpInfo
+     *
+     * Retrieve the admin detail aggregate for a user
+     *
+     * @param  string $user_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAdminDetailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUserAdminDetailAsyncAsyncWithHttpInfo($user_id, $tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUserAdminDetailAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope';
+        $request = $this->getUserAdminDetailAsyncRequest($user_id, $tenant_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUserAdminDetailAsync'
+     *
+     * @param  string $user_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserAdminDetailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getUserAdminDetailAsyncRequest($user_id, $tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUserAdminDetailAsync'][0])
+    {
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling getUserAdminDetailAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getUserAdminDetailAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/SystemService/Users/{userId}/AdminDetail';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3226,15 +3691,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UserDtoListEnvelope
      */
-    public function getUsersAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersAsync'][0])
+    public function getUsersAsync($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersAsync'][0])
     {
-        list($response) = $this->getUsersAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getUsersAsyncWithHttpInfo($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3245,15 +3711,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UserDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersAsync'][0])
+    public function getUsersAsyncWithHttpInfo($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersAsync'][0])
     {
-        $request = $this->getUsersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getUsersAsyncRequest($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3441,14 +3908,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersAsync'][0])
+    public function getUsersAsyncAsync($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersAsync'][0])
     {
-        return $this->getUsersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getUsersAsyncAsyncWithHttpInfo($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3463,15 +3931,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersAsync'][0])
+    public function getUsersAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UserDtoListEnvelope';
-        $request = $this->getUsersAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getUsersAsyncRequest($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3514,13 +3983,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUsersAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersAsync'][0])
+    public function getUsersAsyncRequest($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersAsync'][0])
     {
+
 
 
 
@@ -3556,7 +4027,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($user_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($user_dto_collection_query_parameters));
+            } else {
+                $httpBody = $user_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3609,15 +4087,16 @@ class UsersApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getUsersCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
+    public function getUsersCountAsync($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
     {
-        list($response) = $this->getUsersCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getUsersCountAsyncWithHttpInfo($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3628,15 +4107,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
+    public function getUsersCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
     {
-        $request = $this->getUsersCountAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getUsersCountAsyncRequest($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3824,14 +4304,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersCountAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
+    public function getUsersCountAsyncAsync($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
     {
-        return $this->getUsersCountAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getUsersCountAsyncAsyncWithHttpInfo($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3846,15 +4327,16 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersCountAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
+    public function getUsersCountAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getUsersCountAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getUsersCountAsyncRequest($api_version, $x_api_version, $user_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3897,13 +4379,15 @@ class UsersApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserDtoCollectionQueryParameters $user_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUsersCountAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
+    public function getUsersCountAsyncRequest($api_version = null, $x_api_version = null, $user_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUsersCountAsync'][0])
     {
+
 
 
 
@@ -3939,7 +4423,14 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($user_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($user_dto_collection_query_parameters));
+            } else {
+                $httpBody = $user_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3993,16 +4484,16 @@ class UsersApi
      * @param  string $user_id user_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountHolderAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAccountHolderAsync($user_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
+    public function patchAccountHolderAsync($user_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
     {
-        list($response) = $this->patchAccountHolderAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAccountHolderAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4014,16 +4505,16 @@ class UsersApi
      * @param  string $user_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountHolderAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAccountHolderAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
+    public function patchAccountHolderAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
     {
-        $request = $this->patchAccountHolderAsyncRequest($user_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountHolderAsyncRequest($user_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4212,15 +4703,15 @@ class UsersApi
      * @param  string $user_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountHolderAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountHolderAsyncAsync($user_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
+    public function patchAccountHolderAsyncAsync($user_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
     {
-        return $this->patchAccountHolderAsyncAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAccountHolderAsyncAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4236,16 +4727,16 @@ class UsersApi
      * @param  string $user_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountHolderAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountHolderAsyncAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
+    public function patchAccountHolderAsyncAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAccountHolderAsyncRequest($user_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountHolderAsyncRequest($user_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4289,13 +4780,13 @@ class UsersApi
      * @param  string $user_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountHolderAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAccountHolderAsyncRequest($user_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
+    public function patchAccountHolderAsyncRequest($user_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountHolderAsync'][0])
     {
 
         // verify the required parameter 'user_id' is set
@@ -4348,12 +4839,12 @@ class UsersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4395,6 +4886,873 @@ class UsersApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setUserPasswordAsync
+     *
+     * Set a user&#39;s password
+     *
+     * @param  string $user_id user_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SetUserPasswordDto $set_user_password_dto set_user_password_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserPasswordAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function setUserPasswordAsync($user_id, $api_version = null, $x_api_version = null, $set_user_password_dto = null, string $contentType = self::contentTypes['setUserPasswordAsync'][0])
+    {
+        list($response) = $this->setUserPasswordAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $set_user_password_dto, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation setUserPasswordAsyncWithHttpInfo
+     *
+     * Set a user&#39;s password
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SetUserPasswordDto $set_user_password_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserPasswordAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setUserPasswordAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $set_user_password_dto = null, string $contentType = self::contentTypes['setUserPasswordAsync'][0])
+    {
+        $request = $this->setUserPasswordAsyncRequest($user_id, $api_version, $x_api_version, $set_user_password_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setUserPasswordAsyncAsync
+     *
+     * Set a user&#39;s password
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SetUserPasswordDto $set_user_password_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserPasswordAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setUserPasswordAsyncAsync($user_id, $api_version = null, $x_api_version = null, $set_user_password_dto = null, string $contentType = self::contentTypes['setUserPasswordAsync'][0])
+    {
+        return $this->setUserPasswordAsyncAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $set_user_password_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setUserPasswordAsyncAsyncWithHttpInfo
+     *
+     * Set a user&#39;s password
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SetUserPasswordDto $set_user_password_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserPasswordAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setUserPasswordAsyncAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $set_user_password_dto = null, string $contentType = self::contentTypes['setUserPasswordAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->setUserPasswordAsyncRequest($user_id, $api_version, $x_api_version, $set_user_password_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setUserPasswordAsync'
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SetUserPasswordDto $set_user_password_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserPasswordAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setUserPasswordAsyncRequest($user_id, $api_version = null, $x_api_version = null, $set_user_password_dto = null, string $contentType = self::contentTypes['setUserPasswordAsync'][0])
+    {
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling setUserPasswordAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SystemService/Users/{userId}/Password';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($set_user_password_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($set_user_password_dto));
+            } else {
+                $httpBody = $set_user_password_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateAccountHolderAdminProfileAsync
+     *
+     * Update a user&#39;s admin-managed profile
+     *
+     * @param  string $user_id user_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserAdminUpdateDto $user_admin_update_dto user_admin_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccountHolderAdminProfileAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function updateAccountHolderAdminProfileAsync($user_id, $api_version = null, $x_api_version = null, $user_admin_update_dto = null, string $contentType = self::contentTypes['updateAccountHolderAdminProfileAsync'][0])
+    {
+        list($response) = $this->updateAccountHolderAdminProfileAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $user_admin_update_dto, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateAccountHolderAdminProfileAsyncWithHttpInfo
+     *
+     * Update a user&#39;s admin-managed profile
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserAdminUpdateDto $user_admin_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccountHolderAdminProfileAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAccountHolderAdminProfileAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $user_admin_update_dto = null, string $contentType = self::contentTypes['updateAccountHolderAdminProfileAsync'][0])
+    {
+        $request = $this->updateAccountHolderAdminProfileAsyncRequest($user_id, $api_version, $x_api_version, $user_admin_update_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAccountHolderAdminProfileAsyncAsync
+     *
+     * Update a user&#39;s admin-managed profile
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserAdminUpdateDto $user_admin_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccountHolderAdminProfileAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAccountHolderAdminProfileAsyncAsync($user_id, $api_version = null, $x_api_version = null, $user_admin_update_dto = null, string $contentType = self::contentTypes['updateAccountHolderAdminProfileAsync'][0])
+    {
+        return $this->updateAccountHolderAdminProfileAsyncAsyncWithHttpInfo($user_id, $api_version, $x_api_version, $user_admin_update_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAccountHolderAdminProfileAsyncAsyncWithHttpInfo
+     *
+     * Update a user&#39;s admin-managed profile
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserAdminUpdateDto $user_admin_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccountHolderAdminProfileAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAccountHolderAdminProfileAsyncAsyncWithHttpInfo($user_id, $api_version = null, $x_api_version = null, $user_admin_update_dto = null, string $contentType = self::contentTypes['updateAccountHolderAdminProfileAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->updateAccountHolderAdminProfileAsyncRequest($user_id, $api_version, $x_api_version, $user_admin_update_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAccountHolderAdminProfileAsync'
+     *
+     * @param  string $user_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UserAdminUpdateDto $user_admin_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccountHolderAdminProfileAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateAccountHolderAdminProfileAsyncRequest($user_id, $api_version = null, $x_api_version = null, $user_admin_update_dto = null, string $contentType = self::contentTypes['updateAccountHolderAdminProfileAsync'][0])
+    {
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling updateAccountHolderAdminProfileAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SystemService/Users/{userId}/AdminProfile';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userId' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($user_admin_update_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($user_admin_update_dto));
+            } else {
+                $httpBody = $user_admin_update_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -200,7 +200,7 @@ No authorization required
 ## `getContactRelationsAsync()`
 
 ```php
-getContactRelationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactRelationDtoListEnvelope
+getContactRelationsAsync($tenant_id, $api_version, $x_api_version, $contact_relation_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactRelationDtoListEnvelope
 ```
 
 Get all contact relations
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactRelationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_relation_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactRelationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactRelationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactRelationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactRelationsAsync($tenant_id, $api_version, $x_api_version, $contact_relation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactRelationsApi->getContactRelationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_relation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactRelationDtoCollectionQueryParameters**](../Model/ContactRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getContactRelationsCountAsync()`
 
 ```php
-getContactRelationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getContactRelationsCountAsync($tenant_id, $api_version, $x_api_version, $contact_relation_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get contact relations count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactRelationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_relation_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactRelationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactRelationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactRelationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactRelationsCountAsync($tenant_id, $api_version, $x_api_version, $contact_relation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactRelationsApi->getContactRelationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_relation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactRelationDtoCollectionQueryParameters**](../Model/ContactRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchContactRelationAsync()`
 
 ```php
-patchContactRelationAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchContactRelationAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a contact relation
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchContactRelationAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchContactRelationAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactRelationsApi->patchContactRelationAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

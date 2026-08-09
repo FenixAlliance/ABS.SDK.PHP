@@ -14,5 +14,7 @@ Name | Type | Description | Notes
 **fiscal_year_id** | **string** |  | [optional]
 **journal_type_id** | **string** |  | [optional]
 **parent_journal_id** | **string** |  | [optional]
+**financial_book_id** | **string** |  | [optional]
+**code** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -377,7 +377,7 @@ No authorization required
 ## `getPriceListPricesAsync()`
 
 ```php
-getPriceListPricesAsync($tenant_id, $price_list_id, $item_id): \OpenAPI\Client\Model\ItemPriceDtoListEnvelope
+getPriceListPricesAsync($tenant_id, $price_list_id, $item_id, $item_price_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemPriceDtoListEnvelope
 ```
 
 Retrieves prices in a price list
@@ -400,9 +400,10 @@ $apiInstance = new OpenAPI\Client\Api\PriceListsApi(
 $tenant_id = 'tenant_id_example'; // string
 $price_list_id = 'price_list_id_example'; // string
 $item_id = 'item_id_example'; // string
+$item_price_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPriceListPricesAsync($tenant_id, $price_list_id, $item_id);
+    $result = $apiInstance->getPriceListPricesAsync($tenant_id, $price_list_id, $item_id, $item_price_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->getPriceListPricesAsync: ', $e->getMessage(), PHP_EOL;
@@ -416,6 +417,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **price_list_id** | **string**|  | |
 | **item_id** | **string**|  | [optional] |
+| **item_price_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters**](../Model/ItemPriceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -427,7 +429,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -437,7 +439,7 @@ No authorization required
 ## `getPriceListPricesCountAsync()`
 
 ```php
-getPriceListPricesCountAsync($tenant_id, $price_list_id): \OpenAPI\Client\Model\Int32Envelope
+getPriceListPricesCountAsync($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts prices in a price list
@@ -459,9 +461,10 @@ $apiInstance = new OpenAPI\Client\Api\PriceListsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $price_list_id = 'price_list_id_example'; // string
+$item_price_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPriceListPricesCountAsync($tenant_id, $price_list_id);
+    $result = $apiInstance->getPriceListPricesCountAsync($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->getPriceListPricesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -474,6 +477,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **price_list_id** | **string**|  | |
+| **item_price_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters**](../Model/ItemPriceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -485,7 +489,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -495,7 +499,7 @@ No authorization required
 ## `getPriceListsAsync()`
 
 ```php
-getPriceListsAsync($tenant_id): \OpenAPI\Client\Model\PriceListDtoListEnvelope
+getPriceListsAsync($tenant_id, $price_list_dto_collection_query_parameters): \OpenAPI\Client\Model\PriceListDtoListEnvelope
 ```
 
 Retrieves all price lists
@@ -516,9 +520,10 @@ $apiInstance = new OpenAPI\Client\Api\PriceListsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$price_list_dto_collection_query_parameters = new \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPriceListsAsync($tenant_id);
+    $result = $apiInstance->getPriceListsAsync($tenant_id, $price_list_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->getPriceListsAsync: ', $e->getMessage(), PHP_EOL;
@@ -530,6 +535,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **price_list_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters**](../Model/PriceListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -541,7 +547,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -551,7 +557,7 @@ No authorization required
 ## `getPriceListsCountAsync()`
 
 ```php
-getPriceListsCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getPriceListsCountAsync($tenant_id, $price_list_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts price lists
@@ -572,9 +578,10 @@ $apiInstance = new OpenAPI\Client\Api\PriceListsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$price_list_dto_collection_query_parameters = new \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPriceListsCountAsync($tenant_id);
+    $result = $apiInstance->getPriceListsCountAsync($tenant_id, $price_list_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->getPriceListsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -586,6 +593,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **price_list_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters**](../Model/PriceListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -597,7 +605,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -607,7 +615,7 @@ No authorization required
 ## `patchPriceListAsync()`
 
 ```php
-patchPriceListAsync($tenant_id, $price_list_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPriceListAsync($tenant_id, $price_list_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a price list
@@ -629,10 +637,10 @@ $apiInstance = new OpenAPI\Client\Api\PriceListsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $price_list_id = 'price_list_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPriceListAsync($tenant_id, $price_list_id, $operation);
+    $result = $apiInstance->patchPriceListAsync($tenant_id, $price_list_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->patchPriceListAsync: ', $e->getMessage(), PHP_EOL;
@@ -645,7 +653,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **price_list_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -667,7 +675,7 @@ No authorization required
 ## `patchPriceListPriceAsync()`
 
 ```php
-patchPriceListPriceAsync($tenant_id, $price_list_id, $price_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPriceListPriceAsync($tenant_id, $price_list_id, $price_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a price list entry
@@ -690,10 +698,10 @@ $apiInstance = new OpenAPI\Client\Api\PriceListsApi(
 $tenant_id = 'tenant_id_example'; // string
 $price_list_id = 'price_list_id_example'; // string
 $price_id = 'price_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPriceListPriceAsync($tenant_id, $price_list_id, $price_id, $operation);
+    $result = $apiInstance->patchPriceListPriceAsync($tenant_id, $price_list_id, $price_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PriceListsApi->patchPriceListPriceAsync: ', $e->getMessage(), PHP_EOL;
@@ -707,7 +715,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **price_list_id** | **string**|  | |
 | **price_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

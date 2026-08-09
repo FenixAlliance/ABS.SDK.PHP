@@ -84,9 +84,11 @@ class DepartmentsApi
         ],
         'getTenantDepartments' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantDepartmentsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchTenantDepartmentAsync' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class DepartmentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantDepartmentDtoListEnvelope
      */
-    public function getTenantDepartments($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
+    public function getTenantDepartments($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
     {
-        list($response) = $this->getTenantDepartmentsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantDepartmentsWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantDepartmentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantDepartmentsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
+    public function getTenantDepartmentsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
     {
-        $request = $this->getTenantDepartmentsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantDepartmentsRequest($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantDepartmentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
+    public function getTenantDepartmentsAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
     {
-        return $this->getTenantDepartmentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantDepartmentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantDepartmentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
+    public function getTenantDepartmentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantDepartmentDtoListEnvelope';
-        $request = $this->getTenantDepartmentsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantDepartmentsRequest($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantDepartmentsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
+    public function getTenantDepartmentsRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartments'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class DepartmentsApi
                 'Missing the required parameter $tenant_id when calling getTenantDepartments'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class DepartmentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_department_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_department_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_department_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class DepartmentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartmentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantDepartmentsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
+    public function getTenantDepartmentsCount($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
     {
-        list($response) = $this->getTenantDepartmentsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantDepartmentsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartmentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantDepartmentsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
+    public function getTenantDepartmentsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
     {
-        $request = $this->getTenantDepartmentsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantDepartmentsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantDepartmentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
+    public function getTenantDepartmentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
     {
-        return $this->getTenantDepartmentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantDepartmentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantDepartmentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
+    public function getTenantDepartmentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantDepartmentsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantDepartmentsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_department_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class DepartmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDepartmentDtoCollectionQueryParameters $tenant_department_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantDepartmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantDepartmentsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
+    public function getTenantDepartmentsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_department_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantDepartmentsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class DepartmentsApi
                 'Missing the required parameter $tenant_id when calling getTenantDepartmentsCount'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class DepartmentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_department_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_department_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_department_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class DepartmentsApi
      * @param  string $tenant_department_id tenant_department_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantDepartmentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTenantDepartmentAsync($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
+    public function patchTenantDepartmentAsync($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
     {
-        list($response) = $this->patchTenantDepartmentAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTenantDepartmentAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class DepartmentsApi
      * @param  string $tenant_department_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantDepartmentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTenantDepartmentAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
+    public function patchTenantDepartmentAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
     {
-        $request = $this->patchTenantDepartmentAsyncRequest($tenant_id, $tenant_department_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantDepartmentAsyncRequest($tenant_id, $tenant_department_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class DepartmentsApi
      * @param  string $tenant_department_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantDepartmentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantDepartmentAsyncAsync($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
+    public function patchTenantDepartmentAsyncAsync($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
     {
-        return $this->patchTenantDepartmentAsyncAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTenantDepartmentAsyncAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class DepartmentsApi
      * @param  string $tenant_department_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantDepartmentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantDepartmentAsyncAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
+    public function patchTenantDepartmentAsyncAsyncWithHttpInfo($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTenantDepartmentAsyncRequest($tenant_id, $tenant_department_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantDepartmentAsyncRequest($tenant_id, $tenant_department_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class DepartmentsApi
      * @param  string $tenant_department_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantDepartmentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTenantDepartmentAsyncRequest($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
+    public function patchTenantDepartmentAsyncRequest($tenant_id, $tenant_department_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantDepartmentAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class DepartmentsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

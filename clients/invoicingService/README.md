@@ -76,7 +76,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -150,6 +149,7 @@ Class | Method | HTTP request | Description
 - [Envelope](docs/Model/Envelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExtendedInvoiceDto](docs/Model/ExtendedInvoiceDto.md)
+- [ExtendedInvoiceDtoCollectionQueryParameters](docs/Model/ExtendedInvoiceDtoCollectionQueryParameters.md)
 - [ExtendedInvoiceDtoListEnvelope](docs/Model/ExtendedInvoiceDtoListEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
@@ -158,25 +158,30 @@ Class | Method | HTTP request | Description
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [InvoiceAdjustmentCreateDto](docs/Model/InvoiceAdjustmentCreateDto.md)
 - [InvoiceAdjustmentDto](docs/Model/InvoiceAdjustmentDto.md)
+- [InvoiceAdjustmentDtoCollectionQueryParameters](docs/Model/InvoiceAdjustmentDtoCollectionQueryParameters.md)
 - [InvoiceAdjustmentDtoEnvelope](docs/Model/InvoiceAdjustmentDtoEnvelope.md)
 - [InvoiceAdjustmentDtoIReadOnlyListEnvelope](docs/Model/InvoiceAdjustmentDtoIReadOnlyListEnvelope.md)
 - [InvoiceAdjustmentUpdateDto](docs/Model/InvoiceAdjustmentUpdateDto.md)
 - [InvoiceCreateDto](docs/Model/InvoiceCreateDto.md)
 - [InvoiceDto](docs/Model/InvoiceDto.md)
+- [InvoiceDtoCollectionQueryParameters](docs/Model/InvoiceDtoCollectionQueryParameters.md)
 - [InvoiceDtoEnvelope](docs/Model/InvoiceDtoEnvelope.md)
 - [InvoiceDtoListEnvelope](docs/Model/InvoiceDtoListEnvelope.md)
 - [InvoiceLineAppliedTaxCreateDto](docs/Model/InvoiceLineAppliedTaxCreateDto.md)
 - [InvoiceLineAppliedTaxDto](docs/Model/InvoiceLineAppliedTaxDto.md)
+- [InvoiceLineAppliedTaxDtoCollectionQueryParameters](docs/Model/InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)
 - [InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope](docs/Model/InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope.md)
 - [InvoiceLineAppliedTaxUpdateDto](docs/Model/InvoiceLineAppliedTaxUpdateDto.md)
 - [InvoiceLineCreateDto](docs/Model/InvoiceLineCreateDto.md)
 - [InvoiceLineDto](docs/Model/InvoiceLineDto.md)
+- [InvoiceLineDtoCollectionQueryParameters](docs/Model/InvoiceLineDtoCollectionQueryParameters.md)
 - [InvoiceLineDtoEnvelope](docs/Model/InvoiceLineDtoEnvelope.md)
 - [InvoiceLineDtoIReadOnlyListEnvelope](docs/Model/InvoiceLineDtoIReadOnlyListEnvelope.md)
 - [InvoiceLineDtoListEnvelope](docs/Model/InvoiceLineDtoListEnvelope.md)
 - [InvoiceLineUpdateDto](docs/Model/InvoiceLineUpdateDto.md)
 - [InvoiceReferenceCreateDto](docs/Model/InvoiceReferenceCreateDto.md)
 - [InvoiceReferenceDto](docs/Model/InvoiceReferenceDto.md)
+- [InvoiceReferenceDtoCollectionQueryParameters](docs/Model/InvoiceReferenceDtoCollectionQueryParameters.md)
 - [InvoiceReferenceDtoEnvelope](docs/Model/InvoiceReferenceDtoEnvelope.md)
 - [InvoiceReferenceDtoIReadOnlyListEnvelope](docs/Model/InvoiceReferenceDtoIReadOnlyListEnvelope.md)
 - [InvoiceReferenceUpdateDto](docs/Model/InvoiceReferenceUpdateDto.md)
@@ -184,8 +189,9 @@ Class | Method | HTTP request | Description
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [PaymentDto](docs/Model/PaymentDto.md)
+- [PaymentDtoCollectionQueryParameters](docs/Model/PaymentDtoCollectionQueryParameters.md)
 - [PaymentDtoIReadOnlyListEnvelope](docs/Model/PaymentDtoIReadOnlyListEnvelope.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)

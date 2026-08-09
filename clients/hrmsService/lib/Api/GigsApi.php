@@ -84,9 +84,11 @@ class GigsApi
         ],
         'getGigsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getGigsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchGigAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class GigsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\GigDtoListEnvelope
      */
-    public function getGigsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsAsync'][0])
+    public function getGigsAsync($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsAsync'][0])
     {
-        list($response) = $this->getGigsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getGigsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\GigDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGigsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsAsync'][0])
+    public function getGigsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsAsync'][0])
     {
-        $request = $this->getGigsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGigsAsyncRequest($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGigsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsAsync'][0])
+    public function getGigsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsAsync'][0])
     {
-        return $this->getGigsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getGigsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGigsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsAsync'][0])
+    public function getGigsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GigDtoListEnvelope';
-        $request = $this->getGigsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGigsAsyncRequest($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGigsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsAsync'][0])
+    public function getGigsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class GigsApi
                 'Missing the required parameter $tenant_id when calling getGigsAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class GigsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($gig_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($gig_dto_collection_query_parameters));
+            } else {
+                $httpBody = $gig_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class GigsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getGigsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
+    public function getGigsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
     {
-        list($response) = $this->getGigsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getGigsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGigsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
+    public function getGigsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
     {
-        $request = $this->getGigsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGigsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGigsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
+    public function getGigsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
     {
-        return $this->getGigsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getGigsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGigsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
+    public function getGigsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getGigsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGigsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $gig_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class GigsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GigDtoCollectionQueryParameters $gig_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGigsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGigsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
+    public function getGigsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $gig_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGigsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class GigsApi
                 'Missing the required parameter $tenant_id when calling getGigsCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class GigsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($gig_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($gig_dto_collection_query_parameters));
+            } else {
+                $httpBody = $gig_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class GigsApi
      * @param  string $gig_id gig_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGigAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchGigAsync($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
+    public function patchGigAsync($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
     {
-        list($response) = $this->patchGigAsyncWithHttpInfo($tenant_id, $gig_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchGigAsyncWithHttpInfo($tenant_id, $gig_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class GigsApi
      * @param  string $gig_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGigAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchGigAsyncWithHttpInfo($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
+    public function patchGigAsyncWithHttpInfo($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
     {
-        $request = $this->patchGigAsyncRequest($tenant_id, $gig_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchGigAsyncRequest($tenant_id, $gig_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class GigsApi
      * @param  string $gig_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGigAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchGigAsyncAsync($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
+    public function patchGigAsyncAsync($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
     {
-        return $this->patchGigAsyncAsyncWithHttpInfo($tenant_id, $gig_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchGigAsyncAsyncWithHttpInfo($tenant_id, $gig_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class GigsApi
      * @param  string $gig_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGigAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchGigAsyncAsyncWithHttpInfo($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
+    public function patchGigAsyncAsyncWithHttpInfo($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchGigAsyncRequest($tenant_id, $gig_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchGigAsyncRequest($tenant_id, $gig_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class GigsApi
      * @param  string $gig_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGigAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchGigAsyncRequest($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
+    public function patchGigAsyncRequest($tenant_id, $gig_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGigAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class GigsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

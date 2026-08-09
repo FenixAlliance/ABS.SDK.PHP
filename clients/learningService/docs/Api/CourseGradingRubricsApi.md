@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseGradingRubricsAsync()`
 
 ```php
-getCourseGradingRubricsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseGradingRubricDto[]
+getCourseGradingRubricsAsync($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseGradingRubricDto[]
 ```
 
 Get all course grading rubrics
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseGradingRubricsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_grading_rubric_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseGradingRubricsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseGradingRubricsAsync($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseGradingRubricsApi->getCourseGradingRubricsAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_grading_rubric_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters**](../Model/CourseGradingRubricDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseGradingRubricsCountAsync()`
 
 ```php
-getCourseGradingRubricsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseGradingRubricsCountAsync($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters): int
 ```
 
 Get course grading rubrics count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseGradingRubricsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_grading_rubric_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseGradingRubricsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseGradingRubricsCountAsync($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseGradingRubricsApi->getCourseGradingRubricsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_grading_rubric_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters**](../Model/CourseGradingRubricDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseGradingRubricAsync()`
 
 ```php
-patchCourseGradingRubricAsync($tenant_id, $rubric_id, $api_version, $x_api_version, $operation)
+patchCourseGradingRubricAsync($tenant_id, $rubric_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a course grading rubric
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $rubric_id = 'rubric_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchCourseGradingRubricAsync($tenant_id, $rubric_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchCourseGradingRubricAsync($tenant_id, $rubric_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling CourseGradingRubricsApi->patchCourseGradingRubricAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -359,7 +363,7 @@ try {
 | **rubric_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseArticlesAsync()`
 
 ```php
-getCourseArticlesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseArticleDto[]
+getCourseArticlesAsync($tenant_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseArticleDto[]
 ```
 
 Get all course articles
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseArticlesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_article_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseArticlesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseArticlesAsync($tenant_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseArticlesApi->getCourseArticlesAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_article_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters**](../Model/CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseArticlesCountAsync()`
 
 ```php
-getCourseArticlesCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseArticlesCountAsync($tenant_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters): int
 ```
 
 Get course articles count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseArticlesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_article_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseArticlesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseArticlesCountAsync($tenant_id, $api_version, $x_api_version, $course_article_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseArticlesApi->getCourseArticlesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_article_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseArticleDtoCollectionQueryParameters**](../Model/CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseArticleAsync()`
 
 ```php
-patchCourseArticleAsync($tenant_id, $article_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseArticleAsync($tenant_id, $article_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course article
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $article_id = 'article_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseArticleAsync($tenant_id, $article_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseArticleAsync($tenant_id, $article_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseArticlesApi->patchCourseArticleAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **article_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -525,7 +525,7 @@ No authorization required
 ## `getCostCentreBudgets()`
 
 ```php
-getCostCentreBudgets($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CostCentreBudgetDtoListEnvelope
+getCostCentreBudgets($tenant_id, $api_version, $x_api_version, $cost_centre_budget_dto_collection_query_parameters): \OpenAPI\Client\Model\CostCentreBudgetDtoListEnvelope
 ```
 
 Get all cost centre budgets for a tenant
@@ -548,9 +548,10 @@ $apiInstance = new OpenAPI\Client\Api\CostCentresApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$cost_centre_budget_dto_collection_query_parameters = new \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCostCentreBudgets($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCostCentreBudgets($tenant_id, $api_version, $x_api_version, $cost_centre_budget_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->getCostCentreBudgets: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +565,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **cost_centre_budget_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CostCentreBudgetDtoCollectionQueryParameters**](../Model/CostCentreBudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +577,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -647,7 +649,7 @@ No authorization required
 ## `getCostCentreGroups()`
 
 ```php
-getCostCentreGroups($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CostCentreGroupDtoListEnvelope
+getCostCentreGroups($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters): \OpenAPI\Client\Model\CostCentreGroupDtoListEnvelope
 ```
 
 Get all cost centre groups for a tenant
@@ -670,9 +672,10 @@ $apiInstance = new OpenAPI\Client\Api\CostCentresApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$cost_centre_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCostCentreGroups($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCostCentreGroups($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->getCostCentreGroups: ', $e->getMessage(), PHP_EOL;
@@ -686,6 +689,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **cost_centre_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters**](../Model/CostCentreGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -697,7 +701,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -707,7 +711,7 @@ No authorization required
 ## `getCostCentreGroupsCount()`
 
 ```php
-getCostCentreGroupsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getCostCentreGroupsCount($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of cost centre groups for a tenant
@@ -730,9 +734,10 @@ $apiInstance = new OpenAPI\Client\Api\CostCentresApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$cost_centre_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCostCentreGroupsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCostCentreGroupsCount($tenant_id, $api_version, $x_api_version, $cost_centre_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->getCostCentreGroupsCount: ', $e->getMessage(), PHP_EOL;
@@ -746,6 +751,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **cost_centre_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CostCentreGroupDtoCollectionQueryParameters**](../Model/CostCentreGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -757,7 +763,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -767,7 +773,7 @@ No authorization required
 ## `getCostCentres()`
 
 ```php
-getCostCentres($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CostCentreDtoListEnvelope
+getCostCentres($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters): \OpenAPI\Client\Model\CostCentreDtoListEnvelope
 ```
 
 Get all cost centres for a tenant
@@ -790,9 +796,10 @@ $apiInstance = new OpenAPI\Client\Api\CostCentresApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$cost_centre_dto_collection_query_parameters = new \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCostCentres($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCostCentres($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->getCostCentres: ', $e->getMessage(), PHP_EOL;
@@ -806,6 +813,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **cost_centre_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters**](../Model/CostCentreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -817,7 +825,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -827,7 +835,7 @@ No authorization required
 ## `getCostCentresCount()`
 
 ```php
-getCostCentresCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getCostCentresCount($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of cost centres for a tenant
@@ -850,9 +858,10 @@ $apiInstance = new OpenAPI\Client\Api\CostCentresApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$cost_centre_dto_collection_query_parameters = new \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCostCentresCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCostCentresCount($tenant_id, $api_version, $x_api_version, $cost_centre_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->getCostCentresCount: ', $e->getMessage(), PHP_EOL;
@@ -866,6 +875,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **cost_centre_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CostCentreDtoCollectionQueryParameters**](../Model/CostCentreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -877,7 +887,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -887,7 +897,7 @@ No authorization required
 ## `patchCostCentre()`
 
 ```php
-patchCostCentre($tenant_id, $cost_centre_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCostCentre($tenant_id, $cost_centre_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a cost centre
@@ -911,10 +921,10 @@ $tenant_id = 'tenant_id_example'; // string
 $cost_centre_id = 'cost_centre_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCostCentre($tenant_id, $cost_centre_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCostCentre($tenant_id, $cost_centre_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->patchCostCentre: ', $e->getMessage(), PHP_EOL;
@@ -929,7 +939,7 @@ try {
 | **cost_centre_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -951,7 +961,7 @@ No authorization required
 ## `patchCostCentreBudget()`
 
 ```php
-patchCostCentreBudget($tenant_id, $budget_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCostCentreBudget($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a cost centre budget
@@ -975,10 +985,10 @@ $tenant_id = 'tenant_id_example'; // string
 $budget_id = 'budget_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCostCentreBudget($tenant_id, $budget_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCostCentreBudget($tenant_id, $budget_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->patchCostCentreBudget: ', $e->getMessage(), PHP_EOL;
@@ -993,7 +1003,7 @@ try {
 | **budget_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1015,7 +1025,7 @@ No authorization required
 ## `patchCostCentreGroup()`
 
 ```php
-patchCostCentreGroup($tenant_id, $group_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCostCentreGroup($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a cost centre group
@@ -1039,10 +1049,10 @@ $tenant_id = 'tenant_id_example'; // string
 $group_id = 'group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCostCentreGroup($tenant_id, $group_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCostCentreGroup($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CostCentresApi->patchCostCentreGroup: ', $e->getMessage(), PHP_EOL;
@@ -1057,7 +1067,7 @@ try {
 | **group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

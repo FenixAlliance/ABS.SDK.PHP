@@ -74,7 +74,7 @@ No authorization required
 ## `getSignaturesAsync()`
 
 ```php
-getSignaturesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SignatureDtoListEnvelope
+getSignaturesAsync($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters): \OpenAPI\Client\Model\SignatureDtoListEnvelope
 ```
 
 Get all signatures
@@ -97,9 +97,10 @@ $apiInstance = new OpenAPI\Client\Api\SignaturesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signature_dto_collection_query_parameters = new \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSignaturesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSignaturesAsync($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SignaturesApi->getSignaturesAsync: ', $e->getMessage(), PHP_EOL;
@@ -113,6 +114,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters**](../Model/SignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -124,7 +126,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -134,7 +136,7 @@ No authorization required
 ## `getSignaturesCountAsync()`
 
 ```php
-getSignaturesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSignaturesCountAsync($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get signatures count
@@ -157,9 +159,10 @@ $apiInstance = new OpenAPI\Client\Api\SignaturesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signature_dto_collection_query_parameters = new \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSignaturesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSignaturesCountAsync($tenant_id, $api_version, $x_api_version, $signature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SignaturesApi->getSignaturesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -173,6 +176,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SignatureDtoCollectionQueryParameters**](../Model/SignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -184,7 +188,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -200,7 +200,7 @@ No authorization required
 ## `getLicenseAttributesAsync()`
 
 ```php
-getLicenseAttributesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LicenseAttributeDtoListEnvelope
+getLicenseAttributesAsync($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters): \OpenAPI\Client\Model\LicenseAttributeDtoListEnvelope
 ```
 
 Get all license attributes
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\LicenseAttributesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$license_attribute_dto_collection_query_parameters = new \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLicenseAttributesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseAttributesAsync($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicenseAttributesApi->getLicenseAttributesAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **license_attribute_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters**](../Model/LicenseAttributeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getLicenseAttributesCountAsync()`
 
 ```php
-getLicenseAttributesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLicenseAttributesCountAsync($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get license attributes count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\LicenseAttributesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$license_attribute_dto_collection_query_parameters = new \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLicenseAttributesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseAttributesCountAsync($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicenseAttributesApi->getLicenseAttributesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **license_attribute_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters**](../Model/LicenseAttributeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchLicenseAttributeAsync()`
 
 ```php
-patchLicenseAttributeAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchLicenseAttributeAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a license attribute
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchLicenseAttributeAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchLicenseAttributeAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicenseAttributesApi->patchLicenseAttributeAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

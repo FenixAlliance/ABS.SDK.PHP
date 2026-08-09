@@ -201,7 +201,7 @@ No authorization required
 ## `getEnrollmentsAsync()`
 
 ```php
-getEnrollmentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseEnrollmentDto[]
+getEnrollmentsAsync($tenant_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseEnrollmentDto[]
 ```
 
 Get all course enrollments
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseEnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEnrollmentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEnrollmentsAsync($tenant_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseEnrollmentsApi->getEnrollmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters**](../Model/CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getEnrollmentsCountAsync()`
 
 ```php
-getEnrollmentsCountAsync($tenant_id, $api_version, $x_api_version): int
+getEnrollmentsCountAsync($tenant_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters): int
 ```
 
 Get course enrollments count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseEnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEnrollmentsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEnrollmentsCountAsync($tenant_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseEnrollmentsApi->getEnrollmentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters**](../Model/CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -321,7 +325,7 @@ No authorization required
 ## `getStudentCourseEnrollmentsAsync()`
 
 ```php
-getStudentCourseEnrollmentsAsync($tenant_id, $student_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseEnrollmentDto[]
+getStudentCourseEnrollmentsAsync($tenant_id, $student_profile_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseEnrollmentDto[]
 ```
 
 Get enrollments by student
@@ -345,9 +349,10 @@ $tenant_id = 'tenant_id_example'; // string
 $student_profile_id = 'student_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStudentCourseEnrollmentsAsync($tenant_id, $student_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStudentCourseEnrollmentsAsync($tenant_id, $student_profile_id, $api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseEnrollmentsApi->getStudentCourseEnrollmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,6 +367,7 @@ try {
 | **student_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters**](../Model/CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -373,7 +379,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -383,7 +389,7 @@ No authorization required
 ## `patchCourseEnrollmentAsync()`
 
 ```php
-patchCourseEnrollmentAsync($tenant_id, $course_enrollment_id, $api_version, $x_api_version, $operation)
+patchCourseEnrollmentAsync($tenant_id, $course_enrollment_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a course enrollment
@@ -407,10 +413,10 @@ $tenant_id = 'tenant_id_example'; // string
 $course_enrollment_id = 'course_enrollment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchCourseEnrollmentAsync($tenant_id, $course_enrollment_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchCourseEnrollmentAsync($tenant_id, $course_enrollment_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling CourseEnrollmentsApi->patchCourseEnrollmentAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -424,7 +430,7 @@ try {
 | **course_enrollment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

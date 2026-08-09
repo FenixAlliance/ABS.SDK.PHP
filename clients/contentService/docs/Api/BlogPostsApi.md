@@ -441,7 +441,7 @@ No authorization required
 ## `getBlogPostsAsync()`
 
 ```php
-getBlogPostsAsync($tenant_id): \OpenAPI\Client\Model\BlogPostDtoListEnvelope
+getBlogPostsAsync($tenant_id, $blog_post_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostDtoListEnvelope
 ```
 
 Retrieve a list of blog posts
@@ -462,9 +462,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$blog_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBlogPostsAsync($tenant_id);
+    $result = $apiInstance->getBlogPostsAsync($tenant_id, $blog_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->getBlogPostsAsync: ', $e->getMessage(), PHP_EOL;
@@ -476,6 +477,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | [optional] |
+| **blog_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters**](../Model/BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -487,7 +489,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -497,7 +499,7 @@ No authorization required
 ## `getBlogPostsCountAsync()`
 
 ```php
-getBlogPostsCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getBlogPostsCountAsync($tenant_id, $blog_post_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of blog posts
@@ -518,9 +520,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$blog_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBlogPostsCountAsync($tenant_id);
+    $result = $apiInstance->getBlogPostsCountAsync($tenant_id, $blog_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->getBlogPostsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -532,6 +535,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | [optional] |
+| **blog_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters**](../Model/BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -543,7 +547,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -553,7 +557,7 @@ No authorization required
 ## `getCategoriesForBlogPostAsync()`
 
 ```php
-getCategoriesForBlogPostAsync($blog_post_id): \OpenAPI\Client\Model\BlogPostCategoryDtoListEnvelope
+getCategoriesForBlogPostAsync($blog_post_id, $blog_post_category_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostCategoryDtoListEnvelope
 ```
 
 Get categories for a blog post
@@ -574,9 +578,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
     new GuzzleHttp\Client()
 );
 $blog_post_id = 'blog_post_id_example'; // string
+$blog_post_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCategoriesForBlogPostAsync($blog_post_id);
+    $result = $apiInstance->getCategoriesForBlogPostAsync($blog_post_id, $blog_post_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->getCategoriesForBlogPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -588,6 +593,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **blog_post_id** | **string**|  | |
+| **blog_post_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters**](../Model/BlogPostCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -599,7 +605,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -609,7 +615,7 @@ No authorization required
 ## `getCommentsForBlogPostAsync()`
 
 ```php
-getCommentsForBlogPostAsync($blog_post_id): \OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope
+getCommentsForBlogPostAsync($blog_post_id, $blog_post_comment_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope
 ```
 
 Get comments for a blog post
@@ -630,9 +636,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
     new GuzzleHttp\Client()
 );
 $blog_post_id = 'blog_post_id_example'; // string
+$blog_post_comment_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCommentsForBlogPostAsync($blog_post_id);
+    $result = $apiInstance->getCommentsForBlogPostAsync($blog_post_id, $blog_post_comment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->getCommentsForBlogPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -644,6 +651,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **blog_post_id** | **string**|  | |
+| **blog_post_comment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters**](../Model/BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -655,7 +663,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -665,7 +673,7 @@ No authorization required
 ## `getRepliesForCommentAsync()`
 
 ```php
-getRepliesForCommentAsync($comment_id, $blog_post_id): \OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope
+getRepliesForCommentAsync($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope
 ```
 
 Get replies for a comment
@@ -687,9 +695,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
 );
 $comment_id = 'comment_id_example'; // string
 $blog_post_id = 'blog_post_id_example'; // string
+$blog_post_comment_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRepliesForCommentAsync($comment_id, $blog_post_id);
+    $result = $apiInstance->getRepliesForCommentAsync($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->getRepliesForCommentAsync: ', $e->getMessage(), PHP_EOL;
@@ -702,6 +711,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **comment_id** | **string**|  | |
 | **blog_post_id** | **string**|  | |
+| **blog_post_comment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters**](../Model/BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -713,7 +723,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -723,7 +733,7 @@ No authorization required
 ## `getTagsForBlogPostAsync()`
 
 ```php
-getTagsForBlogPostAsync($blog_post_id): \OpenAPI\Client\Model\BlogPostTagDtoListEnvelope
+getTagsForBlogPostAsync($blog_post_id, $blog_post_tag_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostTagDtoListEnvelope
 ```
 
 Get tags for a blog post
@@ -744,9 +754,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
     new GuzzleHttp\Client()
 );
 $blog_post_id = 'blog_post_id_example'; // string
+$blog_post_tag_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTagsForBlogPostAsync($blog_post_id);
+    $result = $apiInstance->getTagsForBlogPostAsync($blog_post_id, $blog_post_tag_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->getTagsForBlogPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -758,6 +769,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **blog_post_id** | **string**|  | |
+| **blog_post_tag_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters**](../Model/BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -769,7 +781,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -779,7 +791,7 @@ No authorization required
 ## `patchBlogPostAsync()`
 
 ```php
-patchBlogPostAsync($tenant_id, $blog_post_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBlogPostAsync($tenant_id, $blog_post_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a blog post
@@ -801,10 +813,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $blog_post_id = 'blog_post_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBlogPostAsync($tenant_id, $blog_post_id, $operation);
+    $result = $apiInstance->patchBlogPostAsync($tenant_id, $blog_post_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostsApi->patchBlogPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -817,7 +829,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **blog_post_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

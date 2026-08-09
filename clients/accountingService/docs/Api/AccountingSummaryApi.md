@@ -13,7 +13,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `getCreditsSumAsync()`
 
 ```php
-getCreditsSumAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\DecimalEnvelope
+getCreditsSumAsync($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\DecimalEnvelope
 ```
 
 Sum tenant accounting-entry credits
@@ -36,9 +36,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountingSummaryApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCreditsSumAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCreditsSumAsync($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingSummaryApi->getCreditsSumAsync: ', $e->getMessage(), PHP_EOL;
@@ -52,6 +53,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -63,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -73,7 +75,7 @@ No authorization required
 ## `getDebitsSumAsync()`
 
 ```php
-getDebitsSumAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\DecimalEnvelope
+getDebitsSumAsync($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\DecimalEnvelope
 ```
 
 Sum tenant accounting-entry debits
@@ -96,9 +98,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountingSummaryApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDebitsSumAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getDebitsSumAsync($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingSummaryApi->getDebitsSumAsync: ', $e->getMessage(), PHP_EOL;
@@ -112,6 +115,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -123,7 +127,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -133,7 +137,7 @@ No authorization required
 ## `getExpensesSumAsync()`
 
 ```php
-getExpensesSumAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getExpensesSumAsync($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Sum tenant expenses
@@ -156,9 +160,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountingSummaryApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExpensesSumAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExpensesSumAsync($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingSummaryApi->getExpensesSumAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,6 +177,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters**](../Model/JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -183,7 +189,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -193,7 +199,7 @@ No authorization required
 ## `getIncomesSumAsync()`
 
 ```php
-getIncomesSumAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getIncomesSumAsync($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Sum tenant incomes
@@ -216,9 +222,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountingSummaryApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getIncomesSumAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getIncomesSumAsync($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingSummaryApi->getIncomesSumAsync: ', $e->getMessage(), PHP_EOL;
@@ -232,6 +239,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters**](../Model/JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -243,7 +251,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

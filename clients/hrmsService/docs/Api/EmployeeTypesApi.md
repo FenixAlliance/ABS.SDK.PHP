@@ -202,7 +202,7 @@ No authorization required
 ## `getEmployeeTypesAsync()`
 
 ```php
-getEmployeeTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmployeeTypeDtoListEnvelope
+getEmployeeTypesAsync($tenant_id, $api_version, $x_api_version, $employee_type_dto_collection_query_parameters): \OpenAPI\Client\Model\EmployeeTypeDtoListEnvelope
 ```
 
 Get employee types
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployeeTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$employee_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmployeeTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmployeeTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmployeeTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmployeeTypesAsync($tenant_id, $api_version, $x_api_version, $employee_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeTypesApi->getEmployeeTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **employee_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmployeeTypeDtoCollectionQueryParameters**](../Model/EmployeeTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getEmployeeTypesCountAsync()`
 
 ```php
-getEmployeeTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getEmployeeTypesCountAsync($tenant_id, $api_version, $x_api_version, $employee_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count employee types
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployeeTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$employee_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmployeeTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmployeeTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmployeeTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmployeeTypesCountAsync($tenant_id, $api_version, $x_api_version, $employee_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeTypesApi->getEmployeeTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **employee_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmployeeTypeDtoCollectionQueryParameters**](../Model/EmployeeTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchEmployeeTypeAsync()`
 
 ```php
-patchEmployeeTypeAsync($tenant_id, $employee_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchEmployeeTypeAsync($tenant_id, $employee_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an employee type
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $employee_type_id = 'employee_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchEmployeeTypeAsync($tenant_id, $employee_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchEmployeeTypeAsync($tenant_id, $employee_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeTypesApi->patchEmployeeTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **employee_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

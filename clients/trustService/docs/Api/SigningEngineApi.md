@@ -12,7 +12,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `getProvidersAsync()`
 
 ```php
-getProvidersAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoListEnvelope
+getProvidersAsync($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters): \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoListEnvelope
 ```
 
 List signing providers
@@ -35,9 +35,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningEngineApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$trust_signing_provider_descriptor_dto_collection_query_parameters = new \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProvidersAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProvidersAsync($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningEngineApi->getProvidersAsync: ', $e->getMessage(), PHP_EOL;
@@ -51,6 +52,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **trust_signing_provider_descriptor_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters**](../Model/TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -62,7 +64,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -72,7 +74,7 @@ No authorization required
 ## `getProvidersCountAsync()`
 
 ```php
-getProvidersCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getProvidersCountAsync($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count signing providers
@@ -95,9 +97,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningEngineApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$trust_signing_provider_descriptor_dto_collection_query_parameters = new \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProvidersCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProvidersCountAsync($tenant_id, $api_version, $x_api_version, $trust_signing_provider_descriptor_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningEngineApi->getProvidersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -111,6 +114,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **trust_signing_provider_descriptor_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TrustSigningProviderDescriptorDtoCollectionQueryParameters**](../Model/TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -122,7 +126,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -337,7 +337,7 @@ No authorization required
 ## `getItemRestockEntriesAsync()`
 
 ```php
-getItemRestockEntriesAsync($tenant_id, $restock_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRestockEntryDtoListEnvelope
+getItemRestockEntriesAsync($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemRestockEntryDtoListEnvelope
 ```
 
 Get restock entries
@@ -361,9 +361,10 @@ $tenant_id = 'tenant_id_example'; // string
 $restock_id = 'restock_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_restock_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemRestockEntriesAsync($tenant_id, $restock_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRestockEntriesAsync($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRestocksApi->getItemRestockEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -378,6 +379,7 @@ try {
 | **restock_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_restock_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters**](../Model/ItemRestockEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -389,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -399,7 +401,7 @@ No authorization required
 ## `getItemRestockEntriesCountAsync()`
 
 ```php
-getItemRestockEntriesCountAsync($tenant_id, $restock_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemRestockEntriesCountAsync($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get restock entries count
@@ -423,9 +425,10 @@ $tenant_id = 'tenant_id_example'; // string
 $restock_id = 'restock_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_restock_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemRestockEntriesCountAsync($tenant_id, $restock_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRestockEntriesCountAsync($tenant_id, $restock_id, $api_version, $x_api_version, $item_restock_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRestocksApi->getItemRestockEntriesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -440,6 +443,7 @@ try {
 | **restock_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_restock_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRestockEntryDtoCollectionQueryParameters**](../Model/ItemRestockEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -451,7 +455,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +529,7 @@ No authorization required
 ## `getItemRestocksAsync()`
 
 ```php
-getItemRestocksAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRestockDtoListEnvelope
+getItemRestocksAsync($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemRestockDtoListEnvelope
 ```
 
 Get all item restocks
@@ -548,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemRestocksApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_restock_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemRestocksAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRestocksAsync($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRestocksApi->getItemRestocksAsync: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_restock_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters**](../Model/ItemRestockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -585,7 +591,7 @@ No authorization required
 ## `getItemRestocksCountAsync()`
 
 ```php
-getItemRestocksCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemRestocksCountAsync($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get item restocks count
@@ -608,9 +614,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemRestocksApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_restock_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemRestocksCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRestocksCountAsync($tenant_id, $api_version, $x_api_version, $item_restock_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRestocksApi->getItemRestocksCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -624,6 +631,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_restock_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRestockDtoCollectionQueryParameters**](../Model/ItemRestockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -645,7 +653,7 @@ No authorization required
 ## `patchItemRestockAsync()`
 
 ```php
-patchItemRestockAsync($tenant_id, $restock_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemRestockAsync($tenant_id, $restock_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an item restock
@@ -669,10 +677,10 @@ $tenant_id = 'tenant_id_example'; // string
 $restock_id = 'restock_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemRestockAsync($tenant_id, $restock_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemRestockAsync($tenant_id, $restock_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRestocksApi->patchItemRestockAsync: ', $e->getMessage(), PHP_EOL;
@@ -687,7 +695,7 @@ try {
 | **restock_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -709,7 +717,7 @@ No authorization required
 ## `patchItemRestockEntryAsync()`
 
 ```php
-patchItemRestockEntryAsync($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemRestockEntryAsync($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a restock entry
@@ -734,10 +742,10 @@ $restock_id = 'restock_id_example'; // string
 $entry_id = 'entry_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemRestockEntryAsync($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemRestockEntryAsync($tenant_id, $restock_id, $entry_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRestocksApi->patchItemRestockEntryAsync: ', $e->getMessage(), PHP_EOL;
@@ -753,7 +761,7 @@ try {
 | **entry_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

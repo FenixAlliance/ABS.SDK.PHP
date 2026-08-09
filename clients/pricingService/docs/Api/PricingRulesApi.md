@@ -201,7 +201,7 @@ No authorization required
 ## `getPricingRules()`
 
 ```php
-getPricingRules($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PricingRuleDtoListEnvelope
+getPricingRules($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters): \OpenAPI\Client\Model\PricingRuleDtoListEnvelope
 ```
 
 Get all pricing rules
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\PricingRulesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$pricing_rule_dto_collection_query_parameters = new \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPricingRules($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPricingRules($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PricingRulesApi->getPricingRules: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **pricing_rule_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters**](../Model/PricingRuleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getPricingRulesCountAsync()`
 
 ```php
-getPricingRulesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPricingRulesCountAsync($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts pricing rules
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\PricingRulesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$pricing_rule_dto_collection_query_parameters = new \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPricingRulesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPricingRulesCountAsync($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PricingRulesApi->getPricingRulesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **pricing_rule_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters**](../Model/PricingRuleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -321,7 +325,7 @@ No authorization required
 ## `patchPricingRule()`
 
 ```php
-patchPricingRule($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $operation)
+patchPricingRule($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a pricing rule
@@ -345,10 +349,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pricing_rule_id = 'pricing_rule_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchPricingRule($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchPricingRule($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling PricingRulesApi->patchPricingRule: ', $e->getMessage(), PHP_EOL;
 }
@@ -362,7 +366,7 @@ try {
 | **pricing_rule_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

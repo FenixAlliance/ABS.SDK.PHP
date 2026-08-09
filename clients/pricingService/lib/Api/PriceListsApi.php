@@ -94,15 +94,19 @@ class PriceListsApi
         ],
         'getPriceListPricesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPriceListPricesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPriceListsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPriceListsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchPriceListAsync' => [
             'application/json',
@@ -2406,15 +2410,16 @@ class PriceListsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $price_list_id price_list_id (required)
      * @param  string $item_id item_id (optional)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemPriceDtoListEnvelope
      */
-    public function getPriceListPricesAsync($tenant_id, $price_list_id, $item_id = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
+    public function getPriceListPricesAsync($tenant_id, $price_list_id, $item_id = null, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
     {
-        list($response) = $this->getPriceListPricesAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id, $contentType);
+        list($response) = $this->getPriceListPricesAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id, $item_price_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2426,15 +2431,16 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemPriceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceListPricesAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
+    public function getPriceListPricesAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id = null, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
     {
-        $request = $this->getPriceListPricesAsyncRequest($tenant_id, $price_list_id, $item_id, $contentType);
+        $request = $this->getPriceListPricesAsyncRequest($tenant_id, $price_list_id, $item_id, $item_price_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2588,14 +2594,15 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListPricesAsyncAsync($tenant_id, $price_list_id, $item_id = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
+    public function getPriceListPricesAsyncAsync($tenant_id, $price_list_id, $item_id = null, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
     {
-        return $this->getPriceListPricesAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id, $contentType)
+        return $this->getPriceListPricesAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id, $item_price_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2611,15 +2618,16 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListPricesAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
+    public function getPriceListPricesAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $item_id = null, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPriceDtoListEnvelope';
-        $request = $this->getPriceListPricesAsyncRequest($tenant_id, $price_list_id, $item_id, $contentType);
+        $request = $this->getPriceListPricesAsyncRequest($tenant_id, $price_list_id, $item_id, $item_price_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2663,12 +2671,13 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPriceListPricesAsyncRequest($tenant_id, $price_list_id, $item_id = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
+    public function getPriceListPricesAsyncRequest($tenant_id, $price_list_id, $item_id = null, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2684,6 +2693,7 @@ class PriceListsApi
                 'Missing the required parameter $price_list_id when calling getPriceListPricesAsync'
             );
         }
+
 
 
 
@@ -2731,7 +2741,14 @@ class PriceListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_price_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_price_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_price_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2784,15 +2801,16 @@ class PriceListsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $price_list_id price_list_id (required)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPriceListPricesCountAsync($tenant_id, $price_list_id, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
+    public function getPriceListPricesCountAsync($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
     {
-        list($response) = $this->getPriceListPricesCountAsyncWithHttpInfo($tenant_id, $price_list_id, $contentType);
+        list($response) = $this->getPriceListPricesCountAsyncWithHttpInfo($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2803,15 +2821,16 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceListPricesCountAsyncWithHttpInfo($tenant_id, $price_list_id, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
+    public function getPriceListPricesCountAsyncWithHttpInfo($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
     {
-        $request = $this->getPriceListPricesCountAsyncRequest($tenant_id, $price_list_id, $contentType);
+        $request = $this->getPriceListPricesCountAsyncRequest($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2964,14 +2983,15 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListPricesCountAsyncAsync($tenant_id, $price_list_id, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
+    public function getPriceListPricesCountAsyncAsync($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
     {
-        return $this->getPriceListPricesCountAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $contentType)
+        return $this->getPriceListPricesCountAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2986,15 +3006,16 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListPricesCountAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
+    public function getPriceListPricesCountAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPriceListPricesCountAsyncRequest($tenant_id, $price_list_id, $contentType);
+        $request = $this->getPriceListPricesCountAsyncRequest($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3037,12 +3058,13 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
+     * @param  \OpenAPI\Client\Model\ItemPriceDtoCollectionQueryParameters $item_price_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListPricesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPriceListPricesCountAsyncRequest($tenant_id, $price_list_id, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
+    public function getPriceListPricesCountAsyncRequest($tenant_id, $price_list_id, $item_price_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListPricesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3058,6 +3080,7 @@ class PriceListsApi
                 'Missing the required parameter $price_list_id when calling getPriceListPricesCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/PriceLists/{priceListId}/Prices/Count';
@@ -3095,7 +3118,14 @@ class PriceListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_price_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_price_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_price_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3147,15 +3177,16 @@ class PriceListsApi
      * Retrieves all price lists
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PriceListDtoListEnvelope
      */
-    public function getPriceListsAsync($tenant_id, string $contentType = self::contentTypes['getPriceListsAsync'][0])
+    public function getPriceListsAsync($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsAsync'][0])
     {
-        list($response) = $this->getPriceListsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getPriceListsAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3165,15 +3196,16 @@ class PriceListsApi
      * Retrieves all price lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PriceListDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceListsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPriceListsAsync'][0])
+    public function getPriceListsAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsAsync'][0])
     {
-        $request = $this->getPriceListsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPriceListsAsyncRequest($tenant_id, $price_list_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3325,14 +3357,15 @@ class PriceListsApi
      * Retrieves all price lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getPriceListsAsync'][0])
+    public function getPriceListsAsyncAsync($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsAsync'][0])
     {
-        return $this->getPriceListsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getPriceListsAsyncAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3346,15 +3379,16 @@ class PriceListsApi
      * Retrieves all price lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPriceListsAsync'][0])
+    public function getPriceListsAsyncAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PriceListDtoListEnvelope';
-        $request = $this->getPriceListsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPriceListsAsyncRequest($tenant_id, $price_list_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3396,12 +3430,13 @@ class PriceListsApi
      * Create request for operation 'getPriceListsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPriceListsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getPriceListsAsync'][0])
+    public function getPriceListsAsyncRequest($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3410,6 +3445,7 @@ class PriceListsApi
                 'Missing the required parameter $tenant_id when calling getPriceListsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/PriceLists';
@@ -3439,7 +3475,14 @@ class PriceListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($price_list_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($price_list_dto_collection_query_parameters));
+            } else {
+                $httpBody = $price_list_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3491,15 +3534,16 @@ class PriceListsApi
      * Counts price lists
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPriceListsCountAsync($tenant_id, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
+    public function getPriceListsCountAsync($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
     {
-        list($response) = $this->getPriceListsCountAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getPriceListsCountAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3509,15 +3553,16 @@ class PriceListsApi
      * Counts price lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPriceListsCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
+    public function getPriceListsCountAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
     {
-        $request = $this->getPriceListsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPriceListsCountAsyncRequest($tenant_id, $price_list_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3669,14 +3714,15 @@ class PriceListsApi
      * Counts price lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsCountAsyncAsync($tenant_id, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
+    public function getPriceListsCountAsyncAsync($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
     {
-        return $this->getPriceListsCountAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getPriceListsCountAsyncAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3690,15 +3736,16 @@ class PriceListsApi
      * Counts price lists
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPriceListsCountAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
+    public function getPriceListsCountAsyncAsyncWithHttpInfo($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPriceListsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPriceListsCountAsyncRequest($tenant_id, $price_list_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3740,12 +3787,13 @@ class PriceListsApi
      * Create request for operation 'getPriceListsCountAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PriceListDtoCollectionQueryParameters $price_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPriceListsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPriceListsCountAsyncRequest($tenant_id, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
+    public function getPriceListsCountAsyncRequest($tenant_id, $price_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPriceListsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3754,6 +3802,7 @@ class PriceListsApi
                 'Missing the required parameter $tenant_id when calling getPriceListsCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PricingService/PriceLists/Count';
@@ -3783,7 +3832,14 @@ class PriceListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($price_list_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($price_list_dto_collection_query_parameters));
+            } else {
+                $httpBody = $price_list_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3836,16 +3892,16 @@ class PriceListsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $price_list_id price_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPriceListAsync($tenant_id, $price_list_id, $operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
+    public function patchPriceListAsync($tenant_id, $price_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
     {
-        list($response) = $this->patchPriceListAsyncWithHttpInfo($tenant_id, $price_list_id, $operation, $contentType);
+        list($response) = $this->patchPriceListAsyncWithHttpInfo($tenant_id, $price_list_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3856,16 +3912,16 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPriceListAsyncWithHttpInfo($tenant_id, $price_list_id, $operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
+    public function patchPriceListAsyncWithHttpInfo($tenant_id, $price_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
     {
-        $request = $this->patchPriceListAsyncRequest($tenant_id, $price_list_id, $operation, $contentType);
+        $request = $this->patchPriceListAsyncRequest($tenant_id, $price_list_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4018,15 +4074,15 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPriceListAsyncAsync($tenant_id, $price_list_id, $operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
+    public function patchPriceListAsyncAsync($tenant_id, $price_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
     {
-        return $this->patchPriceListAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $operation, $contentType)
+        return $this->patchPriceListAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4041,16 +4097,16 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPriceListAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
+    public function patchPriceListAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPriceListAsyncRequest($tenant_id, $price_list_id, $operation, $contentType);
+        $request = $this->patchPriceListAsyncRequest($tenant_id, $price_list_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4093,13 +4149,13 @@ class PriceListsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPriceListAsyncRequest($tenant_id, $price_list_id, $operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
+    public function patchPriceListAsyncRequest($tenant_id, $price_list_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4153,12 +4209,12 @@ class PriceListsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4214,16 +4270,16 @@ class PriceListsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $price_list_id price_list_id (required)
      * @param  string $price_id price_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListPriceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPriceListPriceAsync($tenant_id, $price_list_id, $price_id, $operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
+    public function patchPriceListPriceAsync($tenant_id, $price_list_id, $price_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
     {
-        list($response) = $this->patchPriceListPriceAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $operation, $contentType);
+        list($response) = $this->patchPriceListPriceAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4235,16 +4291,16 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $price_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListPriceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPriceListPriceAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
+    public function patchPriceListPriceAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
     {
-        $request = $this->patchPriceListPriceAsyncRequest($tenant_id, $price_list_id, $price_id, $operation, $contentType);
+        $request = $this->patchPriceListPriceAsyncRequest($tenant_id, $price_list_id, $price_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4398,15 +4454,15 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $price_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListPriceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPriceListPriceAsyncAsync($tenant_id, $price_list_id, $price_id, $operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
+    public function patchPriceListPriceAsyncAsync($tenant_id, $price_list_id, $price_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
     {
-        return $this->patchPriceListPriceAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $operation, $contentType)
+        return $this->patchPriceListPriceAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4422,16 +4478,16 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $price_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListPriceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPriceListPriceAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
+    public function patchPriceListPriceAsyncAsyncWithHttpInfo($tenant_id, $price_list_id, $price_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPriceListPriceAsyncRequest($tenant_id, $price_list_id, $price_id, $operation, $contentType);
+        $request = $this->patchPriceListPriceAsyncRequest($tenant_id, $price_list_id, $price_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4475,13 +4531,13 @@ class PriceListsApi
      * @param  string $tenant_id (required)
      * @param  string $price_list_id (required)
      * @param  string $price_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPriceListPriceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPriceListPriceAsyncRequest($tenant_id, $price_list_id, $price_id, $operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
+    public function patchPriceListPriceAsyncRequest($tenant_id, $price_list_id, $price_id, $patch_operation = null, string $contentType = self::contentTypes['patchPriceListPriceAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4550,12 +4606,12 @@ class PriceListsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

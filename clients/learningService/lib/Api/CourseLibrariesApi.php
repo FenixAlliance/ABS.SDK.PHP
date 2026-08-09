@@ -81,9 +81,11 @@ class CourseLibrariesApi
         ],
         'getCourseLibrariesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseLibrariesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseLibraryByIdAsync' => [
             'application/json',
@@ -805,15 +807,16 @@ class CourseLibrariesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseLibraryDto[]
      */
-    public function getCourseLibrariesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
+    public function getCourseLibrariesAsync($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
     {
-        list($response) = $this->getCourseLibrariesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseLibrariesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -825,15 +828,16 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseLibraryDto[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseLibrariesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
+    public function getCourseLibrariesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
     {
-        $request = $this->getCourseLibrariesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseLibrariesAsyncRequest($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -987,14 +991,15 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseLibrariesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
+    public function getCourseLibrariesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
     {
-        return $this->getCourseLibrariesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseLibrariesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1010,15 +1015,16 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseLibrariesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
+    public function getCourseLibrariesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseLibraryDto[]';
-        $request = $this->getCourseLibrariesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseLibrariesAsyncRequest($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1062,12 +1068,13 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseLibrariesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
+    public function getCourseLibrariesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1076,6 +1083,7 @@ class CourseLibrariesApi
                 'Missing the required parameter $tenant_id when calling getCourseLibrariesAsync'
             );
         }
+
 
 
 
@@ -1120,7 +1128,14 @@ class CourseLibrariesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_library_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_library_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_library_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1174,15 +1189,16 @@ class CourseLibrariesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|int
      */
-    public function getCourseLibrariesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
+    public function getCourseLibrariesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
     {
-        list($response) = $this->getCourseLibrariesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseLibrariesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1194,15 +1210,16 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|int, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseLibrariesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
+    public function getCourseLibrariesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
     {
-        $request = $this->getCourseLibrariesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseLibrariesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1356,14 +1373,15 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseLibrariesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
+    public function getCourseLibrariesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
     {
-        return $this->getCourseLibrariesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseLibrariesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1379,15 +1397,16 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseLibrariesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
+    public function getCourseLibrariesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getCourseLibrariesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseLibrariesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_library_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1431,12 +1450,13 @@ class CourseLibrariesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseLibraryDtoCollectionQueryParameters $course_library_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseLibrariesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseLibrariesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
+    public function getCourseLibrariesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_library_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseLibrariesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1445,6 +1465,7 @@ class CourseLibrariesApi
                 'Missing the required parameter $tenant_id when calling getCourseLibrariesCountAsync'
             );
         }
+
 
 
 
@@ -1489,7 +1510,14 @@ class CourseLibrariesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_library_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_library_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_library_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1912,16 +1940,16 @@ class CourseLibrariesApi
      * @param  string $library_id library_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseLibraryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchCourseLibraryAsync($tenant_id, $library_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
+    public function patchCourseLibraryAsync($tenant_id, $library_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
     {
-        $this->patchCourseLibraryAsyncWithHttpInfo($tenant_id, $library_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchCourseLibraryAsyncWithHttpInfo($tenant_id, $library_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1933,16 +1961,16 @@ class CourseLibrariesApi
      * @param  string $library_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseLibraryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseLibraryAsyncWithHttpInfo($tenant_id, $library_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
+    public function patchCourseLibraryAsyncWithHttpInfo($tenant_id, $library_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
     {
-        $request = $this->patchCourseLibraryAsyncRequest($tenant_id, $library_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseLibraryAsyncRequest($tenant_id, $library_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1993,15 +2021,15 @@ class CourseLibrariesApi
      * @param  string $library_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseLibraryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseLibraryAsyncAsync($tenant_id, $library_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
+    public function patchCourseLibraryAsyncAsync($tenant_id, $library_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
     {
-        return $this->patchCourseLibraryAsyncAsyncWithHttpInfo($tenant_id, $library_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseLibraryAsyncAsyncWithHttpInfo($tenant_id, $library_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2018,16 +2046,16 @@ class CourseLibrariesApi
      * @param  string $library_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseLibraryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseLibraryAsyncAsyncWithHttpInfo($tenant_id, $library_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
+    public function patchCourseLibraryAsyncAsyncWithHttpInfo($tenant_id, $library_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchCourseLibraryAsyncRequest($tenant_id, $library_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseLibraryAsyncRequest($tenant_id, $library_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2059,13 +2087,13 @@ class CourseLibrariesApi
      * @param  string $library_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseLibraryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseLibraryAsyncRequest($tenant_id, $library_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
+    public function patchCourseLibraryAsyncRequest($tenant_id, $library_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseLibraryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2134,12 +2162,12 @@ class CourseLibrariesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

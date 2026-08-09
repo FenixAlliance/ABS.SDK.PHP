@@ -84,9 +84,11 @@ class ShippingCouriersApi
         ],
         'getShippingCouriersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getShippingCouriersCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchShippingCourierAsync' => [
             'application/json',
@@ -1076,15 +1078,16 @@ class ShippingCouriersApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShippingCourierDtoListEnvelope
      */
-    public function getShippingCouriersAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
+    public function getShippingCouriersAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
     {
-        list($response) = $this->getShippingCouriersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShippingCouriersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1096,15 +1099,16 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShippingCourierDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShippingCouriersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
+    public function getShippingCouriersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
     {
-        $request = $this->getShippingCouriersAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingCouriersAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1293,14 +1297,15 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingCouriersAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
+    public function getShippingCouriersAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
     {
-        return $this->getShippingCouriersAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShippingCouriersAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1316,15 +1321,16 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingCouriersAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
+    public function getShippingCouriersAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShippingCourierDtoListEnvelope';
-        $request = $this->getShippingCouriersAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingCouriersAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1368,12 +1374,13 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShippingCouriersAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
+    public function getShippingCouriersAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1382,6 +1389,7 @@ class ShippingCouriersApi
                 'Missing the required parameter $tenant_id when calling getShippingCouriersAsync'
             );
         }
+
 
 
 
@@ -1426,7 +1434,14 @@ class ShippingCouriersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($shipping_courier_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($shipping_courier_dto_collection_query_parameters));
+            } else {
+                $httpBody = $shipping_courier_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1480,15 +1495,16 @@ class ShippingCouriersApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShippingCouriersCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
+    public function getShippingCouriersCountAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
     {
-        list($response) = $this->getShippingCouriersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShippingCouriersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1500,15 +1516,16 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShippingCouriersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
+    public function getShippingCouriersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
     {
-        $request = $this->getShippingCouriersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingCouriersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1662,14 +1679,15 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingCouriersCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
+    public function getShippingCouriersCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
     {
-        return $this->getShippingCouriersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShippingCouriersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1685,15 +1703,16 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingCouriersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
+    public function getShippingCouriersCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShippingCouriersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingCouriersCountAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1737,12 +1756,13 @@ class ShippingCouriersApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters $shipping_courier_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingCouriersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShippingCouriersCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
+    public function getShippingCouriersCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $shipping_courier_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingCouriersCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1751,6 +1771,7 @@ class ShippingCouriersApi
                 'Missing the required parameter $tenant_id when calling getShippingCouriersCountAsync'
             );
         }
+
 
 
 
@@ -1795,7 +1816,14 @@ class ShippingCouriersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($shipping_courier_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($shipping_courier_dto_collection_query_parameters));
+            } else {
+                $httpBody = $shipping_courier_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1850,16 +1878,16 @@ class ShippingCouriersApi
      * @param  string $courier_id courier_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingCourierAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShippingCourierAsync($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
+    public function patchShippingCourierAsync($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
     {
-        list($response) = $this->patchShippingCourierAsyncWithHttpInfo($tenant_id, $courier_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShippingCourierAsyncWithHttpInfo($tenant_id, $courier_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1872,16 +1900,16 @@ class ShippingCouriersApi
      * @param  string $courier_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingCourierAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShippingCourierAsyncWithHttpInfo($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
+    public function patchShippingCourierAsyncWithHttpInfo($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
     {
-        $request = $this->patchShippingCourierAsyncRequest($tenant_id, $courier_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShippingCourierAsyncRequest($tenant_id, $courier_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2106,15 +2134,15 @@ class ShippingCouriersApi
      * @param  string $courier_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingCourierAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShippingCourierAsyncAsync($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
+    public function patchShippingCourierAsyncAsync($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
     {
-        return $this->patchShippingCourierAsyncAsyncWithHttpInfo($tenant_id, $courier_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShippingCourierAsyncAsyncWithHttpInfo($tenant_id, $courier_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,16 +2159,16 @@ class ShippingCouriersApi
      * @param  string $courier_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingCourierAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShippingCourierAsyncAsyncWithHttpInfo($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
+    public function patchShippingCourierAsyncAsyncWithHttpInfo($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShippingCourierAsyncRequest($tenant_id, $courier_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShippingCourierAsyncRequest($tenant_id, $courier_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2185,13 +2213,13 @@ class ShippingCouriersApi
      * @param  string $courier_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingCourierAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShippingCourierAsyncRequest($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
+    public function patchShippingCourierAsyncRequest($tenant_id, $courier_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingCourierAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2260,12 +2288,12 @@ class ShippingCouriersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

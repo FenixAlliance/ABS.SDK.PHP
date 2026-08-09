@@ -81,9 +81,11 @@ class ReturnPoliciesApi
         ],
         'getReturnPoliciesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getReturnPoliciesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getReturnPolicyAsync' => [
             'application/json',
@@ -993,15 +995,16 @@ class ReturnPoliciesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
      */
-    public function getReturnPoliciesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
+    public function getReturnPoliciesAsync($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
     {
-        list($response) = $this->getReturnPoliciesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getReturnPoliciesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1013,15 +1016,16 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReturnPoliciesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
+    public function getReturnPoliciesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
     {
-        $request = $this->getReturnPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1210,14 +1214,15 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnPoliciesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
+    public function getReturnPoliciesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
     {
-        return $this->getReturnPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getReturnPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1233,15 +1238,16 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
+    public function getReturnPoliciesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope';
-        $request = $this->getReturnPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnPoliciesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1285,12 +1291,13 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReturnPoliciesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
+    public function getReturnPoliciesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1299,6 +1306,7 @@ class ReturnPoliciesApi
                 'Missing the required parameter $tenant_id when calling getReturnPoliciesAsync'
             );
         }
+
 
 
 
@@ -1343,7 +1351,14 @@ class ReturnPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_return_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_return_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_return_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1397,15 +1412,16 @@ class ReturnPoliciesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getReturnPoliciesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
+    public function getReturnPoliciesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
     {
-        list($response) = $this->getReturnPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getReturnPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1417,15 +1433,16 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReturnPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
+    public function getReturnPoliciesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
     {
-        $request = $this->getReturnPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1614,14 +1631,15 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnPoliciesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
+    public function getReturnPoliciesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
     {
-        return $this->getReturnPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getReturnPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1637,15 +1655,16 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
+    public function getReturnPoliciesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getReturnPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnPoliciesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,12 +1708,13 @@ class ReturnPoliciesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPoliciesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReturnPoliciesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
+    public function getReturnPoliciesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnPoliciesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1703,6 +1723,7 @@ class ReturnPoliciesApi
                 'Missing the required parameter $tenant_id when calling getReturnPoliciesCountAsync'
             );
         }
+
 
 
 
@@ -1747,7 +1768,14 @@ class ReturnPoliciesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_return_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_return_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_return_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class ReturnPoliciesApi
      * @param  string $return_policy_id return_policy_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnPolicyAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchReturnPolicyAsync($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
+    public function patchReturnPolicyAsync($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
     {
-        list($response) = $this->patchReturnPolicyAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchReturnPolicyAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class ReturnPoliciesApi
      * @param  string $return_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnPolicyAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchReturnPolicyAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
+    public function patchReturnPolicyAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
     {
-        $request = $this->patchReturnPolicyAsyncRequest($tenant_id, $return_policy_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchReturnPolicyAsyncRequest($tenant_id, $return_policy_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class ReturnPoliciesApi
      * @param  string $return_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnPolicyAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchReturnPolicyAsyncAsync($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
+    public function patchReturnPolicyAsyncAsync($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
     {
-        return $this->patchReturnPolicyAsyncAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchReturnPolicyAsyncAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class ReturnPoliciesApi
      * @param  string $return_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnPolicyAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchReturnPolicyAsyncAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
+    public function patchReturnPolicyAsyncAsyncWithHttpInfo($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchReturnPolicyAsyncRequest($tenant_id, $return_policy_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchReturnPolicyAsyncRequest($tenant_id, $return_policy_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class ReturnPoliciesApi
      * @param  string $return_policy_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnPolicyAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchReturnPolicyAsyncRequest($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
+    public function patchReturnPolicyAsyncRequest($tenant_id, $return_policy_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnPolicyAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class ReturnPoliciesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

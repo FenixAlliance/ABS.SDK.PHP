@@ -12,6 +12,7 @@ docs/Model/EmailDispatchRequest.md
 docs/Model/EmptyEnvelope.md
 docs/Model/ErrorEnvelope.md
 docs/Model/ExtendedQuoteDto.md
+docs/Model/ExtendedQuoteDtoCollectionQueryParameters.md
 docs/Model/ExtendedQuoteDtoListEnvelope.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
@@ -19,13 +20,15 @@ docs/Model/InfoRequest.md
 docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
-docs/Model/Operation.md
+docs/Model/PatchOperation.md
 docs/Model/QuoteCreateDto.md
 docs/Model/QuoteDto.md
+docs/Model/QuoteDtoCollectionQueryParameters.md
 docs/Model/QuoteDtoEnvelope.md
 docs/Model/QuoteDtoListEnvelope.md
 docs/Model/QuoteLineCreateDto.md
 docs/Model/QuoteLineDto.md
+docs/Model/QuoteLineDtoCollectionQueryParameters.md
 docs/Model/QuoteLineDtoEnvelope.md
 docs/Model/QuoteLineDtoListEnvelope.md
 docs/Model/QuoteLineUpdateDto.md
@@ -53,6 +56,7 @@ lib/Model/EmailDispatchRequest.php
 lib/Model/EmptyEnvelope.php
 lib/Model/ErrorEnvelope.php
 lib/Model/ExtendedQuoteDto.php
+lib/Model/ExtendedQuoteDtoCollectionQueryParameters.php
 lib/Model/ExtendedQuoteDtoListEnvelope.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
@@ -61,13 +65,15 @@ lib/Model/InfoResponse.php
 lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
-lib/Model/Operation.php
+lib/Model/PatchOperation.php
 lib/Model/QuoteCreateDto.php
 lib/Model/QuoteDto.php
+lib/Model/QuoteDtoCollectionQueryParameters.php
 lib/Model/QuoteDtoEnvelope.php
 lib/Model/QuoteDtoListEnvelope.php
 lib/Model/QuoteLineCreateDto.php
 lib/Model/QuoteLineDto.php
+lib/Model/QuoteLineDtoCollectionQueryParameters.php
 lib/Model/QuoteLineDtoEnvelope.php
 lib/Model/QuoteLineDtoListEnvelope.php
 lib/Model/QuoteLineUpdateDto.php
@@ -84,3 +90,7 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UserDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ExtendedQuoteDtoCollectionQueryParametersTest.php
+test/Model/PatchOperationTest.php
+test/Model/QuoteDtoCollectionQueryParametersTest.php
+test/Model/QuoteLineDtoCollectionQueryParametersTest.php

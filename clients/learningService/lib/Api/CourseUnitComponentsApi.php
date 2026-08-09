@@ -84,9 +84,11 @@ class CourseUnitComponentsApi
         ],
         'getCourseUnitComponentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseUnitComponentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCourseUnitComponentAsync' => [
             'application/json',
@@ -1055,15 +1057,16 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseUnitComponentDto[]
      */
-    public function getCourseUnitComponentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
+    public function getCourseUnitComponentsAsync($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
     {
-        list($response) = $this->getCourseUnitComponentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseUnitComponentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1075,15 +1078,16 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseUnitComponentDto[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseUnitComponentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
+    public function getCourseUnitComponentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
     {
-        $request = $this->getCourseUnitComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseUnitComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1237,14 +1241,15 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseUnitComponentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
+    public function getCourseUnitComponentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
     {
-        return $this->getCourseUnitComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseUnitComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1260,15 +1265,16 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseUnitComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
+    public function getCourseUnitComponentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseUnitComponentDto[]';
-        $request = $this->getCourseUnitComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseUnitComponentsAsyncRequest($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1312,12 +1318,13 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseUnitComponentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
+    public function getCourseUnitComponentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1326,6 +1333,7 @@ class CourseUnitComponentsApi
                 'Missing the required parameter $tenant_id when calling getCourseUnitComponentsAsync'
             );
         }
+
 
 
 
@@ -1370,7 +1378,14 @@ class CourseUnitComponentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_unit_component_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_unit_component_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_unit_component_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1424,15 +1439,16 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|int
      */
-    public function getCourseUnitComponentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
+    public function getCourseUnitComponentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
     {
-        list($response) = $this->getCourseUnitComponentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseUnitComponentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1444,15 +1460,16 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|int, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseUnitComponentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
+    public function getCourseUnitComponentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
     {
-        $request = $this->getCourseUnitComponentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseUnitComponentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1606,14 +1623,15 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseUnitComponentsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
+    public function getCourseUnitComponentsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
     {
-        return $this->getCourseUnitComponentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseUnitComponentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1629,15 +1647,16 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseUnitComponentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
+    public function getCourseUnitComponentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getCourseUnitComponentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseUnitComponentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1681,12 +1700,13 @@ class CourseUnitComponentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters $course_unit_component_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseUnitComponentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseUnitComponentsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
+    public function getCourseUnitComponentsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_unit_component_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseUnitComponentsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1695,6 +1715,7 @@ class CourseUnitComponentsApi
                 'Missing the required parameter $tenant_id when calling getCourseUnitComponentsCountAsync'
             );
         }
+
 
 
 
@@ -1739,7 +1760,14 @@ class CourseUnitComponentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_unit_component_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_unit_component_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_unit_component_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1794,16 +1822,16 @@ class CourseUnitComponentsApi
      * @param  string $component_id component_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseUnitComponentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCourseUnitComponentAsync($tenant_id, $component_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
+    public function patchCourseUnitComponentAsync($tenant_id, $component_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
     {
-        list($response) = $this->patchCourseUnitComponentAsyncWithHttpInfo($tenant_id, $component_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCourseUnitComponentAsyncWithHttpInfo($tenant_id, $component_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1816,16 +1844,16 @@ class CourseUnitComponentsApi
      * @param  string $component_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseUnitComponentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseUnitComponentAsyncWithHttpInfo($tenant_id, $component_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
+    public function patchCourseUnitComponentAsyncWithHttpInfo($tenant_id, $component_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
     {
-        $request = $this->patchCourseUnitComponentAsyncRequest($tenant_id, $component_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseUnitComponentAsyncRequest($tenant_id, $component_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1980,15 +2008,15 @@ class CourseUnitComponentsApi
      * @param  string $component_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseUnitComponentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseUnitComponentAsyncAsync($tenant_id, $component_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
+    public function patchCourseUnitComponentAsyncAsync($tenant_id, $component_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
     {
-        return $this->patchCourseUnitComponentAsyncAsyncWithHttpInfo($tenant_id, $component_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseUnitComponentAsyncAsyncWithHttpInfo($tenant_id, $component_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2005,16 +2033,16 @@ class CourseUnitComponentsApi
      * @param  string $component_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseUnitComponentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseUnitComponentAsyncAsyncWithHttpInfo($tenant_id, $component_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
+    public function patchCourseUnitComponentAsyncAsyncWithHttpInfo($tenant_id, $component_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCourseUnitComponentAsyncRequest($tenant_id, $component_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseUnitComponentAsyncRequest($tenant_id, $component_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2059,13 +2087,13 @@ class CourseUnitComponentsApi
      * @param  string $component_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseUnitComponentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseUnitComponentAsyncRequest($tenant_id, $component_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
+    public function patchCourseUnitComponentAsyncRequest($tenant_id, $component_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseUnitComponentAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2134,12 +2162,12 @@ class CourseUnitComponentsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

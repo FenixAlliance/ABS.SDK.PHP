@@ -77,9 +77,11 @@ class MerchantsApi
         ],
         'getMerchants' => [
             'application/json',
+            'application/xml',
         ],
         'getMerchantsCount' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -539,15 +541,16 @@ class MerchantsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchants'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MerchantDtoListEnvelope
      */
-    public function getMerchants($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchants'][0])
+    public function getMerchants($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchants'][0])
     {
-        list($response) = $this->getMerchantsWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getMerchantsWithHttpInfo($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -558,15 +561,16 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchants'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MerchantDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMerchantsWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchants'][0])
+    public function getMerchantsWithHttpInfo($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchants'][0])
     {
-        $request = $this->getMerchantsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getMerchantsRequest($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -754,14 +758,15 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMerchantsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchants'][0])
+    public function getMerchantsAsync($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchants'][0])
     {
-        return $this->getMerchantsAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getMerchantsAsyncWithHttpInfo($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -776,15 +781,16 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMerchantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchants'][0])
+    public function getMerchantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchants'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MerchantDtoListEnvelope';
-        $request = $this->getMerchantsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getMerchantsRequest($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -827,13 +833,15 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMerchantsRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchants'][0])
+    public function getMerchantsRequest($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchants'][0])
     {
+
 
 
 
@@ -869,7 +877,14 @@ class MerchantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($merchant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($merchant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $merchant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -922,15 +937,16 @@ class MerchantsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchantsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getMerchantsCount($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
+    public function getMerchantsCount($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
     {
-        list($response) = $this->getMerchantsCountWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getMerchantsCountWithHttpInfo($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -941,15 +957,16 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchantsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMerchantsCountWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
+    public function getMerchantsCountWithHttpInfo($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
     {
-        $request = $this->getMerchantsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getMerchantsCountRequest($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1137,14 +1154,15 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMerchantsCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
+    public function getMerchantsCountAsync($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
     {
-        return $this->getMerchantsCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getMerchantsCountAsyncWithHttpInfo($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,15 +1177,16 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMerchantsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
+    public function getMerchantsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getMerchantsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getMerchantsCountRequest($api_version, $x_api_version, $merchant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1210,13 +1229,15 @@ class MerchantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MerchantDtoCollectionQueryParameters $merchant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMerchantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMerchantsCountRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
+    public function getMerchantsCountRequest($api_version = null, $x_api_version = null, $merchant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMerchantsCount'][0])
     {
+
 
 
 
@@ -1252,7 +1273,14 @@ class MerchantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($merchant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($merchant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $merchant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

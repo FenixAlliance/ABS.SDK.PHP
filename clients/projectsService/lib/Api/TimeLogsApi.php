@@ -74,6 +74,7 @@ class TimeLogsApi
     public const contentTypes = [
         'countProjectPeriodTimeLogsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createProjectTimeLogAsync' => [
             'application/json',
@@ -84,6 +85,7 @@ class TimeLogsApi
         ],
         'getProjectPeriodTimeLogsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProjectTimeLogByIdAsync' => [
             'application/json',
@@ -162,15 +164,16 @@ class TimeLogsApi
      * @param  string $project_period_id project_period_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
+    public function countProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
     {
-        list($response) = $this->countProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -183,15 +186,16 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
+    public function countProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
     {
-        $request = $this->countProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -381,14 +385,15 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countProjectPeriodTimeLogsAsyncAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
+    public function countProjectPeriodTimeLogsAsyncAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
     {
-        return $this->countProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType)
+        return $this->countProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -405,15 +410,16 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
+    public function countProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -458,12 +464,13 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
+    public function countProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countProjectPeriodTimeLogsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -479,6 +486,7 @@ class TimeLogsApi
                 'Missing the required parameter $project_period_id when calling countProjectPeriodTimeLogsAsync'
             );
         }
+
 
 
 
@@ -532,7 +540,14 @@ class TimeLogsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_time_log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_time_log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_time_log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1138,15 +1153,16 @@ class TimeLogsApi
      * @param  string $project_period_id project_period_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
      */
-    public function getProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
+    public function getProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
     {
-        list($response) = $this->getProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1159,15 +1175,16 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
+    public function getProjectPeriodTimeLogsAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
     {
-        $request = $this->getProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1357,14 +1374,15 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectPeriodTimeLogsAsyncAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
+    public function getProjectPeriodTimeLogsAsyncAsync($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
     {
-        return $this->getProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType)
+        return $this->getProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1381,15 +1399,16 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
+    public function getProjectPeriodTimeLogsAsyncAsyncWithHttpInfo($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope';
-        $request = $this->getProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1434,12 +1453,13 @@ class TimeLogsApi
      * @param  string $project_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectPeriodTimeLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
+    public function getProjectPeriodTimeLogsAsyncRequest($tenant_id, $project_period_id, $api_version = null, $x_api_version = null, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectPeriodTimeLogsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1455,6 +1475,7 @@ class TimeLogsApi
                 'Missing the required parameter $project_period_id when calling getProjectPeriodTimeLogsAsync'
             );
         }
+
 
 
 
@@ -1508,7 +1529,14 @@ class TimeLogsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_time_log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_time_log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_time_log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3261,16 +3289,16 @@ class TimeLogsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectTimeLogAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchProjectTimeLogAsync($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
+    public function patchProjectTimeLogAsync($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
     {
-        $this->patchProjectTimeLogAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchProjectTimeLogAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -3282,16 +3310,16 @@ class TimeLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectTimeLogAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProjectTimeLogAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
+    public function patchProjectTimeLogAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
     {
-        $request = $this->patchProjectTimeLogAsyncRequest($time_log_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProjectTimeLogAsyncRequest($time_log_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3350,15 +3378,15 @@ class TimeLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectTimeLogAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProjectTimeLogAsyncAsync($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
+    public function patchProjectTimeLogAsyncAsync($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
     {
-        return $this->patchProjectTimeLogAsyncAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchProjectTimeLogAsyncAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3375,16 +3403,16 @@ class TimeLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectTimeLogAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProjectTimeLogAsyncAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
+    public function patchProjectTimeLogAsyncAsyncWithHttpInfo($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchProjectTimeLogAsyncRequest($time_log_id, $tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProjectTimeLogAsyncRequest($time_log_id, $tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3416,13 +3444,13 @@ class TimeLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectTimeLogAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProjectTimeLogAsyncRequest($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
+    public function patchProjectTimeLogAsyncRequest($time_log_id, $tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProjectTimeLogAsync'][0])
     {
 
         // verify the required parameter 'time_log_id' is set
@@ -3491,12 +3519,12 @@ class TimeLogsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

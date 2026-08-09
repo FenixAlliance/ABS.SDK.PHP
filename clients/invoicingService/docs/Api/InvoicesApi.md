@@ -1135,7 +1135,7 @@ No authorization required
 ## `getExtendedInvoices()`
 
 ```php
-getExtendedInvoices($tenant_id): \OpenAPI\Client\Model\ExtendedInvoiceDtoListEnvelope
+getExtendedInvoices($tenant_id, $extended_invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedInvoiceDtoListEnvelope
 ```
 
 Get a list of extended invoices.
@@ -1156,9 +1156,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$extended_invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedInvoices($tenant_id);
+    $result = $apiInstance->getExtendedInvoices($tenant_id, $extended_invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getExtendedInvoices: ', $e->getMessage(), PHP_EOL;
@@ -1170,6 +1171,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **extended_invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters**](../Model/ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1181,7 +1183,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1191,7 +1193,7 @@ No authorization required
 ## `getExtendedInvoicesCount()`
 
 ```php
-getExtendedInvoicesCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getExtendedInvoicesCount($tenant_id, $extended_invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of extended invoices.
@@ -1212,9 +1214,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$extended_invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedInvoicesCount($tenant_id);
+    $result = $apiInstance->getExtendedInvoicesCount($tenant_id, $extended_invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getExtendedInvoicesCount: ', $e->getMessage(), PHP_EOL;
@@ -1226,6 +1229,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **extended_invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedInvoiceDtoCollectionQueryParameters**](../Model/ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1237,7 +1241,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1365,7 +1369,7 @@ No authorization required
 ## `getInvoiceAdjustments()`
 
 ```php
-getInvoiceAdjustments($tenant_id, $invoice_id): \OpenAPI\Client\Model\InvoiceAdjustmentDtoIReadOnlyListEnvelope
+getInvoiceAdjustments($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceAdjustmentDtoIReadOnlyListEnvelope
 ```
 
 Get invoice adjustments.
@@ -1387,9 +1391,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$invoice_adjustment_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceAdjustments($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoiceAdjustments($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceAdjustments: ', $e->getMessage(), PHP_EOL;
@@ -1402,6 +1407,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **invoice_adjustment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters**](../Model/InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1413,7 +1419,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1423,7 +1429,7 @@ No authorization required
 ## `getInvoiceAdjustmentsCount()`
 
 ```php
-getInvoiceAdjustmentsCount($tenant_id, $invoice_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoiceAdjustmentsCount($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of invoice adjustments.
@@ -1445,9 +1451,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$invoice_adjustment_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceAdjustmentsCount($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoiceAdjustmentsCount($tenant_id, $invoice_id, $invoice_adjustment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceAdjustmentsCount: ', $e->getMessage(), PHP_EOL;
@@ -1460,6 +1467,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **invoice_adjustment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceAdjustmentDtoCollectionQueryParameters**](../Model/InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1471,7 +1479,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1541,7 +1549,7 @@ No authorization required
 ## `getInvoiceLineTaxes()`
 
 ```php
-getInvoiceLineTaxes($tenant_id, $invoice_id, $invoice_line_id): \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
+getInvoiceLineTaxes($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
 ```
 
 Get taxes for an invoice line.
@@ -1564,9 +1572,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $invoice_line_id = 'invoice_line_id_example'; // string
+$invoice_line_applied_tax_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceLineTaxes($tenant_id, $invoice_id, $invoice_line_id);
+    $result = $apiInstance->getInvoiceLineTaxes($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceLineTaxes: ', $e->getMessage(), PHP_EOL;
@@ -1580,6 +1589,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 | **invoice_line_id** | **string**|  | |
+| **invoice_line_applied_tax_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters**](../Model/InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1591,7 +1601,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1601,7 +1611,7 @@ No authorization required
 ## `getInvoiceLineTaxesCount()`
 
 ```php
-getInvoiceLineTaxesCount($tenant_id, $invoice_id, $invoice_line_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoiceLineTaxesCount($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of taxes for an invoice line.
@@ -1624,9 +1634,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $invoice_line_id = 'invoice_line_id_example'; // string
+$invoice_line_applied_tax_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceLineTaxesCount($tenant_id, $invoice_id, $invoice_line_id);
+    $result = $apiInstance->getInvoiceLineTaxesCount($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_applied_tax_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceLineTaxesCount: ', $e->getMessage(), PHP_EOL;
@@ -1640,6 +1651,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 | **invoice_line_id** | **string**|  | |
+| **invoice_line_applied_tax_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceLineAppliedTaxDtoCollectionQueryParameters**](../Model/InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1651,7 +1663,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1661,7 +1673,7 @@ No authorization required
 ## `getInvoiceLines()`
 
 ```php
-getInvoiceLines($tenant_id, $invoice_id, $item_id): \OpenAPI\Client\Model\InvoiceLineDtoListEnvelope
+getInvoiceLines($tenant_id, $invoice_id, $item_id, $invoice_line_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceLineDtoListEnvelope
 ```
 
 Get invoice lines.
@@ -1684,9 +1696,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $item_id = 'item_id_example'; // string
+$invoice_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceLines($tenant_id, $invoice_id, $item_id);
+    $result = $apiInstance->getInvoiceLines($tenant_id, $invoice_id, $item_id, $invoice_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceLines: ', $e->getMessage(), PHP_EOL;
@@ -1700,6 +1713,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 | **item_id** | **string**|  | [optional] |
+| **invoice_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters**](../Model/InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1711,7 +1725,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1721,7 +1735,7 @@ No authorization required
 ## `getInvoiceLinesCount()`
 
 ```php
-getInvoiceLinesCount($tenant_id, $invoice_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoiceLinesCount($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of invoice lines.
@@ -1743,9 +1757,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$invoice_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceLinesCount($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoiceLinesCount($tenant_id, $invoice_id, $invoice_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceLinesCount: ', $e->getMessage(), PHP_EOL;
@@ -1758,6 +1773,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **invoice_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceLineDtoCollectionQueryParameters**](../Model/InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1769,7 +1785,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1779,7 +1795,7 @@ No authorization required
 ## `getInvoicePayments()`
 
 ```php
-getInvoicePayments($tenant_id, $invoice_id): \OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope
+getInvoicePayments($tenant_id, $invoice_id, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope
 ```
 
 Get payments for an invoice.
@@ -1801,9 +1817,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoicePayments($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoicePayments($tenant_id, $invoice_id, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoicePayments: ', $e->getMessage(), PHP_EOL;
@@ -1816,6 +1833,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1827,7 +1845,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1837,7 +1855,7 @@ No authorization required
 ## `getInvoicePaymentsCount()`
 
 ```php
-getInvoicePaymentsCount($tenant_id, $invoice_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoicePaymentsCount($tenant_id, $invoice_id, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of payments for an invoice.
@@ -1859,9 +1877,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoicePaymentsCount($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoicePaymentsCount($tenant_id, $invoice_id, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoicePaymentsCount: ', $e->getMessage(), PHP_EOL;
@@ -1874,6 +1893,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1885,7 +1905,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1955,7 +1975,7 @@ No authorization required
 ## `getInvoiceReferences()`
 
 ```php
-getInvoiceReferences($tenant_id, $invoice_id): \OpenAPI\Client\Model\InvoiceReferenceDtoIReadOnlyListEnvelope
+getInvoiceReferences($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceReferenceDtoIReadOnlyListEnvelope
 ```
 
 Get invoice references.
@@ -1977,9 +1997,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$invoice_reference_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceReferences($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoiceReferences($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceReferences: ', $e->getMessage(), PHP_EOL;
@@ -1992,6 +2013,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **invoice_reference_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters**](../Model/InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2003,7 +2025,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2013,7 +2035,7 @@ No authorization required
 ## `getInvoiceReferencesCount()`
 
 ```php
-getInvoiceReferencesCount($tenant_id, $invoice_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoiceReferencesCount($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of invoice references.
@@ -2035,9 +2057,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
+$invoice_reference_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoiceReferencesCount($tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoiceReferencesCount($tenant_id, $invoice_id, $invoice_reference_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoiceReferencesCount: ', $e->getMessage(), PHP_EOL;
@@ -2050,6 +2073,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
+| **invoice_reference_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceReferenceDtoCollectionQueryParameters**](../Model/InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2061,7 +2085,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2071,7 +2095,7 @@ No authorization required
 ## `getInvoices()`
 
 ```php
-getInvoices($tenant_id): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
+getInvoices($tenant_id, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
 ```
 
 Get a list of invoices.
@@ -2092,9 +2116,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoices($tenant_id);
+    $result = $apiInstance->getInvoices($tenant_id, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoices: ', $e->getMessage(), PHP_EOL;
@@ -2106,6 +2131,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2117,7 +2143,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2127,7 +2153,7 @@ No authorization required
 ## `getInvoicesCount()`
 
 ```php
-getInvoicesCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoicesCount($tenant_id, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of invoices.
@@ -2148,9 +2174,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInvoicesCount($tenant_id);
+    $result = $apiInstance->getInvoicesCount($tenant_id, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoicesCount: ', $e->getMessage(), PHP_EOL;
@@ -2162,6 +2189,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2173,7 +2201,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2183,7 +2211,7 @@ No authorization required
 ## `getPurchaseInvoicesSum()`
 
 ```php
-getPurchaseInvoicesSum($tenant_id): \OpenAPI\Client\Model\MoneyEnvelope
+getPurchaseInvoicesSum($tenant_id, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Sum tenant purchase-invoice totals.
@@ -2204,9 +2232,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPurchaseInvoicesSum($tenant_id);
+    $result = $apiInstance->getPurchaseInvoicesSum($tenant_id, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getPurchaseInvoicesSum: ', $e->getMessage(), PHP_EOL;
@@ -2218,6 +2247,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2229,7 +2259,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2239,7 +2269,7 @@ No authorization required
 ## `getSalesInvoicesSum()`
 
 ```php
-getSalesInvoicesSum($tenant_id): \OpenAPI\Client\Model\MoneyEnvelope
+getSalesInvoicesSum($tenant_id, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Sum tenant sales-invoice totals.
@@ -2260,9 +2290,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSalesInvoicesSum($tenant_id);
+    $result = $apiInstance->getSalesInvoicesSum($tenant_id, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getSalesInvoicesSum: ', $e->getMessage(), PHP_EOL;
@@ -2274,6 +2305,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2285,7 +2317,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2295,7 +2327,7 @@ No authorization required
 ## `patchInvoice()`
 
 ```php
-patchInvoice($tenant_id, $invoice_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchInvoice($tenant_id, $invoice_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an invoice.
@@ -2317,10 +2349,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchInvoice($tenant_id, $invoice_id, $operation);
+    $result = $apiInstance->patchInvoice($tenant_id, $invoice_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->patchInvoice: ', $e->getMessage(), PHP_EOL;
@@ -2333,7 +2365,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2355,7 +2387,7 @@ No authorization required
 ## `patchInvoiceAdjustment()`
 
 ```php
-patchInvoiceAdjustment($tenant_id, $invoice_id, $invoice_adjustment_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchInvoiceAdjustment($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an invoice adjustment.
@@ -2378,10 +2410,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $invoice_adjustment_id = 'invoice_adjustment_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchInvoiceAdjustment($tenant_id, $invoice_id, $invoice_adjustment_id, $operation);
+    $result = $apiInstance->patchInvoiceAdjustment($tenant_id, $invoice_id, $invoice_adjustment_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->patchInvoiceAdjustment: ', $e->getMessage(), PHP_EOL;
@@ -2395,7 +2427,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 | **invoice_adjustment_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2417,7 +2449,7 @@ No authorization required
 ## `patchInvoiceLine()`
 
 ```php
-patchInvoiceLine($tenant_id, $invoice_id, $invoice_line_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchInvoiceLine($tenant_id, $invoice_id, $invoice_line_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an invoice line.
@@ -2440,10 +2472,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $invoice_line_id = 'invoice_line_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchInvoiceLine($tenant_id, $invoice_id, $invoice_line_id, $operation);
+    $result = $apiInstance->patchInvoiceLine($tenant_id, $invoice_id, $invoice_line_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->patchInvoiceLine: ', $e->getMessage(), PHP_EOL;
@@ -2457,7 +2489,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 | **invoice_line_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2479,7 +2511,7 @@ No authorization required
 ## `patchInvoiceLineTax()`
 
 ```php
-patchInvoiceLineTax($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchInvoiceLineTax($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tax for an invoice line.
@@ -2503,10 +2535,10 @@ $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $invoice_line_id = 'invoice_line_id_example'; // string
 $invoice_line_tax_id = 'invoice_line_tax_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchInvoiceLineTax($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $operation);
+    $result = $apiInstance->patchInvoiceLineTax($tenant_id, $invoice_id, $invoice_line_id, $invoice_line_tax_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->patchInvoiceLineTax: ', $e->getMessage(), PHP_EOL;
@@ -2521,7 +2553,7 @@ try {
 | **invoice_id** | **string**|  | |
 | **invoice_line_id** | **string**|  | |
 | **invoice_line_tax_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2543,7 +2575,7 @@ No authorization required
 ## `patchInvoiceReference()`
 
 ```php
-patchInvoiceReference($tenant_id, $invoice_id, $invoice_reference_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchInvoiceReference($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an invoice reference.
@@ -2566,10 +2598,10 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
 $tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 $invoice_reference_id = 'invoice_reference_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchInvoiceReference($tenant_id, $invoice_id, $invoice_reference_id, $operation);
+    $result = $apiInstance->patchInvoiceReference($tenant_id, $invoice_id, $invoice_reference_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->patchInvoiceReference: ', $e->getMessage(), PHP_EOL;
@@ -2583,7 +2615,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 | **invoice_reference_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

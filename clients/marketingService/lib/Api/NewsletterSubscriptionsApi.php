@@ -84,9 +84,11 @@ class NewsletterSubscriptionsApi
         ],
         'getNewsletterSubscriptionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getNewsletterSubscriptionsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateNewsletterSubscriptionAsync' => [
             'application/json',
@@ -1524,15 +1526,16 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NewsletterSubscriptionDtoListEnvelope
      */
-    public function getNewsletterSubscriptionsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
+    public function getNewsletterSubscriptionsAsync($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
     {
-        list($response) = $this->getNewsletterSubscriptionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getNewsletterSubscriptionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1544,15 +1547,16 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NewsletterSubscriptionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNewsletterSubscriptionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
+    public function getNewsletterSubscriptionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
     {
-        $request = $this->getNewsletterSubscriptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNewsletterSubscriptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1776,14 +1780,15 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNewsletterSubscriptionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
+    public function getNewsletterSubscriptionsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
     {
-        return $this->getNewsletterSubscriptionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getNewsletterSubscriptionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1799,15 +1804,16 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNewsletterSubscriptionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
+    public function getNewsletterSubscriptionsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NewsletterSubscriptionDtoListEnvelope';
-        $request = $this->getNewsletterSubscriptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNewsletterSubscriptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1851,12 +1857,13 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNewsletterSubscriptionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
+    public function getNewsletterSubscriptionsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1865,6 +1872,7 @@ class NewsletterSubscriptionsApi
                 'Missing the required parameter $tenant_id when calling getNewsletterSubscriptionsAsync'
             );
         }
+
 
 
 
@@ -1909,7 +1917,14 @@ class NewsletterSubscriptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($newsletter_subscription_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($newsletter_subscription_dto_collection_query_parameters));
+            } else {
+                $httpBody = $newsletter_subscription_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1963,15 +1978,16 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getNewsletterSubscriptionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
+    public function getNewsletterSubscriptionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
     {
-        list($response) = $this->getNewsletterSubscriptionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getNewsletterSubscriptionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1983,15 +1999,16 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNewsletterSubscriptionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
+    public function getNewsletterSubscriptionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
     {
-        $request = $this->getNewsletterSubscriptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNewsletterSubscriptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2215,14 +2232,15 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNewsletterSubscriptionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
+    public function getNewsletterSubscriptionsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
     {
-        return $this->getNewsletterSubscriptionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getNewsletterSubscriptionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2238,15 +2256,16 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNewsletterSubscriptionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
+    public function getNewsletterSubscriptionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getNewsletterSubscriptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNewsletterSubscriptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2290,12 +2309,13 @@ class NewsletterSubscriptionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters $newsletter_subscription_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNewsletterSubscriptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNewsletterSubscriptionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
+    public function getNewsletterSubscriptionsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $newsletter_subscription_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNewsletterSubscriptionsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2304,6 +2324,7 @@ class NewsletterSubscriptionsApi
                 'Missing the required parameter $tenant_id when calling getNewsletterSubscriptionsCountAsync'
             );
         }
+
 
 
 
@@ -2348,7 +2369,14 @@ class NewsletterSubscriptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($newsletter_subscription_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($newsletter_subscription_dto_collection_query_parameters));
+            } else {
+                $httpBody = $newsletter_subscription_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -74,9 +74,11 @@ class BankProfilesApi
     public const contentTypes = [
         'getBankProfiles' => [
             'application/json',
+            'application/xml',
         ],
         'getBankProfilesCount' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -134,15 +136,16 @@ class BankProfilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BankProfileDtoListEnvelope
      */
-    public function getBankProfiles($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfiles'][0])
+    public function getBankProfiles($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfiles'][0])
     {
-        list($response) = $this->getBankProfilesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBankProfilesWithHttpInfo($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -154,15 +157,16 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BankProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBankProfilesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfiles'][0])
+    public function getBankProfilesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfiles'][0])
     {
-        $request = $this->getBankProfilesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBankProfilesRequest($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankProfilesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfiles'][0])
+    public function getBankProfilesAsync($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfiles'][0])
     {
-        return $this->getBankProfilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBankProfilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -374,15 +379,16 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankProfilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfiles'][0])
+    public function getBankProfilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfiles'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BankProfileDtoListEnvelope';
-        $request = $this->getBankProfilesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBankProfilesRequest($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -426,12 +432,13 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBankProfilesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfiles'][0])
+    public function getBankProfilesRequest($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfiles'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -440,6 +447,7 @@ class BankProfilesApi
                 'Missing the required parameter $tenant_id when calling getBankProfiles'
             );
         }
+
 
 
 
@@ -484,7 +492,14 @@ class BankProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bank_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bank_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bank_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -538,15 +553,16 @@ class BankProfilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfilesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBankProfilesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
+    public function getBankProfilesCount($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
     {
-        list($response) = $this->getBankProfilesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBankProfilesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -558,15 +574,16 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfilesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBankProfilesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
+    public function getBankProfilesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
     {
-        $request = $this->getBankProfilesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBankProfilesCountRequest($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -755,14 +772,15 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfilesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankProfilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
+    public function getBankProfilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
     {
-        return $this->getBankProfilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBankProfilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -778,15 +796,16 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfilesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankProfilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
+    public function getBankProfilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBankProfilesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBankProfilesCountRequest($tenant_id, $api_version, $x_api_version, $bank_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -830,12 +849,13 @@ class BankProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BankProfileDtoCollectionQueryParameters $bank_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBankProfilesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBankProfilesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
+    public function getBankProfilesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $bank_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBankProfilesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -844,6 +864,7 @@ class BankProfilesApi
                 'Missing the required parameter $tenant_id when calling getBankProfilesCount'
             );
         }
+
 
 
 
@@ -888,7 +909,14 @@ class BankProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($bank_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bank_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $bank_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

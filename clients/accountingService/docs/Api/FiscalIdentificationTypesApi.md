@@ -204,7 +204,7 @@ No authorization required
 ## `getFiscalIdentificationTypes()`
 
 ```php
-getFiscalIdentificationTypes($tenant_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalIdentificationTypeDtoListEnvelope
+getFiscalIdentificationTypes($tenant_id, $authority_id, $api_version, $x_api_version, $fiscal_identification_type_dto_collection_query_parameters): \OpenAPI\Client\Model\FiscalIdentificationTypeDtoListEnvelope
 ```
 
 Get fiscal identification types for an authority
@@ -228,9 +228,10 @@ $tenant_id = 'tenant_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_identification_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalIdentificationTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalIdentificationTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalIdentificationTypes($tenant_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalIdentificationTypes($tenant_id, $authority_id, $api_version, $x_api_version, $fiscal_identification_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalIdentificationTypesApi->getFiscalIdentificationTypes: ', $e->getMessage(), PHP_EOL;
@@ -245,6 +246,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_identification_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalIdentificationTypeDtoCollectionQueryParameters**](../Model/FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,7 +258,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -266,7 +268,7 @@ No authorization required
 ## `getFiscalIdentificationTypesCount()`
 
 ```php
-getFiscalIdentificationTypesCount($tenant_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFiscalIdentificationTypesCount($tenant_id, $authority_id, $api_version, $x_api_version, $fiscal_identification_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get fiscal identification types count
@@ -290,9 +292,10 @@ $tenant_id = 'tenant_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_identification_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalIdentificationTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalIdentificationTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalIdentificationTypesCount($tenant_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalIdentificationTypesCount($tenant_id, $authority_id, $api_version, $x_api_version, $fiscal_identification_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalIdentificationTypesApi->getFiscalIdentificationTypesCount: ', $e->getMessage(), PHP_EOL;
@@ -307,6 +310,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_identification_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalIdentificationTypeDtoCollectionQueryParameters**](../Model/FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -318,7 +322,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -328,7 +332,7 @@ No authorization required
 ## `patchFiscalIdentificationTypeAsync()`
 
 ```php
-patchFiscalIdentificationTypeAsync($tenant_id, $identification_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFiscalIdentificationTypeAsync($tenant_id, $identification_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a fiscal identification type
@@ -352,10 +356,10 @@ $tenant_id = 'tenant_id_example'; // string
 $identification_type_id = 'identification_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFiscalIdentificationTypeAsync($tenant_id, $identification_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFiscalIdentificationTypeAsync($tenant_id, $identification_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalIdentificationTypesApi->patchFiscalIdentificationTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -370,7 +374,7 @@ try {
 | **identification_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

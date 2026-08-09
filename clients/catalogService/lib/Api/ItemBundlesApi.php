@@ -84,9 +84,11 @@ class ItemBundlesApi
         ],
         'getItemBundlesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemBundlesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemBundleAsync' => [
             'application/json',
@@ -1266,15 +1268,16 @@ class ItemBundlesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemBundleDtoListEnvelope
      */
-    public function getItemBundlesAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
+    public function getItemBundlesAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
     {
-        list($response) = $this->getItemBundlesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemBundlesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1286,15 +1289,16 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemBundleDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemBundlesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
+    public function getItemBundlesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
     {
-        $request = $this->getItemBundlesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemBundlesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1483,14 +1487,15 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemBundlesAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
+    public function getItemBundlesAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
     {
-        return $this->getItemBundlesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemBundlesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1506,15 +1511,16 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemBundlesAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
+    public function getItemBundlesAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemBundleDtoListEnvelope';
-        $request = $this->getItemBundlesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemBundlesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1558,13 +1564,15 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemBundlesAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
+    public function getItemBundlesAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesAsync'][0])
     {
+
 
 
 
@@ -1610,7 +1618,14 @@ class ItemBundlesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_bundle_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_bundle_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_bundle_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1664,15 +1679,16 @@ class ItemBundlesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemBundlesCountAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
+    public function getItemBundlesCountAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
     {
-        list($response) = $this->getItemBundlesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemBundlesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1684,15 +1700,16 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemBundlesCountAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
+    public function getItemBundlesCountAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
     {
-        $request = $this->getItemBundlesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemBundlesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1881,14 +1898,15 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemBundlesCountAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
+    public function getItemBundlesCountAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
     {
-        return $this->getItemBundlesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemBundlesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1904,15 +1922,16 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemBundlesCountAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
+    public function getItemBundlesCountAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemBundlesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemBundlesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_bundle_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1956,13 +1975,15 @@ class ItemBundlesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBundleDtoCollectionQueryParameters $item_bundle_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemBundlesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemBundlesCountAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
+    public function getItemBundlesCountAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_bundle_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemBundlesCountAsync'][0])
     {
+
 
 
 
@@ -2008,7 +2029,14 @@ class ItemBundlesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_bundle_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_bundle_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_bundle_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2063,16 +2091,16 @@ class ItemBundlesApi
      * @param  string $item_bundle_id item_bundle_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemBundleAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemBundleAsync($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
+    public function patchItemBundleAsync($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
     {
-        list($response) = $this->patchItemBundleAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemBundleAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2085,16 +2113,16 @@ class ItemBundlesApi
      * @param  string $item_bundle_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemBundleAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemBundleAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
+    public function patchItemBundleAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
     {
-        $request = $this->patchItemBundleAsyncRequest($tenant_id, $item_bundle_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemBundleAsyncRequest($tenant_id, $item_bundle_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2284,15 +2312,15 @@ class ItemBundlesApi
      * @param  string $item_bundle_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemBundleAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemBundleAsyncAsync($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
+    public function patchItemBundleAsyncAsync($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
     {
-        return $this->patchItemBundleAsyncAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemBundleAsyncAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2309,16 +2337,16 @@ class ItemBundlesApi
      * @param  string $item_bundle_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemBundleAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemBundleAsyncAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
+    public function patchItemBundleAsyncAsyncWithHttpInfo($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemBundleAsyncRequest($tenant_id, $item_bundle_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemBundleAsyncRequest($tenant_id, $item_bundle_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2363,13 +2391,13 @@ class ItemBundlesApi
      * @param  string $item_bundle_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemBundleAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemBundleAsyncRequest($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
+    public function patchItemBundleAsyncRequest($tenant_id, $item_bundle_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemBundleAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2438,12 +2466,12 @@ class ItemBundlesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -34,7 +34,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countCurrentUserFollowersAsync()`
 
 ```php
-countCurrentUserFollowersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCurrentUserFollowersAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count the social profiles that follow the current user
@@ -56,9 +56,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCurrentUserFollowersAsync($api_version, $x_api_version);
+    $result = $apiInstance->countCurrentUserFollowersAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->countCurrentUserFollowersAsync: ', $e->getMessage(), PHP_EOL;
@@ -71,6 +72,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -82,7 +84,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -92,7 +94,7 @@ No authorization required
 ## `countCurrentUserFollowsAsync()`
 
 ```php
-countCurrentUserFollowsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCurrentUserFollowsAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count the social profiles that the current user follows
@@ -114,9 +116,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCurrentUserFollowsAsync($api_version, $x_api_version);
+    $result = $apiInstance->countCurrentUserFollowsAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->countCurrentUserFollowsAsync: ', $e->getMessage(), PHP_EOL;
@@ -129,6 +132,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -140,7 +144,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -150,7 +154,7 @@ No authorization required
 ## `countCurrentUserNotificationsAsync()`
 
 ```php
-countCurrentUserNotificationsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCurrentUserNotificationsAsync($api_version, $x_api_version, $notification_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count the notifications for the current user
@@ -172,9 +176,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$notification_dto_collection_query_parameters = new \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCurrentUserNotificationsAsync($api_version, $x_api_version);
+    $result = $apiInstance->countCurrentUserNotificationsAsync($api_version, $x_api_version, $notification_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->countCurrentUserNotificationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -187,6 +192,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **notification_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters**](../Model/NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -198,7 +204,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -208,7 +214,7 @@ No authorization required
 ## `countCurrentUserTenantsAsync()`
 
 ```php
-countCurrentUserTenantsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCurrentUserTenantsAsync($api_version, $x_api_version, $tenant_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count the tenants that the current user is enrolled in
@@ -230,9 +236,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCurrentUserTenantsAsync($api_version, $x_api_version);
+    $result = $apiInstance->countCurrentUserTenantsAsync($api_version, $x_api_version, $tenant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->countCurrentUserTenantsAsync: ', $e->getMessage(), PHP_EOL;
@@ -245,6 +252,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantDtoCollectionQueryParameters**](../Model/TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,7 +264,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -266,7 +274,7 @@ No authorization required
 ## `getCurrentUserAddressesAsync()`
 
 ```php
-getCurrentUserAddressesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\AddressDtoListEnvelope
+getCurrentUserAddressesAsync($api_version, $x_api_version, $address_dto_collection_query_parameters): \OpenAPI\Client\Model\AddressDtoListEnvelope
 ```
 
 Get the list of addresses for the current user
@@ -288,9 +296,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$address_dto_collection_query_parameters = new \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AddressDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurrentUserAddressesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getCurrentUserAddressesAsync($api_version, $x_api_version, $address_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getCurrentUserAddressesAsync: ', $e->getMessage(), PHP_EOL;
@@ -303,6 +312,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **address_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AddressDtoCollectionQueryParameters**](../Model/AddressDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -314,7 +324,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -614,7 +624,7 @@ No authorization required
 ## `getCurrentUserFollowersAsync()`
 
 ```php
-getCurrentUserFollowersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
+getCurrentUserFollowersAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
 ```
 
 Get the social profiles that follow the current user
@@ -636,9 +646,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurrentUserFollowersAsync($api_version, $x_api_version);
+    $result = $apiInstance->getCurrentUserFollowersAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getCurrentUserFollowersAsync: ', $e->getMessage(), PHP_EOL;
@@ -651,6 +662,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -662,7 +674,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -672,7 +684,7 @@ No authorization required
 ## `getCurrentUserFollowsAsync()`
 
 ```php
-getCurrentUserFollowsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
+getCurrentUserFollowsAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters): \OpenAPI\Client\Model\FollowRecordDtoListEnvelope
 ```
 
 Get the social profiles that the current user follows
@@ -694,9 +706,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$follow_record_dto_collection_query_parameters = new \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurrentUserFollowsAsync($api_version, $x_api_version);
+    $result = $apiInstance->getCurrentUserFollowsAsync($api_version, $x_api_version, $follow_record_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getCurrentUserFollowsAsync: ', $e->getMessage(), PHP_EOL;
@@ -709,6 +722,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **follow_record_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters**](../Model/FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -720,7 +734,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -788,7 +802,7 @@ No authorization required
 ## `getCurrentUserNotificationsAsync()`
 
 ```php
-getCurrentUserNotificationsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\NotificationDtoListEnvelope
+getCurrentUserNotificationsAsync($api_version, $x_api_version, $notification_dto_collection_query_parameters): \OpenAPI\Client\Model\NotificationDtoListEnvelope
 ```
 
 Get the list of notifications for the current user
@@ -810,9 +824,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$notification_dto_collection_query_parameters = new \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurrentUserNotificationsAsync($api_version, $x_api_version);
+    $result = $apiInstance->getCurrentUserNotificationsAsync($api_version, $x_api_version, $notification_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getCurrentUserNotificationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -825,6 +840,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **notification_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters**](../Model/NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -836,7 +852,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -962,7 +978,7 @@ No authorization required
 ## `getCurrentUserTenantsAsync()`
 
 ```php
-getCurrentUserTenantsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\TenantDtoListEnvelope
+getCurrentUserTenantsAsync($api_version, $x_api_version, $tenant_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantDtoListEnvelope
 ```
 
 Get the tenants that the current user is enrolled in
@@ -984,9 +1000,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurrentUserTenantsAsync($api_version, $x_api_version);
+    $result = $apiInstance->getCurrentUserTenantsAsync($api_version, $x_api_version, $tenant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getCurrentUserTenantsAsync: ', $e->getMessage(), PHP_EOL;
@@ -999,6 +1016,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantDtoCollectionQueryParameters**](../Model/TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1010,7 +1028,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`, `multipart/form-data`
 - **Accept**: `application/json`, `application/xml`, `multipart/form-data`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1254,7 +1272,7 @@ No authorization required
 ## `patchCurrentUserAsync()`
 
 ```php
-patchCurrentUserAsync($api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCurrentUserAsync($api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially update the current user's profile
@@ -1276,10 +1294,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCurrentUserAsync($api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCurrentUserAsync($api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->patchCurrentUserAsync: ', $e->getMessage(), PHP_EOL;
@@ -1292,7 +1310,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

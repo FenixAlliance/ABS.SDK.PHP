@@ -203,7 +203,7 @@ No authorization required
 ## `getSignedDocumentsAsync()`
 
 ```php
-getSignedDocumentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SignedDocumentDtoListEnvelope
+getSignedDocumentsAsync($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters): \OpenAPI\Client\Model\SignedDocumentDtoListEnvelope
 ```
 
 Get all signed documents
@@ -226,9 +226,10 @@ $apiInstance = new OpenAPI\Client\Api\SignedDocumentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signed_document_dto_collection_query_parameters = new \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSignedDocumentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSignedDocumentsAsync($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SignedDocumentsApi->getSignedDocumentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -242,6 +243,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signed_document_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters**](../Model/SignedDocumentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -253,7 +255,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -263,7 +265,7 @@ No authorization required
 ## `getSignedDocumentsCountAsync()`
 
 ```php
-getSignedDocumentsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSignedDocumentsCountAsync($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get signed documents count
@@ -286,9 +288,10 @@ $apiInstance = new OpenAPI\Client\Api\SignedDocumentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signed_document_dto_collection_query_parameters = new \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSignedDocumentsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSignedDocumentsCountAsync($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SignedDocumentsApi->getSignedDocumentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -302,6 +305,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signed_document_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters**](../Model/SignedDocumentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -313,7 +317,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -323,7 +327,7 @@ No authorization required
 ## `patchSignedDocumentAsync()`
 
 ```php
-patchSignedDocumentAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSignedDocumentAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a signed document
@@ -347,10 +351,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSignedDocumentAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSignedDocumentAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SignedDocumentsApi->patchSignedDocumentAsync: ', $e->getMessage(), PHP_EOL;
@@ -365,7 +369,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -202,7 +202,7 @@ No authorization required
 ## `getSkillsAsync()`
 
 ```php
-getSkillsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SkillDtoListEnvelope
+getSkillsAsync($tenant_id, $api_version, $x_api_version, $skill_dto_collection_query_parameters): \OpenAPI\Client\Model\SkillDtoListEnvelope
 ```
 
 Get skills
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SkillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$skill_dto_collection_query_parameters = new \OpenAPI\Client\Model\SkillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SkillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSkillsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSkillsAsync($tenant_id, $api_version, $x_api_version, $skill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SkillsApi->getSkillsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **skill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SkillDtoCollectionQueryParameters**](../Model/SkillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSkillsCountAsync()`
 
 ```php
-getSkillsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSkillsCountAsync($tenant_id, $api_version, $x_api_version, $skill_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count skills
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SkillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$skill_dto_collection_query_parameters = new \OpenAPI\Client\Model\SkillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SkillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSkillsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSkillsCountAsync($tenant_id, $api_version, $x_api_version, $skill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SkillsApi->getSkillsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **skill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SkillDtoCollectionQueryParameters**](../Model/SkillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSkillAsync()`
 
 ```php
-patchSkillAsync($tenant_id, $skill_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSkillAsync($tenant_id, $skill_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a skill
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $skill_id = 'skill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSkillAsync($tenant_id, $skill_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSkillAsync($tenant_id, $skill_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SkillsApi->patchSkillAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **skill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

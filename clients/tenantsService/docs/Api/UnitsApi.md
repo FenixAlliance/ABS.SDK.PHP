@@ -202,7 +202,7 @@ No authorization required
 ## `getTenantUnits()`
 
 ```php
-getTenantUnits($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantUnitDtoListEnvelope
+getTenantUnits($tenant_id, $api_version, $x_api_version, $tenant_unit_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantUnitDtoListEnvelope
 ```
 
 Retrieve a list of tenant units
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\UnitsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantUnits($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantUnits($tenant_id, $api_version, $x_api_version, $tenant_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitsApi->getTenantUnits: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantUnitDtoCollectionQueryParameters**](../Model/TenantUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getTenantUnitsCount()`
 
 ```php
-getTenantUnitsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantUnitsCount($tenant_id, $api_version, $x_api_version, $tenant_unit_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant units
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\UnitsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantUnitsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantUnitsCount($tenant_id, $api_version, $x_api_version, $tenant_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitsApi->getTenantUnitsCount: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantUnitDtoCollectionQueryParameters**](../Model/TenantUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTenantUnit()`
 
 ```php
-patchTenantUnit($tenant_id, $tenant_unit_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenantUnit($tenant_id, $tenant_unit_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tenant unit
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tenant_unit_id = 'tenant_unit_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenantUnit($tenant_id, $tenant_unit_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenantUnit($tenant_id, $tenant_unit_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UnitsApi->patchTenantUnit: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **tenant_unit_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

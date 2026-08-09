@@ -140,7 +140,7 @@ No authorization required
 ## `getTenantIndustries()`
 
 ```php
-getTenantIndustries($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantIndustryDtoListEnvelope
+getTenantIndustries($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantIndustryDtoListEnvelope
 ```
 
 Retrieve a list of tenant industries
@@ -163,9 +163,10 @@ $apiInstance = new OpenAPI\Client\Api\IndustriesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_industry_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantIndustries($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantIndustries($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IndustriesApi->getTenantIndustries: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_industry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters**](../Model/TenantIndustryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -190,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,7 +202,7 @@ No authorization required
 ## `getTenantIndustriesCount()`
 
 ```php
-getTenantIndustriesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantIndustriesCount($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant industries
@@ -223,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\IndustriesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_industry_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantIndustriesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantIndustriesCount($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IndustriesApi->getTenantIndustriesCount: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_industry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters**](../Model/TenantIndustryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTenantIndustryAsync()`
 
 ```php
-patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tenant industry
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $tenant_industry_id = 'tenant_industry_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IndustriesApi->patchTenantIndustryAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **tenant_industry_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

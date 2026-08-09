@@ -97,7 +97,7 @@ class RequiredSkillRecordDto implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'id' => true,
-        'timestamp' => false,
+        'timestamp' => true,
         'experience_in_years' => false,
         'priority' => false,
         'required_skill_record_type' => false,
@@ -431,7 +431,14 @@ class RequiredSkillRecordDto implements ModelInterface, ArrayAccess, \JsonSerial
     public function setTimestamp($timestamp)
     {
         if (is_null($timestamp)) {
-            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'timestamp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timestamp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['timestamp'] = $timestamp;
 

@@ -8,6 +8,7 @@ docs/Api/OptionsApi.md
 docs/Api/UsersApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/AddressDto.md
+docs/Model/AddressDtoCollectionQueryParameters.md
 docs/Model/AddressDtoListEnvelope.md
 docs/Model/CartDto.md
 docs/Model/CartDtoEnvelope.md
@@ -20,6 +21,7 @@ docs/Model/ExtendedTenantEnrollmentDtoListEnvelope.md
 docs/Model/ExtendedUserDto.md
 docs/Model/ExtendedUserDtoEnvelope.md
 docs/Model/FollowRecordDto.md
+docs/Model/FollowRecordDtoCollectionQueryParameters.md
 docs/Model/FollowRecordDtoListEnvelope.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
@@ -28,13 +30,15 @@ docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
 docs/Model/NotificationDto.md
+docs/Model/NotificationDtoCollectionQueryParameters.md
 docs/Model/NotificationDtoListEnvelope.md
-docs/Model/Operation.md
 docs/Model/OptionCreateDto.md
 docs/Model/OptionDto.md
+docs/Model/OptionDtoCollectionQueryParameters.md
 docs/Model/OptionDtoEnvelope.md
 docs/Model/OptionDtoListEnvelope.md
 docs/Model/OptionUpdateDto.md
+docs/Model/PatchOperation.md
 docs/Model/RefreshRequest.md
 docs/Model/RegisterRequest.md
 docs/Model/ResendConfirmationEmailRequest.md
@@ -42,6 +46,7 @@ docs/Model/ResetPasswordRequest.md
 docs/Model/SocialProfileDto.md
 docs/Model/SocialProfileDtoEnvelope.md
 docs/Model/TenantDto.md
+docs/Model/TenantDtoCollectionQueryParameters.md
 docs/Model/TenantDtoListEnvelope.md
 docs/Model/TenantEnrollmentDto.md
 docs/Model/TenantEnrollmentDtoEnvelope.md
@@ -68,6 +73,7 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/AddressDto.php
+lib/Model/AddressDtoCollectionQueryParameters.php
 lib/Model/AddressDtoListEnvelope.php
 lib/Model/CartDto.php
 lib/Model/CartDtoEnvelope.php
@@ -80,6 +86,7 @@ lib/Model/ExtendedTenantEnrollmentDtoListEnvelope.php
 lib/Model/ExtendedUserDto.php
 lib/Model/ExtendedUserDtoEnvelope.php
 lib/Model/FollowRecordDto.php
+lib/Model/FollowRecordDtoCollectionQueryParameters.php
 lib/Model/FollowRecordDtoListEnvelope.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
@@ -89,13 +96,15 @@ lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
 lib/Model/NotificationDto.php
+lib/Model/NotificationDtoCollectionQueryParameters.php
 lib/Model/NotificationDtoListEnvelope.php
-lib/Model/Operation.php
 lib/Model/OptionCreateDto.php
 lib/Model/OptionDto.php
+lib/Model/OptionDtoCollectionQueryParameters.php
 lib/Model/OptionDtoEnvelope.php
 lib/Model/OptionDtoListEnvelope.php
 lib/Model/OptionUpdateDto.php
+lib/Model/PatchOperation.php
 lib/Model/RefreshRequest.php
 lib/Model/RegisterRequest.php
 lib/Model/ResendConfirmationEmailRequest.php
@@ -103,6 +112,7 @@ lib/Model/ResetPasswordRequest.php
 lib/Model/SocialProfileDto.php
 lib/Model/SocialProfileDtoEnvelope.php
 lib/Model/TenantDto.php
+lib/Model/TenantDtoCollectionQueryParameters.php
 lib/Model/TenantDtoListEnvelope.php
 lib/Model/TenantEnrollmentDto.php
 lib/Model/TenantEnrollmentDtoEnvelope.php
@@ -122,3 +132,9 @@ lib/Model/WalletDto.php
 lib/Model/WalletDtoEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/AddressDtoCollectionQueryParametersTest.php
+test/Model/FollowRecordDtoCollectionQueryParametersTest.php
+test/Model/NotificationDtoCollectionQueryParametersTest.php
+test/Model/OptionDtoCollectionQueryParametersTest.php
+test/Model/PatchOperationTest.php
+test/Model/TenantDtoCollectionQueryParametersTest.php

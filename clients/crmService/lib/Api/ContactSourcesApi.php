@@ -84,9 +84,11 @@ class ContactSourcesApi
         ],
         'getContactSourcesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getContactSourcesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchContactSourceAsync' => [
             'application/json',
@@ -1127,15 +1129,16 @@ class ContactSourcesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactSourceDtoListEnvelope
      */
-    public function getContactSourcesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
+    public function getContactSourcesAsync($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
     {
-        list($response) = $this->getContactSourcesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getContactSourcesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1147,15 +1150,16 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactSourceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactSourcesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
+    public function getContactSourcesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
     {
-        $request = $this->getContactSourcesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getContactSourcesAsyncRequest($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,14 +1313,15 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactSourcesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
+    public function getContactSourcesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
     {
-        return $this->getContactSourcesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getContactSourcesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,15 +1337,16 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactSourcesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
+    public function getContactSourcesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ContactSourceDtoListEnvelope';
-        $request = $this->getContactSourcesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getContactSourcesAsyncRequest($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,12 +1390,13 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getContactSourcesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
+    public function getContactSourcesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1398,6 +1405,7 @@ class ContactSourcesApi
                 'Missing the required parameter $tenant_id when calling getContactSourcesAsync'
             );
         }
+
 
 
 
@@ -1442,7 +1450,14 @@ class ContactSourcesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($contact_source_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_source_dto_collection_query_parameters));
+            } else {
+                $httpBody = $contact_source_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1496,15 +1511,16 @@ class ContactSourcesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getContactSourcesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
+    public function getContactSourcesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
     {
-        list($response) = $this->getContactSourcesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getContactSourcesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1516,15 +1532,16 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactSourcesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
+    public function getContactSourcesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
     {
-        $request = $this->getContactSourcesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getContactSourcesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1678,14 +1695,15 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactSourcesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
+    public function getContactSourcesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
     {
-        return $this->getContactSourcesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getContactSourcesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,15 +1719,16 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactSourcesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
+    public function getContactSourcesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getContactSourcesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getContactSourcesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contact_source_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,12 +1772,13 @@ class ContactSourcesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactSourceDtoCollectionQueryParameters $contact_source_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactSourcesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getContactSourcesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
+    public function getContactSourcesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $contact_source_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getContactSourcesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1767,6 +1787,7 @@ class ContactSourcesApi
                 'Missing the required parameter $tenant_id when calling getContactSourcesCountAsync'
             );
         }
+
 
 
 
@@ -1811,7 +1832,14 @@ class ContactSourcesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($contact_source_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_source_dto_collection_query_parameters));
+            } else {
+                $httpBody = $contact_source_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1866,16 +1894,16 @@ class ContactSourcesApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactSourceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchContactSourceAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
+    public function patchContactSourceAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
     {
-        list($response) = $this->patchContactSourceAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchContactSourceAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1888,16 +1916,16 @@ class ContactSourcesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactSourceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchContactSourceAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
+    public function patchContactSourceAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
     {
-        $request = $this->patchContactSourceAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchContactSourceAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2087,15 +2115,15 @@ class ContactSourcesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactSourceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchContactSourceAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
+    public function patchContactSourceAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
     {
-        return $this->patchContactSourceAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchContactSourceAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,16 +2140,16 @@ class ContactSourcesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactSourceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchContactSourceAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
+    public function patchContactSourceAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchContactSourceAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchContactSourceAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2166,13 +2194,13 @@ class ContactSourcesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactSourceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchContactSourceAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
+    public function patchContactSourceAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchContactSourceAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class ContactSourcesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

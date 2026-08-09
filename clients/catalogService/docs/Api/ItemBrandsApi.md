@@ -200,7 +200,7 @@ No authorization required
 ## `getItemBrandsAsync()`
 
 ```php
-getItemBrandsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemBrandDtoListEnvelope
+getItemBrandsAsync($tenant_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemBrandDtoListEnvelope
 ```
 
 Get all item brands
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemBrandsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_brand_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemBrandsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemBrandsAsync($tenant_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemBrandsApi->getItemBrandsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_brand_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters**](../Model/ItemBrandDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `patchItemBrandAsync()`
 
 ```php
-patchItemBrandAsync($tenant_id, $item_brand_id, $api_version, $x_api_version, $operation)
+patchItemBrandAsync($tenant_id, $item_brand_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch an item brand
@@ -284,10 +286,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_brand_id = 'item_brand_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchItemBrandAsync($tenant_id, $item_brand_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchItemBrandAsync($tenant_id, $item_brand_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemBrandsApi->patchItemBrandAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -301,7 +303,7 @@ try {
 | **item_brand_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

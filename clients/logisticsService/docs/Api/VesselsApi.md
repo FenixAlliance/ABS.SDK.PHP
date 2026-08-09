@@ -202,7 +202,7 @@ No authorization required
 ## `getVesselsAsync()`
 
 ```php
-getVesselsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\VesselDtoListEnvelope
+getVesselsAsync($tenant_id, $api_version, $x_api_version, $vessel_dto_collection_query_parameters): \OpenAPI\Client\Model\VesselDtoListEnvelope
 ```
 
 Get all vessels
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\VesselsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$vessel_dto_collection_query_parameters = new \OpenAPI\Client\Model\VesselDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\VesselDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getVesselsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getVesselsAsync($tenant_id, $api_version, $x_api_version, $vessel_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VesselsApi->getVesselsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **vessel_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\VesselDtoCollectionQueryParameters**](../Model/VesselDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getVesselsCountAsync()`
 
 ```php
-getVesselsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getVesselsCountAsync($tenant_id, $api_version, $x_api_version, $vessel_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get vessels count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\VesselsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$vessel_dto_collection_query_parameters = new \OpenAPI\Client\Model\VesselDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\VesselDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getVesselsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getVesselsCountAsync($tenant_id, $api_version, $x_api_version, $vessel_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VesselsApi->getVesselsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **vessel_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\VesselDtoCollectionQueryParameters**](../Model/VesselDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchVesselAsync()`
 
 ```php
-patchVesselAsync($tenant_id, $vessel_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchVesselAsync($tenant_id, $vessel_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a vessel
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $vessel_id = 'vessel_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchVesselAsync($tenant_id, $vessel_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchVesselAsync($tenant_id, $vessel_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VesselsApi->patchVesselAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **vessel_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

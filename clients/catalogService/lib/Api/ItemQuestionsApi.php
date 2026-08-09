@@ -84,6 +84,7 @@ class ItemQuestionsApi
         ],
         'getItemQuestionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemQuestionAsync' => [
             'application/json',
@@ -1263,15 +1264,16 @@ class ItemQuestionsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemQuestionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemQuestionDtoListEnvelope
      */
-    public function getItemQuestionsAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
+    public function getItemQuestionsAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
     {
-        list($response) = $this->getItemQuestionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemQuestionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1283,15 +1285,16 @@ class ItemQuestionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemQuestionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemQuestionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemQuestionsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
+    public function getItemQuestionsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
     {
-        $request = $this->getItemQuestionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemQuestionsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1480,14 +1483,15 @@ class ItemQuestionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemQuestionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemQuestionsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
+    public function getItemQuestionsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
     {
-        return $this->getItemQuestionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemQuestionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1503,15 +1507,16 @@ class ItemQuestionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemQuestionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemQuestionsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
+    public function getItemQuestionsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemQuestionDtoListEnvelope';
-        $request = $this->getItemQuestionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemQuestionsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1555,13 +1560,15 @@ class ItemQuestionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemQuestionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemQuestionsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
+    public function getItemQuestionsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemQuestionsAsync'][0])
     {
+
 
 
 
@@ -1607,7 +1614,14 @@ class ItemQuestionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_question_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_question_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_question_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1662,16 +1676,16 @@ class ItemQuestionsApi
      * @param  string $item_question_id item_question_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemQuestionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchItemQuestionAsync($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
+    public function patchItemQuestionAsync($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
     {
-        $this->patchItemQuestionAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchItemQuestionAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1683,16 +1697,16 @@ class ItemQuestionsApi
      * @param  string $item_question_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemQuestionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemQuestionAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
+    public function patchItemQuestionAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
     {
-        $request = $this->patchItemQuestionAsyncRequest($tenant_id, $item_question_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemQuestionAsyncRequest($tenant_id, $item_question_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1751,15 +1765,15 @@ class ItemQuestionsApi
      * @param  string $item_question_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemQuestionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemQuestionAsyncAsync($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
+    public function patchItemQuestionAsyncAsync($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
     {
-        return $this->patchItemQuestionAsyncAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemQuestionAsyncAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1776,16 +1790,16 @@ class ItemQuestionsApi
      * @param  string $item_question_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemQuestionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemQuestionAsyncAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
+    public function patchItemQuestionAsyncAsyncWithHttpInfo($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchItemQuestionAsyncRequest($tenant_id, $item_question_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemQuestionAsyncRequest($tenant_id, $item_question_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1817,13 +1831,13 @@ class ItemQuestionsApi
      * @param  string $item_question_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemQuestionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemQuestionAsyncRequest($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
+    public function patchItemQuestionAsyncRequest($tenant_id, $item_question_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemQuestionAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1892,12 +1906,12 @@ class ItemQuestionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

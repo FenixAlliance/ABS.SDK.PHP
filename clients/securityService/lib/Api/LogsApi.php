@@ -74,9 +74,11 @@ class LogsApi
     public const contentTypes = [
         'getLogsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLogsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -134,15 +136,16 @@ class LogsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LogDtoListEnvelope
      */
-    public function getLogsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsAsync'][0])
+    public function getLogsAsync($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsAsync'][0])
     {
-        list($response) = $this->getLogsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLogsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -154,15 +157,16 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LogDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLogsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsAsync'][0])
+    public function getLogsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsAsync'][0])
     {
-        $request = $this->getLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLogsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsAsync'][0])
+    public function getLogsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsAsync'][0])
     {
-        return $this->getLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -374,15 +379,16 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsAsync'][0])
+    public function getLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LogDtoListEnvelope';
-        $request = $this->getLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -426,12 +432,13 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLogsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsAsync'][0])
+    public function getLogsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -440,6 +447,7 @@ class LogsApi
                 'Missing the required parameter $tenant_id when calling getLogsAsync'
             );
         }
+
 
 
 
@@ -484,7 +492,14 @@ class LogsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -538,15 +553,16 @@ class LogsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getLogsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
+    public function getLogsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
     {
-        list($response) = $this->getLogsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLogsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -558,15 +574,16 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLogsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
+    public function getLogsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
     {
-        $request = $this->getLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -755,14 +772,15 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLogsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
+    public function getLogsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
     {
-        return $this->getLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -778,15 +796,16 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
+    public function getLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -830,12 +849,13 @@ class LogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LogDtoCollectionQueryParameters $log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLogsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
+    public function getLogsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLogsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -844,6 +864,7 @@ class LogsApi
                 'Missing the required parameter $tenant_id when calling getLogsCountAsync'
             );
         }
+
 
 
 
@@ -888,7 +909,14 @@ class LogsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

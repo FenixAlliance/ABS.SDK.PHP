@@ -84,9 +84,11 @@ class ReturnRequestsApi
         ],
         'getReturnRequestsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getReturnRequestsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchReturnRequestAsync' => [
             'application/json',
@@ -1207,15 +1209,16 @@ class ReturnRequestsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ReturnRequestDtoListEnvelope
      */
-    public function getReturnRequestsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
+    public function getReturnRequestsAsync($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
     {
-        list($response) = $this->getReturnRequestsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getReturnRequestsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1227,15 +1230,16 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ReturnRequestDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReturnRequestsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
+    public function getReturnRequestsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
     {
-        $request = $this->getReturnRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1354,14 +1358,15 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnRequestsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
+    public function getReturnRequestsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
     {
-        return $this->getReturnRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getReturnRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1377,15 +1382,16 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
+    public function getReturnRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ReturnRequestDtoListEnvelope';
-        $request = $this->getReturnRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1429,12 +1435,13 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReturnRequestsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
+    public function getReturnRequestsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1443,6 +1450,7 @@ class ReturnRequestsApi
                 'Missing the required parameter $tenant_id when calling getReturnRequestsAsync'
             );
         }
+
 
 
 
@@ -1487,7 +1495,14 @@ class ReturnRequestsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($return_request_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($return_request_dto_collection_query_parameters));
+            } else {
+                $httpBody = $return_request_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1541,15 +1556,16 @@ class ReturnRequestsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getReturnRequestsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
+    public function getReturnRequestsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
     {
-        list($response) = $this->getReturnRequestsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getReturnRequestsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1561,15 +1577,16 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReturnRequestsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
+    public function getReturnRequestsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
     {
-        $request = $this->getReturnRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1688,14 +1705,15 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnRequestsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
+    public function getReturnRequestsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
     {
-        return $this->getReturnRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getReturnRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1711,15 +1729,16 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReturnRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
+    public function getReturnRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getReturnRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getReturnRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1763,12 +1782,13 @@ class ReturnRequestsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters $return_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getReturnRequestsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
+    public function getReturnRequestsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $return_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getReturnRequestsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1777,6 +1797,7 @@ class ReturnRequestsApi
                 'Missing the required parameter $tenant_id when calling getReturnRequestsCountAsync'
             );
         }
+
 
 
 
@@ -1821,7 +1842,14 @@ class ReturnRequestsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($return_request_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($return_request_dto_collection_query_parameters));
+            } else {
+                $httpBody = $return_request_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1876,16 +1904,16 @@ class ReturnRequestsApi
      * @param  string $return_request_id return_request_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnRequestAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchReturnRequestAsync($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
+    public function patchReturnRequestAsync($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
     {
-        list($response) = $this->patchReturnRequestAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchReturnRequestAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1898,16 +1926,16 @@ class ReturnRequestsApi
      * @param  string $return_request_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnRequestAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchReturnRequestAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
+    public function patchReturnRequestAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
     {
-        $request = $this->patchReturnRequestAsyncRequest($tenant_id, $return_request_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchReturnRequestAsyncRequest($tenant_id, $return_request_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2097,15 +2125,15 @@ class ReturnRequestsApi
      * @param  string $return_request_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnRequestAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchReturnRequestAsyncAsync($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
+    public function patchReturnRequestAsyncAsync($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
     {
-        return $this->patchReturnRequestAsyncAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchReturnRequestAsyncAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2122,16 +2150,16 @@ class ReturnRequestsApi
      * @param  string $return_request_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnRequestAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchReturnRequestAsyncAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
+    public function patchReturnRequestAsyncAsyncWithHttpInfo($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchReturnRequestAsyncRequest($tenant_id, $return_request_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchReturnRequestAsyncRequest($tenant_id, $return_request_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2176,13 +2204,13 @@ class ReturnRequestsApi
      * @param  string $return_request_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchReturnRequestAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchReturnRequestAsyncRequest($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
+    public function patchReturnRequestAsyncRequest($tenant_id, $return_request_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchReturnRequestAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2251,12 +2279,12 @@ class ReturnRequestsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

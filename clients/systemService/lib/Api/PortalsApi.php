@@ -84,9 +84,11 @@ class PortalsApi
         ],
         'getSystemPortals' => [
             'application/json',
+            'application/xml',
         ],
         'getSystemPortalsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchSystemPortal' => [
             'application/json',
@@ -1353,15 +1355,16 @@ class PortalsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortals'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebPortalDtoListEnvelope
      */
-    public function getSystemPortals($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortals'][0])
+    public function getSystemPortals($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortals'][0])
     {
-        list($response) = $this->getSystemPortalsWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemPortalsWithHttpInfo($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1372,15 +1375,16 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortals'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebPortalDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemPortalsWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortals'][0])
+    public function getSystemPortalsWithHttpInfo($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortals'][0])
     {
-        $request = $this->getSystemPortalsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemPortalsRequest($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1568,14 +1572,15 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortals'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemPortalsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortals'][0])
+    public function getSystemPortalsAsync($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortals'][0])
     {
-        return $this->getSystemPortalsAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSystemPortalsAsyncWithHttpInfo($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1590,15 +1595,16 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortals'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemPortalsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortals'][0])
+    public function getSystemPortalsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortals'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WebPortalDtoListEnvelope';
-        $request = $this->getSystemPortalsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemPortalsRequest($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1641,13 +1647,15 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortals'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemPortalsRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortals'][0])
+    public function getSystemPortalsRequest($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortals'][0])
     {
+
 
 
 
@@ -1683,7 +1691,14 @@ class PortalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_portal_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_portal_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_portal_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1736,15 +1751,16 @@ class PortalsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortalsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSystemPortalsCount($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
+    public function getSystemPortalsCount($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
     {
-        list($response) = $this->getSystemPortalsCountWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemPortalsCountWithHttpInfo($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1755,15 +1771,16 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortalsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemPortalsCountWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
+    public function getSystemPortalsCountWithHttpInfo($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
     {
-        $request = $this->getSystemPortalsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemPortalsCountRequest($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1951,14 +1968,15 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortalsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemPortalsCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
+    public function getSystemPortalsCountAsync($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
     {
-        return $this->getSystemPortalsCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSystemPortalsCountAsyncWithHttpInfo($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1973,15 +1991,16 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortalsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemPortalsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
+    public function getSystemPortalsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSystemPortalsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSystemPortalsCountRequest($api_version, $x_api_version, $web_portal_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2024,13 +2043,15 @@ class PortalsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters $web_portal_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemPortalsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemPortalsCountRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
+    public function getSystemPortalsCountRequest($api_version = null, $x_api_version = null, $web_portal_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemPortalsCount'][0])
     {
+
 
 
 
@@ -2066,7 +2087,14 @@ class PortalsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_portal_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_portal_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_portal_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2120,16 +2148,16 @@ class PortalsApi
      * @param  string $portal_id portal_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemPortal'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSystemPortal($portal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
+    public function patchSystemPortal($portal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
     {
-        list($response) = $this->patchSystemPortalWithHttpInfo($portal_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSystemPortalWithHttpInfo($portal_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2141,16 +2169,16 @@ class PortalsApi
      * @param  string $portal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemPortal'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSystemPortalWithHttpInfo($portal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
+    public function patchSystemPortalWithHttpInfo($portal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
     {
-        $request = $this->patchSystemPortalRequest($portal_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSystemPortalRequest($portal_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2339,15 +2367,15 @@ class PortalsApi
      * @param  string $portal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemPortal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSystemPortalAsync($portal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
+    public function patchSystemPortalAsync($portal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
     {
-        return $this->patchSystemPortalAsyncWithHttpInfo($portal_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSystemPortalAsyncWithHttpInfo($portal_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2363,16 +2391,16 @@ class PortalsApi
      * @param  string $portal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemPortal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSystemPortalAsyncWithHttpInfo($portal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
+    public function patchSystemPortalAsyncWithHttpInfo($portal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSystemPortalRequest($portal_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSystemPortalRequest($portal_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2416,13 +2444,13 @@ class PortalsApi
      * @param  string $portal_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemPortal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSystemPortalRequest($portal_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
+    public function patchSystemPortalRequest($portal_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemPortal'][0])
     {
 
         // verify the required parameter 'portal_id' is set
@@ -2475,12 +2503,12 @@ class PortalsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

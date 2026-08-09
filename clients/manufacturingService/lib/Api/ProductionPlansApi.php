@@ -84,9 +84,11 @@ class ProductionPlansApi
         ],
         'getProductionPlansAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProductionPlansCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchProductionPlanAsync' => [
             'application/json',
@@ -1127,15 +1129,16 @@ class ProductionPlansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProductionPlanDtoListEnvelope
      */
-    public function getProductionPlansAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
+    public function getProductionPlansAsync($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
     {
-        list($response) = $this->getProductionPlansAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProductionPlansAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1147,15 +1150,16 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProductionPlanDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductionPlansAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
+    public function getProductionPlansAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
     {
-        $request = $this->getProductionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProductionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,14 +1313,15 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductionPlansAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
+    public function getProductionPlansAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
     {
-        return $this->getProductionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getProductionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,15 +1337,16 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
+    public function getProductionPlansAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProductionPlanDtoListEnvelope';
-        $request = $this->getProductionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProductionPlansAsyncRequest($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,12 +1390,13 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductionPlansAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
+    public function getProductionPlansAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1398,6 +1405,7 @@ class ProductionPlansApi
                 'Missing the required parameter $tenant_id when calling getProductionPlansAsync'
             );
         }
+
 
 
 
@@ -1442,7 +1450,14 @@ class ProductionPlansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($production_plan_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($production_plan_dto_collection_query_parameters));
+            } else {
+                $httpBody = $production_plan_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1496,15 +1511,16 @@ class ProductionPlansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProductionPlansCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
+    public function getProductionPlansCountAsync($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
     {
-        list($response) = $this->getProductionPlansCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getProductionPlansCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1516,15 +1532,16 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductionPlansCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
+    public function getProductionPlansCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
     {
-        $request = $this->getProductionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProductionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1678,14 +1695,15 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductionPlansCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
+    public function getProductionPlansCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
     {
-        return $this->getProductionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getProductionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,15 +1719,16 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
+    public function getProductionPlansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProductionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getProductionPlansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,12 +1772,13 @@ class ProductionPlansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters $production_plan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductionPlansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductionPlansCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
+    public function getProductionPlansCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $production_plan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProductionPlansCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1767,6 +1787,7 @@ class ProductionPlansApi
                 'Missing the required parameter $tenant_id when calling getProductionPlansCountAsync'
             );
         }
+
 
 
 
@@ -1811,7 +1832,14 @@ class ProductionPlansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($production_plan_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($production_plan_dto_collection_query_parameters));
+            } else {
+                $httpBody = $production_plan_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1866,16 +1894,16 @@ class ProductionPlansApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductionPlanAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchProductionPlanAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
+    public function patchProductionPlanAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
     {
-        list($response) = $this->patchProductionPlanAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchProductionPlanAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1888,16 +1916,16 @@ class ProductionPlansApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductionPlanAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProductionPlanAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
+    public function patchProductionPlanAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
     {
-        $request = $this->patchProductionPlanAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProductionPlanAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2087,15 +2115,15 @@ class ProductionPlansApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductionPlanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProductionPlanAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
+    public function patchProductionPlanAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
     {
-        return $this->patchProductionPlanAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchProductionPlanAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,16 +2140,16 @@ class ProductionPlansApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductionPlanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProductionPlanAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
+    public function patchProductionPlanAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchProductionPlanAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchProductionPlanAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2166,13 +2194,13 @@ class ProductionPlansApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProductionPlanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProductionPlanAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
+    public function patchProductionPlanAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchProductionPlanAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class ProductionPlansApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -72,6 +72,10 @@ class SocialPostsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createSocialCommentReactionAsync' => [
+            'application/json',
+            'application/xml',
+        ],
         'createSocialPostAsync' => [
             'application/json',
             'application/xml',
@@ -88,6 +92,9 @@ class SocialPostsApi
             'application/json',
             'application/xml',
         ],
+        'deleteSocialCommentReactionAsync' => [
+            'application/json',
+        ],
         'deleteSocialPostAsync' => [
             'application/json',
         ],
@@ -100,6 +107,17 @@ class SocialPostsApi
         'deleteSocialPostReactionAsync' => [
             'application/json',
         ],
+        'getSocialCommentReactionAsync' => [
+            'application/json',
+        ],
+        'getSocialCommentReactionsAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'getSocialCommentReactionsCountAsync' => [
+            'application/json',
+            'application/xml',
+        ],
         'getSocialPostAsync' => [
             'application/json',
         ],
@@ -108,35 +126,47 @@ class SocialPostsApi
         ],
         'getSocialPostAttachmentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostAttachmentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostCommentAsync' => [
             'application/json',
         ],
         'getSocialPostCommentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostCommentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostReactionAsync' => [
             'application/json',
         ],
         'getSocialPostReactionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostReactionsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSocialPostsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSocialPostAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'updateSocialCommentReactionAsync' => [
             'application/json',
             'application/xml',
         ],
@@ -153,6 +183,11 @@ class SocialPostsApi
             'application/xml',
         ],
         'updateSocialPostReactionAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'uploadSocialPostImageAttachmentAsync' => [
+            'multipart/form-data',
             'application/json',
             'application/xml',
         ],
@@ -202,6 +237,463 @@ class SocialPostsApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createSocialCommentReactionAsync
+     *
+     * Create a social comment reaction
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $comment_id comment_id (required)
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionCreateDto $social_reaction_create_dto social_reaction_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope
+     */
+    public function createSocialCommentReactionAsync($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialCommentReactionAsync'][0])
+    {
+        list($response) = $this->createSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createSocialCommentReactionAsyncWithHttpInfo
+     *
+     * Create a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionCreateDto $social_reaction_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialCommentReactionAsync'][0])
+    {
+        $request = $this->createSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createSocialCommentReactionAsyncAsync
+     *
+     * Create a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionCreateDto $social_reaction_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createSocialCommentReactionAsyncAsync($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialCommentReactionAsync'][0])
+    {
+        return $this->createSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createSocialCommentReactionAsyncAsyncWithHttpInfo
+     *
+     * Create a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionCreateDto $social_reaction_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialCommentReactionAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope';
+        $request = $this->createSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createSocialCommentReactionAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionCreateDto $social_reaction_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialCommentReactionAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling createSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling createSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling createSocialCommentReactionAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $social_profile_id,
+            'socialProfileId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commentId' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($social_reaction_create_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_reaction_create_dto));
+            } else {
+                $httpBody = $social_reaction_create_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -1509,7 +2001,7 @@ class SocialPostsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialReactionDtoEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope
      */
     public function createSocialPostReactionAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialPostReactionAsync'][0])
     {
@@ -1531,7 +2023,7 @@ class SocialPostsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialReactionDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSocialPostReactionAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialPostReactionAsync'][0])
     {
@@ -1615,12 +2107,12 @@ class SocialPostsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 201:
-                    if ('\OpenAPI\Client\Model\SocialReactionDtoEnvelope' === '\SplFileObject') {
+                case 200:
+                    if ('\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SocialReactionDtoEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1638,7 +2130,7 @@ class SocialPostsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialReactionDtoEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1657,7 +2149,7 @@ class SocialPostsApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\SocialReactionDtoEnvelope';
+            $returnType = '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1703,10 +2195,10 @@ class SocialPostsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SocialReactionDtoEnvelope',
+                        '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1758,7 +2250,7 @@ class SocialPostsApi
      */
     public function createSocialPostReactionAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_create_dto = null, string $contentType = self::contentTypes['createSocialPostReactionAsync'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SocialReactionDtoEnvelope';
+        $returnType = '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope';
         $request = $this->createSocialPostReactionAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_create_dto, $contentType);
 
         return $this->client
@@ -1926,6 +2418,470 @@ class SocialPostsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteSocialCommentReactionAsync
+     *
+     * Delete a social comment reaction
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $comment_id comment_id (required)
+     * @param  string $reaction_id reaction_id (required)
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function deleteSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteSocialCommentReactionAsync'][0])
+    {
+        list($response) = $this->deleteSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteSocialCommentReactionAsyncWithHttpInfo
+     *
+     * Delete a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteSocialCommentReactionAsync'][0])
+    {
+        $request = $this->deleteSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteSocialCommentReactionAsyncAsync
+     *
+     * Delete a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteSocialCommentReactionAsyncAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteSocialCommentReactionAsync'][0])
+    {
+        return $this->deleteSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteSocialCommentReactionAsyncAsyncWithHttpInfo
+     *
+     * Delete a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteSocialCommentReactionAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->deleteSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteSocialCommentReactionAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteSocialCommentReactionAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling deleteSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling deleteSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'reaction_id' is set
+        if ($reaction_id === null || (is_array($reaction_id) && count($reaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reaction_id when calling deleteSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling deleteSocialCommentReactionAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $social_profile_id,
+            'socialProfileId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commentId' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reaction_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reactionId' . '}',
+                ObjectSerializer::toPathValue($reaction_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3689,6 +4645,1363 @@ class SocialPostsApi
     }
 
     /**
+     * Operation getSocialCommentReactionAsync
+     *
+     * Get social comment reaction by ID
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $comment_id comment_id (required)
+     * @param  string $reaction_id reaction_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope
+     */
+    public function getSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialCommentReactionAsync'][0])
+    {
+        list($response) = $this->getSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSocialCommentReactionAsyncWithHttpInfo
+     *
+     * Get social comment reaction by ID
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialCommentReactionAsync'][0])
+    {
+        $request = $this->getSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSocialCommentReactionAsyncAsync
+     *
+     * Get social comment reaction by ID
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSocialCommentReactionAsyncAsync($social_post_id, $comment_id, $reaction_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialCommentReactionAsync'][0])
+    {
+        return $this->getSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSocialCommentReactionAsyncAsyncWithHttpInfo
+     *
+     * Get social comment reaction by ID
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialCommentReactionAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope';
+        $request = $this->getSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSocialCommentReactionAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialCommentReactionAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling getSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling getSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'reaction_id' is set
+        if ($reaction_id === null || (is_array($reaction_id) && count($reaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reaction_id when calling getSocialCommentReactionAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commentId' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reaction_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reactionId' . '}',
+                ObjectSerializer::toPathValue($reaction_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSocialCommentReactionsAsync
+     *
+     * Get social comment reactions
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $comment_id comment_id (required)
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope
+     */
+    public function getSocialCommentReactionsAsync($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsAsync'][0])
+    {
+        list($response) = $this->getSocialCommentReactionsAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSocialCommentReactionsAsyncWithHttpInfo
+     *
+     * Get social comment reactions
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSocialCommentReactionsAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsAsync'][0])
+    {
+        $request = $this->getSocialCommentReactionsAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSocialCommentReactionsAsyncAsync
+     *
+     * Get social comment reactions
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSocialCommentReactionsAsyncAsync($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsAsync'][0])
+    {
+        return $this->getSocialCommentReactionsAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSocialCommentReactionsAsyncAsyncWithHttpInfo
+     *
+     * Get social comment reactions
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSocialCommentReactionsAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoListEnvelope';
+        $request = $this->getSocialCommentReactionsAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSocialCommentReactionsAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSocialCommentReactionsAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling getSocialCommentReactionsAsync'
+            );
+        }
+
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling getSocialCommentReactionsAsync'
+            );
+        }
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling getSocialCommentReactionsAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $social_profile_id,
+            'socialProfileId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commentId' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($social_comment_reaction_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_comment_reaction_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_comment_reaction_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSocialCommentReactionsCountAsync
+     *
+     * Count social comment reactions
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $comment_id comment_id (required)
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
+     */
+    public function getSocialCommentReactionsCountAsync($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsCountAsync'][0])
+    {
+        list($response) = $this->getSocialCommentReactionsCountAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSocialCommentReactionsCountAsyncWithHttpInfo
+     *
+     * Count social comment reactions
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSocialCommentReactionsCountAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsCountAsync'][0])
+    {
+        $request = $this->getSocialCommentReactionsCountAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\Int32Envelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Int32Envelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Int32Envelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Int32Envelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSocialCommentReactionsCountAsyncAsync
+     *
+     * Count social comment reactions
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSocialCommentReactionsCountAsyncAsync($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsCountAsync'][0])
+    {
+        return $this->getSocialCommentReactionsCountAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSocialCommentReactionsCountAsyncAsyncWithHttpInfo
+     *
+     * Count social comment reactions
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSocialCommentReactionsCountAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsCountAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+        $request = $this->getSocialCommentReactionsCountAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version, $x_api_version, $social_comment_reaction_dto_collection_query_parameters, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSocialCommentReactionsCountAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialCommentReactionDtoCollectionQueryParameters $social_comment_reaction_dto_collection_query_parameters (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialCommentReactionsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSocialCommentReactionsCountAsyncRequest($social_post_id, $comment_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_comment_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialCommentReactionsCountAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling getSocialCommentReactionsCountAsync'
+            );
+        }
+
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling getSocialCommentReactionsCountAsync'
+            );
+        }
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling getSocialCommentReactionsCountAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $social_profile_id,
+            'socialProfileId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commentId' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($social_comment_reaction_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_comment_reaction_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_comment_reaction_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getSocialPostAsync
      *
      * Get social post by ID
@@ -4543,15 +6856,16 @@ class SocialPostsApi
      * @param  string $social_post_id social_post_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostAttachmentDtoListEnvelope
      */
-    public function getSocialPostAttachmentsAsync($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
+    public function getSocialPostAttachmentsAsync($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
     {
-        list($response) = $this->getSocialPostAttachmentsAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostAttachmentsAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4563,15 +6877,16 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostAttachmentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostAttachmentsAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
+    public function getSocialPostAttachmentsAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
     {
-        $request = $this->getSocialPostAttachmentsAsyncRequest($social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostAttachmentsAsyncRequest($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4760,14 +7075,15 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostAttachmentsAsyncAsync($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
+    public function getSocialPostAttachmentsAsyncAsync($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
     {
-        return $this->getSocialPostAttachmentsAsyncAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostAttachmentsAsyncAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4783,15 +7099,16 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostAttachmentsAsyncAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
+    public function getSocialPostAttachmentsAsyncAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialPostAttachmentDtoListEnvelope';
-        $request = $this->getSocialPostAttachmentsAsyncRequest($social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostAttachmentsAsyncRequest($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4835,12 +7152,13 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostAttachmentsAsyncRequest($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
+    public function getSocialPostAttachmentsAsyncRequest($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsAsync'][0])
     {
 
         // verify the required parameter 'social_post_id' is set
@@ -4849,6 +7167,7 @@ class SocialPostsApi
                 'Missing the required parameter $social_post_id when calling getSocialPostAttachmentsAsync'
             );
         }
+
 
 
 
@@ -4892,7 +7211,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_attachment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_attachment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_attachment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4946,15 +7272,16 @@ class SocialPostsApi
      * @param  string $social_post_id social_post_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSocialPostAttachmentsCountAsync($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
+    public function getSocialPostAttachmentsCountAsync($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
     {
-        list($response) = $this->getSocialPostAttachmentsCountAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostAttachmentsCountAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4966,15 +7293,16 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostAttachmentsCountAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
+    public function getSocialPostAttachmentsCountAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
     {
-        $request = $this->getSocialPostAttachmentsCountAsyncRequest($social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostAttachmentsCountAsyncRequest($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5163,14 +7491,15 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostAttachmentsCountAsyncAsync($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
+    public function getSocialPostAttachmentsCountAsyncAsync($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
     {
-        return $this->getSocialPostAttachmentsCountAsyncAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostAttachmentsCountAsyncAsyncWithHttpInfo($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5186,15 +7515,16 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostAttachmentsCountAsyncAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
+    public function getSocialPostAttachmentsCountAsyncAsyncWithHttpInfo($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSocialPostAttachmentsCountAsyncRequest($social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostAttachmentsCountAsyncRequest($social_post_id, $api_version, $x_api_version, $social_post_attachment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5238,12 +7568,13 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostAttachmentDtoCollectionQueryParameters $social_post_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostAttachmentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostAttachmentsCountAsyncRequest($social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
+    public function getSocialPostAttachmentsCountAsyncRequest($social_post_id, $api_version = null, $x_api_version = null, $social_post_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostAttachmentsCountAsync'][0])
     {
 
         // verify the required parameter 'social_post_id' is set
@@ -5252,6 +7583,7 @@ class SocialPostsApi
                 'Missing the required parameter $social_post_id when calling getSocialPostAttachmentsCountAsync'
             );
         }
+
 
 
 
@@ -5295,7 +7627,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_attachment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_attachment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_attachment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5792,17 +8131,19 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $social_post_id social_post_id (required)
+     * @param  string $parent_comment_id parent_comment_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostCommentDtoListEnvelope
      */
-    public function getSocialPostCommentsAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
+    public function getSocialPostCommentsAsync($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
     {
-        list($response) = $this->getSocialPostCommentsAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostCommentsAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5813,17 +8154,19 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostCommentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostCommentsAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
+    public function getSocialPostCommentsAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
     {
-        $request = $this->getSocialPostCommentsAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostCommentsAsyncRequest($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6011,16 +8354,18 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostCommentsAsyncAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
+    public function getSocialPostCommentsAsyncAsync($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
     {
-        return $this->getSocialPostCommentsAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostCommentsAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6035,17 +8380,19 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostCommentsAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
+    public function getSocialPostCommentsAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialPostCommentDtoListEnvelope';
-        $request = $this->getSocialPostCommentsAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostCommentsAsyncRequest($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6088,14 +8435,16 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostCommentsAsyncRequest($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
+    public function getSocialPostCommentsAsyncRequest($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -6115,6 +8464,8 @@ class SocialPostsApi
 
 
 
+
+
         $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments';
         $formParams = [];
         $queryParams = [];
@@ -6130,6 +8481,15 @@ class SocialPostsApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $parent_comment_id,
+            'parentCommentId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -6163,7 +8523,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_comment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_comment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_comment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6216,17 +8583,19 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $social_post_id social_post_id (required)
+     * @param  string $parent_comment_id parent_comment_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSocialPostCommentsCountAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
+    public function getSocialPostCommentsCountAsync($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
     {
-        list($response) = $this->getSocialPostCommentsCountAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostCommentsCountAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6237,17 +8606,19 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostCommentsCountAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
+    public function getSocialPostCommentsCountAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
     {
-        $request = $this->getSocialPostCommentsCountAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostCommentsCountAsyncRequest($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6435,16 +8806,18 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostCommentsCountAsyncAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
+    public function getSocialPostCommentsCountAsyncAsync($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
     {
-        return $this->getSocialPostCommentsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostCommentsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6459,17 +8832,19 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostCommentsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
+    public function getSocialPostCommentsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSocialPostCommentsCountAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostCommentsCountAsyncRequest($social_profile_id, $social_post_id, $parent_comment_id, $api_version, $x_api_version, $social_post_comment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6512,14 +8887,16 @@ class SocialPostsApi
      *
      * @param  string $social_profile_id (required)
      * @param  string $social_post_id (required)
+     * @param  string $parent_comment_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostCommentDtoCollectionQueryParameters $social_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostCommentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostCommentsCountAsyncRequest($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
+    public function getSocialPostCommentsCountAsyncRequest($social_profile_id, $social_post_id, $parent_comment_id = null, $api_version = null, $x_api_version = null, $social_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostCommentsCountAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -6539,6 +8916,8 @@ class SocialPostsApi
 
 
 
+
+
         $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/Count';
         $formParams = [];
         $queryParams = [];
@@ -6554,6 +8933,15 @@ class SocialPostsApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $parent_comment_id,
+            'parentCommentId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -6587,7 +8975,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_comment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_comment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_comment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7065,15 +9460,16 @@ class SocialPostsApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialReactionDtoListEnvelope
      */
-    public function getSocialPostReactionsAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
+    public function getSocialPostReactionsAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
     {
-        list($response) = $this->getSocialPostReactionsAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostReactionsAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7086,15 +9482,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialReactionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostReactionsAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
+    public function getSocialPostReactionsAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
     {
-        $request = $this->getSocialPostReactionsAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostReactionsAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7284,14 +9681,15 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostReactionsAsyncAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
+    public function getSocialPostReactionsAsyncAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
     {
-        return $this->getSocialPostReactionsAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostReactionsAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7308,15 +9706,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostReactionsAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
+    public function getSocialPostReactionsAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialReactionDtoListEnvelope';
-        $request = $this->getSocialPostReactionsAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostReactionsAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7361,12 +9760,13 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostReactionsAsyncRequest($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
+    public function getSocialPostReactionsAsyncRequest($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsAsync'][0])
     {
 
         // verify the required parameter 'social_post_id' is set
@@ -7382,6 +9782,7 @@ class SocialPostsApi
                 'Missing the required parameter $social_profile_id when calling getSocialPostReactionsAsync'
             );
         }
+
 
 
 
@@ -7434,7 +9835,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_reaction_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_reaction_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_reaction_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7489,15 +9897,16 @@ class SocialPostsApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSocialPostReactionsCountAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
+    public function getSocialPostReactionsCountAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
     {
-        list($response) = $this->getSocialPostReactionsCountAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostReactionsCountAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7510,15 +9919,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostReactionsCountAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
+    public function getSocialPostReactionsCountAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
     {
-        $request = $this->getSocialPostReactionsCountAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostReactionsCountAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7708,14 +10118,15 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostReactionsCountAsyncAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
+    public function getSocialPostReactionsCountAsyncAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
     {
-        return $this->getSocialPostReactionsCountAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostReactionsCountAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7732,15 +10143,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostReactionsCountAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
+    public function getSocialPostReactionsCountAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSocialPostReactionsCountAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostReactionsCountAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $social_post_reaction_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7785,12 +10197,13 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostReactionDtoCollectionQueryParameters $social_post_reaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostReactionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostReactionsCountAsyncRequest($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
+    public function getSocialPostReactionsCountAsyncRequest($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_post_reaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostReactionsCountAsync'][0])
     {
 
         // verify the required parameter 'social_post_id' is set
@@ -7806,6 +10219,7 @@ class SocialPostsApi
                 'Missing the required parameter $social_profile_id when calling getSocialPostReactionsCountAsync'
             );
         }
+
 
 
 
@@ -7858,7 +10272,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_reaction_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_reaction_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_reaction_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7912,15 +10333,16 @@ class SocialPostsApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostDtoListEnvelope
      */
-    public function getSocialPostsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
+    public function getSocialPostsAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
     {
-        list($response) = $this->getSocialPostsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7932,15 +10354,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
+    public function getSocialPostsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
     {
-        $request = $this->getSocialPostsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostsAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8129,14 +10552,15 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
+    public function getSocialPostsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
     {
-        return $this->getSocialPostsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8152,15 +10576,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
+    public function getSocialPostsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialPostDtoListEnvelope';
-        $request = $this->getSocialPostsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostsAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8204,12 +10629,13 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
+    public function getSocialPostsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -8218,6 +10644,7 @@ class SocialPostsApi
                 'Missing the required parameter $social_profile_id when calling getSocialPostsAsync'
             );
         }
+
 
 
 
@@ -8262,7 +10689,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8316,15 +10750,16 @@ class SocialPostsApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSocialPostsCountAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
+    public function getSocialPostsCountAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
     {
-        list($response) = $this->getSocialPostsCountAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialPostsCountAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8336,15 +10771,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialPostsCountAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
+    public function getSocialPostsCountAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
     {
-        $request = $this->getSocialPostsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8533,14 +10969,15 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostsCountAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
+    public function getSocialPostsCountAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
     {
-        return $this->getSocialPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getSocialPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8556,15 +10993,16 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
+    public function getSocialPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSocialPostsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSocialPostsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8608,12 +11046,13 @@ class SocialPostsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialPostDtoCollectionQueryParameters $social_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialPostsCountAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
+    public function getSocialPostsCountAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialPostsCountAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -8622,6 +11061,7 @@ class SocialPostsApi
                 'Missing the required parameter $social_profile_id when calling getSocialPostsCountAsync'
             );
         }
+
 
 
 
@@ -8666,7 +11106,14 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8721,16 +11168,16 @@ class SocialPostsApi
      * @param  string $social_post_id social_post_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSocialPostAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
+    public function patchSocialPostAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
     {
-        list($response) = $this->patchSocialPostAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSocialPostAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -8743,16 +11190,16 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSocialPostAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
+    public function patchSocialPostAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
     {
-        $request = $this->patchSocialPostAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSocialPostAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8942,15 +11389,15 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSocialPostAsyncAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
+    public function patchSocialPostAsyncAsync($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
     {
-        return $this->patchSocialPostAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSocialPostAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8967,16 +11414,16 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSocialPostAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
+    public function patchSocialPostAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSocialPostAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSocialPostAsyncRequest($social_profile_id, $social_post_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9021,13 +11468,13 @@ class SocialPostsApi
      * @param  string $social_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSocialPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSocialPostAsyncRequest($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
+    public function patchSocialPostAsyncRequest($social_profile_id, $social_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSocialPostAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -9096,12 +11543,12 @@ class SocialPostsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9143,6 +11590,483 @@ class SocialPostsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSocialCommentReactionAsync
+     *
+     * Update a social comment reaction
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $comment_id comment_id (required)
+     * @param  string $reaction_id reaction_id (required)
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionUpdateDto $social_reaction_update_dto social_reaction_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope
+     */
+    public function updateSocialCommentReactionAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialCommentReactionAsync'][0])
+    {
+        list($response) = $this->updateSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_update_dto, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateSocialCommentReactionAsyncWithHttpInfo
+     *
+     * Update a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionUpdateDto $social_reaction_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSocialCommentReactionAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialCommentReactionAsync'][0])
+    {
+        $request = $this->updateSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_update_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSocialCommentReactionAsyncAsync
+     *
+     * Update a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionUpdateDto $social_reaction_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSocialCommentReactionAsyncAsync($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialCommentReactionAsync'][0])
+    {
+        return $this->updateSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_update_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSocialCommentReactionAsyncAsyncWithHttpInfo
+     *
+     * Update a social comment reaction
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionUpdateDto $social_reaction_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSocialCommentReactionAsyncAsyncWithHttpInfo($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialCommentReactionAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SocialCommentReactionDtoEnvelope';
+        $request = $this->updateSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version, $x_api_version, $social_reaction_update_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSocialCommentReactionAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $comment_id (required)
+     * @param  string $reaction_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialReactionUpdateDto $social_reaction_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSocialCommentReactionAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSocialCommentReactionAsyncRequest($social_post_id, $comment_id, $reaction_id, $social_profile_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialCommentReactionAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling updateSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling updateSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'reaction_id' is set
+        if ($reaction_id === null || (is_array($reaction_id) && count($reaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reaction_id when calling updateSocialCommentReactionAsync'
+            );
+        }
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling updateSocialCommentReactionAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $social_profile_id,
+            'socialProfileId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commentId' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reaction_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reactionId' . '}',
+                ObjectSerializer::toPathValue($reaction_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($social_reaction_update_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_reaction_update_dto));
+            } else {
+                $httpBody = $social_reaction_update_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -10515,7 +13439,7 @@ class SocialPostsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope
      */
     public function updateSocialPostReactionAsync($social_profile_id, $social_post_id, $reaction_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialPostReactionAsync'][0])
     {
@@ -10538,7 +13462,7 @@ class SocialPostsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSocialPostReactionAsyncWithHttpInfo($social_profile_id, $social_post_id, $reaction_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialPostReactionAsync'][0])
     {
@@ -10623,11 +13547,11 @@ class SocialPostsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10645,7 +13569,7 @@ class SocialPostsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10664,7 +13588,7 @@ class SocialPostsApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            $returnType = '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10713,7 +13637,7 @@ class SocialPostsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10767,7 +13691,7 @@ class SocialPostsApi
      */
     public function updateSocialPostReactionAsyncAsyncWithHttpInfo($social_profile_id, $social_post_id, $reaction_id, $api_version = null, $x_api_version = null, $social_reaction_update_dto = null, string $contentType = self::contentTypes['updateSocialPostReactionAsync'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $returnType = '\OpenAPI\Client\Model\SocialPostReactionDtoEnvelope';
         $request = $this->updateSocialPostReactionAsyncRequest($social_profile_id, $social_post_id, $reaction_id, $api_version, $x_api_version, $social_reaction_update_dto, $contentType);
 
         return $this->client
@@ -10951,6 +13875,483 @@ class SocialPostsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation uploadSocialPostImageAttachmentAsync
+     *
+     * Upload a social post image attachment
+     *
+     * @param  string $social_post_id social_post_id (required)
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \SplFileObject $file file (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadSocialPostImageAttachmentAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope
+     */
+    public function uploadSocialPostImageAttachmentAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $file = null, string $contentType = self::contentTypes['uploadSocialPostImageAttachmentAsync'][0])
+    {
+        list($response) = $this->uploadSocialPostImageAttachmentAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $file, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation uploadSocialPostImageAttachmentAsyncWithHttpInfo
+     *
+     * Upload a social post image attachment
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \SplFileObject $file (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadSocialPostImageAttachmentAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadSocialPostImageAttachmentAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $file = null, string $contentType = self::contentTypes['uploadSocialPostImageAttachmentAsync'][0])
+    {
+        $request = $this->uploadSocialPostImageAttachmentAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $file, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation uploadSocialPostImageAttachmentAsyncAsync
+     *
+     * Upload a social post image attachment
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \SplFileObject $file (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadSocialPostImageAttachmentAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadSocialPostImageAttachmentAsyncAsync($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $file = null, string $contentType = self::contentTypes['uploadSocialPostImageAttachmentAsync'][0])
+    {
+        return $this->uploadSocialPostImageAttachmentAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version, $x_api_version, $file, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation uploadSocialPostImageAttachmentAsyncAsyncWithHttpInfo
+     *
+     * Upload a social post image attachment
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \SplFileObject $file (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadSocialPostImageAttachmentAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadSocialPostImageAttachmentAsyncAsyncWithHttpInfo($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $file = null, string $contentType = self::contentTypes['uploadSocialPostImageAttachmentAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SocialPostAttachmentDtoEnvelope';
+        $request = $this->uploadSocialPostImageAttachmentAsyncRequest($social_post_id, $social_profile_id, $api_version, $x_api_version, $file, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'uploadSocialPostImageAttachmentAsync'
+     *
+     * @param  string $social_post_id (required)
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \SplFileObject $file (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadSocialPostImageAttachmentAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function uploadSocialPostImageAttachmentAsyncRequest($social_post_id, $social_profile_id, $api_version = null, $x_api_version = null, $file = null, string $contentType = self::contentTypes['uploadSocialPostImageAttachmentAsync'][0])
+    {
+
+        // verify the required parameter 'social_post_id' is set
+        if ($social_post_id === null || (is_array($social_post_id) && count($social_post_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_post_id when calling uploadSocialPostImageAttachmentAsync'
+            );
+        }
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling uploadSocialPostImageAttachmentAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $social_profile_id,
+            'socialProfileId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_post_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialPostId' . '}',
+                ObjectSerializer::toPathValue($social_post_id),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($file !== null) {
+            $multipart = true;
+            $formParams['file'] = [];
+            $paramFiles = is_array($file) ? $file : [$file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['file'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

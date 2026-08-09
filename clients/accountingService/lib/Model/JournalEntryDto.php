@@ -59,6 +59,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'timestamp' => '\DateTime',
         'tenant_id' => 'string',
         'enrollment_id' => 'string',
         'journal_id' => 'string',
@@ -79,14 +80,15 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'posted_by' => 'string',
         'forex_rate' => 'float',
         'forex_rates_snapshot' => 'string',
-        'timestamp' => '\DateTime',
         'debit_in_usd' => 'float',
         'credit_in_usd' => 'float',
         'accounting_entries' => '\OpenAPI\Client\Model\AccountingEntryDto[]',
         'total_debit' => 'float',
         'total_credit' => 'float',
         'total_debit_amount' => '\OpenAPI\Client\Model\Money',
-        'total_credit_amount' => '\OpenAPI\Client\Model\Money'
+        'total_credit_amount' => '\OpenAPI\Client\Model\Money',
+        'debit_in_usd_amount' => '\OpenAPI\Client\Model\Money',
+        'credit_in_usd_amount' => '\OpenAPI\Client\Model\Money'
     ];
 
     /**
@@ -98,6 +100,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'timestamp' => 'date-time',
         'tenant_id' => null,
         'enrollment_id' => null,
         'journal_id' => null,
@@ -118,14 +121,15 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'posted_by' => null,
         'forex_rate' => 'double',
         'forex_rates_snapshot' => null,
-        'timestamp' => 'date-time',
         'debit_in_usd' => 'double',
         'credit_in_usd' => 'double',
         'accounting_entries' => null,
         'total_debit' => 'double',
         'total_credit' => 'double',
         'total_debit_amount' => null,
-        'total_credit_amount' => null
+        'total_credit_amount' => null,
+        'debit_in_usd_amount' => null,
+        'credit_in_usd_amount' => null
     ];
 
     /**
@@ -135,6 +139,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => true,
+        'timestamp' => true,
         'tenant_id' => true,
         'enrollment_id' => true,
         'journal_id' => true,
@@ -155,14 +160,15 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'posted_by' => true,
         'forex_rate' => false,
         'forex_rates_snapshot' => true,
-        'timestamp' => true,
         'debit_in_usd' => false,
         'credit_in_usd' => false,
         'accounting_entries' => true,
         'total_debit' => false,
         'total_credit' => false,
         'total_debit_amount' => false,
-        'total_credit_amount' => false
+        'total_credit_amount' => false,
+        'debit_in_usd_amount' => false,
+        'credit_in_usd_amount' => false
     ];
 
     /**
@@ -252,6 +258,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'timestamp' => 'timestamp',
         'tenant_id' => 'tenantId',
         'enrollment_id' => 'enrollmentId',
         'journal_id' => 'journalId',
@@ -272,14 +279,15 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'posted_by' => 'postedBy',
         'forex_rate' => 'forexRate',
         'forex_rates_snapshot' => 'forexRatesSnapshot',
-        'timestamp' => 'timestamp',
         'debit_in_usd' => 'debitInUsd',
         'credit_in_usd' => 'creditInUsd',
         'accounting_entries' => 'accountingEntries',
         'total_debit' => 'totalDebit',
         'total_credit' => 'totalCredit',
         'total_debit_amount' => 'totalDebitAmount',
-        'total_credit_amount' => 'totalCreditAmount'
+        'total_credit_amount' => 'totalCreditAmount',
+        'debit_in_usd_amount' => 'debitInUsdAmount',
+        'credit_in_usd_amount' => 'creditInUsdAmount'
     ];
 
     /**
@@ -289,6 +297,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'tenant_id' => 'setTenantId',
         'enrollment_id' => 'setEnrollmentId',
         'journal_id' => 'setJournalId',
@@ -309,14 +318,15 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'posted_by' => 'setPostedBy',
         'forex_rate' => 'setForexRate',
         'forex_rates_snapshot' => 'setForexRatesSnapshot',
-        'timestamp' => 'setTimestamp',
         'debit_in_usd' => 'setDebitInUsd',
         'credit_in_usd' => 'setCreditInUsd',
         'accounting_entries' => 'setAccountingEntries',
         'total_debit' => 'setTotalDebit',
         'total_credit' => 'setTotalCredit',
         'total_debit_amount' => 'setTotalDebitAmount',
-        'total_credit_amount' => 'setTotalCreditAmount'
+        'total_credit_amount' => 'setTotalCreditAmount',
+        'debit_in_usd_amount' => 'setDebitInUsdAmount',
+        'credit_in_usd_amount' => 'setCreditInUsdAmount'
     ];
 
     /**
@@ -326,6 +336,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'tenant_id' => 'getTenantId',
         'enrollment_id' => 'getEnrollmentId',
         'journal_id' => 'getJournalId',
@@ -346,14 +357,15 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'posted_by' => 'getPostedBy',
         'forex_rate' => 'getForexRate',
         'forex_rates_snapshot' => 'getForexRatesSnapshot',
-        'timestamp' => 'getTimestamp',
         'debit_in_usd' => 'getDebitInUsd',
         'credit_in_usd' => 'getCreditInUsd',
         'accounting_entries' => 'getAccountingEntries',
         'total_debit' => 'getTotalDebit',
         'total_credit' => 'getTotalCredit',
         'total_debit_amount' => 'getTotalDebitAmount',
-        'total_credit_amount' => 'getTotalCreditAmount'
+        'total_credit_amount' => 'getTotalCreditAmount',
+        'debit_in_usd_amount' => 'getDebitInUsdAmount',
+        'credit_in_usd_amount' => 'getCreditInUsdAmount'
     ];
 
     /**
@@ -452,6 +464,7 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('journal_id', $data ?? [], null);
@@ -472,7 +485,6 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('posted_by', $data ?? [], null);
         $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('forex_rates_snapshot', $data ?? [], null);
-        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('debit_in_usd', $data ?? [], null);
         $this->setIfExists('credit_in_usd', $data ?? [], null);
         $this->setIfExists('accounting_entries', $data ?? [], null);
@@ -480,6 +492,8 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('total_credit', $data ?? [], null);
         $this->setIfExists('total_debit_amount', $data ?? [], null);
         $this->setIfExists('total_credit_amount', $data ?? [], null);
+        $this->setIfExists('debit_in_usd_amount', $data ?? [], null);
+        $this->setIfExists('credit_in_usd_amount', $data ?? [], null);
     }
 
     /**
@@ -572,6 +586,40 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            array_push($this->openAPINullablesSetToNull, 'timestamp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timestamp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
@@ -1249,40 +1297,6 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets timestamp
-     *
-     * @return \DateTime|null
-     */
-    public function getTimestamp()
-    {
-        return $this->container['timestamp'];
-    }
-
-    /**
-     * Sets timestamp
-     *
-     * @param \DateTime|null $timestamp timestamp
-     *
-     * @return self
-     */
-    public function setTimestamp($timestamp)
-    {
-        if (is_null($timestamp)) {
-            array_push($this->openAPINullablesSetToNull, 'timestamp');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timestamp', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
      * Gets debit_in_usd
      *
      * @return float|null
@@ -1474,6 +1488,60 @@ class JournalEntryDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable total_credit_amount cannot be null');
         }
         $this->container['total_credit_amount'] = $total_credit_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets debit_in_usd_amount
+     *
+     * @return \OpenAPI\Client\Model\Money|null
+     */
+    public function getDebitInUsdAmount()
+    {
+        return $this->container['debit_in_usd_amount'];
+    }
+
+    /**
+     * Sets debit_in_usd_amount
+     *
+     * @param \OpenAPI\Client\Model\Money|null $debit_in_usd_amount debit_in_usd_amount
+     *
+     * @return self
+     */
+    public function setDebitInUsdAmount($debit_in_usd_amount)
+    {
+        if (is_null($debit_in_usd_amount)) {
+            throw new \InvalidArgumentException('non-nullable debit_in_usd_amount cannot be null');
+        }
+        $this->container['debit_in_usd_amount'] = $debit_in_usd_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets credit_in_usd_amount
+     *
+     * @return \OpenAPI\Client\Model\Money|null
+     */
+    public function getCreditInUsdAmount()
+    {
+        return $this->container['credit_in_usd_amount'];
+    }
+
+    /**
+     * Sets credit_in_usd_amount
+     *
+     * @param \OpenAPI\Client\Model\Money|null $credit_in_usd_amount credit_in_usd_amount
+     *
+     * @return self
+     */
+    public function setCreditInUsdAmount($credit_in_usd_amount)
+    {
+        if (is_null($credit_in_usd_amount)) {
+            throw new \InvalidArgumentException('non-nullable credit_in_usd_amount cannot be null');
+        }
+        $this->container['credit_in_usd_amount'] = $credit_in_usd_amount;
 
         return $this;
     }

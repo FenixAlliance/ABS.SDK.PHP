@@ -131,7 +131,7 @@ No authorization required
 ## `getAssetCategories()`
 
 ```php
-getAssetCategories($tenant_id): \OpenAPI\Client\Model\AssetCategoryDtoListEnvelope
+getAssetCategories($tenant_id, $asset_category_dto_collection_query_parameters): \OpenAPI\Client\Model\AssetCategoryDtoListEnvelope
 ```
 
 Gets all asset categories for the current tenant
@@ -152,9 +152,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetCategoriesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetCategories($tenant_id);
+    $result = $apiInstance->getAssetCategories($tenant_id, $asset_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetCategoriesApi->getAssetCategories: ', $e->getMessage(), PHP_EOL;
@@ -166,6 +167,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters**](../Model/AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -177,7 +179,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -187,7 +189,7 @@ No authorization required
 ## `getAssetCategoriesCount()`
 
 ```php
-getAssetCategoriesCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getAssetCategoriesCount($tenant_id, $asset_category_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of asset categories
@@ -208,9 +210,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetCategoriesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$asset_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAssetCategoriesCount($tenant_id);
+    $result = $apiInstance->getAssetCategoriesCount($tenant_id, $asset_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetCategoriesApi->getAssetCategoriesCount: ', $e->getMessage(), PHP_EOL;
@@ -222,6 +225,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **asset_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AssetCategoryDtoCollectionQueryParameters**](../Model/AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -233,7 +237,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -301,7 +305,7 @@ No authorization required
 ## `patchAssetCategory()`
 
 ```php
-patchAssetCategory($tenant_id, $category_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAssetCategory($tenant_id, $category_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an existing asset category
@@ -323,10 +327,10 @@ $apiInstance = new OpenAPI\Client\Api\AssetCategoriesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $category_id = 'category_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAssetCategory($tenant_id, $category_id, $operation);
+    $result = $apiInstance->patchAssetCategory($tenant_id, $category_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetCategoriesApi->patchAssetCategory: ', $e->getMessage(), PHP_EOL;
@@ -339,7 +343,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **category_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

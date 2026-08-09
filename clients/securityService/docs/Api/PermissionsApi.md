@@ -528,7 +528,7 @@ No authorization required
 ## `getPermissionsAsync()`
 
 ```php
-getPermissionsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SecurityPermissionDtoListEnvelope
+getPermissionsAsync($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters): \OpenAPI\Client\Model\SecurityPermissionDtoListEnvelope
 ```
 
 Get all permissions
@@ -551,9 +551,10 @@ $apiInstance = new OpenAPI\Client\Api\PermissionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$security_permission_dto_collection_query_parameters = new \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPermissionsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPermissionsAsync($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PermissionsApi->getPermissionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -567,6 +568,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **security_permission_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters**](../Model/SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -578,7 +580,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -650,7 +652,7 @@ No authorization required
 ## `getPermissionsCountAsync()`
 
 ```php
-getPermissionsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPermissionsCountAsync($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get permissions count
@@ -673,9 +675,10 @@ $apiInstance = new OpenAPI\Client\Api\PermissionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$security_permission_dto_collection_query_parameters = new \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPermissionsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPermissionsCountAsync($tenant_id, $api_version, $x_api_version, $security_permission_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PermissionsApi->getPermissionsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -689,6 +692,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **security_permission_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SecurityPermissionDtoCollectionQueryParameters**](../Model/SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -700,7 +704,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -772,7 +776,7 @@ No authorization required
 ## `patchPermissionAsync()`
 
 ```php
-patchPermissionAsync($tenant_id, $security_permission_id, $operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+patchPermissionAsync($tenant_id, $security_permission_id, $patch_operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an existing permission
@@ -794,12 +798,12 @@ $apiInstance = new OpenAPI\Client\Api\PermissionsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $security_permission_id = 'security_permission_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->patchPermissionAsync($tenant_id, $security_permission_id, $operation, $api_version, $x_api_version);
+    $result = $apiInstance->patchPermissionAsync($tenant_id, $security_permission_id, $patch_operation, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PermissionsApi->patchPermissionAsync: ', $e->getMessage(), PHP_EOL;
@@ -812,7 +816,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **security_permission_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

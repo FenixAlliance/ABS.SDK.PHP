@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countBlogPostTagsAsync()`
 
 ```php
-countBlogPostTagsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countBlogPostTagsAsync($tenant_id, $api_version, $x_api_version, $blog_post_tag_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count blog post tags
@@ -39,9 +39,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostTagsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$blog_post_tag_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countBlogPostTagsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countBlogPostTagsAsync($tenant_id, $api_version, $x_api_version, $blog_post_tag_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostTagsApi->countBlogPostTagsAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **blog_post_tag_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters**](../Model/BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getBlogPostTagsAsync()`
 
 ```php
-getBlogPostTagsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BlogPostTagDtoListEnvelope
+getBlogPostTagsAsync($tenant_id, $api_version, $x_api_version, $blog_post_tag_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostTagDtoListEnvelope
 ```
 
 Get blog post tags
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostTagsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$blog_post_tag_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBlogPostTagsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBlogPostTagsAsync($tenant_id, $api_version, $x_api_version, $blog_post_tag_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostTagsApi->getBlogPostTagsAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **blog_post_tag_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters**](../Model/BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchBlogPostTagAsync()`
 
 ```php
-patchBlogPostTagAsync($tenant_id, $blog_post_tag_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBlogPostTagAsync($tenant_id, $blog_post_tag_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a blog post tag
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $blog_post_tag_id = 'blog_post_tag_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBlogPostTagAsync($tenant_id, $blog_post_tag_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBlogPostTagAsync($tenant_id, $blog_post_tag_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostTagsApi->patchBlogPostTagAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **blog_post_tag_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

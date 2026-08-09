@@ -201,7 +201,7 @@ No authorization required
 ## `getPayrollPeriodsAsync()`
 
 ```php
-getPayrollPeriodsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PayrollPeriodDtoListEnvelope
+getPayrollPeriodsAsync($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters): \OpenAPI\Client\Model\PayrollPeriodDtoListEnvelope
 ```
 
 Get payroll periods
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\PayrollPeriodsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payroll_period_dto_collection_query_parameters = new \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPayrollPeriodsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPayrollPeriodsAsync($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayrollPeriodsApi->getPayrollPeriodsAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payroll_period_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters**](../Model/PayrollPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getPayrollPeriodsCountAsync()`
 
 ```php
-getPayrollPeriodsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPayrollPeriodsCountAsync($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count payroll periods
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\PayrollPeriodsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payroll_period_dto_collection_query_parameters = new \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPayrollPeriodsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPayrollPeriodsCountAsync($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayrollPeriodsApi->getPayrollPeriodsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payroll_period_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters**](../Model/PayrollPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

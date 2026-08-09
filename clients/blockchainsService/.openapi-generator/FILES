@@ -9,10 +9,12 @@ docs/Api/NonFungibleTokensApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/BlockchainBlockCreateDto.md
 docs/Model/BlockchainBlockDto.md
+docs/Model/BlockchainBlockDtoCollectionQueryParameters.md
 docs/Model/BlockchainBlockDtoListEnvelope.md
 docs/Model/BlockchainBlockUpdateDto.md
 docs/Model/BlockchainCreateDto.md
 docs/Model/BlockchainDto.md
+docs/Model/BlockchainDtoCollectionQueryParameters.md
 docs/Model/BlockchainDtoListEnvelope.md
 docs/Model/BlockchainUpdateDto.md
 docs/Model/EmptyEnvelope.md
@@ -25,9 +27,10 @@ docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
 docs/Model/NonFungibleTokenCreateDto.md
 docs/Model/NonFungibleTokenDto.md
+docs/Model/NonFungibleTokenDtoCollectionQueryParameters.md
 docs/Model/NonFungibleTokenDtoListEnvelope.md
 docs/Model/NonFungibleTokenUpdateDto.md
-docs/Model/Operation.md
+docs/Model/PatchOperation.md
 docs/Model/RefreshRequest.md
 docs/Model/RegisterRequest.md
 docs/Model/ResendConfirmationEmailRequest.md
@@ -44,10 +47,12 @@ lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/BlockchainBlockCreateDto.php
 lib/Model/BlockchainBlockDto.php
+lib/Model/BlockchainBlockDtoCollectionQueryParameters.php
 lib/Model/BlockchainBlockDtoListEnvelope.php
 lib/Model/BlockchainBlockUpdateDto.php
 lib/Model/BlockchainCreateDto.php
 lib/Model/BlockchainDto.php
+lib/Model/BlockchainDtoCollectionQueryParameters.php
 lib/Model/BlockchainDtoListEnvelope.php
 lib/Model/BlockchainUpdateDto.php
 lib/Model/EmptyEnvelope.php
@@ -61,9 +66,10 @@ lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
 lib/Model/NonFungibleTokenCreateDto.php
 lib/Model/NonFungibleTokenDto.php
+lib/Model/NonFungibleTokenDtoCollectionQueryParameters.php
 lib/Model/NonFungibleTokenDtoListEnvelope.php
 lib/Model/NonFungibleTokenUpdateDto.php
-lib/Model/Operation.php
+lib/Model/PatchOperation.php
 lib/Model/RefreshRequest.php
 lib/Model/RegisterRequest.php
 lib/Model/ResendConfirmationEmailRequest.php
@@ -72,3 +78,7 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/BlockchainBlockDtoCollectionQueryParametersTest.php
+test/Model/BlockchainDtoCollectionQueryParametersTest.php
+test/Model/NonFungibleTokenDtoCollectionQueryParametersTest.php
+test/Model/PatchOperationTest.php

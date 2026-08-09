@@ -84,9 +84,11 @@ class ExpenseTypesApi
         ],
         'getExpenseTypes' => [
             'application/json',
+            'application/xml',
         ],
         'getExpenseTypesCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchExpenseType' => [
             'application/json',
@@ -1423,15 +1425,16 @@ class ExpenseTypesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExpenseTypeDtoListEnvelope
      */
-    public function getExpenseTypes($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
+    public function getExpenseTypes($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
     {
-        list($response) = $this->getExpenseTypesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getExpenseTypesWithHttpInfo($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1443,15 +1446,16 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExpenseTypeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExpenseTypesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
+    public function getExpenseTypesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
     {
-        $request = $this->getExpenseTypesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getExpenseTypesRequest($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1640,14 +1644,15 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
+    public function getExpenseTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
     {
-        return $this->getExpenseTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getExpenseTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1663,15 +1668,16 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
+    public function getExpenseTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExpenseTypeDtoListEnvelope';
-        $request = $this->getExpenseTypesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getExpenseTypesRequest($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1715,12 +1721,13 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExpenseTypesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
+    public function getExpenseTypesRequest($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypes'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1729,6 +1736,7 @@ class ExpenseTypesApi
                 'Missing the required parameter $tenant_id when calling getExpenseTypes'
             );
         }
+
 
 
 
@@ -1773,7 +1781,14 @@ class ExpenseTypesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($expense_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($expense_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $expense_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1827,15 +1842,16 @@ class ExpenseTypesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getExpenseTypesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
+    public function getExpenseTypesCount($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
     {
-        list($response) = $this->getExpenseTypesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getExpenseTypesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1847,15 +1863,16 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExpenseTypesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
+    public function getExpenseTypesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
     {
-        $request = $this->getExpenseTypesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getExpenseTypesCountRequest($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2044,14 +2061,15 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
+    public function getExpenseTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
     {
-        return $this->getExpenseTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getExpenseTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2067,15 +2085,16 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
+    public function getExpenseTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getExpenseTypesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getExpenseTypesCountRequest($tenant_id, $api_version, $x_api_version, $expense_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2119,12 +2138,13 @@ class ExpenseTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExpenseTypeDtoCollectionQueryParameters $expense_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpenseTypesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExpenseTypesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
+    public function getExpenseTypesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $expense_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpenseTypesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2133,6 +2153,7 @@ class ExpenseTypesApi
                 'Missing the required parameter $tenant_id when calling getExpenseTypesCount'
             );
         }
+
 
 
 
@@ -2177,7 +2198,14 @@ class ExpenseTypesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($expense_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($expense_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $expense_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2232,16 +2260,16 @@ class ExpenseTypesApi
      * @param  string $expense_type_id expense_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExpenseType'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchExpenseType($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
+    public function patchExpenseType($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
     {
-        list($response) = $this->patchExpenseTypeWithHttpInfo($tenant_id, $expense_type_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchExpenseTypeWithHttpInfo($tenant_id, $expense_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2254,16 +2282,16 @@ class ExpenseTypesApi
      * @param  string $expense_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExpenseType'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchExpenseTypeWithHttpInfo($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
+    public function patchExpenseTypeWithHttpInfo($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
     {
-        $request = $this->patchExpenseTypeRequest($tenant_id, $expense_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchExpenseTypeRequest($tenant_id, $expense_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2453,15 +2481,15 @@ class ExpenseTypesApi
      * @param  string $expense_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExpenseType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchExpenseTypeAsync($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
+    public function patchExpenseTypeAsync($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
     {
-        return $this->patchExpenseTypeAsyncWithHttpInfo($tenant_id, $expense_type_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchExpenseTypeAsyncWithHttpInfo($tenant_id, $expense_type_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2478,16 +2506,16 @@ class ExpenseTypesApi
      * @param  string $expense_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExpenseType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchExpenseTypeAsyncWithHttpInfo($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
+    public function patchExpenseTypeAsyncWithHttpInfo($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchExpenseTypeRequest($tenant_id, $expense_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchExpenseTypeRequest($tenant_id, $expense_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2532,13 +2560,13 @@ class ExpenseTypesApi
      * @param  string $expense_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchExpenseType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchExpenseTypeRequest($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
+    public function patchExpenseTypeRequest($tenant_id, $expense_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchExpenseType'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2607,12 +2635,12 @@ class ExpenseTypesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

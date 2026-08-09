@@ -84,9 +84,11 @@ class BusinessRelationshipsApi
         ],
         'getBusinessRelationshipsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBusinessRelationshipsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateBusinessRelationshipAsync' => [
             'application/json',
@@ -1524,15 +1526,16 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BusinessRelationshipDtoListEnvelope
      */
-    public function getBusinessRelationshipsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
+    public function getBusinessRelationshipsAsync($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
     {
-        list($response) = $this->getBusinessRelationshipsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBusinessRelationshipsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1544,15 +1547,16 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BusinessRelationshipDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessRelationshipsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
+    public function getBusinessRelationshipsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
     {
-        $request = $this->getBusinessRelationshipsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessRelationshipsAsyncRequest($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1776,14 +1780,15 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessRelationshipsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
+    public function getBusinessRelationshipsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
     {
-        return $this->getBusinessRelationshipsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBusinessRelationshipsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1799,15 +1804,16 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessRelationshipsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
+    public function getBusinessRelationshipsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BusinessRelationshipDtoListEnvelope';
-        $request = $this->getBusinessRelationshipsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessRelationshipsAsyncRequest($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1851,12 +1857,13 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessRelationshipsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
+    public function getBusinessRelationshipsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1865,6 +1872,7 @@ class BusinessRelationshipsApi
                 'Missing the required parameter $tenant_id when calling getBusinessRelationshipsAsync'
             );
         }
+
 
 
 
@@ -1909,7 +1917,14 @@ class BusinessRelationshipsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($business_relationship_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($business_relationship_dto_collection_query_parameters));
+            } else {
+                $httpBody = $business_relationship_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1963,15 +1978,16 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBusinessRelationshipsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
+    public function getBusinessRelationshipsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
     {
-        list($response) = $this->getBusinessRelationshipsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBusinessRelationshipsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1983,15 +1999,16 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessRelationshipsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
+    public function getBusinessRelationshipsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
     {
-        $request = $this->getBusinessRelationshipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessRelationshipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2180,14 +2197,15 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessRelationshipsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
+    public function getBusinessRelationshipsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
     {
-        return $this->getBusinessRelationshipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBusinessRelationshipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2203,15 +2221,16 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessRelationshipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
+    public function getBusinessRelationshipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBusinessRelationshipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBusinessRelationshipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2255,12 +2274,13 @@ class BusinessRelationshipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters $business_relationship_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessRelationshipsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessRelationshipsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
+    public function getBusinessRelationshipsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $business_relationship_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBusinessRelationshipsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2269,6 +2289,7 @@ class BusinessRelationshipsApi
                 'Missing the required parameter $tenant_id when calling getBusinessRelationshipsCountAsync'
             );
         }
+
 
 
 
@@ -2313,7 +2334,14 @@ class BusinessRelationshipsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($business_relationship_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($business_relationship_dto_collection_query_parameters));
+            } else {
+                $httpBody = $business_relationship_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

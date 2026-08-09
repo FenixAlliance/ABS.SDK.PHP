@@ -81,9 +81,11 @@ class BillableLineTaxesApi
         ],
         'getBillableLineTaxes' => [
             'application/json',
+            'application/xml',
         ],
         'getBillableLineTaxesCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchBillableLineTaxAsync' => [
             'application/json',
@@ -891,15 +893,16 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id billable_line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AppliedItemTaxRecordDtoIReadOnlyListEnvelope
      */
-    public function getBillableLineTaxes($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
+    public function getBillableLineTaxes($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
     {
-        list($response) = $this->getBillableLineTaxesWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillableLineTaxesWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -912,15 +915,16 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxes'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AppliedItemTaxRecordDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillableLineTaxesWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
+    public function getBillableLineTaxesWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
     {
-        $request = $this->getBillableLineTaxesRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillableLineTaxesRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1040,14 +1044,15 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillableLineTaxesAsync($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
+    public function getBillableLineTaxesAsync($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
     {
-        return $this->getBillableLineTaxesAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillableLineTaxesAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1064,15 +1069,16 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillableLineTaxesAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
+    public function getBillableLineTaxesAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AppliedItemTaxRecordDtoIReadOnlyListEnvelope';
-        $request = $this->getBillableLineTaxesRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillableLineTaxesRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1117,12 +1123,13 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillableLineTaxesRequest($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
+    public function getBillableLineTaxesRequest($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxes'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1138,6 +1145,7 @@ class BillableLineTaxesApi
                 'Missing the required parameter $billable_line_id when calling getBillableLineTaxes'
             );
         }
+
 
 
 
@@ -1190,7 +1198,14 @@ class BillableLineTaxesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($applied_item_tax_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applied_item_tax_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $applied_item_tax_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1245,15 +1260,16 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id billable_line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBillableLineTaxesCount($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
+    public function getBillableLineTaxesCount($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
     {
-        list($response) = $this->getBillableLineTaxesCountWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBillableLineTaxesCountWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1266,15 +1282,16 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBillableLineTaxesCountWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
+    public function getBillableLineTaxesCountWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
     {
-        $request = $this->getBillableLineTaxesCountRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillableLineTaxesCountRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1394,14 +1411,15 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillableLineTaxesCountAsync($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
+    public function getBillableLineTaxesCountAsync($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
     {
-        return $this->getBillableLineTaxesCountAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType)
+        return $this->getBillableLineTaxesCountAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1418,15 +1436,16 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBillableLineTaxesCountAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
+    public function getBillableLineTaxesCountAsyncWithHttpInfo($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBillableLineTaxesCountRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBillableLineTaxesCountRequest($tenant_id, $billable_line_id, $api_version, $x_api_version, $applied_item_tax_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1471,12 +1490,13 @@ class BillableLineTaxesApi
      * @param  string $billable_line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppliedItemTaxRecordDtoCollectionQueryParameters $applied_item_tax_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBillableLineTaxesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBillableLineTaxesCountRequest($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
+    public function getBillableLineTaxesCountRequest($tenant_id, $billable_line_id, $api_version = null, $x_api_version = null, $applied_item_tax_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBillableLineTaxesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1492,6 +1512,7 @@ class BillableLineTaxesApi
                 'Missing the required parameter $billable_line_id when calling getBillableLineTaxesCount'
             );
         }
+
 
 
 
@@ -1544,7 +1565,14 @@ class BillableLineTaxesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($applied_item_tax_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applied_item_tax_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $applied_item_tax_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1600,16 +1628,16 @@ class BillableLineTaxesApi
      * @param  string $tax_id tax_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillableLineTaxAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchBillableLineTaxAsync($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
+    public function patchBillableLineTaxAsync($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
     {
-        list($response) = $this->patchBillableLineTaxAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchBillableLineTaxAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1623,16 +1651,16 @@ class BillableLineTaxesApi
      * @param  string $tax_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillableLineTaxAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBillableLineTaxAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
+    public function patchBillableLineTaxAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
     {
-        $request = $this->patchBillableLineTaxAsyncRequest($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillableLineTaxAsyncRequest($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1823,15 +1851,15 @@ class BillableLineTaxesApi
      * @param  string $tax_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillableLineTaxAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillableLineTaxAsyncAsync($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
+    public function patchBillableLineTaxAsyncAsync($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
     {
-        return $this->patchBillableLineTaxAsyncAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchBillableLineTaxAsyncAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1849,16 +1877,16 @@ class BillableLineTaxesApi
      * @param  string $tax_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillableLineTaxAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBillableLineTaxAsyncAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
+    public function patchBillableLineTaxAsyncAsyncWithHttpInfo($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBillableLineTaxAsyncRequest($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchBillableLineTaxAsyncRequest($tenant_id, $billable_line_id, $tax_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1904,13 +1932,13 @@ class BillableLineTaxesApi
      * @param  string $tax_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBillableLineTaxAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBillableLineTaxAsyncRequest($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
+    public function patchBillableLineTaxAsyncRequest($tenant_id, $billable_line_id, $tax_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchBillableLineTaxAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1994,12 +2022,12 @@ class BillableLineTaxesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

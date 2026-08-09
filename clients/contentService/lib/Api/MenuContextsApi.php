@@ -74,6 +74,7 @@ class MenuContextsApi
     public const contentTypes = [
         'countMenuContextsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createMenuContextAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class MenuContextsApi
         ],
         'getMenuContextsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateMenuContextAsync' => [
             'application/json',
@@ -148,15 +150,16 @@ class MenuContextsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countMenuContextsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
+    public function countMenuContextsAsync($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
     {
-        list($response) = $this->countMenuContextsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countMenuContextsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -168,15 +171,16 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countMenuContextsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
+    public function countMenuContextsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
     {
-        $request = $this->countMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -365,14 +369,15 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countMenuContextsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
+    public function countMenuContextsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
     {
-        return $this->countMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -388,15 +393,16 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
+    public function countMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,12 +446,13 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countMenuContextsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
+    public function countMenuContextsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMenuContextsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -454,6 +461,7 @@ class MenuContextsApi
                 'Missing the required parameter $tenant_id when calling countMenuContextsAsync'
             );
         }
+
 
 
 
@@ -498,7 +506,14 @@ class MenuContextsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($menu_context_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($menu_context_dto_collection_query_parameters));
+            } else {
+                $httpBody = $menu_context_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1823,15 +1838,16 @@ class MenuContextsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MenuContextDtoListEnvelope
      */
-    public function getMenuContextsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
+    public function getMenuContextsAsync($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
     {
-        list($response) = $this->getMenuContextsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getMenuContextsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1843,15 +1859,16 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MenuContextDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMenuContextsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
+    public function getMenuContextsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
     {
-        $request = $this->getMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2040,14 +2057,15 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMenuContextsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
+    public function getMenuContextsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
     {
-        return $this->getMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2063,15 +2081,16 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
+    public function getMenuContextsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MenuContextDtoListEnvelope';
-        $request = $this->getMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMenuContextsAsyncRequest($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2115,12 +2134,13 @@ class MenuContextsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters $menu_context_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuContextsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMenuContextsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
+    public function getMenuContextsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $menu_context_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMenuContextsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2129,6 +2149,7 @@ class MenuContextsApi
                 'Missing the required parameter $tenant_id when calling getMenuContextsAsync'
             );
         }
+
 
 
 
@@ -2173,7 +2194,14 @@ class MenuContextsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($menu_context_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($menu_context_dto_collection_query_parameters));
+            } else {
+                $httpBody = $menu_context_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

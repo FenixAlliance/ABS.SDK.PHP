@@ -403,7 +403,7 @@ No authorization required
 ## `getSupportTicketConversationsAsync()`
 
 ```php
-getSupportTicketConversationsAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketConversationDtoListEnvelope
+getSupportTicketConversationsAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version, $support_ticket_conversation_dto_collection_query_parameters): \OpenAPI\Client\Model\SupportTicketConversationDtoListEnvelope
 ```
 
 Retrieve conversations for a support ticket
@@ -427,9 +427,10 @@ $tenant_id = 'tenant_id_example'; // string
 $support_ticket_id = 'support_ticket_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_ticket_conversation_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportTicketConversationsAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketConversationsAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version, $support_ticket_conversation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketsApi->getSupportTicketConversationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -444,6 +445,7 @@ try {
 | **support_ticket_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_ticket_conversation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters**](../Model/SupportTicketConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -455,7 +457,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -465,7 +467,7 @@ No authorization required
 ## `getSupportTicketsAsync()`
 
 ```php
-getSupportTicketsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketDtoListEnvelope
+getSupportTicketsAsync($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters): \OpenAPI\Client\Model\SupportTicketDtoListEnvelope
 ```
 
 Retrieve a list of support tickets
@@ -488,9 +490,10 @@ $apiInstance = new OpenAPI\Client\Api\SupportTicketsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_ticket_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportTicketsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketsAsync($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketsApi->getSupportTicketsAsync: ', $e->getMessage(), PHP_EOL;
@@ -504,6 +507,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_ticket_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters**](../Model/SupportTicketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -515,7 +519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +529,7 @@ No authorization required
 ## `getSupportTicketsCountAsync()`
 
 ```php
-getSupportTicketsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSupportTicketsCountAsync($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of support tickets
@@ -548,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\SupportTicketsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_ticket_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportTicketsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketsCountAsync($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketsApi->getSupportTicketsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_ticket_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters**](../Model/SupportTicketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -585,7 +591,7 @@ No authorization required
 ## `patchSupportTicketAsync()`
 
 ```php
-patchSupportTicketAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSupportTicketAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a support ticket
@@ -609,10 +615,10 @@ $tenant_id = 'tenant_id_example'; // string
 $support_ticket_id = 'support_ticket_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSupportTicketAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSupportTicketAsync($tenant_id, $support_ticket_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketsApi->patchSupportTicketAsync: ', $e->getMessage(), PHP_EOL;
@@ -627,7 +633,7 @@ try {
 | **support_ticket_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

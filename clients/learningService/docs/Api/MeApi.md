@@ -80,7 +80,7 @@ No authorization required
 ## `getMyCertificatesAsync()`
 
 ```php
-getMyCertificatesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CourseCompletionCertificateDtoIReadOnlyListEnvelope
+getMyCertificatesAsync($api_version, $x_api_version, $course_completion_certificate_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseCompletionCertificateDtoIReadOnlyListEnvelope
 ```
 
 Get current user's completion certificates
@@ -100,9 +100,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_completion_certificate_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCompletionCertificateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCompletionCertificateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyCertificatesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyCertificatesAsync($api_version, $x_api_version, $course_completion_certificate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyCertificatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -115,6 +116,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_completion_certificate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCompletionCertificateDtoCollectionQueryParameters**](../Model/CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -126,7 +128,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -136,7 +138,7 @@ No authorization required
 ## `getMyCertificatesCountAsync()`
 
 ```php
-getMyCertificatesCountAsync($api_version, $x_api_version): int
+getMyCertificatesCountAsync($api_version, $x_api_version, $course_completion_certificate_dto_collection_query_parameters): int
 ```
 
 Get current user's certificates count
@@ -156,9 +158,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_completion_certificate_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseCompletionCertificateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseCompletionCertificateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyCertificatesCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyCertificatesCountAsync($api_version, $x_api_version, $course_completion_certificate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyCertificatesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -171,6 +174,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_completion_certificate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseCompletionCertificateDtoCollectionQueryParameters**](../Model/CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -182,7 +186,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -192,7 +196,7 @@ No authorization required
 ## `getMyEnrollmentsAsync()`
 
 ```php
-getMyEnrollmentsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CourseEnrollmentDtoIReadOnlyListEnvelope
+getMyEnrollmentsAsync($api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseEnrollmentDtoIReadOnlyListEnvelope
 ```
 
 Get current user's course enrollments
@@ -212,9 +216,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyEnrollmentsAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyEnrollmentsAsync($api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyEnrollmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -227,6 +232,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters**](../Model/CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -238,7 +244,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -248,7 +254,7 @@ No authorization required
 ## `getMyEnrollmentsCountAsync()`
 
 ```php
-getMyEnrollmentsCountAsync($api_version, $x_api_version): int
+getMyEnrollmentsCountAsync($api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters): int
 ```
 
 Get current user's enrollment count
@@ -268,9 +274,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyEnrollmentsCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyEnrollmentsCountAsync($api_version, $x_api_version, $course_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyEnrollmentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -283,6 +290,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseEnrollmentDtoCollectionQueryParameters**](../Model/CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -294,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -360,7 +368,7 @@ No authorization required
 ## `getMyInstructorCoursesAsync()`
 
 ```php
-getMyInstructorCoursesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CourseDtoIReadOnlyListEnvelope
+getMyInstructorCoursesAsync($api_version, $x_api_version, $course_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseDtoIReadOnlyListEnvelope
 ```
 
 Get current user's instructor courses
@@ -380,9 +388,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyInstructorCoursesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyInstructorCoursesAsync($api_version, $x_api_version, $course_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyInstructorCoursesAsync: ', $e->getMessage(), PHP_EOL;
@@ -395,6 +404,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseDtoCollectionQueryParameters**](../Model/CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -406,7 +416,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -416,7 +426,7 @@ No authorization required
 ## `getMyInstructorCoursesCountAsync()`
 
 ```php
-getMyInstructorCoursesCountAsync($api_version, $x_api_version): int
+getMyInstructorCoursesCountAsync($api_version, $x_api_version, $course_dto_collection_query_parameters): int
 ```
 
 Get current user's instructor courses count
@@ -436,9 +446,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyInstructorCoursesCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyInstructorCoursesCountAsync($api_version, $x_api_version, $course_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyInstructorCoursesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -451,6 +462,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseDtoCollectionQueryParameters**](../Model/CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -462,7 +474,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -472,7 +484,7 @@ No authorization required
 ## `getMyInstructorProfilesAsync()`
 
 ```php
-getMyInstructorProfilesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\InstructorProfileDtoIReadOnlyListEnvelope
+getMyInstructorProfilesAsync($api_version, $x_api_version, $instructor_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\InstructorProfileDtoIReadOnlyListEnvelope
 ```
 
 Get current user's instructor profiles
@@ -492,9 +504,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$instructor_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\InstructorProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InstructorProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyInstructorProfilesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyInstructorProfilesAsync($api_version, $x_api_version, $instructor_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyInstructorProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -507,6 +520,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **instructor_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InstructorProfileDtoCollectionQueryParameters**](../Model/InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -518,7 +532,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -528,7 +542,7 @@ No authorization required
 ## `getMyInstructorProfilesCountAsync()`
 
 ```php
-getMyInstructorProfilesCountAsync($api_version, $x_api_version): int
+getMyInstructorProfilesCountAsync($api_version, $x_api_version, $instructor_profile_dto_collection_query_parameters): int
 ```
 
 Get current user's instructor profiles count
@@ -548,9 +562,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$instructor_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\InstructorProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InstructorProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyInstructorProfilesCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyInstructorProfilesCountAsync($api_version, $x_api_version, $instructor_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyInstructorProfilesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -563,6 +578,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **instructor_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InstructorProfileDtoCollectionQueryParameters**](../Model/InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -574,7 +590,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -640,7 +656,7 @@ No authorization required
 ## `getMyStudentCoursesAsync()`
 
 ```php
-getMyStudentCoursesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CourseDtoIReadOnlyListEnvelope
+getMyStudentCoursesAsync($api_version, $x_api_version, $course_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseDtoIReadOnlyListEnvelope
 ```
 
 Get current user's enrolled courses
@@ -660,9 +676,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyStudentCoursesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyStudentCoursesAsync($api_version, $x_api_version, $course_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyStudentCoursesAsync: ', $e->getMessage(), PHP_EOL;
@@ -675,6 +692,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseDtoCollectionQueryParameters**](../Model/CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -686,7 +704,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -696,7 +714,7 @@ No authorization required
 ## `getMyStudentCoursesCountAsync()`
 
 ```php
-getMyStudentCoursesCountAsync($api_version, $x_api_version): int
+getMyStudentCoursesCountAsync($api_version, $x_api_version, $course_dto_collection_query_parameters): int
 ```
 
 Get current user's enrolled courses count
@@ -716,9 +734,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyStudentCoursesCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyStudentCoursesCountAsync($api_version, $x_api_version, $course_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyStudentCoursesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -731,6 +750,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseDtoCollectionQueryParameters**](../Model/CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -742,7 +762,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -752,7 +772,7 @@ No authorization required
 ## `getMyStudentProfilesAsync()`
 
 ```php
-getMyStudentProfilesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\StudentProfileDtoIReadOnlyListEnvelope
+getMyStudentProfilesAsync($api_version, $x_api_version, $student_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\StudentProfileDtoIReadOnlyListEnvelope
 ```
 
 Get current user's student profiles
@@ -772,9 +792,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$student_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\StudentProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\StudentProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyStudentProfilesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyStudentProfilesAsync($api_version, $x_api_version, $student_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyStudentProfilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -787,6 +808,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **student_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\StudentProfileDtoCollectionQueryParameters**](../Model/StudentProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -798,7 +820,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -808,7 +830,7 @@ No authorization required
 ## `getMyStudentProfilesCountAsync()`
 
 ```php
-getMyStudentProfilesCountAsync($api_version, $x_api_version): int
+getMyStudentProfilesCountAsync($api_version, $x_api_version, $student_profile_dto_collection_query_parameters): int
 ```
 
 Get current user's student profiles count
@@ -828,9 +850,10 @@ $apiInstance = new OpenAPI\Client\Api\MeApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$student_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\StudentProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\StudentProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMyStudentProfilesCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getMyStudentProfilesCountAsync($api_version, $x_api_version, $student_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MeApi->getMyStudentProfilesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -843,6 +866,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **student_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\StudentProfileDtoCollectionQueryParameters**](../Model/StudentProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -854,7 +878,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -12,7 +12,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countTimezonesAsync()`
 
 ```php
-countTimezonesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countTimezonesAsync($api_version, $x_api_version, $timezone_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count timezones
@@ -34,9 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\TimezonesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$timezone_dto_collection_query_parameters = new \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countTimezonesAsync($api_version, $x_api_version);
+    $result = $apiInstance->countTimezonesAsync($api_version, $x_api_version, $timezone_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimezonesApi->countTimezonesAsync: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +50,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **timezone_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters**](../Model/TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -130,7 +132,7 @@ No authorization required
 ## `getTimeZonesAsync()`
 
 ```php
-getTimeZonesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\TimezoneDtoListEnvelope
+getTimeZonesAsync($api_version, $x_api_version, $timezone_dto_collection_query_parameters): \OpenAPI\Client\Model\TimezoneDtoListEnvelope
 ```
 
 Get all timezones
@@ -152,9 +154,10 @@ $apiInstance = new OpenAPI\Client\Api\TimezonesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$timezone_dto_collection_query_parameters = new \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTimeZonesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getTimeZonesAsync($api_version, $x_api_version, $timezone_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimezonesApi->getTimeZonesAsync: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +170,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **timezone_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters**](../Model/TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -178,7 +182,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseWikisAsync()`
 
 ```php
-getCourseWikisAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseWikiDto[]
+getCourseWikisAsync($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseWikiDto[]
 ```
 
 Get all course wikis
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseWikisApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_wiki_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseWikisAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseWikisAsync($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseWikisApi->getCourseWikisAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_wiki_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters**](../Model/CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseWikisCountAsync()`
 
 ```php
-getCourseWikisCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseWikisCountAsync($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters): int
 ```
 
 Get course wikis count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseWikisApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_wiki_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseWikisCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseWikisCountAsync($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseWikisApi->getCourseWikisCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_wiki_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters**](../Model/CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseWikiAsync()`
 
 ```php
-patchCourseWikiAsync($tenant_id, $wiki_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseWikiAsync($tenant_id, $wiki_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course wiki
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $wiki_id = 'wiki_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseWikiAsync($tenant_id, $wiki_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseWikiAsync($tenant_id, $wiki_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseWikisApi->patchCourseWikiAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **wiki_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

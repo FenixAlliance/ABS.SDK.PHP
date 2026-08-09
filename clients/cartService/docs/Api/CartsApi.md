@@ -1960,7 +1960,7 @@ No authorization required
 ## `patchCartAsync()`
 
 ```php
-patchCartAsync($cart_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCartAsync($cart_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a cart
@@ -1983,10 +1983,10 @@ $apiInstance = new OpenAPI\Client\Api\CartsApi(
 $cart_id = 'cart_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCartAsync($cart_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCartAsync($cart_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CartsApi->patchCartAsync: ', $e->getMessage(), PHP_EOL;
@@ -2000,7 +2000,7 @@ try {
 | **cart_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -201,7 +201,7 @@ No authorization required
 ## `getDeliveryNotesAsync()`
 
 ```php
-getDeliveryNotesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\DeliveryNoteDtoListEnvelope
+getDeliveryNotesAsync($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters): \OpenAPI\Client\Model\DeliveryNoteDtoListEnvelope
 ```
 
 Get all delivery notes
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\DeliveryNotesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$delivery_note_dto_collection_query_parameters = new \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDeliveryNotesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getDeliveryNotesAsync($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryNotesApi->getDeliveryNotesAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **delivery_note_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters**](../Model/DeliveryNoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getDeliveryNotesCountAsync()`
 
 ```php
-getDeliveryNotesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getDeliveryNotesCountAsync($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get delivery notes count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\DeliveryNotesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$delivery_note_dto_collection_query_parameters = new \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDeliveryNotesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getDeliveryNotesCountAsync($tenant_id, $api_version, $x_api_version, $delivery_note_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryNotesApi->getDeliveryNotesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **delivery_note_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DeliveryNoteDtoCollectionQueryParameters**](../Model/DeliveryNoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -82,9 +82,11 @@ class ItemsApi
         ],
         'countStockItemTagsByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'countStockItemsByBusiness' => [
             'application/json',
+            'application/xml',
         ],
         'createStockItem' => [
             'application/json',
@@ -104,6 +106,7 @@ class ItemsApi
         ],
         'getStockItemAttachmentsByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemAttributeOptionById' => [
             'application/json',
@@ -116,18 +119,21 @@ class ItemsApi
         ],
         'getStockItemBrandsByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemById' => [
             'application/json',
         ],
         'getStockItemCategoriesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemCategoryById' => [
             'application/json',
         ],
         'getStockItemGoogleCategoriesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemGoogleCategoryById' => [
             'application/json',
@@ -137,6 +143,7 @@ class ItemsApi
         ],
         'getStockItemImagesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemPriceRuleById' => [
             'application/json',
@@ -149,15 +156,18 @@ class ItemsApi
         ],
         'getStockItemQuestionsByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemRefundPoliciesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemRefundPolicyById' => [
             'application/json',
         ],
         'getStockItemReturnPoliciesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemReturnPolicyById' => [
             'application/json',
@@ -167,9 +177,11 @@ class ItemsApi
         ],
         'getStockItemReviewsByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemShippingPoliciesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemShippingPolicyById' => [
             'application/json',
@@ -179,9 +191,11 @@ class ItemsApi
         ],
         'getStockItemTagsByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemTaxPoliciesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemTaxPolicyById' => [
             'application/json',
@@ -191,21 +205,26 @@ class ItemsApi
         ],
         'getStockItemTypesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemWarrantyPoliciesByItemId' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemWarrantyPolicyById' => [
             'application/json',
         ],
         'getStockItemsOdataMaxPrice' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemsOdataMinPrice' => [
             'application/json',
+            'application/xml',
         ],
         'getStockItemsQuery' => [
             'application/json',
+            'application/xml',
         ],
         'patchStockItem' => [
             'application/json',
@@ -924,15 +943,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countStockItemTagsByItemId($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
+    public function countStockItemTagsByItemId($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
     {
-        list($response) = $this->countStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -945,15 +965,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
+    public function countStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
     {
-        $request = $this->countStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1143,14 +1164,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countStockItemTagsByItemIdAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
+    public function countStockItemTagsByItemIdAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
     {
-        return $this->countStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->countStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1167,15 +1189,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
+    public function countStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1220,12 +1243,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
+    public function countStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemTagsByItemId'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1241,6 +1265,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling countStockItemTagsByItemId'
             );
         }
+
 
 
 
@@ -1293,7 +1318,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_tag_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_tag_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_tag_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1347,15 +1379,16 @@ class ItemsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemsByBusiness'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countStockItemsByBusiness($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
+    public function countStockItemsByBusiness($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
     {
-        list($response) = $this->countStockItemsByBusinessWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countStockItemsByBusinessWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1367,15 +1400,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemsByBusiness'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countStockItemsByBusinessWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
+    public function countStockItemsByBusinessWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
     {
-        $request = $this->countStockItemsByBusinessRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countStockItemsByBusinessRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1564,14 +1598,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemsByBusiness'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countStockItemsByBusinessAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
+    public function countStockItemsByBusinessAsync($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
     {
-        return $this->countStockItemsByBusinessAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countStockItemsByBusinessAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1587,15 +1622,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemsByBusiness'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countStockItemsByBusinessAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
+    public function countStockItemsByBusinessAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countStockItemsByBusinessRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countStockItemsByBusinessRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1639,13 +1675,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countStockItemsByBusiness'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countStockItemsByBusinessRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
+    public function countStockItemsByBusinessRequest($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countStockItemsByBusiness'][0])
     {
+
 
 
 
@@ -1691,7 +1729,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($catalog_item_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($catalog_item_dto_collection_query_parameters));
+            } else {
+                $httpBody = $catalog_item_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3490,15 +3535,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters $item_attachment_dto_collection_query_parameters item_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemAttachmentsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemAttachmentDtoListEnvelope
      */
-    public function getStockItemAttachmentsByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
+    public function getStockItemAttachmentsByItemId($item_id, $api_version = null, $x_api_version = null, $item_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
     {
-        list($response) = $this->getStockItemAttachmentsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemAttachmentsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_attachment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3510,15 +3556,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters $item_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemAttachmentsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemAttachmentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemAttachmentsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
+    public function getStockItemAttachmentsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
     {
-        $request = $this->getStockItemAttachmentsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemAttachmentsByItemIdRequest($item_id, $api_version, $x_api_version, $item_attachment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3707,14 +3754,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters $item_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemAttachmentsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemAttachmentsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
+    public function getStockItemAttachmentsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
     {
-        return $this->getStockItemAttachmentsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemAttachmentsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_attachment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3730,15 +3778,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters $item_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemAttachmentsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemAttachmentsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
+    public function getStockItemAttachmentsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemAttachmentDtoListEnvelope';
-        $request = $this->getStockItemAttachmentsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemAttachmentsByItemIdRequest($item_id, $api_version, $x_api_version, $item_attachment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3782,12 +3831,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters $item_attachment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemAttachmentsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemAttachmentsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
+    public function getStockItemAttachmentsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_attachment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemAttachmentsByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -3796,6 +3846,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemAttachmentsByItemId'
             );
         }
+
 
 
 
@@ -3839,7 +3890,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_attachment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_attachment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_attachment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5142,15 +5200,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters $item_brand_dto_collection_query_parameters item_brand_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemBrandsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemBrandDtoListEnvelope
      */
-    public function getStockItemBrandsByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
+    public function getStockItemBrandsByItemId($item_id, $api_version = null, $x_api_version = null, $item_brand_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
     {
-        list($response) = $this->getStockItemBrandsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemBrandsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5162,15 +5221,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters $item_brand_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemBrandsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemBrandDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemBrandsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
+    public function getStockItemBrandsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_brand_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
     {
-        $request = $this->getStockItemBrandsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemBrandsByItemIdRequest($item_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5359,14 +5419,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters $item_brand_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemBrandsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemBrandsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
+    public function getStockItemBrandsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_brand_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
     {
-        return $this->getStockItemBrandsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemBrandsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5382,15 +5443,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters $item_brand_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemBrandsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemBrandsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
+    public function getStockItemBrandsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_brand_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemBrandDtoListEnvelope';
-        $request = $this->getStockItemBrandsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemBrandsByItemIdRequest($item_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5434,12 +5496,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters $item_brand_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemBrandsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemBrandsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
+    public function getStockItemBrandsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_brand_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemBrandsByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -5448,6 +5511,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemBrandsByItemId'
             );
         }
+
 
 
 
@@ -5491,7 +5555,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_brand_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_brand_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_brand_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5948,15 +6019,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters $item_category_dto_collection_query_parameters item_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemCategoryDtoListEnvelope
      */
-    public function getStockItemCategoriesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
+    public function getStockItemCategoriesByItemId($item_id, $api_version = null, $x_api_version = null, $item_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
     {
-        list($response) = $this->getStockItemCategoriesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemCategoriesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5968,15 +6040,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters $item_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemCategoriesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
+    public function getStockItemCategoriesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
     {
-        $request = $this->getStockItemCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6165,14 +6238,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters $item_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemCategoriesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
+    public function getStockItemCategoriesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
     {
-        return $this->getStockItemCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6188,15 +6262,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters $item_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
+    public function getStockItemCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemCategoryDtoListEnvelope';
-        $request = $this->getStockItemCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6240,12 +6315,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters $item_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemCategoriesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
+    public function getStockItemCategoriesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemCategoriesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -6254,6 +6330,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemCategoriesByItemId'
             );
         }
+
 
 
 
@@ -6297,7 +6374,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6774,15 +6858,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemGoogleCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope
      */
-    public function getStockItemGoogleCategoriesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
+    public function getStockItemGoogleCategoriesByItemId($item_id, $api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
     {
-        list($response) = $this->getStockItemGoogleCategoriesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemGoogleCategoriesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6794,15 +6879,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemGoogleCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemGoogleCategoriesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
+    public function getStockItemGoogleCategoriesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
     {
-        $request = $this->getStockItemGoogleCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemGoogleCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6991,14 +7077,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemGoogleCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemGoogleCategoriesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
+    public function getStockItemGoogleCategoriesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
     {
-        return $this->getStockItemGoogleCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemGoogleCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7014,15 +7101,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemGoogleCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemGoogleCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
+    public function getStockItemGoogleCategoriesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope';
-        $request = $this->getStockItemGoogleCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemGoogleCategoriesByItemIdRequest($item_id, $api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7066,12 +7154,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemGoogleCategoriesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemGoogleCategoriesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
+    public function getStockItemGoogleCategoriesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemGoogleCategoriesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -7080,6 +7169,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemGoogleCategoriesByItemId'
             );
         }
+
 
 
 
@@ -7123,7 +7213,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_google_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_google_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_google_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8023,15 +8120,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemImagesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemImageDtoListEnvelope
      */
-    public function getStockItemImagesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
+    public function getStockItemImagesByItemId($item_id, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
     {
-        list($response) = $this->getStockItemImagesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemImagesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8043,15 +8141,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemImagesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemImageDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemImagesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
+    public function getStockItemImagesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
     {
-        $request = $this->getStockItemImagesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemImagesByItemIdRequest($item_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8240,14 +8339,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemImagesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemImagesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
+    public function getStockItemImagesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
     {
-        return $this->getStockItemImagesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemImagesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8263,15 +8363,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemImagesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemImagesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
+    public function getStockItemImagesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemImageDtoListEnvelope';
-        $request = $this->getStockItemImagesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemImagesByItemIdRequest($item_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8315,12 +8416,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemImagesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemImagesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
+    public function getStockItemImagesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemImagesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -8329,6 +8431,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemImagesByItemId'
             );
         }
+
 
 
 
@@ -8372,7 +8475,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_image_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_image_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_image_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9675,15 +9785,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemQuestionsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemQuestionDtoListEnvelope
      */
-    public function getStockItemQuestionsByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
+    public function getStockItemQuestionsByItemId($item_id, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
     {
-        list($response) = $this->getStockItemQuestionsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemQuestionsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9695,15 +9806,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemQuestionsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemQuestionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemQuestionsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
+    public function getStockItemQuestionsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
     {
-        $request = $this->getStockItemQuestionsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemQuestionsByItemIdRequest($item_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9892,14 +10004,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemQuestionsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemQuestionsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
+    public function getStockItemQuestionsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
     {
-        return $this->getStockItemQuestionsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemQuestionsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9915,15 +10028,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemQuestionsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemQuestionsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
+    public function getStockItemQuestionsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemQuestionDtoListEnvelope';
-        $request = $this->getStockItemQuestionsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemQuestionsByItemIdRequest($item_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9967,12 +10081,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters $item_question_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemQuestionsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemQuestionsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
+    public function getStockItemQuestionsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_question_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemQuestionsByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -9981,6 +10096,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemQuestionsByItemId'
             );
         }
+
 
 
 
@@ -10024,7 +10140,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_question_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_question_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_question_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10078,15 +10201,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemRefundPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope
      */
-    public function getStockItemRefundPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
+    public function getStockItemRefundPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
     {
-        list($response) = $this->getStockItemRefundPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemRefundPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10098,15 +10222,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemRefundPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemRefundPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
+    public function getStockItemRefundPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
     {
-        $request = $this->getStockItemRefundPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemRefundPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10295,14 +10420,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemRefundPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemRefundPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
+    public function getStockItemRefundPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
     {
-        return $this->getStockItemRefundPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemRefundPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10318,15 +10444,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemRefundPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemRefundPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
+    public function getStockItemRefundPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope';
-        $request = $this->getStockItemRefundPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemRefundPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10370,12 +10497,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters $item_refund_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemRefundPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemRefundPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
+    public function getStockItemRefundPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_refund_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemRefundPoliciesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -10384,6 +10512,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemRefundPoliciesByItemId'
             );
         }
+
 
 
 
@@ -10427,7 +10556,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_refund_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_refund_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_refund_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10904,15 +11040,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReturnPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
      */
-    public function getStockItemReturnPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
+    public function getStockItemReturnPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
     {
-        list($response) = $this->getStockItemReturnPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemReturnPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10924,15 +11061,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReturnPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemReturnPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
+    public function getStockItemReturnPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
     {
-        $request = $this->getStockItemReturnPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemReturnPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11121,14 +11259,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReturnPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemReturnPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
+    public function getStockItemReturnPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
     {
-        return $this->getStockItemReturnPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemReturnPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11144,15 +11283,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReturnPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemReturnPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
+    public function getStockItemReturnPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope';
-        $request = $this->getStockItemReturnPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemReturnPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11196,12 +11336,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters $item_return_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReturnPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemReturnPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
+    public function getStockItemReturnPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_return_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReturnPoliciesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -11210,6 +11351,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemReturnPoliciesByItemId'
             );
         }
+
 
 
 
@@ -11253,7 +11395,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_return_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_return_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_return_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12153,15 +12302,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReviewsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReviewDtoListEnvelope
      */
-    public function getStockItemReviewsByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
+    public function getStockItemReviewsByItemId($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
     {
-        list($response) = $this->getStockItemReviewsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemReviewsByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12173,15 +12323,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReviewsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReviewDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemReviewsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
+    public function getStockItemReviewsByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
     {
-        $request = $this->getStockItemReviewsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemReviewsByItemIdRequest($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12370,14 +12521,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReviewsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemReviewsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
+    public function getStockItemReviewsByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
     {
-        return $this->getStockItemReviewsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemReviewsByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12393,15 +12545,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReviewsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemReviewsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
+    public function getStockItemReviewsByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemReviewDtoListEnvelope';
-        $request = $this->getStockItemReviewsByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemReviewsByItemIdRequest($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12445,12 +12598,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemReviewsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemReviewsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
+    public function getStockItemReviewsByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemReviewsByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -12459,6 +12613,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemReviewsByItemId'
             );
         }
+
 
 
 
@@ -12502,7 +12657,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_review_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_review_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_review_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12556,15 +12718,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemShippingPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
      */
-    public function getStockItemShippingPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
+    public function getStockItemShippingPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
     {
-        list($response) = $this->getStockItemShippingPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemShippingPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -12576,15 +12739,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemShippingPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemShippingPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
+    public function getStockItemShippingPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
     {
-        $request = $this->getStockItemShippingPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemShippingPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12773,14 +12937,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemShippingPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemShippingPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
+    public function getStockItemShippingPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
     {
-        return $this->getStockItemShippingPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemShippingPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12796,15 +12961,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemShippingPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemShippingPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
+    public function getStockItemShippingPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope';
-        $request = $this->getStockItemShippingPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemShippingPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12848,12 +13014,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters $item_shipping_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemShippingPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemShippingPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
+    public function getStockItemShippingPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_shipping_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemShippingPoliciesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -12862,6 +13029,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemShippingPoliciesByItemId'
             );
         }
+
 
 
 
@@ -12905,7 +13073,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_shipping_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_shipping_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_shipping_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13827,15 +14002,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTagDtoListEnvelope
      */
-    public function getStockItemTagsByItemId($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
+    public function getStockItemTagsByItemId($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
     {
-        list($response) = $this->getStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13848,15 +14024,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTagDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
+    public function getStockItemTagsByItemIdWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
     {
-        $request = $this->getStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14046,14 +14223,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemTagsByItemIdAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
+    public function getStockItemTagsByItemIdAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
     {
-        return $this->getStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14070,15 +14248,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
+    public function getStockItemTagsByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemTagDtoListEnvelope';
-        $request = $this->getStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14123,12 +14302,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTagsByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
+    public function getStockItemTagsByItemIdRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTagsByItemId'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -14144,6 +14324,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemTagsByItemId'
             );
         }
+
 
 
 
@@ -14196,7 +14377,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_tag_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_tag_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_tag_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -14250,15 +14438,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTaxPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope
      */
-    public function getStockItemTaxPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
+    public function getStockItemTaxPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
     {
-        list($response) = $this->getStockItemTaxPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemTaxPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -14270,15 +14459,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTaxPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemTaxPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
+    public function getStockItemTaxPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
     {
-        $request = $this->getStockItemTaxPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemTaxPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14467,14 +14657,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTaxPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemTaxPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
+    public function getStockItemTaxPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
     {
-        return $this->getStockItemTaxPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemTaxPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14490,15 +14681,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTaxPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemTaxPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
+    public function getStockItemTaxPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope';
-        $request = $this->getStockItemTaxPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemTaxPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14542,12 +14734,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters $item_tax_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTaxPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemTaxPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
+    public function getStockItemTaxPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_tax_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTaxPoliciesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -14556,6 +14749,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemTaxPoliciesByItemId'
             );
         }
+
 
 
 
@@ -14599,7 +14793,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_tax_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_tax_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_tax_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -15521,15 +15722,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters $item_type_dto_collection_query_parameters item_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTypesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTypeDtoListEnvelope
      */
-    public function getStockItemTypesByItemId($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
+    public function getStockItemTypesByItemId($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
     {
-        list($response) = $this->getStockItemTypesByItemIdWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemTypesByItemIdWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -15542,15 +15744,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters $item_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTypesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTypeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemTypesByItemIdWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
+    public function getStockItemTypesByItemIdWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
     {
-        $request = $this->getStockItemTypesByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemTypesByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15740,14 +15943,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters $item_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTypesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemTypesByItemIdAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
+    public function getStockItemTypesByItemIdAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
     {
-        return $this->getStockItemTypesByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemTypesByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15764,15 +15968,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters $item_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTypesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemTypesByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
+    public function getStockItemTypesByItemIdAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemTypeDtoListEnvelope';
-        $request = $this->getStockItemTypesByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemTypesByItemIdRequest($tenant_id, $item_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15817,12 +16022,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters $item_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemTypesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemTypesByItemIdRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
+    public function getStockItemTypesByItemIdRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, $item_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemTypesByItemId'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -15838,6 +16044,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemTypesByItemId'
             );
         }
+
 
 
 
@@ -15890,7 +16097,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -15944,15 +16158,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemWarrantyPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope
      */
-    public function getStockItemWarrantyPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
+    public function getStockItemWarrantyPoliciesByItemId($item_id, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
     {
-        list($response) = $this->getStockItemWarrantyPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemWarrantyPoliciesByItemIdWithHttpInfo($item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -15964,15 +16179,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemWarrantyPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemWarrantyPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
+    public function getStockItemWarrantyPoliciesByItemIdWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
     {
-        $request = $this->getStockItemWarrantyPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemWarrantyPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16161,14 +16377,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemWarrantyPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemWarrantyPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
+    public function getStockItemWarrantyPoliciesByItemIdAsync($item_id, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
     {
-        return $this->getStockItemWarrantyPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemWarrantyPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16184,15 +16401,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemWarrantyPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemWarrantyPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
+    public function getStockItemWarrantyPoliciesByItemIdAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope';
-        $request = $this->getStockItemWarrantyPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemWarrantyPoliciesByItemIdRequest($item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16236,12 +16454,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters $item_warranty_policy_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemWarrantyPoliciesByItemId'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemWarrantyPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
+    public function getStockItemWarrantyPoliciesByItemIdRequest($item_id, $api_version = null, $x_api_version = null, $item_warranty_policy_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemWarrantyPoliciesByItemId'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -16250,6 +16469,7 @@ class ItemsApi
                 'Missing the required parameter $item_id when calling getStockItemWarrantyPoliciesByItemId'
             );
         }
+
 
 
 
@@ -16293,7 +16513,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_warranty_policy_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_warranty_policy_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_warranty_policy_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -16770,15 +16997,16 @@ class ItemsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMaxPrice'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope
      */
-    public function getStockItemsOdataMaxPrice($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
+    public function getStockItemsOdataMaxPrice($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
     {
-        list($response) = $this->getStockItemsOdataMaxPriceWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemsOdataMaxPriceWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -16790,15 +17018,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMaxPrice'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemsOdataMaxPriceWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
+    public function getStockItemsOdataMaxPriceWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
     {
-        $request = $this->getStockItemsOdataMaxPriceRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemsOdataMaxPriceRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16987,14 +17216,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMaxPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemsOdataMaxPriceAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
+    public function getStockItemsOdataMaxPriceAsync($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
     {
-        return $this->getStockItemsOdataMaxPriceAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemsOdataMaxPriceAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17010,15 +17240,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMaxPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemsOdataMaxPriceAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
+    public function getStockItemsOdataMaxPriceAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->getStockItemsOdataMaxPriceRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemsOdataMaxPriceRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17062,13 +17293,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMaxPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemsOdataMaxPriceRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
+    public function getStockItemsOdataMaxPriceRequest($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMaxPrice'][0])
     {
+
 
 
 
@@ -17114,7 +17347,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($catalog_item_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($catalog_item_dto_collection_query_parameters));
+            } else {
+                $httpBody = $catalog_item_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -17168,15 +17408,16 @@ class ItemsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMinPrice'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope
      */
-    public function getStockItemsOdataMinPrice($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
+    public function getStockItemsOdataMinPrice($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
     {
-        list($response) = $this->getStockItemsOdataMinPriceWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemsOdataMinPriceWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -17188,15 +17429,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMinPrice'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemsOdataMinPriceWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
+    public function getStockItemsOdataMinPriceWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
     {
-        $request = $this->getStockItemsOdataMinPriceRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemsOdataMinPriceRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17385,14 +17627,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMinPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemsOdataMinPriceAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
+    public function getStockItemsOdataMinPriceAsync($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
     {
-        return $this->getStockItemsOdataMinPriceAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemsOdataMinPriceAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17408,15 +17651,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMinPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemsOdataMinPriceAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
+    public function getStockItemsOdataMinPriceAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->getStockItemsOdataMinPriceRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemsOdataMinPriceRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17460,13 +17704,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsOdataMinPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemsOdataMinPriceRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
+    public function getStockItemsOdataMinPriceRequest($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsOdataMinPrice'][0])
     {
+
 
 
 
@@ -17512,7 +17758,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($catalog_item_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($catalog_item_dto_collection_query_parameters));
+            } else {
+                $httpBody = $catalog_item_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -17566,15 +17819,16 @@ class ItemsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsQuery'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CatalogItemDtoListEnvelope
      */
-    public function getStockItemsQuery($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
+    public function getStockItemsQuery($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
     {
-        list($response) = $this->getStockItemsQueryWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getStockItemsQueryWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -17586,15 +17840,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsQuery'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CatalogItemDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStockItemsQueryWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
+    public function getStockItemsQueryWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
     {
-        $request = $this->getStockItemsQueryRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemsQueryRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17783,14 +18038,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsQuery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemsQueryAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
+    public function getStockItemsQueryAsync($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
     {
-        return $this->getStockItemsQueryAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getStockItemsQueryAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17806,15 +18062,16 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsQuery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStockItemsQueryAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
+    public function getStockItemsQueryAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CatalogItemDtoListEnvelope';
-        $request = $this->getStockItemsQueryRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getStockItemsQueryRequest($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17858,13 +18115,15 @@ class ItemsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters $catalog_item_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStockItemsQuery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStockItemsQueryRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
+    public function getStockItemsQueryRequest($tenant_id = null, $api_version = null, $x_api_version = null, $catalog_item_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getStockItemsQuery'][0])
     {
+
 
 
 
@@ -17910,7 +18169,14 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($catalog_item_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($catalog_item_dto_collection_query_parameters));
+            } else {
+                $httpBody = $catalog_item_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -17965,16 +18231,16 @@ class ItemsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStockItem'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchStockItem($tenant_id, $item_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
+    public function patchStockItem($tenant_id, $item_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
     {
-        $this->patchStockItemWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchStockItemWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -17986,16 +18252,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStockItem'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchStockItemWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
+    public function patchStockItemWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
     {
-        $request = $this->patchStockItemRequest($tenant_id, $item_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchStockItemRequest($tenant_id, $item_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18054,15 +18320,15 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStockItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchStockItemAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
+    public function patchStockItemAsync($tenant_id, $item_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
     {
-        return $this->patchStockItemAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchStockItemAsyncWithHttpInfo($tenant_id, $item_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18079,16 +18345,16 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStockItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchStockItemAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
+    public function patchStockItemAsyncWithHttpInfo($tenant_id, $item_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
     {
         $returnType = '';
-        $request = $this->patchStockItemRequest($tenant_id, $item_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchStockItemRequest($tenant_id, $item_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18120,13 +18386,13 @@ class ItemsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchStockItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchStockItemRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
+    public function patchStockItemRequest($tenant_id, $item_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchStockItem'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -18195,12 +18461,12 @@ class ItemsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

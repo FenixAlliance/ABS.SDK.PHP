@@ -84,9 +84,11 @@ class GrantsApi
         ],
         'getGrantsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getGrantsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchGrantAsync' => [
             'application/json',
@@ -1207,15 +1209,16 @@ class GrantsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GrantDtoIReadOnlyListEnvelope
      */
-    public function getGrantsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
+    public function getGrantsAsync($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
     {
-        list($response) = $this->getGrantsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getGrantsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1227,15 +1230,16 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GrantDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGrantsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
+    public function getGrantsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
     {
-        $request = $this->getGrantsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGrantsAsyncRequest($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1354,14 +1358,15 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGrantsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
+    public function getGrantsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
     {
-        return $this->getGrantsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getGrantsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1377,15 +1382,16 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGrantsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
+    public function getGrantsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GrantDtoIReadOnlyListEnvelope';
-        $request = $this->getGrantsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGrantsAsyncRequest($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1429,12 +1435,13 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGrantsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
+    public function getGrantsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1443,6 +1450,7 @@ class GrantsApi
                 'Missing the required parameter $tenant_id when calling getGrantsAsync'
             );
         }
+
 
 
 
@@ -1487,7 +1495,14 @@ class GrantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($grant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($grant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $grant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1541,15 +1556,16 @@ class GrantsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getGrantsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
+    public function getGrantsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
     {
-        list($response) = $this->getGrantsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getGrantsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1561,15 +1577,16 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGrantsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
+    public function getGrantsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
     {
-        $request = $this->getGrantsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGrantsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1688,14 +1705,15 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGrantsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
+    public function getGrantsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
     {
-        return $this->getGrantsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getGrantsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1711,15 +1729,16 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGrantsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
+    public function getGrantsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getGrantsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getGrantsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $grant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1763,12 +1782,13 @@ class GrantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\GrantDtoCollectionQueryParameters $grant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGrantsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGrantsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
+    public function getGrantsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $grant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getGrantsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1777,6 +1797,7 @@ class GrantsApi
                 'Missing the required parameter $tenant_id when calling getGrantsCountAsync'
             );
         }
+
 
 
 
@@ -1821,7 +1842,14 @@ class GrantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($grant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($grant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $grant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1876,16 +1904,16 @@ class GrantsApi
      * @param  string $grant_id grant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGrantAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchGrantAsync($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
+    public function patchGrantAsync($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
     {
-        list($response) = $this->patchGrantAsyncWithHttpInfo($tenant_id, $grant_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchGrantAsyncWithHttpInfo($tenant_id, $grant_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1898,16 +1926,16 @@ class GrantsApi
      * @param  string $grant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGrantAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchGrantAsyncWithHttpInfo($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
+    public function patchGrantAsyncWithHttpInfo($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
     {
-        $request = $this->patchGrantAsyncRequest($tenant_id, $grant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchGrantAsyncRequest($tenant_id, $grant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2097,15 +2125,15 @@ class GrantsApi
      * @param  string $grant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGrantAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchGrantAsyncAsync($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
+    public function patchGrantAsyncAsync($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
     {
-        return $this->patchGrantAsyncAsyncWithHttpInfo($tenant_id, $grant_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchGrantAsyncAsyncWithHttpInfo($tenant_id, $grant_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2122,16 +2150,16 @@ class GrantsApi
      * @param  string $grant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGrantAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchGrantAsyncAsyncWithHttpInfo($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
+    public function patchGrantAsyncAsyncWithHttpInfo($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchGrantAsyncRequest($tenant_id, $grant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchGrantAsyncRequest($tenant_id, $grant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2176,13 +2204,13 @@ class GrantsApi
      * @param  string $grant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchGrantAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchGrantAsyncRequest($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
+    public function patchGrantAsyncRequest($tenant_id, $grant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchGrantAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2251,12 +2279,12 @@ class GrantsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

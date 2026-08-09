@@ -200,7 +200,7 @@ No authorization required
 ## `getItemReviewsAsync()`
 
 ```php
-getItemReviewsAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemReviewDtoListEnvelope
+getItemReviewsAsync($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemReviewDtoListEnvelope
 ```
 
 Get all item reviews
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemReviewsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_review_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemReviewsAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemReviewsAsync($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemReviewsApi->getItemReviewsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_review_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters**](../Model/ItemReviewDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `patchItemReviewAsync()`
 
 ```php
-patchItemReviewAsync($tenant_id, $item_review_id, $api_version, $x_api_version, $operation)
+patchItemReviewAsync($tenant_id, $item_review_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch an item review
@@ -284,10 +286,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_review_id = 'item_review_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchItemReviewAsync($tenant_id, $item_review_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchItemReviewAsync($tenant_id, $item_review_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemReviewsApi->patchItemReviewAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -301,7 +303,7 @@ try {
 | **item_review_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

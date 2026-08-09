@@ -99,21 +99,27 @@ class BlogPostsApi
         ],
         'getBlogPostsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBlogPostsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCategoriesForBlogPostAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCommentsForBlogPostAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRepliesForCommentAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTagsForBlogPostAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchBlogPostAsync' => [
             'application/json',
@@ -3017,15 +3023,16 @@ class BlogPostsApi
      * Retrieve a list of blog posts
      *
      * @param  string $tenant_id tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostDtoListEnvelope
      */
-    public function getBlogPostsAsync($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
+    public function getBlogPostsAsync($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
     {
-        list($response) = $this->getBlogPostsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getBlogPostsAsyncWithHttpInfo($tenant_id, $blog_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3035,15 +3042,16 @@ class BlogPostsApi
      * Retrieve a list of blog posts
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlogPostsAsyncWithHttpInfo($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
+    public function getBlogPostsAsyncWithHttpInfo($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
     {
-        $request = $this->getBlogPostsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getBlogPostsAsyncRequest($tenant_id, $blog_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3230,14 +3238,15 @@ class BlogPostsApi
      * Retrieve a list of blog posts
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogPostsAsyncAsync($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
+    public function getBlogPostsAsyncAsync($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
     {
-        return $this->getBlogPostsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getBlogPostsAsyncAsyncWithHttpInfo($tenant_id, $blog_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3251,15 +3260,16 @@ class BlogPostsApi
      * Retrieve a list of blog posts
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogPostsAsyncAsyncWithHttpInfo($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
+    public function getBlogPostsAsyncAsyncWithHttpInfo($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogPostDtoListEnvelope';
-        $request = $this->getBlogPostsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getBlogPostsAsyncRequest($tenant_id, $blog_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3301,13 +3311,15 @@ class BlogPostsApi
      * Create request for operation 'getBlogPostsAsync'
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlogPostsAsyncRequest($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
+    public function getBlogPostsAsyncRequest($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsAsync'][0])
     {
+
 
 
 
@@ -3338,7 +3350,14 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3390,15 +3409,16 @@ class BlogPostsApi
      * Get the count of blog posts
      *
      * @param  string $tenant_id tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBlogPostsCountAsync($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
+    public function getBlogPostsCountAsync($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
     {
-        list($response) = $this->getBlogPostsCountAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getBlogPostsCountAsyncWithHttpInfo($tenant_id, $blog_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3408,15 +3428,16 @@ class BlogPostsApi
      * Get the count of blog posts
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlogPostsCountAsyncWithHttpInfo($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
+    public function getBlogPostsCountAsyncWithHttpInfo($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
     {
-        $request = $this->getBlogPostsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getBlogPostsCountAsyncRequest($tenant_id, $blog_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3603,14 +3624,15 @@ class BlogPostsApi
      * Get the count of blog posts
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogPostsCountAsyncAsync($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
+    public function getBlogPostsCountAsyncAsync($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
     {
-        return $this->getBlogPostsCountAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getBlogPostsCountAsyncAsyncWithHttpInfo($tenant_id, $blog_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3624,15 +3646,16 @@ class BlogPostsApi
      * Get the count of blog posts
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogPostsCountAsyncAsyncWithHttpInfo($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
+    public function getBlogPostsCountAsyncAsyncWithHttpInfo($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBlogPostsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getBlogPostsCountAsyncRequest($tenant_id, $blog_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3674,13 +3697,15 @@ class BlogPostsApi
      * Create request for operation 'getBlogPostsCountAsync'
      *
      * @param  string $tenant_id (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlogPostsCountAsyncRequest($tenant_id = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
+    public function getBlogPostsCountAsyncRequest($tenant_id = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsCountAsync'][0])
     {
+
 
 
 
@@ -3711,7 +3736,14 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3763,15 +3795,16 @@ class BlogPostsApi
      * Get categories for a blog post
      *
      * @param  string $blog_post_id blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters $blog_post_category_dto_collection_query_parameters blog_post_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostCategoryDtoListEnvelope
      */
-    public function getCategoriesForBlogPostAsync($blog_post_id, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
+    public function getCategoriesForBlogPostAsync($blog_post_id, $blog_post_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
     {
-        list($response) = $this->getCategoriesForBlogPostAsyncWithHttpInfo($blog_post_id, $contentType);
+        list($response) = $this->getCategoriesForBlogPostAsyncWithHttpInfo($blog_post_id, $blog_post_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3781,15 +3814,16 @@ class BlogPostsApi
      * Get categories for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters $blog_post_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCategoriesForBlogPostAsyncWithHttpInfo($blog_post_id, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
+    public function getCategoriesForBlogPostAsyncWithHttpInfo($blog_post_id, $blog_post_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
     {
-        $request = $this->getCategoriesForBlogPostAsyncRequest($blog_post_id, $contentType);
+        $request = $this->getCategoriesForBlogPostAsyncRequest($blog_post_id, $blog_post_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3976,14 +4010,15 @@ class BlogPostsApi
      * Get categories for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters $blog_post_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoriesForBlogPostAsyncAsync($blog_post_id, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
+    public function getCategoriesForBlogPostAsyncAsync($blog_post_id, $blog_post_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
     {
-        return $this->getCategoriesForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $contentType)
+        return $this->getCategoriesForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $blog_post_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3997,15 +4032,16 @@ class BlogPostsApi
      * Get categories for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters $blog_post_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoriesForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
+    public function getCategoriesForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $blog_post_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogPostCategoryDtoListEnvelope';
-        $request = $this->getCategoriesForBlogPostAsyncRequest($blog_post_id, $contentType);
+        $request = $this->getCategoriesForBlogPostAsyncRequest($blog_post_id, $blog_post_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4047,12 +4083,13 @@ class BlogPostsApi
      * Create request for operation 'getCategoriesForBlogPostAsync'
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCategoryDtoCollectionQueryParameters $blog_post_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCategoriesForBlogPostAsyncRequest($blog_post_id, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
+    public function getCategoriesForBlogPostAsyncRequest($blog_post_id, $blog_post_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCategoriesForBlogPostAsync'][0])
     {
 
         // verify the required parameter 'blog_post_id' is set
@@ -4061,6 +4098,7 @@ class BlogPostsApi
                 'Missing the required parameter $blog_post_id when calling getCategoriesForBlogPostAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ContentService/BlogPosts/{blogPostId}/Categories';
@@ -4089,7 +4127,14 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4141,15 +4186,16 @@ class BlogPostsApi
      * Get comments for a blog post
      *
      * @param  string $blog_post_id blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommentsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope
      */
-    public function getCommentsForBlogPostAsync($blog_post_id, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
+    public function getCommentsForBlogPostAsync($blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
     {
-        list($response) = $this->getCommentsForBlogPostAsyncWithHttpInfo($blog_post_id, $contentType);
+        list($response) = $this->getCommentsForBlogPostAsyncWithHttpInfo($blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4159,15 +4205,16 @@ class BlogPostsApi
      * Get comments for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommentsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCommentsForBlogPostAsyncWithHttpInfo($blog_post_id, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
+    public function getCommentsForBlogPostAsyncWithHttpInfo($blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
     {
-        $request = $this->getCommentsForBlogPostAsyncRequest($blog_post_id, $contentType);
+        $request = $this->getCommentsForBlogPostAsyncRequest($blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4354,14 +4401,15 @@ class BlogPostsApi
      * Get comments for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommentsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCommentsForBlogPostAsyncAsync($blog_post_id, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
+    public function getCommentsForBlogPostAsyncAsync($blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
     {
-        return $this->getCommentsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $contentType)
+        return $this->getCommentsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4375,15 +4423,16 @@ class BlogPostsApi
      * Get comments for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommentsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCommentsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
+    public function getCommentsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope';
-        $request = $this->getCommentsForBlogPostAsyncRequest($blog_post_id, $contentType);
+        $request = $this->getCommentsForBlogPostAsyncRequest($blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4425,12 +4474,13 @@ class BlogPostsApi
      * Create request for operation 'getCommentsForBlogPostAsync'
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommentsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCommentsForBlogPostAsyncRequest($blog_post_id, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
+    public function getCommentsForBlogPostAsyncRequest($blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCommentsForBlogPostAsync'][0])
     {
 
         // verify the required parameter 'blog_post_id' is set
@@ -4439,6 +4489,7 @@ class BlogPostsApi
                 'Missing the required parameter $blog_post_id when calling getCommentsForBlogPostAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ContentService/BlogPosts/{blogPostId}/Comments';
@@ -4467,7 +4518,14 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_comment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_comment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_comment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4520,15 +4578,16 @@ class BlogPostsApi
      *
      * @param  string $comment_id comment_id (required)
      * @param  string $blog_post_id blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRepliesForCommentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope
      */
-    public function getRepliesForCommentAsync($comment_id, $blog_post_id, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
+    public function getRepliesForCommentAsync($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
     {
-        list($response) = $this->getRepliesForCommentAsyncWithHttpInfo($comment_id, $blog_post_id, $contentType);
+        list($response) = $this->getRepliesForCommentAsyncWithHttpInfo($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4539,15 +4598,16 @@ class BlogPostsApi
      *
      * @param  string $comment_id (required)
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRepliesForCommentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepliesForCommentAsyncWithHttpInfo($comment_id, $blog_post_id, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
+    public function getRepliesForCommentAsyncWithHttpInfo($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
     {
-        $request = $this->getRepliesForCommentAsyncRequest($comment_id, $blog_post_id, $contentType);
+        $request = $this->getRepliesForCommentAsyncRequest($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4735,14 +4795,15 @@ class BlogPostsApi
      *
      * @param  string $comment_id (required)
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRepliesForCommentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepliesForCommentAsyncAsync($comment_id, $blog_post_id, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
+    public function getRepliesForCommentAsyncAsync($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
     {
-        return $this->getRepliesForCommentAsyncAsyncWithHttpInfo($comment_id, $blog_post_id, $contentType)
+        return $this->getRepliesForCommentAsyncAsyncWithHttpInfo($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4757,15 +4818,16 @@ class BlogPostsApi
      *
      * @param  string $comment_id (required)
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRepliesForCommentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepliesForCommentAsyncAsyncWithHttpInfo($comment_id, $blog_post_id, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
+    public function getRepliesForCommentAsyncAsyncWithHttpInfo($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogPostCommentDtoListEnvelope';
-        $request = $this->getRepliesForCommentAsyncRequest($comment_id, $blog_post_id, $contentType);
+        $request = $this->getRepliesForCommentAsyncRequest($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4808,12 +4870,13 @@ class BlogPostsApi
      *
      * @param  string $comment_id (required)
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostCommentDtoCollectionQueryParameters $blog_post_comment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRepliesForCommentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRepliesForCommentAsyncRequest($comment_id, $blog_post_id, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
+    public function getRepliesForCommentAsyncRequest($comment_id, $blog_post_id, $blog_post_comment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRepliesForCommentAsync'][0])
     {
 
         // verify the required parameter 'comment_id' is set
@@ -4829,6 +4892,7 @@ class BlogPostsApi
                 'Missing the required parameter $blog_post_id when calling getRepliesForCommentAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Replies';
@@ -4865,7 +4929,14 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_comment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_comment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_comment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4917,15 +4988,16 @@ class BlogPostsApi
      * Get tags for a blog post
      *
      * @param  string $blog_post_id blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters $blog_post_tag_dto_collection_query_parameters blog_post_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostTagDtoListEnvelope
      */
-    public function getTagsForBlogPostAsync($blog_post_id, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
+    public function getTagsForBlogPostAsync($blog_post_id, $blog_post_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
     {
-        list($response) = $this->getTagsForBlogPostAsyncWithHttpInfo($blog_post_id, $contentType);
+        list($response) = $this->getTagsForBlogPostAsyncWithHttpInfo($blog_post_id, $blog_post_tag_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4935,15 +5007,16 @@ class BlogPostsApi
      * Get tags for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters $blog_post_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostTagDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTagsForBlogPostAsyncWithHttpInfo($blog_post_id, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
+    public function getTagsForBlogPostAsyncWithHttpInfo($blog_post_id, $blog_post_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
     {
-        $request = $this->getTagsForBlogPostAsyncRequest($blog_post_id, $contentType);
+        $request = $this->getTagsForBlogPostAsyncRequest($blog_post_id, $blog_post_tag_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5130,14 +5203,15 @@ class BlogPostsApi
      * Get tags for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters $blog_post_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTagsForBlogPostAsyncAsync($blog_post_id, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
+    public function getTagsForBlogPostAsyncAsync($blog_post_id, $blog_post_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
     {
-        return $this->getTagsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $contentType)
+        return $this->getTagsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $blog_post_tag_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5151,15 +5225,16 @@ class BlogPostsApi
      * Get tags for a blog post
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters $blog_post_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTagsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
+    public function getTagsForBlogPostAsyncAsyncWithHttpInfo($blog_post_id, $blog_post_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogPostTagDtoListEnvelope';
-        $request = $this->getTagsForBlogPostAsyncRequest($blog_post_id, $contentType);
+        $request = $this->getTagsForBlogPostAsyncRequest($blog_post_id, $blog_post_tag_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5201,12 +5276,13 @@ class BlogPostsApi
      * Create request for operation 'getTagsForBlogPostAsync'
      *
      * @param  string $blog_post_id (required)
+     * @param  \OpenAPI\Client\Model\BlogPostTagDtoCollectionQueryParameters $blog_post_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTagsForBlogPostAsyncRequest($blog_post_id, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
+    public function getTagsForBlogPostAsyncRequest($blog_post_id, $blog_post_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTagsForBlogPostAsync'][0])
     {
 
         // verify the required parameter 'blog_post_id' is set
@@ -5215,6 +5291,7 @@ class BlogPostsApi
                 'Missing the required parameter $blog_post_id when calling getTagsForBlogPostAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ContentService/BlogPosts/{blogPostId}/Tags';
@@ -5243,7 +5320,14 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_tag_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_tag_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_tag_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5296,16 +5380,16 @@ class BlogPostsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $blog_post_id blog_post_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchBlogPostAsync($tenant_id, $blog_post_id, $operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
+    public function patchBlogPostAsync($tenant_id, $blog_post_id, $patch_operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
     {
-        list($response) = $this->patchBlogPostAsyncWithHttpInfo($tenant_id, $blog_post_id, $operation, $contentType);
+        list($response) = $this->patchBlogPostAsyncWithHttpInfo($tenant_id, $blog_post_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5316,16 +5400,16 @@ class BlogPostsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blog_post_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBlogPostAsyncWithHttpInfo($tenant_id, $blog_post_id, $operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
+    public function patchBlogPostAsyncWithHttpInfo($tenant_id, $blog_post_id, $patch_operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
     {
-        $request = $this->patchBlogPostAsyncRequest($tenant_id, $blog_post_id, $operation, $contentType);
+        $request = $this->patchBlogPostAsyncRequest($tenant_id, $blog_post_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5513,15 +5597,15 @@ class BlogPostsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blog_post_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBlogPostAsyncAsync($tenant_id, $blog_post_id, $operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
+    public function patchBlogPostAsyncAsync($tenant_id, $blog_post_id, $patch_operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
     {
-        return $this->patchBlogPostAsyncAsyncWithHttpInfo($tenant_id, $blog_post_id, $operation, $contentType)
+        return $this->patchBlogPostAsyncAsyncWithHttpInfo($tenant_id, $blog_post_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5536,16 +5620,16 @@ class BlogPostsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blog_post_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBlogPostAsyncAsyncWithHttpInfo($tenant_id, $blog_post_id, $operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
+    public function patchBlogPostAsyncAsyncWithHttpInfo($tenant_id, $blog_post_id, $patch_operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchBlogPostAsyncRequest($tenant_id, $blog_post_id, $operation, $contentType);
+        $request = $this->patchBlogPostAsyncRequest($tenant_id, $blog_post_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5588,13 +5672,13 @@ class BlogPostsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blog_post_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBlogPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBlogPostAsyncRequest($tenant_id, $blog_post_id, $operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
+    public function patchBlogPostAsyncRequest($tenant_id, $blog_post_id, $patch_operation = null, string $contentType = self::contentTypes['patchBlogPostAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5648,12 +5732,12 @@ class BlogPostsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

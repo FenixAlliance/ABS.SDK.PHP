@@ -74,6 +74,7 @@ class LocalizationStringsApi
     public const contentTypes = [
         'countLocalizationStringsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createLocalizationStringAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class LocalizationStringsApi
         ],
         'getLocalizationStringsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateLocalizationStringAsync' => [
             'application/json',
@@ -148,15 +150,16 @@ class LocalizationStringsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countLocalizationStringsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
+    public function countLocalizationStringsAsync($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
     {
-        list($response) = $this->countLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -168,15 +171,16 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
+    public function countLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
     {
-        $request = $this->countLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -365,14 +369,15 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countLocalizationStringsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
+    public function countLocalizationStringsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
     {
-        return $this->countLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -388,15 +393,16 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
+    public function countLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,12 +446,13 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countLocalizationStringsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
+    public function countLocalizationStringsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLocalizationStringsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -454,6 +461,7 @@ class LocalizationStringsApi
                 'Missing the required parameter $tenant_id when calling countLocalizationStringsAsync'
             );
         }
+
 
 
 
@@ -498,7 +506,14 @@ class LocalizationStringsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($localization_string_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($localization_string_dto_collection_query_parameters));
+            } else {
+                $httpBody = $localization_string_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1823,15 +1838,16 @@ class LocalizationStringsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocalizationStringDtoListEnvelope
      */
-    public function getLocalizationStringsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
+    public function getLocalizationStringsAsync($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
     {
-        list($response) = $this->getLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1843,15 +1859,16 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocalizationStringDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
+    public function getLocalizationStringsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
     {
-        $request = $this->getLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2040,14 +2057,15 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocalizationStringsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
+    public function getLocalizationStringsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
     {
-        return $this->getLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2063,15 +2081,16 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
+    public function getLocalizationStringsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LocalizationStringDtoListEnvelope';
-        $request = $this->getLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLocalizationStringsAsyncRequest($tenant_id, $api_version, $x_api_version, $localization_string_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2115,12 +2134,13 @@ class LocalizationStringsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LocalizationStringDtoCollectionQueryParameters $localization_string_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocalizationStringsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocalizationStringsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
+    public function getLocalizationStringsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $localization_string_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocalizationStringsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2129,6 +2149,7 @@ class LocalizationStringsApi
                 'Missing the required parameter $tenant_id when calling getLocalizationStringsAsync'
             );
         }
+
 
 
 
@@ -2173,7 +2194,14 @@ class LocalizationStringsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($localization_string_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($localization_string_dto_collection_query_parameters));
+            } else {
+                $httpBody = $localization_string_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -201,7 +201,7 @@ No authorization required
 ## `getBusinessRelationshipsAsync()`
 
 ```php
-getBusinessRelationshipsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BusinessRelationshipDtoListEnvelope
+getBusinessRelationshipsAsync($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters): \OpenAPI\Client\Model\BusinessRelationshipDtoListEnvelope
 ```
 
 Get business relationships
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\BusinessRelationshipsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_relationship_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessRelationshipsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessRelationshipsAsync($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BusinessRelationshipsApi->getBusinessRelationshipsAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_relationship_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters**](../Model/BusinessRelationshipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getBusinessRelationshipsCountAsync()`
 
 ```php
-getBusinessRelationshipsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBusinessRelationshipsCountAsync($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get business relationships count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\BusinessRelationshipsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_relationship_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessRelationshipsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessRelationshipsCountAsync($tenant_id, $api_version, $x_api_version, $business_relationship_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BusinessRelationshipsApi->getBusinessRelationshipsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_relationship_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessRelationshipDtoCollectionQueryParameters**](../Model/BusinessRelationshipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

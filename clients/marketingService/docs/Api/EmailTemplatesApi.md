@@ -202,7 +202,7 @@ No authorization required
 ## `getEmailTemplatesCountAsync()`
 
 ```php
-getEmailTemplatesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getEmailTemplatesCountAsync($tenant_id, $api_version, $x_api_version, $email_template_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get email templates count
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailTemplatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$email_template_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmailTemplateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmailTemplateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmailTemplatesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmailTemplatesCountAsync($tenant_id, $api_version, $x_api_version, $email_template_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailTemplatesApi->getEmailTemplatesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **email_template_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmailTemplateDtoCollectionQueryParameters**](../Model/EmailTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getEmailTemplatesODataAsync()`
 
 ```php
-getEmailTemplatesODataAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailTemplateDtoListEnvelope
+getEmailTemplatesODataAsync($tenant_id, $api_version, $x_api_version, $email_template_dto_collection_query_parameters): \OpenAPI\Client\Model\EmailTemplateDtoListEnvelope
 ```
 
 Get email templates
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailTemplatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$email_template_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmailTemplateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmailTemplateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmailTemplatesODataAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmailTemplatesODataAsync($tenant_id, $api_version, $x_api_version, $email_template_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailTemplatesApi->getEmailTemplatesODataAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **email_template_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmailTemplateDtoCollectionQueryParameters**](../Model/EmailTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchEmailTemplateAsync()`
 
 ```php
-patchEmailTemplateAsync($tenant_id, $email_template_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchEmailTemplateAsync($tenant_id, $email_template_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an email template
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $email_template_id = 'email_template_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchEmailTemplateAsync($tenant_id, $email_template_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchEmailTemplateAsync($tenant_id, $email_template_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailTemplatesApi->patchEmailTemplateAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **email_template_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

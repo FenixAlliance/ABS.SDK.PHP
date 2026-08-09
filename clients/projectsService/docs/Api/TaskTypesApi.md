@@ -188,7 +188,7 @@ No authorization required
 ## `patchTaskTypeAsync()`
 
 ```php
-patchTaskTypeAsync($task_type_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTaskTypeAsync($task_type_id, $tenant_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a task type
@@ -210,10 +210,10 @@ $apiInstance = new OpenAPI\Client\Api\TaskTypesApi(
 );
 $task_type_id = 'task_type_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTaskTypeAsync($task_type_id, $tenant_id, $operation);
+    $result = $apiInstance->patchTaskTypeAsync($task_type_id, $tenant_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskTypesApi->patchTaskTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -226,7 +226,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **task_type_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

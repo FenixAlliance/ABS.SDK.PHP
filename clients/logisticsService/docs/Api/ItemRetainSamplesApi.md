@@ -202,7 +202,7 @@ No authorization required
 ## `getItemRetainSamplesAsync()`
 
 ```php
-getItemRetainSamplesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRetainSampleDtoListEnvelope
+getItemRetainSamplesAsync($tenant_id, $api_version, $x_api_version, $item_retain_sample_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemRetainSampleDtoListEnvelope
 ```
 
 Get all item retain samples
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemRetainSamplesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_retain_sample_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRetainSampleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRetainSampleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemRetainSamplesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRetainSamplesAsync($tenant_id, $api_version, $x_api_version, $item_retain_sample_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRetainSamplesApi->getItemRetainSamplesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_retain_sample_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRetainSampleDtoCollectionQueryParameters**](../Model/ItemRetainSampleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getItemRetainSamplesCountAsync()`
 
 ```php
-getItemRetainSamplesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemRetainSamplesCountAsync($tenant_id, $api_version, $x_api_version, $item_retain_sample_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get item retain samples count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemRetainSamplesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_retain_sample_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRetainSampleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRetainSampleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemRetainSamplesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRetainSamplesCountAsync($tenant_id, $api_version, $x_api_version, $item_retain_sample_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRetainSamplesApi->getItemRetainSamplesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_retain_sample_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRetainSampleDtoCollectionQueryParameters**](../Model/ItemRetainSampleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchItemRetainSampleAsync()`
 
 ```php
-patchItemRetainSampleAsync($tenant_id, $retain_sample_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemRetainSampleAsync($tenant_id, $retain_sample_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an item retain sample
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $retain_sample_id = 'retain_sample_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemRetainSampleAsync($tenant_id, $retain_sample_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemRetainSampleAsync($tenant_id, $retain_sample_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRetainSamplesApi->patchItemRetainSampleAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **retain_sample_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

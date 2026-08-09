@@ -59,6 +59,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'timestamp' => '\DateTime',
         'tenant_id' => 'string',
         'enrollment_id' => 'string',
         'journal_entry_id' => 'string',
@@ -77,7 +78,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'forex_rates_snapshot' => 'string',
         'cost_centre_id' => 'string',
         'project_id' => 'string',
-        'timestamp' => '\DateTime',
         'debit' => 'float',
         'credit' => 'float',
         'amount' => '\OpenAPI\Client\Model\Money',
@@ -93,6 +93,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'timestamp' => 'date-time',
         'tenant_id' => null,
         'enrollment_id' => null,
         'journal_entry_id' => null,
@@ -111,7 +112,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'forex_rates_snapshot' => null,
         'cost_centre_id' => null,
         'project_id' => null,
-        'timestamp' => 'date-time',
         'debit' => 'double',
         'credit' => 'double',
         'amount' => null,
@@ -125,6 +125,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'id' => true,
+        'timestamp' => true,
         'tenant_id' => true,
         'enrollment_id' => true,
         'journal_entry_id' => true,
@@ -143,7 +144,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'forex_rates_snapshot' => true,
         'cost_centre_id' => true,
         'project_id' => true,
-        'timestamp' => true,
         'debit' => false,
         'credit' => false,
         'amount' => false,
@@ -237,6 +237,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'timestamp' => 'timestamp',
         'tenant_id' => 'tenantId',
         'enrollment_id' => 'enrollmentId',
         'journal_entry_id' => 'journalEntryId',
@@ -255,7 +256,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'forex_rates_snapshot' => 'forexRatesSnapshot',
         'cost_centre_id' => 'costCentreId',
         'project_id' => 'projectId',
-        'timestamp' => 'timestamp',
         'debit' => 'debit',
         'credit' => 'credit',
         'amount' => 'amount',
@@ -269,6 +269,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'tenant_id' => 'setTenantId',
         'enrollment_id' => 'setEnrollmentId',
         'journal_entry_id' => 'setJournalEntryId',
@@ -287,7 +288,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'forex_rates_snapshot' => 'setForexRatesSnapshot',
         'cost_centre_id' => 'setCostCentreId',
         'project_id' => 'setProjectId',
-        'timestamp' => 'setTimestamp',
         'debit' => 'setDebit',
         'credit' => 'setCredit',
         'amount' => 'setAmount',
@@ -301,6 +301,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'tenant_id' => 'getTenantId',
         'enrollment_id' => 'getEnrollmentId',
         'journal_entry_id' => 'getJournalEntryId',
@@ -319,7 +320,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'forex_rates_snapshot' => 'getForexRatesSnapshot',
         'cost_centre_id' => 'getCostCentreId',
         'project_id' => 'getProjectId',
-        'timestamp' => 'getTimestamp',
         'debit' => 'getDebit',
         'credit' => 'getCredit',
         'amount' => 'getAmount',
@@ -399,6 +399,7 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('journal_entry_id', $data ?? [], null);
@@ -417,7 +418,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('forex_rates_snapshot', $data ?? [], null);
         $this->setIfExists('cost_centre_id', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
-        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('debit', $data ?? [], null);
         $this->setIfExists('credit', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
@@ -505,6 +505,40 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            array_push($this->openAPINullablesSetToNull, 'timestamp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timestamp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
@@ -1085,40 +1119,6 @@ class AccountingEntryDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['project_id'] = $project_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets timestamp
-     *
-     * @return \DateTime|null
-     */
-    public function getTimestamp()
-    {
-        return $this->container['timestamp'];
-    }
-
-    /**
-     * Sets timestamp
-     *
-     * @param \DateTime|null $timestamp timestamp
-     *
-     * @return self
-     */
-    public function setTimestamp($timestamp)
-    {
-        if (is_null($timestamp)) {
-            array_push($this->openAPINullablesSetToNull, 'timestamp');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timestamp', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }

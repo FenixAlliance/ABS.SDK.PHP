@@ -74,12 +74,14 @@ class LanguagesApi
     public const contentTypes = [
         'countLanguagesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLanguageByIdAsync' => [
             'application/json',
         ],
         'getLanguagesAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -136,15 +138,16 @@ class LanguagesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countLanguagesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
+    public function countLanguagesAsync($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
     {
-        list($response) = $this->countLanguagesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countLanguagesAsyncWithHttpInfo($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -155,15 +158,16 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countLanguagesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
+    public function countLanguagesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
     {
-        $request = $this->countLanguagesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countLanguagesAsyncRequest($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countLanguagesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
+    public function countLanguagesAsyncAsync($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
     {
-        return $this->countLanguagesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countLanguagesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -373,15 +378,16 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countLanguagesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
+    public function countLanguagesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countLanguagesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countLanguagesAsyncRequest($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -424,13 +430,15 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countLanguagesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
+    public function countLanguagesAsyncRequest($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countLanguagesAsync'][0])
     {
+
 
 
 
@@ -466,7 +474,14 @@ class LanguagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_language_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_language_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_language_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -922,15 +937,16 @@ class LanguagesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryLanguageDtoListEnvelope
      */
-    public function getLanguagesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
+    public function getLanguagesAsync($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
     {
-        list($response) = $this->getLanguagesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getLanguagesAsyncWithHttpInfo($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -941,15 +957,16 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryLanguageDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLanguagesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
+    public function getLanguagesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
     {
-        $request = $this->getLanguagesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getLanguagesAsyncRequest($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1137,14 +1154,15 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLanguagesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
+    public function getLanguagesAsyncAsync($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
     {
-        return $this->getLanguagesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getLanguagesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,15 +1177,16 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLanguagesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
+    public function getLanguagesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountryLanguageDtoListEnvelope';
-        $request = $this->getLanguagesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getLanguagesAsyncRequest($api_version, $x_api_version, $country_language_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1210,13 +1229,15 @@ class LanguagesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryLanguageDtoCollectionQueryParameters $country_language_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLanguagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLanguagesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
+    public function getLanguagesAsyncRequest($api_version = null, $x_api_version = null, $country_language_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLanguagesAsync'][0])
     {
+
 
 
 
@@ -1252,7 +1273,14 @@ class LanguagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_language_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_language_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_language_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

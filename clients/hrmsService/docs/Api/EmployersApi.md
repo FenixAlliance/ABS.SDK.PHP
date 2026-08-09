@@ -202,7 +202,7 @@ No authorization required
 ## `getEmployersAsync()`
 
 ```php
-getEmployersAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmployerProfileDtoListEnvelope
+getEmployersAsync($tenant_id, $api_version, $x_api_version, $employer_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\EmployerProfileDtoListEnvelope
 ```
 
 Get employers
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$employer_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmployerProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmployerProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmployersAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmployersAsync($tenant_id, $api_version, $x_api_version, $employer_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployersApi->getEmployersAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **employer_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmployerProfileDtoCollectionQueryParameters**](../Model/EmployerProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getEmployersCountAsync()`
 
 ```php
-getEmployersCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getEmployersCountAsync($tenant_id, $api_version, $x_api_version, $employer_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count employers
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$employer_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmployerProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmployerProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmployersCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmployersCountAsync($tenant_id, $api_version, $x_api_version, $employer_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployersApi->getEmployersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **employer_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmployerProfileDtoCollectionQueryParameters**](../Model/EmployerProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchEmployerAsync()`
 
 ```php
-patchEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an employer
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $employer_id = 'employer_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployersApi->patchEmployerAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **employer_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

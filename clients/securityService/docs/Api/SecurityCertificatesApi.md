@@ -11,7 +11,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `getSecurityCertificatesAsync()`
 
 ```php
-getSecurityCertificatesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SecurityCertificateDtoListEnvelope
+getSecurityCertificatesAsync($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters): \OpenAPI\Client\Model\SecurityCertificateDtoListEnvelope
 ```
 
 Get security certificates
@@ -34,9 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\SecurityCertificatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$security_certificate_dto_collection_query_parameters = new \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSecurityCertificatesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSecurityCertificatesAsync($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecurityCertificatesApi->getSecurityCertificatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **security_certificate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters**](../Model/SecurityCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -61,7 +63,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -71,7 +73,7 @@ No authorization required
 ## `getSecurityCertificatesCountAsync()`
 
 ```php
-getSecurityCertificatesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSecurityCertificatesCountAsync($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get security certificates count
@@ -94,9 +96,10 @@ $apiInstance = new OpenAPI\Client\Api\SecurityCertificatesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$security_certificate_dto_collection_query_parameters = new \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSecurityCertificatesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSecurityCertificatesCountAsync($tenant_id, $api_version, $x_api_version, $security_certificate_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecurityCertificatesApi->getSecurityCertificatesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +113,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **security_certificate_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SecurityCertificateDtoCollectionQueryParameters**](../Model/SecurityCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -121,7 +125,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

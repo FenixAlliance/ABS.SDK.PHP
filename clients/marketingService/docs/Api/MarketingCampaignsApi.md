@@ -202,7 +202,7 @@ No authorization required
 ## `getMarketingCampaignODataAsync()`
 
 ```php
-getMarketingCampaignODataAsync($tenant_id, $api_version, $x_api_version)
+getMarketingCampaignODataAsync($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters)
 ```
 
 Get marketing campaigns
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\MarketingCampaignsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$marketing_campaign_dto_collection_query_parameters = new \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters
 
 try {
-    $apiInstance->getMarketingCampaignODataAsync($tenant_id, $api_version, $x_api_version);
+    $apiInstance->getMarketingCampaignODataAsync($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters);
 } catch (Exception $e) {
     echo 'Exception when calling MarketingCampaignsApi->getMarketingCampaignODataAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **marketing_campaign_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters**](../Model/MarketingCampaignDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getMarketingCampaignsCountAsync()`
 
 ```php
-getMarketingCampaignsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getMarketingCampaignsCountAsync($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get marketing campaigns count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\MarketingCampaignsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$marketing_campaign_dto_collection_query_parameters = new \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMarketingCampaignsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getMarketingCampaignsCountAsync($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketingCampaignsApi->getMarketingCampaignsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **marketing_campaign_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters**](../Model/MarketingCampaignDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -321,7 +325,7 @@ No authorization required
 ## `patchMarketingCampaignAsync()`
 
 ```php
-patchMarketingCampaignAsync($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchMarketingCampaignAsync($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a marketing campaign
@@ -345,10 +349,10 @@ $tenant_id = 'tenant_id_example'; // string
 $marketingcampaign_id = 'marketingcampaign_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchMarketingCampaignAsync($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchMarketingCampaignAsync($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketingCampaignsApi->patchMarketingCampaignAsync: ', $e->getMessage(), PHP_EOL;
@@ -363,7 +367,7 @@ try {
 | **marketingcampaign_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

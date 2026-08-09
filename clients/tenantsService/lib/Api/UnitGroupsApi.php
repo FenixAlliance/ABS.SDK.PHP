@@ -94,15 +94,19 @@ class UnitGroupsApi
         ],
         'getUnitGroupsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getUnitGroupsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getUnitsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getUnitsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchUnitAsync' => [
             'application/json',
@@ -2766,15 +2770,16 @@ class UnitGroupsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UnitGroupDtoListEnvelope
      */
-    public function getUnitGroupsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
+    public function getUnitGroupsAsync($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
     {
-        list($response) = $this->getUnitGroupsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getUnitGroupsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2786,15 +2791,16 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UnitGroupDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUnitGroupsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
+    public function getUnitGroupsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
     {
-        $request = $this->getUnitGroupsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitGroupsAsyncRequest($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2983,14 +2989,15 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitGroupsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
+    public function getUnitGroupsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
     {
-        return $this->getUnitGroupsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getUnitGroupsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3006,15 +3013,16 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitGroupsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
+    public function getUnitGroupsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UnitGroupDtoListEnvelope';
-        $request = $this->getUnitGroupsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitGroupsAsyncRequest($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3058,12 +3066,13 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUnitGroupsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
+    public function getUnitGroupsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3072,6 +3081,7 @@ class UnitGroupsApi
                 'Missing the required parameter $tenant_id when calling getUnitGroupsAsync'
             );
         }
+
 
 
 
@@ -3116,7 +3126,14 @@ class UnitGroupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($unit_group_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unit_group_dto_collection_query_parameters));
+            } else {
+                $httpBody = $unit_group_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3170,15 +3187,16 @@ class UnitGroupsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getUnitGroupsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
+    public function getUnitGroupsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
     {
-        list($response) = $this->getUnitGroupsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getUnitGroupsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3190,15 +3208,16 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUnitGroupsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
+    public function getUnitGroupsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
     {
-        $request = $this->getUnitGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3387,14 +3406,15 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitGroupsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
+    public function getUnitGroupsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
     {
-        return $this->getUnitGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getUnitGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3410,15 +3430,16 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
+    public function getUnitGroupsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getUnitGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitGroupsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $unit_group_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3462,12 +3483,13 @@ class UnitGroupsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitGroupDtoCollectionQueryParameters $unit_group_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitGroupsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUnitGroupsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
+    public function getUnitGroupsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $unit_group_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitGroupsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3476,6 +3498,7 @@ class UnitGroupsApi
                 'Missing the required parameter $tenant_id when calling getUnitGroupsCountAsync'
             );
         }
+
 
 
 
@@ -3520,7 +3543,14 @@ class UnitGroupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($unit_group_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unit_group_dto_collection_query_parameters));
+            } else {
+                $httpBody = $unit_group_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3575,15 +3605,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id unit_group_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UnitDtoListEnvelope
      */
-    public function getUnitsAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
+    public function getUnitsAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
     {
-        list($response) = $this->getUnitsAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getUnitsAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3596,15 +3627,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\UnitDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUnitsAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
+    public function getUnitsAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
     {
-        $request = $this->getUnitsAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitsAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3794,14 +3826,15 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitsAsyncAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
+    public function getUnitsAsyncAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
     {
-        return $this->getUnitsAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType)
+        return $this->getUnitsAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3818,15 +3851,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitsAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
+    public function getUnitsAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\UnitDtoListEnvelope';
-        $request = $this->getUnitsAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitsAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3871,12 +3905,13 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUnitsAsyncRequest($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
+    public function getUnitsAsyncRequest($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3892,6 +3927,7 @@ class UnitGroupsApi
                 'Missing the required parameter $unit_group_id when calling getUnitsAsync'
             );
         }
+
 
 
 
@@ -3944,7 +3980,14 @@ class UnitGroupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($unit_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unit_dto_collection_query_parameters));
+            } else {
+                $httpBody = $unit_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3999,15 +4042,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id unit_group_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getUnitsCountAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
+    public function getUnitsCountAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
     {
-        list($response) = $this->getUnitsCountAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getUnitsCountAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4020,15 +4064,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUnitsCountAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
+    public function getUnitsCountAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
     {
-        $request = $this->getUnitsCountAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitsCountAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4218,14 +4263,15 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitsCountAsyncAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
+    public function getUnitsCountAsyncAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
     {
-        return $this->getUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType)
+        return $this->getUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4242,15 +4288,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
+    public function getUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getUnitsCountAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getUnitsCountAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $unit_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4295,12 +4342,13 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\UnitDtoCollectionQueryParameters $unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUnitsCountAsyncRequest($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
+    public function getUnitsCountAsyncRequest($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getUnitsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4316,6 +4364,7 @@ class UnitGroupsApi
                 'Missing the required parameter $unit_group_id when calling getUnitsCountAsync'
             );
         }
+
 
 
 
@@ -4368,7 +4417,14 @@ class UnitGroupsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($unit_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unit_dto_collection_query_parameters));
+            } else {
+                $httpBody = $unit_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4424,16 +4480,16 @@ class UnitGroupsApi
      * @param  string $unit_id unit_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
+    public function patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
     {
-        list($response) = $this->patchUnitAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchUnitAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4447,16 +4503,16 @@ class UnitGroupsApi
      * @param  string $unit_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchUnitAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
+    public function patchUnitAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
     {
-        $request = $this->patchUnitAsyncRequest($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchUnitAsyncRequest($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4647,15 +4703,15 @@ class UnitGroupsApi
      * @param  string $unit_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchUnitAsyncAsync($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
+    public function patchUnitAsyncAsync($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
     {
-        return $this->patchUnitAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchUnitAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4673,16 +4729,16 @@ class UnitGroupsApi
      * @param  string $unit_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchUnitAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
+    public function patchUnitAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchUnitAsyncRequest($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchUnitAsyncRequest($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4728,13 +4784,13 @@ class UnitGroupsApi
      * @param  string $unit_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchUnitAsyncRequest($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
+    public function patchUnitAsyncRequest($tenant_id, $unit_group_id, $unit_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4818,12 +4874,12 @@ class UnitGroupsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4880,16 +4936,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id unit_group_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitGroupAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
+    public function patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
     {
-        list($response) = $this->patchUnitGroupAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchUnitGroupAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4902,16 +4958,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitGroupAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchUnitGroupAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
+    public function patchUnitGroupAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
     {
-        $request = $this->patchUnitGroupAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchUnitGroupAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5101,15 +5157,15 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitGroupAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchUnitGroupAsyncAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
+    public function patchUnitGroupAsyncAsync($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
     {
-        return $this->patchUnitGroupAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchUnitGroupAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5126,16 +5182,16 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitGroupAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchUnitGroupAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
+    public function patchUnitGroupAsyncAsyncWithHttpInfo($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchUnitGroupAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchUnitGroupAsyncRequest($tenant_id, $unit_group_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5180,13 +5236,13 @@ class UnitGroupsApi
      * @param  string $unit_group_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchUnitGroupAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchUnitGroupAsyncRequest($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
+    public function patchUnitGroupAsyncRequest($tenant_id, $unit_group_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchUnitGroupAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5255,12 +5311,12 @@ class UnitGroupsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

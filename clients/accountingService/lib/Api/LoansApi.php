@@ -98,9 +98,11 @@ class LoansApi
         ],
         'getLoanApplicationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLoanApplicationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLoanDetailsAsync' => [
             'application/json',
@@ -110,15 +112,19 @@ class LoansApi
         ],
         'getLoanTypesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLoanTypesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLoansAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLoansCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchLoanApplicationAsync' => [
             'application/json',
@@ -3165,15 +3171,16 @@ class LoansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LoanApplicationDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLoanApplicationsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
+    public function getLoanApplicationsAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
     {
-        list($response) = $this->getLoanApplicationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLoanApplicationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3185,15 +3192,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LoanApplicationDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoanApplicationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
+    public function getLoanApplicationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
     {
-        $request = $this->getLoanApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3382,14 +3390,15 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanApplicationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
+    public function getLoanApplicationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
     {
-        return $this->getLoanApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLoanApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3405,15 +3414,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
+    public function getLoanApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LoanApplicationDtoIReadOnlyListEnvelope';
-        $request = $this->getLoanApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3457,12 +3467,13 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoanApplicationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
+    public function getLoanApplicationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3471,6 +3482,7 @@ class LoansApi
                 'Missing the required parameter $tenant_id when calling getLoanApplicationsAsync'
             );
         }
+
 
 
 
@@ -3515,7 +3527,14 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loan_application_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loan_application_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loan_application_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3569,15 +3588,16 @@ class LoansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLoanApplicationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
+    public function getLoanApplicationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
     {
-        list($response) = $this->getLoanApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLoanApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3589,15 +3609,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoanApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
+    public function getLoanApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
     {
-        $request = $this->getLoanApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3786,14 +3807,15 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanApplicationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
+    public function getLoanApplicationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
     {
-        return $this->getLoanApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLoanApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3809,15 +3831,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
+    public function getLoanApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLoanApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_application_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3861,12 +3884,13 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanApplicationDtoCollectionQueryParameters $loan_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoanApplicationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
+    public function getLoanApplicationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $loan_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanApplicationsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3875,6 +3899,7 @@ class LoansApi
                 'Missing the required parameter $tenant_id when calling getLoanApplicationsCountAsync'
             );
         }
+
 
 
 
@@ -3919,7 +3944,14 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loan_application_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loan_application_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loan_application_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4821,15 +4853,16 @@ class LoansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LoanTypeDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLoanTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
+    public function getLoanTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
     {
-        list($response) = $this->getLoanTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLoanTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4841,15 +4874,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LoanTypeDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoanTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
+    public function getLoanTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
     {
-        $request = $this->getLoanTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5038,14 +5072,15 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
+    public function getLoanTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
     {
-        return $this->getLoanTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLoanTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5061,15 +5096,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
+    public function getLoanTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LoanTypeDtoIReadOnlyListEnvelope';
-        $request = $this->getLoanTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5113,12 +5149,13 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoanTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
+    public function getLoanTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5127,6 +5164,7 @@ class LoansApi
                 'Missing the required parameter $tenant_id when calling getLoanTypesAsync'
             );
         }
+
 
 
 
@@ -5171,7 +5209,14 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loan_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loan_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loan_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5225,15 +5270,16 @@ class LoansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLoanTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
+    public function getLoanTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
     {
-        list($response) = $this->getLoanTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLoanTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5245,15 +5291,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoanTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
+    public function getLoanTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
     {
-        $request = $this->getLoanTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5442,14 +5489,15 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
+    public function getLoanTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
     {
-        return $this->getLoanTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLoanTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5465,15 +5513,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoanTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
+    public function getLoanTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLoanTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoanTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5517,12 +5566,13 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanTypeDtoCollectionQueryParameters $loan_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoanTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoanTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
+    public function getLoanTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $loan_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoanTypesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5531,6 +5581,7 @@ class LoansApi
                 'Missing the required parameter $tenant_id when calling getLoanTypesCountAsync'
             );
         }
+
 
 
 
@@ -5575,7 +5626,14 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loan_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loan_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loan_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5629,15 +5687,16 @@ class LoansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LoanDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLoansAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansAsync'][0])
+    public function getLoansAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansAsync'][0])
     {
-        list($response) = $this->getLoansAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLoansAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5649,15 +5708,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LoanDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoansAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansAsync'][0])
+    public function getLoansAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansAsync'][0])
     {
-        $request = $this->getLoansAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoansAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5846,14 +5906,15 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoansAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansAsync'][0])
+    public function getLoansAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansAsync'][0])
     {
-        return $this->getLoansAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLoansAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5869,15 +5930,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoansAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansAsync'][0])
+    public function getLoansAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LoanDtoIReadOnlyListEnvelope';
-        $request = $this->getLoansAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoansAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5921,12 +5983,13 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoansAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansAsync'][0])
+    public function getLoansAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5935,6 +5998,7 @@ class LoansApi
                 'Missing the required parameter $tenant_id when calling getLoansAsync'
             );
         }
+
 
 
 
@@ -5979,7 +6043,14 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loan_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loan_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loan_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6033,15 +6104,16 @@ class LoansApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLoansCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
+    public function getLoansCountAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
     {
-        list($response) = $this->getLoansCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLoansCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6053,15 +6125,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLoansCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
+    public function getLoansCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
     {
-        $request = $this->getLoansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6250,14 +6323,15 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoansCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
+    public function getLoansCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
     {
-        return $this->getLoansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLoansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6273,15 +6347,16 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLoansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
+    public function getLoansCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLoansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLoansCountAsyncRequest($tenant_id, $api_version, $x_api_version, $loan_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6325,12 +6400,13 @@ class LoansApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LoanDtoCollectionQueryParameters $loan_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLoansCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLoansCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
+    public function getLoansCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $loan_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLoansCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6339,6 +6415,7 @@ class LoansApi
                 'Missing the required parameter $tenant_id when calling getLoansCountAsync'
             );
         }
+
 
 
 
@@ -6383,7 +6460,14 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($loan_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loan_dto_collection_query_parameters));
+            } else {
+                $httpBody = $loan_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6438,16 +6522,16 @@ class LoansApi
      * @param  string $application_id application_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanApplicationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchLoanApplicationAsync($tenant_id, $application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
+    public function patchLoanApplicationAsync($tenant_id, $application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
     {
-        list($response) = $this->patchLoanApplicationAsyncWithHttpInfo($tenant_id, $application_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchLoanApplicationAsyncWithHttpInfo($tenant_id, $application_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6460,16 +6544,16 @@ class LoansApi
      * @param  string $application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanApplicationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLoanApplicationAsyncWithHttpInfo($tenant_id, $application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
+    public function patchLoanApplicationAsyncWithHttpInfo($tenant_id, $application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
     {
-        $request = $this->patchLoanApplicationAsyncRequest($tenant_id, $application_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLoanApplicationAsyncRequest($tenant_id, $application_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6659,15 +6743,15 @@ class LoansApi
      * @param  string $application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanApplicationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoanApplicationAsyncAsync($tenant_id, $application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
+    public function patchLoanApplicationAsyncAsync($tenant_id, $application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
     {
-        return $this->patchLoanApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchLoanApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6684,16 +6768,16 @@ class LoansApi
      * @param  string $application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanApplicationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoanApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
+    public function patchLoanApplicationAsyncAsyncWithHttpInfo($tenant_id, $application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLoanApplicationAsyncRequest($tenant_id, $application_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLoanApplicationAsyncRequest($tenant_id, $application_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6738,13 +6822,13 @@ class LoansApi
      * @param  string $application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanApplicationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLoanApplicationAsyncRequest($tenant_id, $application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
+    public function patchLoanApplicationAsyncRequest($tenant_id, $application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanApplicationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6813,12 +6897,12 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6875,16 +6959,16 @@ class LoansApi
      * @param  string $loan_id loan_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchLoanAsync($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
+    public function patchLoanAsync($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
     {
-        list($response) = $this->patchLoanAsyncWithHttpInfo($tenant_id, $loan_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchLoanAsyncWithHttpInfo($tenant_id, $loan_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6897,16 +6981,16 @@ class LoansApi
      * @param  string $loan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLoanAsyncWithHttpInfo($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
+    public function patchLoanAsyncWithHttpInfo($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
     {
-        $request = $this->patchLoanAsyncRequest($tenant_id, $loan_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLoanAsyncRequest($tenant_id, $loan_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7096,15 +7180,15 @@ class LoansApi
      * @param  string $loan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoanAsyncAsync($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
+    public function patchLoanAsyncAsync($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
     {
-        return $this->patchLoanAsyncAsyncWithHttpInfo($tenant_id, $loan_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchLoanAsyncAsyncWithHttpInfo($tenant_id, $loan_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7121,16 +7205,16 @@ class LoansApi
      * @param  string $loan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoanAsyncAsyncWithHttpInfo($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
+    public function patchLoanAsyncAsyncWithHttpInfo($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLoanAsyncRequest($tenant_id, $loan_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLoanAsyncRequest($tenant_id, $loan_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7175,13 +7259,13 @@ class LoansApi
      * @param  string $loan_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLoanAsyncRequest($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
+    public function patchLoanAsyncRequest($tenant_id, $loan_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7250,12 +7334,12 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7312,16 +7396,16 @@ class LoansApi
      * @param  string $loan_type_id loan_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchLoanTypeAsync($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
+    public function patchLoanTypeAsync($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
     {
-        list($response) = $this->patchLoanTypeAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchLoanTypeAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -7334,16 +7418,16 @@ class LoansApi
      * @param  string $loan_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLoanTypeAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
+    public function patchLoanTypeAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
     {
-        $request = $this->patchLoanTypeAsyncRequest($tenant_id, $loan_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLoanTypeAsyncRequest($tenant_id, $loan_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7533,15 +7617,15 @@ class LoansApi
      * @param  string $loan_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoanTypeAsyncAsync($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
+    public function patchLoanTypeAsyncAsync($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
     {
-        return $this->patchLoanTypeAsyncAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchLoanTypeAsyncAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7558,16 +7642,16 @@ class LoansApi
      * @param  string $loan_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLoanTypeAsyncAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
+    public function patchLoanTypeAsyncAsyncWithHttpInfo($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLoanTypeAsyncRequest($tenant_id, $loan_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLoanTypeAsyncRequest($tenant_id, $loan_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7612,13 +7696,13 @@ class LoansApi
      * @param  string $loan_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLoanTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLoanTypeAsyncRequest($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
+    public function patchLoanTypeAsyncRequest($tenant_id, $loan_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLoanTypeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7687,12 +7771,12 @@ class LoansApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -377,7 +377,7 @@ No authorization required
 ## `getDealUnitFlowStagesAsync()`
 
 ```php
-getDealUnitFlowStagesAsync($tenant_id, $deal_unit_flow_id): \OpenAPI\Client\Model\DealUnitFlowStageDtoListEnvelope
+getDealUnitFlowStagesAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_dto_collection_query_parameters): \OpenAPI\Client\Model\DealUnitFlowStageDtoListEnvelope
 ```
 
 Get stages for a deal unit flow
@@ -399,9 +399,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_flow_id = 'deal_unit_flow_id_example'; // string
+$deal_unit_flow_stage_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitFlowStageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitFlowStageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitFlowStagesAsync($tenant_id, $deal_unit_flow_id);
+    $result = $apiInstance->getDealUnitFlowStagesAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitFlowsApi->getDealUnitFlowStagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -414,6 +415,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **deal_unit_flow_id** | **string**|  | |
+| **deal_unit_flow_stage_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitFlowStageDtoCollectionQueryParameters**](../Model/DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -425,7 +427,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -435,7 +437,7 @@ No authorization required
 ## `getDealUnitFlowStagesCountAsync()`
 
 ```php
-getDealUnitFlowStagesCountAsync($tenant_id, $deal_unit_flow_id): \OpenAPI\Client\Model\Int32Envelope
+getDealUnitFlowStagesCountAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get stages count for a deal unit flow
@@ -457,9 +459,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_flow_id = 'deal_unit_flow_id_example'; // string
+$deal_unit_flow_stage_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitFlowStageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitFlowStageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitFlowStagesCountAsync($tenant_id, $deal_unit_flow_id);
+    $result = $apiInstance->getDealUnitFlowStagesCountAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitFlowsApi->getDealUnitFlowStagesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -472,6 +475,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **deal_unit_flow_id** | **string**|  | |
+| **deal_unit_flow_stage_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitFlowStageDtoCollectionQueryParameters**](../Model/DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -483,7 +487,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -493,7 +497,7 @@ No authorization required
 ## `getDealUnitFlowsAsync()`
 
 ```php
-getDealUnitFlowsAsync($tenant_id): \OpenAPI\Client\Model\DealUnitFlowDtoListEnvelope
+getDealUnitFlowsAsync($tenant_id, $deal_unit_flow_dto_collection_query_parameters): \OpenAPI\Client\Model\DealUnitFlowDtoListEnvelope
 ```
 
 Get deal unit flows
@@ -514,9 +518,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$deal_unit_flow_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitFlowDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitFlowDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitFlowsAsync($tenant_id);
+    $result = $apiInstance->getDealUnitFlowsAsync($tenant_id, $deal_unit_flow_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitFlowsApi->getDealUnitFlowsAsync: ', $e->getMessage(), PHP_EOL;
@@ -528,6 +533,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **deal_unit_flow_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitFlowDtoCollectionQueryParameters**](../Model/DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,7 +545,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -549,7 +555,7 @@ No authorization required
 ## `getDealUnitFlowsCountAsync()`
 
 ```php
-getDealUnitFlowsCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getDealUnitFlowsCountAsync($tenant_id, $deal_unit_flow_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get deal unit flows count
@@ -570,9 +576,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$deal_unit_flow_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitFlowDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitFlowDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitFlowsCountAsync($tenant_id);
+    $result = $apiInstance->getDealUnitFlowsCountAsync($tenant_id, $deal_unit_flow_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitFlowsApi->getDealUnitFlowsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -584,6 +591,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **deal_unit_flow_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitFlowDtoCollectionQueryParameters**](../Model/DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -595,7 +603,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -605,7 +613,7 @@ No authorization required
 ## `patchDealUnitFlowAsync()`
 
 ```php
-patchDealUnitFlowAsync($tenant_id, $deal_unit_flow_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchDealUnitFlowAsync($tenant_id, $deal_unit_flow_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a deal unit flow
@@ -627,10 +635,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_flow_id = 'deal_unit_flow_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchDealUnitFlowAsync($tenant_id, $deal_unit_flow_id, $operation);
+    $result = $apiInstance->patchDealUnitFlowAsync($tenant_id, $deal_unit_flow_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitFlowsApi->patchDealUnitFlowAsync: ', $e->getMessage(), PHP_EOL;
@@ -643,7 +651,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **deal_unit_flow_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -665,7 +673,7 @@ No authorization required
 ## `patchDealUnitFlowStageAsync()`
 
 ```php
-patchDealUnitFlowStageAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchDealUnitFlowStageAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a deal unit flow stage
@@ -688,10 +696,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_flow_id = 'deal_unit_flow_id_example'; // string
 $deal_unit_flow_stage_id = 'deal_unit_flow_stage_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchDealUnitFlowStageAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_id, $operation);
+    $result = $apiInstance->patchDealUnitFlowStageAsync($tenant_id, $deal_unit_flow_id, $deal_unit_flow_stage_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitFlowsApi->patchDealUnitFlowStageAsync: ', $e->getMessage(), PHP_EOL;
@@ -705,7 +713,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **deal_unit_flow_id** | **string**|  | |
 | **deal_unit_flow_stage_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

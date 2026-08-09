@@ -25,7 +25,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countCallingCodesByCountryAsync()`
 
 ```php
-countCallingCodesByCountryAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCallingCodesByCountryAsync($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count calling codes for a country
@@ -48,9 +48,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_calling_code_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCallingCodesByCountryAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->countCallingCodesByCountryAsync($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->countCallingCodesByCountryAsync: ', $e->getMessage(), PHP_EOL;
@@ -64,6 +65,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_calling_code_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters**](../Model/CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -75,7 +77,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -85,7 +87,7 @@ No authorization required
 ## `countCitiesByStateAsync()`
 
 ```php
-countCitiesByStateAsync($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCitiesByStateAsync($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count cities for a state
@@ -109,9 +111,10 @@ $country_state_id = 'country_state_id_example'; // string
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$city_dto_collection_query_parameters = new \OpenAPI\Client\Model\CityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCitiesByStateAsync($country_state_id, $country_id, $api_version, $x_api_version);
+    $result = $apiInstance->countCitiesByStateAsync($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->countCitiesByStateAsync: ', $e->getMessage(), PHP_EOL;
@@ -126,6 +129,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **city_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CityDtoCollectionQueryParameters**](../Model/CityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -137,7 +141,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -147,7 +151,7 @@ No authorization required
 ## `countCountries()`
 
 ```php
-countCountries($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCountries($api_version, $x_api_version, $country_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count countries
@@ -169,9 +173,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCountries($api_version, $x_api_version);
+    $result = $apiInstance->countCountries($api_version, $x_api_version, $country_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->countCountries: ', $e->getMessage(), PHP_EOL;
@@ -184,6 +189,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryDtoCollectionQueryParameters**](../Model/CountryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -195,7 +201,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -205,7 +211,7 @@ No authorization required
 ## `countCountryStatesAsync()`
 
 ```php
-countCountryStatesAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCountryStatesAsync($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count states for a country
@@ -228,9 +234,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_state_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCountryStatesAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->countCountryStatesAsync($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->countCountryStatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -244,6 +251,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_state_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters**](../Model/CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -255,7 +263,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -265,7 +273,7 @@ No authorization required
 ## `countTimezonesByCountryAsync()`
 
 ```php
-countTimezonesByCountryAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countTimezonesByCountryAsync($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count timezones for a country
@@ -288,9 +296,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$timezone_dto_collection_query_parameters = new \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countTimezonesByCountryAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->countTimezonesByCountryAsync($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->countTimezonesByCountryAsync: ', $e->getMessage(), PHP_EOL;
@@ -304,6 +313,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **timezone_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters**](../Model/TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -315,7 +325,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -325,7 +335,7 @@ No authorization required
 ## `countTopLevelDomainsByCountryAsync()`
 
 ```php
-countTopLevelDomainsByCountryAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countTopLevelDomainsByCountryAsync($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count top-level domains for a country
@@ -348,9 +358,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_top_level_domain_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countTopLevelDomainsByCountryAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->countTopLevelDomainsByCountryAsync($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->countTopLevelDomainsByCountryAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,6 +375,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_top_level_domain_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters**](../Model/CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -375,7 +387,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -385,7 +397,7 @@ No authorization required
 ## `getAllCountries()`
 
 ```php
-getAllCountries($api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoListEnvelope
+getAllCountries($api_version, $x_api_version, $country_dto_collection_query_parameters): \OpenAPI\Client\Model\CountryDtoListEnvelope
 ```
 
 Get all countries
@@ -407,9 +419,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAllCountries($api_version, $x_api_version);
+    $result = $apiInstance->getAllCountries($api_version, $x_api_version, $country_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getAllCountries: ', $e->getMessage(), PHP_EOL;
@@ -422,6 +435,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryDtoCollectionQueryParameters**](../Model/CountryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -433,7 +447,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -443,7 +457,7 @@ No authorization required
 ## `getCallingCodesByCountryIdAsync()`
 
 ```php
-getCallingCodesByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope
+getCallingCodesByCountryIdAsync($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters): \OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope
 ```
 
 Get calling codes for a country
@@ -466,9 +480,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_calling_code_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCallingCodesByCountryIdAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCallingCodesByCountryIdAsync($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getCallingCodesByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -482,6 +497,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_calling_code_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters**](../Model/CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -493,7 +509,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -503,7 +519,7 @@ No authorization required
 ## `getCitiesByCountryStateIdAsync()`
 
 ```php
-getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CityDtoListEnvelope
+getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters): \OpenAPI\Client\Model\CityDtoListEnvelope
 ```
 
 Get cities for a state
@@ -527,9 +543,10 @@ $country_state_id = 'country_state_id_example'; // string
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$city_dto_collection_query_parameters = new \OpenAPI\Client\Model\CityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getCitiesByCountryStateIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -544,6 +561,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **city_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CityDtoCollectionQueryParameters**](../Model/CityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -555,7 +573,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -625,7 +643,7 @@ No authorization required
 ## `getCountryStateByIdAsync()`
 
 ```php
-getCountryStateByIdAsync($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryStateDtoEnvelope
+getCountryStateByIdAsync($country_state_id, $country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters): \OpenAPI\Client\Model\CountryStateDtoEnvelope
 ```
 
 Get state by ID
@@ -649,9 +667,10 @@ $country_state_id = 'country_state_id_example'; // string
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_state_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCountryStateByIdAsync($country_state_id, $country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCountryStateByIdAsync($country_state_id, $country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getCountryStateByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -666,6 +685,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_state_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters**](../Model/CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -677,7 +697,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -687,7 +707,7 @@ No authorization required
 ## `getCountryStatesAsync()`
 
 ```php
-getCountryStatesAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryStateDtoListEnvelope
+getCountryStatesAsync($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters): \OpenAPI\Client\Model\CountryStateDtoListEnvelope
 ```
 
 Get states for a country
@@ -710,9 +730,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_state_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCountryStatesAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCountryStatesAsync($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getCountryStatesAsync: ', $e->getMessage(), PHP_EOL;
@@ -726,6 +747,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_state_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters**](../Model/CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -737,7 +759,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -747,7 +769,7 @@ No authorization required
 ## `getEnabledCurrenciesByCountryIdAsync()`
 
 ```php
-getEnabledCurrenciesByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CurrencyDtoListEnvelope
+getEnabledCurrenciesByCountryIdAsync($country_id, $api_version, $x_api_version, $currency_dto_collection_query_parameters): \OpenAPI\Client\Model\CurrencyDtoListEnvelope
 ```
 
 Get currencies for a country
@@ -770,9 +792,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$currency_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEnabledCurrenciesByCountryIdAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEnabledCurrenciesByCountryIdAsync($country_id, $api_version, $x_api_version, $currency_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getEnabledCurrenciesByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -786,6 +809,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **currency_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters**](../Model/CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -797,7 +821,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -807,7 +831,7 @@ No authorization required
 ## `getTimeZonesByCountryIdAsync()`
 
 ```php
-getTimeZonesByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TimezoneDtoListEnvelope
+getTimeZonesByCountryIdAsync($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters): \OpenAPI\Client\Model\TimezoneDtoListEnvelope
 ```
 
 Get timezones for a country
@@ -830,9 +854,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$timezone_dto_collection_query_parameters = new \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTimeZonesByCountryIdAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTimeZonesByCountryIdAsync($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getTimeZonesByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -846,6 +871,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **timezone_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters**](../Model/TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -857,7 +883,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -867,7 +893,7 @@ No authorization required
 ## `getTopLevelDomainsByCountryIdAsync()`
 
 ```php
-getTopLevelDomainsByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope
+getTopLevelDomainsByCountryIdAsync($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters): \OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope
 ```
 
 Get top-level domains for a country
@@ -890,9 +916,10 @@ $apiInstance = new OpenAPI\Client\Api\CountriesApi(
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$country_top_level_domain_dto_collection_query_parameters = new \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTopLevelDomainsByCountryIdAsync($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTopLevelDomainsByCountryIdAsync($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->getTopLevelDomainsByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -906,6 +933,7 @@ try {
 | **country_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **country_top_level_domain_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters**](../Model/CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -917,7 +945,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

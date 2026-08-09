@@ -84,6 +84,7 @@ class InvoiceEnumerationRangesApi
         ],
         'getInvoiceEnumerationRangesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchInvoiceEnumerationRangeAsync' => [
             'application/json',
@@ -1519,15 +1520,16 @@ class InvoiceEnumerationRangesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters $invoice_enumeration_range_dto_collection_query_parameters invoice_enumeration_range_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceEnumerationRangesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope
      */
-    public function getInvoiceEnumerationRangesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
+    public function getInvoiceEnumerationRangesAsync($tenant_id, $api_version = null, $x_api_version = null, $invoice_enumeration_range_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
     {
-        list($response) = $this->getInvoiceEnumerationRangesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getInvoiceEnumerationRangesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1539,15 +1541,16 @@ class InvoiceEnumerationRangesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters $invoice_enumeration_range_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceEnumerationRangesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceEnumerationRangesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
+    public function getInvoiceEnumerationRangesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $invoice_enumeration_range_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
     {
-        $request = $this->getInvoiceEnumerationRangesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getInvoiceEnumerationRangesAsyncRequest($tenant_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1771,14 +1774,15 @@ class InvoiceEnumerationRangesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters $invoice_enumeration_range_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceEnumerationRangesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceEnumerationRangesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
+    public function getInvoiceEnumerationRangesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $invoice_enumeration_range_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
     {
-        return $this->getInvoiceEnumerationRangesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getInvoiceEnumerationRangesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1794,15 +1798,16 @@ class InvoiceEnumerationRangesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters $invoice_enumeration_range_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceEnumerationRangesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceEnumerationRangesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
+    public function getInvoiceEnumerationRangesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $invoice_enumeration_range_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope';
-        $request = $this->getInvoiceEnumerationRangesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getInvoiceEnumerationRangesAsyncRequest($tenant_id, $api_version, $x_api_version, $invoice_enumeration_range_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1846,12 +1851,13 @@ class InvoiceEnumerationRangesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoCollectionQueryParameters $invoice_enumeration_range_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceEnumerationRangesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceEnumerationRangesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
+    public function getInvoiceEnumerationRangesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $invoice_enumeration_range_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getInvoiceEnumerationRangesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1860,6 +1866,7 @@ class InvoiceEnumerationRangesApi
                 'Missing the required parameter $tenant_id when calling getInvoiceEnumerationRangesAsync'
             );
         }
+
 
 
 
@@ -1904,7 +1911,14 @@ class InvoiceEnumerationRangesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($invoice_enumeration_range_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($invoice_enumeration_range_dto_collection_query_parameters));
+            } else {
+                $httpBody = $invoice_enumeration_range_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1959,16 +1973,16 @@ class InvoiceEnumerationRangesApi
      * @param  string $range_id range_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceEnumerationRangeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchInvoiceEnumerationRangeAsync($tenant_id, $range_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
+    public function patchInvoiceEnumerationRangeAsync($tenant_id, $range_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
     {
-        list($response) = $this->patchInvoiceEnumerationRangeAsyncWithHttpInfo($tenant_id, $range_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchInvoiceEnumerationRangeAsyncWithHttpInfo($tenant_id, $range_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1981,16 +1995,16 @@ class InvoiceEnumerationRangesApi
      * @param  string $range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceEnumerationRangeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchInvoiceEnumerationRangeAsyncWithHttpInfo($tenant_id, $range_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
+    public function patchInvoiceEnumerationRangeAsyncWithHttpInfo($tenant_id, $range_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
     {
-        $request = $this->patchInvoiceEnumerationRangeAsyncRequest($tenant_id, $range_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchInvoiceEnumerationRangeAsyncRequest($tenant_id, $range_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2180,15 +2194,15 @@ class InvoiceEnumerationRangesApi
      * @param  string $range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceEnumerationRangeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceEnumerationRangeAsyncAsync($tenant_id, $range_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
+    public function patchInvoiceEnumerationRangeAsyncAsync($tenant_id, $range_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
     {
-        return $this->patchInvoiceEnumerationRangeAsyncAsyncWithHttpInfo($tenant_id, $range_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchInvoiceEnumerationRangeAsyncAsyncWithHttpInfo($tenant_id, $range_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2205,16 +2219,16 @@ class InvoiceEnumerationRangesApi
      * @param  string $range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceEnumerationRangeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchInvoiceEnumerationRangeAsyncAsyncWithHttpInfo($tenant_id, $range_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
+    public function patchInvoiceEnumerationRangeAsyncAsyncWithHttpInfo($tenant_id, $range_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchInvoiceEnumerationRangeAsyncRequest($tenant_id, $range_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchInvoiceEnumerationRangeAsyncRequest($tenant_id, $range_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2259,13 +2273,13 @@ class InvoiceEnumerationRangesApi
      * @param  string $range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceEnumerationRangeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchInvoiceEnumerationRangeAsyncRequest($tenant_id, $range_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
+    public function patchInvoiceEnumerationRangeAsyncRequest($tenant_id, $range_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchInvoiceEnumerationRangeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2334,12 +2348,12 @@ class InvoiceEnumerationRangesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

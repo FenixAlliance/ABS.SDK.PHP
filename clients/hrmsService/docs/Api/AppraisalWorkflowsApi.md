@@ -201,7 +201,7 @@ No authorization required
 ## `getAppraisalWorkflowsAsync()`
 
 ```php
-getAppraisalWorkflowsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AppraisalWorkflowDtoListEnvelope
+getAppraisalWorkflowsAsync($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters): \OpenAPI\Client\Model\AppraisalWorkflowDtoListEnvelope
 ```
 
 Get appraisal workflows
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\AppraisalWorkflowsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$appraisal_workflow_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAppraisalWorkflowsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAppraisalWorkflowsAsync($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppraisalWorkflowsApi->getAppraisalWorkflowsAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **appraisal_workflow_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters**](../Model/AppraisalWorkflowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getAppraisalWorkflowsCountAsync()`
 
 ```php
-getAppraisalWorkflowsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAppraisalWorkflowsCountAsync($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count appraisal workflows
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\AppraisalWorkflowsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$appraisal_workflow_dto_collection_query_parameters = new \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAppraisalWorkflowsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAppraisalWorkflowsCountAsync($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppraisalWorkflowsApi->getAppraisalWorkflowsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **appraisal_workflow_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters**](../Model/AppraisalWorkflowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

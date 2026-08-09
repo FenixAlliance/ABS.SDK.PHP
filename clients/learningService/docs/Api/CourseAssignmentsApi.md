@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseAssignmentsAsync()`
 
 ```php
-getCourseAssignmentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseAssignmentDto[]
+getCourseAssignmentsAsync($tenant_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseAssignmentDto[]
 ```
 
 Get all course assignments
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseAssignmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_assignment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseAssignmentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseAssignmentsAsync($tenant_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseAssignmentsApi->getCourseAssignmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_assignment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters**](../Model/CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseAssignmentsCountAsync()`
 
 ```php
-getCourseAssignmentsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseAssignmentsCountAsync($tenant_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters): int
 ```
 
 Get course assignments count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseAssignmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_assignment_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseAssignmentsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseAssignmentsCountAsync($tenant_id, $api_version, $x_api_version, $course_assignment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseAssignmentsApi->getCourseAssignmentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_assignment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseAssignmentDtoCollectionQueryParameters**](../Model/CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseAssignmentAsync()`
 
 ```php
-patchCourseAssignmentAsync($tenant_id, $assignment_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseAssignmentAsync($tenant_id, $assignment_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course assignment
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $assignment_id = 'assignment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseAssignmentAsync($tenant_id, $assignment_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseAssignmentAsync($tenant_id, $assignment_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseAssignmentsApi->patchCourseAssignmentAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **assignment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

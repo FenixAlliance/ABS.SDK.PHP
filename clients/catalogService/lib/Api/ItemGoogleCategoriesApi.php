@@ -80,9 +80,11 @@ class ItemGoogleCategoriesApi
         ],
         'getItemGoogleCategoriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemGoogleCategoriesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemGoogleCategoriesTreeAsync' => [
             'application/json',
@@ -937,15 +939,16 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope
      */
-    public function getItemGoogleCategoriesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
+    public function getItemGoogleCategoriesAsync($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
     {
-        list($response) = $this->getItemGoogleCategoriesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemGoogleCategoriesAsyncWithHttpInfo($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -956,15 +959,16 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemGoogleCategoriesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
+    public function getItemGoogleCategoriesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
     {
-        $request = $this->getItemGoogleCategoriesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getItemGoogleCategoriesAsyncRequest($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1152,14 +1156,15 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemGoogleCategoriesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
+    public function getItemGoogleCategoriesAsyncAsync($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
     {
-        return $this->getItemGoogleCategoriesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getItemGoogleCategoriesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1174,15 +1179,16 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemGoogleCategoriesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
+    public function getItemGoogleCategoriesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope';
-        $request = $this->getItemGoogleCategoriesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getItemGoogleCategoriesAsyncRequest($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1225,13 +1231,15 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemGoogleCategoriesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
+    public function getItemGoogleCategoriesAsyncRequest($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesAsync'][0])
     {
+
 
 
 
@@ -1267,7 +1275,14 @@ class ItemGoogleCategoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_google_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_google_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_google_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1320,15 +1335,16 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemGoogleCategoriesCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
+    public function getItemGoogleCategoriesCountAsync($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
     {
-        list($response) = $this->getItemGoogleCategoriesCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemGoogleCategoriesCountAsyncWithHttpInfo($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1339,15 +1355,16 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemGoogleCategoriesCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
+    public function getItemGoogleCategoriesCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
     {
-        $request = $this->getItemGoogleCategoriesCountAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getItemGoogleCategoriesCountAsyncRequest($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1535,14 +1552,15 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemGoogleCategoriesCountAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
+    public function getItemGoogleCategoriesCountAsyncAsync($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
     {
-        return $this->getItemGoogleCategoriesCountAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getItemGoogleCategoriesCountAsyncAsyncWithHttpInfo($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1557,15 +1575,16 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemGoogleCategoriesCountAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
+    public function getItemGoogleCategoriesCountAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemGoogleCategoriesCountAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getItemGoogleCategoriesCountAsyncRequest($api_version, $x_api_version, $item_google_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1608,13 +1627,15 @@ class ItemGoogleCategoriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters $item_google_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemGoogleCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemGoogleCategoriesCountAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
+    public function getItemGoogleCategoriesCountAsyncRequest($api_version = null, $x_api_version = null, $item_google_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemGoogleCategoriesCountAsync'][0])
     {
+
 
 
 
@@ -1650,7 +1671,14 @@ class ItemGoogleCategoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_google_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_google_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_google_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

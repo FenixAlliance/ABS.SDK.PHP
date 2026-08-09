@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseProblemSetsAsync()`
 
 ```php
-getCourseProblemSetsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseProblemSetDto[]
+getCourseProblemSetsAsync($tenant_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseProblemSetDto[]
 ```
 
 Get all course problem sets
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseProblemSetsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_problem_set_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseProblemSetsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseProblemSetsAsync($tenant_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseProblemSetsApi->getCourseProblemSetsAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_problem_set_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters**](../Model/CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseProblemSetsCountAsync()`
 
 ```php
-getCourseProblemSetsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseProblemSetsCountAsync($tenant_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters): int
 ```
 
 Get course problem sets count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseProblemSetsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_problem_set_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseProblemSetsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseProblemSetsCountAsync($tenant_id, $api_version, $x_api_version, $course_problem_set_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseProblemSetsApi->getCourseProblemSetsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_problem_set_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseProblemSetDtoCollectionQueryParameters**](../Model/CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseProblemSetAsync()`
 
 ```php
-patchCourseProblemSetAsync($tenant_id, $problem_set_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseProblemSetAsync($tenant_id, $problem_set_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course problem set
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $problem_set_id = 'problem_set_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseProblemSetAsync($tenant_id, $problem_set_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseProblemSetAsync($tenant_id, $problem_set_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseProblemSetsApi->patchCourseProblemSetAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **problem_set_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

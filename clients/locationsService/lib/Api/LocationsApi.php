@@ -91,18 +91,22 @@ class LocationsApi
         ],
         'getLocationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLocationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletLocationAsync' => [
             'application/json',
         ],
         'getWalletLocationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWalletLocationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchLocationAsync' => [
             'application/json',
@@ -2153,15 +2157,16 @@ class LocationsApi
      * Get Locations
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope
      */
-    public function getLocationsAsync($tenant_id, string $contentType = self::contentTypes['getLocationsAsync'][0])
+    public function getLocationsAsync($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsAsync'][0])
     {
-        list($response) = $this->getLocationsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getLocationsAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2171,15 +2176,16 @@ class LocationsApi
      * Get Locations
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getLocationsAsync'][0])
+    public function getLocationsAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsAsync'][0])
     {
-        $request = $this->getLocationsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getLocationsAsyncRequest($tenant_id, $location_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2366,14 +2372,15 @@ class LocationsApi
      * Get Locations
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getLocationsAsync'][0])
+    public function getLocationsAsyncAsync($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsAsync'][0])
     {
-        return $this->getLocationsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getLocationsAsyncAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2387,15 +2394,16 @@ class LocationsApi
      * Get Locations
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getLocationsAsync'][0])
+    public function getLocationsAsyncAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope';
-        $request = $this->getLocationsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getLocationsAsyncRequest($tenant_id, $location_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2437,12 +2445,13 @@ class LocationsApi
      * Create request for operation 'getLocationsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getLocationsAsync'][0])
+    public function getLocationsAsyncRequest($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2451,6 +2460,7 @@ class LocationsApi
                 'Missing the required parameter $tenant_id when calling getLocationsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/LocationsService/Locations';
@@ -2480,7 +2490,14 @@ class LocationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($location_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($location_dto_collection_query_parameters));
+            } else {
+                $httpBody = $location_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2532,15 +2549,16 @@ class LocationsApi
      * Get Locations Count
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getLocationsCountAsync($tenant_id, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
+    public function getLocationsCountAsync($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
     {
-        list($response) = $this->getLocationsCountAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getLocationsCountAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2550,15 +2568,16 @@ class LocationsApi
      * Get Locations Count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLocationsCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
+    public function getLocationsCountAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
     {
-        $request = $this->getLocationsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getLocationsCountAsyncRequest($tenant_id, $location_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2745,14 +2764,15 @@ class LocationsApi
      * Get Locations Count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsCountAsyncAsync($tenant_id, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
+    public function getLocationsCountAsyncAsync($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
     {
-        return $this->getLocationsCountAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getLocationsCountAsyncAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2766,15 +2786,16 @@ class LocationsApi
      * Get Locations Count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLocationsCountAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
+    public function getLocationsCountAsyncAsyncWithHttpInfo($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLocationsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getLocationsCountAsyncRequest($tenant_id, $location_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2816,12 +2837,13 @@ class LocationsApi
      * Create request for operation 'getLocationsCountAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLocationsCountAsyncRequest($tenant_id, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
+    public function getLocationsCountAsyncRequest($tenant_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLocationsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2830,6 +2852,7 @@ class LocationsApi
                 'Missing the required parameter $tenant_id when calling getLocationsCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/LocationsService/Locations/count';
@@ -2859,7 +2882,14 @@ class LocationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($location_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($location_dto_collection_query_parameters));
+            } else {
+                $httpBody = $location_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3309,15 +3339,16 @@ class LocationsApi
      * Get Wallet Locations
      *
      * @param  string $wallet_id wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope
      */
-    public function getWalletLocationsAsync($wallet_id, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
+    public function getWalletLocationsAsync($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
     {
-        list($response) = $this->getWalletLocationsAsyncWithHttpInfo($wallet_id, $contentType);
+        list($response) = $this->getWalletLocationsAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3327,15 +3358,16 @@ class LocationsApi
      * Get Wallet Locations
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletLocationsAsyncWithHttpInfo($wallet_id, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
+    public function getWalletLocationsAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
     {
-        $request = $this->getWalletLocationsAsyncRequest($wallet_id, $contentType);
+        $request = $this->getWalletLocationsAsyncRequest($wallet_id, $location_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3522,14 +3554,15 @@ class LocationsApi
      * Get Wallet Locations
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletLocationsAsyncAsync($wallet_id, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
+    public function getWalletLocationsAsyncAsync($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
     {
-        return $this->getWalletLocationsAsyncAsyncWithHttpInfo($wallet_id, $contentType)
+        return $this->getWalletLocationsAsyncAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3543,15 +3576,16 @@ class LocationsApi
      * Get Wallet Locations
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletLocationsAsyncAsyncWithHttpInfo($wallet_id, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
+    public function getWalletLocationsAsyncAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LocationDtoIReadOnlyListEnvelope';
-        $request = $this->getWalletLocationsAsyncRequest($wallet_id, $contentType);
+        $request = $this->getWalletLocationsAsyncRequest($wallet_id, $location_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3593,12 +3627,13 @@ class LocationsApi
      * Create request for operation 'getWalletLocationsAsync'
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletLocationsAsyncRequest($wallet_id, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
+    public function getWalletLocationsAsyncRequest($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -3607,6 +3642,7 @@ class LocationsApi
                 'Missing the required parameter $wallet_id when calling getWalletLocationsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/LocationsService/Locations/wallet/{walletId}';
@@ -3635,7 +3671,14 @@ class LocationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($location_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($location_dto_collection_query_parameters));
+            } else {
+                $httpBody = $location_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3687,15 +3730,16 @@ class LocationsApi
      * Get Wallet Locations Count
      *
      * @param  string $wallet_id wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWalletLocationsCountAsync($wallet_id, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
+    public function getWalletLocationsCountAsync($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
     {
-        list($response) = $this->getWalletLocationsCountAsyncWithHttpInfo($wallet_id, $contentType);
+        list($response) = $this->getWalletLocationsCountAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3705,15 +3749,16 @@ class LocationsApi
      * Get Wallet Locations Count
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWalletLocationsCountAsyncWithHttpInfo($wallet_id, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
+    public function getWalletLocationsCountAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
     {
-        $request = $this->getWalletLocationsCountAsyncRequest($wallet_id, $contentType);
+        $request = $this->getWalletLocationsCountAsyncRequest($wallet_id, $location_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3900,14 +3945,15 @@ class LocationsApi
      * Get Wallet Locations Count
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletLocationsCountAsyncAsync($wallet_id, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
+    public function getWalletLocationsCountAsyncAsync($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
     {
-        return $this->getWalletLocationsCountAsyncAsyncWithHttpInfo($wallet_id, $contentType)
+        return $this->getWalletLocationsCountAsyncAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3921,15 +3967,16 @@ class LocationsApi
      * Get Wallet Locations Count
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWalletLocationsCountAsyncAsyncWithHttpInfo($wallet_id, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
+    public function getWalletLocationsCountAsyncAsyncWithHttpInfo($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWalletLocationsCountAsyncRequest($wallet_id, $contentType);
+        $request = $this->getWalletLocationsCountAsyncRequest($wallet_id, $location_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3971,12 +4018,13 @@ class LocationsApi
      * Create request for operation 'getWalletLocationsCountAsync'
      *
      * @param  string $wallet_id (required)
+     * @param  \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters $location_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWalletLocationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWalletLocationsCountAsyncRequest($wallet_id, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
+    public function getWalletLocationsCountAsyncRequest($wallet_id, $location_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWalletLocationsCountAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -3985,6 +4033,7 @@ class LocationsApi
                 'Missing the required parameter $wallet_id when calling getWalletLocationsCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/LocationsService/Locations/wallet/{walletId}/count';
@@ -4013,7 +4062,14 @@ class LocationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($location_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($location_dto_collection_query_parameters));
+            } else {
+                $httpBody = $location_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4066,16 +4122,16 @@ class LocationsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $location_id location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLocationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchLocationAsync($tenant_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
+    public function patchLocationAsync($tenant_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
     {
-        list($response) = $this->patchLocationAsyncWithHttpInfo($tenant_id, $location_id, $operation, $contentType);
+        list($response) = $this->patchLocationAsyncWithHttpInfo($tenant_id, $location_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4086,16 +4142,16 @@ class LocationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLocationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLocationAsyncWithHttpInfo($tenant_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
+    public function patchLocationAsyncWithHttpInfo($tenant_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
     {
-        $request = $this->patchLocationAsyncRequest($tenant_id, $location_id, $operation, $contentType);
+        $request = $this->patchLocationAsyncRequest($tenant_id, $location_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4283,15 +4339,15 @@ class LocationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLocationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLocationAsyncAsync($tenant_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
+    public function patchLocationAsyncAsync($tenant_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
     {
-        return $this->patchLocationAsyncAsyncWithHttpInfo($tenant_id, $location_id, $operation, $contentType)
+        return $this->patchLocationAsyncAsyncWithHttpInfo($tenant_id, $location_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4306,16 +4362,16 @@ class LocationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLocationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLocationAsyncAsyncWithHttpInfo($tenant_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
+    public function patchLocationAsyncAsyncWithHttpInfo($tenant_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLocationAsyncRequest($tenant_id, $location_id, $operation, $contentType);
+        $request = $this->patchLocationAsyncRequest($tenant_id, $location_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4358,13 +4414,13 @@ class LocationsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLocationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLocationAsyncRequest($tenant_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
+    public function patchLocationAsyncRequest($tenant_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchLocationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4418,12 +4474,12 @@ class LocationsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4478,16 +4534,16 @@ class LocationsApi
      *
      * @param  string $wallet_id wallet_id (required)
      * @param  string $location_id location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletLocationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWalletLocationAsync($wallet_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
+    public function patchWalletLocationAsync($wallet_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
     {
-        list($response) = $this->patchWalletLocationAsyncWithHttpInfo($wallet_id, $location_id, $operation, $contentType);
+        list($response) = $this->patchWalletLocationAsyncWithHttpInfo($wallet_id, $location_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4498,16 +4554,16 @@ class LocationsApi
      *
      * @param  string $wallet_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletLocationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWalletLocationAsyncWithHttpInfo($wallet_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
+    public function patchWalletLocationAsyncWithHttpInfo($wallet_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
     {
-        $request = $this->patchWalletLocationAsyncRequest($wallet_id, $location_id, $operation, $contentType);
+        $request = $this->patchWalletLocationAsyncRequest($wallet_id, $location_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4695,15 +4751,15 @@ class LocationsApi
      *
      * @param  string $wallet_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletLocationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWalletLocationAsyncAsync($wallet_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
+    public function patchWalletLocationAsyncAsync($wallet_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
     {
-        return $this->patchWalletLocationAsyncAsyncWithHttpInfo($wallet_id, $location_id, $operation, $contentType)
+        return $this->patchWalletLocationAsyncAsyncWithHttpInfo($wallet_id, $location_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4718,16 +4774,16 @@ class LocationsApi
      *
      * @param  string $wallet_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletLocationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWalletLocationAsyncAsyncWithHttpInfo($wallet_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
+    public function patchWalletLocationAsyncAsyncWithHttpInfo($wallet_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWalletLocationAsyncRequest($wallet_id, $location_id, $operation, $contentType);
+        $request = $this->patchWalletLocationAsyncRequest($wallet_id, $location_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4770,13 +4826,13 @@ class LocationsApi
      *
      * @param  string $wallet_id (required)
      * @param  string $location_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWalletLocationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWalletLocationAsyncRequest($wallet_id, $location_id, $operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
+    public function patchWalletLocationAsyncRequest($wallet_id, $location_id, $patch_operation = null, string $contentType = self::contentTypes['patchWalletLocationAsync'][0])
     {
 
         // verify the required parameter 'wallet_id' is set
@@ -4829,12 +4885,12 @@ class LocationsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

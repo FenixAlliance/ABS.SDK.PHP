@@ -74,15 +74,19 @@ class AccountingSummaryApi
     public const contentTypes = [
         'getCreditsSumAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getDebitsSumAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getExpensesSumAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getIncomesSumAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -140,15 +144,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditsSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DecimalEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getCreditsSumAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
+    public function getCreditsSumAsync($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
     {
-        list($response) = $this->getCreditsSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCreditsSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -160,15 +165,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditsSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DecimalEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditsSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
+    public function getCreditsSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
     {
-        $request = $this->getCreditsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCreditsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -357,14 +363,15 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditsSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditsSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
+    public function getCreditsSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
     {
-        return $this->getCreditsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCreditsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -380,15 +387,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditsSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
+    public function getCreditsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
-        $request = $this->getCreditsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCreditsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -432,12 +440,13 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditsSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreditsSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
+    public function getCreditsSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditsSumAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -446,6 +455,7 @@ class AccountingSummaryApi
                 'Missing the required parameter $tenant_id when calling getCreditsSumAsync'
             );
         }
+
 
 
 
@@ -490,7 +500,14 @@ class AccountingSummaryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -544,15 +561,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitsSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DecimalEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getDebitsSumAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
+    public function getDebitsSumAsync($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
     {
-        list($response) = $this->getDebitsSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getDebitsSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -564,15 +582,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitsSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DecimalEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDebitsSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
+    public function getDebitsSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
     {
-        $request = $this->getDebitsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDebitsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -761,14 +780,15 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitsSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDebitsSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
+    public function getDebitsSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
     {
-        return $this->getDebitsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getDebitsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -784,15 +804,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitsSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDebitsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
+    public function getDebitsSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
-        $request = $this->getDebitsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDebitsSumAsyncRequest($tenant_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -836,12 +857,13 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitsSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDebitsSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
+    public function getDebitsSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitsSumAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -850,6 +872,7 @@ class AccountingSummaryApi
                 'Missing the required parameter $tenant_id when calling getDebitsSumAsync'
             );
         }
+
 
 
 
@@ -894,7 +917,14 @@ class AccountingSummaryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -948,15 +978,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpensesSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getExpensesSumAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
+    public function getExpensesSumAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
     {
-        list($response) = $this->getExpensesSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getExpensesSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -968,15 +999,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpensesSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExpensesSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
+    public function getExpensesSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
     {
-        $request = $this->getExpensesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getExpensesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1165,14 +1197,15 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpensesSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpensesSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
+    public function getExpensesSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
     {
-        return $this->getExpensesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getExpensesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1188,15 +1221,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpensesSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpensesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
+    public function getExpensesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->getExpensesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getExpensesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1240,12 +1274,13 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExpensesSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExpensesSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
+    public function getExpensesSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExpensesSumAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1254,6 +1289,7 @@ class AccountingSummaryApi
                 'Missing the required parameter $tenant_id when calling getExpensesSumAsync'
             );
         }
+
 
 
 
@@ -1298,7 +1334,14 @@ class AccountingSummaryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1352,15 +1395,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomesSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getIncomesSumAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
+    public function getIncomesSumAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
     {
-        list($response) = $this->getIncomesSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getIncomesSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1372,15 +1416,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomesSumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIncomesSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
+    public function getIncomesSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
     {
-        $request = $this->getIncomesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1569,14 +1614,15 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomesSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomesSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
+    public function getIncomesSumAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
     {
-        return $this->getIncomesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getIncomesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1592,15 +1638,16 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomesSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIncomesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
+    public function getIncomesSumAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->getIncomesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getIncomesSumAsyncRequest($tenant_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1644,12 +1691,13 @@ class AccountingSummaryApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters $journal_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIncomesSumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getIncomesSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
+    public function getIncomesSumAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $journal_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getIncomesSumAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1658,6 +1706,7 @@ class AccountingSummaryApi
                 'Missing the required parameter $tenant_id when calling getIncomesSumAsync'
             );
         }
+
 
 
 
@@ -1702,7 +1751,14 @@ class AccountingSummaryApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($journal_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($journal_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $journal_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -489,7 +489,7 @@ No authorization required
 ## `getBusinessOwnedIndividualsAsync()`
 
 ```php
-getBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+getBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactDtoListEnvelope
 ```
 
 Get all contacts of type individual
@@ -512,9 +512,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getBusinessOwnedIndividualsAsync: ', $e->getMessage(), PHP_EOL;
@@ -528,6 +529,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactDtoCollectionQueryParameters**](../Model/ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,7 +541,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -549,7 +551,7 @@ No authorization required
 ## `getBusinessOwnedIndividualsCountAsync()`
 
 ```php
-getBusinessOwnedIndividualsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+getBusinessOwnedIndividualsCountAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactDtoListEnvelope
 ```
 
 Get all contacts of type individual count
@@ -572,9 +574,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessOwnedIndividualsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessOwnedIndividualsCountAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getBusinessOwnedIndividualsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -588,6 +591,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactDtoCollectionQueryParameters**](../Model/ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -599,7 +603,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -671,7 +675,7 @@ No authorization required
 ## `getBusinessOwnedOrganizationsAsync()`
 
 ```php
-getBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDto[]
+getBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactDto[]
 ```
 
 Get all contacts of type organization
@@ -694,9 +698,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getBusinessOwnedOrganizationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -710,6 +715,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactDtoCollectionQueryParameters**](../Model/ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -721,7 +727,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -731,7 +737,7 @@ No authorization required
 ## `getBusinessOwnedOrganizationsCountAsync()`
 
 ```php
-getBusinessOwnedOrganizationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+getBusinessOwnedOrganizationsCountAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactDtoListEnvelope
 ```
 
 Get all contacts of type organization count
@@ -754,9 +760,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessOwnedOrganizationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessOwnedOrganizationsCountAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getBusinessOwnedOrganizationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -770,6 +777,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactDtoCollectionQueryParameters**](../Model/ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -781,7 +789,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -977,7 +985,7 @@ No authorization required
 ## `getContactEmailsAsync()`
 
 ```php
-getContactEmailsAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactEmailDtoListEnvelope
+getContactEmailsAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactEmailDtoListEnvelope
 ```
 
 Get a contact's email addresses
@@ -1001,9 +1009,10 @@ $tenant_id = 'tenant_id_example'; // string
 $contact_id = 'contact_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_email_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactEmailDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactEmailDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactEmailsAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactEmailsAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getContactEmailsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1018,6 +1027,7 @@ try {
 | **contact_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_email_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactEmailDtoCollectionQueryParameters**](../Model/ContactEmailDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1029,7 +1039,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1039,7 +1049,7 @@ No authorization required
 ## `getContactEmailsCountAsync()`
 
 ```php
-getContactEmailsCountAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getContactEmailsCountAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get contact email addresses count
@@ -1063,9 +1073,10 @@ $tenant_id = 'tenant_id_example'; // string
 $contact_id = 'contact_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_email_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactEmailDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactEmailDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactEmailsCountAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactEmailsCountAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getContactEmailsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1080,6 +1091,7 @@ try {
 | **contact_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_email_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactEmailDtoCollectionQueryParameters**](../Model/ContactEmailDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1091,7 +1103,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1225,7 +1237,7 @@ No authorization required
 ## `getContactsAsync()`
 
 ```php
-getContactsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+getContactsAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactDtoListEnvelope
 ```
 
 Get all business owned contacts
@@ -1248,9 +1260,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactsAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getContactsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1264,6 +1277,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactDtoCollectionQueryParameters**](../Model/ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1275,7 +1289,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1285,7 +1299,7 @@ No authorization required
 ## `getContactsCountAsync()`
 
 ```php
-getContactsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+getContactsCountAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ContactDtoListEnvelope
 ```
 
 Get all business owned contacts count
@@ -1308,9 +1322,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getContactsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactsCountAsync($tenant_id, $api_version, $x_api_version, $contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getContactsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1324,6 +1339,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactDtoCollectionQueryParameters**](../Model/ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1335,7 +1351,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1345,7 +1361,7 @@ No authorization required
 ## `getExtendedBusinessOwnedIndividualsAsync()`
 
 ```php
-getExtendedBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedContactDtoListEnvelope
+getExtendedBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version, $extended_contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedContactDtoListEnvelope
 ```
 
 Get all contacts of type individual
@@ -1368,9 +1384,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedBusinessOwnedIndividualsAsync($tenant_id, $api_version, $x_api_version, $extended_contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getExtendedBusinessOwnedIndividualsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1384,6 +1401,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters**](../Model/ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1395,7 +1413,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1405,7 +1423,7 @@ No authorization required
 ## `getExtendedBusinessOwnedOrganizationsAsync()`
 
 ```php
-getExtendedBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedContactDtoListEnvelope
+getExtendedBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version, $extended_contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedContactDtoListEnvelope
 ```
 
 Get all contacts of type organization
@@ -1428,9 +1446,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedBusinessOwnedOrganizationsAsync($tenant_id, $api_version, $x_api_version, $extended_contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getExtendedBusinessOwnedOrganizationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1444,6 +1463,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters**](../Model/ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1455,7 +1475,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1527,7 +1547,7 @@ No authorization required
 ## `getExtendedContactsAsync()`
 
 ```php
-getExtendedContactsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedContactDtoListEnvelope
+getExtendedContactsAsync($tenant_id, $api_version, $x_api_version, $extended_contact_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedContactDtoListEnvelope
 ```
 
 Get all business owned contacts
@@ -1550,9 +1570,10 @@ $apiInstance = new OpenAPI\Client\Api\ContactsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_contact_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedContactsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedContactsAsync($tenant_id, $api_version, $x_api_version, $extended_contact_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getExtendedContactsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1566,6 +1587,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_contact_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedContactDtoCollectionQueryParameters**](../Model/ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1577,7 +1599,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1897,7 +1919,7 @@ No authorization required
 ## `getProfilesForContactCountAsync()`
 
 ```php
-getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get contact profiles count
@@ -1921,9 +1943,10 @@ $tenant_id = 'tenant_id_example'; // string
 $contact_id = 'contact_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$contact_profile_dto_collection_query_parameters = new \OpenAPI\Client\Model\ContactProfileDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ContactProfileDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->getProfilesForContactCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1938,6 +1961,7 @@ try {
 | **contact_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **contact_profile_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ContactProfileDtoCollectionQueryParameters**](../Model/ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1949,7 +1973,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1959,7 +1983,7 @@ No authorization required
 ## `patchContactAsync()`
 
 ```php
-patchContactAsync($tenant_id, $contact_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchContactAsync($tenant_id, $contact_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a contact
@@ -1983,10 +2007,10 @@ $tenant_id = 'tenant_id_example'; // string
 $contact_id = 'contact_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchContactAsync($tenant_id, $contact_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchContactAsync($tenant_id, $contact_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->patchContactAsync: ', $e->getMessage(), PHP_EOL;
@@ -2001,7 +2025,7 @@ try {
 | **contact_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2023,7 +2047,7 @@ No authorization required
 ## `patchContactEmailAsync()`
 
 ```php
-patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation)
+patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a contact email address
@@ -2048,10 +2072,10 @@ $contact_id = 'contact_id_example'; // string
 $email_id = 'email_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->patchContactEmailAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -2066,7 +2090,7 @@ try {
 | **email_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

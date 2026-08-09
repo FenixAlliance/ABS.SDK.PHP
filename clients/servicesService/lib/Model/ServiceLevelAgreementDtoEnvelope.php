@@ -62,6 +62,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         'error_message' => 'string',
         'correlation_id' => 'string',
         'timestamp' => '\DateTime',
+        'http_status' => 'int',
+        'error_code' => 'string',
+        'validation_details' => 'array<string,string[]>',
         'activity_id' => 'string',
         'result' => '\OpenAPI\Client\Model\ServiceLevelAgreementDto'
     ];
@@ -78,6 +81,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         'error_message' => null,
         'correlation_id' => null,
         'timestamp' => 'date-time',
+        'http_status' => 'int32',
+        'error_code' => null,
+        'validation_details' => null,
         'activity_id' => null,
         'result' => null
     ];
@@ -92,6 +98,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         'error_message' => true,
         'correlation_id' => true,
         'timestamp' => false,
+        'http_status' => true,
+        'error_code' => true,
+        'validation_details' => true,
         'activity_id' => true,
         'result' => false
     ];
@@ -186,6 +195,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         'error_message' => 'errorMessage',
         'correlation_id' => 'correlationId',
         'timestamp' => 'timestamp',
+        'http_status' => 'httpStatus',
+        'error_code' => 'errorCode',
+        'validation_details' => 'validationDetails',
         'activity_id' => 'activityId',
         'result' => 'result'
     ];
@@ -200,6 +212,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         'error_message' => 'setErrorMessage',
         'correlation_id' => 'setCorrelationId',
         'timestamp' => 'setTimestamp',
+        'http_status' => 'setHttpStatus',
+        'error_code' => 'setErrorCode',
+        'validation_details' => 'setValidationDetails',
         'activity_id' => 'setActivityId',
         'result' => 'setResult'
     ];
@@ -214,6 +229,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         'error_message' => 'getErrorMessage',
         'correlation_id' => 'getCorrelationId',
         'timestamp' => 'getTimestamp',
+        'http_status' => 'getHttpStatus',
+        'error_code' => 'getErrorCode',
+        'validation_details' => 'getValidationDetails',
         'activity_id' => 'getActivityId',
         'result' => 'getResult'
     ];
@@ -279,6 +297,9 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
         $this->setIfExists('error_message', $data ?? [], null);
         $this->setIfExists('correlation_id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
+        $this->setIfExists('http_status', $data ?? [], null);
+        $this->setIfExists('error_code', $data ?? [], null);
+        $this->setIfExists('validation_details', $data ?? [], null);
         $this->setIfExists('activity_id', $data ?? [], null);
         $this->setIfExists('result', $data ?? [], null);
     }
@@ -443,6 +464,108 @@ class ServiceLevelAgreementDtoEnvelope implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets http_status
+     *
+     * @return int|null
+     */
+    public function getHttpStatus()
+    {
+        return $this->container['http_status'];
+    }
+
+    /**
+     * Sets http_status
+     *
+     * @param int|null $http_status http_status
+     *
+     * @return self
+     */
+    public function setHttpStatus($http_status)
+    {
+        if (is_null($http_status)) {
+            array_push($this->openAPINullablesSetToNull, 'http_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('http_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['http_status'] = $http_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_code
+     *
+     * @return string|null
+     */
+    public function getErrorCode()
+    {
+        return $this->container['error_code'];
+    }
+
+    /**
+     * Sets error_code
+     *
+     * @param string|null $error_code error_code
+     *
+     * @return self
+     */
+    public function setErrorCode($error_code)
+    {
+        if (is_null($error_code)) {
+            array_push($this->openAPINullablesSetToNull, 'error_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['error_code'] = $error_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_details
+     *
+     * @return array<string,string[]>|null
+     */
+    public function getValidationDetails()
+    {
+        return $this->container['validation_details'];
+    }
+
+    /**
+     * Sets validation_details
+     *
+     * @param array<string,string[]>|null $validation_details validation_details
+     *
+     * @return self
+     */
+    public function setValidationDetails($validation_details)
+    {
+        if (is_null($validation_details)) {
+            array_push($this->openAPINullablesSetToNull, 'validation_details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['validation_details'] = $validation_details;
 
         return $this;
     }

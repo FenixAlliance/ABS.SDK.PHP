@@ -91,7 +91,7 @@ No authorization required
 ## `countPortalsAsync()`
 
 ```php
-countPortalsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countPortalsAsync($tenant_id, $api_version, $x_api_version, $web_portal_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count portals
@@ -114,9 +114,10 @@ $apiInstance = new OpenAPI\Client\Api\PortalsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_portal_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countPortalsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countPortalsAsync($tenant_id, $api_version, $x_api_version, $web_portal_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortalsApi->countPortalsAsync: ', $e->getMessage(), PHP_EOL;
@@ -130,6 +131,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_portal_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters**](../Model/WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -141,7 +143,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -391,7 +393,7 @@ No authorization required
 ## `getPortalsAsync()`
 
 ```php
-getPortalsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebPortalDtoListEnvelope
+getPortalsAsync($tenant_id, $api_version, $x_api_version, $web_portal_dto_collection_query_parameters): \OpenAPI\Client\Model\WebPortalDtoListEnvelope
 ```
 
 Get portals
@@ -414,9 +416,10 @@ $apiInstance = new OpenAPI\Client\Api\PortalsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_portal_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPortalsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPortalsAsync($tenant_id, $api_version, $x_api_version, $web_portal_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortalsApi->getPortalsAsync: ', $e->getMessage(), PHP_EOL;
@@ -430,6 +433,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_portal_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters**](../Model/WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -441,7 +445,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -751,7 +755,7 @@ No authorization required
 ## `initializeCurrentWebPortalAsync()`
 
 ```php
-initializeCurrentWebPortalAsync($api_version, $x_api_version): \OpenAPI\Client\Model\WebPortalDtoEnvelope
+initializeCurrentWebPortalAsync($api_version, $x_api_version): \OpenAPI\Client\Model\ExecutionContextEnvelope
 ```
 
 Initialize the current portal
@@ -791,7 +795,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebPortalDtoEnvelope**](../Model/WebPortalDtoEnvelope.md)
+[**\OpenAPI\Client\Model\ExecutionContextEnvelope**](../Model/ExecutionContextEnvelope.md)
 
 ### Authorization
 
@@ -809,7 +813,7 @@ No authorization required
 ## `patchWebPortalAsync()`
 
 ```php
-patchWebPortalAsync($tenant_id, $portal_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWebPortalAsync($tenant_id, $portal_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially update a web portal
@@ -833,10 +837,10 @@ $tenant_id = 'tenant_id_example'; // string
 $portal_id = 'portal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWebPortalAsync($tenant_id, $portal_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchWebPortalAsync($tenant_id, $portal_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortalsApi->patchWebPortalAsync: ', $e->getMessage(), PHP_EOL;
@@ -851,7 +855,7 @@ try {
 | **portal_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

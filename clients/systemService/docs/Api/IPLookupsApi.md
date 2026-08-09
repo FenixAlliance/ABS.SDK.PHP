@@ -133,7 +133,7 @@ No authorization required
 ## `getSystemIPLookups()`
 
 ```php
-getSystemIPLookups($api_version, $x_api_version): \OpenAPI\Client\Model\IPLookupDtoListEnvelope
+getSystemIPLookups($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters): \OpenAPI\Client\Model\IPLookupDtoListEnvelope
 ```
 
 Retrieve a list of system IP lookups
@@ -155,9 +155,10 @@ $apiInstance = new OpenAPI\Client\Api\IPLookupsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$ip_lookup_dto_collection_query_parameters = new \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemIPLookups($api_version, $x_api_version);
+    $result = $apiInstance->getSystemIPLookups($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IPLookupsApi->getSystemIPLookups: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +171,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **ip_lookup_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters**](../Model/IPLookupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -181,7 +183,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -191,7 +193,7 @@ No authorization required
 ## `getSystemIPLookupsCount()`
 
 ```php
-getSystemIPLookupsCount($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSystemIPLookupsCount($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of system IP lookups
@@ -213,9 +215,10 @@ $apiInstance = new OpenAPI\Client\Api\IPLookupsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$ip_lookup_dto_collection_query_parameters = new \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemIPLookupsCount($api_version, $x_api_version);
+    $result = $apiInstance->getSystemIPLookupsCount($api_version, $x_api_version, $ip_lookup_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IPLookupsApi->getSystemIPLookupsCount: ', $e->getMessage(), PHP_EOL;
@@ -228,6 +231,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **ip_lookup_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\IPLookupDtoCollectionQueryParameters**](../Model/IPLookupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -239,7 +243,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

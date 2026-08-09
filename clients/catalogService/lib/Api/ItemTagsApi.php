@@ -84,6 +84,7 @@ class ItemTagsApi
         ],
         'getItemTagsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemTagAsync' => [
             'application/json',
@@ -1263,15 +1264,16 @@ class ItemTagsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTagsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTagDtoListEnvelope
      */
-    public function getItemTagsAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
+    public function getItemTagsAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
     {
-        list($response) = $this->getItemTagsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemTagsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1283,15 +1285,16 @@ class ItemTagsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTagsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemTagDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemTagsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
+    public function getItemTagsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
     {
-        $request = $this->getItemTagsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemTagsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1480,14 +1483,15 @@ class ItemTagsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTagsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemTagsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
+    public function getItemTagsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
     {
-        return $this->getItemTagsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemTagsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1503,15 +1507,16 @@ class ItemTagsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTagsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemTagsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
+    public function getItemTagsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemTagDtoListEnvelope';
-        $request = $this->getItemTagsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemTagsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1555,13 +1560,15 @@ class ItemTagsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters $item_tag_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemTagsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemTagsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
+    public function getItemTagsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_tag_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemTagsAsync'][0])
     {
+
 
 
 
@@ -1607,7 +1614,14 @@ class ItemTagsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_tag_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_tag_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_tag_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1662,16 +1676,16 @@ class ItemTagsApi
      * @param  string $item_tag_id item_tag_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemTagAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchItemTagAsync($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
+    public function patchItemTagAsync($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
     {
-        $this->patchItemTagAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchItemTagAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1683,16 +1697,16 @@ class ItemTagsApi
      * @param  string $item_tag_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemTagAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemTagAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
+    public function patchItemTagAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
     {
-        $request = $this->patchItemTagAsyncRequest($tenant_id, $item_tag_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemTagAsyncRequest($tenant_id, $item_tag_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1751,15 +1765,15 @@ class ItemTagsApi
      * @param  string $item_tag_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemTagAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemTagAsyncAsync($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
+    public function patchItemTagAsyncAsync($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
     {
-        return $this->patchItemTagAsyncAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemTagAsyncAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1776,16 +1790,16 @@ class ItemTagsApi
      * @param  string $item_tag_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemTagAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemTagAsyncAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
+    public function patchItemTagAsyncAsyncWithHttpInfo($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchItemTagAsyncRequest($tenant_id, $item_tag_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemTagAsyncRequest($tenant_id, $item_tag_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1817,13 +1831,13 @@ class ItemTagsApi
      * @param  string $item_tag_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemTagAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemTagAsyncRequest($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
+    public function patchItemTagAsyncRequest($tenant_id, $item_tag_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemTagAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1892,12 +1906,12 @@ class ItemTagsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countWebContentsAsync()`
 
 ```php
-countWebContentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countWebContentsAsync($tenant_id, $api_version, $x_api_version, $web_content_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count web contents
@@ -39,9 +39,10 @@ $apiInstance = new OpenAPI\Client\Api\WebContentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_content_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebContentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebContentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countWebContentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countWebContentsAsync($tenant_id, $api_version, $x_api_version, $web_content_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebContentsApi->countWebContentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_content_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebContentDtoCollectionQueryParameters**](../Model/WebContentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getWebContentsAsync()`
 
 ```php
-getWebContentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebContentDtoListEnvelope
+getWebContentsAsync($tenant_id, $api_version, $x_api_version, $web_content_dto_collection_query_parameters): \OpenAPI\Client\Model\WebContentDtoListEnvelope
 ```
 
 Get web contents
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\WebContentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_content_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebContentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebContentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWebContentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWebContentsAsync($tenant_id, $api_version, $x_api_version, $web_content_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebContentsApi->getWebContentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_content_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebContentDtoCollectionQueryParameters**](../Model/WebContentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchWebContentAsync()`
 
 ```php
-patchWebContentAsync($tenant_id, $web_content_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWebContentAsync($tenant_id, $web_content_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a web content
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $web_content_id = 'web_content_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWebContentAsync($tenant_id, $web_content_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchWebContentAsync($tenant_id, $web_content_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebContentsApi->patchWebContentAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **web_content_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

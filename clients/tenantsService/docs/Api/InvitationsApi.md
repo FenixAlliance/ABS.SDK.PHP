@@ -260,7 +260,7 @@ No authorization required
 ## `getTenantInvitations()`
 
 ```php
-getTenantInvitations($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantInvitationDtoListEnvelope
+getTenantInvitations($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantInvitationDtoListEnvelope
 ```
 
 Retrieve a list of tenant invitations
@@ -283,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\InvitationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_invitation_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantInvitations($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantInvitations($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvitationsApi->getTenantInvitations: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_invitation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters**](../Model/TenantInvitationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +322,7 @@ No authorization required
 ## `getTenantInvitationsCount()`
 
 ```php
-getTenantInvitationsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantInvitationsCount($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant invitations
@@ -343,9 +345,10 @@ $apiInstance = new OpenAPI\Client\Api\InvitationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_invitation_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantInvitationsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantInvitationsCount($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvitationsApi->getTenantInvitationsCount: ', $e->getMessage(), PHP_EOL;
@@ -359,6 +362,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_invitation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters**](../Model/TenantInvitationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -370,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

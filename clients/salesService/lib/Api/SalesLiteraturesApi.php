@@ -74,6 +74,7 @@ class SalesLiteraturesApi
     public const contentTypes = [
         'countSalesLiteraturesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createSalesLiteratureAsync' => [
             'application/json',
@@ -84,12 +85,14 @@ class SalesLiteraturesApi
         ],
         'getExtendedSalesLiteraturesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSalesLiteratureAsync' => [
             'application/json',
         ],
         'getSalesLiteraturesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSalesLiteratureAsync' => [
             'application/json',
@@ -153,15 +156,16 @@ class SalesLiteraturesApi
      * Get sales literatures count
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countSalesLiteraturesAsync($tenant_id, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
+    public function countSalesLiteraturesAsync($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
     {
-        list($response) = $this->countSalesLiteraturesAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->countSalesLiteraturesAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -171,15 +175,16 @@ class SalesLiteraturesApi
      * Get sales literatures count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countSalesLiteraturesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
+    public function countSalesLiteraturesAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
     {
-        $request = $this->countSalesLiteraturesAsyncRequest($tenant_id, $contentType);
+        $request = $this->countSalesLiteraturesAsyncRequest($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -331,14 +336,15 @@ class SalesLiteraturesApi
      * Get sales literatures count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countSalesLiteraturesAsyncAsync($tenant_id, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
+    public function countSalesLiteraturesAsyncAsync($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
     {
-        return $this->countSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->countSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -352,15 +358,16 @@ class SalesLiteraturesApi
      * Get sales literatures count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
+    public function countSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countSalesLiteraturesAsyncRequest($tenant_id, $contentType);
+        $request = $this->countSalesLiteraturesAsyncRequest($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -402,12 +409,13 @@ class SalesLiteraturesApi
      * Create request for operation 'countSalesLiteraturesAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countSalesLiteraturesAsyncRequest($tenant_id, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
+    public function countSalesLiteraturesAsyncRequest($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSalesLiteraturesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -416,6 +424,7 @@ class SalesLiteraturesApi
                 'Missing the required parameter $tenant_id when calling countSalesLiteraturesAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/SalesLiteratures/Count';
@@ -445,7 +454,14 @@ class SalesLiteraturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($sales_literature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sales_literature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $sales_literature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1218,15 +1234,16 @@ class SalesLiteraturesApi
      * Get extended sales literatures
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters $extended_sales_literature_dto_collection_query_parameters extended_sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope
      */
-    public function getExtendedSalesLiteraturesAsync($tenant_id, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
+    public function getExtendedSalesLiteraturesAsync($tenant_id, $extended_sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
     {
-        list($response) = $this->getExtendedSalesLiteraturesAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getExtendedSalesLiteraturesAsyncWithHttpInfo($tenant_id, $extended_sales_literature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1236,15 +1253,16 @@ class SalesLiteraturesApi
      * Get extended sales literatures
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters $extended_sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedSalesLiteraturesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
+    public function getExtendedSalesLiteraturesAsyncWithHttpInfo($tenant_id, $extended_sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
     {
-        $request = $this->getExtendedSalesLiteraturesAsyncRequest($tenant_id, $contentType);
+        $request = $this->getExtendedSalesLiteraturesAsyncRequest($tenant_id, $extended_sales_literature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1396,14 +1414,15 @@ class SalesLiteraturesApi
      * Get extended sales literatures
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters $extended_sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedSalesLiteraturesAsyncAsync($tenant_id, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
+    public function getExtendedSalesLiteraturesAsyncAsync($tenant_id, $extended_sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
     {
-        return $this->getExtendedSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getExtendedSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $extended_sales_literature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1417,15 +1436,16 @@ class SalesLiteraturesApi
      * Get extended sales literatures
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters $extended_sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
+    public function getExtendedSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $extended_sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope';
-        $request = $this->getExtendedSalesLiteraturesAsyncRequest($tenant_id, $contentType);
+        $request = $this->getExtendedSalesLiteraturesAsyncRequest($tenant_id, $extended_sales_literature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1467,12 +1487,13 @@ class SalesLiteraturesApi
      * Create request for operation 'getExtendedSalesLiteraturesAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters $extended_sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedSalesLiteraturesAsyncRequest($tenant_id, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
+    public function getExtendedSalesLiteraturesAsyncRequest($tenant_id, $extended_sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedSalesLiteraturesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1481,6 +1502,7 @@ class SalesLiteraturesApi
                 'Missing the required parameter $tenant_id when calling getExtendedSalesLiteraturesAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/SalesLiteratures/Extended';
@@ -1510,7 +1532,14 @@ class SalesLiteraturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_sales_literature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_sales_literature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_sales_literature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1926,15 +1955,16 @@ class SalesLiteraturesApi
      * Get sales literatures
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope
      */
-    public function getSalesLiteraturesAsync($tenant_id, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
+    public function getSalesLiteraturesAsync($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
     {
-        list($response) = $this->getSalesLiteraturesAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getSalesLiteraturesAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1944,15 +1974,16 @@ class SalesLiteraturesApi
      * Get sales literatures
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSalesLiteraturesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
+    public function getSalesLiteraturesAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
     {
-        $request = $this->getSalesLiteraturesAsyncRequest($tenant_id, $contentType);
+        $request = $this->getSalesLiteraturesAsyncRequest($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2104,14 +2135,15 @@ class SalesLiteraturesApi
      * Get sales literatures
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesLiteraturesAsyncAsync($tenant_id, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
+    public function getSalesLiteraturesAsyncAsync($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
     {
-        return $this->getSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2125,15 +2157,16 @@ class SalesLiteraturesApi
      * Get sales literatures
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
+    public function getSalesLiteraturesAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope';
-        $request = $this->getSalesLiteraturesAsyncRequest($tenant_id, $contentType);
+        $request = $this->getSalesLiteraturesAsyncRequest($tenant_id, $sales_literature_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2175,12 +2208,13 @@ class SalesLiteraturesApi
      * Create request for operation 'getSalesLiteraturesAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters $sales_literature_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSalesLiteraturesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSalesLiteraturesAsyncRequest($tenant_id, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
+    public function getSalesLiteraturesAsyncRequest($tenant_id, $sales_literature_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSalesLiteraturesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2189,6 +2223,7 @@ class SalesLiteraturesApi
                 'Missing the required parameter $tenant_id when calling getSalesLiteraturesAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/SalesLiteratures';
@@ -2218,7 +2253,14 @@ class SalesLiteraturesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($sales_literature_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sales_literature_dto_collection_query_parameters));
+            } else {
+                $httpBody = $sales_literature_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2271,16 +2313,16 @@ class SalesLiteraturesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $sales_literature_id sales_literature_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSalesLiteratureAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSalesLiteratureAsync($tenant_id, $sales_literature_id, $operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
+    public function patchSalesLiteratureAsync($tenant_id, $sales_literature_id, $patch_operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
     {
-        list($response) = $this->patchSalesLiteratureAsyncWithHttpInfo($tenant_id, $sales_literature_id, $operation, $contentType);
+        list($response) = $this->patchSalesLiteratureAsyncWithHttpInfo($tenant_id, $sales_literature_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2291,16 +2333,16 @@ class SalesLiteraturesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $sales_literature_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSalesLiteratureAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSalesLiteratureAsyncWithHttpInfo($tenant_id, $sales_literature_id, $operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
+    public function patchSalesLiteratureAsyncWithHttpInfo($tenant_id, $sales_literature_id, $patch_operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
     {
-        $request = $this->patchSalesLiteratureAsyncRequest($tenant_id, $sales_literature_id, $operation, $contentType);
+        $request = $this->patchSalesLiteratureAsyncRequest($tenant_id, $sales_literature_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2453,15 +2495,15 @@ class SalesLiteraturesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $sales_literature_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSalesLiteratureAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSalesLiteratureAsyncAsync($tenant_id, $sales_literature_id, $operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
+    public function patchSalesLiteratureAsyncAsync($tenant_id, $sales_literature_id, $patch_operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
     {
-        return $this->patchSalesLiteratureAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_id, $operation, $contentType)
+        return $this->patchSalesLiteratureAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2476,16 +2518,16 @@ class SalesLiteraturesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $sales_literature_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSalesLiteratureAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSalesLiteratureAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_id, $operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
+    public function patchSalesLiteratureAsyncAsyncWithHttpInfo($tenant_id, $sales_literature_id, $patch_operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSalesLiteratureAsyncRequest($tenant_id, $sales_literature_id, $operation, $contentType);
+        $request = $this->patchSalesLiteratureAsyncRequest($tenant_id, $sales_literature_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2528,13 +2570,13 @@ class SalesLiteraturesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $sales_literature_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSalesLiteratureAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSalesLiteratureAsyncRequest($tenant_id, $sales_literature_id, $operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
+    public function patchSalesLiteratureAsyncRequest($tenant_id, $sales_literature_id, $patch_operation = null, string $contentType = self::contentTypes['patchSalesLiteratureAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2588,12 +2630,12 @@ class SalesLiteraturesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

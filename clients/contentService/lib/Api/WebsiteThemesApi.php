@@ -84,9 +84,11 @@ class WebsiteThemesApi
         ],
         'getWebsiteThemesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWebsiteThemesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchWebsiteThemeAsync' => [
             'application/json',
@@ -1127,15 +1129,16 @@ class WebsiteThemesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebsiteThemeDtoListEnvelope
      */
-    public function getWebsiteThemesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
+    public function getWebsiteThemesAsync($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
     {
-        list($response) = $this->getWebsiteThemesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebsiteThemesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1147,15 +1150,16 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebsiteThemeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebsiteThemesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
+    public function getWebsiteThemesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
     {
-        $request = $this->getWebsiteThemesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebsiteThemesAsyncRequest($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,14 +1313,15 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebsiteThemesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
+    public function getWebsiteThemesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
     {
-        return $this->getWebsiteThemesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebsiteThemesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,15 +1337,16 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebsiteThemesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
+    public function getWebsiteThemesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WebsiteThemeDtoListEnvelope';
-        $request = $this->getWebsiteThemesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebsiteThemesAsyncRequest($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,12 +1390,13 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebsiteThemesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
+    public function getWebsiteThemesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1398,6 +1405,7 @@ class WebsiteThemesApi
                 'Missing the required parameter $tenant_id when calling getWebsiteThemesAsync'
             );
         }
+
 
 
 
@@ -1442,7 +1450,14 @@ class WebsiteThemesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($website_theme_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($website_theme_dto_collection_query_parameters));
+            } else {
+                $httpBody = $website_theme_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1496,15 +1511,16 @@ class WebsiteThemesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWebsiteThemesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
+    public function getWebsiteThemesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
     {
-        list($response) = $this->getWebsiteThemesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebsiteThemesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1516,15 +1532,16 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebsiteThemesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
+    public function getWebsiteThemesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
     {
-        $request = $this->getWebsiteThemesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebsiteThemesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1678,14 +1695,15 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebsiteThemesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
+    public function getWebsiteThemesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
     {
-        return $this->getWebsiteThemesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebsiteThemesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,15 +1719,16 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebsiteThemesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
+    public function getWebsiteThemesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWebsiteThemesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebsiteThemesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $website_theme_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,12 +1772,13 @@ class WebsiteThemesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebsiteThemeDtoCollectionQueryParameters $website_theme_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebsiteThemesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebsiteThemesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
+    public function getWebsiteThemesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $website_theme_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebsiteThemesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1767,6 +1787,7 @@ class WebsiteThemesApi
                 'Missing the required parameter $tenant_id when calling getWebsiteThemesCountAsync'
             );
         }
+
 
 
 
@@ -1811,7 +1832,14 @@ class WebsiteThemesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($website_theme_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($website_theme_dto_collection_query_parameters));
+            } else {
+                $httpBody = $website_theme_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1866,16 +1894,16 @@ class WebsiteThemesApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebsiteThemeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchWebsiteThemeAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
+    public function patchWebsiteThemeAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
     {
-        $this->patchWebsiteThemeAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchWebsiteThemeAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1887,16 +1915,16 @@ class WebsiteThemesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebsiteThemeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWebsiteThemeAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
+    public function patchWebsiteThemeAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
     {
-        $request = $this->patchWebsiteThemeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWebsiteThemeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1955,15 +1983,15 @@ class WebsiteThemesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebsiteThemeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWebsiteThemeAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
+    public function patchWebsiteThemeAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
     {
-        return $this->patchWebsiteThemeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWebsiteThemeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1980,16 +2008,16 @@ class WebsiteThemesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebsiteThemeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWebsiteThemeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
+    public function patchWebsiteThemeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchWebsiteThemeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWebsiteThemeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2021,13 +2049,13 @@ class WebsiteThemesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebsiteThemeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWebsiteThemeAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
+    public function patchWebsiteThemeAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebsiteThemeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2096,12 +2124,12 @@ class WebsiteThemesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -17,7 +17,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countSalesLiteraturesAsync()`
 
 ```php
-countSalesLiteraturesAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+countSalesLiteraturesAsync($tenant_id, $sales_literature_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get sales literatures count
@@ -38,9 +38,10 @@ $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$sales_literature_dto_collection_query_parameters = new \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countSalesLiteraturesAsync($tenant_id);
+    $result = $apiInstance->countSalesLiteraturesAsync($tenant_id, $sales_literature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalesLiteraturesApi->countSalesLiteraturesAsync: ', $e->getMessage(), PHP_EOL;
@@ -52,6 +53,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **sales_literature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters**](../Model/SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -63,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -189,7 +191,7 @@ No authorization required
 ## `getExtendedSalesLiteraturesAsync()`
 
 ```php
-getExtendedSalesLiteraturesAsync($tenant_id): \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope
+getExtendedSalesLiteraturesAsync($tenant_id, $extended_sales_literature_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope
 ```
 
 Get extended sales literatures
@@ -210,9 +212,10 @@ $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$extended_sales_literature_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedSalesLiteraturesAsync($tenant_id);
+    $result = $apiInstance->getExtendedSalesLiteraturesAsync($tenant_id, $extended_sales_literature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalesLiteraturesApi->getExtendedSalesLiteraturesAsync: ', $e->getMessage(), PHP_EOL;
@@ -224,6 +227,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **extended_sales_literature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedSalesLiteratureDtoCollectionQueryParameters**](../Model/ExtendedSalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -235,7 +239,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -303,7 +307,7 @@ No authorization required
 ## `getSalesLiteraturesAsync()`
 
 ```php
-getSalesLiteraturesAsync($tenant_id): \OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope
+getSalesLiteraturesAsync($tenant_id, $sales_literature_dto_collection_query_parameters): \OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope
 ```
 
 Get sales literatures
@@ -324,9 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$sales_literature_dto_collection_query_parameters = new \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSalesLiteraturesAsync($tenant_id);
+    $result = $apiInstance->getSalesLiteraturesAsync($tenant_id, $sales_literature_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalesLiteraturesApi->getSalesLiteraturesAsync: ', $e->getMessage(), PHP_EOL;
@@ -338,6 +343,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **sales_literature_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SalesLiteratureDtoCollectionQueryParameters**](../Model/SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -359,7 +365,7 @@ No authorization required
 ## `patchSalesLiteratureAsync()`
 
 ```php
-patchSalesLiteratureAsync($tenant_id, $sales_literature_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSalesLiteratureAsync($tenant_id, $sales_literature_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a sales literature
@@ -381,10 +387,10 @@ $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $sales_literature_id = 'sales_literature_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSalesLiteratureAsync($tenant_id, $sales_literature_id, $operation);
+    $result = $apiInstance->patchSalesLiteratureAsync($tenant_id, $sales_literature_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalesLiteraturesApi->patchSalesLiteratureAsync: ', $e->getMessage(), PHP_EOL;
@@ -397,7 +403,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **sales_literature_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

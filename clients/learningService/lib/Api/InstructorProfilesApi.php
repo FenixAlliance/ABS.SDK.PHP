@@ -1517,16 +1517,16 @@ class InstructorProfilesApi
      * @param  string $instructor_profile_id instructor_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
+    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
     {
-        list($response) = $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1537,16 +1537,16 @@ class InstructorProfilesApi
      * @param  string $instructor_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
+    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
     {
-        $request = $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1699,15 +1699,15 @@ class InstructorProfilesApi
      * @param  string $instructor_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsync($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
+    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsync($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
     {
-        return $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsyncWithHttpInfo($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsyncWithHttpInfo($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1722,16 +1722,16 @@ class InstructorProfilesApi
      * @param  string $instructor_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsyncWithHttpInfo($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
+    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsyncWithHttpInfo($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1776,13 +1776,13 @@ class InstructorProfilesApi
      * @param  string $instructor_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
+    public function apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchRequest($tenant_id, $instructor_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1851,12 +1851,12 @@ class InstructorProfilesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

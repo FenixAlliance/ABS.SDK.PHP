@@ -138,7 +138,7 @@ No authorization required
 ## `getItemShippingPoliciesAsync()`
 
 ```php
-getItemShippingPoliciesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
+getItemShippingPoliciesAsync($tenant_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
 ```
 
 Get all item shipping policies
@@ -161,9 +161,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemShippingPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_shipping_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemShippingPoliciesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemShippingPoliciesAsync($tenant_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemShippingPoliciesApi->getItemShippingPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -177,6 +178,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_shipping_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters**](../Model/ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -188,7 +190,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -198,7 +200,7 @@ No authorization required
 ## `getItemShippingPoliciesCountAsync()`
 
 ```php
-getItemShippingPoliciesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemShippingPoliciesCountAsync($tenant_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get item shipping policies count
@@ -221,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemShippingPoliciesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_shipping_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemShippingPoliciesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemShippingPoliciesCountAsync($tenant_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemShippingPoliciesApi->getItemShippingPoliciesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_shipping_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters**](../Model/ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchItemShippingPolicyAsync()`
 
 ```php
-patchItemShippingPolicyAsync($tenant_id, $policy_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemShippingPolicyAsync($tenant_id, $policy_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an item shipping policy
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $policy_id = 'policy_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemShippingPolicyAsync($tenant_id, $policy_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemShippingPolicyAsync($tenant_id, $policy_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemShippingPoliciesApi->patchItemShippingPolicyAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **policy_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

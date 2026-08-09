@@ -74,9 +74,11 @@ class WebhooksApi
     public const contentTypes = [
         'getWebhookRequestsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWebhookRequestsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -134,15 +136,16 @@ class WebhooksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebhookRequestDtoListEnvelope
      */
-    public function getWebhookRequestsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
+    public function getWebhookRequestsAsync($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
     {
-        list($response) = $this->getWebhookRequestsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebhookRequestsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -154,15 +157,16 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebhookRequestDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookRequestsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
+    public function getWebhookRequestsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
     {
-        $request = $this->getWebhookRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebhookRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,14 +355,15 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookRequestsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
+    public function getWebhookRequestsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
     {
-        return $this->getWebhookRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebhookRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -374,15 +379,16 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
+    public function getWebhookRequestsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WebhookRequestDtoListEnvelope';
-        $request = $this->getWebhookRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebhookRequestsAsyncRequest($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -426,12 +432,13 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookRequestsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
+    public function getWebhookRequestsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -440,6 +447,7 @@ class WebhooksApi
                 'Missing the required parameter $tenant_id when calling getWebhookRequestsAsync'
             );
         }
+
 
 
 
@@ -484,7 +492,14 @@ class WebhooksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($webhook_request_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($webhook_request_dto_collection_query_parameters));
+            } else {
+                $httpBody = $webhook_request_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -538,15 +553,16 @@ class WebhooksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWebhookRequestsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
+    public function getWebhookRequestsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
     {
-        list($response) = $this->getWebhookRequestsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebhookRequestsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -558,15 +574,16 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookRequestsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
+    public function getWebhookRequestsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
     {
-        $request = $this->getWebhookRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebhookRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -755,14 +772,15 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookRequestsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
+    public function getWebhookRequestsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
     {
-        return $this->getWebhookRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebhookRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -778,15 +796,16 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
+    public function getWebhookRequestsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWebhookRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebhookRequestsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $webhook_request_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -830,12 +849,13 @@ class WebhooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebhookRequestDtoCollectionQueryParameters $webhook_request_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookRequestsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookRequestsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
+    public function getWebhookRequestsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $webhook_request_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebhookRequestsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -844,6 +864,7 @@ class WebhooksApi
                 'Missing the required parameter $tenant_id when calling getWebhookRequestsCountAsync'
             );
         }
+
 
 
 
@@ -888,7 +909,14 @@ class WebhooksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($webhook_request_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($webhook_request_dto_collection_query_parameters));
+            } else {
+                $httpBody = $webhook_request_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

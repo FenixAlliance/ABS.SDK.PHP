@@ -1198,7 +1198,7 @@ No authorization required
 ## `getTenantNotificationsAsync()`
 
 ```php
-getTenantNotificationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\NotificationDtoListEnvelope
+getTenantNotificationsAsync($tenant_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters): \OpenAPI\Client\Model\NotificationDtoListEnvelope
 ```
 
 Get the list of notifications for a tenant
@@ -1221,9 +1221,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$notification_dto_collection_query_parameters = new \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantNotificationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantNotificationsAsync($tenant_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->getTenantNotificationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1237,6 +1238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **notification_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters**](../Model/NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1248,7 +1250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1258,7 +1260,7 @@ No authorization required
 ## `getTenantNotificationsCountAsync()`
 
 ```php
-getTenantNotificationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantNotificationsCountAsync($tenant_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of notifications for a tenant
@@ -1281,9 +1283,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$notification_dto_collection_query_parameters = new \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantNotificationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantNotificationsCountAsync($tenant_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->getTenantNotificationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1297,6 +1300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **notification_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters**](../Model/NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1308,7 +1312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1738,7 +1742,7 @@ No authorization required
 ## `patchTenantAsync()`
 
 ```php
-patchTenantAsync($tenant_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenantAsync($tenant_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tenant's profile
@@ -1761,10 +1765,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenantAsync($tenant_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenantAsync($tenant_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->patchTenantAsync: ', $e->getMessage(), PHP_EOL;
@@ -1778,7 +1782,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

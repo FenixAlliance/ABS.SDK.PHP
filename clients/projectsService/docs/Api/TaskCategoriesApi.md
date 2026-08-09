@@ -17,7 +17,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countTenantTaskCategoriesAsync()`
 
 ```php
-countTenantTaskCategoriesAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+countTenantTaskCategoriesAsync($tenant_id, $task_category_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts task categories
@@ -38,9 +38,10 @@ $apiInstance = new OpenAPI\Client\Api\TaskCategoriesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$task_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countTenantTaskCategoriesAsync($tenant_id);
+    $result = $apiInstance->countTenantTaskCategoriesAsync($tenant_id, $task_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskCategoriesApi->countTenantTaskCategoriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -52,6 +53,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **task_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters**](../Model/TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -63,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -305,7 +307,7 @@ No authorization required
 ## `getTenantTaskCategoriesAsync()`
 
 ```php
-getTenantTaskCategoriesAsync($tenant_id): \OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
+getTenantTaskCategoriesAsync($tenant_id, $task_category_dto_collection_query_parameters): \OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
 ```
 
 Retrieves all task categories
@@ -326,9 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\TaskCategoriesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$task_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantTaskCategoriesAsync($tenant_id);
+    $result = $apiInstance->getTenantTaskCategoriesAsync($tenant_id, $task_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskCategoriesApi->getTenantTaskCategoriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -340,6 +343,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **task_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters**](../Model/TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -361,7 +365,7 @@ No authorization required
 ## `patchTaskCategoryAsync()`
 
 ```php
-patchTaskCategoryAsync($task_category_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTaskCategoryAsync($task_category_id, $tenant_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a task category
@@ -383,10 +387,10 @@ $apiInstance = new OpenAPI\Client\Api\TaskCategoriesApi(
 );
 $task_category_id = 'task_category_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTaskCategoryAsync($task_category_id, $tenant_id, $operation);
+    $result = $apiInstance->patchTaskCategoryAsync($task_category_id, $tenant_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskCategoriesApi->patchTaskCategoryAsync: ', $e->getMessage(), PHP_EOL;
@@ -399,7 +403,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **task_category_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

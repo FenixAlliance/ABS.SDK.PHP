@@ -91,18 +91,22 @@ class TransactionsApi
         ],
         'getTransactionCategories' => [
             'application/json',
+            'application/xml',
         ],
         'getTransactionCategoriesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getTransactionCategory' => [
             'application/json',
         ],
         'getTransactions' => [
             'application/json',
+            'application/xml',
         ],
         'getTransactionsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchTransaction' => [
             'application/json',
@@ -2457,15 +2461,16 @@ class TransactionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategories'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TransactionCategoryDtoListEnvelope
      */
-    public function getTransactionCategories($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
+    public function getTransactionCategories($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
     {
-        list($response) = $this->getTransactionCategoriesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTransactionCategoriesWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2477,15 +2482,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategories'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TransactionCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTransactionCategoriesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
+    public function getTransactionCategoriesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
     {
-        $request = $this->getTransactionCategoriesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionCategoriesRequest($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2674,14 +2680,15 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionCategoriesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
+    public function getTransactionCategoriesAsync($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
     {
-        return $this->getTransactionCategoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTransactionCategoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2697,15 +2704,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionCategoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
+    public function getTransactionCategoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TransactionCategoryDtoListEnvelope';
-        $request = $this->getTransactionCategoriesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionCategoriesRequest($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2749,12 +2757,13 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTransactionCategoriesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
+    public function getTransactionCategoriesRequest($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategories'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2763,6 +2772,7 @@ class TransactionsApi
                 'Missing the required parameter $tenant_id when calling getTransactionCategories'
             );
         }
+
 
 
 
@@ -2807,7 +2817,14 @@ class TransactionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($transaction_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transaction_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $transaction_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2861,15 +2878,16 @@ class TransactionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategoriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTransactionCategoriesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
+    public function getTransactionCategoriesCount($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
     {
-        list($response) = $this->getTransactionCategoriesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTransactionCategoriesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2881,15 +2899,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategoriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTransactionCategoriesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
+    public function getTransactionCategoriesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
     {
-        $request = $this->getTransactionCategoriesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionCategoriesCountRequest($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3078,14 +3097,15 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionCategoriesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
+    public function getTransactionCategoriesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
     {
-        return $this->getTransactionCategoriesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTransactionCategoriesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3101,15 +3121,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionCategoriesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
+    public function getTransactionCategoriesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTransactionCategoriesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionCategoriesCountRequest($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3153,12 +3174,13 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters $transaction_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionCategoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTransactionCategoriesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
+    public function getTransactionCategoriesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $transaction_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionCategoriesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3167,6 +3189,7 @@ class TransactionsApi
                 'Missing the required parameter $tenant_id when calling getTransactionCategoriesCount'
             );
         }
+
 
 
 
@@ -3211,7 +3234,14 @@ class TransactionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($transaction_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transaction_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $transaction_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3724,15 +3754,16 @@ class TransactionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TransactionDtoListEnvelope
      */
-    public function getTransactions($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactions($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        list($response) = $this->getTransactionsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTransactionsWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3744,15 +3775,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TransactionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTransactionsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        $request = $this->getTransactionsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionsRequest($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3941,14 +3973,15 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsAsync($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        return $this->getTransactionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTransactionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3964,15 +3997,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TransactionDtoListEnvelope';
-        $request = $this->getTransactionsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionsRequest($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4016,12 +4050,13 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTransactionsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsRequest($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4030,6 +4065,7 @@ class TransactionsApi
                 'Missing the required parameter $tenant_id when calling getTransactions'
             );
         }
+
 
 
 
@@ -4074,7 +4110,14 @@ class TransactionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($transaction_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transaction_dto_collection_query_parameters));
+            } else {
+                $httpBody = $transaction_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4128,15 +4171,16 @@ class TransactionsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTransactionsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
+    public function getTransactionsCount($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
     {
-        list($response) = $this->getTransactionsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTransactionsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4148,15 +4192,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTransactionsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
+    public function getTransactionsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
     {
-        $request = $this->getTransactionsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionsCountRequest($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4345,14 +4390,15 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
+    public function getTransactionsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
     {
-        return $this->getTransactionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTransactionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4368,15 +4414,16 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
+    public function getTransactionsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTransactionsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTransactionsCountRequest($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4420,12 +4467,13 @@ class TransactionsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters $transaction_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransactionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTransactionsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
+    public function getTransactionsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $transaction_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTransactionsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4434,6 +4482,7 @@ class TransactionsApi
                 'Missing the required parameter $tenant_id when calling getTransactionsCount'
             );
         }
+
 
 
 
@@ -4478,7 +4527,14 @@ class TransactionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($transaction_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transaction_dto_collection_query_parameters));
+            } else {
+                $httpBody = $transaction_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4533,16 +4589,16 @@ class TransactionsApi
      * @param  string $transaction_id transaction_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransaction'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTransaction($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
+    public function patchTransaction($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
     {
-        list($response) = $this->patchTransactionWithHttpInfo($tenant_id, $transaction_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTransactionWithHttpInfo($tenant_id, $transaction_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4555,16 +4611,16 @@ class TransactionsApi
      * @param  string $transaction_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransaction'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTransactionWithHttpInfo($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
+    public function patchTransactionWithHttpInfo($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
     {
-        $request = $this->patchTransactionRequest($tenant_id, $transaction_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTransactionRequest($tenant_id, $transaction_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4754,15 +4810,15 @@ class TransactionsApi
      * @param  string $transaction_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTransactionAsync($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
+    public function patchTransactionAsync($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
     {
-        return $this->patchTransactionAsyncWithHttpInfo($tenant_id, $transaction_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTransactionAsyncWithHttpInfo($tenant_id, $transaction_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4779,16 +4835,16 @@ class TransactionsApi
      * @param  string $transaction_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTransactionAsyncWithHttpInfo($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
+    public function patchTransactionAsyncWithHttpInfo($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTransactionRequest($tenant_id, $transaction_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTransactionRequest($tenant_id, $transaction_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4833,13 +4889,13 @@ class TransactionsApi
      * @param  string $transaction_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTransactionRequest($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
+    public function patchTransactionRequest($tenant_id, $transaction_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransaction'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4908,12 +4964,12 @@ class TransactionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4970,16 +5026,16 @@ class TransactionsApi
      * @param  string $category_id category_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransactionCategory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTransactionCategory($tenant_id, $category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
+    public function patchTransactionCategory($tenant_id, $category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
     {
-        list($response) = $this->patchTransactionCategoryWithHttpInfo($tenant_id, $category_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTransactionCategoryWithHttpInfo($tenant_id, $category_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4992,16 +5048,16 @@ class TransactionsApi
      * @param  string $category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransactionCategory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTransactionCategoryWithHttpInfo($tenant_id, $category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
+    public function patchTransactionCategoryWithHttpInfo($tenant_id, $category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
     {
-        $request = $this->patchTransactionCategoryRequest($tenant_id, $category_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTransactionCategoryRequest($tenant_id, $category_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5191,15 +5247,15 @@ class TransactionsApi
      * @param  string $category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransactionCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTransactionCategoryAsync($tenant_id, $category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
+    public function patchTransactionCategoryAsync($tenant_id, $category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
     {
-        return $this->patchTransactionCategoryAsyncWithHttpInfo($tenant_id, $category_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTransactionCategoryAsyncWithHttpInfo($tenant_id, $category_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5216,16 +5272,16 @@ class TransactionsApi
      * @param  string $category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransactionCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTransactionCategoryAsyncWithHttpInfo($tenant_id, $category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
+    public function patchTransactionCategoryAsyncWithHttpInfo($tenant_id, $category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTransactionCategoryRequest($tenant_id, $category_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTransactionCategoryRequest($tenant_id, $category_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5270,13 +5326,13 @@ class TransactionsApi
      * @param  string $category_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTransactionCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTransactionCategoryRequest($tenant_id, $category_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
+    public function patchTransactionCategoryRequest($tenant_id, $category_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTransactionCategory'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5345,12 +5401,12 @@ class TransactionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

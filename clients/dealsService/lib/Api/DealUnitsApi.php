@@ -97,24 +97,29 @@ class DealUnitsApi
         ],
         'getDealUnitLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getDealUnitLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getDealUnitPriceAsync' => [
             'application/json',
         ],
         'getDealUnitsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getDealUnitsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getExtendedDealUnitAsync' => [
             'application/json',
         ],
         'getExtendedDealUnitsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchDealUnitAsync' => [
             'application/json',
@@ -2782,15 +2787,16 @@ class DealUnitsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $deal_unit_id deal_unit_id (required)
      * @param  string $item_id item_id (optional)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DealUnitLineDtoListEnvelope
      */
-    public function getDealUnitLinesAsync($tenant_id, $deal_unit_id, $item_id = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
+    public function getDealUnitLinesAsync($tenant_id, $deal_unit_id, $item_id = null, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
     {
-        list($response) = $this->getDealUnitLinesAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id, $contentType);
+        list($response) = $this->getDealUnitLinesAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id, $deal_unit_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2802,15 +2808,16 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DealUnitLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDealUnitLinesAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
+    public function getDealUnitLinesAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id = null, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
     {
-        $request = $this->getDealUnitLinesAsyncRequest($tenant_id, $deal_unit_id, $item_id, $contentType);
+        $request = $this->getDealUnitLinesAsyncRequest($tenant_id, $deal_unit_id, $item_id, $deal_unit_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2964,14 +2971,15 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitLinesAsyncAsync($tenant_id, $deal_unit_id, $item_id = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
+    public function getDealUnitLinesAsyncAsync($tenant_id, $deal_unit_id, $item_id = null, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
     {
-        return $this->getDealUnitLinesAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id, $contentType)
+        return $this->getDealUnitLinesAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id, $deal_unit_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2987,15 +2995,16 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitLinesAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
+    public function getDealUnitLinesAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $item_id = null, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DealUnitLineDtoListEnvelope';
-        $request = $this->getDealUnitLinesAsyncRequest($tenant_id, $deal_unit_id, $item_id, $contentType);
+        $request = $this->getDealUnitLinesAsyncRequest($tenant_id, $deal_unit_id, $item_id, $deal_unit_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3039,12 +3048,13 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDealUnitLinesAsyncRequest($tenant_id, $deal_unit_id, $item_id = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
+    public function getDealUnitLinesAsyncRequest($tenant_id, $deal_unit_id, $item_id = null, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3060,6 +3070,7 @@ class DealUnitsApi
                 'Missing the required parameter $deal_unit_id when calling getDealUnitLinesAsync'
             );
         }
+
 
 
 
@@ -3107,7 +3118,14 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($deal_unit_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_unit_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $deal_unit_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3160,15 +3178,16 @@ class DealUnitsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $deal_unit_id deal_unit_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getDealUnitLinesCountAsync($tenant_id, $deal_unit_id, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
+    public function getDealUnitLinesCountAsync($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
     {
-        list($response) = $this->getDealUnitLinesCountAsyncWithHttpInfo($tenant_id, $deal_unit_id, $contentType);
+        list($response) = $this->getDealUnitLinesCountAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3179,15 +3198,16 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDealUnitLinesCountAsyncWithHttpInfo($tenant_id, $deal_unit_id, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
+    public function getDealUnitLinesCountAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
     {
-        $request = $this->getDealUnitLinesCountAsyncRequest($tenant_id, $deal_unit_id, $contentType);
+        $request = $this->getDealUnitLinesCountAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3340,14 +3360,15 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitLinesCountAsyncAsync($tenant_id, $deal_unit_id, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
+    public function getDealUnitLinesCountAsyncAsync($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
     {
-        return $this->getDealUnitLinesCountAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $contentType)
+        return $this->getDealUnitLinesCountAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3362,15 +3383,16 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitLinesCountAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
+    public function getDealUnitLinesCountAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getDealUnitLinesCountAsyncRequest($tenant_id, $deal_unit_id, $contentType);
+        $request = $this->getDealUnitLinesCountAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3413,12 +3435,13 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters $deal_unit_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDealUnitLinesCountAsyncRequest($tenant_id, $deal_unit_id, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
+    public function getDealUnitLinesCountAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3434,6 +3457,7 @@ class DealUnitsApi
                 'Missing the required parameter $deal_unit_id when calling getDealUnitLinesCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count';
@@ -3471,7 +3495,14 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($deal_unit_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_unit_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $deal_unit_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3907,15 +3938,16 @@ class DealUnitsApi
      * Get deal units
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DealUnitDtoListEnvelope
      */
-    public function getDealUnitsAsync($tenant_id, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
+    public function getDealUnitsAsync($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
     {
-        list($response) = $this->getDealUnitsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getDealUnitsAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3925,15 +3957,16 @@ class DealUnitsApi
      * Get deal units
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DealUnitDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDealUnitsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
+    public function getDealUnitsAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
     {
-        $request = $this->getDealUnitsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getDealUnitsAsyncRequest($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4085,14 +4118,15 @@ class DealUnitsApi
      * Get deal units
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
+    public function getDealUnitsAsyncAsync($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
     {
-        return $this->getDealUnitsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getDealUnitsAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4106,15 +4140,16 @@ class DealUnitsApi
      * Get deal units
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
+    public function getDealUnitsAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DealUnitDtoListEnvelope';
-        $request = $this->getDealUnitsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getDealUnitsAsyncRequest($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4156,12 +4191,13 @@ class DealUnitsApi
      * Create request for operation 'getDealUnitsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDealUnitsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
+    public function getDealUnitsAsyncRequest($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4170,6 +4206,7 @@ class DealUnitsApi
                 'Missing the required parameter $tenant_id when calling getDealUnitsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/DealsService/DealUnits';
@@ -4199,7 +4236,14 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($deal_unit_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_unit_dto_collection_query_parameters));
+            } else {
+                $httpBody = $deal_unit_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4251,15 +4295,16 @@ class DealUnitsApi
      * Get deal units count
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getDealUnitsCountAsync($tenant_id, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
+    public function getDealUnitsCountAsync($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
     {
-        list($response) = $this->getDealUnitsCountAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getDealUnitsCountAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4269,15 +4314,16 @@ class DealUnitsApi
      * Get deal units count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDealUnitsCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
+    public function getDealUnitsCountAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
     {
-        $request = $this->getDealUnitsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getDealUnitsCountAsyncRequest($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4429,14 +4475,15 @@ class DealUnitsApi
      * Get deal units count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitsCountAsyncAsync($tenant_id, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
+    public function getDealUnitsCountAsyncAsync($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
     {
-        return $this->getDealUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getDealUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4450,15 +4497,16 @@ class DealUnitsApi
      * Get deal units count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDealUnitsCountAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
+    public function getDealUnitsCountAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getDealUnitsCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getDealUnitsCountAsyncRequest($tenant_id, $deal_unit_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4500,12 +4548,13 @@ class DealUnitsApi
      * Create request for operation 'getDealUnitsCountAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters $deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDealUnitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDealUnitsCountAsyncRequest($tenant_id, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
+    public function getDealUnitsCountAsyncRequest($tenant_id, $deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDealUnitsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4514,6 +4563,7 @@ class DealUnitsApi
                 'Missing the required parameter $tenant_id when calling getDealUnitsCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/DealsService/DealUnits/Count';
@@ -4543,7 +4593,14 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($deal_unit_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deal_unit_dto_collection_query_parameters));
+            } else {
+                $httpBody = $deal_unit_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4959,15 +5016,16 @@ class DealUnitsApi
      * Get extended deal units
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters $extended_deal_unit_dto_collection_query_parameters extended_deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedDealUnitDtoListEnvelope
      */
-    public function getExtendedDealUnitsAsync($tenant_id, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
+    public function getExtendedDealUnitsAsync($tenant_id, $extended_deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
     {
-        list($response) = $this->getExtendedDealUnitsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getExtendedDealUnitsAsyncWithHttpInfo($tenant_id, $extended_deal_unit_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4977,15 +5035,16 @@ class DealUnitsApi
      * Get extended deal units
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters $extended_deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedDealUnitDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedDealUnitsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
+    public function getExtendedDealUnitsAsyncWithHttpInfo($tenant_id, $extended_deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
     {
-        $request = $this->getExtendedDealUnitsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getExtendedDealUnitsAsyncRequest($tenant_id, $extended_deal_unit_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5137,14 +5196,15 @@ class DealUnitsApi
      * Get extended deal units
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters $extended_deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedDealUnitsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
+    public function getExtendedDealUnitsAsyncAsync($tenant_id, $extended_deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
     {
-        return $this->getExtendedDealUnitsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getExtendedDealUnitsAsyncAsyncWithHttpInfo($tenant_id, $extended_deal_unit_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5158,15 +5218,16 @@ class DealUnitsApi
      * Get extended deal units
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters $extended_deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedDealUnitsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
+    public function getExtendedDealUnitsAsyncAsyncWithHttpInfo($tenant_id, $extended_deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedDealUnitDtoListEnvelope';
-        $request = $this->getExtendedDealUnitsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getExtendedDealUnitsAsyncRequest($tenant_id, $extended_deal_unit_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5208,12 +5269,13 @@ class DealUnitsApi
      * Create request for operation 'getExtendedDealUnitsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters $extended_deal_unit_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedDealUnitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedDealUnitsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
+    public function getExtendedDealUnitsAsyncRequest($tenant_id, $extended_deal_unit_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedDealUnitsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5222,6 +5284,7 @@ class DealUnitsApi
                 'Missing the required parameter $tenant_id when calling getExtendedDealUnitsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/DealsService/DealUnits/Extended';
@@ -5251,7 +5314,14 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_deal_unit_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_deal_unit_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_deal_unit_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5304,16 +5374,16 @@ class DealUnitsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $deal_unit_id deal_unit_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchDealUnitAsync($tenant_id, $deal_unit_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
+    public function patchDealUnitAsync($tenant_id, $deal_unit_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
     {
-        list($response) = $this->patchDealUnitAsyncWithHttpInfo($tenant_id, $deal_unit_id, $operation, $contentType);
+        list($response) = $this->patchDealUnitAsyncWithHttpInfo($tenant_id, $deal_unit_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5324,16 +5394,16 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDealUnitAsyncWithHttpInfo($tenant_id, $deal_unit_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
+    public function patchDealUnitAsyncWithHttpInfo($tenant_id, $deal_unit_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
     {
-        $request = $this->patchDealUnitAsyncRequest($tenant_id, $deal_unit_id, $operation, $contentType);
+        $request = $this->patchDealUnitAsyncRequest($tenant_id, $deal_unit_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5486,15 +5556,15 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDealUnitAsyncAsync($tenant_id, $deal_unit_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
+    public function patchDealUnitAsyncAsync($tenant_id, $deal_unit_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
     {
-        return $this->patchDealUnitAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $operation, $contentType)
+        return $this->patchDealUnitAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5509,16 +5579,16 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDealUnitAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
+    public function patchDealUnitAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchDealUnitAsyncRequest($tenant_id, $deal_unit_id, $operation, $contentType);
+        $request = $this->patchDealUnitAsyncRequest($tenant_id, $deal_unit_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5561,13 +5631,13 @@ class DealUnitsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDealUnitAsyncRequest($tenant_id, $deal_unit_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
+    public function patchDealUnitAsyncRequest($tenant_id, $deal_unit_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5621,12 +5691,12 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5682,16 +5752,16 @@ class DealUnitsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $deal_unit_id deal_unit_id (required)
      * @param  string $deal_unit_line_id deal_unit_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchDealUnitLineAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
+    public function patchDealUnitLineAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
     {
-        list($response) = $this->patchDealUnitLineAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation, $contentType);
+        list($response) = $this->patchDealUnitLineAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5703,16 +5773,16 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $deal_unit_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchDealUnitLineAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
+    public function patchDealUnitLineAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
     {
-        $request = $this->patchDealUnitLineAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation, $contentType);
+        $request = $this->patchDealUnitLineAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5866,15 +5936,15 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $deal_unit_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDealUnitLineAsyncAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
+    public function patchDealUnitLineAsyncAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
     {
-        return $this->patchDealUnitLineAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation, $contentType)
+        return $this->patchDealUnitLineAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5890,16 +5960,16 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $deal_unit_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchDealUnitLineAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
+    public function patchDealUnitLineAsyncAsyncWithHttpInfo($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchDealUnitLineAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation, $contentType);
+        $request = $this->patchDealUnitLineAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5943,13 +6013,13 @@ class DealUnitsApi
      * @param  string $tenant_id (required)
      * @param  string $deal_unit_id (required)
      * @param  string $deal_unit_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDealUnitLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchDealUnitLineAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
+    public function patchDealUnitLineAsyncRequest($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchDealUnitLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6018,12 +6088,12 @@ class DealUnitsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

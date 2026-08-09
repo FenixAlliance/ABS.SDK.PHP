@@ -190,7 +190,7 @@ No authorization required
 ## `getReceiptsAsync()`
 
 ```php
-getReceiptsAsync($tenant_id): \OpenAPI\Client\Model\ReceiptDtoIReadOnlyListEnvelope
+getReceiptsAsync($tenant_id, $receipt_dto_collection_query_parameters): \OpenAPI\Client\Model\ReceiptDtoIReadOnlyListEnvelope
 ```
 
 Retrieves tenant receipts
@@ -211,9 +211,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$receipt_dto_collection_query_parameters = new \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getReceiptsAsync($tenant_id);
+    $result = $apiInstance->getReceiptsAsync($tenant_id, $receipt_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptsApi->getReceiptsAsync: ', $e->getMessage(), PHP_EOL;
@@ -225,6 +226,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **receipt_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters**](../Model/ReceiptDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -236,7 +238,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -246,7 +248,7 @@ No authorization required
 ## `getReceiptsCountAsync()`
 
 ```php
-getReceiptsCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getReceiptsCountAsync($tenant_id, $receipt_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets count of tenant receipts
@@ -267,9 +269,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$receipt_dto_collection_query_parameters = new \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getReceiptsCountAsync($tenant_id);
+    $result = $apiInstance->getReceiptsCountAsync($tenant_id, $receipt_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptsApi->getReceiptsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -281,6 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **receipt_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ReceiptDtoCollectionQueryParameters**](../Model/ReceiptDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -292,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -302,7 +306,7 @@ No authorization required
 ## `patchReceiptAsync()`
 
 ```php
-patchReceiptAsync($tenant_id, $receipt_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchReceiptAsync($tenant_id, $receipt_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a receipt
@@ -324,10 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\ReceiptsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $receipt_id = 'receipt_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchReceiptAsync($tenant_id, $receipt_id, $operation);
+    $result = $apiInstance->patchReceiptAsync($tenant_id, $receipt_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReceiptsApi->patchReceiptAsync: ', $e->getMessage(), PHP_EOL;
@@ -340,7 +344,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **receipt_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

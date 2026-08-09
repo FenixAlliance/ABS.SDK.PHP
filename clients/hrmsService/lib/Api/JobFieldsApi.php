@@ -84,9 +84,11 @@ class JobFieldsApi
         ],
         'getJobFieldsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getJobFieldsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchJobFieldAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class JobFieldsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\JobFieldDtoListEnvelope
      */
-    public function getJobFieldsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
+    public function getJobFieldsAsync($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
     {
-        list($response) = $this->getJobFieldsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJobFieldsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\JobFieldDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJobFieldsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
+    public function getJobFieldsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
     {
-        $request = $this->getJobFieldsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobFieldsAsyncRequest($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobFieldsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
+    public function getJobFieldsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
     {
-        return $this->getJobFieldsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getJobFieldsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobFieldsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
+    public function getJobFieldsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\JobFieldDtoListEnvelope';
-        $request = $this->getJobFieldsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobFieldsAsyncRequest($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJobFieldsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
+    public function getJobFieldsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class JobFieldsApi
                 'Missing the required parameter $tenant_id when calling getJobFieldsAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class JobFieldsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($job_field_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($job_field_dto_collection_query_parameters));
+            } else {
+                $httpBody = $job_field_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class JobFieldsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getJobFieldsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
+    public function getJobFieldsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
     {
-        list($response) = $this->getJobFieldsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJobFieldsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJobFieldsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
+    public function getJobFieldsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
     {
-        $request = $this->getJobFieldsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobFieldsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobFieldsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
+    public function getJobFieldsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
     {
-        return $this->getJobFieldsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getJobFieldsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobFieldsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
+    public function getJobFieldsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getJobFieldsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobFieldsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $job_field_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class JobFieldsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobFieldDtoCollectionQueryParameters $job_field_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobFieldsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJobFieldsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
+    public function getJobFieldsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $job_field_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobFieldsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class JobFieldsApi
                 'Missing the required parameter $tenant_id when calling getJobFieldsCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class JobFieldsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($job_field_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($job_field_dto_collection_query_parameters));
+            } else {
+                $httpBody = $job_field_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class JobFieldsApi
      * @param  string $job_field_id job_field_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobFieldAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchJobFieldAsync($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
+    public function patchJobFieldAsync($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
     {
-        list($response) = $this->patchJobFieldAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchJobFieldAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class JobFieldsApi
      * @param  string $job_field_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobFieldAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchJobFieldAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
+    public function patchJobFieldAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
     {
-        $request = $this->patchJobFieldAsyncRequest($tenant_id, $job_field_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJobFieldAsyncRequest($tenant_id, $job_field_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class JobFieldsApi
      * @param  string $job_field_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobFieldAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJobFieldAsyncAsync($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
+    public function patchJobFieldAsyncAsync($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
     {
-        return $this->patchJobFieldAsyncAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchJobFieldAsyncAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class JobFieldsApi
      * @param  string $job_field_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobFieldAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJobFieldAsyncAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
+    public function patchJobFieldAsyncAsyncWithHttpInfo($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchJobFieldAsyncRequest($tenant_id, $job_field_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJobFieldAsyncRequest($tenant_id, $job_field_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class JobFieldsApi
      * @param  string $job_field_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobFieldAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchJobFieldAsyncRequest($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
+    public function patchJobFieldAsyncRequest($tenant_id, $job_field_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobFieldAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class JobFieldsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

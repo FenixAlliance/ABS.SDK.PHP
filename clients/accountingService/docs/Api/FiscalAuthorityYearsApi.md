@@ -204,7 +204,7 @@ No authorization required
 ## `getFiscalYears()`
 
 ```php
-getFiscalYears($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalYearDtoListEnvelope
+getFiscalYears($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters): \OpenAPI\Client\Model\FiscalYearDtoListEnvelope
 ```
 
 Get fiscal years for an authority
@@ -229,9 +229,10 @@ $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_year_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalYears($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalYears($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalAuthorityYearsApi->getFiscalYears: ', $e->getMessage(), PHP_EOL;
@@ -247,6 +248,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_year_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters**](../Model/FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -258,7 +260,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -268,7 +270,7 @@ No authorization required
 ## `getFiscalYearsCount()`
 
 ```php
-getFiscalYearsCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFiscalYearsCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get fiscal years count for an authority
@@ -292,9 +294,10 @@ $tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_year_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalYearsCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalYearsCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalAuthorityYearsApi->getFiscalYearsCount: ', $e->getMessage(), PHP_EOL;
@@ -309,6 +312,7 @@ try {
 | **fiscal_authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_year_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters**](../Model/FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -320,7 +324,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -330,7 +334,7 @@ No authorization required
 ## `patchFiscalAuthorityYearAsync()`
 
 ```php
-patchFiscalAuthorityYearAsync($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFiscalAuthorityYearAsync($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a fiscal authority year
@@ -354,10 +358,10 @@ $tenant_id = 'tenant_id_example'; // string
 $fiscal_year_id = 'fiscal_year_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFiscalAuthorityYearAsync($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFiscalAuthorityYearAsync($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalAuthorityYearsApi->patchFiscalAuthorityYearAsync: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +376,7 @@ try {
 | **fiscal_year_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

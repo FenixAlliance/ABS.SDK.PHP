@@ -667,7 +667,7 @@ No authorization required
 ## `getBankAccounts()`
 
 ```php
-getBankAccounts($tenant_id, $bank_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BankAccountDtoListEnvelope
+getBankAccounts($tenant_id, $bank_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters): \OpenAPI\Client\Model\BankAccountDtoListEnvelope
 ```
 
 Gets the current tenant bank accounts
@@ -691,9 +691,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_account_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBankAccounts($tenant_id, $bank_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBankAccounts($tenant_id, $bank_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBankAccounts: ', $e->getMessage(), PHP_EOL;
@@ -708,6 +709,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters**](../Model/BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -719,7 +721,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -729,7 +731,7 @@ No authorization required
 ## `getBankAccountsCount()`
 
 ```php
-getBankAccountsCount($tenant_id, $bank_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBankAccountsCount($tenant_id, $bank_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant bank accounts count
@@ -753,9 +755,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_account_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBankAccountsCount($tenant_id, $bank_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBankAccountsCount($tenant_id, $bank_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBankAccountsCount: ', $e->getMessage(), PHP_EOL;
@@ -770,6 +773,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters**](../Model/BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -781,7 +785,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -855,7 +859,7 @@ No authorization required
 ## `getBankGuarantees()`
 
 ```php
-getBankGuarantees($tenant_id, $bank_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BankGuaranteeDtoListEnvelope
+getBankGuarantees($tenant_id, $bank_id, $api_version, $x_api_version, $bank_guarantee_dto_collection_query_parameters): \OpenAPI\Client\Model\BankGuaranteeDtoListEnvelope
 ```
 
 Gets the current tenant bank guarantees
@@ -879,9 +883,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_guarantee_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankGuaranteeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankGuaranteeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBankGuarantees($tenant_id, $bank_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBankGuarantees($tenant_id, $bank_id, $api_version, $x_api_version, $bank_guarantee_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBankGuarantees: ', $e->getMessage(), PHP_EOL;
@@ -896,6 +901,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_guarantee_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankGuaranteeDtoCollectionQueryParameters**](../Model/BankGuaranteeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -907,7 +913,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -917,7 +923,7 @@ No authorization required
 ## `getBankGuaranteesCount()`
 
 ```php
-getBankGuaranteesCount($tenant_id, $bank_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBankGuaranteesCount($tenant_id, $bank_id, $api_version, $x_api_version, $bank_guarantee_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant bank guarantees count
@@ -941,9 +947,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_guarantee_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankGuaranteeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankGuaranteeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBankGuaranteesCount($tenant_id, $bank_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBankGuaranteesCount($tenant_id, $bank_id, $api_version, $x_api_version, $bank_guarantee_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBankGuaranteesCount: ', $e->getMessage(), PHP_EOL;
@@ -958,6 +965,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_guarantee_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankGuaranteeDtoCollectionQueryParameters**](../Model/BankGuaranteeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -969,7 +977,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1043,7 +1051,7 @@ No authorization required
 ## `getBankTransactions()`
 
 ```php
-getBankTransactions($tenant_id, $bank_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BankTransactionDtoListEnvelope
+getBankTransactions($tenant_id, $bank_id, $api_version, $x_api_version, $bank_transaction_dto_collection_query_parameters): \OpenAPI\Client\Model\BankTransactionDtoListEnvelope
 ```
 
 Gets the current tenant bank transactions
@@ -1067,9 +1075,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_transaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankTransactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankTransactionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBankTransactions($tenant_id, $bank_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBankTransactions($tenant_id, $bank_id, $api_version, $x_api_version, $bank_transaction_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBankTransactions: ', $e->getMessage(), PHP_EOL;
@@ -1084,6 +1093,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_transaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankTransactionDtoCollectionQueryParameters**](../Model/BankTransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1095,7 +1105,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1105,7 +1115,7 @@ No authorization required
 ## `getBankTransactionsCount()`
 
 ```php
-getBankTransactionsCount($tenant_id, $bank_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBankTransactionsCount($tenant_id, $bank_id, $api_version, $x_api_version, $bank_transaction_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant bank transactions count
@@ -1129,9 +1139,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_transaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankTransactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankTransactionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBankTransactionsCount($tenant_id, $bank_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBankTransactionsCount($tenant_id, $bank_id, $api_version, $x_api_version, $bank_transaction_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBankTransactionsCount: ', $e->getMessage(), PHP_EOL;
@@ -1146,6 +1157,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_transaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankTransactionDtoCollectionQueryParameters**](../Model/BankTransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1157,7 +1169,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1167,7 +1179,7 @@ No authorization required
 ## `getBanks()`
 
 ```php
-getBanks($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BankDtoListEnvelope
+getBanks($tenant_id, $api_version, $x_api_version, $bank_dto_collection_query_parameters): \OpenAPI\Client\Model\BankDtoListEnvelope
 ```
 
 Gets the current tenant banks
@@ -1190,9 +1202,10 @@ $apiInstance = new OpenAPI\Client\Api\BankingApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBanks($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBanks($tenant_id, $api_version, $x_api_version, $bank_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBanks: ', $e->getMessage(), PHP_EOL;
@@ -1206,6 +1219,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankDtoCollectionQueryParameters**](../Model/BankDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1217,7 +1231,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1227,7 +1241,7 @@ No authorization required
 ## `getBanksCount()`
 
 ```php
-getBanksCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBanksCount($tenant_id, $api_version, $x_api_version, $bank_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant banks count
@@ -1250,9 +1264,10 @@ $apiInstance = new OpenAPI\Client\Api\BankingApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBanksCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBanksCount($tenant_id, $api_version, $x_api_version, $bank_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->getBanksCount: ', $e->getMessage(), PHP_EOL;
@@ -1266,6 +1281,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankDtoCollectionQueryParameters**](../Model/BankDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1277,7 +1293,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1287,7 +1303,7 @@ No authorization required
 ## `patchBank()`
 
 ```php
-patchBank($tenant_id, $bank_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBank($tenant_id, $bank_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a bank
@@ -1311,10 +1327,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bank_id = 'bank_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBank($tenant_id, $bank_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBank($tenant_id, $bank_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->patchBank: ', $e->getMessage(), PHP_EOL;
@@ -1329,7 +1345,7 @@ try {
 | **bank_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1351,7 +1367,7 @@ No authorization required
 ## `patchBankAccount()`
 
 ```php
-patchBankAccount($tenant_id, $bank_id, $account_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBankAccount($tenant_id, $bank_id, $account_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a bank account
@@ -1376,10 +1392,10 @@ $bank_id = 'bank_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBankAccount($tenant_id, $bank_id, $account_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBankAccount($tenant_id, $bank_id, $account_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->patchBankAccount: ', $e->getMessage(), PHP_EOL;
@@ -1395,7 +1411,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1417,7 +1433,7 @@ No authorization required
 ## `patchBankGuarantee()`
 
 ```php
-patchBankGuarantee($tenant_id, $bank_id, $guarantee_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBankGuarantee($tenant_id, $bank_id, $guarantee_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a bank guarantee
@@ -1442,10 +1458,10 @@ $bank_id = 'bank_id_example'; // string
 $guarantee_id = 'guarantee_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBankGuarantee($tenant_id, $bank_id, $guarantee_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBankGuarantee($tenant_id, $bank_id, $guarantee_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->patchBankGuarantee: ', $e->getMessage(), PHP_EOL;
@@ -1461,7 +1477,7 @@ try {
 | **guarantee_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1483,7 +1499,7 @@ No authorization required
 ## `patchBankTransaction()`
 
 ```php
-patchBankTransaction($tenant_id, $bank_id, $transaction_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBankTransaction($tenant_id, $bank_id, $transaction_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a bank transaction
@@ -1508,10 +1524,10 @@ $bank_id = 'bank_id_example'; // string
 $transaction_id = 'transaction_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBankTransaction($tenant_id, $bank_id, $transaction_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBankTransaction($tenant_id, $bank_id, $transaction_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BankingApi->patchBankTransaction: ', $e->getMessage(), PHP_EOL;
@@ -1527,7 +1543,7 @@ try {
 | **transaction_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

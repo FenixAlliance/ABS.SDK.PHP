@@ -84,9 +84,11 @@ class MarketingCampaignsApi
         ],
         'getMarketingCampaignODataAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getMarketingCampaignsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchMarketingCampaignAsync' => [
             'application/json',
@@ -1528,15 +1530,16 @@ class MarketingCampaignsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getMarketingCampaignODataAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
+    public function getMarketingCampaignODataAsync($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
     {
-        $this->getMarketingCampaignODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        $this->getMarketingCampaignODataAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType);
     }
 
     /**
@@ -1547,15 +1550,16 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignODataAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMarketingCampaignODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
+    public function getMarketingCampaignODataAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
     {
-        $request = $this->getMarketingCampaignODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMarketingCampaignODataAsyncRequest($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1621,14 +1625,15 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketingCampaignODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
+    public function getMarketingCampaignODataAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
     {
-        return $this->getMarketingCampaignODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getMarketingCampaignODataAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1644,15 +1649,16 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketingCampaignODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
+    public function getMarketingCampaignODataAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
     {
         $returnType = '';
-        $request = $this->getMarketingCampaignODataAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMarketingCampaignODataAsyncRequest($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1683,12 +1689,13 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignODataAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMarketingCampaignODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
+    public function getMarketingCampaignODataAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignODataAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1697,6 +1704,7 @@ class MarketingCampaignsApi
                 'Missing the required parameter $tenant_id when calling getMarketingCampaignODataAsync'
             );
         }
+
 
 
 
@@ -1741,7 +1749,14 @@ class MarketingCampaignsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($marketing_campaign_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($marketing_campaign_dto_collection_query_parameters));
+            } else {
+                $httpBody = $marketing_campaign_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1795,15 +1810,16 @@ class MarketingCampaignsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getMarketingCampaignsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
+    public function getMarketingCampaignsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
     {
-        list($response) = $this->getMarketingCampaignsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getMarketingCampaignsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1815,15 +1831,16 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMarketingCampaignsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
+    public function getMarketingCampaignsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
     {
-        $request = $this->getMarketingCampaignsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMarketingCampaignsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2047,14 +2064,15 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketingCampaignsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
+    public function getMarketingCampaignsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
     {
-        return $this->getMarketingCampaignsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getMarketingCampaignsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2070,15 +2088,16 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMarketingCampaignsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
+    public function getMarketingCampaignsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getMarketingCampaignsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMarketingCampaignsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $marketing_campaign_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2122,12 +2141,13 @@ class MarketingCampaignsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\MarketingCampaignDtoCollectionQueryParameters $marketing_campaign_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketingCampaignsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMarketingCampaignsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
+    public function getMarketingCampaignsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $marketing_campaign_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMarketingCampaignsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2136,6 +2156,7 @@ class MarketingCampaignsApi
                 'Missing the required parameter $tenant_id when calling getMarketingCampaignsCountAsync'
             );
         }
+
 
 
 
@@ -2180,7 +2201,14 @@ class MarketingCampaignsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($marketing_campaign_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($marketing_campaign_dto_collection_query_parameters));
+            } else {
+                $httpBody = $marketing_campaign_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2235,16 +2263,16 @@ class MarketingCampaignsApi
      * @param  string $marketingcampaign_id marketingcampaign_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketingCampaignAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchMarketingCampaignAsync($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
+    public function patchMarketingCampaignAsync($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
     {
-        list($response) = $this->patchMarketingCampaignAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchMarketingCampaignAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2257,16 +2285,16 @@ class MarketingCampaignsApi
      * @param  string $marketingcampaign_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketingCampaignAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchMarketingCampaignAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
+    public function patchMarketingCampaignAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
     {
-        $request = $this->patchMarketingCampaignAsyncRequest($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchMarketingCampaignAsyncRequest($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2456,15 +2484,15 @@ class MarketingCampaignsApi
      * @param  string $marketingcampaign_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketingCampaignAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchMarketingCampaignAsyncAsync($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
+    public function patchMarketingCampaignAsyncAsync($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
     {
-        return $this->patchMarketingCampaignAsyncAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchMarketingCampaignAsyncAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2481,16 +2509,16 @@ class MarketingCampaignsApi
      * @param  string $marketingcampaign_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketingCampaignAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchMarketingCampaignAsyncAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
+    public function patchMarketingCampaignAsyncAsyncWithHttpInfo($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchMarketingCampaignAsyncRequest($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchMarketingCampaignAsyncRequest($tenant_id, $marketingcampaign_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2535,13 +2563,13 @@ class MarketingCampaignsApi
      * @param  string $marketingcampaign_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketingCampaignAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchMarketingCampaignAsyncRequest($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
+    public function patchMarketingCampaignAsyncRequest($tenant_id, $marketingcampaign_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchMarketingCampaignAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2610,12 +2638,12 @@ class MarketingCampaignsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

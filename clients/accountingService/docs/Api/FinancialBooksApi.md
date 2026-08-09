@@ -202,7 +202,7 @@ No authorization required
 ## `getFinancialBooksAsync()`
 
 ```php
-getFinancialBooksAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FinancialBookDtoListEnvelope
+getFinancialBooksAsync($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters): \OpenAPI\Client\Model\FinancialBookDtoListEnvelope
 ```
 
 Get all financial books for a tenant
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\FinancialBooksApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$financial_book_dto_collection_query_parameters = new \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFinancialBooksAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFinancialBooksAsync($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FinancialBooksApi->getFinancialBooksAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **financial_book_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters**](../Model/FinancialBookDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getFinancialBooksCountAsync()`
 
 ```php
-getFinancialBooksCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFinancialBooksCountAsync($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of financial books
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\FinancialBooksApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$financial_book_dto_collection_query_parameters = new \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFinancialBooksCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFinancialBooksCountAsync($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FinancialBooksApi->getFinancialBooksCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **financial_book_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters**](../Model/FinancialBookDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchFinancialBookAsync()`
 
 ```php
-patchFinancialBookAsync($tenant_id, $financial_book_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFinancialBookAsync($tenant_id, $financial_book_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a financial book
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $financial_book_id = 'financial_book_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFinancialBookAsync($tenant_id, $financial_book_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFinancialBookAsync($tenant_id, $financial_book_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FinancialBooksApi->patchFinancialBookAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **financial_book_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

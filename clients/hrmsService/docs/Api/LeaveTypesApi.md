@@ -201,7 +201,7 @@ No authorization required
 ## `getLeaveTypesAsync()`
 
 ```php
-getLeaveTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LeaveTypeDtoListEnvelope
+getLeaveTypesAsync($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters): \OpenAPI\Client\Model\LeaveTypeDtoListEnvelope
 ```
 
 Get leave types
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaveTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$leave_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLeaveTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLeaveTypesAsync($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaveTypesApi->getLeaveTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **leave_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters**](../Model/LeaveTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getLeaveTypesCountAsync()`
 
 ```php
-getLeaveTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLeaveTypesCountAsync($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count leave types
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaveTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$leave_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLeaveTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLeaveTypesCountAsync($tenant_id, $api_version, $x_api_version, $leave_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaveTypesApi->getLeaveTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **leave_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LeaveTypeDtoCollectionQueryParameters**](../Model/LeaveTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

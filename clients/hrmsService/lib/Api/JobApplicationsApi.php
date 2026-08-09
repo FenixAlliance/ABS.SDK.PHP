@@ -87,9 +87,11 @@ class JobApplicationsApi
         ],
         'getJobApplicationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getJobApplicationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchJobApplicationAsync' => [
             'application/json',
@@ -1935,15 +1937,16 @@ class JobApplicationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\JobOfferApplicationDtoListEnvelope
      */
-    public function getJobApplicationsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
+    public function getJobApplicationsAsync($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
     {
-        list($response) = $this->getJobApplicationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJobApplicationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1955,15 +1958,16 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\JobOfferApplicationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJobApplicationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
+    public function getJobApplicationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
     {
-        $request = $this->getJobApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2152,14 +2156,15 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobApplicationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
+    public function getJobApplicationsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
     {
-        return $this->getJobApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getJobApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2175,15 +2180,16 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
+    public function getJobApplicationsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\JobOfferApplicationDtoListEnvelope';
-        $request = $this->getJobApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobApplicationsAsyncRequest($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2227,12 +2233,13 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJobApplicationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
+    public function getJobApplicationsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,6 +2248,7 @@ class JobApplicationsApi
                 'Missing the required parameter $tenant_id when calling getJobApplicationsAsync'
             );
         }
+
 
 
 
@@ -2285,7 +2293,14 @@ class JobApplicationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($job_offer_application_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($job_offer_application_dto_collection_query_parameters));
+            } else {
+                $httpBody = $job_offer_application_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2339,15 +2354,16 @@ class JobApplicationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getJobApplicationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
+    public function getJobApplicationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
     {
-        list($response) = $this->getJobApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getJobApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2359,15 +2375,16 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJobApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
+    public function getJobApplicationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
     {
-        $request = $this->getJobApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2556,14 +2573,15 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobApplicationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
+    public function getJobApplicationsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
     {
-        return $this->getJobApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getJobApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2579,15 +2597,16 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
+    public function getJobApplicationsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getJobApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getJobApplicationsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $job_offer_application_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,12 +2650,13 @@ class JobApplicationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\JobOfferApplicationDtoCollectionQueryParameters $job_offer_application_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApplicationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJobApplicationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
+    public function getJobApplicationsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $job_offer_application_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getJobApplicationsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2645,6 +2665,7 @@ class JobApplicationsApi
                 'Missing the required parameter $tenant_id when calling getJobApplicationsCountAsync'
             );
         }
+
 
 
 
@@ -2689,7 +2710,14 @@ class JobApplicationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($job_offer_application_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($job_offer_application_dto_collection_query_parameters));
+            } else {
+                $httpBody = $job_offer_application_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2744,16 +2772,16 @@ class JobApplicationsApi
      * @param  string $job_application_id job_application_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobApplicationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchJobApplicationAsync($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
+    public function patchJobApplicationAsync($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
     {
-        list($response) = $this->patchJobApplicationAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchJobApplicationAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2766,16 +2794,16 @@ class JobApplicationsApi
      * @param  string $job_application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobApplicationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchJobApplicationAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
+    public function patchJobApplicationAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
     {
-        $request = $this->patchJobApplicationAsyncRequest($tenant_id, $job_application_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJobApplicationAsyncRequest($tenant_id, $job_application_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3000,15 +3028,15 @@ class JobApplicationsApi
      * @param  string $job_application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobApplicationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJobApplicationAsyncAsync($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
+    public function patchJobApplicationAsyncAsync($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
     {
-        return $this->patchJobApplicationAsyncAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchJobApplicationAsyncAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3025,16 +3053,16 @@ class JobApplicationsApi
      * @param  string $job_application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobApplicationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchJobApplicationAsyncAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
+    public function patchJobApplicationAsyncAsyncWithHttpInfo($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchJobApplicationAsyncRequest($tenant_id, $job_application_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchJobApplicationAsyncRequest($tenant_id, $job_application_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3079,13 +3107,13 @@ class JobApplicationsApi
      * @param  string $job_application_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchJobApplicationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchJobApplicationAsyncRequest($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
+    public function patchJobApplicationAsyncRequest($tenant_id, $job_application_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchJobApplicationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3154,12 +3182,12 @@ class JobApplicationsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

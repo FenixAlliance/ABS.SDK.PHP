@@ -13,5 +13,9 @@ Name | Type | Description | Notes
 **social_profile_avatar_url** | **string** |  | [optional]
 **comments_count** | **int** |  | [optional]
 **reactions_count** | **int** |  | [optional]
+**social_profile_type** | **string** |  | [optional]
+**body_html** | **string** |  | [optional]
+**body_format** | **string** |  | [optional]
+**background_style** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

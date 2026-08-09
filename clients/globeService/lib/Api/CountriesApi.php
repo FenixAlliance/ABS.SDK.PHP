@@ -176,15 +176,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCallingCodesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCallingCodesByCountryAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
+    public function countCallingCodesByCountryAsync($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
     {
-        list($response) = $this->countCallingCodesByCountryAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countCallingCodesByCountryAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -196,15 +197,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCallingCodesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCallingCodesByCountryAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
+    public function countCallingCodesByCountryAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
     {
-        $request = $this->countCallingCodesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countCallingCodesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -393,14 +395,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCallingCodesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCallingCodesByCountryAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
+    public function countCallingCodesByCountryAsyncAsync($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
     {
-        return $this->countCallingCodesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->countCallingCodesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -416,15 +419,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCallingCodesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCallingCodesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
+    public function countCallingCodesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCallingCodesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countCallingCodesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -468,12 +472,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCallingCodesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCallingCodesByCountryAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
+    public function countCallingCodesByCountryAsyncRequest($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCallingCodesByCountryAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -482,6 +487,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling countCallingCodesByCountryAsync'
             );
         }
+
 
 
 
@@ -525,7 +531,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_calling_code_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_calling_code_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_calling_code_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -580,15 +593,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCitiesByStateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCitiesByStateAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
+    public function countCitiesByStateAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
     {
-        list($response) = $this->countCitiesByStateAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countCitiesByStateAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -601,15 +615,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCitiesByStateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCitiesByStateAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
+    public function countCitiesByStateAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
     {
-        $request = $this->countCitiesByStateAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countCitiesByStateAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -799,14 +814,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCitiesByStateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCitiesByStateAsyncAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
+    public function countCitiesByStateAsyncAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
     {
-        return $this->countCitiesByStateAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $contentType)
+        return $this->countCitiesByStateAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -823,15 +839,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCitiesByStateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCitiesByStateAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
+    public function countCitiesByStateAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCitiesByStateAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countCitiesByStateAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -876,12 +893,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCitiesByStateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCitiesByStateAsyncRequest($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
+    public function countCitiesByStateAsyncRequest($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCitiesByStateAsync'][0])
     {
 
         // verify the required parameter 'country_state_id' is set
@@ -897,6 +915,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling countCitiesByStateAsync'
             );
         }
+
 
 
 
@@ -948,7 +967,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($city_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($city_dto_collection_query_parameters));
+            } else {
+                $httpBody = $city_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1001,15 +1027,16 @@ class CountriesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCountries($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountries'][0])
+    public function countCountries($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountries'][0])
     {
-        list($response) = $this->countCountriesWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countCountriesWithHttpInfo($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1020,15 +1047,16 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCountriesWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountries'][0])
+    public function countCountriesWithHttpInfo($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountries'][0])
     {
-        $request = $this->countCountriesRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCountriesRequest($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1216,14 +1244,15 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCountriesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountries'][0])
+    public function countCountriesAsync($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountries'][0])
     {
-        return $this->countCountriesAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countCountriesAsyncWithHttpInfo($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1238,15 +1267,16 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCountriesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountries'][0])
+    public function countCountriesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountries'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCountriesRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countCountriesRequest($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1289,13 +1319,15 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCountriesRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountries'][0])
+    public function countCountriesRequest($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountries'][0])
     {
+
 
 
 
@@ -1331,7 +1363,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1385,15 +1424,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countCountryStatesAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
+    public function countCountryStatesAsync($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
     {
-        list($response) = $this->countCountryStatesAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countCountryStatesAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1405,15 +1445,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countCountryStatesAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
+    public function countCountryStatesAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
     {
-        $request = $this->countCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1602,14 +1643,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCountryStatesAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
+    public function countCountryStatesAsyncAsync($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
     {
-        return $this->countCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->countCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1625,15 +1667,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
+    public function countCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1677,12 +1720,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countCountryStatesAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
+    public function countCountryStatesAsyncRequest($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countCountryStatesAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -1691,6 +1735,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling countCountryStatesAsync'
             );
         }
+
 
 
 
@@ -1734,7 +1779,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_state_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_state_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_state_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1788,15 +1840,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countTimezonesByCountryAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
+    public function countTimezonesByCountryAsync($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
     {
-        list($response) = $this->countTimezonesByCountryAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countTimezonesByCountryAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1808,15 +1861,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countTimezonesByCountryAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
+    public function countTimezonesByCountryAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
     {
-        $request = $this->countTimezonesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countTimezonesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2005,14 +2059,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countTimezonesByCountryAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
+    public function countTimezonesByCountryAsyncAsync($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
     {
-        return $this->countTimezonesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->countTimezonesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2028,15 +2083,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countTimezonesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
+    public function countTimezonesByCountryAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countTimezonesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countTimezonesByCountryAsyncRequest($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2080,12 +2136,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTimezonesByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countTimezonesByCountryAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
+    public function countTimezonesByCountryAsyncRequest($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTimezonesByCountryAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -2094,6 +2151,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling countTimezonesByCountryAsync'
             );
         }
+
 
 
 
@@ -2137,7 +2195,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($timezone_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($timezone_dto_collection_query_parameters));
+            } else {
+                $httpBody = $timezone_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2191,15 +2256,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTopLevelDomainsByCountryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countTopLevelDomainsByCountryAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
+    public function countTopLevelDomainsByCountryAsync($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
     {
-        list($response) = $this->countTopLevelDomainsByCountryAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countTopLevelDomainsByCountryAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2211,15 +2277,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTopLevelDomainsByCountryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countTopLevelDomainsByCountryAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
+    public function countTopLevelDomainsByCountryAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
     {
-        $request = $this->countTopLevelDomainsByCountryAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countTopLevelDomainsByCountryAsyncRequest($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2408,14 +2475,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTopLevelDomainsByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countTopLevelDomainsByCountryAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
+    public function countTopLevelDomainsByCountryAsyncAsync($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
     {
-        return $this->countTopLevelDomainsByCountryAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->countTopLevelDomainsByCountryAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2431,15 +2499,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTopLevelDomainsByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countTopLevelDomainsByCountryAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
+    public function countTopLevelDomainsByCountryAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countTopLevelDomainsByCountryAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countTopLevelDomainsByCountryAsyncRequest($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2483,12 +2552,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countTopLevelDomainsByCountryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countTopLevelDomainsByCountryAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
+    public function countTopLevelDomainsByCountryAsyncRequest($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countTopLevelDomainsByCountryAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -2497,6 +2567,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling countTopLevelDomainsByCountryAsync'
             );
         }
+
 
 
 
@@ -2540,7 +2611,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_top_level_domain_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_top_level_domain_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_top_level_domain_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2593,15 +2671,16 @@ class CountriesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllCountries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryDtoListEnvelope
      */
-    public function getAllCountries($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllCountries'][0])
+    public function getAllCountries($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllCountries'][0])
     {
-        list($response) = $this->getAllCountriesWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getAllCountriesWithHttpInfo($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2612,15 +2691,16 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllCountries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllCountriesWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllCountries'][0])
+    public function getAllCountriesWithHttpInfo($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllCountries'][0])
     {
-        $request = $this->getAllCountriesRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getAllCountriesRequest($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2808,14 +2888,15 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllCountriesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllCountries'][0])
+    public function getAllCountriesAsync($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllCountries'][0])
     {
-        return $this->getAllCountriesAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getAllCountriesAsyncWithHttpInfo($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2830,15 +2911,16 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllCountriesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllCountries'][0])
+    public function getAllCountriesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllCountries'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountryDtoListEnvelope';
-        $request = $this->getAllCountriesRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getAllCountriesRequest($api_version, $x_api_version, $country_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2881,13 +2963,15 @@ class CountriesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryDtoCollectionQueryParameters $country_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllCountriesRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllCountries'][0])
+    public function getAllCountriesRequest($api_version = null, $x_api_version = null, $country_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllCountries'][0])
     {
+
 
 
 
@@ -2923,7 +3007,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2977,15 +3068,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallingCodesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope
      */
-    public function getCallingCodesByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
+    public function getCallingCodesByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
     {
-        list($response) = $this->getCallingCodesByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCallingCodesByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2997,15 +3089,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallingCodesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCallingCodesByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
+    public function getCallingCodesByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
     {
-        $request = $this->getCallingCodesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCallingCodesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3194,14 +3287,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallingCodesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCallingCodesByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
+    public function getCallingCodesByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
     {
-        return $this->getCallingCodesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->getCallingCodesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3217,15 +3311,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallingCodesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCallingCodesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
+    public function getCallingCodesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope';
-        $request = $this->getCallingCodesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCallingCodesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $country_calling_code_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3269,12 +3364,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryCallingCodeDtoCollectionQueryParameters $country_calling_code_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallingCodesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCallingCodesByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
+    public function getCallingCodesByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, $country_calling_code_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCallingCodesByCountryIdAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -3283,6 +3379,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getCallingCodesByCountryIdAsync'
             );
         }
+
 
 
 
@@ -3326,7 +3423,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_calling_code_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_calling_code_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_calling_code_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3381,15 +3485,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCitiesByCountryStateIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CityDtoListEnvelope
      */
-    public function getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
+    public function getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
     {
-        list($response) = $this->getCitiesByCountryStateIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCitiesByCountryStateIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3402,15 +3507,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCitiesByCountryStateIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CityDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCitiesByCountryStateIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
+    public function getCitiesByCountryStateIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
     {
-        $request = $this->getCitiesByCountryStateIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCitiesByCountryStateIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3600,14 +3706,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCitiesByCountryStateIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCitiesByCountryStateIdAsyncAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
+    public function getCitiesByCountryStateIdAsyncAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
     {
-        return $this->getCitiesByCountryStateIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $contentType)
+        return $this->getCitiesByCountryStateIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3624,15 +3731,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCitiesByCountryStateIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCitiesByCountryStateIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
+    public function getCitiesByCountryStateIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CityDtoListEnvelope';
-        $request = $this->getCitiesByCountryStateIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCitiesByCountryStateIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $city_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3677,12 +3785,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CityDtoCollectionQueryParameters $city_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCitiesByCountryStateIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCitiesByCountryStateIdAsyncRequest($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
+    public function getCitiesByCountryStateIdAsyncRequest($country_state_id, $country_id, $api_version = null, $x_api_version = null, $city_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCitiesByCountryStateIdAsync'][0])
     {
 
         // verify the required parameter 'country_state_id' is set
@@ -3698,6 +3807,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getCitiesByCountryStateIdAsync'
             );
         }
+
 
 
 
@@ -3749,7 +3859,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($city_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($city_dto_collection_query_parameters));
+            } else {
+                $httpBody = $city_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4207,15 +4324,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStateByIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryStateDtoEnvelope
      */
-    public function getCountryStateByIdAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
+    public function getCountryStateByIdAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
     {
-        list($response) = $this->getCountryStateByIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCountryStateByIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4228,15 +4346,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStateByIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryStateDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCountryStateByIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
+    public function getCountryStateByIdAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
     {
-        $request = $this->getCountryStateByIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCountryStateByIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4426,14 +4545,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStateByIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCountryStateByIdAsyncAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
+    public function getCountryStateByIdAsyncAsync($country_state_id, $country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
     {
-        return $this->getCountryStateByIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $contentType)
+        return $this->getCountryStateByIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4450,15 +4570,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStateByIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCountryStateByIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
+    public function getCountryStateByIdAsyncAsyncWithHttpInfo($country_state_id, $country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountryStateDtoEnvelope';
-        $request = $this->getCountryStateByIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCountryStateByIdAsyncRequest($country_state_id, $country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4503,12 +4624,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStateByIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCountryStateByIdAsyncRequest($country_state_id, $country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
+    public function getCountryStateByIdAsyncRequest($country_state_id, $country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStateByIdAsync'][0])
     {
 
         // verify the required parameter 'country_state_id' is set
@@ -4524,6 +4646,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getCountryStateByIdAsync'
             );
         }
+
 
 
 
@@ -4575,7 +4698,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_state_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_state_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_state_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4629,15 +4759,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryStateDtoListEnvelope
      */
-    public function getCountryStatesAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
+    public function getCountryStatesAsync($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
     {
-        list($response) = $this->getCountryStatesAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCountryStatesAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4649,15 +4780,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryStateDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCountryStatesAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
+    public function getCountryStatesAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
     {
-        $request = $this->getCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4846,14 +4978,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCountryStatesAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
+    public function getCountryStatesAsyncAsync($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
     {
-        return $this->getCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->getCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4869,15 +5002,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
+    public function getCountryStatesAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountryStateDtoListEnvelope';
-        $request = $this->getCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCountryStatesAsyncRequest($country_id, $api_version, $x_api_version, $country_state_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4921,12 +5055,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryStateDtoCollectionQueryParameters $country_state_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCountryStatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCountryStatesAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
+    public function getCountryStatesAsyncRequest($country_id, $api_version = null, $x_api_version = null, $country_state_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCountryStatesAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -4935,6 +5070,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getCountryStatesAsync'
             );
         }
+
 
 
 
@@ -4978,7 +5114,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_state_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_state_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_state_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5032,15 +5175,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CurrencyDtoListEnvelope
      */
-    public function getEnabledCurrenciesByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
+    public function getEnabledCurrenciesByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
     {
-        list($response) = $this->getEnabledCurrenciesByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEnabledCurrenciesByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5052,15 +5196,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CurrencyDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEnabledCurrenciesByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
+    public function getEnabledCurrenciesByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
     {
-        $request = $this->getEnabledCurrenciesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEnabledCurrenciesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5249,14 +5394,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEnabledCurrenciesByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
+    public function getEnabledCurrenciesByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
     {
-        return $this->getEnabledCurrenciesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->getEnabledCurrenciesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5272,15 +5418,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEnabledCurrenciesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
+    public function getEnabledCurrenciesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CurrencyDtoListEnvelope';
-        $request = $this->getEnabledCurrenciesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEnabledCurrenciesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $currency_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5324,12 +5471,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters $currency_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEnabledCurrenciesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEnabledCurrenciesByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
+    public function getEnabledCurrenciesByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, $currency_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEnabledCurrenciesByCountryIdAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -5338,6 +5486,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getEnabledCurrenciesByCountryIdAsync'
             );
         }
+
 
 
 
@@ -5381,7 +5530,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($currency_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($currency_dto_collection_query_parameters));
+            } else {
+                $httpBody = $currency_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5435,15 +5591,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TimezoneDtoListEnvelope
      */
-    public function getTimeZonesByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
+    public function getTimeZonesByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
     {
-        list($response) = $this->getTimeZonesByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTimeZonesByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5455,15 +5612,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TimezoneDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeZonesByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
+    public function getTimeZonesByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
     {
-        $request = $this->getTimeZonesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTimeZonesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5652,14 +5810,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeZonesByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
+    public function getTimeZonesByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
     {
-        return $this->getTimeZonesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->getTimeZonesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5675,15 +5834,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeZonesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
+    public function getTimeZonesByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TimezoneDtoListEnvelope';
-        $request = $this->getTimeZonesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTimeZonesByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $timezone_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5727,12 +5887,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TimezoneDtoCollectionQueryParameters $timezone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeZonesByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeZonesByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
+    public function getTimeZonesByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, $timezone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeZonesByCountryIdAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -5741,6 +5902,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getTimeZonesByCountryIdAsync'
             );
         }
+
 
 
 
@@ -5784,7 +5946,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($timezone_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($timezone_dto_collection_query_parameters));
+            } else {
+                $httpBody = $timezone_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5838,15 +6007,16 @@ class CountriesApi
      * @param  string $country_id country_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopLevelDomainsByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope
      */
-    public function getTopLevelDomainsByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
+    public function getTopLevelDomainsByCountryIdAsync($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
     {
-        list($response) = $this->getTopLevelDomainsByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTopLevelDomainsByCountryIdAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5858,15 +6028,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopLevelDomainsByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTopLevelDomainsByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
+    public function getTopLevelDomainsByCountryIdAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
     {
-        $request = $this->getTopLevelDomainsByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTopLevelDomainsByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6055,14 +6226,15 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopLevelDomainsByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTopLevelDomainsByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
+    public function getTopLevelDomainsByCountryIdAsyncAsync($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
     {
-        return $this->getTopLevelDomainsByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $contentType)
+        return $this->getTopLevelDomainsByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6078,15 +6250,16 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopLevelDomainsByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTopLevelDomainsByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
+    public function getTopLevelDomainsByCountryIdAsyncAsyncWithHttpInfo($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope';
-        $request = $this->getTopLevelDomainsByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTopLevelDomainsByCountryIdAsyncRequest($country_id, $api_version, $x_api_version, $country_top_level_domain_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6130,12 +6303,13 @@ class CountriesApi
      * @param  string $country_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CountryTopLevelDomainDtoCollectionQueryParameters $country_top_level_domain_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTopLevelDomainsByCountryIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTopLevelDomainsByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
+    public function getTopLevelDomainsByCountryIdAsyncRequest($country_id, $api_version = null, $x_api_version = null, $country_top_level_domain_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTopLevelDomainsByCountryIdAsync'][0])
     {
 
         // verify the required parameter 'country_id' is set
@@ -6144,6 +6318,7 @@ class CountriesApi
                 'Missing the required parameter $country_id when calling getTopLevelDomainsByCountryIdAsync'
             );
         }
+
 
 
 
@@ -6187,7 +6362,14 @@ class CountriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($country_top_level_domain_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($country_top_level_domain_dto_collection_query_parameters));
+            } else {
+                $httpBody = $country_top_level_domain_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

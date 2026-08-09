@@ -401,7 +401,7 @@ No authorization required
 ## `getBillOfLadingLinesAsync()`
 
 ```php
-getBillOfLadingLinesAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BillOfLadingLineDtoListEnvelope
+getBillOfLadingLinesAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters): \OpenAPI\Client\Model\BillOfLadingLineDtoListEnvelope
 ```
 
 Get bill of lading lines
@@ -425,9 +425,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_of_lading_id = 'bill_of_lading_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bill_of_lading_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillOfLadingLinesAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillOfLadingLinesAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillsOfLadingApi->getBillOfLadingLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -442,6 +443,7 @@ try {
 | **bill_of_lading_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bill_of_lading_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters**](../Model/BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +455,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -463,7 +465,7 @@ No authorization required
 ## `getBillOfLadingLinesCountAsync()`
 
 ```php
-getBillOfLadingLinesCountAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBillOfLadingLinesCountAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get bill of lading lines count
@@ -487,9 +489,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_of_lading_id = 'bill_of_lading_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bill_of_lading_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillOfLadingLinesCountAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillOfLadingLinesCountAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $bill_of_lading_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillsOfLadingApi->getBillOfLadingLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -504,6 +507,7 @@ try {
 | **bill_of_lading_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bill_of_lading_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BillOfLadingLineDtoCollectionQueryParameters**](../Model/BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -515,7 +519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +529,7 @@ No authorization required
 ## `getBillsOfLadingAsync()`
 
 ```php
-getBillsOfLadingAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BillOfLadingDtoListEnvelope
+getBillsOfLadingAsync($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters): \OpenAPI\Client\Model\BillOfLadingDtoListEnvelope
 ```
 
 Get all bills of lading
@@ -548,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\BillsOfLadingApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bill_of_lading_dto_collection_query_parameters = new \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillsOfLadingAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillsOfLadingAsync($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillsOfLadingApi->getBillsOfLadingAsync: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bill_of_lading_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters**](../Model/BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -585,7 +591,7 @@ No authorization required
 ## `getBillsOfLadingCountAsync()`
 
 ```php
-getBillsOfLadingCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBillsOfLadingCountAsync($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get bills of lading count
@@ -608,9 +614,10 @@ $apiInstance = new OpenAPI\Client\Api\BillsOfLadingApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bill_of_lading_dto_collection_query_parameters = new \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBillsOfLadingCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBillsOfLadingCountAsync($tenant_id, $api_version, $x_api_version, $bill_of_lading_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillsOfLadingApi->getBillsOfLadingCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -624,6 +631,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bill_of_lading_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BillOfLadingDtoCollectionQueryParameters**](../Model/BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -645,7 +653,7 @@ No authorization required
 ## `patchBillOfLadingAsync()`
 
 ```php
-patchBillOfLadingAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBillOfLadingAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a bill of lading
@@ -669,10 +677,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_of_lading_id = 'bill_of_lading_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBillOfLadingAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBillOfLadingAsync($tenant_id, $bill_of_lading_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillsOfLadingApi->patchBillOfLadingAsync: ', $e->getMessage(), PHP_EOL;
@@ -687,7 +695,7 @@ try {
 | **bill_of_lading_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -709,7 +717,7 @@ No authorization required
 ## `patchBillOfLadingLineAsync()`
 
 ```php
-patchBillOfLadingLineAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchBillOfLadingLineAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a bill of lading line
@@ -734,10 +742,10 @@ $bill_of_lading_id = 'bill_of_lading_id_example'; // string
 $line_id = 'line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchBillOfLadingLineAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchBillOfLadingLineAsync($tenant_id, $bill_of_lading_id, $line_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillsOfLadingApi->patchBillOfLadingLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -753,7 +761,7 @@ try {
 | **line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -200,7 +200,7 @@ No authorization required
 ## `getShippingCouriersAsync()`
 
 ```php
-getShippingCouriersAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShippingCourierDtoListEnvelope
+getShippingCouriersAsync($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters): \OpenAPI\Client\Model\ShippingCourierDtoListEnvelope
 ```
 
 Get all shipping couriers
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ShippingCouriersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shipping_courier_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShippingCouriersAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShippingCouriersAsync($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingCouriersApi->getShippingCouriersAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shipping_courier_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters**](../Model/ShippingCourierDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getShippingCouriersCountAsync()`
 
 ```php
-getShippingCouriersCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShippingCouriersCountAsync($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get shipping couriers count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ShippingCouriersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shipping_courier_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShippingCouriersCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShippingCouriersCountAsync($tenant_id, $api_version, $x_api_version, $shipping_courier_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingCouriersApi->getShippingCouriersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shipping_courier_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShippingCourierDtoCollectionQueryParameters**](../Model/ShippingCourierDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchShippingCourierAsync()`
 
 ```php
-patchShippingCourierAsync($tenant_id, $courier_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShippingCourierAsync($tenant_id, $courier_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a shipping courier
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $courier_id = 'courier_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShippingCourierAsync($tenant_id, $courier_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShippingCourierAsync($tenant_id, $courier_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingCouriersApi->patchShippingCourierAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **courier_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

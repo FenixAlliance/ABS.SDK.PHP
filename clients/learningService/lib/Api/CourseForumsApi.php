@@ -84,9 +84,11 @@ class CourseForumsApi
         ],
         'getCourseForumsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseForumsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCourseForumAsync' => [
             'application/json',
@@ -1173,15 +1175,16 @@ class CourseForumsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseForumDto[]
      */
-    public function getCourseForumsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
+    public function getCourseForumsAsync($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
     {
-        list($response) = $this->getCourseForumsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseForumsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1193,15 +1196,16 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseForumDto[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseForumsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
+    public function getCourseForumsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
     {
-        $request = $this->getCourseForumsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseForumsAsyncRequest($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1355,14 +1359,15 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseForumsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
+    public function getCourseForumsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
     {
-        return $this->getCourseForumsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseForumsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1378,15 +1383,16 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseForumsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
+    public function getCourseForumsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseForumDto[]';
-        $request = $this->getCourseForumsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseForumsAsyncRequest($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1430,12 +1436,13 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseForumsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
+    public function getCourseForumsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1444,6 +1451,7 @@ class CourseForumsApi
                 'Missing the required parameter $tenant_id when calling getCourseForumsAsync'
             );
         }
+
 
 
 
@@ -1488,7 +1496,14 @@ class CourseForumsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_forum_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_forum_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_forum_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1542,15 +1557,16 @@ class CourseForumsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|int
      */
-    public function getCourseForumsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
+    public function getCourseForumsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
     {
-        list($response) = $this->getCourseForumsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseForumsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1562,15 +1578,16 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|int, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseForumsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
+    public function getCourseForumsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
     {
-        $request = $this->getCourseForumsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseForumsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1724,14 +1741,15 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseForumsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
+    public function getCourseForumsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
     {
-        return $this->getCourseForumsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseForumsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1747,15 +1765,16 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseForumsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
+    public function getCourseForumsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getCourseForumsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseForumsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1799,12 +1818,13 @@ class CourseForumsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters $course_forum_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseForumsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseForumsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
+    public function getCourseForumsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_forum_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseForumsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1813,6 +1833,7 @@ class CourseForumsApi
                 'Missing the required parameter $tenant_id when calling getCourseForumsCountAsync'
             );
         }
+
 
 
 
@@ -1857,7 +1878,14 @@ class CourseForumsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_forum_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_forum_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_forum_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1912,16 +1940,16 @@ class CourseForumsApi
      * @param  string $forum_id forum_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseForumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchCourseForumAsync($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
+    public function patchCourseForumAsync($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
     {
-        $this->patchCourseForumAsyncWithHttpInfo($tenant_id, $forum_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchCourseForumAsyncWithHttpInfo($tenant_id, $forum_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1933,16 +1961,16 @@ class CourseForumsApi
      * @param  string $forum_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseForumAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseForumAsyncWithHttpInfo($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
+    public function patchCourseForumAsyncWithHttpInfo($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
     {
-        $request = $this->patchCourseForumAsyncRequest($tenant_id, $forum_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseForumAsyncRequest($tenant_id, $forum_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1993,15 +2021,15 @@ class CourseForumsApi
      * @param  string $forum_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseForumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseForumAsyncAsync($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
+    public function patchCourseForumAsyncAsync($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
     {
-        return $this->patchCourseForumAsyncAsyncWithHttpInfo($tenant_id, $forum_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseForumAsyncAsyncWithHttpInfo($tenant_id, $forum_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2018,16 +2046,16 @@ class CourseForumsApi
      * @param  string $forum_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseForumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseForumAsyncAsyncWithHttpInfo($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
+    public function patchCourseForumAsyncAsyncWithHttpInfo($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchCourseForumAsyncRequest($tenant_id, $forum_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseForumAsyncRequest($tenant_id, $forum_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2059,13 +2087,13 @@ class CourseForumsApi
      * @param  string $forum_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseForumAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseForumAsyncRequest($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
+    public function patchCourseForumAsyncRequest($tenant_id, $forum_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseForumAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2134,12 +2162,12 @@ class CourseForumsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -317,7 +317,7 @@ No authorization required
 ## `getDiscountListEntries()`
 
 ```php
-getDiscountListEntries($tenant_id, $discount_list_id): \OpenAPI\Client\Model\DiscountDtoListEnvelope
+getDiscountListEntries($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters): \OpenAPI\Client\Model\DiscountDtoListEnvelope
 ```
 
 Retrieves discounts in a discount list
@@ -339,9 +339,10 @@ $apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $discount_list_id = 'discount_list_id_example'; // string
+$discount_dto_collection_query_parameters = new \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDiscountListEntries($tenant_id, $discount_list_id);
+    $result = $apiInstance->getDiscountListEntries($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DiscountListsApi->getDiscountListEntries: ', $e->getMessage(), PHP_EOL;
@@ -354,6 +355,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **discount_list_id** | **string**|  | |
+| **discount_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters**](../Model/DiscountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -365,7 +367,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -375,7 +377,7 @@ No authorization required
 ## `getDiscountListEntriesCount()`
 
 ```php
-getDiscountListEntriesCount($tenant_id, $discount_list_id): \OpenAPI\Client\Model\Int32Envelope
+getDiscountListEntriesCount($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts discounts in a discount list
@@ -397,9 +399,10 @@ $apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $discount_list_id = 'discount_list_id_example'; // string
+$discount_dto_collection_query_parameters = new \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDiscountListEntriesCount($tenant_id, $discount_list_id);
+    $result = $apiInstance->getDiscountListEntriesCount($tenant_id, $discount_list_id, $discount_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DiscountListsApi->getDiscountListEntriesCount: ', $e->getMessage(), PHP_EOL;
@@ -412,6 +415,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **discount_list_id** | **string**|  | |
+| **discount_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DiscountDtoCollectionQueryParameters**](../Model/DiscountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -423,7 +427,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -493,7 +497,7 @@ No authorization required
 ## `getDiscountLists()`
 
 ```php
-getDiscountLists($tenant_id): \OpenAPI\Client\Model\DiscountListDtoListEnvelope
+getDiscountLists($tenant_id, $discount_list_dto_collection_query_parameters): \OpenAPI\Client\Model\DiscountListDtoListEnvelope
 ```
 
 Retrieves all discount lists
@@ -514,9 +518,10 @@ $apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$discount_list_dto_collection_query_parameters = new \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDiscountLists($tenant_id);
+    $result = $apiInstance->getDiscountLists($tenant_id, $discount_list_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DiscountListsApi->getDiscountLists: ', $e->getMessage(), PHP_EOL;
@@ -528,6 +533,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **discount_list_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters**](../Model/DiscountListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,7 +545,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -549,7 +555,7 @@ No authorization required
 ## `getDiscountListsCount()`
 
 ```php
-getDiscountListsCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getDiscountListsCount($tenant_id, $discount_list_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts discount lists
@@ -570,9 +576,10 @@ $apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$discount_list_dto_collection_query_parameters = new \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDiscountListsCount($tenant_id);
+    $result = $apiInstance->getDiscountListsCount($tenant_id, $discount_list_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DiscountListsApi->getDiscountListsCount: ', $e->getMessage(), PHP_EOL;
@@ -584,6 +591,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **discount_list_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DiscountListDtoCollectionQueryParameters**](../Model/DiscountListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -595,7 +603,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -605,7 +613,7 @@ No authorization required
 ## `patchDiscountList()`
 
 ```php
-patchDiscountList($tenant_id, $discount_list_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchDiscountList($tenant_id, $discount_list_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a discount list
@@ -627,10 +635,10 @@ $apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $discount_list_id = 'discount_list_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchDiscountList($tenant_id, $discount_list_id, $operation);
+    $result = $apiInstance->patchDiscountList($tenant_id, $discount_list_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DiscountListsApi->patchDiscountList: ', $e->getMessage(), PHP_EOL;
@@ -643,7 +651,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **discount_list_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -665,7 +673,7 @@ No authorization required
 ## `patchDiscountListEntry()`
 
 ```php
-patchDiscountListEntry($tenant_id, $discount_list_id, $discount_list_entry_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchDiscountListEntry($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a discount list entry
@@ -688,10 +696,10 @@ $apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
 $tenant_id = 'tenant_id_example'; // string
 $discount_list_id = 'discount_list_id_example'; // string
 $discount_list_entry_id = 'discount_list_entry_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchDiscountListEntry($tenant_id, $discount_list_id, $discount_list_entry_id, $operation);
+    $result = $apiInstance->patchDiscountListEntry($tenant_id, $discount_list_id, $discount_list_entry_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DiscountListsApi->patchDiscountListEntry: ', $e->getMessage(), PHP_EOL;
@@ -705,7 +713,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **discount_list_id** | **string**|  | |
 | **discount_list_entry_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

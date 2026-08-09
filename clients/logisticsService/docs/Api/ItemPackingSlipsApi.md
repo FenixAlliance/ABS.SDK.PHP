@@ -337,7 +337,7 @@ No authorization required
 ## `getItemPackingSlipEntriesAsync()`
 
 ```php
-getItemPackingSlipEntriesAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemPackingSlipEntryDtoListEnvelope
+getItemPackingSlipEntriesAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemPackingSlipEntryDtoListEnvelope
 ```
 
 Get packing slip entries
@@ -361,9 +361,10 @@ $tenant_id = 'tenant_id_example'; // string
 $packing_slip_id = 'packing_slip_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_packing_slip_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPackingSlipEntriesAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPackingSlipEntriesAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPackingSlipsApi->getItemPackingSlipEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -378,6 +379,7 @@ try {
 | **packing_slip_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_packing_slip_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters**](../Model/ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -389,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -399,7 +401,7 @@ No authorization required
 ## `getItemPackingSlipEntriesCountAsync()`
 
 ```php
-getItemPackingSlipEntriesCountAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemPackingSlipEntriesCountAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get packing slip entries count
@@ -423,9 +425,10 @@ $tenant_id = 'tenant_id_example'; // string
 $packing_slip_id = 'packing_slip_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_packing_slip_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPackingSlipEntriesCountAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPackingSlipEntriesCountAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPackingSlipsApi->getItemPackingSlipEntriesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -440,6 +443,7 @@ try {
 | **packing_slip_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_packing_slip_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters**](../Model/ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -451,7 +455,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +529,7 @@ No authorization required
 ## `getItemPackingSlipsAsync()`
 
 ```php
-getItemPackingSlipsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemPackingSlipDtoListEnvelope
+getItemPackingSlipsAsync($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemPackingSlipDtoListEnvelope
 ```
 
 Get all item packing slips
@@ -548,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemPackingSlipsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_packing_slip_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPackingSlipsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPackingSlipsAsync($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPackingSlipsApi->getItemPackingSlipsAsync: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_packing_slip_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters**](../Model/ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -585,7 +591,7 @@ No authorization required
 ## `getItemPackingSlipsCountAsync()`
 
 ```php
-getItemPackingSlipsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getItemPackingSlipsCountAsync($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get item packing slips count
@@ -608,9 +614,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemPackingSlipsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_packing_slip_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemPackingSlipsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemPackingSlipsCountAsync($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPackingSlipsApi->getItemPackingSlipsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -624,6 +631,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_packing_slip_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters**](../Model/ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -645,7 +653,7 @@ No authorization required
 ## `patchItemPackingSlipAsync()`
 
 ```php
-patchItemPackingSlipAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemPackingSlipAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an item packing slip
@@ -669,10 +677,10 @@ $tenant_id = 'tenant_id_example'; // string
 $packing_slip_id = 'packing_slip_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemPackingSlipAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemPackingSlipAsync($tenant_id, $packing_slip_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPackingSlipsApi->patchItemPackingSlipAsync: ', $e->getMessage(), PHP_EOL;
@@ -687,7 +695,7 @@ try {
 | **packing_slip_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -709,7 +717,7 @@ No authorization required
 ## `patchItemPackingSlipEntryAsync()`
 
 ```php
-patchItemPackingSlipEntryAsync($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemPackingSlipEntryAsync($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a packing slip entry
@@ -734,10 +742,10 @@ $packing_slip_id = 'packing_slip_id_example'; // string
 $entry_id = 'entry_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemPackingSlipEntryAsync($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemPackingSlipEntryAsync($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemPackingSlipsApi->patchItemPackingSlipEntryAsync: ', $e->getMessage(), PHP_EOL;
@@ -753,7 +761,7 @@ try {
 | **entry_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

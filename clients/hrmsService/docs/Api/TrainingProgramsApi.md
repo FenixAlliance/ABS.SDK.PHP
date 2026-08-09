@@ -201,7 +201,7 @@ No authorization required
 ## `getTrainingProgramsAsync()`
 
 ```php
-getTrainingProgramsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TrainingProgramDtoListEnvelope
+getTrainingProgramsAsync($tenant_id, $api_version, $x_api_version, $training_program_dto_collection_query_parameters): \OpenAPI\Client\Model\TrainingProgramDtoListEnvelope
 ```
 
 Get training programs
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\TrainingProgramsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$training_program_dto_collection_query_parameters = new \OpenAPI\Client\Model\TrainingProgramDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TrainingProgramDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTrainingProgramsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrainingProgramsAsync($tenant_id, $api_version, $x_api_version, $training_program_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrainingProgramsApi->getTrainingProgramsAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **training_program_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TrainingProgramDtoCollectionQueryParameters**](../Model/TrainingProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getTrainingProgramsCountAsync()`
 
 ```php
-getTrainingProgramsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTrainingProgramsCountAsync($tenant_id, $api_version, $x_api_version, $training_program_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count training programs
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\TrainingProgramsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$training_program_dto_collection_query_parameters = new \OpenAPI\Client\Model\TrainingProgramDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TrainingProgramDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTrainingProgramsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrainingProgramsCountAsync($tenant_id, $api_version, $x_api_version, $training_program_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrainingProgramsApi->getTrainingProgramsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **training_program_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TrainingProgramDtoCollectionQueryParameters**](../Model/TrainingProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

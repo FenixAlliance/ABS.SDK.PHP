@@ -251,7 +251,7 @@ No authorization required
 ## `apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch()`
 
 ```php
-apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 
@@ -273,10 +273,10 @@ $tenant_id = 'tenant_id_example'; // string
 $instructor_profile_id = 'instructor_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch($tenant_id, $instructor_profile_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InstructorProfilesApi->apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -291,7 +291,7 @@ try {
 | **instructor_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

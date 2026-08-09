@@ -383,7 +383,7 @@ No authorization required
 ## `getExtendedOrders()`
 
 ```php
-getExtendedOrders($tenant_id): \OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope
+getExtendedOrders($tenant_id, $extended_order_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope
 ```
 
 Gets a list of extended orders for a tenant.
@@ -404,9 +404,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$extended_order_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedOrders($tenant_id);
+    $result = $apiInstance->getExtendedOrders($tenant_id, $extended_order_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->getExtendedOrders: ', $e->getMessage(), PHP_EOL;
@@ -418,6 +419,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **extended_order_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters**](../Model/ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -429,7 +431,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -557,7 +559,7 @@ No authorization required
 ## `getOrderLines()`
 
 ```php
-getOrderLines($tenant_id, $order_id, $item_id): \OpenAPI\Client\Model\OrderLineDtoListEnvelope
+getOrderLines($tenant_id, $order_id, $item_id, $order_line_dto_collection_query_parameters): \OpenAPI\Client\Model\OrderLineDtoListEnvelope
 ```
 
 Gets order lines for an order.
@@ -580,9 +582,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
 $tenant_id = 'tenant_id_example'; // string
 $order_id = 'order_id_example'; // string
 $item_id = 'item_id_example'; // string
+$order_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOrderLines($tenant_id, $order_id, $item_id);
+    $result = $apiInstance->getOrderLines($tenant_id, $order_id, $item_id, $order_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->getOrderLines: ', $e->getMessage(), PHP_EOL;
@@ -596,6 +599,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **order_id** | **string**|  | |
 | **item_id** | **string**|  | [optional] |
+| **order_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters**](../Model/OrderLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -607,7 +611,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -617,7 +621,7 @@ No authorization required
 ## `getOrderLinesCount()`
 
 ```php
-getOrderLinesCount($tenant_id, $order_id): \OpenAPI\Client\Model\Int32Envelope
+getOrderLinesCount($tenant_id, $order_id, $order_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of order lines for an order.
@@ -639,9 +643,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $order_id = 'order_id_example'; // string
+$order_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOrderLinesCount($tenant_id, $order_id);
+    $result = $apiInstance->getOrderLinesCount($tenant_id, $order_id, $order_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->getOrderLinesCount: ', $e->getMessage(), PHP_EOL;
@@ -654,6 +659,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **order_id** | **string**|  | |
+| **order_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters**](../Model/OrderLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -665,7 +671,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -675,7 +681,7 @@ No authorization required
 ## `getOrders()`
 
 ```php
-getOrders($tenant_id): \OpenAPI\Client\Model\OrderDtoListEnvelope
+getOrders($tenant_id, $order_dto_collection_query_parameters): \OpenAPI\Client\Model\OrderDtoListEnvelope
 ```
 
 Gets a list of orders for a tenant.
@@ -696,9 +702,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$order_dto_collection_query_parameters = new \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOrders($tenant_id);
+    $result = $apiInstance->getOrders($tenant_id, $order_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->getOrders: ', $e->getMessage(), PHP_EOL;
@@ -710,6 +717,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **order_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OrderDtoCollectionQueryParameters**](../Model/OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -721,7 +729,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -731,7 +739,7 @@ No authorization required
 ## `getOrdersCount()`
 
 ```php
-getOrdersCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getOrdersCount($tenant_id, $order_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the count of orders for a tenant.
@@ -752,9 +760,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$order_dto_collection_query_parameters = new \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOrdersCount($tenant_id);
+    $result = $apiInstance->getOrdersCount($tenant_id, $order_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->getOrdersCount: ', $e->getMessage(), PHP_EOL;
@@ -766,6 +775,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **order_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OrderDtoCollectionQueryParameters**](../Model/OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -777,7 +787,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -787,7 +797,7 @@ No authorization required
 ## `patchOrder()`
 
 ```php
-patchOrder($tenant_id, $order_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchOrder($tenant_id, $order_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an existing order.
@@ -809,10 +819,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $order_id = 'order_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchOrder($tenant_id, $order_id, $operation);
+    $result = $apiInstance->patchOrder($tenant_id, $order_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->patchOrder: ', $e->getMessage(), PHP_EOL;
@@ -825,7 +835,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **order_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -847,7 +857,7 @@ No authorization required
 ## `patchOrderLine()`
 
 ```php
-patchOrderLine($tenant_id, $order_id, $order_line_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchOrderLine($tenant_id, $order_id, $order_line_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially updates an order line.
@@ -870,10 +880,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
 $tenant_id = 'tenant_id_example'; // string
 $order_id = 'order_id_example'; // string
 $order_line_id = 'order_line_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchOrderLine($tenant_id, $order_id, $order_line_id, $operation);
+    $result = $apiInstance->patchOrderLine($tenant_id, $order_id, $order_line_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->patchOrderLine: ', $e->getMessage(), PHP_EOL;
@@ -887,7 +897,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **order_id** | **string**|  | |
 | **order_line_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

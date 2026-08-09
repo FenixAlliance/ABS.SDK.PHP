@@ -93,7 +93,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -120,10 +119,12 @@ Class | Method | HTTP request | Description
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [BlockchainBlockCreateDto](docs/Model/BlockchainBlockCreateDto.md)
 - [BlockchainBlockDto](docs/Model/BlockchainBlockDto.md)
+- [BlockchainBlockDtoCollectionQueryParameters](docs/Model/BlockchainBlockDtoCollectionQueryParameters.md)
 - [BlockchainBlockDtoListEnvelope](docs/Model/BlockchainBlockDtoListEnvelope.md)
 - [BlockchainBlockUpdateDto](docs/Model/BlockchainBlockUpdateDto.md)
 - [BlockchainCreateDto](docs/Model/BlockchainCreateDto.md)
 - [BlockchainDto](docs/Model/BlockchainDto.md)
+- [BlockchainDtoCollectionQueryParameters](docs/Model/BlockchainDtoCollectionQueryParameters.md)
 - [BlockchainDtoListEnvelope](docs/Model/BlockchainDtoListEnvelope.md)
 - [BlockchainUpdateDto](docs/Model/BlockchainUpdateDto.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
@@ -136,9 +137,10 @@ Class | Method | HTTP request | Description
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [NonFungibleTokenCreateDto](docs/Model/NonFungibleTokenCreateDto.md)
 - [NonFungibleTokenDto](docs/Model/NonFungibleTokenDto.md)
+- [NonFungibleTokenDtoCollectionQueryParameters](docs/Model/NonFungibleTokenDtoCollectionQueryParameters.md)
 - [NonFungibleTokenDtoListEnvelope](docs/Model/NonFungibleTokenDtoListEnvelope.md)
 - [NonFungibleTokenUpdateDto](docs/Model/NonFungibleTokenUpdateDto.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)

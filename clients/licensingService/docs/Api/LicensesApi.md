@@ -199,7 +199,7 @@ No authorization required
 ## `getLicensesAsync()`
 
 ```php
-getLicensesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LicenseDtoListEnvelope
+getLicensesAsync($tenant_id, $api_version, $x_api_version, $license_dto_collection_query_parameters): \OpenAPI\Client\Model\LicenseDtoListEnvelope
 ```
 
 Get licenses
@@ -222,9 +222,10 @@ $apiInstance = new OpenAPI\Client\Api\LicensesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$license_dto_collection_query_parameters = new \OpenAPI\Client\Model\LicenseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LicenseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLicensesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicensesAsync($tenant_id, $api_version, $x_api_version, $license_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensesApi->getLicensesAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,6 +239,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **license_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LicenseDtoCollectionQueryParameters**](../Model/LicenseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -249,7 +251,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -259,7 +261,7 @@ No authorization required
 ## `getLicensesCountAsync()`
 
 ```php
-getLicensesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLicensesCountAsync($tenant_id, $api_version, $x_api_version, $license_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get licenses count
@@ -282,9 +284,10 @@ $apiInstance = new OpenAPI\Client\Api\LicensesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$license_dto_collection_query_parameters = new \OpenAPI\Client\Model\LicenseDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LicenseDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLicensesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicensesCountAsync($tenant_id, $api_version, $x_api_version, $license_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensesApi->getLicensesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -298,6 +301,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **license_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LicenseDtoCollectionQueryParameters**](../Model/LicenseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -309,7 +313,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

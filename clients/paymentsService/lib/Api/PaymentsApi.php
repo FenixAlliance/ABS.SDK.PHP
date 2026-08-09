@@ -87,6 +87,7 @@ class PaymentsApi
         ],
         'getPaymentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchPaymentAsync' => [
             'application/json',
@@ -1814,15 +1815,16 @@ class PaymentsApi
      * Retrieves all payments
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope
      */
-    public function getPaymentsAsync($tenant_id, string $contentType = self::contentTypes['getPaymentsAsync'][0])
+    public function getPaymentsAsync($tenant_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentsAsync'][0])
     {
-        list($response) = $this->getPaymentsAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getPaymentsAsyncWithHttpInfo($tenant_id, $payment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1832,15 +1834,16 @@ class PaymentsApi
      * Retrieves all payments
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PaymentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentsAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPaymentsAsync'][0])
+    public function getPaymentsAsyncWithHttpInfo($tenant_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentsAsync'][0])
     {
-        $request = $this->getPaymentsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPaymentsAsyncRequest($tenant_id, $payment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2062,14 +2065,15 @@ class PaymentsApi
      * Retrieves all payments
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentsAsyncAsync($tenant_id, string $contentType = self::contentTypes['getPaymentsAsync'][0])
+    public function getPaymentsAsyncAsync($tenant_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentsAsync'][0])
     {
-        return $this->getPaymentsAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getPaymentsAsyncAsyncWithHttpInfo($tenant_id, $payment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2083,15 +2087,16 @@ class PaymentsApi
      * Retrieves all payments
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentsAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPaymentsAsync'][0])
+    public function getPaymentsAsyncAsyncWithHttpInfo($tenant_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PaymentDtoListEnvelope';
-        $request = $this->getPaymentsAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPaymentsAsyncRequest($tenant_id, $payment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2133,12 +2138,13 @@ class PaymentsApi
      * Create request for operation 'getPaymentsAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters $payment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaymentsAsyncRequest($tenant_id, string $contentType = self::contentTypes['getPaymentsAsync'][0])
+    public function getPaymentsAsyncRequest($tenant_id, $payment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPaymentsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2147,6 +2153,7 @@ class PaymentsApi
                 'Missing the required parameter $tenant_id when calling getPaymentsAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/PaymentsService/Payments';
@@ -2176,7 +2183,14 @@ class PaymentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2229,16 +2243,16 @@ class PaymentsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $payment_id payment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPaymentAsync($tenant_id, $payment_id, $operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
+    public function patchPaymentAsync($tenant_id, $payment_id, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
     {
-        list($response) = $this->patchPaymentAsyncWithHttpInfo($tenant_id, $payment_id, $operation, $contentType);
+        list($response) = $this->patchPaymentAsyncWithHttpInfo($tenant_id, $payment_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2249,16 +2263,16 @@ class PaymentsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $payment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPaymentAsyncWithHttpInfo($tenant_id, $payment_id, $operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
+    public function patchPaymentAsyncWithHttpInfo($tenant_id, $payment_id, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
     {
-        $request = $this->patchPaymentAsyncRequest($tenant_id, $payment_id, $operation, $contentType);
+        $request = $this->patchPaymentAsyncRequest($tenant_id, $payment_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2446,15 +2460,15 @@ class PaymentsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $payment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPaymentAsyncAsync($tenant_id, $payment_id, $operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
+    public function patchPaymentAsyncAsync($tenant_id, $payment_id, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
     {
-        return $this->patchPaymentAsyncAsyncWithHttpInfo($tenant_id, $payment_id, $operation, $contentType)
+        return $this->patchPaymentAsyncAsyncWithHttpInfo($tenant_id, $payment_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2469,16 +2483,16 @@ class PaymentsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $payment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPaymentAsyncAsyncWithHttpInfo($tenant_id, $payment_id, $operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
+    public function patchPaymentAsyncAsyncWithHttpInfo($tenant_id, $payment_id, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPaymentAsyncRequest($tenant_id, $payment_id, $operation, $contentType);
+        $request = $this->patchPaymentAsyncRequest($tenant_id, $payment_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2521,13 +2535,13 @@ class PaymentsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $payment_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPaymentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPaymentAsyncRequest($tenant_id, $payment_id, $operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
+    public function patchPaymentAsyncRequest($tenant_id, $payment_id, $patch_operation = null, string $contentType = self::contentTypes['patchPaymentAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2581,12 +2595,12 @@ class PaymentsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **error_message** | **string** |  | [optional]
 **correlation_id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional] [readonly]
+**http_status** | **int** |  | [optional]
+**error_code** | **string** |  | [optional]
+**validation_details** | **array<string,string[]>** |  | [optional]
 **activity_id** | **string** |  | [optional] [readonly]
 **result** | [**\OpenAPI\Client\Model\ShareTransferDto[]**](ShareTransferDto.md) |  | [optional]
 

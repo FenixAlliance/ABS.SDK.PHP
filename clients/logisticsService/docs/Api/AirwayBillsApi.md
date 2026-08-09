@@ -339,7 +339,7 @@ No authorization required
 ## `getAirwayBillLinesAsync()`
 
 ```php
-getAirwayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
+getAirwayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
 ```
 
 Get airway bill lines
@@ -363,9 +363,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_id = 'bill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAirwayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAirwayBillLinesAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AirwayBillsApi->getAirwayBillLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -380,6 +381,7 @@ try {
 | **bill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -391,7 +393,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -401,7 +403,7 @@ No authorization required
 ## `getAirwayBillLinesCountAsync()`
 
 ```php
-getAirwayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAirwayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get airway bill lines count
@@ -425,9 +427,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_id = 'bill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAirwayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAirwayBillLinesCountAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AirwayBillsApi->getAirwayBillLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -442,6 +445,7 @@ try {
 | **bill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +457,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -463,7 +467,7 @@ No authorization required
 ## `getAirwayBillsAsync()`
 
 ```php
-getAirwayBillsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AirwayBillDtoListEnvelope
+getAirwayBillsAsync($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters): \OpenAPI\Client\Model\AirwayBillDtoListEnvelope
 ```
 
 Get all airway bills
@@ -486,9 +490,10 @@ $apiInstance = new OpenAPI\Client\Api\AirwayBillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$airway_bill_dto_collection_query_parameters = new \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAirwayBillsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAirwayBillsAsync($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AirwayBillsApi->getAirwayBillsAsync: ', $e->getMessage(), PHP_EOL;
@@ -502,6 +507,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **airway_bill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters**](../Model/AirwayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -513,7 +519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -523,7 +529,7 @@ No authorization required
 ## `getAirwayBillsCountAsync()`
 
 ```php
-getAirwayBillsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAirwayBillsCountAsync($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get airway bills count
@@ -546,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\AirwayBillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$airway_bill_dto_collection_query_parameters = new \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAirwayBillsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAirwayBillsCountAsync($tenant_id, $api_version, $x_api_version, $airway_bill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AirwayBillsApi->getAirwayBillsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -562,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **airway_bill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AirwayBillDtoCollectionQueryParameters**](../Model/AirwayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -573,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -831,7 +839,7 @@ No authorization required
 ## `patchAirwayBillAsync()`
 
 ```php
-patchAirwayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAirwayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an airway bill
@@ -855,10 +863,10 @@ $tenant_id = 'tenant_id_example'; // string
 $bill_id = 'bill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAirwayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAirwayBillAsync($tenant_id, $bill_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AirwayBillsApi->patchAirwayBillAsync: ', $e->getMessage(), PHP_EOL;
@@ -873,7 +881,7 @@ try {
 | **bill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -895,7 +903,7 @@ No authorization required
 ## `patchAirwayBillLineAsync()`
 
 ```php
-patchAirwayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAirwayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an airway bill line
@@ -920,10 +928,10 @@ $bill_id = 'bill_id_example'; // string
 $line_id = 'line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAirwayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAirwayBillLineAsync($tenant_id, $bill_id, $line_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AirwayBillsApi->patchAirwayBillLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -939,7 +947,7 @@ try {
 | **line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -84,9 +84,11 @@ class PricingRulesApi
         ],
         'getPricingRules' => [
             'application/json',
+            'application/xml',
         ],
         'getPricingRulesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchPricingRule' => [
             'application/json',
@@ -1272,15 +1274,16 @@ class PricingRulesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRules'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PricingRuleDtoListEnvelope
      */
-    public function getPricingRules($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRules'][0])
+    public function getPricingRules($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRules'][0])
     {
-        list($response) = $this->getPricingRulesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPricingRulesWithHttpInfo($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1292,15 +1295,16 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRules'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PricingRuleDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPricingRulesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRules'][0])
+    public function getPricingRulesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRules'][0])
     {
-        $request = $this->getPricingRulesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPricingRulesRequest($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1489,14 +1493,15 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricingRulesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRules'][0])
+    public function getPricingRulesAsync($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRules'][0])
     {
-        return $this->getPricingRulesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPricingRulesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1512,15 +1517,16 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricingRulesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRules'][0])
+    public function getPricingRulesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRules'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PricingRuleDtoListEnvelope';
-        $request = $this->getPricingRulesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPricingRulesRequest($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1564,12 +1570,13 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPricingRulesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRules'][0])
+    public function getPricingRulesRequest($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRules'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1578,6 +1585,7 @@ class PricingRulesApi
                 'Missing the required parameter $tenant_id when calling getPricingRules'
             );
         }
+
 
 
 
@@ -1622,7 +1630,14 @@ class PricingRulesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($pricing_rule_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($pricing_rule_dto_collection_query_parameters));
+            } else {
+                $httpBody = $pricing_rule_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1676,15 +1691,16 @@ class PricingRulesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRulesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPricingRulesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
+    public function getPricingRulesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
     {
-        list($response) = $this->getPricingRulesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPricingRulesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1696,15 +1712,16 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRulesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPricingRulesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
+    public function getPricingRulesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
     {
-        $request = $this->getPricingRulesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPricingRulesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1858,14 +1875,15 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRulesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricingRulesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
+    public function getPricingRulesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
     {
-        return $this->getPricingRulesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPricingRulesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1881,15 +1899,16 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRulesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricingRulesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
+    public function getPricingRulesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPricingRulesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPricingRulesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $pricing_rule_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1933,12 +1952,13 @@ class PricingRulesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PricingRuleDtoCollectionQueryParameters $pricing_rule_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricingRulesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPricingRulesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
+    public function getPricingRulesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $pricing_rule_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPricingRulesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1947,6 +1967,7 @@ class PricingRulesApi
                 'Missing the required parameter $tenant_id when calling getPricingRulesCountAsync'
             );
         }
+
 
 
 
@@ -1991,7 +2012,14 @@ class PricingRulesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($pricing_rule_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($pricing_rule_dto_collection_query_parameters));
+            } else {
+                $httpBody = $pricing_rule_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2046,16 +2074,16 @@ class PricingRulesApi
      * @param  string $pricing_rule_id pricing_rule_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPricingRule'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchPricingRule($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
+    public function patchPricingRule($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
     {
-        $this->patchPricingRuleWithHttpInfo($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchPricingRuleWithHttpInfo($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -2067,16 +2095,16 @@ class PricingRulesApi
      * @param  string $pricing_rule_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPricingRule'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPricingRuleWithHttpInfo($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
+    public function patchPricingRuleWithHttpInfo($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
     {
-        $request = $this->patchPricingRuleRequest($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchPricingRuleRequest($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2135,15 +2163,15 @@ class PricingRulesApi
      * @param  string $pricing_rule_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPricingRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPricingRuleAsync($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
+    public function patchPricingRuleAsync($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
     {
-        return $this->patchPricingRuleAsyncWithHttpInfo($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchPricingRuleAsyncWithHttpInfo($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2160,16 +2188,16 @@ class PricingRulesApi
      * @param  string $pricing_rule_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPricingRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPricingRuleAsyncWithHttpInfo($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
+    public function patchPricingRuleAsyncWithHttpInfo($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
     {
         $returnType = '';
-        $request = $this->patchPricingRuleRequest($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchPricingRuleRequest($tenant_id, $pricing_rule_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2201,13 +2229,13 @@ class PricingRulesApi
      * @param  string $pricing_rule_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPricingRule'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPricingRuleRequest($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
+    public function patchPricingRuleRequest($tenant_id, $pricing_rule_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPricingRule'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2276,12 +2304,12 @@ class PricingRulesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

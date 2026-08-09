@@ -140,7 +140,7 @@ No authorization required
 ## `getSupportTicketPrioritiesAsync()`
 
 ```php
-getSupportTicketPrioritiesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketPriorityDtoListEnvelope
+getSupportTicketPrioritiesAsync($tenant_id, $api_version, $x_api_version, $support_ticket_priority_dto_collection_query_parameters): \OpenAPI\Client\Model\SupportTicketPriorityDtoListEnvelope
 ```
 
 Retrieve a list of support ticket priorities
@@ -163,9 +163,10 @@ $apiInstance = new OpenAPI\Client\Api\SupportTicketPrioritiesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_ticket_priority_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportTicketPriorityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportTicketPriorityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportTicketPrioritiesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketPrioritiesAsync($tenant_id, $api_version, $x_api_version, $support_ticket_priority_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketPrioritiesApi->getSupportTicketPrioritiesAsync: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_ticket_priority_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportTicketPriorityDtoCollectionQueryParameters**](../Model/SupportTicketPriorityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -190,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,7 +202,7 @@ No authorization required
 ## `getSupportTicketPrioritiesCountAsync()`
 
 ```php
-getSupportTicketPrioritiesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSupportTicketPrioritiesCountAsync($tenant_id, $api_version, $x_api_version, $support_ticket_priority_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of support ticket priorities
@@ -223,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SupportTicketPrioritiesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$support_ticket_priority_dto_collection_query_parameters = new \OpenAPI\Client\Model\SupportTicketPriorityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SupportTicketPriorityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSupportTicketPrioritiesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketPrioritiesCountAsync($tenant_id, $api_version, $x_api_version, $support_ticket_priority_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketPrioritiesApi->getSupportTicketPrioritiesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_ticket_priority_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SupportTicketPriorityDtoCollectionQueryParameters**](../Model/SupportTicketPriorityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSupportTicketPriorityAsync()`
 
 ```php
-patchSupportTicketPriorityAsync($tenant_id, $support_ticket_priority_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSupportTicketPriorityAsync($tenant_id, $support_ticket_priority_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a support ticket priority
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $support_ticket_priority_id = 'support_ticket_priority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSupportTicketPriorityAsync($tenant_id, $support_ticket_priority_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSupportTicketPriorityAsync($tenant_id, $support_ticket_priority_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportTicketPrioritiesApi->patchSupportTicketPriorityAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **support_ticket_priority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

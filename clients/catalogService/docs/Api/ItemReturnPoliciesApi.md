@@ -14,7 +14,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemReturnPoliciesAsync()`
 
 ```php
-countItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item return policies
@@ -38,9 +38,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_return_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemReturnPoliciesApi->countItemReturnPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_return_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters**](../Model/ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -76,7 +78,7 @@ No authorization required
 ## `getItemReturnPoliciesAsync()`
 
 ```php
-getItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
+getItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
 ```
 
 Get item return policies
@@ -100,9 +102,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_return_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemReturnPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemReturnPoliciesApi->getItemReturnPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -117,6 +120,7 @@ try {
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_return_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters**](../Model/ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -128,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

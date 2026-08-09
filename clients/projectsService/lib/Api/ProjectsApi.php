@@ -101,27 +101,35 @@ class ProjectsApi
         ],
         'getProjectTaskCategoriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProjectTaskCategoriesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProjectTimeLogsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProjectsByTenantIdAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getProjectsCountByTenantIdAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTasksForProjectAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTasksForProjectCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTimeLogsForProjectAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchProjectAsync' => [
             'application/json',
@@ -3453,15 +3461,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
      */
-    public function getProjectTaskCategoriesAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
+    public function getProjectTaskCategoriesAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
     {
-        list($response) = $this->getProjectTaskCategoriesAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        list($response) = $this->getProjectTaskCategoriesAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3472,15 +3481,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TaskCategoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectTaskCategoriesAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
+    public function getProjectTaskCategoriesAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
     {
-        $request = $this->getProjectTaskCategoriesAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getProjectTaskCategoriesAsyncRequest($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3668,14 +3678,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectTaskCategoriesAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
+    public function getProjectTaskCategoriesAsyncAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
     {
-        return $this->getProjectTaskCategoriesAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+        return $this->getProjectTaskCategoriesAsyncAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3690,15 +3701,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectTaskCategoriesAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
+    public function getProjectTaskCategoriesAsyncAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TaskCategoryDtoListEnvelope';
-        $request = $this->getProjectTaskCategoriesAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getProjectTaskCategoriesAsyncRequest($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3741,12 +3753,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectTaskCategoriesAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
+    public function getProjectTaskCategoriesAsyncRequest($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -3762,6 +3775,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getProjectTaskCategoriesAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/TaskCategories';
@@ -3799,7 +3813,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($task_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($task_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $task_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3852,15 +3873,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProjectTaskCategoriesCountAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
+    public function getProjectTaskCategoriesCountAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
     {
-        list($response) = $this->getProjectTaskCategoriesCountAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        list($response) = $this->getProjectTaskCategoriesCountAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3871,15 +3893,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectTaskCategoriesCountAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
+    public function getProjectTaskCategoriesCountAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
     {
-        $request = $this->getProjectTaskCategoriesCountAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getProjectTaskCategoriesCountAsyncRequest($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4067,14 +4090,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectTaskCategoriesCountAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
+    public function getProjectTaskCategoriesCountAsyncAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
     {
-        return $this->getProjectTaskCategoriesCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+        return $this->getProjectTaskCategoriesCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4089,15 +4113,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectTaskCategoriesCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
+    public function getProjectTaskCategoriesCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProjectTaskCategoriesCountAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getProjectTaskCategoriesCountAsyncRequest($project_id, $tenant_id, $task_category_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4140,12 +4165,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters $task_category_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTaskCategoriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectTaskCategoriesCountAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
+    public function getProjectTaskCategoriesCountAsyncRequest($project_id, $tenant_id, $task_category_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTaskCategoriesCountAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -4161,6 +4187,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getProjectTaskCategoriesCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count';
@@ -4198,7 +4225,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($task_category_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($task_category_dto_collection_query_parameters));
+            } else {
+                $httpBody = $task_category_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4251,15 +4285,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProjectTimeLogsCountAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
+    public function getProjectTimeLogsCountAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
     {
-        list($response) = $this->getProjectTimeLogsCountAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        list($response) = $this->getProjectTimeLogsCountAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4270,15 +4305,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectTimeLogsCountAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
+    public function getProjectTimeLogsCountAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
     {
-        $request = $this->getProjectTimeLogsCountAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getProjectTimeLogsCountAsyncRequest($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4466,14 +4502,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectTimeLogsCountAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
+    public function getProjectTimeLogsCountAsyncAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
     {
-        return $this->getProjectTimeLogsCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+        return $this->getProjectTimeLogsCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4488,15 +4525,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectTimeLogsCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
+    public function getProjectTimeLogsCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProjectTimeLogsCountAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getProjectTimeLogsCountAsyncRequest($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4539,12 +4577,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectTimeLogsCountAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
+    public function getProjectTimeLogsCountAsyncRequest($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectTimeLogsCountAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -4560,6 +4599,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getProjectTimeLogsCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count';
@@ -4597,7 +4637,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_time_log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_time_log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_time_log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4649,15 +4696,16 @@ class ProjectsApi
      * Retrieves all projects
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectDtoListEnvelope
      */
-    public function getProjectsByTenantIdAsync($tenant_id, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
+    public function getProjectsByTenantIdAsync($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
     {
-        list($response) = $this->getProjectsByTenantIdAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getProjectsByTenantIdAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4667,15 +4715,16 @@ class ProjectsApi
      * Retrieves all projects
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectsByTenantIdAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
+    public function getProjectsByTenantIdAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
     {
-        $request = $this->getProjectsByTenantIdAsyncRequest($tenant_id, $contentType);
+        $request = $this->getProjectsByTenantIdAsyncRequest($tenant_id, $project_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4862,14 +4911,15 @@ class ProjectsApi
      * Retrieves all projects
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectsByTenantIdAsyncAsync($tenant_id, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
+    public function getProjectsByTenantIdAsyncAsync($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
     {
-        return $this->getProjectsByTenantIdAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getProjectsByTenantIdAsyncAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4883,15 +4933,16 @@ class ProjectsApi
      * Retrieves all projects
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectsByTenantIdAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
+    public function getProjectsByTenantIdAsyncAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProjectDtoListEnvelope';
-        $request = $this->getProjectsByTenantIdAsyncRequest($tenant_id, $contentType);
+        $request = $this->getProjectsByTenantIdAsyncRequest($tenant_id, $project_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4933,12 +4984,13 @@ class ProjectsApi
      * Create request for operation 'getProjectsByTenantIdAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectsByTenantIdAsyncRequest($tenant_id, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
+    public function getProjectsByTenantIdAsyncRequest($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsByTenantIdAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4947,6 +4999,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getProjectsByTenantIdAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects';
@@ -4976,7 +5029,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5028,15 +5088,16 @@ class ProjectsApi
      * Counts projects
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsCountByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getProjectsCountByTenantIdAsync($tenant_id, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
+    public function getProjectsCountByTenantIdAsync($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
     {
-        list($response) = $this->getProjectsCountByTenantIdAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getProjectsCountByTenantIdAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5046,15 +5107,16 @@ class ProjectsApi
      * Counts projects
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsCountByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectsCountByTenantIdAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
+    public function getProjectsCountByTenantIdAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
     {
-        $request = $this->getProjectsCountByTenantIdAsyncRequest($tenant_id, $contentType);
+        $request = $this->getProjectsCountByTenantIdAsyncRequest($tenant_id, $project_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5241,14 +5303,15 @@ class ProjectsApi
      * Counts projects
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsCountByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectsCountByTenantIdAsyncAsync($tenant_id, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
+    public function getProjectsCountByTenantIdAsyncAsync($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
     {
-        return $this->getProjectsCountByTenantIdAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getProjectsCountByTenantIdAsyncAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5262,15 +5325,16 @@ class ProjectsApi
      * Counts projects
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsCountByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectsCountByTenantIdAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
+    public function getProjectsCountByTenantIdAsyncAsyncWithHttpInfo($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProjectsCountByTenantIdAsyncRequest($tenant_id, $contentType);
+        $request = $this->getProjectsCountByTenantIdAsyncRequest($tenant_id, $project_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5312,12 +5376,13 @@ class ProjectsApi
      * Create request for operation 'getProjectsCountByTenantIdAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters $project_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectsCountByTenantIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectsCountByTenantIdAsyncRequest($tenant_id, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
+    public function getProjectsCountByTenantIdAsyncRequest($tenant_id, $project_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getProjectsCountByTenantIdAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5326,6 +5391,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getProjectsCountByTenantIdAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/Count';
@@ -5355,7 +5421,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5408,15 +5481,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
      */
-    public function getTasksForProjectAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    public function getTasksForProjectAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
     {
-        list($response) = $this->getTasksForProjectAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        list($response) = $this->getTasksForProjectAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5427,15 +5501,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTasksForProjectAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    public function getTasksForProjectAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
     {
-        $request = $this->getTasksForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getTasksForProjectAsyncRequest($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5623,14 +5698,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTasksForProjectAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    public function getTasksForProjectAsyncAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
     {
-        return $this->getTasksForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+        return $this->getTasksForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5645,15 +5721,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTasksForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    public function getTasksForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope';
-        $request = $this->getTasksForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getTasksForProjectAsyncRequest($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5696,12 +5773,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTasksForProjectAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    public function getTasksForProjectAsyncRequest($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -5717,6 +5795,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getTasksForProjectAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks';
@@ -5754,7 +5833,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_task_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_task_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_task_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5807,15 +5893,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTasksForProjectCountAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    public function getTasksForProjectCountAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
     {
-        list($response) = $this->getTasksForProjectCountAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        list($response) = $this->getTasksForProjectCountAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5826,15 +5913,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTasksForProjectCountAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    public function getTasksForProjectCountAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
     {
-        $request = $this->getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6022,14 +6110,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTasksForProjectCountAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    public function getTasksForProjectCountAsyncAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
     {
-        return $this->getTasksForProjectCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+        return $this->getTasksForProjectCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6044,15 +6133,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTasksForProjectCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    public function getTasksForProjectCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $project_task_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6095,12 +6185,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters $project_task_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTasksForProjectCountAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    public function getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $project_task_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -6116,6 +6207,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getTasksForProjectCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count';
@@ -6153,7 +6245,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_task_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_task_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_task_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6206,15 +6305,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
      */
-    public function getTimeLogsForProjectAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    public function getTimeLogsForProjectAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
     {
-        list($response) = $this->getTimeLogsForProjectAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        list($response) = $this->getTimeLogsForProjectAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6225,15 +6325,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTimeLogsForProjectAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    public function getTimeLogsForProjectAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
     {
-        $request = $this->getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6421,14 +6522,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeLogsForProjectAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    public function getTimeLogsForProjectAsyncAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
     {
-        return $this->getTimeLogsForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+        return $this->getTimeLogsForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6443,15 +6545,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTimeLogsForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    public function getTimeLogsForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope';
-        $request = $this->getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+        $request = $this->getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6494,12 +6597,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters $project_time_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    public function getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -6515,6 +6619,7 @@ class ProjectsApi
                 'Missing the required parameter $tenant_id when calling getTimeLogsForProjectAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs';
@@ -6552,7 +6657,14 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($project_time_log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($project_time_log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $project_time_log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6605,16 +6717,16 @@ class ProjectsApi
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchProjectAsync($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    public function patchProjectAsync($project_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
     {
-        list($response) = $this->patchProjectAsyncWithHttpInfo($project_id, $tenant_id, $operation, $contentType);
+        list($response) = $this->patchProjectAsyncWithHttpInfo($project_id, $tenant_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6625,16 +6737,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProjectAsyncWithHttpInfo($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    public function patchProjectAsyncWithHttpInfo($project_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
     {
-        $request = $this->patchProjectAsyncRequest($project_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchProjectAsyncRequest($project_id, $tenant_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6822,15 +6934,15 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProjectAsyncAsync($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    public function patchProjectAsyncAsync($project_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
     {
-        return $this->patchProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $operation, $contentType)
+        return $this->patchProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6845,16 +6957,16 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    public function patchProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchProjectAsyncRequest($project_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchProjectAsyncRequest($project_id, $tenant_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6897,13 +7009,13 @@ class ProjectsApi
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProjectAsyncRequest($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    public function patchProjectAsyncRequest($project_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -6957,12 +7069,12 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7018,16 +7130,16 @@ class ProjectsApi
      * @param  string $project_id project_id (required)
      * @param  string $project_period_id project_period_id (required)
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    public function patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
     {
-        list($response) = $this->patchProjectPeriodAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation, $contentType);
+        list($response) = $this->patchProjectPeriodAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -7039,16 +7151,16 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_period_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchProjectPeriodAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    public function patchProjectPeriodAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
     {
-        $request = $this->patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7237,15 +7349,15 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_period_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProjectPeriodAsyncAsync($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    public function patchProjectPeriodAsyncAsync($project_id, $project_period_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
     {
-        return $this->patchProjectPeriodAsyncAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation, $contentType)
+        return $this->patchProjectPeriodAsyncAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7261,16 +7373,16 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_period_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchProjectPeriodAsyncAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    public function patchProjectPeriodAsyncAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7314,13 +7426,13 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_period_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    public function patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -7389,12 +7501,12 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7450,16 +7562,16 @@ class ProjectsApi
      * @param  string $project_id project_id (required)
      * @param  string $project_task_id project_task_id (required)
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    public function patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
     {
-        list($response) = $this->patchTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation, $contentType);
+        list($response) = $this->patchTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -7471,16 +7583,16 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    public function patchTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
     {
-        $request = $this->patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7669,15 +7781,15 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTaskForProjectAsyncAsync($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    public function patchTaskForProjectAsyncAsync($project_id, $project_task_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
     {
-        return $this->patchTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation, $contentType)
+        return $this->patchTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7693,16 +7805,16 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    public function patchTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7746,13 +7858,13 @@ class ProjectsApi
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    public function patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
@@ -7821,12 +7933,12 @@ class ProjectsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -511,7 +511,7 @@ No authorization required
 ## `patchItemCartRecord()`
 
 ```php
-patchItemCartRecord($record_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchItemCartRecord($record_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a cart record
@@ -534,10 +534,10 @@ $apiInstance = new OpenAPI\Client\Api\RecordsApi(
 $record_id = 'record_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchItemCartRecord($record_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchItemCartRecord($record_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecordsApi->patchItemCartRecord: ', $e->getMessage(), PHP_EOL;
@@ -551,7 +551,7 @@ try {
 | **record_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

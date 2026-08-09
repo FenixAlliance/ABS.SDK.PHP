@@ -196,7 +196,7 @@ No authorization required
 ## `getInquiryRequestsAsync()`
 
 ```php
-getInquiryRequestsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InquiryRequestDtoListEnvelope
+getInquiryRequestsAsync($tenant_id, $api_version, $x_api_version, $inquiry_request_dto_collection_query_parameters): \OpenAPI\Client\Model\InquiryRequestDtoListEnvelope
 ```
 
 Retrieve inquiry requests
@@ -217,9 +217,10 @@ $apiInstance = new OpenAPI\Client\Api\InquiryRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$inquiry_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\InquiryRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InquiryRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInquiryRequestsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getInquiryRequestsAsync($tenant_id, $api_version, $x_api_version, $inquiry_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InquiryRequestsApi->getInquiryRequestsAsync: ', $e->getMessage(), PHP_EOL;
@@ -233,6 +234,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **inquiry_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InquiryRequestDtoCollectionQueryParameters**](../Model/InquiryRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -254,7 +256,7 @@ No authorization required
 ## `getInquiryRequestsCountAsync()`
 
 ```php
-getInquiryRequestsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getInquiryRequestsCountAsync($tenant_id, $api_version, $x_api_version, $inquiry_request_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get inquiry requests count
@@ -275,9 +277,10 @@ $apiInstance = new OpenAPI\Client\Api\InquiryRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$inquiry_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\InquiryRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InquiryRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getInquiryRequestsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getInquiryRequestsCountAsync($tenant_id, $api_version, $x_api_version, $inquiry_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InquiryRequestsApi->getInquiryRequestsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -291,6 +294,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **inquiry_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InquiryRequestDtoCollectionQueryParameters**](../Model/InquiryRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -302,7 +306,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -312,7 +316,7 @@ No authorization required
 ## `patchInquiryRequestAsync()`
 
 ```php
-patchInquiryRequestAsync($tenant_id, $inquiry_request_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchInquiryRequestAsync($tenant_id, $inquiry_request_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an inquiry request
@@ -336,10 +340,10 @@ $tenant_id = 'tenant_id_example'; // string
 $inquiry_request_id = 'inquiry_request_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchInquiryRequestAsync($tenant_id, $inquiry_request_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchInquiryRequestAsync($tenant_id, $inquiry_request_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InquiryRequestsApi->patchInquiryRequestAsync: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +358,7 @@ try {
 | **inquiry_request_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

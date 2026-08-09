@@ -503,7 +503,7 @@ No authorization required
 ## `getProjectTaskCategoriesAsync()`
 
 ```php
-getProjectTaskCategoriesAsync($project_id, $tenant_id): \OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
+getProjectTaskCategoriesAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters): \OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
 ```
 
 Retrieves project task categories
@@ -525,9 +525,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$task_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProjectTaskCategoriesAsync($project_id, $tenant_id);
+    $result = $apiInstance->getProjectTaskCategoriesAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjectTaskCategoriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -540,6 +541,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **task_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters**](../Model/TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -551,7 +553,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -561,7 +563,7 @@ No authorization required
 ## `getProjectTaskCategoriesCountAsync()`
 
 ```php
-getProjectTaskCategoriesCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getProjectTaskCategoriesCountAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts project task categories
@@ -583,9 +585,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$task_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProjectTaskCategoriesCountAsync($project_id, $tenant_id);
+    $result = $apiInstance->getProjectTaskCategoriesCountAsync($project_id, $tenant_id, $task_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjectTaskCategoriesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -598,6 +601,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **task_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TaskCategoryDtoCollectionQueryParameters**](../Model/TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -609,7 +613,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -619,7 +623,7 @@ No authorization required
 ## `getProjectTimeLogsCountAsync()`
 
 ```php
-getProjectTimeLogsCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getProjectTimeLogsCountAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts project time logs
@@ -641,9 +645,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$project_time_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProjectTimeLogsCountAsync($project_id, $tenant_id);
+    $result = $apiInstance->getProjectTimeLogsCountAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjectTimeLogsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -656,6 +661,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **project_time_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters**](../Model/ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -667,7 +673,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -677,7 +683,7 @@ No authorization required
 ## `getProjectsByTenantIdAsync()`
 
 ```php
-getProjectsByTenantIdAsync($tenant_id): \OpenAPI\Client\Model\ProjectDtoListEnvelope
+getProjectsByTenantIdAsync($tenant_id, $project_dto_collection_query_parameters): \OpenAPI\Client\Model\ProjectDtoListEnvelope
 ```
 
 Retrieves all projects
@@ -698,9 +704,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$project_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProjectsByTenantIdAsync($tenant_id);
+    $result = $apiInstance->getProjectsByTenantIdAsync($tenant_id, $project_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjectsByTenantIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -712,6 +719,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **project_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters**](../Model/ProjectDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -723,7 +731,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -733,7 +741,7 @@ No authorization required
 ## `getProjectsCountByTenantIdAsync()`
 
 ```php
-getProjectsCountByTenantIdAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getProjectsCountByTenantIdAsync($tenant_id, $project_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts projects
@@ -754,9 +762,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$project_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProjectsCountByTenantIdAsync($tenant_id);
+    $result = $apiInstance->getProjectsCountByTenantIdAsync($tenant_id, $project_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjectsCountByTenantIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -768,6 +777,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **project_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectDtoCollectionQueryParameters**](../Model/ProjectDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -779,7 +789,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -789,7 +799,7 @@ No authorization required
 ## `getTasksForProjectAsync()`
 
 ```php
-getTasksForProjectAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
+getTasksForProjectAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters): \OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
 ```
 
 Retrieves project tasks
@@ -811,9 +821,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$project_task_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTasksForProjectAsync($project_id, $tenant_id);
+    $result = $apiInstance->getTasksForProjectAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getTasksForProjectAsync: ', $e->getMessage(), PHP_EOL;
@@ -826,6 +837,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **project_task_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters**](../Model/ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -837,7 +849,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -847,7 +859,7 @@ No authorization required
 ## `getTasksForProjectCountAsync()`
 
 ```php
-getTasksForProjectCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getTasksForProjectCountAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts project tasks
@@ -869,9 +881,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$project_task_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTasksForProjectCountAsync($project_id, $tenant_id);
+    $result = $apiInstance->getTasksForProjectCountAsync($project_id, $tenant_id, $project_task_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getTasksForProjectCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -884,6 +897,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **project_task_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectTaskDtoCollectionQueryParameters**](../Model/ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -895,7 +909,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -905,7 +919,7 @@ No authorization required
 ## `getTimeLogsForProjectAsync()`
 
 ```php
-getTimeLogsForProjectAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
+getTimeLogsForProjectAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
 ```
 
 Retrieves project time logs
@@ -927,9 +941,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$project_time_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTimeLogsForProjectAsync($project_id, $tenant_id);
+    $result = $apiInstance->getTimeLogsForProjectAsync($project_id, $tenant_id, $project_time_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getTimeLogsForProjectAsync: ', $e->getMessage(), PHP_EOL;
@@ -942,6 +957,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **project_time_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters**](../Model/ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -953,7 +969,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -963,7 +979,7 @@ No authorization required
 ## `patchProjectAsync()`
 
 ```php
-patchProjectAsync($project_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchProjectAsync($project_id, $tenant_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a project
@@ -985,10 +1001,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchProjectAsync($project_id, $tenant_id, $operation);
+    $result = $apiInstance->patchProjectAsync($project_id, $tenant_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->patchProjectAsync: ', $e->getMessage(), PHP_EOL;
@@ -1001,7 +1017,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1023,7 +1039,7 @@ No authorization required
 ## `patchProjectPeriodAsync()`
 
 ```php
-patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a project period
@@ -1046,10 +1062,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 $project_id = 'project_id_example'; // string
 $project_period_id = 'project_period_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $operation);
+    $result = $apiInstance->patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->patchProjectPeriodAsync: ', $e->getMessage(), PHP_EOL;
@@ -1063,7 +1079,7 @@ try {
 | **project_id** | **string**|  | |
 | **project_period_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1085,7 +1101,7 @@ No authorization required
 ## `patchTaskForProjectAsync()`
 
 ```php
-patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a project task
@@ -1108,10 +1124,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
 $project_id = 'project_id_example'; // string
 $project_task_id = 'project_task_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $operation);
+    $result = $apiInstance->patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->patchTaskForProjectAsync: ', $e->getMessage(), PHP_EOL;
@@ -1125,7 +1141,7 @@ try {
 | **project_id** | **string**|  | |
 | **project_task_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -202,7 +202,7 @@ No authorization required
 ## `getPortsAsync()`
 
 ```php
-getPortsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PortDtoListEnvelope
+getPortsAsync($tenant_id, $api_version, $x_api_version, $port_dto_collection_query_parameters): \OpenAPI\Client\Model\PortDtoListEnvelope
 ```
 
 Get all ports
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\PortsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$port_dto_collection_query_parameters = new \OpenAPI\Client\Model\PortDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PortDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPortsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPortsAsync($tenant_id, $api_version, $x_api_version, $port_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortsApi->getPortsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **port_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PortDtoCollectionQueryParameters**](../Model/PortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getPortsCountAsync()`
 
 ```php
-getPortsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPortsCountAsync($tenant_id, $api_version, $x_api_version, $port_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get ports count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\PortsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$port_dto_collection_query_parameters = new \OpenAPI\Client\Model\PortDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PortDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPortsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPortsCountAsync($tenant_id, $api_version, $x_api_version, $port_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortsApi->getPortsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **port_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PortDtoCollectionQueryParameters**](../Model/PortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchPortAsync()`
 
 ```php
-patchPortAsync($tenant_id, $port_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPortAsync($tenant_id, $port_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a port
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $port_id = 'port_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPortAsync($tenant_id, $port_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchPortAsync($tenant_id, $port_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortsApi->patchPortAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **port_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -84,9 +84,11 @@ class WarehousesApi
         ],
         'getWarehousesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getWarehousesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchWarehouseAsync' => [
             'application/json',
@@ -1312,15 +1314,16 @@ class WarehousesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WarehouseDtoListEnvelope
      */
-    public function getWarehousesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
+    public function getWarehousesAsync($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
     {
-        list($response) = $this->getWarehousesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWarehousesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1332,15 +1335,16 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WarehouseDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehousesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
+    public function getWarehousesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
     {
-        $request = $this->getWarehousesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWarehousesAsyncRequest($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1529,14 +1533,15 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehousesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
+    public function getWarehousesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
     {
-        return $this->getWarehousesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWarehousesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1552,15 +1557,16 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehousesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
+    public function getWarehousesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WarehouseDtoListEnvelope';
-        $request = $this->getWarehousesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWarehousesAsyncRequest($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1604,12 +1610,13 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehousesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
+    public function getWarehousesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1618,6 +1625,7 @@ class WarehousesApi
                 'Missing the required parameter $tenant_id when calling getWarehousesAsync'
             );
         }
+
 
 
 
@@ -1662,7 +1670,14 @@ class WarehousesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($warehouse_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($warehouse_dto_collection_query_parameters));
+            } else {
+                $httpBody = $warehouse_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1716,15 +1731,16 @@ class WarehousesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getWarehousesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
+    public function getWarehousesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
     {
-        list($response) = $this->getWarehousesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWarehousesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1736,15 +1752,16 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehousesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
+    public function getWarehousesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
     {
-        $request = $this->getWarehousesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWarehousesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1863,14 +1880,15 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehousesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
+    public function getWarehousesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
     {
-        return $this->getWarehousesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWarehousesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1886,15 +1904,16 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehousesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
+    public function getWarehousesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getWarehousesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWarehousesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $warehouse_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1938,12 +1957,13 @@ class WarehousesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WarehouseDtoCollectionQueryParameters $warehouse_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehousesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehousesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
+    public function getWarehousesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $warehouse_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWarehousesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1952,6 +1972,7 @@ class WarehousesApi
                 'Missing the required parameter $tenant_id when calling getWarehousesCountAsync'
             );
         }
+
 
 
 
@@ -1996,7 +2017,14 @@ class WarehousesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($warehouse_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($warehouse_dto_collection_query_parameters));
+            } else {
+                $httpBody = $warehouse_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2051,16 +2079,16 @@ class WarehousesApi
      * @param  string $warehouse_id warehouse_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWarehouseAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchWarehouseAsync($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
+    public function patchWarehouseAsync($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
     {
-        list($response) = $this->patchWarehouseAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchWarehouseAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2073,16 +2101,16 @@ class WarehousesApi
      * @param  string $warehouse_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWarehouseAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWarehouseAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
+    public function patchWarehouseAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
     {
-        $request = $this->patchWarehouseAsyncRequest($tenant_id, $warehouse_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWarehouseAsyncRequest($tenant_id, $warehouse_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2307,15 +2335,15 @@ class WarehousesApi
      * @param  string $warehouse_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWarehouseAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWarehouseAsyncAsync($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
+    public function patchWarehouseAsyncAsync($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
     {
-        return $this->patchWarehouseAsyncAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWarehouseAsyncAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2332,16 +2360,16 @@ class WarehousesApi
      * @param  string $warehouse_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWarehouseAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWarehouseAsyncAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
+    public function patchWarehouseAsyncAsyncWithHttpInfo($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchWarehouseAsyncRequest($tenant_id, $warehouse_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWarehouseAsyncRequest($tenant_id, $warehouse_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2386,13 +2414,13 @@ class WarehousesApi
      * @param  string $warehouse_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWarehouseAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWarehouseAsyncRequest($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
+    public function patchWarehouseAsyncRequest($tenant_id, $warehouse_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWarehouseAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2461,12 +2489,12 @@ class WarehousesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -84,9 +84,11 @@ class RequiredSkillsApi
         ],
         'getRequiredSkillsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRequiredSkillsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchRequiredSkillAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class RequiredSkillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\RequiredSkillRecordDtoListEnvelope
      */
-    public function getRequiredSkillsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
+    public function getRequiredSkillsAsync($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
     {
-        list($response) = $this->getRequiredSkillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRequiredSkillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\RequiredSkillRecordDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRequiredSkillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
+    public function getRequiredSkillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
     {
-        $request = $this->getRequiredSkillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRequiredSkillsAsyncRequest($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRequiredSkillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
+    public function getRequiredSkillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
     {
-        return $this->getRequiredSkillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRequiredSkillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRequiredSkillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
+    public function getRequiredSkillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RequiredSkillRecordDtoListEnvelope';
-        $request = $this->getRequiredSkillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRequiredSkillsAsyncRequest($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRequiredSkillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
+    public function getRequiredSkillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class RequiredSkillsApi
                 'Missing the required parameter $tenant_id when calling getRequiredSkillsAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class RequiredSkillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($required_skill_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($required_skill_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $required_skill_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class RequiredSkillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRequiredSkillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
+    public function getRequiredSkillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
     {
-        list($response) = $this->getRequiredSkillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRequiredSkillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRequiredSkillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
+    public function getRequiredSkillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
     {
-        $request = $this->getRequiredSkillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRequiredSkillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRequiredSkillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
+    public function getRequiredSkillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
     {
-        return $this->getRequiredSkillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRequiredSkillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRequiredSkillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
+    public function getRequiredSkillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRequiredSkillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRequiredSkillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $required_skill_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class RequiredSkillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RequiredSkillRecordDtoCollectionQueryParameters $required_skill_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRequiredSkillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRequiredSkillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
+    public function getRequiredSkillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $required_skill_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRequiredSkillsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class RequiredSkillsApi
                 'Missing the required parameter $tenant_id when calling getRequiredSkillsCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class RequiredSkillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($required_skill_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($required_skill_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $required_skill_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class RequiredSkillsApi
      * @param  string $required_skill_id required_skill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRequiredSkillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRequiredSkillAsync($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
+    public function patchRequiredSkillAsync($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
     {
-        list($response) = $this->patchRequiredSkillAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchRequiredSkillAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class RequiredSkillsApi
      * @param  string $required_skill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRequiredSkillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRequiredSkillAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
+    public function patchRequiredSkillAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
     {
-        $request = $this->patchRequiredSkillAsyncRequest($tenant_id, $required_skill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRequiredSkillAsyncRequest($tenant_id, $required_skill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class RequiredSkillsApi
      * @param  string $required_skill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRequiredSkillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRequiredSkillAsyncAsync($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
+    public function patchRequiredSkillAsyncAsync($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
     {
-        return $this->patchRequiredSkillAsyncAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchRequiredSkillAsyncAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class RequiredSkillsApi
      * @param  string $required_skill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRequiredSkillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRequiredSkillAsyncAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
+    public function patchRequiredSkillAsyncAsyncWithHttpInfo($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRequiredSkillAsyncRequest($tenant_id, $required_skill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRequiredSkillAsyncRequest($tenant_id, $required_skill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class RequiredSkillsApi
      * @param  string $required_skill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRequiredSkillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRequiredSkillAsyncRequest($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
+    public function patchRequiredSkillAsyncRequest($tenant_id, $required_skill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRequiredSkillAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class RequiredSkillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

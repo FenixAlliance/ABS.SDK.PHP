@@ -83,6 +83,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'city_id' => 'string',
         'customer_notes' => 'string',
         'tax_calculation_method' => 'string',
+        'cost_calculation_method' => 'string',
         'forex_rate' => 'float',
         'forex_rates_snapshot' => 'string',
         'currency_id' => 'string',
@@ -133,7 +134,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'qualified_identifier' => 'string',
         'seller_billing_profile_id' => 'string',
         'buyer_billing_profile_id' => 'string',
-        'cost_calculation_method' => 'string',
         'freight_terms' => 'string',
         'order_status' => 'string',
         'requested_delivery_date' => '\DateTime',
@@ -187,6 +187,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'city_id' => null,
         'customer_notes' => null,
         'tax_calculation_method' => null,
+        'cost_calculation_method' => null,
         'forex_rate' => 'double',
         'forex_rates_snapshot' => null,
         'currency_id' => null,
@@ -237,7 +238,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'qualified_identifier' => null,
         'seller_billing_profile_id' => null,
         'buyer_billing_profile_id' => null,
-        'cost_calculation_method' => null,
         'freight_terms' => null,
         'order_status' => null,
         'requested_delivery_date' => 'date-time',
@@ -289,6 +289,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'city_id' => true,
         'customer_notes' => true,
         'tax_calculation_method' => false,
+        'cost_calculation_method' => false,
         'forex_rate' => false,
         'forex_rates_snapshot' => true,
         'currency_id' => true,
@@ -339,7 +340,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'qualified_identifier' => true,
         'seller_billing_profile_id' => true,
         'buyer_billing_profile_id' => true,
-        'cost_calculation_method' => false,
         'freight_terms' => false,
         'order_status' => false,
         'requested_delivery_date' => false,
@@ -471,6 +471,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'city_id' => 'cityId',
         'customer_notes' => 'customerNotes',
         'tax_calculation_method' => 'taxCalculationMethod',
+        'cost_calculation_method' => 'costCalculationMethod',
         'forex_rate' => 'forexRate',
         'forex_rates_snapshot' => 'forexRatesSnapshot',
         'currency_id' => 'currencyId',
@@ -521,7 +522,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'qualified_identifier' => 'qualifiedIdentifier',
         'seller_billing_profile_id' => 'sellerBillingProfileId',
         'buyer_billing_profile_id' => 'buyerBillingProfileId',
-        'cost_calculation_method' => 'costCalculationMethod',
         'freight_terms' => 'freightTerms',
         'order_status' => 'orderStatus',
         'requested_delivery_date' => 'requestedDeliveryDate',
@@ -573,6 +573,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'city_id' => 'setCityId',
         'customer_notes' => 'setCustomerNotes',
         'tax_calculation_method' => 'setTaxCalculationMethod',
+        'cost_calculation_method' => 'setCostCalculationMethod',
         'forex_rate' => 'setForexRate',
         'forex_rates_snapshot' => 'setForexRatesSnapshot',
         'currency_id' => 'setCurrencyId',
@@ -623,7 +624,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'qualified_identifier' => 'setQualifiedIdentifier',
         'seller_billing_profile_id' => 'setSellerBillingProfileId',
         'buyer_billing_profile_id' => 'setBuyerBillingProfileId',
-        'cost_calculation_method' => 'setCostCalculationMethod',
         'freight_terms' => 'setFreightTerms',
         'order_status' => 'setOrderStatus',
         'requested_delivery_date' => 'setRequestedDeliveryDate',
@@ -675,6 +675,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'city_id' => 'getCityId',
         'customer_notes' => 'getCustomerNotes',
         'tax_calculation_method' => 'getTaxCalculationMethod',
+        'cost_calculation_method' => 'getCostCalculationMethod',
         'forex_rate' => 'getForexRate',
         'forex_rates_snapshot' => 'getForexRatesSnapshot',
         'currency_id' => 'getCurrencyId',
@@ -725,7 +726,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'qualified_identifier' => 'getQualifiedIdentifier',
         'seller_billing_profile_id' => 'getSellerBillingProfileId',
         'buyer_billing_profile_id' => 'getBuyerBillingProfileId',
-        'cost_calculation_method' => 'getCostCalculationMethod',
         'freight_terms' => 'getFreightTerms',
         'order_status' => 'getOrderStatus',
         'requested_delivery_date' => 'getRequestedDeliveryDate',
@@ -904,6 +904,7 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('city_id', $data ?? [], null);
         $this->setIfExists('customer_notes', $data ?? [], null);
         $this->setIfExists('tax_calculation_method', $data ?? [], null);
+        $this->setIfExists('cost_calculation_method', $data ?? [], null);
         $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('forex_rates_snapshot', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
@@ -954,7 +955,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('qualified_identifier', $data ?? [], null);
         $this->setIfExists('seller_billing_profile_id', $data ?? [], null);
         $this->setIfExists('buyer_billing_profile_id', $data ?? [], null);
-        $this->setIfExists('cost_calculation_method', $data ?? [], null);
         $this->setIfExists('freight_terms', $data ?? [], null);
         $this->setIfExists('order_status', $data ?? [], null);
         $this->setIfExists('requested_delivery_date', $data ?? [], null);
@@ -1895,6 +1895,43 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['tax_calculation_method'] = $tax_calculation_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_calculation_method
+     *
+     * @return string|null
+     */
+    public function getCostCalculationMethod()
+    {
+        return $this->container['cost_calculation_method'];
+    }
+
+    /**
+     * Sets cost_calculation_method
+     *
+     * @param string|null $cost_calculation_method cost_calculation_method
+     *
+     * @return self
+     */
+    public function setCostCalculationMethod($cost_calculation_method)
+    {
+        if (is_null($cost_calculation_method)) {
+            throw new \InvalidArgumentException('non-nullable cost_calculation_method cannot be null');
+        }
+        $allowedValues = $this->getCostCalculationMethodAllowableValues();
+        if (!in_array($cost_calculation_method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'cost_calculation_method', must be one of '%s'",
+                    $cost_calculation_method,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['cost_calculation_method'] = $cost_calculation_method;
 
         return $this;
     }
@@ -3413,43 +3450,6 @@ class ExtendedOrderDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['buyer_billing_profile_id'] = $buyer_billing_profile_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_calculation_method
-     *
-     * @return string|null
-     */
-    public function getCostCalculationMethod()
-    {
-        return $this->container['cost_calculation_method'];
-    }
-
-    /**
-     * Sets cost_calculation_method
-     *
-     * @param string|null $cost_calculation_method cost_calculation_method
-     *
-     * @return self
-     */
-    public function setCostCalculationMethod($cost_calculation_method)
-    {
-        if (is_null($cost_calculation_method)) {
-            throw new \InvalidArgumentException('non-nullable cost_calculation_method cannot be null');
-        }
-        $allowedValues = $this->getCostCalculationMethodAllowableValues();
-        if (!in_array($cost_calculation_method, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'cost_calculation_method', must be one of '%s'",
-                    $cost_calculation_method,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cost_calculation_method'] = $cost_calculation_method;
 
         return $this;
     }

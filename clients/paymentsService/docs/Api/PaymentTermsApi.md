@@ -202,7 +202,7 @@ No authorization required
 ## `getPaymentTermsAsync()`
 
 ```php
-getPaymentTermsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentTermDtoIReadOnlyListEnvelope
+getPaymentTermsAsync($tenant_id, $api_version, $x_api_version, $payment_term_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentTermDtoIReadOnlyListEnvelope
 ```
 
 Retrieves all payment terms
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\PaymentTermsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_term_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentTermDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentTermDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentTermsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPaymentTermsAsync($tenant_id, $api_version, $x_api_version, $payment_term_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentTermsApi->getPaymentTermsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_term_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentTermDtoCollectionQueryParameters**](../Model/PaymentTermDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getPaymentTermsCountAsync()`
 
 ```php
-getPaymentTermsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPaymentTermsCountAsync($tenant_id, $api_version, $x_api_version, $payment_term_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts payment terms
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\PaymentTermsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_term_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentTermDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentTermDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentTermsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPaymentTermsCountAsync($tenant_id, $api_version, $x_api_version, $payment_term_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentTermsApi->getPaymentTermsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_term_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentTermDtoCollectionQueryParameters**](../Model/PaymentTermDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchPaymentTermAsync()`
 
 ```php
-patchPaymentTermAsync($tenant_id, $payment_term_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPaymentTermAsync($tenant_id, $payment_term_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a payment term
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $payment_term_id = 'payment_term_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPaymentTermAsync($tenant_id, $payment_term_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchPaymentTermAsync($tenant_id, $payment_term_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentTermsApi->patchPaymentTermAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **payment_term_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

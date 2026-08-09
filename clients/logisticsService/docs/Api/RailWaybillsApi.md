@@ -338,7 +338,7 @@ No authorization required
 ## `getRailWaybillLinesAsync()`
 
 ```php
-getRailWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
+getRailWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
 ```
 
 Get rail waybill lines
@@ -362,9 +362,10 @@ $tenant_id = 'tenant_id_example'; // string
 $waybill_id = 'waybill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRailWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRailWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RailWaybillsApi->getRailWaybillLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -379,6 +380,7 @@ try {
 | **waybill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -390,7 +392,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -400,7 +402,7 @@ No authorization required
 ## `getRailWaybillLinesCountAsync()`
 
 ```php
-getRailWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRailWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get rail waybill lines count
@@ -424,9 +426,10 @@ $tenant_id = 'tenant_id_example'; // string
 $waybill_id = 'waybill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRailWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRailWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RailWaybillsApi->getRailWaybillLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -441,6 +444,7 @@ try {
 | **waybill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -452,7 +456,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -462,7 +466,7 @@ No authorization required
 ## `getRailWaybillsAsync()`
 
 ```php
-getRailWaybillsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\RailWaybillDtoListEnvelope
+getRailWaybillsAsync($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters): \OpenAPI\Client\Model\RailWaybillDtoListEnvelope
 ```
 
 Get all rail waybills
@@ -485,9 +489,10 @@ $apiInstance = new OpenAPI\Client\Api\RailWaybillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$rail_waybill_dto_collection_query_parameters = new \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRailWaybillsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRailWaybillsAsync($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RailWaybillsApi->getRailWaybillsAsync: ', $e->getMessage(), PHP_EOL;
@@ -501,6 +506,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **rail_waybill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters**](../Model/RailWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -512,7 +518,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -522,7 +528,7 @@ No authorization required
 ## `getRailWaybillsCountAsync()`
 
 ```php
-getRailWaybillsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRailWaybillsCountAsync($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get rail waybills count
@@ -545,9 +551,10 @@ $apiInstance = new OpenAPI\Client\Api\RailWaybillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$rail_waybill_dto_collection_query_parameters = new \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRailWaybillsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRailWaybillsCountAsync($tenant_id, $api_version, $x_api_version, $rail_waybill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RailWaybillsApi->getRailWaybillsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -561,6 +568,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **rail_waybill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RailWaybillDtoCollectionQueryParameters**](../Model/RailWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -572,7 +580,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -768,7 +776,7 @@ No authorization required
 ## `patchRailWaybillAsync()`
 
 ```php
-patchRailWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchRailWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a rail waybill
@@ -792,10 +800,10 @@ $tenant_id = 'tenant_id_example'; // string
 $waybill_id = 'waybill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchRailWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchRailWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RailWaybillsApi->patchRailWaybillAsync: ', $e->getMessage(), PHP_EOL;
@@ -810,7 +818,7 @@ try {
 | **waybill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -832,7 +840,7 @@ No authorization required
 ## `patchRailWaybillLineAsync()`
 
 ```php
-patchRailWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchRailWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a rail waybill line
@@ -857,10 +865,10 @@ $waybill_id = 'waybill_id_example'; // string
 $line_id = 'line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchRailWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchRailWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RailWaybillsApi->patchRailWaybillLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -876,7 +884,7 @@ try {
 | **line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

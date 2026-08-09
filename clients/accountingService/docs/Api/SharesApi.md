@@ -592,7 +592,7 @@ No authorization required
 ## `getShareClasses()`
 
 ```php
-getShareClasses($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShareClassDtoListEnvelope
+getShareClasses($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters): \OpenAPI\Client\Model\ShareClassDtoListEnvelope
 ```
 
 Gets the current tenant share classes
@@ -615,9 +615,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_class_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareClasses($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareClasses($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareClasses: ', $e->getMessage(), PHP_EOL;
@@ -631,6 +632,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_class_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters**](../Model/ShareClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -642,7 +644,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -652,7 +654,7 @@ No authorization required
 ## `getShareClassesCount()`
 
 ```php
-getShareClassesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShareClassesCount($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant share classes count
@@ -675,9 +677,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_class_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareClassesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareClassesCount($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareClassesCount: ', $e->getMessage(), PHP_EOL;
@@ -691,6 +694,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_class_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters**](../Model/ShareClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -702,7 +706,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -774,7 +778,7 @@ No authorization required
 ## `getShareIssuances()`
 
 ```php
-getShareIssuances($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShareIssuanceDtoListEnvelope
+getShareIssuances($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters): \OpenAPI\Client\Model\ShareIssuanceDtoListEnvelope
 ```
 
 Gets the current tenant share issuances
@@ -797,9 +801,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_issuance_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareIssuances($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareIssuances($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareIssuances: ', $e->getMessage(), PHP_EOL;
@@ -813,6 +818,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_issuance_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters**](../Model/ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -824,7 +830,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -834,7 +840,7 @@ No authorization required
 ## `getShareIssuancesCount()`
 
 ```php
-getShareIssuancesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShareIssuancesCount($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant share issuances count
@@ -857,9 +863,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_issuance_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareIssuancesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareIssuancesCount($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareIssuancesCount: ', $e->getMessage(), PHP_EOL;
@@ -873,6 +880,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_issuance_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters**](../Model/ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -884,7 +892,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -894,7 +902,7 @@ No authorization required
 ## `getShareIssuancesSum()`
 
 ```php
-getShareIssuancesSum($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\DecimalEnvelope
+getShareIssuancesSum($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters): \OpenAPI\Client\Model\DecimalEnvelope
 ```
 
 Sum tenant share issuance quantities
@@ -917,9 +925,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_issuance_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareIssuancesSum($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareIssuancesSum($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareIssuancesSum: ', $e->getMessage(), PHP_EOL;
@@ -933,6 +942,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_issuance_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters**](../Model/ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -944,7 +954,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1078,7 +1088,7 @@ No authorization required
 ## `getShareTransferReasons()`
 
 ```php
-getShareTransferReasons($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShareTransferReasonDtoListEnvelope
+getShareTransferReasons($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters): \OpenAPI\Client\Model\ShareTransferReasonDtoListEnvelope
 ```
 
 Gets the current tenant share transfer reasons
@@ -1101,9 +1111,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_transfer_reason_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareTransferReasons($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareTransferReasons($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareTransferReasons: ', $e->getMessage(), PHP_EOL;
@@ -1117,6 +1128,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_transfer_reason_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters**](../Model/ShareTransferReasonDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1128,7 +1140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1138,7 +1150,7 @@ No authorization required
 ## `getShareTransferReasonsCount()`
 
 ```php
-getShareTransferReasonsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShareTransferReasonsCount($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant share transfer reasons count
@@ -1161,9 +1173,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_transfer_reason_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareTransferReasonsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareTransferReasonsCount($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareTransferReasonsCount: ', $e->getMessage(), PHP_EOL;
@@ -1177,6 +1190,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_transfer_reason_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters**](../Model/ShareTransferReasonDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1188,7 +1202,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1198,7 +1212,7 @@ No authorization required
 ## `getShareTransfers()`
 
 ```php
-getShareTransfers($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShareTransferDtoListEnvelope
+getShareTransfers($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters): \OpenAPI\Client\Model\ShareTransferDtoListEnvelope
 ```
 
 Gets the current tenant share transfers
@@ -1221,9 +1235,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_transfer_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareTransfers($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareTransfers($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareTransfers: ', $e->getMessage(), PHP_EOL;
@@ -1237,6 +1252,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_transfer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters**](../Model/ShareTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1248,7 +1264,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1258,7 +1274,7 @@ No authorization required
 ## `getShareTransfersCount()`
 
 ```php
-getShareTransfersCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShareTransfersCount($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant share transfers count
@@ -1281,9 +1297,10 @@ $apiInstance = new OpenAPI\Client\Api\SharesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$share_transfer_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShareTransfersCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShareTransfersCount($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->getShareTransfersCount: ', $e->getMessage(), PHP_EOL;
@@ -1297,6 +1314,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **share_transfer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters**](../Model/ShareTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1308,7 +1326,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1318,7 +1336,7 @@ No authorization required
 ## `patchShareClass()`
 
 ```php
-patchShareClass($tenant_id, $share_class_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShareClass($tenant_id, $share_class_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a share class
@@ -1342,10 +1360,10 @@ $tenant_id = 'tenant_id_example'; // string
 $share_class_id = 'share_class_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShareClass($tenant_id, $share_class_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShareClass($tenant_id, $share_class_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->patchShareClass: ', $e->getMessage(), PHP_EOL;
@@ -1360,7 +1378,7 @@ try {
 | **share_class_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1382,7 +1400,7 @@ No authorization required
 ## `patchShareIssuance()`
 
 ```php
-patchShareIssuance($tenant_id, $issuance_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShareIssuance($tenant_id, $issuance_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a share issuance
@@ -1406,10 +1424,10 @@ $tenant_id = 'tenant_id_example'; // string
 $issuance_id = 'issuance_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShareIssuance($tenant_id, $issuance_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShareIssuance($tenant_id, $issuance_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->patchShareIssuance: ', $e->getMessage(), PHP_EOL;
@@ -1424,7 +1442,7 @@ try {
 | **issuance_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1446,7 +1464,7 @@ No authorization required
 ## `patchShareTransfer()`
 
 ```php
-patchShareTransfer($tenant_id, $transfer_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShareTransfer($tenant_id, $transfer_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a share transfer
@@ -1470,10 +1488,10 @@ $tenant_id = 'tenant_id_example'; // string
 $transfer_id = 'transfer_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShareTransfer($tenant_id, $transfer_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShareTransfer($tenant_id, $transfer_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->patchShareTransfer: ', $e->getMessage(), PHP_EOL;
@@ -1488,7 +1506,7 @@ try {
 | **transfer_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1510,7 +1528,7 @@ No authorization required
 ## `patchShareTransferReason()`
 
 ```php
-patchShareTransferReason($tenant_id, $reason_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShareTransferReason($tenant_id, $reason_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patches a share transfer reason
@@ -1534,10 +1552,10 @@ $tenant_id = 'tenant_id_example'; // string
 $reason_id = 'reason_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShareTransferReason($tenant_id, $reason_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShareTransferReason($tenant_id, $reason_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SharesApi->patchShareTransferReason: ', $e->getMessage(), PHP_EOL;
@@ -1552,7 +1570,7 @@ try {
 | **reason_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

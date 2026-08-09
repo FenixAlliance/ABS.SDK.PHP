@@ -62,7 +62,10 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         'site' => 'string',
         'site_key' => 'string',
         'secret_key' => 'string',
-        'version' => 'string'
+        'version' => 'string',
+        'project_id' => 'string',
+        'api_key' => 'string',
+        'score_threshold' => 'float'
     ];
 
     /**
@@ -77,7 +80,10 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         'site' => null,
         'site_key' => null,
         'secret_key' => null,
-        'version' => null
+        'version' => null,
+        'project_id' => null,
+        'api_key' => null,
+        'score_threshold' => 'double'
     ];
 
     /**
@@ -90,7 +96,10 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         'site' => true,
         'site_key' => true,
         'secret_key' => true,
-        'version' => true
+        'version' => true,
+        'project_id' => true,
+        'api_key' => true,
+        'score_threshold' => true
     ];
 
     /**
@@ -183,7 +192,10 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         'site' => 'site',
         'site_key' => 'siteKey',
         'secret_key' => 'secretKey',
-        'version' => 'version'
+        'version' => 'version',
+        'project_id' => 'projectId',
+        'api_key' => 'apiKey',
+        'score_threshold' => 'scoreThreshold'
     ];
 
     /**
@@ -196,7 +208,10 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         'site' => 'setSite',
         'site_key' => 'setSiteKey',
         'secret_key' => 'setSecretKey',
-        'version' => 'setVersion'
+        'version' => 'setVersion',
+        'project_id' => 'setProjectId',
+        'api_key' => 'setApiKey',
+        'score_threshold' => 'setScoreThreshold'
     ];
 
     /**
@@ -209,7 +224,10 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         'site' => 'getSite',
         'site_key' => 'getSiteKey',
         'secret_key' => 'getSecretKey',
-        'version' => 'getVersion'
+        'version' => 'getVersion',
+        'project_id' => 'getProjectId',
+        'api_key' => 'getApiKey',
+        'score_threshold' => 'getScoreThreshold'
     ];
 
     /**
@@ -274,6 +292,9 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
         $this->setIfExists('site_key', $data ?? [], null);
         $this->setIfExists('secret_key', $data ?? [], null);
         $this->setIfExists('version', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('api_key', $data ?? [], null);
+        $this->setIfExists('score_threshold', $data ?? [], null);
     }
 
     /**
@@ -477,6 +498,108 @@ class GoogleRecaptchaIntegrationOptions implements ModelInterface, ArrayAccess, 
             }
         }
         $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string|null $project_id project_id
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            array_push($this->openAPINullablesSetToNull, 'project_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('project_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_key
+     *
+     * @return string|null
+     */
+    public function getApiKey()
+    {
+        return $this->container['api_key'];
+    }
+
+    /**
+     * Sets api_key
+     *
+     * @param string|null $api_key api_key
+     *
+     * @return self
+     */
+    public function setApiKey($api_key)
+    {
+        if (is_null($api_key)) {
+            array_push($this->openAPINullablesSetToNull, 'api_key');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('api_key', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['api_key'] = $api_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets score_threshold
+     *
+     * @return float|null
+     */
+    public function getScoreThreshold()
+    {
+        return $this->container['score_threshold'];
+    }
+
+    /**
+     * Sets score_threshold
+     *
+     * @param float|null $score_threshold score_threshold
+     *
+     * @return self
+     */
+    public function setScoreThreshold($score_threshold)
+    {
+        if (is_null($score_threshold)) {
+            array_push($this->openAPINullablesSetToNull, 'score_threshold');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('score_threshold', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['score_threshold'] = $score_threshold;
 
         return $this;
     }

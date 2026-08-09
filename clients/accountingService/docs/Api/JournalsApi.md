@@ -6,6 +6,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | ------------- | ------------- | ------------- |
 | [**aggregateJournalEntryCreditsAsync()**](JournalsApi.md#aggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits |
 | [**aggregateJournalEntryDebitsAsync()**](JournalsApi.md#aggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits |
+| [**assignJournalToBookAsync()**](JournalsApi.md#assignJournalToBookAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/AssignToBook | Bind a journal to a financial book |
 | [**countJournalsAsync()**](JournalsApi.md#countJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals |
 | [**createJournalAsync()**](JournalsApi.md#createJournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal |
 | [**createJournalEntryAsync()**](JournalsApi.md#createJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry |
@@ -27,7 +28,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `aggregateJournalEntryCreditsAsync()`
 
 ```php
-aggregateJournalEntryCreditsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateJournalEntryCreditsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate journal entry credits
@@ -52,9 +53,10 @@ $journal_id = 'journal_id_example'; // string
 $currency_id = 'USD.USA'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->aggregateJournalEntryCreditsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->aggregateJournalEntryCreditsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->aggregateJournalEntryCreditsAsync: ', $e->getMessage(), PHP_EOL;
@@ -70,6 +72,7 @@ try {
 | **currency_id** | **string**|  | [optional] [default to &#39;USD.USA&#39;] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters**](../Model/JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -81,7 +84,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -91,7 +94,7 @@ No authorization required
 ## `aggregateJournalEntryDebitsAsync()`
 
 ```php
-aggregateJournalEntryDebitsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateJournalEntryDebitsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate journal entry debits
@@ -116,9 +119,10 @@ $journal_id = 'journal_id_example'; // string
 $currency_id = 'USD.USA'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->aggregateJournalEntryDebitsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->aggregateJournalEntryDebitsAsync($tenant_id, $journal_id, $currency_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->aggregateJournalEntryDebitsAsync: ', $e->getMessage(), PHP_EOL;
@@ -134,6 +138,7 @@ try {
 | **currency_id** | **string**|  | [optional] [default to &#39;USD.USA&#39;] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters**](../Model/JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -145,7 +150,71 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `assignJournalToBookAsync()`
+
+```php
+assignJournalToBookAsync($tenant_id, $journal_id, $api_version, $x_api_version, $assign_journal_to_book_request): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Bind a journal to a financial book
+
+Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\JournalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$journal_id = 'journal_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$assign_journal_to_book_request = new \OpenAPI\Client\Model\AssignJournalToBookRequest(); // \OpenAPI\Client\Model\AssignJournalToBookRequest
+
+try {
+    $result = $apiInstance->assignJournalToBookAsync($tenant_id, $journal_id, $api_version, $x_api_version, $assign_journal_to_book_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JournalsApi->assignJournalToBookAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **journal_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **assign_journal_to_book_request** | [**\OpenAPI\Client\Model\AssignJournalToBookRequest**](../Model/AssignJournalToBookRequest.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -155,7 +224,7 @@ No authorization required
 ## `countJournalsAsync()`
 
 ```php
-countJournalsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countJournalsAsync($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count journals
@@ -178,9 +247,10 @@ $apiInstance = new OpenAPI\Client\Api\JournalsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countJournalsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countJournalsAsync($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->countJournalsAsync: ', $e->getMessage(), PHP_EOL;
@@ -194,6 +264,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalDtoCollectionQueryParameters**](../Model/JournalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -205,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -529,7 +600,7 @@ No authorization required
 ## `getJournalEntriesAsync()`
 
 ```php
-getJournalEntriesAsync($tenant_id, $journal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\JournalEntryDtoIReadOnlyListEnvelope
+getJournalEntriesAsync($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\JournalEntryDtoIReadOnlyListEnvelope
 ```
 
 Get journal entries
@@ -553,9 +624,10 @@ $tenant_id = 'tenant_id_example'; // string
 $journal_id = 'journal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJournalEntriesAsync($tenant_id, $journal_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJournalEntriesAsync($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->getJournalEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -570,6 +642,7 @@ try {
 | **journal_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters**](../Model/JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -581,7 +654,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -591,7 +664,7 @@ No authorization required
 ## `getJournalEntriesCountAsync()`
 
 ```php
-getJournalEntriesCountAsync($tenant_id, $journal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getJournalEntriesCountAsync($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count journal entries
@@ -615,9 +688,10 @@ $tenant_id = 'tenant_id_example'; // string
 $journal_id = 'journal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJournalEntriesCountAsync($tenant_id, $journal_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJournalEntriesCountAsync($tenant_id, $journal_id, $api_version, $x_api_version, $journal_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->getJournalEntriesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -632,6 +706,7 @@ try {
 | **journal_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalEntryDtoCollectionQueryParameters**](../Model/JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -643,7 +718,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -717,7 +792,7 @@ No authorization required
 ## `getJournalsAsync()`
 
 ```php
-getJournalsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\JournalDtoIReadOnlyListEnvelope
+getJournalsAsync($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters): \OpenAPI\Client\Model\JournalDtoIReadOnlyListEnvelope
 ```
 
 Get all journals
@@ -740,9 +815,10 @@ $apiInstance = new OpenAPI\Client\Api\JournalsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJournalsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJournalsAsync($tenant_id, $api_version, $x_api_version, $journal_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->getJournalsAsync: ', $e->getMessage(), PHP_EOL;
@@ -756,6 +832,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalDtoCollectionQueryParameters**](../Model/JournalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -767,7 +844,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -777,7 +854,7 @@ No authorization required
 ## `patchJournalAsync()`
 
 ```php
-patchJournalAsync($tenant_id, $journal_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchJournalAsync($tenant_id, $journal_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a journal
@@ -801,10 +878,10 @@ $tenant_id = 'tenant_id_example'; // string
 $journal_id = 'journal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchJournalAsync($tenant_id, $journal_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchJournalAsync($tenant_id, $journal_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->patchJournalAsync: ', $e->getMessage(), PHP_EOL;
@@ -819,7 +896,7 @@ try {
 | **journal_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -841,7 +918,7 @@ No authorization required
 ## `patchJournalEntryAsync()`
 
 ```php
-patchJournalEntryAsync($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchJournalEntryAsync($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a journal entry
@@ -866,10 +943,10 @@ $journal_id = 'journal_id_example'; // string
 $entry_id = 'entry_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchJournalEntryAsync($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchJournalEntryAsync($tenant_id, $journal_id, $entry_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalsApi->patchJournalEntryAsync: ', $e->getMessage(), PHP_EOL;
@@ -885,7 +962,7 @@ try {
 | **entry_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -76,7 +76,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -157,9 +156,10 @@ Class | Method | HTTP request | Description
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [ProjectCreateDto](docs/Model/ProjectCreateDto.md)
 - [ProjectDto](docs/Model/ProjectDto.md)
+- [ProjectDtoCollectionQueryParameters](docs/Model/ProjectDtoCollectionQueryParameters.md)
 - [ProjectDtoEnvelope](docs/Model/ProjectDtoEnvelope.md)
 - [ProjectDtoListEnvelope](docs/Model/ProjectDtoListEnvelope.md)
 - [ProjectHoursApprovalApproverUpdateDto](docs/Model/ProjectHoursApprovalApproverUpdateDto.md)
@@ -171,11 +171,13 @@ Class | Method | HTTP request | Description
 - [ProjectPeriodUpdateDto](docs/Model/ProjectPeriodUpdateDto.md)
 - [ProjectTaskCreateDto](docs/Model/ProjectTaskCreateDto.md)
 - [ProjectTaskDto](docs/Model/ProjectTaskDto.md)
+- [ProjectTaskDtoCollectionQueryParameters](docs/Model/ProjectTaskDtoCollectionQueryParameters.md)
 - [ProjectTaskDtoEnvelope](docs/Model/ProjectTaskDtoEnvelope.md)
 - [ProjectTaskDtoListEnvelope](docs/Model/ProjectTaskDtoListEnvelope.md)
 - [ProjectTaskUpdateDto](docs/Model/ProjectTaskUpdateDto.md)
 - [ProjectTimeLogCreateDto](docs/Model/ProjectTimeLogCreateDto.md)
 - [ProjectTimeLogDto](docs/Model/ProjectTimeLogDto.md)
+- [ProjectTimeLogDtoCollectionQueryParameters](docs/Model/ProjectTimeLogDtoCollectionQueryParameters.md)
 - [ProjectTimeLogDtoEnvelope](docs/Model/ProjectTimeLogDtoEnvelope.md)
 - [ProjectTimeLogDtoListEnvelope](docs/Model/ProjectTimeLogDtoListEnvelope.md)
 - [ProjectTimeLogUpdateDto](docs/Model/ProjectTimeLogUpdateDto.md)
@@ -186,6 +188,7 @@ Class | Method | HTTP request | Description
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [TaskCategoryCreateDto](docs/Model/TaskCategoryCreateDto.md)
 - [TaskCategoryDto](docs/Model/TaskCategoryDto.md)
+- [TaskCategoryDtoCollectionQueryParameters](docs/Model/TaskCategoryDtoCollectionQueryParameters.md)
 - [TaskCategoryDtoListEnvelope](docs/Model/TaskCategoryDtoListEnvelope.md)
 - [TaskCategoryUpdateDto](docs/Model/TaskCategoryUpdateDto.md)
 - [TaskTypeCreateDto](docs/Model/TaskTypeCreateDto.md)

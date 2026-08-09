@@ -19,7 +19,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `createFeedPostAsync()`
 
 ```php
-createFeedPostAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_create_dto): \OpenAPI\Client\Model\SocialFeedPostDtoEnvelope
+createFeedPostAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_create_dto): \OpenAPI\Client\Model\StringEnvelope
 ```
 
 Create a social feed post
@@ -65,7 +65,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope**](../Model/SocialFeedPostDtoEnvelope.md)
+[**\OpenAPI\Client\Model\StringEnvelope**](../Model/StringEnvelope.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ No authorization required
 ## `getFeedNotifications()`
 
 ```php
-getFeedNotifications($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialFeedDtoListEnvelope
+getFeedNotifications($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialFeedDtoListEnvelope
 ```
 
 Get social feeds
@@ -170,9 +170,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialFeedsApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_feed_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFeedNotifications($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFeedNotifications($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialFeedsApi->getFeedNotifications: ', $e->getMessage(), PHP_EOL;
@@ -186,6 +187,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_feed_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters**](../Model/SocialFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -197,7 +199,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -271,7 +273,7 @@ No authorization required
 ## `getFeedPostsAsync()`
 
 ```php
-getFeedPostsAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialFeedPostDtoListEnvelope
+getFeedPostsAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialFeedPostDtoListEnvelope
 ```
 
 Get social feed posts
@@ -295,9 +297,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $social_feed_id = 'social_feed_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_feed_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFeedPostsAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFeedPostsAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialFeedsApi->getFeedPostsAsync: ', $e->getMessage(), PHP_EOL;
@@ -312,6 +315,7 @@ try {
 | **social_feed_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_feed_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters**](../Model/SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -323,7 +327,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -333,7 +337,7 @@ No authorization required
 ## `getFeedPostsCountAsync()`
 
 ```php
-getFeedPostsCountAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFeedPostsCountAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social feed posts
@@ -357,9 +361,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $social_feed_id = 'social_feed_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_feed_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFeedPostsCountAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFeedPostsCountAsync($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialFeedsApi->getFeedPostsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -374,6 +379,7 @@ try {
 | **social_feed_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_feed_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters**](../Model/SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -385,7 +391,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -457,7 +463,7 @@ No authorization required
 ## `getNotificationsCountAsync()`
 
 ```php
-getNotificationsCountAsync($social_profile_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getNotificationsCountAsync($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count social feeds
@@ -480,9 +486,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialFeedsApi(
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_feed_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNotificationsCountAsync($social_profile_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNotificationsCountAsync($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialFeedsApi->getNotificationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -496,6 +503,7 @@ try {
 | **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_feed_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters**](../Model/SocialFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -507,7 +515,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -517,7 +525,7 @@ No authorization required
 ## `patchFeedPostAsync()`
 
 ```php
-patchFeedPostAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFeedPostAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a social feed post
@@ -542,10 +550,10 @@ $social_feed_id = 'social_feed_id_example'; // string
 $feed_post_id = 'feed_post_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFeedPostAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFeedPostAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialFeedsApi->patchFeedPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -561,7 +569,7 @@ try {
 | **feed_post_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

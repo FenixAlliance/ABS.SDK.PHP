@@ -270,7 +270,7 @@ No authorization required
 ## `getFiscalPeriods()`
 
 ```php
-getFiscalPeriods($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalPeriodDtoListEnvelope
+getFiscalPeriods($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters): \OpenAPI\Client\Model\FiscalPeriodDtoListEnvelope
 ```
 
 Get fiscal periods for a fiscal year
@@ -296,9 +296,10 @@ $fiscal_year_id = 'fiscal_year_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_period_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalPeriods($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalPeriods($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalPeriodsApi->getFiscalPeriods: ', $e->getMessage(), PHP_EOL;
@@ -315,6 +316,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_period_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters**](../Model/FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -326,7 +328,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -336,7 +338,7 @@ No authorization required
 ## `getFiscalPeriodsCount()`
 
 ```php
-getFiscalPeriodsCount($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFiscalPeriodsCount($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get fiscal periods count
@@ -361,9 +363,10 @@ $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $fiscal_year_id = 'fiscal_year_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_period_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalPeriodsCount($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalPeriodsCount($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalPeriodsApi->getFiscalPeriodsCount: ', $e->getMessage(), PHP_EOL;
@@ -379,6 +382,7 @@ try {
 | **fiscal_year_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_period_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters**](../Model/FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -390,7 +394,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -462,7 +466,7 @@ No authorization required
 ## `patchFiscalPeriodAsync()`
 
 ```php
-patchFiscalPeriodAsync($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFiscalPeriodAsync($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a fiscal period
@@ -486,10 +490,10 @@ $tenant_id = 'tenant_id_example'; // string
 $fiscal_period_id = 'fiscal_period_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFiscalPeriodAsync($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFiscalPeriodAsync($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalPeriodsApi->patchFiscalPeriodAsync: ', $e->getMessage(), PHP_EOL;
@@ -504,7 +508,7 @@ try {
 | **fiscal_period_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -84,9 +84,11 @@ class AppraisalWorkflowsApi
         ],
         'getAppraisalWorkflowsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAppraisalWorkflowsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateAppraisalWorkflowAsync' => [
             'application/json',
@@ -1483,15 +1485,16 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AppraisalWorkflowDtoListEnvelope
      */
-    public function getAppraisalWorkflowsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
+    public function getAppraisalWorkflowsAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
     {
-        list($response) = $this->getAppraisalWorkflowsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAppraisalWorkflowsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1503,15 +1506,16 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AppraisalWorkflowDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAppraisalWorkflowsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
+    public function getAppraisalWorkflowsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
     {
-        $request = $this->getAppraisalWorkflowsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalWorkflowsAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1700,14 +1704,15 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalWorkflowsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
+    public function getAppraisalWorkflowsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
     {
-        return $this->getAppraisalWorkflowsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAppraisalWorkflowsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1723,15 +1728,16 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalWorkflowsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
+    public function getAppraisalWorkflowsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AppraisalWorkflowDtoListEnvelope';
-        $request = $this->getAppraisalWorkflowsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalWorkflowsAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1775,12 +1781,13 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAppraisalWorkflowsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
+    public function getAppraisalWorkflowsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1789,6 +1796,7 @@ class AppraisalWorkflowsApi
                 'Missing the required parameter $tenant_id when calling getAppraisalWorkflowsAsync'
             );
         }
+
 
 
 
@@ -1833,7 +1841,14 @@ class AppraisalWorkflowsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($appraisal_workflow_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($appraisal_workflow_dto_collection_query_parameters));
+            } else {
+                $httpBody = $appraisal_workflow_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1887,15 +1902,16 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAppraisalWorkflowsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
+    public function getAppraisalWorkflowsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
     {
-        list($response) = $this->getAppraisalWorkflowsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAppraisalWorkflowsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1907,15 +1923,16 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAppraisalWorkflowsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
+    public function getAppraisalWorkflowsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
     {
-        $request = $this->getAppraisalWorkflowsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalWorkflowsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2104,14 +2121,15 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalWorkflowsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
+    public function getAppraisalWorkflowsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
     {
-        return $this->getAppraisalWorkflowsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAppraisalWorkflowsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2127,15 +2145,16 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalWorkflowsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
+    public function getAppraisalWorkflowsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAppraisalWorkflowsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalWorkflowsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_workflow_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2179,12 +2198,13 @@ class AppraisalWorkflowsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalWorkflowDtoCollectionQueryParameters $appraisal_workflow_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalWorkflowsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAppraisalWorkflowsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
+    public function getAppraisalWorkflowsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $appraisal_workflow_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalWorkflowsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2193,6 +2213,7 @@ class AppraisalWorkflowsApi
                 'Missing the required parameter $tenant_id when calling getAppraisalWorkflowsCountAsync'
             );
         }
+
 
 
 
@@ -2237,7 +2258,14 @@ class AppraisalWorkflowsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($appraisal_workflow_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($appraisal_workflow_dto_collection_query_parameters));
+            } else {
+                $httpBody = $appraisal_workflow_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

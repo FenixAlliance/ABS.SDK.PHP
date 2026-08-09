@@ -199,7 +199,7 @@ No authorization required
 ## `getCourseForumsAsync()`
 
 ```php
-getCourseForumsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseForumDto[]
+getCourseForumsAsync($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseForumDto[]
 ```
 
 Get all course forums
@@ -222,9 +222,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseForumsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_forum_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseForumsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseForumsAsync($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseForumsApi->getCourseForumsAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,6 +239,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_forum_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters**](../Model/CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -249,7 +251,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -259,7 +261,7 @@ No authorization required
 ## `getCourseForumsCountAsync()`
 
 ```php
-getCourseForumsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseForumsCountAsync($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters): int
 ```
 
 Get course forums count
@@ -282,9 +284,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseForumsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_forum_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseForumsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseForumsCountAsync($tenant_id, $api_version, $x_api_version, $course_forum_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseForumsApi->getCourseForumsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -298,6 +301,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_forum_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseForumDtoCollectionQueryParameters**](../Model/CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -309,7 +313,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -319,7 +323,7 @@ No authorization required
 ## `patchCourseForumAsync()`
 
 ```php
-patchCourseForumAsync($tenant_id, $forum_id, $api_version, $x_api_version, $operation)
+patchCourseForumAsync($tenant_id, $forum_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a course forum
@@ -343,10 +347,10 @@ $tenant_id = 'tenant_id_example'; // string
 $forum_id = 'forum_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchCourseForumAsync($tenant_id, $forum_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchCourseForumAsync($tenant_id, $forum_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling CourseForumsApi->patchCourseForumAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -360,7 +364,7 @@ try {
 | **forum_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

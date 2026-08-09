@@ -328,7 +328,7 @@ No authorization required
 ## `getTruckDriversAsync()`
 
 ```php
-getTruckDriversAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TruckDriverDtoListEnvelope
+getTruckDriversAsync($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters): \OpenAPI\Client\Model\TruckDriverDtoListEnvelope
 ```
 
 Get all truck drivers
@@ -351,9 +351,10 @@ $apiInstance = new OpenAPI\Client\Api\TruckDriversApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$truck_driver_dto_collection_query_parameters = new \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTruckDriversAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTruckDriversAsync($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TruckDriversApi->getTruckDriversAsync: ', $e->getMessage(), PHP_EOL;
@@ -367,6 +368,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **truck_driver_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters**](../Model/TruckDriverDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -378,7 +380,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -388,7 +390,7 @@ No authorization required
 ## `getTruckDriversCountAsync()`
 
 ```php
-getTruckDriversCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTruckDriversCountAsync($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get truck drivers count
@@ -411,9 +413,10 @@ $apiInstance = new OpenAPI\Client\Api\TruckDriversApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$truck_driver_dto_collection_query_parameters = new \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTruckDriversCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTruckDriversCountAsync($tenant_id, $api_version, $x_api_version, $truck_driver_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TruckDriversApi->getTruckDriversCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -427,6 +430,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **truck_driver_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TruckDriverDtoCollectionQueryParameters**](../Model/TruckDriverDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -438,7 +442,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -448,7 +452,7 @@ No authorization required
 ## `patchTruckDriverAsync()`
 
 ```php
-patchTruckDriverAsync($tenant_id, $driver_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTruckDriverAsync($tenant_id, $driver_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a truck driver
@@ -472,10 +476,10 @@ $tenant_id = 'tenant_id_example'; // string
 $driver_id = 'driver_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTruckDriverAsync($tenant_id, $driver_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTruckDriverAsync($tenant_id, $driver_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TruckDriversApi->patchTruckDriverAsync: ', $e->getMessage(), PHP_EOL;
@@ -490,7 +494,7 @@ try {
 | **driver_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

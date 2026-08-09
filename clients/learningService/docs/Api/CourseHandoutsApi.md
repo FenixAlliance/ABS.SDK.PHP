@@ -199,7 +199,7 @@ No authorization required
 ## `getCourseHandoutsAsync()`
 
 ```php
-getCourseHandoutsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseHandoutDto[]
+getCourseHandoutsAsync($tenant_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseHandoutDto[]
 ```
 
 Get all course handouts
@@ -222,9 +222,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseHandoutsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_handout_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseHandoutsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseHandoutsAsync($tenant_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseHandoutsApi->getCourseHandoutsAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,6 +239,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_handout_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters**](../Model/CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -249,7 +251,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -259,7 +261,7 @@ No authorization required
 ## `getCourseHandoutsCountAsync()`
 
 ```php
-getCourseHandoutsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseHandoutsCountAsync($tenant_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters): int
 ```
 
 Get course handouts count
@@ -282,9 +284,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseHandoutsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_handout_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseHandoutsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseHandoutsCountAsync($tenant_id, $api_version, $x_api_version, $course_handout_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseHandoutsApi->getCourseHandoutsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -298,6 +301,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_handout_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseHandoutDtoCollectionQueryParameters**](../Model/CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -309,7 +313,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -319,7 +323,7 @@ No authorization required
 ## `patchCourseHandoutAsync()`
 
 ```php
-patchCourseHandoutAsync($tenant_id, $handout_id, $api_version, $x_api_version, $operation)
+patchCourseHandoutAsync($tenant_id, $handout_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a course handout
@@ -343,10 +347,10 @@ $tenant_id = 'tenant_id_example'; // string
 $handout_id = 'handout_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchCourseHandoutAsync($tenant_id, $handout_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchCourseHandoutAsync($tenant_id, $handout_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling CourseHandoutsApi->patchCourseHandoutAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -360,7 +364,7 @@ try {
 | **handout_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

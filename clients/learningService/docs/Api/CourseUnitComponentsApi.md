@@ -198,7 +198,7 @@ No authorization required
 ## `getCourseUnitComponentsAsync()`
 
 ```php
-getCourseUnitComponentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseUnitComponentDto[]
+getCourseUnitComponentsAsync($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseUnitComponentDto[]
 ```
 
 Get all course unit components
@@ -221,9 +221,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseUnitComponentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_unit_component_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUnitComponentsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUnitComponentsAsync($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseUnitComponentsApi->getCourseUnitComponentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_unit_component_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters**](../Model/CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -258,7 +260,7 @@ No authorization required
 ## `getCourseUnitComponentsCountAsync()`
 
 ```php
-getCourseUnitComponentsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseUnitComponentsCountAsync($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters): int
 ```
 
 Get course unit components count
@@ -281,9 +283,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseUnitComponentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_unit_component_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseUnitComponentsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseUnitComponentsCountAsync($tenant_id, $api_version, $x_api_version, $course_unit_component_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseUnitComponentsApi->getCourseUnitComponentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -297,6 +300,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_unit_component_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseUnitComponentDtoCollectionQueryParameters**](../Model/CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -308,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -318,7 +322,7 @@ No authorization required
 ## `patchCourseUnitComponentAsync()`
 
 ```php
-patchCourseUnitComponentAsync($tenant_id, $component_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseUnitComponentAsync($tenant_id, $component_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course unit component
@@ -342,10 +346,10 @@ $tenant_id = 'tenant_id_example'; // string
 $component_id = 'component_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseUnitComponentAsync($tenant_id, $component_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseUnitComponentAsync($tenant_id, $component_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseUnitComponentsApi->patchCourseUnitComponentAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,7 +364,7 @@ try {
 | **component_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

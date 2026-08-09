@@ -333,7 +333,7 @@ No authorization required
 ## `getTransactionCategories()`
 
 ```php
-getTransactionCategories($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TransactionCategoryDtoListEnvelope
+getTransactionCategories($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters): \OpenAPI\Client\Model\TransactionCategoryDtoListEnvelope
 ```
 
 Get all transaction categories
@@ -356,9 +356,10 @@ $apiInstance = new OpenAPI\Client\Api\TransactionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$transaction_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTransactionCategories($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTransactionCategories($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->getTransactionCategories: ', $e->getMessage(), PHP_EOL;
@@ -372,6 +373,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **transaction_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters**](../Model/TransactionCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -383,7 +385,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -393,7 +395,7 @@ No authorization required
 ## `getTransactionCategoriesCount()`
 
 ```php
-getTransactionCategoriesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTransactionCategoriesCount($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get transaction categories count
@@ -416,9 +418,10 @@ $apiInstance = new OpenAPI\Client\Api\TransactionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$transaction_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTransactionCategoriesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTransactionCategoriesCount($tenant_id, $api_version, $x_api_version, $transaction_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->getTransactionCategoriesCount: ', $e->getMessage(), PHP_EOL;
@@ -432,6 +435,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **transaction_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TransactionCategoryDtoCollectionQueryParameters**](../Model/TransactionCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -443,7 +447,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -515,7 +519,7 @@ No authorization required
 ## `getTransactions()`
 
 ```php
-getTransactions($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TransactionDtoListEnvelope
+getTransactions($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters): \OpenAPI\Client\Model\TransactionDtoListEnvelope
 ```
 
 Get all transactions for a tenant
@@ -538,9 +542,10 @@ $apiInstance = new OpenAPI\Client\Api\TransactionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$transaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTransactions($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTransactions($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->getTransactions: ', $e->getMessage(), PHP_EOL;
@@ -554,6 +559,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **transaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters**](../Model/TransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -565,7 +571,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -575,7 +581,7 @@ No authorization required
 ## `getTransactionsCount()`
 
 ```php
-getTransactionsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTransactionsCount($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get transactions count
@@ -598,9 +604,10 @@ $apiInstance = new OpenAPI\Client\Api\TransactionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$transaction_dto_collection_query_parameters = new \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTransactionsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTransactionsCount($tenant_id, $api_version, $x_api_version, $transaction_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->getTransactionsCount: ', $e->getMessage(), PHP_EOL;
@@ -614,6 +621,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **transaction_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TransactionDtoCollectionQueryParameters**](../Model/TransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -625,7 +633,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -635,7 +643,7 @@ No authorization required
 ## `patchTransaction()`
 
 ```php
-patchTransaction($tenant_id, $transaction_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTransaction($tenant_id, $transaction_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a transaction
@@ -659,10 +667,10 @@ $tenant_id = 'tenant_id_example'; // string
 $transaction_id = 'transaction_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTransaction($tenant_id, $transaction_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTransaction($tenant_id, $transaction_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->patchTransaction: ', $e->getMessage(), PHP_EOL;
@@ -677,7 +685,7 @@ try {
 | **transaction_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -699,7 +707,7 @@ No authorization required
 ## `patchTransactionCategory()`
 
 ```php
-patchTransactionCategory($tenant_id, $category_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTransactionCategory($tenant_id, $category_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a transaction category
@@ -723,10 +731,10 @@ $tenant_id = 'tenant_id_example'; // string
 $category_id = 'category_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTransactionCategory($tenant_id, $category_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTransactionCategory($tenant_id, $category_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->patchTransactionCategory: ', $e->getMessage(), PHP_EOL;
@@ -741,7 +749,7 @@ try {
 | **category_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -87,9 +87,11 @@ class FiscalPeriodsApi
         ],
         'getFiscalPeriods' => [
             'application/json',
+            'application/xml',
         ],
         'getFiscalPeriodsCount' => [
             'application/json',
+            'application/xml',
         ],
         'openFiscalPeriod' => [
             'application/json',
@@ -1925,15 +1927,16 @@ class FiscalPeriodsApi
      * @param  string $authority_id authority_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriods'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FiscalPeriodDtoListEnvelope
      */
-    public function getFiscalPeriods($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
+    public function getFiscalPeriods($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
     {
-        list($response) = $this->getFiscalPeriodsWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFiscalPeriodsWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1948,15 +1951,16 @@ class FiscalPeriodsApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriods'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FiscalPeriodDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFiscalPeriodsWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
+    public function getFiscalPeriodsWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
     {
-        $request = $this->getFiscalPeriodsRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalPeriodsRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2148,14 +2152,15 @@ class FiscalPeriodsApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriods'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalPeriodsAsync($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
+    public function getFiscalPeriodsAsync($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
     {
-        return $this->getFiscalPeriodsAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $contentType)
+        return $this->getFiscalPeriodsAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2174,15 +2179,16 @@ class FiscalPeriodsApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriods'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalPeriodsAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
+    public function getFiscalPeriodsAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FiscalPeriodDtoListEnvelope';
-        $request = $this->getFiscalPeriodsRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalPeriodsRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2229,12 +2235,13 @@ class FiscalPeriodsApi
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriods'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFiscalPeriodsRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
+    public function getFiscalPeriodsRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $authority_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriods'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2264,6 +2271,7 @@ class FiscalPeriodsApi
                 'Missing the required parameter $authority_id when calling getFiscalPeriods'
             );
         }
+
 
 
 
@@ -2333,7 +2341,14 @@ class FiscalPeriodsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($fiscal_period_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fiscal_period_dto_collection_query_parameters));
+            } else {
+                $httpBody = $fiscal_period_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2389,15 +2404,16 @@ class FiscalPeriodsApi
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriodsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getFiscalPeriodsCount($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
+    public function getFiscalPeriodsCount($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
     {
-        list($response) = $this->getFiscalPeriodsCountWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFiscalPeriodsCountWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2411,15 +2427,16 @@ class FiscalPeriodsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriodsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFiscalPeriodsCountWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
+    public function getFiscalPeriodsCountWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
     {
-        $request = $this->getFiscalPeriodsCountRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalPeriodsCountRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2610,14 +2627,15 @@ class FiscalPeriodsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriodsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalPeriodsCountAsync($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
+    public function getFiscalPeriodsCountAsync($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
     {
-        return $this->getFiscalPeriodsCountAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $contentType)
+        return $this->getFiscalPeriodsCountAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2635,15 +2653,16 @@ class FiscalPeriodsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriodsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalPeriodsCountAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
+    public function getFiscalPeriodsCountAsyncWithHttpInfo($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getFiscalPeriodsCountRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalPeriodsCountRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version, $x_api_version, $fiscal_period_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2689,12 +2708,13 @@ class FiscalPeriodsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalPeriodDtoCollectionQueryParameters $fiscal_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalPeriodsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFiscalPeriodsCountRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
+    public function getFiscalPeriodsCountRequest($tenant_id, $fiscal_authority_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $fiscal_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalPeriodsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2717,6 +2737,7 @@ class FiscalPeriodsApi
                 'Missing the required parameter $fiscal_year_id when calling getFiscalPeriodsCount'
             );
         }
+
 
 
 
@@ -2777,7 +2798,14 @@ class FiscalPeriodsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($fiscal_period_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fiscal_period_dto_collection_query_parameters));
+            } else {
+                $httpBody = $fiscal_period_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3291,16 +3319,16 @@ class FiscalPeriodsApi
      * @param  string $fiscal_period_id fiscal_period_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalPeriodAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchFiscalPeriodAsync($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
+    public function patchFiscalPeriodAsync($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
     {
-        list($response) = $this->patchFiscalPeriodAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchFiscalPeriodAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3313,16 +3341,16 @@ class FiscalPeriodsApi
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalPeriodAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchFiscalPeriodAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
+    public function patchFiscalPeriodAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
     {
-        $request = $this->patchFiscalPeriodAsyncRequest($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFiscalPeriodAsyncRequest($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3512,15 +3540,15 @@ class FiscalPeriodsApi
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalPeriodAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFiscalPeriodAsyncAsync($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
+    public function patchFiscalPeriodAsyncAsync($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
     {
-        return $this->patchFiscalPeriodAsyncAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchFiscalPeriodAsyncAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3537,16 +3565,16 @@ class FiscalPeriodsApi
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalPeriodAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFiscalPeriodAsyncAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
+    public function patchFiscalPeriodAsyncAsyncWithHttpInfo($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchFiscalPeriodAsyncRequest($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFiscalPeriodAsyncRequest($tenant_id, $fiscal_period_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3591,13 +3619,13 @@ class FiscalPeriodsApi
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalPeriodAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchFiscalPeriodAsyncRequest($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
+    public function patchFiscalPeriodAsyncRequest($tenant_id, $fiscal_period_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalPeriodAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3666,12 +3694,12 @@ class FiscalPeriodsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

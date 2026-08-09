@@ -13198,16 +13198,16 @@ class CartsApi
      * @param  string $cart_id cart_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCartAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchCartAsync($cart_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
+    public function patchCartAsync($cart_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
     {
-        list($response) = $this->patchCartAsyncWithHttpInfo($cart_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCartAsyncWithHttpInfo($cart_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -13219,16 +13219,16 @@ class CartsApi
      * @param  string $cart_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCartAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCartAsyncWithHttpInfo($cart_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
+    public function patchCartAsyncWithHttpInfo($cart_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
     {
-        $request = $this->patchCartAsyncRequest($cart_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCartAsyncRequest($cart_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13417,15 +13417,15 @@ class CartsApi
      * @param  string $cart_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCartAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCartAsyncAsync($cart_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
+    public function patchCartAsyncAsync($cart_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
     {
-        return $this->patchCartAsyncAsyncWithHttpInfo($cart_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCartAsyncAsyncWithHttpInfo($cart_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13441,16 +13441,16 @@ class CartsApi
      * @param  string $cart_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCartAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCartAsyncAsyncWithHttpInfo($cart_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
+    public function patchCartAsyncAsyncWithHttpInfo($cart_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCartAsyncRequest($cart_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCartAsyncRequest($cart_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13494,13 +13494,13 @@ class CartsApi
      * @param  string $cart_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCartAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCartAsyncRequest($cart_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
+    public function patchCartAsyncRequest($cart_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCartAsync'][0])
     {
 
         // verify the required parameter 'cart_id' is set
@@ -13553,12 +13553,12 @@ class CartsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

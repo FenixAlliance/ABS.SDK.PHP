@@ -84,9 +84,11 @@ class FiscalYearsApi
         ],
         'getFiscalYearsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFiscalYearsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchFiscalYearAsync' => [
             'application/json',
@@ -1207,15 +1209,16 @@ class FiscalYearsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FiscalYearDtoIReadOnlyListEnvelope
      */
-    public function getFiscalYearsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
+    public function getFiscalYearsAsync($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
     {
-        list($response) = $this->getFiscalYearsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFiscalYearsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1227,15 +1230,16 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FiscalYearDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFiscalYearsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
+    public function getFiscalYearsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
     {
-        $request = $this->getFiscalYearsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalYearsAsyncRequest($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1354,14 +1358,15 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalYearsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
+    public function getFiscalYearsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
     {
-        return $this->getFiscalYearsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFiscalYearsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1377,15 +1382,16 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalYearsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
+    public function getFiscalYearsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FiscalYearDtoIReadOnlyListEnvelope';
-        $request = $this->getFiscalYearsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalYearsAsyncRequest($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1429,12 +1435,13 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFiscalYearsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
+    public function getFiscalYearsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1443,6 +1450,7 @@ class FiscalYearsApi
                 'Missing the required parameter $tenant_id when calling getFiscalYearsAsync'
             );
         }
+
 
 
 
@@ -1487,7 +1495,14 @@ class FiscalYearsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($fiscal_year_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fiscal_year_dto_collection_query_parameters));
+            } else {
+                $httpBody = $fiscal_year_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1541,15 +1556,16 @@ class FiscalYearsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getFiscalYearsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
+    public function getFiscalYearsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
     {
-        list($response) = $this->getFiscalYearsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFiscalYearsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1561,15 +1577,16 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFiscalYearsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
+    public function getFiscalYearsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
     {
-        $request = $this->getFiscalYearsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalYearsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1688,14 +1705,15 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalYearsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
+    public function getFiscalYearsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
     {
-        return $this->getFiscalYearsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFiscalYearsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1711,15 +1729,16 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFiscalYearsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
+    public function getFiscalYearsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getFiscalYearsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFiscalYearsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $fiscal_year_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1763,12 +1782,13 @@ class FiscalYearsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FiscalYearDtoCollectionQueryParameters $fiscal_year_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFiscalYearsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFiscalYearsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
+    public function getFiscalYearsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $fiscal_year_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFiscalYearsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1777,6 +1797,7 @@ class FiscalYearsApi
                 'Missing the required parameter $tenant_id when calling getFiscalYearsCountAsync'
             );
         }
+
 
 
 
@@ -1821,7 +1842,14 @@ class FiscalYearsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($fiscal_year_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fiscal_year_dto_collection_query_parameters));
+            } else {
+                $httpBody = $fiscal_year_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1876,16 +1904,16 @@ class FiscalYearsApi
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalYearAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchFiscalYearAsync($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
+    public function patchFiscalYearAsync($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
     {
-        list($response) = $this->patchFiscalYearAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchFiscalYearAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1898,16 +1926,16 @@ class FiscalYearsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalYearAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchFiscalYearAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
+    public function patchFiscalYearAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
     {
-        $request = $this->patchFiscalYearAsyncRequest($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFiscalYearAsyncRequest($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2097,15 +2125,15 @@ class FiscalYearsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalYearAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFiscalYearAsyncAsync($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
+    public function patchFiscalYearAsyncAsync($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
     {
-        return $this->patchFiscalYearAsyncAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchFiscalYearAsyncAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2122,16 +2150,16 @@ class FiscalYearsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalYearAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFiscalYearAsyncAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
+    public function patchFiscalYearAsyncAsyncWithHttpInfo($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchFiscalYearAsyncRequest($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFiscalYearAsyncRequest($tenant_id, $fiscal_year_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2176,13 +2204,13 @@ class FiscalYearsApi
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFiscalYearAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchFiscalYearAsyncRequest($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
+    public function patchFiscalYearAsyncRequest($tenant_id, $fiscal_year_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFiscalYearAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2251,12 +2279,12 @@ class FiscalYearsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

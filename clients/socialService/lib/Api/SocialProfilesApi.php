@@ -74,27 +74,35 @@ class SocialProfilesApi
     public const contentTypes = [
         'countConversationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countFollowedProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countFollowerProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countFollowersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countFollowsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countMessagesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countNotificationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'countSocialProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createConversationAsync' => [
             'application/json',
@@ -115,33 +123,45 @@ class SocialProfilesApi
         ],
         'getConversationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFollowedProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFollowerProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFollowersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFollowsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getMessagesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getNotificationByIdAsync' => [
             'application/json',
         ],
         'getNotificationsAsync' => [
             'application/json',
+            'application/xml',
+        ],
+        'getOrCreateDirectConversationAsync' => [
+            'application/json',
+            'application/xml',
         ],
         'getSocialProfileAsync' => [
             'application/json',
         ],
         'getSocialProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'unfollowAsync' => [
             'application/json',
@@ -206,15 +226,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countConversationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countConversationsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
+    public function countConversationsAsync($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
     {
-        list($response) = $this->countConversationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countConversationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -226,15 +247,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countConversationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countConversationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
+    public function countConversationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
     {
-        $request = $this->countConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -423,14 +445,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countConversationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
+    public function countConversationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
     {
-        return $this->countConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->countConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -446,15 +469,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
+    public function countConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -498,12 +522,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countConversationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
+    public function countConversationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countConversationsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -512,6 +537,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling countConversationsAsync'
             );
         }
+
 
 
 
@@ -555,7 +581,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($conversation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($conversation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $conversation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -609,15 +642,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countFollowedProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
+    public function countFollowedProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
     {
-        list($response) = $this->countFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -629,15 +663,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
+    public function countFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
     {
-        $request = $this->countFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -826,14 +861,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowedProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
+    public function countFollowedProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
     {
-        return $this->countFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->countFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -849,15 +885,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
+    public function countFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -901,12 +938,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countFollowedProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
+    public function countFollowedProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowedProfilesAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -915,6 +953,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling countFollowedProfilesAsync'
             );
         }
+
 
 
 
@@ -958,7 +997,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1012,15 +1058,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countFollowerProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
+    public function countFollowerProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
     {
-        list($response) = $this->countFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1032,15 +1079,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
+    public function countFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
     {
-        $request = $this->countFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1229,14 +1277,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowerProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
+    public function countFollowerProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
     {
-        return $this->countFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->countFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1252,15 +1301,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
+    public function countFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1304,12 +1354,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countFollowerProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
+    public function countFollowerProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowerProfilesAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -1318,6 +1369,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling countFollowerProfilesAsync'
             );
         }
+
 
 
 
@@ -1361,7 +1413,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1415,15 +1474,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countFollowersAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
+    public function countFollowersAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
     {
-        list($response) = $this->countFollowersAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countFollowersAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1435,15 +1495,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countFollowersAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
+    public function countFollowersAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
     {
-        $request = $this->countFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1632,14 +1693,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowersAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
+    public function countFollowersAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
     {
-        return $this->countFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->countFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1655,15 +1717,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
+    public function countFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1707,12 +1770,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countFollowersAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
+    public function countFollowersAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowersAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -1721,6 +1785,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling countFollowersAsync'
             );
         }
+
 
 
 
@@ -1764,7 +1829,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1818,15 +1890,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countFollowsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
+    public function countFollowsAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
     {
-        list($response) = $this->countFollowsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countFollowsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1838,15 +1911,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countFollowsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
+    public function countFollowsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
     {
-        $request = $this->countFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2035,14 +2109,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
+    public function countFollowsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
     {
-        return $this->countFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->countFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2058,15 +2133,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
+    public function countFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2110,12 +2186,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countFollowsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
+    public function countFollowsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countFollowsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -2124,6 +2201,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling countFollowsAsync'
             );
         }
+
 
 
 
@@ -2167,7 +2245,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2222,15 +2307,16 @@ class SocialProfilesApi
      * @param  string $conversation_id conversation_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMessagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countMessagesAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
+    public function countMessagesAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
     {
-        list($response) = $this->countMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2243,15 +2329,16 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMessagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
+    public function countMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
     {
-        $request = $this->countMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2441,14 +2528,15 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMessagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countMessagesAsyncAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
+    public function countMessagesAsyncAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
     {
-        return $this->countMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType)
+        return $this->countMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2465,15 +2553,16 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMessagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
+    public function countMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2518,12 +2607,13 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countMessagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
+    public function countMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countMessagesAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -2539,6 +2629,7 @@ class SocialProfilesApi
                 'Missing the required parameter $conversation_id when calling countMessagesAsync'
             );
         }
+
 
 
 
@@ -2591,7 +2682,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($private_message_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_message_dto_collection_query_parameters));
+            } else {
+                $httpBody = $private_message_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2645,15 +2743,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countNotificationsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
+    public function countNotificationsAsync($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
     {
-        list($response) = $this->countNotificationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countNotificationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2665,15 +2764,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countNotificationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
+    public function countNotificationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
     {
-        $request = $this->countNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2862,14 +2962,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countNotificationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
+    public function countNotificationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
     {
-        return $this->countNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->countNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2885,15 +2986,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
+    public function countNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2937,12 +3039,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countNotificationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
+    public function countNotificationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countNotificationsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -2951,6 +3054,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling countNotificationsAsync'
             );
         }
+
 
 
 
@@ -2994,7 +3098,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($notification_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($notification_dto_collection_query_parameters));
+            } else {
+                $httpBody = $notification_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3047,15 +3158,16 @@ class SocialProfilesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countSocialProfilesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
+    public function countSocialProfilesAsync($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
     {
-        list($response) = $this->countSocialProfilesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->countSocialProfilesAsyncWithHttpInfo($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3066,15 +3178,16 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countSocialProfilesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
+    public function countSocialProfilesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
     {
-        $request = $this->countSocialProfilesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countSocialProfilesAsyncRequest($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3262,14 +3375,15 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countSocialProfilesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
+    public function countSocialProfilesAsyncAsync($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
     {
-        return $this->countSocialProfilesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->countSocialProfilesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3284,15 +3398,16 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countSocialProfilesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
+    public function countSocialProfilesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countSocialProfilesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->countSocialProfilesAsyncRequest($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3335,13 +3450,15 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countSocialProfilesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
+    public function countSocialProfilesAsyncRequest($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countSocialProfilesAsync'][0])
     {
+
 
 
 
@@ -3377,7 +3494,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5574,15 +5698,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ConversationDtoListEnvelope
      */
-    public function getConversationsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
+    public function getConversationsAsync($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
     {
-        list($response) = $this->getConversationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getConversationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5594,15 +5719,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ConversationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConversationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
+    public function getConversationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
     {
-        $request = $this->getConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5791,14 +5917,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConversationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
+    public function getConversationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
     {
-        return $this->getConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5814,15 +5941,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
+    public function getConversationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConversationDtoListEnvelope';
-        $request = $this->getConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getConversationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $conversation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5866,12 +5994,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ConversationDtoCollectionQueryParameters $conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getConversationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
+    public function getConversationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getConversationsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -5880,6 +6009,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling getConversationsAsync'
             );
         }
+
 
 
 
@@ -5923,7 +6053,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($conversation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($conversation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $conversation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5977,15 +6114,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialProfileDtoListEnvelope
      */
-    public function getFollowedProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
+    public function getFollowedProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
     {
-        list($response) = $this->getFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5997,15 +6135,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
+    public function getFollowedProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
     {
-        $request = $this->getFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6194,14 +6333,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowedProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
+    public function getFollowedProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
     {
-        return $this->getFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6217,15 +6357,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
+    public function getFollowedProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialProfileDtoListEnvelope';
-        $request = $this->getFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowedProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6269,12 +6410,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowedProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFollowedProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
+    public function getFollowedProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowedProfilesAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -6283,6 +6425,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling getFollowedProfilesAsync'
             );
         }
+
 
 
 
@@ -6326,7 +6469,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6380,15 +6530,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialProfileDtoListEnvelope
      */
-    public function getFollowerProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
+    public function getFollowerProfilesAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
     {
-        list($response) = $this->getFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6400,15 +6551,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
+    public function getFollowerProfilesAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
     {
-        $request = $this->getFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6597,14 +6749,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowerProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
+    public function getFollowerProfilesAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
     {
-        return $this->getFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6620,15 +6773,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
+    public function getFollowerProfilesAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialProfileDtoListEnvelope';
-        $request = $this->getFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowerProfilesAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6672,12 +6826,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowerProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFollowerProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
+    public function getFollowerProfilesAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowerProfilesAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -6686,6 +6841,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling getFollowerProfilesAsync'
             );
         }
+
 
 
 
@@ -6729,7 +6885,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6783,15 +6946,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope
      */
-    public function getFollowersAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
+    public function getFollowersAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
     {
-        list($response) = $this->getFollowersAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFollowersAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6803,15 +6967,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFollowersAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
+    public function getFollowersAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
     {
-        $request = $this->getFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7000,14 +7165,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowersAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
+    public function getFollowersAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
     {
-        return $this->getFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7023,15 +7189,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
+    public function getFollowersAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FollowRecordDtoListEnvelope';
-        $request = $this->getFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowersAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7075,12 +7242,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFollowersAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
+    public function getFollowersAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowersAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -7089,6 +7257,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling getFollowersAsync'
             );
         }
+
 
 
 
@@ -7132,7 +7301,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7186,15 +7362,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope
      */
-    public function getFollowsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
+    public function getFollowsAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
     {
-        list($response) = $this->getFollowsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFollowsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7206,15 +7383,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FollowRecordDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFollowsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
+    public function getFollowsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
     {
-        $request = $this->getFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7403,14 +7581,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
+    public function getFollowsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
     {
-        return $this->getFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7426,15 +7605,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
+    public function getFollowsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FollowRecordDtoListEnvelope';
-        $request = $this->getFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFollowsAsyncRequest($social_profile_id, $api_version, $x_api_version, $follow_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7478,12 +7658,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FollowRecordDtoCollectionQueryParameters $follow_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFollowsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFollowsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
+    public function getFollowsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $follow_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFollowsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -7492,6 +7673,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling getFollowsAsync'
             );
         }
+
 
 
 
@@ -7535,7 +7717,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($follow_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($follow_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $follow_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7590,15 +7779,16 @@ class SocialProfilesApi
      * @param  string $conversation_id conversation_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PrivateMessageDtoListEnvelope
      */
-    public function getMessagesAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
+    public function getMessagesAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
     {
-        list($response) = $this->getMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7611,15 +7801,16 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PrivateMessageDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
+    public function getMessagesAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
     {
-        $request = $this->getMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7809,14 +8000,15 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessagesAsyncAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
+    public function getMessagesAsyncAsync($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
     {
-        return $this->getMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType)
+        return $this->getMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7833,15 +8025,16 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
+    public function getMessagesAsyncAsyncWithHttpInfo($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PrivateMessageDtoListEnvelope';
-        $request = $this->getMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version, $x_api_version, $private_message_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7886,12 +8079,13 @@ class SocialProfilesApi
      * @param  string $conversation_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PrivateMessageDtoCollectionQueryParameters $private_message_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
+    public function getMessagesAsyncRequest($social_profile_id, $conversation_id, $api_version = null, $x_api_version = null, $private_message_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getMessagesAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -7907,6 +8101,7 @@ class SocialProfilesApi
                 'Missing the required parameter $conversation_id when calling getMessagesAsync'
             );
         }
+
 
 
 
@@ -7959,7 +8154,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($private_message_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_message_dto_collection_query_parameters));
+            } else {
+                $httpBody = $private_message_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8436,15 +8638,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NotificationDtoListEnvelope
      */
-    public function getNotificationsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
+    public function getNotificationsAsync($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
     {
-        list($response) = $this->getNotificationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getNotificationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8456,15 +8659,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NotificationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotificationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
+    public function getNotificationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
     {
-        $request = $this->getNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8653,14 +8857,15 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
+    public function getNotificationsAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
     {
-        return $this->getNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8676,15 +8881,16 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
+    public function getNotificationsAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NotificationDtoListEnvelope';
-        $request = $this->getNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNotificationsAsyncRequest($social_profile_id, $api_version, $x_api_version, $notification_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8728,12 +8934,13 @@ class SocialProfilesApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\NotificationDtoCollectionQueryParameters $notification_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNotificationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
+    public function getNotificationsAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $notification_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -8742,6 +8949,7 @@ class SocialProfilesApi
                 'Missing the required parameter $social_profile_id when calling getNotificationsAsync'
             );
         }
+
 
 
 
@@ -8785,7 +8993,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($notification_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($notification_dto_collection_query_parameters));
+            } else {
+                $httpBody = $notification_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8825,6 +9040,422 @@ class SocialProfilesApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getOrCreateDirectConversationAsync
+     *
+     * Get or Create Direct Conversation
+     *
+     * @param  string $social_profile_id social_profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $body body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrCreateDirectConversationAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ConversationDtoEnvelope
+     */
+    public function getOrCreateDirectConversationAsync($social_profile_id, $api_version = null, $x_api_version = null, $body = null, string $contentType = self::contentTypes['getOrCreateDirectConversationAsync'][0])
+    {
+        list($response) = $this->getOrCreateDirectConversationAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getOrCreateDirectConversationAsyncWithHttpInfo
+     *
+     * Get or Create Direct Conversation
+     *
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrCreateDirectConversationAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ConversationDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOrCreateDirectConversationAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $body = null, string $contentType = self::contentTypes['getOrCreateDirectConversationAsync'][0])
+    {
+        $request = $this->getOrCreateDirectConversationAsyncRequest($social_profile_id, $api_version, $x_api_version, $body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\ConversationDtoEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ConversationDtoEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ConversationDtoEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ConversationDtoEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ConversationDtoEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getOrCreateDirectConversationAsyncAsync
+     *
+     * Get or Create Direct Conversation
+     *
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrCreateDirectConversationAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getOrCreateDirectConversationAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $body = null, string $contentType = self::contentTypes['getOrCreateDirectConversationAsync'][0])
+    {
+        return $this->getOrCreateDirectConversationAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getOrCreateDirectConversationAsyncAsyncWithHttpInfo
+     *
+     * Get or Create Direct Conversation
+     *
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrCreateDirectConversationAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getOrCreateDirectConversationAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $body = null, string $contentType = self::contentTypes['getOrCreateDirectConversationAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ConversationDtoEnvelope';
+        $request = $this->getOrCreateDirectConversationAsyncRequest($social_profile_id, $api_version, $x_api_version, $body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getOrCreateDirectConversationAsync'
+     *
+     * @param  string $social_profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrCreateDirectConversationAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getOrCreateDirectConversationAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $body = null, string $contentType = self::contentTypes['getOrCreateDirectConversationAsync'][0])
+    {
+
+        // verify the required parameter 'social_profile_id' is set
+        if ($social_profile_id === null || (is_array($social_profile_id) && count($social_profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $social_profile_id when calling getOrCreateDirectConversationAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($social_profile_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'socialProfileId' . '}',
+                ObjectSerializer::toPathValue($social_profile_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -9241,15 +9872,16 @@ class SocialProfilesApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialProfileDtoListEnvelope
      */
-    public function getSocialProfilesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
+    public function getSocialProfilesAsync($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
     {
-        list($response) = $this->getSocialProfilesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getSocialProfilesAsyncWithHttpInfo($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9260,15 +9892,16 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialProfilesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
+    public function getSocialProfilesAsyncWithHttpInfo($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
     {
-        $request = $this->getSocialProfilesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSocialProfilesAsyncRequest($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9456,14 +10089,15 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialProfilesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
+    public function getSocialProfilesAsyncAsync($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
     {
-        return $this->getSocialProfilesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getSocialProfilesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9478,15 +10112,16 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSocialProfilesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
+    public function getSocialProfilesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialProfileDtoListEnvelope';
-        $request = $this->getSocialProfilesAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getSocialProfilesAsyncRequest($api_version, $x_api_version, $social_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9529,13 +10164,15 @@ class SocialProfilesApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialProfileDtoCollectionQueryParameters $social_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSocialProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSocialProfilesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
+    public function getSocialProfilesAsyncRequest($api_version = null, $x_api_version = null, $social_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSocialProfilesAsync'][0])
     {
+
 
 
 
@@ -9571,7 +10208,14 @@ class SocialProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

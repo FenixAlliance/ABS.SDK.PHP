@@ -91,18 +91,22 @@ class ItemPackingSlipsApi
         ],
         'getItemPackingSlipEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemPackingSlipEntriesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemPackingSlipEntryByIdAsync' => [
             'application/json',
         ],
         'getItemPackingSlipsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemPackingSlipsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemPackingSlipAsync' => [
             'application/json',
@@ -2148,15 +2152,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id packing_slip_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemPackingSlipEntryDtoListEnvelope
      */
-    public function getItemPackingSlipEntriesAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
+    public function getItemPackingSlipEntriesAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
     {
-        list($response) = $this->getItemPackingSlipEntriesAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPackingSlipEntriesAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2169,15 +2174,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemPackingSlipEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPackingSlipEntriesAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
+    public function getItemPackingSlipEntriesAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
     {
-        $request = $this->getItemPackingSlipEntriesAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipEntriesAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2297,14 +2303,15 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipEntriesAsyncAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
+    public function getItemPackingSlipEntriesAsyncAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
     {
-        return $this->getItemPackingSlipEntriesAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPackingSlipEntriesAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2321,15 +2328,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipEntriesAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
+    public function getItemPackingSlipEntriesAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPackingSlipEntryDtoListEnvelope';
-        $request = $this->getItemPackingSlipEntriesAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipEntriesAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2374,12 +2382,13 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPackingSlipEntriesAsyncRequest($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
+    public function getItemPackingSlipEntriesAsyncRequest($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2395,6 +2404,7 @@ class ItemPackingSlipsApi
                 'Missing the required parameter $packing_slip_id when calling getItemPackingSlipEntriesAsync'
             );
         }
+
 
 
 
@@ -2447,7 +2457,14 @@ class ItemPackingSlipsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_packing_slip_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_packing_slip_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_packing_slip_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2502,15 +2519,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id packing_slip_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemPackingSlipEntriesCountAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
+    public function getItemPackingSlipEntriesCountAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
     {
-        list($response) = $this->getItemPackingSlipEntriesCountAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPackingSlipEntriesCountAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2523,15 +2541,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPackingSlipEntriesCountAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
+    public function getItemPackingSlipEntriesCountAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
     {
-        $request = $this->getItemPackingSlipEntriesCountAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipEntriesCountAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2651,14 +2670,15 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipEntriesCountAsyncAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
+    public function getItemPackingSlipEntriesCountAsyncAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
     {
-        return $this->getItemPackingSlipEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPackingSlipEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2675,15 +2695,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
+    public function getItemPackingSlipEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemPackingSlipEntriesCountAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipEntriesCountAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $item_packing_slip_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2728,12 +2749,13 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipEntryDtoCollectionQueryParameters $item_packing_slip_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPackingSlipEntriesCountAsyncRequest($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
+    public function getItemPackingSlipEntriesCountAsyncRequest($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $item_packing_slip_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipEntriesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2749,6 +2771,7 @@ class ItemPackingSlipsApi
                 'Missing the required parameter $packing_slip_id when calling getItemPackingSlipEntriesCountAsync'
             );
         }
+
 
 
 
@@ -2801,7 +2824,14 @@ class ItemPackingSlipsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_packing_slip_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_packing_slip_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_packing_slip_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3264,15 +3294,16 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemPackingSlipDtoListEnvelope
      */
-    public function getItemPackingSlipsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
+    public function getItemPackingSlipsAsync($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
     {
-        list($response) = $this->getItemPackingSlipsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPackingSlipsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3284,15 +3315,16 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemPackingSlipDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPackingSlipsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
+    public function getItemPackingSlipsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
     {
-        $request = $this->getItemPackingSlipsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3481,14 +3513,15 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
+    public function getItemPackingSlipsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
     {
-        return $this->getItemPackingSlipsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPackingSlipsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3504,15 +3537,16 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
+    public function getItemPackingSlipsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPackingSlipDtoListEnvelope';
-        $request = $this->getItemPackingSlipsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3556,12 +3590,13 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPackingSlipsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
+    public function getItemPackingSlipsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3570,6 +3605,7 @@ class ItemPackingSlipsApi
                 'Missing the required parameter $tenant_id when calling getItemPackingSlipsAsync'
             );
         }
+
 
 
 
@@ -3614,7 +3650,14 @@ class ItemPackingSlipsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_packing_slip_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_packing_slip_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_packing_slip_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3668,15 +3711,16 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemPackingSlipsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
+    public function getItemPackingSlipsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
     {
-        list($response) = $this->getItemPackingSlipsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPackingSlipsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3688,15 +3732,16 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPackingSlipsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
+    public function getItemPackingSlipsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
     {
-        $request = $this->getItemPackingSlipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3815,14 +3860,15 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
+    public function getItemPackingSlipsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
     {
-        return $this->getItemPackingSlipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPackingSlipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3838,15 +3884,16 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPackingSlipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
+    public function getItemPackingSlipsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemPackingSlipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPackingSlipsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_packing_slip_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3890,12 +3937,13 @@ class ItemPackingSlipsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPackingSlipDtoCollectionQueryParameters $item_packing_slip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPackingSlipsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPackingSlipsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
+    public function getItemPackingSlipsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_packing_slip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPackingSlipsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3904,6 +3952,7 @@ class ItemPackingSlipsApi
                 'Missing the required parameter $tenant_id when calling getItemPackingSlipsCountAsync'
             );
         }
+
 
 
 
@@ -3948,7 +3997,14 @@ class ItemPackingSlipsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_packing_slip_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_packing_slip_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_packing_slip_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4003,16 +4059,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id packing_slip_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemPackingSlipAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
+    public function patchItemPackingSlipAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
     {
-        list($response) = $this->patchItemPackingSlipAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemPackingSlipAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4025,16 +4081,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemPackingSlipAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
+    public function patchItemPackingSlipAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
     {
-        $request = $this->patchItemPackingSlipAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPackingSlipAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4189,15 +4245,15 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPackingSlipAsyncAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
+    public function patchItemPackingSlipAsyncAsync($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
     {
-        return $this->patchItemPackingSlipAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemPackingSlipAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4214,16 +4270,16 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPackingSlipAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
+    public function patchItemPackingSlipAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemPackingSlipAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPackingSlipAsyncRequest($tenant_id, $packing_slip_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4268,13 +4324,13 @@ class ItemPackingSlipsApi
      * @param  string $packing_slip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemPackingSlipAsyncRequest($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
+    public function patchItemPackingSlipAsyncRequest($tenant_id, $packing_slip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4343,12 +4399,12 @@ class ItemPackingSlipsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4406,16 +4462,16 @@ class ItemPackingSlipsApi
      * @param  string $entry_id entry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemPackingSlipEntryAsync($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
+    public function patchItemPackingSlipEntryAsync($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
     {
-        list($response) = $this->patchItemPackingSlipEntryAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemPackingSlipEntryAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4429,16 +4485,16 @@ class ItemPackingSlipsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemPackingSlipEntryAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
+    public function patchItemPackingSlipEntryAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
     {
-        $request = $this->patchItemPackingSlipEntryAsyncRequest($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPackingSlipEntryAsyncRequest($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4594,15 +4650,15 @@ class ItemPackingSlipsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPackingSlipEntryAsyncAsync($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
+    public function patchItemPackingSlipEntryAsyncAsync($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
     {
-        return $this->patchItemPackingSlipEntryAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemPackingSlipEntryAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4620,16 +4676,16 @@ class ItemPackingSlipsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPackingSlipEntryAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
+    public function patchItemPackingSlipEntryAsyncAsyncWithHttpInfo($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemPackingSlipEntryAsyncRequest($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPackingSlipEntryAsyncRequest($tenant_id, $packing_slip_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4675,13 +4731,13 @@ class ItemPackingSlipsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPackingSlipEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemPackingSlipEntryAsyncRequest($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
+    public function patchItemPackingSlipEntryAsyncRequest($tenant_id, $packing_slip_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPackingSlipEntryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4765,12 +4821,12 @@ class ItemPackingSlipsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

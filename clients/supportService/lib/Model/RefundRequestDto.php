@@ -103,7 +103,7 @@ class RefundRequestDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => true,
-        'timestamp' => false,
+        'timestamp' => true,
         'title' => true,
         'description' => true,
         'approved' => false,
@@ -428,7 +428,14 @@ class RefundRequestDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTimestamp($timestamp)
     {
         if (is_null($timestamp)) {
-            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'timestamp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timestamp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['timestamp'] = $timestamp;
 

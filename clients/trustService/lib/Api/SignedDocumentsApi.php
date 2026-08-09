@@ -84,9 +84,11 @@ class SignedDocumentsApi
         ],
         'getSignedDocumentsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSignedDocumentsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSignedDocumentAsync' => [
             'application/json',
@@ -1139,15 +1141,16 @@ class SignedDocumentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SignedDocumentDtoListEnvelope
      */
-    public function getSignedDocumentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
+    public function getSignedDocumentsAsync($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
     {
-        list($response) = $this->getSignedDocumentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSignedDocumentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1159,15 +1162,16 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SignedDocumentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSignedDocumentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
+    public function getSignedDocumentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
     {
-        $request = $this->getSignedDocumentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignedDocumentsAsyncRequest($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1321,14 +1325,15 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignedDocumentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
+    public function getSignedDocumentsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
     {
-        return $this->getSignedDocumentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSignedDocumentsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1344,15 +1349,16 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignedDocumentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
+    public function getSignedDocumentsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SignedDocumentDtoListEnvelope';
-        $request = $this->getSignedDocumentsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignedDocumentsAsyncRequest($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1396,12 +1402,13 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSignedDocumentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
+    public function getSignedDocumentsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1410,6 +1417,7 @@ class SignedDocumentsApi
                 'Missing the required parameter $tenant_id when calling getSignedDocumentsAsync'
             );
         }
+
 
 
 
@@ -1454,7 +1462,14 @@ class SignedDocumentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signed_document_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signed_document_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signed_document_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1508,15 +1523,16 @@ class SignedDocumentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSignedDocumentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
+    public function getSignedDocumentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
     {
-        list($response) = $this->getSignedDocumentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSignedDocumentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1528,15 +1544,16 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSignedDocumentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
+    public function getSignedDocumentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
     {
-        $request = $this->getSignedDocumentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignedDocumentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1690,14 +1707,15 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignedDocumentsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
+    public function getSignedDocumentsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
     {
-        return $this->getSignedDocumentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSignedDocumentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1713,15 +1731,16 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSignedDocumentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
+    public function getSignedDocumentsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSignedDocumentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSignedDocumentsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signed_document_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1765,12 +1784,13 @@ class SignedDocumentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SignedDocumentDtoCollectionQueryParameters $signed_document_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignedDocumentsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSignedDocumentsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
+    public function getSignedDocumentsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signed_document_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSignedDocumentsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1779,6 +1799,7 @@ class SignedDocumentsApi
                 'Missing the required parameter $tenant_id when calling getSignedDocumentsCountAsync'
             );
         }
+
 
 
 
@@ -1823,7 +1844,14 @@ class SignedDocumentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signed_document_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signed_document_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signed_document_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1878,16 +1906,16 @@ class SignedDocumentsApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSignedDocumentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSignedDocumentAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
+    public function patchSignedDocumentAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
     {
-        list($response) = $this->patchSignedDocumentAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSignedDocumentAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1900,16 +1928,16 @@ class SignedDocumentsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSignedDocumentAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSignedDocumentAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
+    public function patchSignedDocumentAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
     {
-        $request = $this->patchSignedDocumentAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSignedDocumentAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2099,15 +2127,15 @@ class SignedDocumentsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSignedDocumentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSignedDocumentAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
+    public function patchSignedDocumentAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
     {
-        return $this->patchSignedDocumentAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSignedDocumentAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2124,16 +2152,16 @@ class SignedDocumentsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSignedDocumentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSignedDocumentAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
+    public function patchSignedDocumentAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSignedDocumentAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSignedDocumentAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2178,13 +2206,13 @@ class SignedDocumentsApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSignedDocumentAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSignedDocumentAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
+    public function patchSignedDocumentAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSignedDocumentAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2253,12 +2281,12 @@ class SignedDocumentsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -590,7 +590,7 @@ No authorization required
 ## `getRolesAsync()`
 
 ```php
-getRolesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SecurityRoleDtoListEnvelope
+getRolesAsync($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters): \OpenAPI\Client\Model\SecurityRoleDtoListEnvelope
 ```
 
 Get all roles
@@ -613,9 +613,10 @@ $apiInstance = new OpenAPI\Client\Api\RolesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$security_role_dto_collection_query_parameters = new \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRolesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRolesAsync($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->getRolesAsync: ', $e->getMessage(), PHP_EOL;
@@ -629,6 +630,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **security_role_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters**](../Model/SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -640,7 +642,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -712,7 +714,7 @@ No authorization required
 ## `getRolesCountAsync()`
 
 ```php
-getRolesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRolesCountAsync($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get roles count
@@ -735,9 +737,10 @@ $apiInstance = new OpenAPI\Client\Api\RolesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$security_role_dto_collection_query_parameters = new \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRolesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRolesCountAsync($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->getRolesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -751,6 +754,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **security_role_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters**](../Model/SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -762,7 +766,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -772,7 +776,7 @@ No authorization required
 ## `patchRoleAsync()`
 
 ```php
-patchRoleAsync($tenant_id, $security_role_id, $operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+patchRoleAsync($tenant_id, $security_role_id, $patch_operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an existing role
@@ -794,12 +798,12 @@ $apiInstance = new OpenAPI\Client\Api\RolesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $security_role_id = 'security_role_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->patchRoleAsync($tenant_id, $security_role_id, $operation, $api_version, $x_api_version);
+    $result = $apiInstance->patchRoleAsync($tenant_id, $security_role_id, $patch_operation, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RolesApi->patchRoleAsync: ', $e->getMessage(), PHP_EOL;
@@ -812,7 +816,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **security_role_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

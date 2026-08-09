@@ -208,7 +208,7 @@ No authorization required
 ## `getCurriculumsAsync()`
 
 ```php
-getCurriculumsAsync($social_profile_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CurriculumDtoListEnvelope
+getCurriculumsAsync($social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_dto_collection_query_parameters): \OpenAPI\Client\Model\CurriculumDtoListEnvelope
 ```
 
 Get curricula
@@ -232,9 +232,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$curriculum_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurriculumDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurriculumDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurriculumsAsync($social_profile_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCurriculumsAsync($social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurriculumsApi->getCurriculumsAsync: ', $e->getMessage(), PHP_EOL;
@@ -249,6 +250,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **curriculum_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurriculumDtoCollectionQueryParameters**](../Model/CurriculumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -260,7 +262,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -270,7 +272,7 @@ No authorization required
 ## `getCurriculumsCountAsync()`
 
 ```php
-getCurriculumsCountAsync($social_profile_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getCurriculumsCountAsync($social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count curricula
@@ -294,9 +296,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$curriculum_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurriculumDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurriculumDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurriculumsCountAsync($social_profile_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCurriculumsCountAsync($social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurriculumsApi->getCurriculumsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -311,6 +314,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **curriculum_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurriculumDtoCollectionQueryParameters**](../Model/CurriculumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -322,7 +326,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -332,7 +336,7 @@ No authorization required
 ## `patchCurriculumAsync()`
 
 ```php
-patchCurriculumAsync($social_profile_id, $curriculum_id, $tenant_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCurriculumAsync($social_profile_id, $curriculum_id, $tenant_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a curriculum
@@ -357,10 +361,10 @@ $curriculum_id = 'curriculum_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCurriculumAsync($social_profile_id, $curriculum_id, $tenant_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCurriculumAsync($social_profile_id, $curriculum_id, $tenant_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurriculumsApi->patchCurriculumAsync: ', $e->getMessage(), PHP_EOL;
@@ -376,7 +380,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

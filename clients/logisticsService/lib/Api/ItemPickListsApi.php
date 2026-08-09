@@ -91,18 +91,22 @@ class ItemPickListsApi
         ],
         'getItemPickListEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemPickListEntriesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemPickListEntryByIdAsync' => [
             'application/json',
         ],
         'getItemPickListsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemPickListsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemPickListAsync' => [
             'application/json',
@@ -2148,15 +2152,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id pick_list_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemPickListEntryDtoListEnvelope
      */
-    public function getItemPickListEntriesAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
+    public function getItemPickListEntriesAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
     {
-        list($response) = $this->getItemPickListEntriesAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPickListEntriesAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2169,15 +2174,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemPickListEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPickListEntriesAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
+    public function getItemPickListEntriesAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
     {
-        $request = $this->getItemPickListEntriesAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListEntriesAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2297,14 +2303,15 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListEntriesAsyncAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
+    public function getItemPickListEntriesAsyncAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
     {
-        return $this->getItemPickListEntriesAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPickListEntriesAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2321,15 +2328,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListEntriesAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
+    public function getItemPickListEntriesAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPickListEntryDtoListEnvelope';
-        $request = $this->getItemPickListEntriesAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListEntriesAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2374,12 +2382,13 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPickListEntriesAsyncRequest($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
+    public function getItemPickListEntriesAsyncRequest($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2395,6 +2404,7 @@ class ItemPickListsApi
                 'Missing the required parameter $pick_list_id when calling getItemPickListEntriesAsync'
             );
         }
+
 
 
 
@@ -2447,7 +2457,14 @@ class ItemPickListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_pick_list_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_pick_list_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_pick_list_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2502,15 +2519,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id pick_list_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemPickListEntriesCountAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
+    public function getItemPickListEntriesCountAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
     {
-        list($response) = $this->getItemPickListEntriesCountAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPickListEntriesCountAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2523,15 +2541,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPickListEntriesCountAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
+    public function getItemPickListEntriesCountAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
     {
-        $request = $this->getItemPickListEntriesCountAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListEntriesCountAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2651,14 +2670,15 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListEntriesCountAsyncAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
+    public function getItemPickListEntriesCountAsyncAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
     {
-        return $this->getItemPickListEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPickListEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2675,15 +2695,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
+    public function getItemPickListEntriesCountAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemPickListEntriesCountAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListEntriesCountAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $item_pick_list_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2728,12 +2749,13 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListEntryDtoCollectionQueryParameters $item_pick_list_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListEntriesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPickListEntriesCountAsyncRequest($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
+    public function getItemPickListEntriesCountAsyncRequest($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $item_pick_list_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListEntriesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2749,6 +2771,7 @@ class ItemPickListsApi
                 'Missing the required parameter $pick_list_id when calling getItemPickListEntriesCountAsync'
             );
         }
+
 
 
 
@@ -2801,7 +2824,14 @@ class ItemPickListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_pick_list_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_pick_list_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_pick_list_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3264,15 +3294,16 @@ class ItemPickListsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemPickListDtoListEnvelope
      */
-    public function getItemPickListsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
+    public function getItemPickListsAsync($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
     {
-        list($response) = $this->getItemPickListsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPickListsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3284,15 +3315,16 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemPickListDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPickListsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
+    public function getItemPickListsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
     {
-        $request = $this->getItemPickListsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3481,14 +3513,15 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
+    public function getItemPickListsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
     {
-        return $this->getItemPickListsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPickListsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3504,15 +3537,16 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
+    public function getItemPickListsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPickListDtoListEnvelope';
-        $request = $this->getItemPickListsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3556,12 +3590,13 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPickListsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
+    public function getItemPickListsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3570,6 +3605,7 @@ class ItemPickListsApi
                 'Missing the required parameter $tenant_id when calling getItemPickListsAsync'
             );
         }
+
 
 
 
@@ -3614,7 +3650,14 @@ class ItemPickListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_pick_list_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_pick_list_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_pick_list_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3668,15 +3711,16 @@ class ItemPickListsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemPickListsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
+    public function getItemPickListsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
     {
-        list($response) = $this->getItemPickListsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemPickListsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3688,15 +3732,16 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemPickListsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
+    public function getItemPickListsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
     {
-        $request = $this->getItemPickListsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3815,14 +3860,15 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
+    public function getItemPickListsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
     {
-        return $this->getItemPickListsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemPickListsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3838,15 +3884,16 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemPickListsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
+    public function getItemPickListsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemPickListsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemPickListsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_pick_list_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3890,12 +3937,13 @@ class ItemPickListsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemPickListDtoCollectionQueryParameters $item_pick_list_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemPickListsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemPickListsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
+    public function getItemPickListsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $item_pick_list_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemPickListsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3904,6 +3952,7 @@ class ItemPickListsApi
                 'Missing the required parameter $tenant_id when calling getItemPickListsCountAsync'
             );
         }
+
 
 
 
@@ -3948,7 +3997,14 @@ class ItemPickListsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_pick_list_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_pick_list_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_pick_list_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4003,16 +4059,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id pick_list_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemPickListAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
+    public function patchItemPickListAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
     {
-        list($response) = $this->patchItemPickListAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemPickListAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4025,16 +4081,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemPickListAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
+    public function patchItemPickListAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
     {
-        $request = $this->patchItemPickListAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPickListAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4189,15 +4245,15 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPickListAsyncAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
+    public function patchItemPickListAsyncAsync($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
     {
-        return $this->patchItemPickListAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemPickListAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4214,16 +4270,16 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPickListAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
+    public function patchItemPickListAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemPickListAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPickListAsyncRequest($tenant_id, $pick_list_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4268,13 +4324,13 @@ class ItemPickListsApi
      * @param  string $pick_list_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemPickListAsyncRequest($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
+    public function patchItemPickListAsyncRequest($tenant_id, $pick_list_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4343,12 +4399,12 @@ class ItemPickListsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4406,16 +4462,16 @@ class ItemPickListsApi
      * @param  string $entry_id entry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemPickListEntryAsync($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
+    public function patchItemPickListEntryAsync($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
     {
-        list($response) = $this->patchItemPickListEntryAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemPickListEntryAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4429,16 +4485,16 @@ class ItemPickListsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemPickListEntryAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
+    public function patchItemPickListEntryAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
     {
-        $request = $this->patchItemPickListEntryAsyncRequest($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPickListEntryAsyncRequest($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4594,15 +4650,15 @@ class ItemPickListsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPickListEntryAsyncAsync($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
+    public function patchItemPickListEntryAsyncAsync($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
     {
-        return $this->patchItemPickListEntryAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemPickListEntryAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4620,16 +4676,16 @@ class ItemPickListsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemPickListEntryAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
+    public function patchItemPickListEntryAsyncAsyncWithHttpInfo($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemPickListEntryAsyncRequest($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemPickListEntryAsyncRequest($tenant_id, $pick_list_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4675,13 +4731,13 @@ class ItemPickListsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemPickListEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemPickListEntryAsyncRequest($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
+    public function patchItemPickListEntryAsyncRequest($tenant_id, $pick_list_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemPickListEntryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4765,12 +4821,12 @@ class ItemPickListsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

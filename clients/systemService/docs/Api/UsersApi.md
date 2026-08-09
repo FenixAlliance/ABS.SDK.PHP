@@ -11,10 +11,13 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getExtendedAccountHolderAsync()**](UsersApi.md#getExtendedAccountHolderAsync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID |
 | [**getExtendedUsersAsync()**](UsersApi.md#getExtendedUsersAsync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users |
 | [**getExtendedUsersCountAsync()**](UsersApi.md#getExtendedUsersCountAsync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users |
+| [**getUserAdminDetailAsync()**](UsersApi.md#getUserAdminDetailAsync) | **GET** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user |
 | [**getUserAsync()**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID |
 | [**getUsersAsync()**](UsersApi.md#getUsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users |
 | [**getUsersCountAsync()**](UsersApi.md#getUsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users |
 | [**patchAccountHolderAsync()**](UsersApi.md#patchAccountHolderAsync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user |
+| [**setUserPasswordAsync()**](UsersApi.md#setUserPasswordAsync) | **POST** /api/v2/SystemService/Users/{userId}/Password | Set a user&#39;s password |
+| [**updateAccountHolderAdminProfileAsync()**](UsersApi.md#updateAccountHolderAdminProfileAsync) | **PUT** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user&#39;s admin-managed profile |
 | [**updateAccountHolderAsync()**](UsersApi.md#updateAccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user |
 
 
@@ -324,7 +327,7 @@ No authorization required
 ## `getExtendedUsersAsync()`
 
 ```php
-getExtendedUsersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedUserDtoListEnvelope
+getExtendedUsersAsync($api_version, $x_api_version, $extended_user_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedUserDtoListEnvelope
 ```
 
 Retrieve a list of extended users
@@ -346,9 +349,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_user_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedUsersAsync($api_version, $x_api_version);
+    $result = $apiInstance->getExtendedUsersAsync($api_version, $x_api_version, $extended_user_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getExtendedUsersAsync: ', $e->getMessage(), PHP_EOL;
@@ -361,6 +365,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_user_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters**](../Model/ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -372,7 +377,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -382,7 +387,7 @@ No authorization required
 ## `getExtendedUsersCountAsync()`
 
 ```php
-getExtendedUsersCountAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getExtendedUsersCountAsync($api_version, $x_api_version, $extended_user_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of extended users
@@ -404,9 +409,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_user_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedUsersCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getExtendedUsersCountAsync($api_version, $x_api_version, $extended_user_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getExtendedUsersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -419,10 +425,73 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_user_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedUserDtoCollectionQueryParameters**](../Model/ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
 [**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUserAdminDetailAsync()`
+
+```php
+getUserAdminDetailAsync($user_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\UserAdminDetailDtoEnvelope
+```
+
+Retrieve the admin detail aggregate for a user
+
+Returns the user's orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$user_id = 'user_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getUserAdminDetailAsync($user_id, $tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getUserAdminDetailAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\UserAdminDetailDtoEnvelope**](../Model/UserAdminDetailDtoEnvelope.md)
 
 ### Authorization
 
@@ -500,7 +569,7 @@ No authorization required
 ## `getUsersAsync()`
 
 ```php
-getUsersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\UserDtoListEnvelope
+getUsersAsync($api_version, $x_api_version, $user_dto_collection_query_parameters): \OpenAPI\Client\Model\UserDtoListEnvelope
 ```
 
 Retrieve a list of users
@@ -522,9 +591,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$user_dto_collection_query_parameters = new \OpenAPI\Client\Model\UserDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\UserDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUsersAsync($api_version, $x_api_version);
+    $result = $apiInstance->getUsersAsync($api_version, $x_api_version, $user_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getUsersAsync: ', $e->getMessage(), PHP_EOL;
@@ -537,6 +607,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **user_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\UserDtoCollectionQueryParameters**](../Model/UserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -548,7 +619,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -558,7 +629,7 @@ No authorization required
 ## `getUsersCountAsync()`
 
 ```php
-getUsersCountAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getUsersCountAsync($api_version, $x_api_version, $user_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of users
@@ -580,9 +651,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$user_dto_collection_query_parameters = new \OpenAPI\Client\Model\UserDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\UserDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getUsersCountAsync($api_version, $x_api_version);
+    $result = $apiInstance->getUsersCountAsync($api_version, $x_api_version, $user_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getUsersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -595,6 +667,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **user_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\UserDtoCollectionQueryParameters**](../Model/UserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -606,7 +679,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -616,7 +689,7 @@ No authorization required
 ## `patchAccountHolderAsync()`
 
 ```php
-patchAccountHolderAsync($user_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountHolderAsync($user_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially update a user
@@ -639,10 +712,10 @@ $apiInstance = new OpenAPI\Client\Api\UsersApi(
 $user_id = 'user_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountHolderAsync($user_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountHolderAsync($user_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->patchAccountHolderAsync: ', $e->getMessage(), PHP_EOL;
@@ -656,7 +729,131 @@ try {
 | **user_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setUserPasswordAsync()`
+
+```php
+setUserPasswordAsync($user_id, $api_version, $x_api_version, $set_user_password_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Set a user's password
+
+Replaces the user's password with the supplied value. Global administrators only.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$user_id = 'user_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$set_user_password_dto = new \OpenAPI\Client\Model\SetUserPasswordDto(); // \OpenAPI\Client\Model\SetUserPasswordDto
+
+try {
+    $result = $apiInstance->setUserPasswordAsync($user_id, $api_version, $x_api_version, $set_user_password_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->setUserPasswordAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **set_user_password_dto** | [**\OpenAPI\Client\Model\SetUserPasswordDto**](../Model/SetUserPasswordDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAccountHolderAdminProfileAsync()`
+
+```php
+updateAccountHolderAdminProfileAsync($user_id, $api_version, $x_api_version, $user_admin_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a user's admin-managed profile
+
+Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$user_id = 'user_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$user_admin_update_dto = new \OpenAPI\Client\Model\UserAdminUpdateDto(); // \OpenAPI\Client\Model\UserAdminUpdateDto
+
+try {
+    $result = $apiInstance->updateAccountHolderAdminProfileAsync($user_id, $api_version, $x_api_version, $user_admin_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->updateAccountHolderAdminProfileAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **user_admin_update_dto** | [**\OpenAPI\Client\Model\UserAdminUpdateDto**](../Model/UserAdminUpdateDto.md)|  | [optional] |
 
 ### Return type
 

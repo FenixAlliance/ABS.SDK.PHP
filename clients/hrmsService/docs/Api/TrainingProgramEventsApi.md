@@ -202,7 +202,7 @@ No authorization required
 ## `getTrainingProgramEventsAsync()`
 
 ```php
-getTrainingProgramEventsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TrainingProgramEventDtoListEnvelope
+getTrainingProgramEventsAsync($tenant_id, $api_version, $x_api_version, $training_program_event_dto_collection_query_parameters): \OpenAPI\Client\Model\TrainingProgramEventDtoListEnvelope
 ```
 
 Get training program events
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\TrainingProgramEventsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$training_program_event_dto_collection_query_parameters = new \OpenAPI\Client\Model\TrainingProgramEventDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TrainingProgramEventDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTrainingProgramEventsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrainingProgramEventsAsync($tenant_id, $api_version, $x_api_version, $training_program_event_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrainingProgramEventsApi->getTrainingProgramEventsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **training_program_event_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TrainingProgramEventDtoCollectionQueryParameters**](../Model/TrainingProgramEventDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getTrainingProgramEventsCountAsync()`
 
 ```php
-getTrainingProgramEventsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTrainingProgramEventsCountAsync($tenant_id, $api_version, $x_api_version, $training_program_event_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count training program events
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\TrainingProgramEventsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$training_program_event_dto_collection_query_parameters = new \OpenAPI\Client\Model\TrainingProgramEventDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TrainingProgramEventDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTrainingProgramEventsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrainingProgramEventsCountAsync($tenant_id, $api_version, $x_api_version, $training_program_event_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrainingProgramEventsApi->getTrainingProgramEventsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **training_program_event_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TrainingProgramEventDtoCollectionQueryParameters**](../Model/TrainingProgramEventDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchTrainingProgramEventAsync()`
 
 ```php
-patchTrainingProgramEventAsync($tenant_id, $event_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTrainingProgramEventAsync($tenant_id, $event_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a training program event
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $event_id = 'event_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTrainingProgramEventAsync($tenant_id, $event_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTrainingProgramEventAsync($tenant_id, $event_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrainingProgramEventsApi->patchTrainingProgramEventAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **event_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

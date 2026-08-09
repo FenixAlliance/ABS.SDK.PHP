@@ -84,6 +84,7 @@ class ItemReviewsApi
         ],
         'getItemReviewsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemReviewAsync' => [
             'application/json',
@@ -1263,15 +1264,16 @@ class ItemReviewsApi
      * @param  string $item_id item_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemReviewsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReviewDtoListEnvelope
      */
-    public function getItemReviewsAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
+    public function getItemReviewsAsync($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
     {
-        list($response) = $this->getItemReviewsAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemReviewsAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1283,15 +1285,16 @@ class ItemReviewsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemReviewsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemReviewDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemReviewsAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
+    public function getItemReviewsAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
     {
-        $request = $this->getItemReviewsAsyncRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemReviewsAsyncRequest($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1480,14 +1483,15 @@ class ItemReviewsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemReviewsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemReviewsAsyncAsync($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
+    public function getItemReviewsAsyncAsync($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
     {
-        return $this->getItemReviewsAsyncAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemReviewsAsyncAsyncWithHttpInfo($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1503,15 +1507,16 @@ class ItemReviewsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemReviewsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemReviewsAsyncAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
+    public function getItemReviewsAsyncAsyncWithHttpInfo($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemReviewDtoListEnvelope';
-        $request = $this->getItemReviewsAsyncRequest($item_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemReviewsAsyncRequest($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1555,12 +1560,13 @@ class ItemReviewsApi
      * @param  string $item_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters $item_review_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemReviewsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemReviewsAsyncRequest($item_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
+    public function getItemReviewsAsyncRequest($item_id, $api_version = null, $x_api_version = null, $item_review_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemReviewsAsync'][0])
     {
 
         // verify the required parameter 'item_id' is set
@@ -1569,6 +1575,7 @@ class ItemReviewsApi
                 'Missing the required parameter $item_id when calling getItemReviewsAsync'
             );
         }
+
 
 
 
@@ -1613,7 +1620,14 @@ class ItemReviewsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_review_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_review_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_review_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1668,16 +1682,16 @@ class ItemReviewsApi
      * @param  string $item_review_id item_review_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemReviewAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchItemReviewAsync($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
+    public function patchItemReviewAsync($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
     {
-        $this->patchItemReviewAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchItemReviewAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1689,16 +1703,16 @@ class ItemReviewsApi
      * @param  string $item_review_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemReviewAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemReviewAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
+    public function patchItemReviewAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
     {
-        $request = $this->patchItemReviewAsyncRequest($tenant_id, $item_review_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemReviewAsyncRequest($tenant_id, $item_review_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1757,15 +1771,15 @@ class ItemReviewsApi
      * @param  string $item_review_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemReviewAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemReviewAsyncAsync($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
+    public function patchItemReviewAsyncAsync($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
     {
-        return $this->patchItemReviewAsyncAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemReviewAsyncAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1782,16 +1796,16 @@ class ItemReviewsApi
      * @param  string $item_review_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemReviewAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemReviewAsyncAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
+    public function patchItemReviewAsyncAsyncWithHttpInfo($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchItemReviewAsyncRequest($tenant_id, $item_review_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemReviewAsyncRequest($tenant_id, $item_review_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1823,13 +1837,13 @@ class ItemReviewsApi
      * @param  string $item_review_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemReviewAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemReviewAsyncRequest($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
+    public function patchItemReviewAsyncRequest($tenant_id, $item_review_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemReviewAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1898,12 +1912,12 @@ class ItemReviewsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

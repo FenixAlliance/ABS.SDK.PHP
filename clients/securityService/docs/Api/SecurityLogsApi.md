@@ -11,7 +11,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `getSecurityLogsAsync()`
 
 ```php
-getSecurityLogsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BusinessSecurityLogDtoListEnvelope
+getSecurityLogsAsync($tenant_id, $api_version, $x_api_version, $business_security_log_dto_collection_query_parameters): \OpenAPI\Client\Model\BusinessSecurityLogDtoListEnvelope
 ```
 
 Get business security logs
@@ -34,9 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\SecurityLogsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_security_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessSecurityLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessSecurityLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSecurityLogsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSecurityLogsAsync($tenant_id, $api_version, $x_api_version, $business_security_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecurityLogsApi->getSecurityLogsAsync: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_security_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessSecurityLogDtoCollectionQueryParameters**](../Model/BusinessSecurityLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -61,7 +63,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -71,7 +73,7 @@ No authorization required
 ## `getSecurityLogsCountAsync()`
 
 ```php
-getSecurityLogsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSecurityLogsCountAsync($tenant_id, $api_version, $x_api_version, $business_security_log_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get business security logs count
@@ -94,9 +96,10 @@ $apiInstance = new OpenAPI\Client\Api\SecurityLogsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_security_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessSecurityLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessSecurityLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSecurityLogsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSecurityLogsCountAsync($tenant_id, $api_version, $x_api_version, $business_security_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SecurityLogsApi->getSecurityLogsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +113,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_security_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessSecurityLogDtoCollectionQueryParameters**](../Model/BusinessSecurityLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -121,7 +125,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

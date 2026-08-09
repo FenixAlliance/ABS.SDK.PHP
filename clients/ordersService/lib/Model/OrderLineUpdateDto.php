@@ -141,7 +141,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'price_list_item_id' => 'string',
         'unit_id' => 'string',
         'unit_group_id' => 'string',
-        'forex_rates_snapshot' => 'string',
         'total_base_amount_in_usd' => 'float',
         'total_profit_in_usd' => 'float',
         'total_detail_amount_in_usd' => 'float',
@@ -262,7 +261,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'price_list_item_id' => null,
         'unit_id' => null,
         'unit_group_id' => null,
-        'forex_rates_snapshot' => null,
         'total_base_amount_in_usd' => 'double',
         'total_profit_in_usd' => 'double',
         'total_detail_amount_in_usd' => 'double',
@@ -381,7 +379,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'price_list_item_id' => true,
         'unit_id' => true,
         'unit_group_id' => true,
-        'forex_rates_snapshot' => true,
         'total_base_amount_in_usd' => false,
         'total_profit_in_usd' => false,
         'total_detail_amount_in_usd' => false,
@@ -580,7 +577,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'price_list_item_id' => 'priceListItemId',
         'unit_id' => 'unitId',
         'unit_group_id' => 'unitGroupId',
-        'forex_rates_snapshot' => 'forexRatesSnapshot',
         'total_base_amount_in_usd' => 'totalBaseAmountInUsd',
         'total_profit_in_usd' => 'totalProfitInUsd',
         'total_detail_amount_in_usd' => 'totalDetailAmountInUsd',
@@ -699,7 +695,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'price_list_item_id' => 'setPriceListItemId',
         'unit_id' => 'setUnitId',
         'unit_group_id' => 'setUnitGroupId',
-        'forex_rates_snapshot' => 'setForexRatesSnapshot',
         'total_base_amount_in_usd' => 'setTotalBaseAmountInUsd',
         'total_profit_in_usd' => 'setTotalProfitInUsd',
         'total_detail_amount_in_usd' => 'setTotalDetailAmountInUsd',
@@ -818,7 +813,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'price_list_item_id' => 'getPriceListItemId',
         'unit_id' => 'getUnitId',
         'unit_group_id' => 'getUnitGroupId',
-        'forex_rates_snapshot' => 'getForexRatesSnapshot',
         'total_base_amount_in_usd' => 'getTotalBaseAmountInUsd',
         'total_profit_in_usd' => 'getTotalProfitInUsd',
         'total_detail_amount_in_usd' => 'getTotalDetailAmountInUsd',
@@ -1018,7 +1012,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('price_list_item_id', $data ?? [], null);
         $this->setIfExists('unit_id', $data ?? [], null);
         $this->setIfExists('unit_group_id', $data ?? [], null);
-        $this->setIfExists('forex_rates_snapshot', $data ?? [], null);
         $this->setIfExists('total_base_amount_in_usd', $data ?? [], null);
         $this->setIfExists('total_profit_in_usd', $data ?? [], null);
         $this->setIfExists('total_detail_amount_in_usd', $data ?? [], null);
@@ -3820,40 +3813,6 @@ class OrderLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['unit_group_id'] = $unit_group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets forex_rates_snapshot
-     *
-     * @return string|null
-     */
-    public function getForexRatesSnapshot()
-    {
-        return $this->container['forex_rates_snapshot'];
-    }
-
-    /**
-     * Sets forex_rates_snapshot
-     *
-     * @param string|null $forex_rates_snapshot forex_rates_snapshot
-     *
-     * @return self
-     */
-    public function setForexRatesSnapshot($forex_rates_snapshot)
-    {
-        if (is_null($forex_rates_snapshot)) {
-            array_push($this->openAPINullablesSetToNull, 'forex_rates_snapshot');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('forex_rates_snapshot', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['forex_rates_snapshot'] = $forex_rates_snapshot;
 
         return $this;
     }

@@ -74,6 +74,7 @@ class PointOfSalesApi
     public const contentTypes = [
         'countPointOfSalesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createPointOfSaleAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class PointOfSalesApi
         ],
         'getPointOfSalesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchPointOfSaleAsync' => [
             'application/json',
@@ -150,15 +152,16 @@ class PointOfSalesApi
      * Get point of sales count
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countPointOfSalesAsync($tenant_id, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
+    public function countPointOfSalesAsync($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
     {
-        list($response) = $this->countPointOfSalesAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->countPointOfSalesAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -168,15 +171,16 @@ class PointOfSalesApi
      * Get point of sales count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countPointOfSalesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
+    public function countPointOfSalesAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
     {
-        $request = $this->countPointOfSalesAsyncRequest($tenant_id, $contentType);
+        $request = $this->countPointOfSalesAsyncRequest($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -328,14 +332,15 @@ class PointOfSalesApi
      * Get point of sales count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countPointOfSalesAsyncAsync($tenant_id, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
+    public function countPointOfSalesAsyncAsync($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
     {
-        return $this->countPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->countPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -349,15 +354,16 @@ class PointOfSalesApi
      * Get point of sales count
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
+    public function countPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countPointOfSalesAsyncRequest($tenant_id, $contentType);
+        $request = $this->countPointOfSalesAsyncRequest($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -399,12 +405,13 @@ class PointOfSalesApi
      * Create request for operation 'countPointOfSalesAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countPointOfSalesAsyncRequest($tenant_id, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
+    public function countPointOfSalesAsyncRequest($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countPointOfSalesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -413,6 +420,7 @@ class PointOfSalesApi
                 'Missing the required parameter $tenant_id when calling countPointOfSalesAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/PointOfSales/Count';
@@ -442,7 +450,14 @@ class PointOfSalesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($point_of_sale_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($point_of_sale_dto_collection_query_parameters));
+            } else {
+                $httpBody = $point_of_sale_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1579,15 +1594,16 @@ class PointOfSalesApi
      * Get point of sales
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PointOfSaleDtoListEnvelope
      */
-    public function getPointOfSalesAsync($tenant_id, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
+    public function getPointOfSalesAsync($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
     {
-        list($response) = $this->getPointOfSalesAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getPointOfSalesAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1597,15 +1613,16 @@ class PointOfSalesApi
      * Get point of sales
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PointOfSaleDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPointOfSalesAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
+    public function getPointOfSalesAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
     {
-        $request = $this->getPointOfSalesAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPointOfSalesAsyncRequest($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1757,14 +1774,15 @@ class PointOfSalesApi
      * Get point of sales
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPointOfSalesAsyncAsync($tenant_id, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
+    public function getPointOfSalesAsyncAsync($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
     {
-        return $this->getPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1778,15 +1796,16 @@ class PointOfSalesApi
      * Get point of sales
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
+    public function getPointOfSalesAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PointOfSaleDtoListEnvelope';
-        $request = $this->getPointOfSalesAsyncRequest($tenant_id, $contentType);
+        $request = $this->getPointOfSalesAsyncRequest($tenant_id, $point_of_sale_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1828,12 +1847,13 @@ class PointOfSalesApi
      * Create request for operation 'getPointOfSalesAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\PointOfSaleDtoCollectionQueryParameters $point_of_sale_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPointOfSalesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPointOfSalesAsyncRequest($tenant_id, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
+    public function getPointOfSalesAsyncRequest($tenant_id, $point_of_sale_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPointOfSalesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1842,6 +1862,7 @@ class PointOfSalesApi
                 'Missing the required parameter $tenant_id when calling getPointOfSalesAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/SalesService/PointOfSales';
@@ -1871,7 +1892,14 @@ class PointOfSalesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($point_of_sale_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($point_of_sale_dto_collection_query_parameters));
+            } else {
+                $httpBody = $point_of_sale_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1924,16 +1952,16 @@ class PointOfSalesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $point_of_sale_id point_of_sale_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPointOfSaleAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPointOfSaleAsync($tenant_id, $point_of_sale_id, $operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
+    public function patchPointOfSaleAsync($tenant_id, $point_of_sale_id, $patch_operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
     {
-        list($response) = $this->patchPointOfSaleAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $operation, $contentType);
+        list($response) = $this->patchPointOfSaleAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1944,16 +1972,16 @@ class PointOfSalesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $point_of_sale_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPointOfSaleAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPointOfSaleAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
+    public function patchPointOfSaleAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $patch_operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
     {
-        $request = $this->patchPointOfSaleAsyncRequest($tenant_id, $point_of_sale_id, $operation, $contentType);
+        $request = $this->patchPointOfSaleAsyncRequest($tenant_id, $point_of_sale_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2106,15 +2134,15 @@ class PointOfSalesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $point_of_sale_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPointOfSaleAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPointOfSaleAsyncAsync($tenant_id, $point_of_sale_id, $operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
+    public function patchPointOfSaleAsyncAsync($tenant_id, $point_of_sale_id, $patch_operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
     {
-        return $this->patchPointOfSaleAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $operation, $contentType)
+        return $this->patchPointOfSaleAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2129,16 +2157,16 @@ class PointOfSalesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $point_of_sale_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPointOfSaleAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPointOfSaleAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
+    public function patchPointOfSaleAsyncAsyncWithHttpInfo($tenant_id, $point_of_sale_id, $patch_operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPointOfSaleAsyncRequest($tenant_id, $point_of_sale_id, $operation, $contentType);
+        $request = $this->patchPointOfSaleAsyncRequest($tenant_id, $point_of_sale_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2181,13 +2209,13 @@ class PointOfSalesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $point_of_sale_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPointOfSaleAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPointOfSaleAsyncRequest($tenant_id, $point_of_sale_id, $operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
+    public function patchPointOfSaleAsyncRequest($tenant_id, $point_of_sale_id, $patch_operation = null, string $contentType = self::contentTypes['patchPointOfSaleAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class PointOfSalesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -142,7 +142,7 @@ No authorization required
 ## `getExtendedTenantEnrollments()`
 
 ```php
-getExtendedTenantEnrollments($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantEnrollmentDtoListEnvelope
+getExtendedTenantEnrollments($tenant_id, $api_version, $x_api_version, $extended_tenant_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantEnrollmentDtoListEnvelope
 ```
 
 Retrieve a list of tenant enrollments
@@ -165,9 +165,10 @@ $apiInstance = new OpenAPI\Client\Api\EnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_tenant_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedTenantEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedTenantEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedTenantEnrollments($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedTenantEnrollments($tenant_id, $api_version, $x_api_version, $extended_tenant_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnrollmentsApi->getExtendedTenantEnrollments: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +182,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_tenant_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedTenantEnrollmentDtoCollectionQueryParameters**](../Model/ExtendedTenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -192,7 +194,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -202,7 +204,7 @@ No authorization required
 ## `getExtendedTenantEnrollmentsCount()`
 
 ```php
-getExtendedTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getExtendedTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version, $extended_tenant_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant enrollments
@@ -225,9 +227,10 @@ $apiInstance = new OpenAPI\Client\Api\EnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_tenant_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedTenantEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedTenantEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version, $extended_tenant_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnrollmentsApi->getExtendedTenantEnrollmentsCount: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +244,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_tenant_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedTenantEnrollmentDtoCollectionQueryParameters**](../Model/ExtendedTenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +256,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -326,7 +330,7 @@ No authorization required
 ## `getTenantEnrollments()`
 
 ```php
-getTenantEnrollments($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TenantEnrollmentDtoListEnvelope
+getTenantEnrollments($tenant_id, $api_version, $x_api_version, $tenant_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantEnrollmentDtoListEnvelope
 ```
 
 Retrieve a list of tenant enrollments
@@ -349,9 +353,10 @@ $apiInstance = new OpenAPI\Client\Api\EnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantEnrollments($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantEnrollments($tenant_id, $api_version, $x_api_version, $tenant_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnrollmentsApi->getTenantEnrollments: ', $e->getMessage(), PHP_EOL;
@@ -365,6 +370,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantEnrollmentDtoCollectionQueryParameters**](../Model/TenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -376,7 +382,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -386,7 +392,7 @@ No authorization required
 ## `getTenantEnrollmentsCount()`
 
 ```php
-getTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version, $tenant_enrollment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of tenant enrollments
@@ -409,9 +415,10 @@ $apiInstance = new OpenAPI\Client\Api\EnrollmentsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_enrollment_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantEnrollmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantEnrollmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTenantEnrollmentsCount($tenant_id, $api_version, $x_api_version, $tenant_enrollment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnrollmentsApi->getTenantEnrollmentsCount: ', $e->getMessage(), PHP_EOL;
@@ -425,6 +432,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_enrollment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantEnrollmentDtoCollectionQueryParameters**](../Model/TenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -436,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -446,7 +454,7 @@ No authorization required
 ## `patchTenantEnrollmentAsync()`
 
 ```php
-patchTenantEnrollmentAsync($tenant_id, $enrollment_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenantEnrollmentAsync($tenant_id, $enrollment_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a tenant enrollment
@@ -470,10 +478,10 @@ $tenant_id = 'tenant_id_example'; // string
 $enrollment_id = 'enrollment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenantEnrollmentAsync($tenant_id, $enrollment_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenantEnrollmentAsync($tenant_id, $enrollment_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EnrollmentsApi->patchTenantEnrollmentAsync: ', $e->getMessage(), PHP_EOL;
@@ -488,7 +496,7 @@ try {
 | **enrollment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

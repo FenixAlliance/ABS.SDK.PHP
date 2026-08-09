@@ -84,9 +84,11 @@ class SigningCertificatesApi
         ],
         'getSigningCertificatesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSigningCertificatesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'importSigningCertificateAsync' => [
             'multipart/form-data',
@@ -1132,15 +1134,16 @@ class SigningCertificatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SigningCertificateDtoListEnvelope
      */
-    public function getSigningCertificatesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
+    public function getSigningCertificatesAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
     {
-        list($response) = $this->getSigningCertificatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSigningCertificatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1152,15 +1155,16 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SigningCertificateDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSigningCertificatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
+    public function getSigningCertificatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
     {
-        $request = $this->getSigningCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1314,14 +1318,15 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningCertificatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
+    public function getSigningCertificatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
     {
-        return $this->getSigningCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSigningCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1337,15 +1342,16 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
+    public function getSigningCertificatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SigningCertificateDtoListEnvelope';
-        $request = $this->getSigningCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningCertificatesAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1389,12 +1395,13 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSigningCertificatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
+    public function getSigningCertificatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1403,6 +1410,7 @@ class SigningCertificatesApi
                 'Missing the required parameter $tenant_id when calling getSigningCertificatesAsync'
             );
         }
+
 
 
 
@@ -1447,7 +1455,14 @@ class SigningCertificatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signing_certificate_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signing_certificate_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signing_certificate_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1501,15 +1516,16 @@ class SigningCertificatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSigningCertificatesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
+    public function getSigningCertificatesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
     {
-        list($response) = $this->getSigningCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSigningCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1521,15 +1537,16 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSigningCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
+    public function getSigningCertificatesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
     {
-        $request = $this->getSigningCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1683,14 +1700,15 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningCertificatesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
+    public function getSigningCertificatesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
     {
-        return $this->getSigningCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSigningCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1706,15 +1724,16 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
+    public function getSigningCertificatesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSigningCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningCertificatesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_certificate_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1758,12 +1777,13 @@ class SigningCertificatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningCertificateDtoCollectionQueryParameters $signing_certificate_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningCertificatesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSigningCertificatesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
+    public function getSigningCertificatesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signing_certificate_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningCertificatesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1772,6 +1792,7 @@ class SigningCertificatesApi
                 'Missing the required parameter $tenant_id when calling getSigningCertificatesCountAsync'
             );
         }
+
 
 
 
@@ -1816,7 +1837,14 @@ class SigningCertificatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signing_certificate_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signing_certificate_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signing_certificate_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2188,16 +2216,16 @@ class SigningCertificatesApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSigningCertificateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSigningCertificateAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
+    public function patchSigningCertificateAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
     {
-        list($response) = $this->patchSigningCertificateAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSigningCertificateAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2210,16 +2238,16 @@ class SigningCertificatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSigningCertificateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSigningCertificateAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
+    public function patchSigningCertificateAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
     {
-        $request = $this->patchSigningCertificateAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSigningCertificateAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2409,15 +2437,15 @@ class SigningCertificatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSigningCertificateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSigningCertificateAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
+    public function patchSigningCertificateAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
     {
-        return $this->patchSigningCertificateAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSigningCertificateAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2434,16 +2462,16 @@ class SigningCertificatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSigningCertificateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSigningCertificateAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
+    public function patchSigningCertificateAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSigningCertificateAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSigningCertificateAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2488,13 +2516,13 @@ class SigningCertificatesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSigningCertificateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSigningCertificateAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
+    public function patchSigningCertificateAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSigningCertificateAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2563,12 +2591,12 @@ class SigningCertificatesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

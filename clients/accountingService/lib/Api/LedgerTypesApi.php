@@ -84,9 +84,11 @@ class LedgerTypesApi
         ],
         'getLedgerTypesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLedgerTypesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchLedgerTypeAsync' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class LedgerTypesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LedgerTypeDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLedgerTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
+    public function getLedgerTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
     {
-        list($response) = $this->getLedgerTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLedgerTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LedgerTypeDtoIReadOnlyListEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLedgerTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
+    public function getLedgerTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
     {
-        $request = $this->getLedgerTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLedgerTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLedgerTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
+    public function getLedgerTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
     {
-        return $this->getLedgerTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLedgerTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLedgerTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
+    public function getLedgerTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LedgerTypeDtoIReadOnlyListEnvelope';
-        $request = $this->getLedgerTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLedgerTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLedgerTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
+    public function getLedgerTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class LedgerTypesApi
                 'Missing the required parameter $tenant_id when calling getLedgerTypesAsync'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class LedgerTypesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($ledger_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ledger_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $ledger_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class LedgerTypesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function getLedgerTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
+    public function getLedgerTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
     {
-        list($response) = $this->getLedgerTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLedgerTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLedgerTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
+    public function getLedgerTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
     {
-        $request = $this->getLedgerTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLedgerTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLedgerTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
+    public function getLedgerTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
     {
-        return $this->getLedgerTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLedgerTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLedgerTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
+    public function getLedgerTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLedgerTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLedgerTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $ledger_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class LedgerTypesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LedgerTypeDtoCollectionQueryParameters $ledger_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLedgerTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLedgerTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
+    public function getLedgerTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $ledger_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLedgerTypesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class LedgerTypesApi
                 'Missing the required parameter $tenant_id when calling getLedgerTypesCountAsync'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class LedgerTypesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($ledger_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ledger_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $ledger_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class LedgerTypesApi
      * @param  string $ledger_type_id ledger_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLedgerTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function patchLedgerTypeAsync($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
+    public function patchLedgerTypeAsync($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
     {
-        list($response) = $this->patchLedgerTypeAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchLedgerTypeAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class LedgerTypesApi
      * @param  string $ledger_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLedgerTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\EmptyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLedgerTypeAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
+    public function patchLedgerTypeAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
     {
-        $request = $this->patchLedgerTypeAsyncRequest($tenant_id, $ledger_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLedgerTypeAsyncRequest($tenant_id, $ledger_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class LedgerTypesApi
      * @param  string $ledger_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLedgerTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLedgerTypeAsyncAsync($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
+    public function patchLedgerTypeAsyncAsync($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
     {
-        return $this->patchLedgerTypeAsyncAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchLedgerTypeAsyncAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class LedgerTypesApi
      * @param  string $ledger_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLedgerTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLedgerTypeAsyncAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
+    public function patchLedgerTypeAsyncAsyncWithHttpInfo($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLedgerTypeAsyncRequest($tenant_id, $ledger_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLedgerTypeAsyncRequest($tenant_id, $ledger_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class LedgerTypesApi
      * @param  string $ledger_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLedgerTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLedgerTypeAsyncRequest($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
+    public function patchLedgerTypeAsyncRequest($tenant_id, $ledger_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLedgerTypeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class LedgerTypesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -206,7 +206,7 @@ No authorization required
 ## `getSystemContactOptions()`
 
 ```php
-getSystemContactOptions($contact_id, $portal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\OptionDtoListEnvelope
+getSystemContactOptions($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters): \OpenAPI\Client\Model\OptionDtoListEnvelope
 ```
 
 Retrieve a list of contact options (admin)
@@ -230,9 +230,10 @@ $contact_id = 'contact_id_example'; // string
 $portal_id = 'portal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$option_dto_collection_query_parameters = new \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemContactOptions($contact_id, $portal_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSystemContactOptions($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactOptionsApi->getSystemContactOptions: ', $e->getMessage(), PHP_EOL;
@@ -247,6 +248,7 @@ try {
 | **portal_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **option_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OptionDtoCollectionQueryParameters**](../Model/OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -258,7 +260,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -268,7 +270,7 @@ No authorization required
 ## `getSystemContactOptionsCount()`
 
 ```php
-getSystemContactOptionsCount($contact_id, $portal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSystemContactOptionsCount($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of contact options (admin)
@@ -292,9 +294,10 @@ $contact_id = 'contact_id_example'; // string
 $portal_id = 'portal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$option_dto_collection_query_parameters = new \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemContactOptionsCount($contact_id, $portal_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSystemContactOptionsCount($contact_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactOptionsApi->getSystemContactOptionsCount: ', $e->getMessage(), PHP_EOL;
@@ -309,6 +312,7 @@ try {
 | **portal_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **option_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OptionDtoCollectionQueryParameters**](../Model/OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -320,7 +324,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -330,7 +334,7 @@ No authorization required
 ## `patchSystemContactOption()`
 
 ```php
-patchSystemContactOption($contact_id, $option_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSystemContactOption($contact_id, $option_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially update a contact option (admin)
@@ -354,10 +358,10 @@ $contact_id = 'contact_id_example'; // string
 $option_id = 'option_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSystemContactOption($contact_id, $option_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSystemContactOption($contact_id, $option_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactOptionsApi->patchSystemContactOption: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +376,7 @@ try {
 | **option_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

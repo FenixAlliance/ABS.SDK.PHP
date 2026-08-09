@@ -77,9 +77,11 @@ class SigningLogsApi
         ],
         'getSigningLogsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSigningLogsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -561,15 +563,16 @@ class SigningLogsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SigningLogDtoListEnvelope
      */
-    public function getSigningLogsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
+    public function getSigningLogsAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
     {
-        list($response) = $this->getSigningLogsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSigningLogsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -581,15 +584,16 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SigningLogDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSigningLogsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
+    public function getSigningLogsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
     {
-        $request = $this->getSigningLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -743,14 +747,15 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningLogsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
+    public function getSigningLogsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
     {
-        return $this->getSigningLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSigningLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -766,15 +771,16 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
+    public function getSigningLogsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SigningLogDtoListEnvelope';
-        $request = $this->getSigningLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningLogsAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -818,12 +824,13 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSigningLogsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
+    public function getSigningLogsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -832,6 +839,7 @@ class SigningLogsApi
                 'Missing the required parameter $tenant_id when calling getSigningLogsAsync'
             );
         }
+
 
 
 
@@ -876,7 +884,14 @@ class SigningLogsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signing_log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signing_log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signing_log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -930,15 +945,16 @@ class SigningLogsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSigningLogsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
+    public function getSigningLogsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
     {
-        list($response) = $this->getSigningLogsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSigningLogsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -950,15 +966,16 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSigningLogsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
+    public function getSigningLogsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
     {
-        $request = $this->getSigningLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1112,14 +1129,15 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningLogsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
+    public function getSigningLogsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
     {
-        return $this->getSigningLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSigningLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1135,15 +1153,16 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSigningLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
+    public function getSigningLogsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSigningLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSigningLogsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1187,12 +1206,13 @@ class SigningLogsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters $signing_log_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSigningLogsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSigningLogsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
+    public function getSigningLogsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $signing_log_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSigningLogsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1201,6 +1221,7 @@ class SigningLogsApi
                 'Missing the required parameter $tenant_id when calling getSigningLogsCountAsync'
             );
         }
+
 
 
 
@@ -1245,7 +1266,14 @@ class SigningLogsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($signing_log_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signing_log_dto_collection_query_parameters));
+            } else {
+                $httpBody = $signing_log_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

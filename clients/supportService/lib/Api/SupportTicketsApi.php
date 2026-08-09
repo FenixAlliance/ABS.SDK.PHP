@@ -93,12 +93,15 @@ class SupportTicketsApi
         ],
         'getSupportTicketConversationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSupportTicketsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSupportTicketsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSupportTicketAsync' => [
             'application/json',
@@ -2808,15 +2811,16 @@ class SupportTicketsApi
      * @param  string $support_ticket_id support_ticket_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters $support_ticket_conversation_dto_collection_query_parameters support_ticket_conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketConversationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportTicketConversationDtoListEnvelope
      */
-    public function getSupportTicketConversationsAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
+    public function getSupportTicketConversationsAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $support_ticket_conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
     {
-        list($response) = $this->getSupportTicketConversationsAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportTicketConversationsAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $support_ticket_conversation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2829,15 +2833,16 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters $support_ticket_conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketConversationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportTicketConversationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportTicketConversationsAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
+    public function getSupportTicketConversationsAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $support_ticket_conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
     {
-        $request = $this->getSupportTicketConversationsAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportTicketConversationsAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $support_ticket_conversation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3027,14 +3032,15 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters $support_ticket_conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportTicketConversationsAsyncAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
+    public function getSupportTicketConversationsAsyncAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $support_ticket_conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
     {
-        return $this->getSupportTicketConversationsAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportTicketConversationsAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $support_ticket_conversation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3051,15 +3057,16 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters $support_ticket_conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportTicketConversationsAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
+    public function getSupportTicketConversationsAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $support_ticket_conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SupportTicketConversationDtoListEnvelope';
-        $request = $this->getSupportTicketConversationsAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportTicketConversationsAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $support_ticket_conversation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3104,12 +3111,13 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketConversationDtoCollectionQueryParameters $support_ticket_conversation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketConversationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportTicketConversationsAsyncRequest($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
+    public function getSupportTicketConversationsAsyncRequest($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $support_ticket_conversation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketConversationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3125,6 +3133,7 @@ class SupportTicketsApi
                 'Missing the required parameter $support_ticket_id when calling getSupportTicketConversationsAsync'
             );
         }
+
 
 
 
@@ -3177,7 +3186,14 @@ class SupportTicketsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_ticket_conversation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_ticket_conversation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_ticket_conversation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3231,15 +3247,16 @@ class SupportTicketsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportTicketDtoListEnvelope
      */
-    public function getSupportTicketsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
+    public function getSupportTicketsAsync($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
     {
-        list($response) = $this->getSupportTicketsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportTicketsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3251,15 +3268,16 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportTicketDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportTicketsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
+    public function getSupportTicketsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
     {
-        $request = $this->getSupportTicketsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportTicketsAsyncRequest($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3448,14 +3466,15 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportTicketsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
+    public function getSupportTicketsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
     {
-        return $this->getSupportTicketsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportTicketsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3471,15 +3490,16 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportTicketsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
+    public function getSupportTicketsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SupportTicketDtoListEnvelope';
-        $request = $this->getSupportTicketsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportTicketsAsyncRequest($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3523,12 +3543,13 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportTicketsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
+    public function getSupportTicketsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3537,6 +3558,7 @@ class SupportTicketsApi
                 'Missing the required parameter $tenant_id when calling getSupportTicketsAsync'
             );
         }
+
 
 
 
@@ -3581,7 +3603,14 @@ class SupportTicketsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_ticket_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_ticket_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_ticket_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3635,15 +3664,16 @@ class SupportTicketsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSupportTicketsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
+    public function getSupportTicketsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
     {
-        list($response) = $this->getSupportTicketsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportTicketsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3655,15 +3685,16 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportTicketsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
+    public function getSupportTicketsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
     {
-        $request = $this->getSupportTicketsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportTicketsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3852,14 +3883,15 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportTicketsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
+    public function getSupportTicketsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
     {
-        return $this->getSupportTicketsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportTicketsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3875,15 +3907,16 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportTicketsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
+    public function getSupportTicketsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSupportTicketsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportTicketsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $support_ticket_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3927,12 +3960,13 @@ class SupportTicketsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportTicketDtoCollectionQueryParameters $support_ticket_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportTicketsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportTicketsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
+    public function getSupportTicketsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $support_ticket_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportTicketsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3941,6 +3975,7 @@ class SupportTicketsApi
                 'Missing the required parameter $tenant_id when calling getSupportTicketsCountAsync'
             );
         }
+
 
 
 
@@ -3985,7 +4020,14 @@ class SupportTicketsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_ticket_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_ticket_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_ticket_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4040,16 +4082,16 @@ class SupportTicketsApi
      * @param  string $support_ticket_id support_ticket_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportTicketAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSupportTicketAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
+    public function patchSupportTicketAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
     {
-        list($response) = $this->patchSupportTicketAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSupportTicketAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4062,16 +4104,16 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportTicketAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSupportTicketAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
+    public function patchSupportTicketAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
     {
-        $request = $this->patchSupportTicketAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupportTicketAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4261,15 +4303,15 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportTicketAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupportTicketAsyncAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
+    public function patchSupportTicketAsyncAsync($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
     {
-        return $this->patchSupportTicketAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSupportTicketAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4286,16 +4328,16 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportTicketAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupportTicketAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
+    public function patchSupportTicketAsyncAsyncWithHttpInfo($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSupportTicketAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupportTicketAsyncRequest($tenant_id, $support_ticket_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4340,13 +4382,13 @@ class SupportTicketsApi
      * @param  string $support_ticket_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportTicketAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSupportTicketAsyncRequest($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
+    public function patchSupportTicketAsyncRequest($tenant_id, $support_ticket_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportTicketAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4415,12 +4457,12 @@ class SupportTicketsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

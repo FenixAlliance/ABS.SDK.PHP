@@ -66,7 +66,11 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_name' => 'string',
         'social_profile_avatar_url' => 'string',
         'comments_count' => 'int',
-        'reactions_count' => 'int'
+        'reactions_count' => 'int',
+        'social_profile_type' => 'string',
+        'body_html' => 'string',
+        'body_format' => 'string',
+        'background_style' => 'string'
     ];
 
     /**
@@ -85,7 +89,11 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_name' => null,
         'social_profile_avatar_url' => null,
         'comments_count' => 'int32',
-        'reactions_count' => 'int32'
+        'reactions_count' => 'int32',
+        'social_profile_type' => null,
+        'body_html' => null,
+        'body_format' => null,
+        'background_style' => null
     ];
 
     /**
@@ -102,7 +110,11 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_name' => true,
         'social_profile_avatar_url' => true,
         'comments_count' => false,
-        'reactions_count' => false
+        'reactions_count' => false,
+        'social_profile_type' => true,
+        'body_html' => true,
+        'body_format' => true,
+        'background_style' => true
     ];
 
     /**
@@ -199,7 +211,11 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_name' => 'socialProfileName',
         'social_profile_avatar_url' => 'socialProfileAvatarUrl',
         'comments_count' => 'commentsCount',
-        'reactions_count' => 'reactionsCount'
+        'reactions_count' => 'reactionsCount',
+        'social_profile_type' => 'socialProfileType',
+        'body_html' => 'bodyHtml',
+        'body_format' => 'bodyFormat',
+        'background_style' => 'backgroundStyle'
     ];
 
     /**
@@ -216,7 +232,11 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_name' => 'setSocialProfileName',
         'social_profile_avatar_url' => 'setSocialProfileAvatarUrl',
         'comments_count' => 'setCommentsCount',
-        'reactions_count' => 'setReactionsCount'
+        'reactions_count' => 'setReactionsCount',
+        'social_profile_type' => 'setSocialProfileType',
+        'body_html' => 'setBodyHtml',
+        'body_format' => 'setBodyFormat',
+        'background_style' => 'setBackgroundStyle'
     ];
 
     /**
@@ -233,7 +253,11 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_name' => 'getSocialProfileName',
         'social_profile_avatar_url' => 'getSocialProfileAvatarUrl',
         'comments_count' => 'getCommentsCount',
-        'reactions_count' => 'getReactionsCount'
+        'reactions_count' => 'getReactionsCount',
+        'social_profile_type' => 'getSocialProfileType',
+        'body_html' => 'getBodyHtml',
+        'body_format' => 'getBodyFormat',
+        'background_style' => 'getBackgroundStyle'
     ];
 
     /**
@@ -277,6 +301,38 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const SOCIAL_PROFILE_TYPE_USER = 'User';
+    public const SOCIAL_PROFILE_TYPE_TENANT = 'Tenant';
+    public const SOCIAL_PROFILE_TYPE_CONTACT = 'Contact';
+    public const BODY_FORMAT_PLAIN_TEXT = 'PlainText';
+    public const BODY_FORMAT_HTML = 'Html';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSocialProfileTypeAllowableValues()
+    {
+        return [
+            self::SOCIAL_PROFILE_TYPE_USER,
+            self::SOCIAL_PROFILE_TYPE_TENANT,
+            self::SOCIAL_PROFILE_TYPE_CONTACT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBodyFormatAllowableValues()
+    {
+        return [
+            self::BODY_FORMAT_PLAIN_TEXT,
+            self::BODY_FORMAT_HTML,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -302,6 +358,10 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('social_profile_avatar_url', $data ?? [], null);
         $this->setIfExists('comments_count', $data ?? [], null);
         $this->setIfExists('reactions_count', $data ?? [], null);
+        $this->setIfExists('social_profile_type', $data ?? [], null);
+        $this->setIfExists('body_html', $data ?? [], null);
+        $this->setIfExists('body_format', $data ?? [], null);
+        $this->setIfExists('background_style', $data ?? [], null);
     }
 
     /**
@@ -330,6 +390,24 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSocialProfileTypeAllowableValues();
+        if (!is_null($this->container['social_profile_type']) && !in_array($this->container['social_profile_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'social_profile_type', must be one of '%s'",
+                $this->container['social_profile_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getBodyFormatAllowableValues();
+        if (!is_null($this->container['body_format']) && !in_array($this->container['body_format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'body_format', must be one of '%s'",
+                $this->container['body_format'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -634,6 +712,162 @@ class SocialPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable reactions_count cannot be null');
         }
         $this->container['reactions_count'] = $reactions_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_profile_type
+     *
+     * @return string|null
+     */
+    public function getSocialProfileType()
+    {
+        return $this->container['social_profile_type'];
+    }
+
+    /**
+     * Sets social_profile_type
+     *
+     * @param string|null $social_profile_type social_profile_type
+     *
+     * @return self
+     */
+    public function setSocialProfileType($social_profile_type)
+    {
+        if (is_null($social_profile_type)) {
+            array_push($this->openAPINullablesSetToNull, 'social_profile_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_profile_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSocialProfileTypeAllowableValues();
+        if (!is_null($social_profile_type) && !in_array($social_profile_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'social_profile_type', must be one of '%s'",
+                    $social_profile_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['social_profile_type'] = $social_profile_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets body_html
+     *
+     * @return string|null
+     */
+    public function getBodyHtml()
+    {
+        return $this->container['body_html'];
+    }
+
+    /**
+     * Sets body_html
+     *
+     * @param string|null $body_html body_html
+     *
+     * @return self
+     */
+    public function setBodyHtml($body_html)
+    {
+        if (is_null($body_html)) {
+            array_push($this->openAPINullablesSetToNull, 'body_html');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('body_html', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['body_html'] = $body_html;
+
+        return $this;
+    }
+
+    /**
+     * Gets body_format
+     *
+     * @return string|null
+     */
+    public function getBodyFormat()
+    {
+        return $this->container['body_format'];
+    }
+
+    /**
+     * Sets body_format
+     *
+     * @param string|null $body_format body_format
+     *
+     * @return self
+     */
+    public function setBodyFormat($body_format)
+    {
+        if (is_null($body_format)) {
+            array_push($this->openAPINullablesSetToNull, 'body_format');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('body_format', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getBodyFormatAllowableValues();
+        if (!is_null($body_format) && !in_array($body_format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'body_format', must be one of '%s'",
+                    $body_format,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['body_format'] = $body_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets background_style
+     *
+     * @return string|null
+     */
+    public function getBackgroundStyle()
+    {
+        return $this->container['background_style'];
+    }
+
+    /**
+     * Sets background_style
+     *
+     * @param string|null $background_style background_style
+     *
+     * @return self
+     */
+    public function setBackgroundStyle($background_style)
+    {
+        if (is_null($background_style)) {
+            array_push($this->openAPINullablesSetToNull, 'background_style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('background_style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['background_style'] = $background_style;
 
         return $this;
     }

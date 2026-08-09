@@ -96,7 +96,7 @@ class SocialPostCommentCreateDto implements ModelInterface, ArrayAccess, \JsonSe
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'message' => false,
+        'message' => true,
         'body_html' => true,
         'body_format' => true,
         'parent_comment_id' => true,
@@ -346,21 +346,6 @@ class SocialPostCommentCreateDto implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ((mb_strlen($this->container['message']) > 280)) {
-            $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 280.";
-        }
-
-        if ((mb_strlen($this->container['message']) < 1)) {
-            $invalidProperties[] = "invalid value for 'message', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!preg_match("/^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$/", $this->container['message'])) {
-            $invalidProperties[] = "invalid value for 'message', must be conform to the pattern /^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$/.";
-        }
-
         if (!is_null($this->container['body_html']) && (mb_strlen($this->container['body_html']) > 8000)) {
             $invalidProperties[] = "invalid value for 'body_html', the character length must be smaller than or equal to 8000.";
         }
@@ -446,7 +431,7 @@ class SocialPostCommentCreateDto implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
     public function getMessage()
     {
@@ -456,25 +441,22 @@ class SocialPostCommentCreateDto implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string|null $message message
      *
      * @return self
      */
     public function setMessage($message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($message) > 280)) {
-            throw new \InvalidArgumentException('invalid length for $message when calling SocialPostCommentCreateDto., must be smaller than or equal to 280.');
-        }
-        if ((mb_strlen($message) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $message when calling SocialPostCommentCreateDto., must be bigger than or equal to 1.');
-        }
-        if ((!preg_match("/^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$/", ObjectSerializer::toString($message)))) {
-            throw new \InvalidArgumentException("invalid value for \$message when calling SocialPostCommentCreateDto., must conform to the pattern /^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$/.");
-        }
-
         $this->container['message'] = $message;
 
         return $this;

@@ -81,9 +81,11 @@ class IndustriesApi
         ],
         'getTenantIndustries' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantIndustriesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantIndustryById' => [
             'application/json',
@@ -993,15 +995,16 @@ class IndustriesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantIndustryDtoListEnvelope
      */
-    public function getTenantIndustries($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
+    public function getTenantIndustries($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
     {
-        list($response) = $this->getTenantIndustriesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantIndustriesWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1013,15 +1016,16 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustries'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantIndustryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantIndustriesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
+    public function getTenantIndustriesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
     {
-        $request = $this->getTenantIndustriesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantIndustriesRequest($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1210,14 +1214,15 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantIndustriesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
+    public function getTenantIndustriesAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
     {
-        return $this->getTenantIndustriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantIndustriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1233,15 +1238,16 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantIndustriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
+    public function getTenantIndustriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantIndustryDtoListEnvelope';
-        $request = $this->getTenantIndustriesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantIndustriesRequest($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1285,12 +1291,13 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantIndustriesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
+    public function getTenantIndustriesRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustries'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1299,6 +1306,7 @@ class IndustriesApi
                 'Missing the required parameter $tenant_id when calling getTenantIndustries'
             );
         }
+
 
 
 
@@ -1343,7 +1351,14 @@ class IndustriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_industry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_industry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_industry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1397,15 +1412,16 @@ class IndustriesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantIndustriesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
+    public function getTenantIndustriesCount($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
     {
-        list($response) = $this->getTenantIndustriesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantIndustriesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1417,15 +1433,16 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantIndustriesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
+    public function getTenantIndustriesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
     {
-        $request = $this->getTenantIndustriesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantIndustriesCountRequest($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1614,14 +1631,15 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantIndustriesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
+    public function getTenantIndustriesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
     {
-        return $this->getTenantIndustriesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantIndustriesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1637,15 +1655,16 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantIndustriesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
+    public function getTenantIndustriesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantIndustriesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantIndustriesCountRequest($tenant_id, $api_version, $x_api_version, $tenant_industry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,12 +1708,13 @@ class IndustriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantIndustryDtoCollectionQueryParameters $tenant_industry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantIndustriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantIndustriesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
+    public function getTenantIndustriesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_industry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantIndustriesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1703,6 +1723,7 @@ class IndustriesApi
                 'Missing the required parameter $tenant_id when calling getTenantIndustriesCount'
             );
         }
+
 
 
 
@@ -1747,7 +1768,14 @@ class IndustriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_industry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_industry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_industry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class IndustriesApi
      * @param  string $tenant_industry_id tenant_industry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantIndustryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
+    public function patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
     {
-        list($response) = $this->patchTenantIndustryAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTenantIndustryAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class IndustriesApi
      * @param  string $tenant_industry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantIndustryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTenantIndustryAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
+    public function patchTenantIndustryAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
     {
-        $request = $this->patchTenantIndustryAsyncRequest($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantIndustryAsyncRequest($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class IndustriesApi
      * @param  string $tenant_industry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantIndustryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantIndustryAsyncAsync($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
+    public function patchTenantIndustryAsyncAsync($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
     {
-        return $this->patchTenantIndustryAsyncAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTenantIndustryAsyncAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class IndustriesApi
      * @param  string $tenant_industry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantIndustryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantIndustryAsyncAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
+    public function patchTenantIndustryAsyncAsyncWithHttpInfo($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTenantIndustryAsyncRequest($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantIndustryAsyncRequest($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class IndustriesApi
      * @param  string $tenant_industry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantIndustryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTenantIndustryAsyncRequest($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
+    public function patchTenantIndustryAsyncRequest($tenant_id, $tenant_industry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantIndustryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class IndustriesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

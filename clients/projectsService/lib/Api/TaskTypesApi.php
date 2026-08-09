@@ -1335,16 +1335,16 @@ class TaskTypesApi
      *
      * @param  string $task_type_id task_type_id (required)
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTaskTypeAsync($task_type_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
+    public function patchTaskTypeAsync($task_type_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
     {
-        list($response) = $this->patchTaskTypeAsyncWithHttpInfo($task_type_id, $tenant_id, $operation, $contentType);
+        list($response) = $this->patchTaskTypeAsyncWithHttpInfo($task_type_id, $tenant_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1355,16 +1355,16 @@ class TaskTypesApi
      *
      * @param  string $task_type_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTaskTypeAsyncWithHttpInfo($task_type_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
+    public function patchTaskTypeAsyncWithHttpInfo($task_type_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
     {
-        $request = $this->patchTaskTypeAsyncRequest($task_type_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchTaskTypeAsyncRequest($task_type_id, $tenant_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1552,15 +1552,15 @@ class TaskTypesApi
      *
      * @param  string $task_type_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTaskTypeAsyncAsync($task_type_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
+    public function patchTaskTypeAsyncAsync($task_type_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
     {
-        return $this->patchTaskTypeAsyncAsyncWithHttpInfo($task_type_id, $tenant_id, $operation, $contentType)
+        return $this->patchTaskTypeAsyncAsyncWithHttpInfo($task_type_id, $tenant_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1575,16 +1575,16 @@ class TaskTypesApi
      *
      * @param  string $task_type_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTaskTypeAsyncAsyncWithHttpInfo($task_type_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
+    public function patchTaskTypeAsyncAsyncWithHttpInfo($task_type_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTaskTypeAsyncRequest($task_type_id, $tenant_id, $operation, $contentType);
+        $request = $this->patchTaskTypeAsyncRequest($task_type_id, $tenant_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1627,13 +1627,13 @@ class TaskTypesApi
      *
      * @param  string $task_type_id (required)
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTaskTypeAsyncRequest($task_type_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
+    public function patchTaskTypeAsyncRequest($task_type_id, $tenant_id, $patch_operation = null, string $contentType = self::contentTypes['patchTaskTypeAsync'][0])
     {
 
         // verify the required parameter 'task_type_id' is set
@@ -1687,12 +1687,12 @@ class TaskTypesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

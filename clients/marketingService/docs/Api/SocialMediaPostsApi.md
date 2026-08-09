@@ -202,7 +202,7 @@ No authorization required
 ## `getSocialMediaPostsCountAsync()`
 
 ```php
-getSocialMediaPostsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSocialMediaPostsCountAsync($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get social media posts count
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialMediaPostsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_media_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialMediaPostsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialMediaPostsCountAsync($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialMediaPostsApi->getSocialMediaPostsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_media_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters**](../Model/SocialMediaPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSocialMediaPostsODataAsync()`
 
 ```php
-getSocialMediaPostsODataAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialMediaPostDtoListEnvelope
+getSocialMediaPostsODataAsync($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialMediaPostDtoListEnvelope
 ```
 
 Get social media posts
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialMediaPostsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_media_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialMediaPostsODataAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialMediaPostsODataAsync($tenant_id, $api_version, $x_api_version, $social_media_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialMediaPostsApi->getSocialMediaPostsODataAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_media_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialMediaPostDtoCollectionQueryParameters**](../Model/SocialMediaPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSocialMediaPostAsync()`
 
 ```php
-patchSocialMediaPostAsync($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSocialMediaPostAsync($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a social media post
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $socialmediapost_id = 'socialmediapost_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSocialMediaPostAsync($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSocialMediaPostAsync($tenant_id, $socialmediapost_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialMediaPostsApi->patchSocialMediaPostAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **socialmediapost_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

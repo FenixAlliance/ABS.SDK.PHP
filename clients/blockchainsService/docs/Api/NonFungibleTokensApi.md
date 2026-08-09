@@ -200,7 +200,7 @@ No authorization required
 ## `getNonFungibleTokensAsync()`
 
 ```php
-getNonFungibleTokensAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope
+getNonFungibleTokensAsync($tenant_id, $api_version, $x_api_version, $non_fungible_token_dto_collection_query_parameters): \OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope
 ```
 
 Get all non-fungible tokens
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\NonFungibleTokensApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$non_fungible_token_dto_collection_query_parameters = new \OpenAPI\Client\Model\NonFungibleTokenDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NonFungibleTokenDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNonFungibleTokensAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNonFungibleTokensAsync($tenant_id, $api_version, $x_api_version, $non_fungible_token_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NonFungibleTokensApi->getNonFungibleTokensAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **non_fungible_token_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NonFungibleTokenDtoCollectionQueryParameters**](../Model/NonFungibleTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getNonFungibleTokensCountAsync()`
 
 ```php
-getNonFungibleTokensCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getNonFungibleTokensCountAsync($tenant_id, $api_version, $x_api_version, $non_fungible_token_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get NFTs count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\NonFungibleTokensApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$non_fungible_token_dto_collection_query_parameters = new \OpenAPI\Client\Model\NonFungibleTokenDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NonFungibleTokenDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNonFungibleTokensCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNonFungibleTokensCountAsync($tenant_id, $api_version, $x_api_version, $non_fungible_token_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NonFungibleTokensApi->getNonFungibleTokensCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **non_fungible_token_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NonFungibleTokenDtoCollectionQueryParameters**](../Model/NonFungibleTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchNonFungibleTokenAsync()`
 
 ```php
-patchNonFungibleTokenAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchNonFungibleTokenAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a non-fungible token
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchNonFungibleTokenAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchNonFungibleTokenAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NonFungibleTokensApi->patchNonFungibleTokenAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

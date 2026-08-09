@@ -211,7 +211,7 @@ No authorization required
 ## `countStockItemTagsByItemId()`
 
 ```php
-countStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count tags for a stock item
@@ -235,9 +235,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_tag_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->countStockItemTagsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -252,6 +253,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_tag_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters**](../Model/ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -263,7 +265,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -273,7 +275,7 @@ No authorization required
 ## `countStockItemsByBusiness()`
 
 ```php
-countStockItemsByBusiness($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countStockItemsByBusiness($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count stock items by business
@@ -296,9 +298,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$catalog_item_dto_collection_query_parameters = new \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countStockItemsByBusiness($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countStockItemsByBusiness($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->countStockItemsByBusiness: ', $e->getMessage(), PHP_EOL;
@@ -312,6 +315,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **catalog_item_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters**](../Model/CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -323,7 +327,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -637,7 +641,7 @@ No authorization required
 ## `getStockItemAttachmentsByItemId()`
 
 ```php
-getStockItemAttachmentsByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemAttachmentDtoListEnvelope
+getStockItemAttachmentsByItemId($item_id, $api_version, $x_api_version, $item_attachment_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemAttachmentDtoListEnvelope
 ```
 
 Get attachments for a stock item
@@ -660,9 +664,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_attachment_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemAttachmentsByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemAttachmentsByItemId($item_id, $api_version, $x_api_version, $item_attachment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemAttachmentsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -676,6 +681,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_attachment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemAttachmentDtoCollectionQueryParameters**](../Model/ItemAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -687,7 +693,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -881,7 +887,7 @@ No authorization required
 ## `getStockItemBrandsByItemId()`
 
 ```php
-getStockItemBrandsByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemBrandDtoListEnvelope
+getStockItemBrandsByItemId($item_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemBrandDtoListEnvelope
 ```
 
 Get brands for a stock item
@@ -904,9 +910,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_brand_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemBrandsByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemBrandsByItemId($item_id, $api_version, $x_api_version, $item_brand_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemBrandsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -920,6 +927,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_brand_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemBrandDtoCollectionQueryParameters**](../Model/ItemBrandDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -931,7 +939,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1001,7 +1009,7 @@ No authorization required
 ## `getStockItemCategoriesByItemId()`
 
 ```php
-getStockItemCategoriesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemCategoryDtoListEnvelope
+getStockItemCategoriesByItemId($item_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemCategoryDtoListEnvelope
 ```
 
 Get categories for a stock item
@@ -1024,9 +1032,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemCategoriesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemCategoriesByItemId($item_id, $api_version, $x_api_version, $item_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemCategoriesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1040,6 +1049,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemCategoryDtoCollectionQueryParameters**](../Model/ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1051,7 +1061,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1123,7 +1133,7 @@ No authorization required
 ## `getStockItemGoogleCategoriesByItemId()`
 
 ```php
-getStockItemGoogleCategoriesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope
+getStockItemGoogleCategoriesByItemId($item_id, $api_version, $x_api_version, $item_google_category_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemGoogleCategoryDtoListEnvelope
 ```
 
 Get Google categories for a stock item
@@ -1146,9 +1156,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_google_category_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemGoogleCategoriesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemGoogleCategoriesByItemId($item_id, $api_version, $x_api_version, $item_google_category_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemGoogleCategoriesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1162,6 +1173,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_google_category_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemGoogleCategoryDtoCollectionQueryParameters**](../Model/ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1173,7 +1185,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1307,7 +1319,7 @@ No authorization required
 ## `getStockItemImagesByItemId()`
 
 ```php
-getStockItemImagesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemImageDtoListEnvelope
+getStockItemImagesByItemId($item_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemImageDtoListEnvelope
 ```
 
 Get images for a stock item
@@ -1330,9 +1342,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_image_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemImagesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemImagesByItemId($item_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemImagesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1346,6 +1359,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_image_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters**](../Model/ItemImageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1357,7 +1371,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1551,7 +1565,7 @@ No authorization required
 ## `getStockItemQuestionsByItemId()`
 
 ```php
-getStockItemQuestionsByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemQuestionDtoListEnvelope
+getStockItemQuestionsByItemId($item_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemQuestionDtoListEnvelope
 ```
 
 Get questions for a stock item
@@ -1574,9 +1588,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_question_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemQuestionsByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemQuestionsByItemId($item_id, $api_version, $x_api_version, $item_question_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemQuestionsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1590,6 +1605,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_question_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemQuestionDtoCollectionQueryParameters**](../Model/ItemQuestionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1601,7 +1617,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1611,7 +1627,7 @@ No authorization required
 ## `getStockItemRefundPoliciesByItemId()`
 
 ```php
-getStockItemRefundPoliciesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope
+getStockItemRefundPoliciesByItemId($item_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope
 ```
 
 Get refund policies for a stock item
@@ -1634,9 +1650,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_refund_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemRefundPoliciesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemRefundPoliciesByItemId($item_id, $api_version, $x_api_version, $item_refund_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemRefundPoliciesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1650,6 +1667,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_refund_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemRefundPolicyDtoCollectionQueryParameters**](../Model/ItemRefundPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1661,7 +1679,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1733,7 +1751,7 @@ No authorization required
 ## `getStockItemReturnPoliciesByItemId()`
 
 ```php
-getStockItemReturnPoliciesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
+getStockItemReturnPoliciesByItemId($item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemReturnPolicyDtoListEnvelope
 ```
 
 Get return policies for a stock item
@@ -1756,9 +1774,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_return_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemReturnPoliciesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemReturnPoliciesByItemId($item_id, $api_version, $x_api_version, $item_return_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemReturnPoliciesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1772,6 +1791,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_return_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReturnPolicyDtoCollectionQueryParameters**](../Model/ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1783,7 +1803,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1917,7 +1937,7 @@ No authorization required
 ## `getStockItemReviewsByItemId()`
 
 ```php
-getStockItemReviewsByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemReviewDtoListEnvelope
+getStockItemReviewsByItemId($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemReviewDtoListEnvelope
 ```
 
 Get reviews for a stock item
@@ -1940,9 +1960,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_review_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemReviewsByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemReviewsByItemId($item_id, $api_version, $x_api_version, $item_review_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemReviewsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -1956,6 +1977,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_review_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemReviewDtoCollectionQueryParameters**](../Model/ItemReviewDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1967,7 +1989,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1977,7 +1999,7 @@ No authorization required
 ## `getStockItemShippingPoliciesByItemId()`
 
 ```php
-getStockItemShippingPoliciesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
+getStockItemShippingPoliciesByItemId($item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
 ```
 
 Get shipping policies for a stock item
@@ -2000,9 +2022,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_shipping_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemShippingPoliciesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemShippingPoliciesByItemId($item_id, $api_version, $x_api_version, $item_shipping_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemShippingPoliciesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2016,6 +2039,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_shipping_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemShippingPolicyDtoCollectionQueryParameters**](../Model/ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2027,7 +2051,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2163,7 +2187,7 @@ No authorization required
 ## `getStockItemTagsByItemId()`
 
 ```php
-getStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTagDtoListEnvelope
+getStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemTagDtoListEnvelope
 ```
 
 Get tags for a stock item
@@ -2187,9 +2211,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_tag_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version, $item_tag_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTagsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2204,6 +2229,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_tag_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTagDtoCollectionQueryParameters**](../Model/ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2215,7 +2241,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2225,7 +2251,7 @@ No authorization required
 ## `getStockItemTaxPoliciesByItemId()`
 
 ```php
-getStockItemTaxPoliciesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope
+getStockItemTaxPoliciesByItemId($item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope
 ```
 
 Get tax policies for a stock item
@@ -2248,9 +2274,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_tax_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemTaxPoliciesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTaxPoliciesByItemId($item_id, $api_version, $x_api_version, $item_tax_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTaxPoliciesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2264,6 +2291,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_tax_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTaxPolicyDtoCollectionQueryParameters**](../Model/ItemTaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2275,7 +2303,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2411,7 +2439,7 @@ No authorization required
 ## `getStockItemTypesByItemId()`
 
 ```php
-getStockItemTypesByItemId($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTypeDtoListEnvelope
+getStockItemTypesByItemId($tenant_id, $item_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemTypeDtoListEnvelope
 ```
 
 Get types for a stock item
@@ -2435,9 +2463,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemTypesByItemId($tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTypesByItemId($tenant_id, $item_id, $api_version, $x_api_version, $item_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTypesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2452,6 +2481,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemTypeDtoCollectionQueryParameters**](../Model/ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2463,7 +2493,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2473,7 +2503,7 @@ No authorization required
 ## `getStockItemWarrantyPoliciesByItemId()`
 
 ```php
-getStockItemWarrantyPoliciesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope
+getStockItemWarrantyPoliciesByItemId($item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope
 ```
 
 Get warranty policies for a stock item
@@ -2496,9 +2526,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_warranty_policy_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemWarrantyPoliciesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemWarrantyPoliciesByItemId($item_id, $api_version, $x_api_version, $item_warranty_policy_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemWarrantyPoliciesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2512,6 +2543,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_warranty_policy_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemWarrantyPolicyDtoCollectionQueryParameters**](../Model/ItemWarrantyPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2523,7 +2555,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2595,7 +2627,7 @@ No authorization required
 ## `getStockItemsOdataMaxPrice()`
 
 ```php
-getStockItemsOdataMaxPrice($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getStockItemsOdataMaxPrice($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Get max price of stock items
@@ -2618,9 +2650,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$catalog_item_dto_collection_query_parameters = new \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemsOdataMaxPrice($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemsOdataMaxPrice($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemsOdataMaxPrice: ', $e->getMessage(), PHP_EOL;
@@ -2634,6 +2667,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **catalog_item_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters**](../Model/CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2645,7 +2679,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2655,7 +2689,7 @@ No authorization required
 ## `getStockItemsOdataMinPrice()`
 
 ```php
-getStockItemsOdataMinPrice($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getStockItemsOdataMinPrice($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Get min price of stock items
@@ -2678,9 +2712,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$catalog_item_dto_collection_query_parameters = new \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemsOdataMinPrice($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemsOdataMinPrice($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemsOdataMinPrice: ', $e->getMessage(), PHP_EOL;
@@ -2694,6 +2729,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **catalog_item_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters**](../Model/CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2705,7 +2741,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2715,7 +2751,7 @@ No authorization required
 ## `getStockItemsQuery()`
 
 ```php
-getStockItemsQuery($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CatalogItemDtoListEnvelope
+getStockItemsQuery($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters): \OpenAPI\Client\Model\CatalogItemDtoListEnvelope
 ```
 
 Get all stock items
@@ -2738,9 +2774,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$catalog_item_dto_collection_query_parameters = new \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStockItemsQuery($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemsQuery($tenant_id, $api_version, $x_api_version, $catalog_item_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemsQuery: ', $e->getMessage(), PHP_EOL;
@@ -2754,6 +2791,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **catalog_item_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CatalogItemDtoCollectionQueryParameters**](../Model/CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2765,7 +2803,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2775,7 +2813,7 @@ No authorization required
 ## `patchStockItem()`
 
 ```php
-patchStockItem($tenant_id, $item_id, $api_version, $x_api_version, $operation)
+patchStockItem($tenant_id, $item_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a stock item
@@ -2799,10 +2837,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchStockItem($tenant_id, $item_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchStockItem($tenant_id, $item_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->patchStockItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -2816,7 +2854,7 @@ try {
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

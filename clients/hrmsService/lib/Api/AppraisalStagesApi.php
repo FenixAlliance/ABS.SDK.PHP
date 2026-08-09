@@ -84,9 +84,11 @@ class AppraisalStagesApi
         ],
         'getAppraisalStagesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAppraisalStagesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updateAppraisalStageAsync' => [
             'application/json',
@@ -1483,15 +1485,16 @@ class AppraisalStagesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AppraisalStageDtoListEnvelope
      */
-    public function getAppraisalStagesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
+    public function getAppraisalStagesAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
     {
-        list($response) = $this->getAppraisalStagesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAppraisalStagesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1503,15 +1506,16 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AppraisalStageDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAppraisalStagesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
+    public function getAppraisalStagesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
     {
-        $request = $this->getAppraisalStagesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalStagesAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1700,14 +1704,15 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalStagesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
+    public function getAppraisalStagesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
     {
-        return $this->getAppraisalStagesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAppraisalStagesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1723,15 +1728,16 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalStagesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
+    public function getAppraisalStagesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AppraisalStageDtoListEnvelope';
-        $request = $this->getAppraisalStagesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalStagesAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1775,12 +1781,13 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAppraisalStagesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
+    public function getAppraisalStagesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1789,6 +1796,7 @@ class AppraisalStagesApi
                 'Missing the required parameter $tenant_id when calling getAppraisalStagesAsync'
             );
         }
+
 
 
 
@@ -1833,7 +1841,14 @@ class AppraisalStagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($appraisal_stage_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($appraisal_stage_dto_collection_query_parameters));
+            } else {
+                $httpBody = $appraisal_stage_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1887,15 +1902,16 @@ class AppraisalStagesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAppraisalStagesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
+    public function getAppraisalStagesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
     {
-        list($response) = $this->getAppraisalStagesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAppraisalStagesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1907,15 +1923,16 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAppraisalStagesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
+    public function getAppraisalStagesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
     {
-        $request = $this->getAppraisalStagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalStagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2104,14 +2121,15 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalStagesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
+    public function getAppraisalStagesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
     {
-        return $this->getAppraisalStagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAppraisalStagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2127,15 +2145,16 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAppraisalStagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
+    public function getAppraisalStagesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAppraisalStagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAppraisalStagesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $appraisal_stage_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2179,12 +2198,13 @@ class AppraisalStagesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AppraisalStageDtoCollectionQueryParameters $appraisal_stage_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAppraisalStagesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAppraisalStagesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
+    public function getAppraisalStagesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $appraisal_stage_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAppraisalStagesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2193,6 +2213,7 @@ class AppraisalStagesApi
                 'Missing the required parameter $tenant_id when calling getAppraisalStagesCountAsync'
             );
         }
+
 
 
 
@@ -2237,7 +2258,14 @@ class AppraisalStagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($appraisal_stage_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($appraisal_stage_dto_collection_query_parameters));
+            } else {
+                $httpBody = $appraisal_stage_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

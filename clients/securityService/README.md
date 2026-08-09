@@ -51,21 +51,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationsApi(
+$apiInstance = new OpenAPI\Client\Api\ApplicationPrincipalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$business_application_create_dto = new \OpenAPI\Client\Model\BusinessApplicationCreateDto(); // \OpenAPI\Client\Model\BusinessApplicationCreateDto
+$principal_id = 'principal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->createBusinessApplicationAsync($tenant_id, $business_application_create_dto, $api_version, $x_api_version);
+    $result = $apiInstance->disableApplicationPrincipalAsync($tenant_id, $principal_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApplicationsApi->createBusinessApplicationAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApplicationPrincipalsApi->disableApplicationPrincipalAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -76,6 +76,15 @@ All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationPrincipalsApi* | [**disableApplicationPrincipalAsync**](docs/Api/ApplicationPrincipalsApi.md#disableapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Disable | Disable an application principal
+*ApplicationPrincipalsApi* | [**enableApplicationPrincipalAsync**](docs/Api/ApplicationPrincipalsApi.md#enableapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Enable | Enable an application principal
+*ApplicationPrincipalsApi* | [**getApplicationPrincipalAsync**](docs/Api/ApplicationPrincipalsApi.md#getapplicationprincipalasync) | **GET** /api/v2/SecurityService/ApplicationPrincipals/{principalId} | Get application principal by ID
+*ApplicationPrincipalsApi* | [**getApplicationPrincipalsAsync**](docs/Api/ApplicationPrincipalsApi.md#getapplicationprincipalsasync) | **GET** /api/v2/SecurityService/ApplicationPrincipals | Get all application principals
+*ApplicationPrincipalsApi* | [**getApplicationPrincipalsCountAsync**](docs/Api/ApplicationPrincipalsApi.md#getapplicationprincipalscountasync) | **GET** /api/v2/SecurityService/ApplicationPrincipals/Count | Get application principals count
+*ApplicationPrincipalsApi* | [**grantPermissionAsync**](docs/Api/ApplicationPrincipalsApi.md#grantpermissionasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions | Grant a permission to an application principal
+*ApplicationPrincipalsApi* | [**provisionApplicationPrincipalAsync**](docs/Api/ApplicationPrincipalsApi.md#provisionapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/Provision | Provision an application principal
+*ApplicationPrincipalsApi* | [**revokePermissionAsync**](docs/Api/ApplicationPrincipalsApi.md#revokepermissionasync) | **DELETE** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions/{permission} | Revoke a permission from an application principal
+*ApplicationPrincipalsApi* | [**suspendApplicationPrincipalAsync**](docs/Api/ApplicationPrincipalsApi.md#suspendapplicationprincipalasync) | **POST** /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Suspend | Suspend an application principal
 *ApplicationsApi* | [**createBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#createbusinessapplicationasync) | **POST** /api/v2/SecurityService/Applications | Create a new business application
 *ApplicationsApi* | [**deleteBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#deletebusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Applications/{applicationId} | Delete a business application
 *ApplicationsApi* | [**getBusinessApplicationByIdAsync**](docs/Api/ApplicationsApi.md#getbusinessapplicationbyidasync) | **GET** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID
@@ -89,7 +98,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -159,14 +167,25 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [ApplicationPrincipalDetailDto](docs/Model/ApplicationPrincipalDetailDto.md)
+- [ApplicationPrincipalDetailDtoEnvelope](docs/Model/ApplicationPrincipalDetailDtoEnvelope.md)
+- [ApplicationPrincipalDto](docs/Model/ApplicationPrincipalDto.md)
+- [ApplicationPrincipalDtoCollectionQueryParameters](docs/Model/ApplicationPrincipalDtoCollectionQueryParameters.md)
+- [ApplicationPrincipalDtoListEnvelope](docs/Model/ApplicationPrincipalDtoListEnvelope.md)
+- [ApplicationPrincipalPermissionRequestDto](docs/Model/ApplicationPrincipalPermissionRequestDto.md)
+- [ApplicationPrincipalProvisionRequestDto](docs/Model/ApplicationPrincipalProvisionRequestDto.md)
+- [ApplicationPrincipalProvisioningResultDto](docs/Model/ApplicationPrincipalProvisioningResultDto.md)
+- [ApplicationPrincipalProvisioningResultDtoEnvelope](docs/Model/ApplicationPrincipalProvisioningResultDtoEnvelope.md)
 - [BusinessApplicationCreateDto](docs/Model/BusinessApplicationCreateDto.md)
 - [BusinessApplicationDto](docs/Model/BusinessApplicationDto.md)
+- [BusinessApplicationDtoCollectionQueryParameters](docs/Model/BusinessApplicationDtoCollectionQueryParameters.md)
 - [BusinessApplicationDtoEnvelope](docs/Model/BusinessApplicationDtoEnvelope.md)
 - [BusinessApplicationDtoListEnvelope](docs/Model/BusinessApplicationDtoListEnvelope.md)
 - [BusinessApplicationSimpleDto](docs/Model/BusinessApplicationSimpleDto.md)
 - [BusinessApplicationSimpleDtoListEnvelope](docs/Model/BusinessApplicationSimpleDtoListEnvelope.md)
 - [BusinessApplicationUpdateDto](docs/Model/BusinessApplicationUpdateDto.md)
 - [BusinessSecurityLogDto](docs/Model/BusinessSecurityLogDto.md)
+- [BusinessSecurityLogDtoCollectionQueryParameters](docs/Model/BusinessSecurityLogDtoCollectionQueryParameters.md)
 - [BusinessSecurityLogDtoListEnvelope](docs/Model/BusinessSecurityLogDtoListEnvelope.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
@@ -176,6 +195,7 @@ Class | Method | HTTP request | Description
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LogDto](docs/Model/LogDto.md)
+- [LogDtoCollectionQueryParameters](docs/Model/LogDtoCollectionQueryParameters.md)
 - [LogDtoListEnvelope](docs/Model/LogDtoListEnvelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [OAuthApplicationCreateDto](docs/Model/OAuthApplicationCreateDto.md)
@@ -186,20 +206,23 @@ Class | Method | HTTP request | Description
 - [OAuthAuthorizationDto](docs/Model/OAuthAuthorizationDto.md)
 - [OAuthAuthorizationDtoEnvelope](docs/Model/OAuthAuthorizationDtoEnvelope.md)
 - [OAuthAuthorizationDtoListEnvelope](docs/Model/OAuthAuthorizationDtoListEnvelope.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [SecurityCertificateDto](docs/Model/SecurityCertificateDto.md)
+- [SecurityCertificateDtoCollectionQueryParameters](docs/Model/SecurityCertificateDtoCollectionQueryParameters.md)
 - [SecurityCertificateDtoListEnvelope](docs/Model/SecurityCertificateDtoListEnvelope.md)
 - [SecurityPermissionCreateDto](docs/Model/SecurityPermissionCreateDto.md)
 - [SecurityPermissionDto](docs/Model/SecurityPermissionDto.md)
+- [SecurityPermissionDtoCollectionQueryParameters](docs/Model/SecurityPermissionDtoCollectionQueryParameters.md)
 - [SecurityPermissionDtoEnvelope](docs/Model/SecurityPermissionDtoEnvelope.md)
 - [SecurityPermissionDtoListEnvelope](docs/Model/SecurityPermissionDtoListEnvelope.md)
 - [SecurityPermissionUpdateDto](docs/Model/SecurityPermissionUpdateDto.md)
 - [SecurityRoleCreateDto](docs/Model/SecurityRoleCreateDto.md)
 - [SecurityRoleDto](docs/Model/SecurityRoleDto.md)
+- [SecurityRoleDtoCollectionQueryParameters](docs/Model/SecurityRoleDtoCollectionQueryParameters.md)
 - [SecurityRoleDtoEnvelope](docs/Model/SecurityRoleDtoEnvelope.md)
 - [SecurityRoleDtoListEnvelope](docs/Model/SecurityRoleDtoListEnvelope.md)
 - [SecurityRoleUpdateDto](docs/Model/SecurityRoleUpdateDto.md)
@@ -208,6 +231,7 @@ Class | Method | HTTP request | Description
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
 - [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 - [WebhookRequestDto](docs/Model/WebhookRequestDto.md)
+- [WebhookRequestDtoCollectionQueryParameters](docs/Model/WebhookRequestDtoCollectionQueryParameters.md)
 - [WebhookRequestDtoListEnvelope](docs/Model/WebhookRequestDtoListEnvelope.md)
 
 ## Authorization

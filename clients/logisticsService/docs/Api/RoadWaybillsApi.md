@@ -401,7 +401,7 @@ No authorization required
 ## `getRoadWaybillLinesAsync()`
 
 ```php
-getRoadWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
+getRoadWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\WaybillLineDtoListEnvelope
 ```
 
 Get road waybill lines
@@ -425,9 +425,10 @@ $tenant_id = 'tenant_id_example'; // string
 $waybill_id = 'waybill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRoadWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRoadWaybillLinesAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoadWaybillsApi->getRoadWaybillLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -442,6 +443,7 @@ try {
 | **waybill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +455,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -463,7 +465,7 @@ No authorization required
 ## `getRoadWaybillLinesCountAsync()`
 
 ```php
-getRoadWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRoadWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get road waybill lines count
@@ -487,9 +489,10 @@ $tenant_id = 'tenant_id_example'; // string
 $waybill_id = 'waybill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$waybill_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRoadWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRoadWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoadWaybillsApi->getRoadWaybillLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -504,6 +507,7 @@ try {
 | **waybill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **waybill_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters**](../Model/WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -515,7 +519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +529,7 @@ No authorization required
 ## `getRoadWaybillsAsync()`
 
 ```php
-getRoadWaybillsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\RoadWaybillDtoListEnvelope
+getRoadWaybillsAsync($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters): \OpenAPI\Client\Model\RoadWaybillDtoListEnvelope
 ```
 
 Get all road waybills
@@ -548,9 +552,10 @@ $apiInstance = new OpenAPI\Client\Api\RoadWaybillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$road_waybill_dto_collection_query_parameters = new \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRoadWaybillsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRoadWaybillsAsync($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoadWaybillsApi->getRoadWaybillsAsync: ', $e->getMessage(), PHP_EOL;
@@ -564,6 +569,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **road_waybill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters**](../Model/RoadWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -585,7 +591,7 @@ No authorization required
 ## `getRoadWaybillsCountAsync()`
 
 ```php
-getRoadWaybillsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getRoadWaybillsCountAsync($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get road waybills count
@@ -608,9 +614,10 @@ $apiInstance = new OpenAPI\Client\Api\RoadWaybillsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$road_waybill_dto_collection_query_parameters = new \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRoadWaybillsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRoadWaybillsCountAsync($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoadWaybillsApi->getRoadWaybillsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -624,6 +631,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **road_waybill_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters**](../Model/RoadWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -831,7 +839,7 @@ No authorization required
 ## `patchRoadWaybillAsync()`
 
 ```php
-patchRoadWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchRoadWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a road waybill
@@ -855,10 +863,10 @@ $tenant_id = 'tenant_id_example'; // string
 $waybill_id = 'waybill_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchRoadWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchRoadWaybillAsync($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoadWaybillsApi->patchRoadWaybillAsync: ', $e->getMessage(), PHP_EOL;
@@ -873,7 +881,7 @@ try {
 | **waybill_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -895,7 +903,7 @@ No authorization required
 ## `patchRoadWaybillLineAsync()`
 
 ```php
-patchRoadWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchRoadWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a road waybill line
@@ -920,10 +928,10 @@ $waybill_id = 'waybill_id_example'; // string
 $line_id = 'line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchRoadWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchRoadWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoadWaybillsApi->patchRoadWaybillLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -939,7 +947,7 @@ try {
 | **line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -74,6 +74,7 @@ class WebTemplatesApi
     public const contentTypes = [
         'countWebTemplatesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createWebTemplateAsync' => [
             'application/json',
@@ -87,6 +88,7 @@ class WebTemplatesApi
         ],
         'getWebTemplatesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchWebTemplateAsync' => [
             'application/json',
@@ -152,15 +154,16 @@ class WebTemplatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countWebTemplatesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
+    public function countWebTemplatesAsync($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
     {
-        list($response) = $this->countWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -172,15 +175,16 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
+    public function countWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
     {
-        $request = $this->countWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -369,14 +373,15 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countWebTemplatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
+    public function countWebTemplatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
     {
-        return $this->countWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -392,15 +397,16 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
+    public function countWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -444,12 +450,13 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countWebTemplatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
+    public function countWebTemplatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countWebTemplatesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -458,6 +465,7 @@ class WebTemplatesApi
                 'Missing the required parameter $tenant_id when calling countWebTemplatesAsync'
             );
         }
+
 
 
 
@@ -502,7 +510,14 @@ class WebTemplatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_template_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_template_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_template_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1531,15 +1546,16 @@ class WebTemplatesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebTemplateDtoListEnvelope
      */
-    public function getWebTemplatesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
+    public function getWebTemplatesAsync($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
     {
-        list($response) = $this->getWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1551,15 +1567,16 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WebTemplateDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
+    public function getWebTemplatesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
     {
-        $request = $this->getWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1748,14 +1765,15 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebTemplatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
+    public function getWebTemplatesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
     {
-        return $this->getWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1771,15 +1789,16 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
+    public function getWebTemplatesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WebTemplateDtoListEnvelope';
-        $request = $this->getWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getWebTemplatesAsyncRequest($tenant_id, $api_version, $x_api_version, $web_template_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1823,12 +1842,13 @@ class WebTemplatesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WebTemplateDtoCollectionQueryParameters $web_template_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebTemplatesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebTemplatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
+    public function getWebTemplatesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $web_template_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getWebTemplatesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1837,6 +1857,7 @@ class WebTemplatesApi
                 'Missing the required parameter $tenant_id when calling getWebTemplatesAsync'
             );
         }
+
 
 
 
@@ -1881,7 +1902,14 @@ class WebTemplatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($web_template_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($web_template_dto_collection_query_parameters));
+            } else {
+                $httpBody = $web_template_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1936,16 +1964,16 @@ class WebTemplatesApi
      * @param  string $web_template_id web_template_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebTemplateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchWebTemplateAsync($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
+    public function patchWebTemplateAsync($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
     {
-        $this->patchWebTemplateAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchWebTemplateAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1957,16 +1985,16 @@ class WebTemplatesApi
      * @param  string $web_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebTemplateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWebTemplateAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
+    public function patchWebTemplateAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
     {
-        $request = $this->patchWebTemplateAsyncRequest($tenant_id, $web_template_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWebTemplateAsyncRequest($tenant_id, $web_template_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2025,15 +2053,15 @@ class WebTemplatesApi
      * @param  string $web_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebTemplateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWebTemplateAsyncAsync($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
+    public function patchWebTemplateAsyncAsync($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
     {
-        return $this->patchWebTemplateAsyncAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchWebTemplateAsyncAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2050,16 +2078,16 @@ class WebTemplatesApi
      * @param  string $web_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebTemplateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWebTemplateAsyncAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
+    public function patchWebTemplateAsyncAsyncWithHttpInfo($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchWebTemplateAsyncRequest($tenant_id, $web_template_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchWebTemplateAsyncRequest($tenant_id, $web_template_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2091,13 +2119,13 @@ class WebTemplatesApi
      * @param  string $web_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWebTemplateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWebTemplateAsyncRequest($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
+    public function patchWebTemplateAsyncRequest($tenant_id, $web_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchWebTemplateAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2166,12 +2194,12 @@ class WebTemplatesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -200,7 +200,7 @@ No authorization required
 ## `getShippingMethodsAsync()`
 
 ```php
-getShippingMethodsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShippingMethodDtoListEnvelope
+getShippingMethodsAsync($tenant_id, $api_version, $x_api_version, $shipping_method_dto_collection_query_parameters): \OpenAPI\Client\Model\ShippingMethodDtoListEnvelope
 ```
 
 Get all shipping methods
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ShippingMethodsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shipping_method_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShippingMethodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShippingMethodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShippingMethodsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShippingMethodsAsync($tenant_id, $api_version, $x_api_version, $shipping_method_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingMethodsApi->getShippingMethodsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shipping_method_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShippingMethodDtoCollectionQueryParameters**](../Model/ShippingMethodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getShippingMethodsCountAsync()`
 
 ```php
-getShippingMethodsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getShippingMethodsCountAsync($tenant_id, $api_version, $x_api_version, $shipping_method_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get shipping methods count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ShippingMethodsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$shipping_method_dto_collection_query_parameters = new \OpenAPI\Client\Model\ShippingMethodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ShippingMethodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getShippingMethodsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShippingMethodsCountAsync($tenant_id, $api_version, $x_api_version, $shipping_method_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingMethodsApi->getShippingMethodsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **shipping_method_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ShippingMethodDtoCollectionQueryParameters**](../Model/ShippingMethodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchShippingMethodAsync()`
 
 ```php
-patchShippingMethodAsync($tenant_id, $method_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchShippingMethodAsync($tenant_id, $method_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a shipping method
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $method_id = 'method_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchShippingMethodAsync($tenant_id, $method_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchShippingMethodAsync($tenant_id, $method_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingMethodsApi->patchShippingMethodAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **method_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

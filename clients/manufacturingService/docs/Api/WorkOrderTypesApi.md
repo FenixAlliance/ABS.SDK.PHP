@@ -200,7 +200,7 @@ No authorization required
 ## `getWorkOrderTypesAsync()`
 
 ```php
-getWorkOrderTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WorkOrderTypeDtoListEnvelope
+getWorkOrderTypesAsync($tenant_id, $api_version, $x_api_version, $work_order_type_dto_collection_query_parameters): \OpenAPI\Client\Model\WorkOrderTypeDtoListEnvelope
 ```
 
 Get all work order types
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\WorkOrderTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$work_order_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\WorkOrderTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WorkOrderTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWorkOrderTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWorkOrderTypesAsync($tenant_id, $api_version, $x_api_version, $work_order_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkOrderTypesApi->getWorkOrderTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **work_order_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WorkOrderTypeDtoCollectionQueryParameters**](../Model/WorkOrderTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getWorkOrderTypesCountAsync()`
 
 ```php
-getWorkOrderTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWorkOrderTypesCountAsync($tenant_id, $api_version, $x_api_version, $work_order_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get work order types count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\WorkOrderTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$work_order_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\WorkOrderTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WorkOrderTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWorkOrderTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWorkOrderTypesCountAsync($tenant_id, $api_version, $x_api_version, $work_order_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkOrderTypesApi->getWorkOrderTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **work_order_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WorkOrderTypeDtoCollectionQueryParameters**](../Model/WorkOrderTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchWorkOrderTypeAsync()`
 
 ```php
-patchWorkOrderTypeAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWorkOrderTypeAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a work order type
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWorkOrderTypeAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchWorkOrderTypeAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkOrderTypesApi->patchWorkOrderTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

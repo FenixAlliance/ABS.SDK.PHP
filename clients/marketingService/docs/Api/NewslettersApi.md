@@ -202,7 +202,7 @@ No authorization required
 ## `getNewsletterODataAsync()`
 
 ```php
-getNewsletterODataAsync($tenant_id, $api_version, $x_api_version)
+getNewsletterODataAsync($tenant_id, $api_version, $x_api_version, $newsletter_dto_collection_query_parameters)
 ```
 
 Get newsletters
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\NewslettersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$newsletter_dto_collection_query_parameters = new \OpenAPI\Client\Model\NewsletterDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NewsletterDtoCollectionQueryParameters
 
 try {
-    $apiInstance->getNewsletterODataAsync($tenant_id, $api_version, $x_api_version);
+    $apiInstance->getNewsletterODataAsync($tenant_id, $api_version, $x_api_version, $newsletter_dto_collection_query_parameters);
 } catch (Exception $e) {
     echo 'Exception when calling NewslettersApi->getNewsletterODataAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **newsletter_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NewsletterDtoCollectionQueryParameters**](../Model/NewsletterDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getNewslettersCountAsync()`
 
 ```php
-getNewslettersCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getNewslettersCountAsync($tenant_id, $api_version, $x_api_version, $newsletter_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get newsletters count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\NewslettersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$newsletter_dto_collection_query_parameters = new \OpenAPI\Client\Model\NewsletterDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NewsletterDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNewslettersCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNewslettersCountAsync($tenant_id, $api_version, $x_api_version, $newsletter_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewslettersApi->getNewslettersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **newsletter_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NewsletterDtoCollectionQueryParameters**](../Model/NewsletterDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -321,7 +325,7 @@ No authorization required
 ## `patchNewsletterAsync()`
 
 ```php
-patchNewsletterAsync($tenant_id, $newsletter_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchNewsletterAsync($tenant_id, $newsletter_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a newsletter
@@ -345,10 +349,10 @@ $tenant_id = 'tenant_id_example'; // string
 $newsletter_id = 'newsletter_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchNewsletterAsync($tenant_id, $newsletter_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchNewsletterAsync($tenant_id, $newsletter_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewslettersApi->patchNewsletterAsync: ', $e->getMessage(), PHP_EOL;
@@ -363,7 +367,7 @@ try {
 | **newsletter_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

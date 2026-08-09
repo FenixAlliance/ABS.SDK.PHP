@@ -81,9 +81,11 @@ class TerritoriesApi
         ],
         'getTenantTerritories' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantTerritoriesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantTerritoryById' => [
             'application/json',
@@ -993,15 +995,16 @@ class TerritoriesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritories'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantTerritoryDtoListEnvelope
      */
-    public function getTenantTerritories($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
+    public function getTenantTerritories($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
     {
-        list($response) = $this->getTenantTerritoriesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantTerritoriesWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1013,15 +1016,16 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritories'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantTerritoryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantTerritoriesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
+    public function getTenantTerritoriesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
     {
-        $request = $this->getTenantTerritoriesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTerritoriesRequest($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1210,14 +1214,15 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTerritoriesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
+    public function getTenantTerritoriesAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
     {
-        return $this->getTenantTerritoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantTerritoriesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1233,15 +1238,16 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTerritoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
+    public function getTenantTerritoriesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantTerritoryDtoListEnvelope';
-        $request = $this->getTenantTerritoriesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTerritoriesRequest($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1285,12 +1291,13 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantTerritoriesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
+    public function getTenantTerritoriesRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritories'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1299,6 +1306,7 @@ class TerritoriesApi
                 'Missing the required parameter $tenant_id when calling getTenantTerritories'
             );
         }
+
 
 
 
@@ -1343,7 +1351,14 @@ class TerritoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_territory_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_territory_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_territory_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1397,15 +1412,16 @@ class TerritoriesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritoriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantTerritoriesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
+    public function getTenantTerritoriesCount($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
     {
-        list($response) = $this->getTenantTerritoriesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantTerritoriesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1417,15 +1433,16 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritoriesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantTerritoriesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
+    public function getTenantTerritoriesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
     {
-        $request = $this->getTenantTerritoriesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTerritoriesCountRequest($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1614,14 +1631,15 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTerritoriesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
+    public function getTenantTerritoriesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
     {
-        return $this->getTenantTerritoriesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantTerritoriesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1637,15 +1655,16 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantTerritoriesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
+    public function getTenantTerritoriesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantTerritoriesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantTerritoriesCountRequest($tenant_id, $api_version, $x_api_version, $tenant_territory_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1689,12 +1708,13 @@ class TerritoriesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantTerritoryDtoCollectionQueryParameters $tenant_territory_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantTerritoriesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantTerritoriesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
+    public function getTenantTerritoriesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_territory_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantTerritoriesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1703,6 +1723,7 @@ class TerritoriesApi
                 'Missing the required parameter $tenant_id when calling getTenantTerritoriesCount'
             );
         }
+
 
 
 
@@ -1747,7 +1768,14 @@ class TerritoriesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_territory_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_territory_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_territory_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class TerritoriesApi
      * @param  string $tenant_territory_id tenant_territory_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTerritory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTenantTerritory($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
+    public function patchTenantTerritory($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
     {
-        list($response) = $this->patchTenantTerritoryWithHttpInfo($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTenantTerritoryWithHttpInfo($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class TerritoriesApi
      * @param  string $tenant_territory_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTerritory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTenantTerritoryWithHttpInfo($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
+    public function patchTenantTerritoryWithHttpInfo($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
     {
-        $request = $this->patchTenantTerritoryRequest($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantTerritoryRequest($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class TerritoriesApi
      * @param  string $tenant_territory_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTerritory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantTerritoryAsync($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
+    public function patchTenantTerritoryAsync($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
     {
-        return $this->patchTenantTerritoryAsyncWithHttpInfo($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTenantTerritoryAsyncWithHttpInfo($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class TerritoriesApi
      * @param  string $tenant_territory_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTerritory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantTerritoryAsyncWithHttpInfo($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
+    public function patchTenantTerritoryAsyncWithHttpInfo($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTenantTerritoryRequest($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantTerritoryRequest($tenant_id, $tenant_territory_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class TerritoriesApi
      * @param  string $tenant_territory_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantTerritory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTenantTerritoryRequest($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
+    public function patchTenantTerritoryRequest($tenant_id, $tenant_territory_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantTerritory'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class TerritoriesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

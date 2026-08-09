@@ -140,7 +140,7 @@ No authorization required
 ## `getFiscalAuthorities()`
 
 ```php
-getFiscalAuthorities($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalAuthorityDtoListEnvelope
+getFiscalAuthorities($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters): \OpenAPI\Client\Model\FiscalAuthorityDtoListEnvelope
 ```
 
 Get fiscal authorities
@@ -163,9 +163,10 @@ $apiInstance = new OpenAPI\Client\Api\FiscalAuthoritiesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_authority_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalAuthorities($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalAuthorities($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalAuthoritiesApi->getFiscalAuthorities: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_authority_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters**](../Model/FiscalAuthorityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -190,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -200,7 +202,7 @@ No authorization required
 ## `getFiscalAuthoritiesCount()`
 
 ```php
-getFiscalAuthoritiesCount($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFiscalAuthoritiesCount($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get fiscal authorities count
@@ -223,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\FiscalAuthoritiesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$fiscal_authority_dto_collection_query_parameters = new \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getFiscalAuthoritiesCount($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalAuthoritiesCount($tenant_id, $api_version, $x_api_version, $fiscal_authority_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalAuthoritiesApi->getFiscalAuthoritiesCount: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **fiscal_authority_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\FiscalAuthorityDtoCollectionQueryParameters**](../Model/FiscalAuthorityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchFiscalAuthorityAsync()`
 
 ```php
-patchFiscalAuthorityAsync($tenant_id, $authority_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchFiscalAuthorityAsync($tenant_id, $authority_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a fiscal authority
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchFiscalAuthorityAsync($tenant_id, $authority_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchFiscalAuthorityAsync($tenant_id, $authority_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalAuthoritiesApi->patchFiscalAuthorityAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

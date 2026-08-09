@@ -595,7 +595,7 @@ No authorization required
 ## `getProofOfDeliveryLinesAsync()`
 
 ```php
-getProofOfDeliveryLinesAsync($tenant_id, $pod_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProofOfDeliveryLineDtoListEnvelope
+getProofOfDeliveryLinesAsync($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters): \OpenAPI\Client\Model\ProofOfDeliveryLineDtoListEnvelope
 ```
 
 Get proof of delivery lines
@@ -619,9 +619,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pod_id = 'pod_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$proof_of_delivery_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProofOfDeliveryLinesAsync($tenant_id, $pod_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProofOfDeliveryLinesAsync($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProofsOfDeliveryApi->getProofOfDeliveryLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -636,6 +637,7 @@ try {
 | **pod_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **proof_of_delivery_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters**](../Model/ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -647,7 +649,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -657,7 +659,7 @@ No authorization required
 ## `getProofOfDeliveryLinesCountAsync()`
 
 ```php
-getProofOfDeliveryLinesCountAsync($tenant_id, $pod_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getProofOfDeliveryLinesCountAsync($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get proof of delivery lines count
@@ -681,9 +683,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pod_id = 'pod_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$proof_of_delivery_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProofOfDeliveryLinesCountAsync($tenant_id, $pod_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProofOfDeliveryLinesCountAsync($tenant_id, $pod_id, $api_version, $x_api_version, $proof_of_delivery_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProofsOfDeliveryApi->getProofOfDeliveryLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -698,6 +701,7 @@ try {
 | **pod_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **proof_of_delivery_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProofOfDeliveryLineDtoCollectionQueryParameters**](../Model/ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -709,7 +713,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -719,7 +723,7 @@ No authorization required
 ## `getProofsOfDeliveryAsync()`
 
 ```php
-getProofsOfDeliveryAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProofOfDeliveryDtoListEnvelope
+getProofsOfDeliveryAsync($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters): \OpenAPI\Client\Model\ProofOfDeliveryDtoListEnvelope
 ```
 
 Get all proofs of delivery
@@ -742,9 +746,10 @@ $apiInstance = new OpenAPI\Client\Api\ProofsOfDeliveryApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$proof_of_delivery_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProofsOfDeliveryAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProofsOfDeliveryAsync($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProofsOfDeliveryApi->getProofsOfDeliveryAsync: ', $e->getMessage(), PHP_EOL;
@@ -758,6 +763,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **proof_of_delivery_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters**](../Model/ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -769,7 +775,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -779,7 +785,7 @@ No authorization required
 ## `getProofsOfDeliveryCountAsync()`
 
 ```php
-getProofsOfDeliveryCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getProofsOfDeliveryCountAsync($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get proofs of delivery count
@@ -802,9 +808,10 @@ $apiInstance = new OpenAPI\Client\Api\ProofsOfDeliveryApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$proof_of_delivery_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProofsOfDeliveryCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProofsOfDeliveryCountAsync($tenant_id, $api_version, $x_api_version, $proof_of_delivery_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProofsOfDeliveryApi->getProofsOfDeliveryCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -818,6 +825,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **proof_of_delivery_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProofOfDeliveryDtoCollectionQueryParameters**](../Model/ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -829,7 +837,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -839,7 +847,7 @@ No authorization required
 ## `patchProofOfDeliveryAsync()`
 
 ```php
-patchProofOfDeliveryAsync($tenant_id, $pod_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchProofOfDeliveryAsync($tenant_id, $pod_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a proof of delivery
@@ -863,10 +871,10 @@ $tenant_id = 'tenant_id_example'; // string
 $pod_id = 'pod_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchProofOfDeliveryAsync($tenant_id, $pod_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchProofOfDeliveryAsync($tenant_id, $pod_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProofsOfDeliveryApi->patchProofOfDeliveryAsync: ', $e->getMessage(), PHP_EOL;
@@ -881,7 +889,7 @@ try {
 | **pod_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -903,7 +911,7 @@ No authorization required
 ## `patchProofOfDeliveryLineAsync()`
 
 ```php
-patchProofOfDeliveryLineAsync($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchProofOfDeliveryLineAsync($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a proof of delivery line
@@ -928,10 +936,10 @@ $pod_id = 'pod_id_example'; // string
 $line_id = 'line_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchProofOfDeliveryLineAsync($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchProofOfDeliveryLineAsync($tenant_id, $pod_id, $line_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProofsOfDeliveryApi->patchProofOfDeliveryLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -947,7 +955,7 @@ try {
 | **line_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

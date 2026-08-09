@@ -84,9 +84,11 @@ class FinancialBooksApi
         ],
         'getFinancialBooksAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFinancialBooksCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchFinancialBookAsync' => [
             'application/json',
@@ -1528,15 +1530,16 @@ class FinancialBooksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FinancialBookDtoListEnvelope
      */
-    public function getFinancialBooksAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
+    public function getFinancialBooksAsync($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
     {
-        list($response) = $this->getFinancialBooksAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFinancialBooksAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1548,15 +1551,16 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\FinancialBookDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFinancialBooksAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
+    public function getFinancialBooksAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
     {
-        $request = $this->getFinancialBooksAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFinancialBooksAsyncRequest($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1780,14 +1784,15 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFinancialBooksAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
+    public function getFinancialBooksAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
     {
-        return $this->getFinancialBooksAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFinancialBooksAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1803,15 +1808,16 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFinancialBooksAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
+    public function getFinancialBooksAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FinancialBookDtoListEnvelope';
-        $request = $this->getFinancialBooksAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFinancialBooksAsyncRequest($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1855,12 +1861,13 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFinancialBooksAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
+    public function getFinancialBooksAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1869,6 +1876,7 @@ class FinancialBooksApi
                 'Missing the required parameter $tenant_id when calling getFinancialBooksAsync'
             );
         }
+
 
 
 
@@ -1913,7 +1921,14 @@ class FinancialBooksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($financial_book_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($financial_book_dto_collection_query_parameters));
+            } else {
+                $httpBody = $financial_book_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1967,15 +1982,16 @@ class FinancialBooksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getFinancialBooksCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
+    public function getFinancialBooksCountAsync($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
     {
-        list($response) = $this->getFinancialBooksCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFinancialBooksCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1987,15 +2003,16 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFinancialBooksCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
+    public function getFinancialBooksCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
     {
-        $request = $this->getFinancialBooksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFinancialBooksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2219,14 +2236,15 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFinancialBooksCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
+    public function getFinancialBooksCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
     {
-        return $this->getFinancialBooksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getFinancialBooksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2242,15 +2260,16 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFinancialBooksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
+    public function getFinancialBooksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getFinancialBooksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFinancialBooksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $financial_book_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2294,12 +2313,13 @@ class FinancialBooksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\FinancialBookDtoCollectionQueryParameters $financial_book_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFinancialBooksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFinancialBooksCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
+    public function getFinancialBooksCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $financial_book_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFinancialBooksCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2308,6 +2328,7 @@ class FinancialBooksApi
                 'Missing the required parameter $tenant_id when calling getFinancialBooksCountAsync'
             );
         }
+
 
 
 
@@ -2352,7 +2373,14 @@ class FinancialBooksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($financial_book_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($financial_book_dto_collection_query_parameters));
+            } else {
+                $httpBody = $financial_book_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2407,16 +2435,16 @@ class FinancialBooksApi
      * @param  string $financial_book_id financial_book_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFinancialBookAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchFinancialBookAsync($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
+    public function patchFinancialBookAsync($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
     {
-        list($response) = $this->patchFinancialBookAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchFinancialBookAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2429,16 +2457,16 @@ class FinancialBooksApi
      * @param  string $financial_book_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFinancialBookAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchFinancialBookAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
+    public function patchFinancialBookAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
     {
-        $request = $this->patchFinancialBookAsyncRequest($tenant_id, $financial_book_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFinancialBookAsyncRequest($tenant_id, $financial_book_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2628,15 +2656,15 @@ class FinancialBooksApi
      * @param  string $financial_book_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFinancialBookAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFinancialBookAsyncAsync($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
+    public function patchFinancialBookAsyncAsync($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
     {
-        return $this->patchFinancialBookAsyncAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchFinancialBookAsyncAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2653,16 +2681,16 @@ class FinancialBooksApi
      * @param  string $financial_book_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFinancialBookAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFinancialBookAsyncAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
+    public function patchFinancialBookAsyncAsyncWithHttpInfo($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchFinancialBookAsyncRequest($tenant_id, $financial_book_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFinancialBookAsyncRequest($tenant_id, $financial_book_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2707,13 +2735,13 @@ class FinancialBooksApi
      * @param  string $financial_book_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFinancialBookAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchFinancialBookAsyncRequest($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
+    public function patchFinancialBookAsyncRequest($tenant_id, $financial_book_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFinancialBookAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2782,12 +2810,12 @@ class FinancialBooksApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

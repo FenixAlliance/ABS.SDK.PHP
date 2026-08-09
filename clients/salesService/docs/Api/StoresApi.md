@@ -16,7 +16,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countStoresAsync()`
 
 ```php
-countStoresAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+countStoresAsync($tenant_id, $store_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get stores count
@@ -37,9 +37,10 @@ $apiInstance = new OpenAPI\Client\Api\StoresApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$store_dto_collection_query_parameters = new \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countStoresAsync($tenant_id);
+    $result = $apiInstance->countStoresAsync($tenant_id, $store_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StoresApi->countStoresAsync: ', $e->getMessage(), PHP_EOL;
@@ -51,6 +52,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **store_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\StoreDtoCollectionQueryParameters**](../Model/StoreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -62,7 +64,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -246,7 +248,7 @@ No authorization required
 ## `getStoresAsync()`
 
 ```php
-getStoresAsync($tenant_id): \OpenAPI\Client\Model\StoreDtoListEnvelope
+getStoresAsync($tenant_id, $store_dto_collection_query_parameters): \OpenAPI\Client\Model\StoreDtoListEnvelope
 ```
 
 Get stores
@@ -267,9 +269,10 @@ $apiInstance = new OpenAPI\Client\Api\StoresApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$store_dto_collection_query_parameters = new \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\StoreDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getStoresAsync($tenant_id);
+    $result = $apiInstance->getStoresAsync($tenant_id, $store_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StoresApi->getStoresAsync: ', $e->getMessage(), PHP_EOL;
@@ -281,6 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **store_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\StoreDtoCollectionQueryParameters**](../Model/StoreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -292,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -302,7 +306,7 @@ No authorization required
 ## `patchStoreAsync()`
 
 ```php
-patchStoreAsync($tenant_id, $store_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchStoreAsync($tenant_id, $store_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a store
@@ -324,10 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\StoresApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $store_id = 'store_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchStoreAsync($tenant_id, $store_id, $operation);
+    $result = $apiInstance->patchStoreAsync($tenant_id, $store_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StoresApi->patchStoreAsync: ', $e->getMessage(), PHP_EOL;
@@ -340,7 +344,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **store_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

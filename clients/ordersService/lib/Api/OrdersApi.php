@@ -94,6 +94,7 @@ class OrdersApi
         ],
         'getExtendedOrders' => [
             'application/json',
+            'application/xml',
         ],
         'getOrder' => [
             'application/json',
@@ -103,15 +104,19 @@ class OrdersApi
         ],
         'getOrderLines' => [
             'application/json',
+            'application/xml',
         ],
         'getOrderLinesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getOrders' => [
             'application/json',
+            'application/xml',
         ],
         'getOrdersCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchOrder' => [
             'application/json',
@@ -2424,15 +2429,16 @@ class OrdersApi
      * Gets a list of extended orders for a tenant.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedOrders'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope
      */
-    public function getExtendedOrders($tenant_id, string $contentType = self::contentTypes['getExtendedOrders'][0])
+    public function getExtendedOrders($tenant_id, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedOrders'][0])
     {
-        list($response) = $this->getExtendedOrdersWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getExtendedOrdersWithHttpInfo($tenant_id, $extended_order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2442,15 +2448,16 @@ class OrdersApi
      * Gets a list of extended orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedOrders'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedOrdersWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedOrders'][0])
+    public function getExtendedOrdersWithHttpInfo($tenant_id, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedOrders'][0])
     {
-        $request = $this->getExtendedOrdersRequest($tenant_id, $contentType);
+        $request = $this->getExtendedOrdersRequest($tenant_id, $extended_order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2602,14 +2609,15 @@ class OrdersApi
      * Gets a list of extended orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedOrders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedOrdersAsync($tenant_id, string $contentType = self::contentTypes['getExtendedOrders'][0])
+    public function getExtendedOrdersAsync($tenant_id, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedOrders'][0])
     {
-        return $this->getExtendedOrdersAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getExtendedOrdersAsyncWithHttpInfo($tenant_id, $extended_order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2623,15 +2631,16 @@ class OrdersApi
      * Gets a list of extended orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedOrders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedOrdersAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getExtendedOrders'][0])
+    public function getExtendedOrdersAsyncWithHttpInfo($tenant_id, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedOrders'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope';
-        $request = $this->getExtendedOrdersRequest($tenant_id, $contentType);
+        $request = $this->getExtendedOrdersRequest($tenant_id, $extended_order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2673,12 +2682,13 @@ class OrdersApi
      * Create request for operation 'getExtendedOrders'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters $extended_order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedOrders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedOrdersRequest($tenant_id, string $contentType = self::contentTypes['getExtendedOrders'][0])
+    public function getExtendedOrdersRequest($tenant_id, $extended_order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedOrders'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2687,6 +2697,7 @@ class OrdersApi
                 'Missing the required parameter $tenant_id when calling getExtendedOrders'
             );
         }
+
 
 
         $resourcePath = '/api/v2/OrdersService/Orders/Extended';
@@ -2716,7 +2727,14 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3518,15 +3536,16 @@ class OrdersApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $order_id order_id (required)
      * @param  string $item_id item_id (optional)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLines'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OrderLineDtoListEnvelope
      */
-    public function getOrderLines($tenant_id, $order_id, $item_id = null, string $contentType = self::contentTypes['getOrderLines'][0])
+    public function getOrderLines($tenant_id, $order_id, $item_id = null, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLines'][0])
     {
-        list($response) = $this->getOrderLinesWithHttpInfo($tenant_id, $order_id, $item_id, $contentType);
+        list($response) = $this->getOrderLinesWithHttpInfo($tenant_id, $order_id, $item_id, $order_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3538,15 +3557,16 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLines'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OrderLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrderLinesWithHttpInfo($tenant_id, $order_id, $item_id = null, string $contentType = self::contentTypes['getOrderLines'][0])
+    public function getOrderLinesWithHttpInfo($tenant_id, $order_id, $item_id = null, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLines'][0])
     {
-        $request = $this->getOrderLinesRequest($tenant_id, $order_id, $item_id, $contentType);
+        $request = $this->getOrderLinesRequest($tenant_id, $order_id, $item_id, $order_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3700,14 +3720,15 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderLinesAsync($tenant_id, $order_id, $item_id = null, string $contentType = self::contentTypes['getOrderLines'][0])
+    public function getOrderLinesAsync($tenant_id, $order_id, $item_id = null, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLines'][0])
     {
-        return $this->getOrderLinesAsyncWithHttpInfo($tenant_id, $order_id, $item_id, $contentType)
+        return $this->getOrderLinesAsyncWithHttpInfo($tenant_id, $order_id, $item_id, $order_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3723,15 +3744,16 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderLinesAsyncWithHttpInfo($tenant_id, $order_id, $item_id = null, string $contentType = self::contentTypes['getOrderLines'][0])
+    public function getOrderLinesAsyncWithHttpInfo($tenant_id, $order_id, $item_id = null, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLines'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderLineDtoListEnvelope';
-        $request = $this->getOrderLinesRequest($tenant_id, $order_id, $item_id, $contentType);
+        $request = $this->getOrderLinesRequest($tenant_id, $order_id, $item_id, $order_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3775,12 +3797,13 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $item_id (optional)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLines'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrderLinesRequest($tenant_id, $order_id, $item_id = null, string $contentType = self::contentTypes['getOrderLines'][0])
+    public function getOrderLinesRequest($tenant_id, $order_id, $item_id = null, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLines'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3796,6 +3819,7 @@ class OrdersApi
                 'Missing the required parameter $order_id when calling getOrderLines'
             );
         }
+
 
 
 
@@ -3843,7 +3867,14 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($order_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $order_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3896,15 +3927,16 @@ class OrdersApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $order_id order_id (required)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLinesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getOrderLinesCount($tenant_id, $order_id, string $contentType = self::contentTypes['getOrderLinesCount'][0])
+    public function getOrderLinesCount($tenant_id, $order_id, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLinesCount'][0])
     {
-        list($response) = $this->getOrderLinesCountWithHttpInfo($tenant_id, $order_id, $contentType);
+        list($response) = $this->getOrderLinesCountWithHttpInfo($tenant_id, $order_id, $order_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3915,15 +3947,16 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLinesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrderLinesCountWithHttpInfo($tenant_id, $order_id, string $contentType = self::contentTypes['getOrderLinesCount'][0])
+    public function getOrderLinesCountWithHttpInfo($tenant_id, $order_id, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLinesCount'][0])
     {
-        $request = $this->getOrderLinesCountRequest($tenant_id, $order_id, $contentType);
+        $request = $this->getOrderLinesCountRequest($tenant_id, $order_id, $order_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4076,14 +4109,15 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderLinesCountAsync($tenant_id, $order_id, string $contentType = self::contentTypes['getOrderLinesCount'][0])
+    public function getOrderLinesCountAsync($tenant_id, $order_id, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLinesCount'][0])
     {
-        return $this->getOrderLinesCountAsyncWithHttpInfo($tenant_id, $order_id, $contentType)
+        return $this->getOrderLinesCountAsyncWithHttpInfo($tenant_id, $order_id, $order_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4098,15 +4132,16 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderLinesCountAsyncWithHttpInfo($tenant_id, $order_id, string $contentType = self::contentTypes['getOrderLinesCount'][0])
+    public function getOrderLinesCountAsyncWithHttpInfo($tenant_id, $order_id, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLinesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getOrderLinesCountRequest($tenant_id, $order_id, $contentType);
+        $request = $this->getOrderLinesCountRequest($tenant_id, $order_id, $order_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4149,12 +4184,13 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
+     * @param  \OpenAPI\Client\Model\OrderLineDtoCollectionQueryParameters $order_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderLinesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrderLinesCountRequest($tenant_id, $order_id, string $contentType = self::contentTypes['getOrderLinesCount'][0])
+    public function getOrderLinesCountRequest($tenant_id, $order_id, $order_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrderLinesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4170,6 +4206,7 @@ class OrdersApi
                 'Missing the required parameter $order_id when calling getOrderLinesCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/OrdersService/Orders/{orderId}/Lines/Count';
@@ -4207,7 +4244,14 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($order_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $order_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4259,15 +4303,16 @@ class OrdersApi
      * Gets a list of orders for a tenant.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrders'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OrderDtoListEnvelope
      */
-    public function getOrders($tenant_id, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrders($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        list($response) = $this->getOrdersWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getOrdersWithHttpInfo($tenant_id, $order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4277,15 +4322,16 @@ class OrdersApi
      * Gets a list of orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrders'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OrderDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersWithHttpInfo($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        $request = $this->getOrdersRequest($tenant_id, $contentType);
+        $request = $this->getOrdersRequest($tenant_id, $order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4437,14 +4483,15 @@ class OrdersApi
      * Gets a list of orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsync($tenant_id, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersAsync($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        return $this->getOrdersAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getOrdersAsyncWithHttpInfo($tenant_id, $order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4458,15 +4505,16 @@ class OrdersApi
      * Gets a list of orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersAsyncWithHttpInfo($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrders'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OrderDtoListEnvelope';
-        $request = $this->getOrdersRequest($tenant_id, $contentType);
+        $request = $this->getOrdersRequest($tenant_id, $order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4508,12 +4556,13 @@ class OrdersApi
      * Create request for operation 'getOrders'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrdersRequest($tenant_id, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersRequest($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrders'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4522,6 +4571,7 @@ class OrdersApi
                 'Missing the required parameter $tenant_id when calling getOrders'
             );
         }
+
 
 
         $resourcePath = '/api/v2/OrdersService/Orders';
@@ -4551,7 +4601,14 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4603,15 +4660,16 @@ class OrdersApi
      * Gets the count of orders for a tenant.
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrdersCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getOrdersCount($tenant_id, string $contentType = self::contentTypes['getOrdersCount'][0])
+    public function getOrdersCount($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrdersCount'][0])
     {
-        list($response) = $this->getOrdersCountWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getOrdersCountWithHttpInfo($tenant_id, $order_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4621,15 +4679,16 @@ class OrdersApi
      * Gets the count of orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrdersCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersCountWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getOrdersCount'][0])
+    public function getOrdersCountWithHttpInfo($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrdersCount'][0])
     {
-        $request = $this->getOrdersCountRequest($tenant_id, $contentType);
+        $request = $this->getOrdersCountRequest($tenant_id, $order_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4781,14 +4840,15 @@ class OrdersApi
      * Gets the count of orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrdersCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersCountAsync($tenant_id, string $contentType = self::contentTypes['getOrdersCount'][0])
+    public function getOrdersCountAsync($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrdersCount'][0])
     {
-        return $this->getOrdersCountAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getOrdersCountAsyncWithHttpInfo($tenant_id, $order_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4802,15 +4862,16 @@ class OrdersApi
      * Gets the count of orders for a tenant.
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrdersCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getOrdersCount'][0])
+    public function getOrdersCountAsyncWithHttpInfo($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrdersCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getOrdersCountRequest($tenant_id, $contentType);
+        $request = $this->getOrdersCountRequest($tenant_id, $order_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4852,12 +4913,13 @@ class OrdersApi
      * Create request for operation 'getOrdersCount'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters $order_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrdersCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrdersCountRequest($tenant_id, string $contentType = self::contentTypes['getOrdersCount'][0])
+    public function getOrdersCountRequest($tenant_id, $order_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getOrdersCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4866,6 +4928,7 @@ class OrdersApi
                 'Missing the required parameter $tenant_id when calling getOrdersCount'
             );
         }
+
 
 
         $resourcePath = '/api/v2/OrdersService/Orders/Count';
@@ -4895,7 +4958,14 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($order_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_dto_collection_query_parameters));
+            } else {
+                $httpBody = $order_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4948,16 +5018,16 @@ class OrdersApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $order_id order_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchOrder($tenant_id, $order_id, $operation = null, string $contentType = self::contentTypes['patchOrder'][0])
+    public function patchOrder($tenant_id, $order_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrder'][0])
     {
-        list($response) = $this->patchOrderWithHttpInfo($tenant_id, $order_id, $operation, $contentType);
+        list($response) = $this->patchOrderWithHttpInfo($tenant_id, $order_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -4968,16 +5038,16 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchOrderWithHttpInfo($tenant_id, $order_id, $operation = null, string $contentType = self::contentTypes['patchOrder'][0])
+    public function patchOrderWithHttpInfo($tenant_id, $order_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrder'][0])
     {
-        $request = $this->patchOrderRequest($tenant_id, $order_id, $operation, $contentType);
+        $request = $this->patchOrderRequest($tenant_id, $order_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5130,15 +5200,15 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchOrderAsync($tenant_id, $order_id, $operation = null, string $contentType = self::contentTypes['patchOrder'][0])
+    public function patchOrderAsync($tenant_id, $order_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrder'][0])
     {
-        return $this->patchOrderAsyncWithHttpInfo($tenant_id, $order_id, $operation, $contentType)
+        return $this->patchOrderAsyncWithHttpInfo($tenant_id, $order_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5153,16 +5223,16 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchOrderAsyncWithHttpInfo($tenant_id, $order_id, $operation = null, string $contentType = self::contentTypes['patchOrder'][0])
+    public function patchOrderAsyncWithHttpInfo($tenant_id, $order_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchOrderRequest($tenant_id, $order_id, $operation, $contentType);
+        $request = $this->patchOrderRequest($tenant_id, $order_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5205,13 +5275,13 @@ class OrdersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchOrderRequest($tenant_id, $order_id, $operation = null, string $contentType = self::contentTypes['patchOrder'][0])
+    public function patchOrderRequest($tenant_id, $order_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrder'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5265,12 +5335,12 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5326,16 +5396,16 @@ class OrdersApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $order_id order_id (required)
      * @param  string $order_line_id order_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrderLine'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchOrderLine($tenant_id, $order_id, $order_line_id, $operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
+    public function patchOrderLine($tenant_id, $order_id, $order_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
     {
-        list($response) = $this->patchOrderLineWithHttpInfo($tenant_id, $order_id, $order_line_id, $operation, $contentType);
+        list($response) = $this->patchOrderLineWithHttpInfo($tenant_id, $order_id, $order_line_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5347,16 +5417,16 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $order_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrderLine'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchOrderLineWithHttpInfo($tenant_id, $order_id, $order_line_id, $operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
+    public function patchOrderLineWithHttpInfo($tenant_id, $order_id, $order_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
     {
-        $request = $this->patchOrderLineRequest($tenant_id, $order_id, $order_line_id, $operation, $contentType);
+        $request = $this->patchOrderLineRequest($tenant_id, $order_id, $order_line_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5510,15 +5580,15 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $order_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrderLine'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchOrderLineAsync($tenant_id, $order_id, $order_line_id, $operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
+    public function patchOrderLineAsync($tenant_id, $order_id, $order_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
     {
-        return $this->patchOrderLineAsyncWithHttpInfo($tenant_id, $order_id, $order_line_id, $operation, $contentType)
+        return $this->patchOrderLineAsyncWithHttpInfo($tenant_id, $order_id, $order_line_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5534,16 +5604,16 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $order_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrderLine'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchOrderLineAsyncWithHttpInfo($tenant_id, $order_id, $order_line_id, $operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
+    public function patchOrderLineAsyncWithHttpInfo($tenant_id, $order_id, $order_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchOrderLineRequest($tenant_id, $order_id, $order_line_id, $operation, $contentType);
+        $request = $this->patchOrderLineRequest($tenant_id, $order_id, $order_line_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5587,13 +5657,13 @@ class OrdersApi
      * @param  string $tenant_id (required)
      * @param  string $order_id (required)
      * @param  string $order_line_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchOrderLine'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchOrderLineRequest($tenant_id, $order_id, $order_line_id, $operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
+    public function patchOrderLineRequest($tenant_id, $order_id, $order_line_id, $patch_operation = null, string $contentType = self::contentTypes['patchOrderLine'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5662,12 +5732,12 @@ class OrdersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

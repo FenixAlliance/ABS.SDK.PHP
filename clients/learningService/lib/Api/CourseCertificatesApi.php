@@ -3501,16 +3501,16 @@ class CourseCertificatesApi
      * @param  string $course_certificate_id course_certificate_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCourseCertificateAsync($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
+    public function patchCourseCertificateAsync($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
     {
-        list($response) = $this->patchCourseCertificateAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCourseCertificateAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3523,16 +3523,16 @@ class CourseCertificatesApi
      * @param  string $course_certificate_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseCertificateAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
+    public function patchCourseCertificateAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
     {
-        $request = $this->patchCourseCertificateAsyncRequest($tenant_id, $course_certificate_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseCertificateAsyncRequest($tenant_id, $course_certificate_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3687,15 +3687,15 @@ class CourseCertificatesApi
      * @param  string $course_certificate_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseCertificateAsyncAsync($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
+    public function patchCourseCertificateAsyncAsync($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
     {
-        return $this->patchCourseCertificateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseCertificateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3712,16 +3712,16 @@ class CourseCertificatesApi
      * @param  string $course_certificate_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseCertificateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
+    public function patchCourseCertificateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCourseCertificateAsyncRequest($tenant_id, $course_certificate_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseCertificateAsyncRequest($tenant_id, $course_certificate_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3766,13 +3766,13 @@ class CourseCertificatesApi
      * @param  string $course_certificate_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseCertificateAsyncRequest($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
+    public function patchCourseCertificateAsyncRequest($tenant_id, $course_certificate_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3841,12 +3841,12 @@ class CourseCertificatesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3903,16 +3903,16 @@ class CourseCertificatesApi
      * @param  string $course_certificate_template_id course_certificate_template_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateTemplateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCourseCertificateTemplateAsync($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
+    public function patchCourseCertificateTemplateAsync($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
     {
-        list($response) = $this->patchCourseCertificateTemplateAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCourseCertificateTemplateAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3925,16 +3925,16 @@ class CourseCertificatesApi
      * @param  string $course_certificate_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateTemplateAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseCertificateTemplateAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
+    public function patchCourseCertificateTemplateAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
     {
-        $request = $this->patchCourseCertificateTemplateAsyncRequest($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseCertificateTemplateAsyncRequest($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4089,15 +4089,15 @@ class CourseCertificatesApi
      * @param  string $course_certificate_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateTemplateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseCertificateTemplateAsyncAsync($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
+    public function patchCourseCertificateTemplateAsyncAsync($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
     {
-        return $this->patchCourseCertificateTemplateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseCertificateTemplateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4114,16 +4114,16 @@ class CourseCertificatesApi
      * @param  string $course_certificate_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateTemplateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseCertificateTemplateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
+    public function patchCourseCertificateTemplateAsyncAsyncWithHttpInfo($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCourseCertificateTemplateAsyncRequest($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseCertificateTemplateAsyncRequest($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4168,13 +4168,13 @@ class CourseCertificatesApi
      * @param  string $course_certificate_template_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseCertificateTemplateAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseCertificateTemplateAsyncRequest($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
+    public function patchCourseCertificateTemplateAsyncRequest($tenant_id, $course_certificate_template_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseCertificateTemplateAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4243,12 +4243,12 @@ class CourseCertificatesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

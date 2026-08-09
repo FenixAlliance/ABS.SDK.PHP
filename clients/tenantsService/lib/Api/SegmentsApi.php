@@ -84,9 +84,11 @@ class SegmentsApi
         ],
         'getTenantSegments' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantSegmentsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchTenantSegment' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class SegmentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantSegmentDtoListEnvelope
      */
-    public function getTenantSegments($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegments'][0])
+    public function getTenantSegments($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegments'][0])
     {
-        list($response) = $this->getTenantSegmentsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantSegmentsWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantSegmentDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantSegmentsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegments'][0])
+    public function getTenantSegmentsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegments'][0])
     {
-        $request = $this->getTenantSegmentsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantSegmentsRequest($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantSegmentsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegments'][0])
+    public function getTenantSegmentsAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegments'][0])
     {
-        return $this->getTenantSegmentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantSegmentsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantSegmentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegments'][0])
+    public function getTenantSegmentsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegments'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantSegmentDtoListEnvelope';
-        $request = $this->getTenantSegmentsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantSegmentsRequest($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantSegmentsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegments'][0])
+    public function getTenantSegmentsRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegments'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class SegmentsApi
                 'Missing the required parameter $tenant_id when calling getTenantSegments'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class SegmentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_segment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_segment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_segment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class SegmentsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegmentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantSegmentsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
+    public function getTenantSegmentsCount($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
     {
-        list($response) = $this->getTenantSegmentsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantSegmentsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegmentsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantSegmentsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
+    public function getTenantSegmentsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
     {
-        $request = $this->getTenantSegmentsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantSegmentsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantSegmentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
+    public function getTenantSegmentsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
     {
-        return $this->getTenantSegmentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantSegmentsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantSegmentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
+    public function getTenantSegmentsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantSegmentsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantSegmentsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_segment_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class SegmentsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantSegmentDtoCollectionQueryParameters $tenant_segment_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantSegmentsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantSegmentsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
+    public function getTenantSegmentsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_segment_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantSegmentsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class SegmentsApi
                 'Missing the required parameter $tenant_id when calling getTenantSegmentsCount'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class SegmentsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_segment_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_segment_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_segment_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class SegmentsApi
      * @param  string $tenant_segment_id tenant_segment_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantSegment'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTenantSegment($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
+    public function patchTenantSegment($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
     {
-        list($response) = $this->patchTenantSegmentWithHttpInfo($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTenantSegmentWithHttpInfo($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class SegmentsApi
      * @param  string $tenant_segment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantSegment'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTenantSegmentWithHttpInfo($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
+    public function patchTenantSegmentWithHttpInfo($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
     {
-        $request = $this->patchTenantSegmentRequest($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantSegmentRequest($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class SegmentsApi
      * @param  string $tenant_segment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantSegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantSegmentAsync($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
+    public function patchTenantSegmentAsync($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
     {
-        return $this->patchTenantSegmentAsyncWithHttpInfo($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTenantSegmentAsyncWithHttpInfo($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class SegmentsApi
      * @param  string $tenant_segment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantSegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantSegmentAsyncWithHttpInfo($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
+    public function patchTenantSegmentAsyncWithHttpInfo($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTenantSegmentRequest($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantSegmentRequest($tenant_id, $tenant_segment_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class SegmentsApi
      * @param  string $tenant_segment_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenantSegment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTenantSegmentRequest($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
+    public function patchTenantSegmentRequest($tenant_id, $tenant_segment_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenantSegment'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class SegmentsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

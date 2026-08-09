@@ -89,20 +89,31 @@ class TenantsApi
         ],
         'getAllExtendedTenants' => [
             'application/json',
+            'application/xml',
         ],
         'getAllTenants' => [
             'application/json',
+            'application/xml',
         ],
         'getExtendedTenantsCount' => [
             'application/json',
+            'application/xml',
         ],
         'getTenant' => [
             'application/json',
         ],
-        'getTenantsCount' => [
+        'getTenantModuleGrants' => [
             'application/json',
         ],
+        'getTenantsCount' => [
+            'application/json',
+            'application/xml',
+        ],
         'patchTenant' => [
+            'application/json',
+            'application/xml',
+        ],
+        'setTenantModuleGrants' => [
             'application/json',
             'application/xml',
         ],
@@ -1474,15 +1485,16 @@ class TenantsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllExtendedTenants'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedTenantDtoListEnvelope
      */
-    public function getAllExtendedTenants($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
+    public function getAllExtendedTenants($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
     {
-        list($response) = $this->getAllExtendedTenantsWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getAllExtendedTenantsWithHttpInfo($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1493,15 +1505,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllExtendedTenants'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ExtendedTenantDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllExtendedTenantsWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
+    public function getAllExtendedTenantsWithHttpInfo($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
     {
-        $request = $this->getAllExtendedTenantsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getAllExtendedTenantsRequest($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1689,14 +1702,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllExtendedTenants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllExtendedTenantsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
+    public function getAllExtendedTenantsAsync($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
     {
-        return $this->getAllExtendedTenantsAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getAllExtendedTenantsAsyncWithHttpInfo($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1711,15 +1725,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllExtendedTenants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllExtendedTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
+    public function getAllExtendedTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ExtendedTenantDtoListEnvelope';
-        $request = $this->getAllExtendedTenantsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getAllExtendedTenantsRequest($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1762,13 +1777,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllExtendedTenants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllExtendedTenantsRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
+    public function getAllExtendedTenantsRequest($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllExtendedTenants'][0])
     {
+
 
 
 
@@ -1804,7 +1821,14 @@ class TenantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_tenant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_tenant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_tenant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1857,15 +1881,16 @@ class TenantsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllTenants'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantDtoListEnvelope
      */
-    public function getAllTenants($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllTenants'][0])
+    public function getAllTenants($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllTenants'][0])
     {
-        list($response) = $this->getAllTenantsWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getAllTenantsWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1876,15 +1901,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllTenants'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllTenantsWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllTenants'][0])
+    public function getAllTenantsWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllTenants'][0])
     {
-        $request = $this->getAllTenantsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getAllTenantsRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2072,14 +2098,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllTenants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllTenantsAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllTenants'][0])
+    public function getAllTenantsAsync($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllTenants'][0])
     {
-        return $this->getAllTenantsAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getAllTenantsAsyncWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2094,15 +2121,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllTenants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllTenants'][0])
+    public function getAllTenantsAsyncWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllTenants'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantDtoListEnvelope';
-        $request = $this->getAllTenantsRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getAllTenantsRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2145,13 +2173,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllTenants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllTenantsRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllTenants'][0])
+    public function getAllTenantsRequest($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllTenants'][0])
     {
+
 
 
 
@@ -2187,7 +2217,14 @@ class TenantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2240,15 +2277,16 @@ class TenantsApi
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedTenantsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getExtendedTenantsCount($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
+    public function getExtendedTenantsCount($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
     {
-        list($response) = $this->getExtendedTenantsCountWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getExtendedTenantsCountWithHttpInfo($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2259,15 +2297,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedTenantsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExtendedTenantsCountWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
+    public function getExtendedTenantsCountWithHttpInfo($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
     {
-        $request = $this->getExtendedTenantsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getExtendedTenantsCountRequest($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2455,14 +2494,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedTenantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedTenantsCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
+    public function getExtendedTenantsCountAsync($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
     {
-        return $this->getExtendedTenantsCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getExtendedTenantsCountAsyncWithHttpInfo($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2477,15 +2517,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedTenantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExtendedTenantsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
+    public function getExtendedTenantsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getExtendedTenantsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getExtendedTenantsCountRequest($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2528,13 +2569,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters $extended_tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExtendedTenantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getExtendedTenantsCountRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
+    public function getExtendedTenantsCountRequest($api_version = null, $x_api_version = null, $extended_tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getExtendedTenantsCount'][0])
     {
+
 
 
 
@@ -2570,7 +2613,14 @@ class TenantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($extended_tenant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($extended_tenant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $extended_tenant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3020,21 +3070,425 @@ class TenantsApi
     }
 
     /**
+     * Operation getTenantModuleGrants
+     *
+     * Get the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope
+     */
+    public function getTenantModuleGrants($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantModuleGrants'][0])
+    {
+        list($response) = $this->getTenantModuleGrantsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getTenantModuleGrantsWithHttpInfo
+     *
+     * Get the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTenantModuleGrantsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantModuleGrants'][0])
+    {
+        $request = $this->getTenantModuleGrantsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTenantModuleGrantsAsync
+     *
+     * Get the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTenantModuleGrantsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantModuleGrants'][0])
+    {
+        return $this->getTenantModuleGrantsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTenantModuleGrantsAsyncWithHttpInfo
+     *
+     * Get the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTenantModuleGrantsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantModuleGrants'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope';
+        $request = $this->getTenantModuleGrantsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTenantModuleGrants'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTenantModuleGrantsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantModuleGrants'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getTenantModuleGrants'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($tenant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'tenantId' . '}',
+                ObjectSerializer::toPathValue($tenant_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getTenantsCount
      *
      * Get the total count of tenants available on this suite server instance.
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantsCount($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantsCount'][0])
+    public function getTenantsCount($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantsCount'][0])
     {
-        list($response) = $this->getTenantsCountWithHttpInfo($api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantsCountWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3045,15 +3499,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantsCountWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantsCount'][0])
+    public function getTenantsCountWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantsCount'][0])
     {
-        $request = $this->getTenantsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getTenantsCountRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3241,14 +3696,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantsCountAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantsCount'][0])
+    public function getTenantsCountAsync($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantsCount'][0])
     {
-        return $this->getTenantsCountAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->getTenantsCountAsyncWithHttpInfo($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3263,15 +3719,16 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantsCount'][0])
+    public function getTenantsCountAsyncWithHttpInfo($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantsCountRequest($api_version, $x_api_version, $contentType);
+        $request = $this->getTenantsCountRequest($api_version, $x_api_version, $tenant_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3314,13 +3771,15 @@ class TenantsApi
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters $tenant_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantsCountRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantsCount'][0])
+    public function getTenantsCountRequest($api_version = null, $x_api_version = null, $tenant_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantsCount'][0])
     {
+
 
 
 
@@ -3356,7 +3815,14 @@ class TenantsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3410,16 +3876,16 @@ class TenantsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenant'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTenant($tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenant'][0])
+    public function patchTenant($tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenant'][0])
     {
-        list($response) = $this->patchTenantWithHttpInfo($tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTenantWithHttpInfo($tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3431,16 +3897,16 @@ class TenantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenant'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTenantWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenant'][0])
+    public function patchTenantWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenant'][0])
     {
-        $request = $this->patchTenantRequest($tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantRequest($tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3629,15 +4095,15 @@ class TenantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantAsync($tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenant'][0])
+    public function patchTenantAsync($tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenant'][0])
     {
-        return $this->patchTenantAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTenantAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3653,16 +4119,16 @@ class TenantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTenantAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenant'][0])
+    public function patchTenantAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenant'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTenantRequest($tenant_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTenantRequest($tenant_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3706,13 +4172,13 @@ class TenantsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTenant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTenantRequest($tenant_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTenant'][0])
+    public function patchTenantRequest($tenant_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTenant'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3765,12 +4231,12 @@ class TenantsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3812,6 +4278,422 @@ class TenantsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setTenantModuleGrants
+     *
+     * Replace the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ModuleGrantDto[] $module_grant_dto module_grant_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function setTenantModuleGrants($tenant_id, $api_version = null, $x_api_version = null, $module_grant_dto = null, string $contentType = self::contentTypes['setTenantModuleGrants'][0])
+    {
+        list($response) = $this->setTenantModuleGrantsWithHttpInfo($tenant_id, $api_version, $x_api_version, $module_grant_dto, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation setTenantModuleGrantsWithHttpInfo
+     *
+     * Replace the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ModuleGrantDto[] $module_grant_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setTenantModuleGrantsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $module_grant_dto = null, string $contentType = self::contentTypes['setTenantModuleGrants'][0])
+    {
+        $request = $this->setTenantModuleGrantsRequest($tenant_id, $api_version, $x_api_version, $module_grant_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setTenantModuleGrantsAsync
+     *
+     * Replace the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ModuleGrantDto[] $module_grant_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setTenantModuleGrantsAsync($tenant_id, $api_version = null, $x_api_version = null, $module_grant_dto = null, string $contentType = self::contentTypes['setTenantModuleGrants'][0])
+    {
+        return $this->setTenantModuleGrantsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $module_grant_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setTenantModuleGrantsAsyncWithHttpInfo
+     *
+     * Replace the per-tenant admin module grants for a specific tenant.
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ModuleGrantDto[] $module_grant_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setTenantModuleGrantsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $module_grant_dto = null, string $contentType = self::contentTypes['setTenantModuleGrants'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->setTenantModuleGrantsRequest($tenant_id, $api_version, $x_api_version, $module_grant_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setTenantModuleGrants'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ModuleGrantDto[] $module_grant_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setTenantModuleGrants'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setTenantModuleGrantsRequest($tenant_id, $api_version = null, $x_api_version = null, $module_grant_dto = null, string $contentType = self::contentTypes['setTenantModuleGrants'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling setTenantModuleGrants'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($tenant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'tenantId' . '}',
+                ObjectSerializer::toPathValue($tenant_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($module_grant_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($module_grant_dto));
+            } else {
+                $httpBody = $module_grant_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

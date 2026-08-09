@@ -84,9 +84,11 @@ class SupportEntitlementsApi
         ],
         'getSupportEntitlementsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSupportEntitlementsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSupportEntitlementAsync' => [
             'application/json',
@@ -1417,15 +1419,16 @@ class SupportEntitlementsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope
      */
-    public function getSupportEntitlementsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
+    public function getSupportEntitlementsAsync($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
     {
-        list($response) = $this->getSupportEntitlementsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportEntitlementsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1437,15 +1440,16 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportEntitlementsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
+    public function getSupportEntitlementsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
     {
-        $request = $this->getSupportEntitlementsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportEntitlementsAsyncRequest($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,14 +1638,15 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportEntitlementsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
+    public function getSupportEntitlementsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
     {
-        return $this->getSupportEntitlementsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportEntitlementsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1657,15 +1662,16 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportEntitlementsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
+    public function getSupportEntitlementsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope';
-        $request = $this->getSupportEntitlementsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportEntitlementsAsyncRequest($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1709,12 +1715,13 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportEntitlementsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
+    public function getSupportEntitlementsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1723,6 +1730,7 @@ class SupportEntitlementsApi
                 'Missing the required parameter $tenant_id when calling getSupportEntitlementsAsync'
             );
         }
+
 
 
 
@@ -1767,7 +1775,14 @@ class SupportEntitlementsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_entitlement_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_entitlement_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_entitlement_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1821,15 +1836,16 @@ class SupportEntitlementsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSupportEntitlementsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
+    public function getSupportEntitlementsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
     {
-        list($response) = $this->getSupportEntitlementsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupportEntitlementsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1841,15 +1857,16 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupportEntitlementsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
+    public function getSupportEntitlementsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
     {
-        $request = $this->getSupportEntitlementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportEntitlementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2038,14 +2055,15 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportEntitlementsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
+    public function getSupportEntitlementsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
     {
-        return $this->getSupportEntitlementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupportEntitlementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,15 +2079,16 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupportEntitlementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
+    public function getSupportEntitlementsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSupportEntitlementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupportEntitlementsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $support_entitlement_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2113,12 +2132,13 @@ class SupportEntitlementsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupportEntitlementDtoCollectionQueryParameters $support_entitlement_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupportEntitlementsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupportEntitlementsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
+    public function getSupportEntitlementsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $support_entitlement_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupportEntitlementsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2127,6 +2147,7 @@ class SupportEntitlementsApi
                 'Missing the required parameter $tenant_id when calling getSupportEntitlementsCountAsync'
             );
         }
+
 
 
 
@@ -2171,7 +2192,14 @@ class SupportEntitlementsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($support_entitlement_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($support_entitlement_dto_collection_query_parameters));
+            } else {
+                $httpBody = $support_entitlement_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2226,16 +2254,16 @@ class SupportEntitlementsApi
      * @param  string $support_entitlement_id support_entitlement_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportEntitlementAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
+    public function patchSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
     {
-        list($response) = $this->patchSupportEntitlementAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSupportEntitlementAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2248,16 +2276,16 @@ class SupportEntitlementsApi
      * @param  string $support_entitlement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportEntitlementAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSupportEntitlementAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
+    public function patchSupportEntitlementAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
     {
-        $request = $this->patchSupportEntitlementAsyncRequest($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupportEntitlementAsyncRequest($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2447,15 +2475,15 @@ class SupportEntitlementsApi
      * @param  string $support_entitlement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportEntitlementAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupportEntitlementAsyncAsync($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
+    public function patchSupportEntitlementAsyncAsync($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
     {
-        return $this->patchSupportEntitlementAsyncAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSupportEntitlementAsyncAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2472,16 +2500,16 @@ class SupportEntitlementsApi
      * @param  string $support_entitlement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportEntitlementAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupportEntitlementAsyncAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
+    public function patchSupportEntitlementAsyncAsyncWithHttpInfo($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSupportEntitlementAsyncRequest($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupportEntitlementAsyncRequest($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,13 +2554,13 @@ class SupportEntitlementsApi
      * @param  string $support_entitlement_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupportEntitlementAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSupportEntitlementAsyncRequest($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
+    public function patchSupportEntitlementAsyncRequest($tenant_id, $support_entitlement_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupportEntitlementAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2601,12 +2629,12 @@ class SupportEntitlementsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

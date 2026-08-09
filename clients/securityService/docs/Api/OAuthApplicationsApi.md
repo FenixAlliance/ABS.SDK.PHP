@@ -511,7 +511,7 @@ No authorization required
 ## `patchOAuthApplicationAsync()`
 
 ```php
-patchOAuthApplicationAsync($tenant_id, $application_id, $operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+patchOAuthApplicationAsync($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an existing OAuth application
@@ -533,12 +533,12 @@ $apiInstance = new OpenAPI\Client\Api\OAuthApplicationsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $application_id = 'application_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->patchOAuthApplicationAsync($tenant_id, $application_id, $operation, $api_version, $x_api_version);
+    $result = $apiInstance->patchOAuthApplicationAsync($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OAuthApplicationsApi->patchOAuthApplicationAsync: ', $e->getMessage(), PHP_EOL;
@@ -551,7 +551,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **application_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

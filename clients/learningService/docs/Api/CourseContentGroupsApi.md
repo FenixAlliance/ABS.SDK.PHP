@@ -200,7 +200,7 @@ No authorization required
 ## `getCourseContentGroupsAsync()`
 
 ```php
-getCourseContentGroupsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseContentGroupDto[]
+getCourseContentGroupsAsync($tenant_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseContentGroupDto[]
 ```
 
 Get all course content groups
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseContentGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_content_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseContentGroupsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseContentGroupsAsync($tenant_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseContentGroupsApi->getCourseContentGroupsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_content_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters**](../Model/CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getCourseContentGroupsByCourseAsync()`
 
 ```php
-getCourseContentGroupsByCourseAsync($course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseContentGroupDto[]
+getCourseContentGroupsByCourseAsync($course_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters): \OpenAPI\Client\Model\CourseContentGroupDto[]
 ```
 
 Get course content groups by course
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseContentGroupsApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_content_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseContentGroupsByCourseAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseContentGroupsByCourseAsync($course_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseContentGroupsApi->getCourseContentGroupsByCourseAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_content_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters**](../Model/CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `getCourseContentGroupsByCourseCountAsync()`
 
 ```php
-getCourseContentGroupsByCourseCountAsync($course_id, $api_version, $x_api_version): int
+getCourseContentGroupsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters): int
 ```
 
 Get course content groups count by course
@@ -343,9 +347,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseContentGroupsApi(
 $course_id = 'course_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_content_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseContentGroupsByCourseCountAsync($course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseContentGroupsByCourseCountAsync($course_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseContentGroupsApi->getCourseContentGroupsByCourseCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -359,6 +364,7 @@ try {
 | **course_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_content_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters**](../Model/CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -370,7 +376,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -380,7 +386,7 @@ No authorization required
 ## `getCourseContentGroupsCountAsync()`
 
 ```php
-getCourseContentGroupsCountAsync($tenant_id, $api_version, $x_api_version): int
+getCourseContentGroupsCountAsync($tenant_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters): int
 ```
 
 Get course content groups count
@@ -403,9 +409,10 @@ $apiInstance = new OpenAPI\Client\Api\CourseContentGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$course_content_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCourseContentGroupsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseContentGroupsCountAsync($tenant_id, $api_version, $x_api_version, $course_content_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseContentGroupsApi->getCourseContentGroupsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -419,6 +426,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **course_content_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CourseContentGroupDtoCollectionQueryParameters**](../Model/CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -430,7 +438,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -440,7 +448,7 @@ No authorization required
 ## `patchCourseContentGroupAsync()`
 
 ```php
-patchCourseContentGroupAsync($tenant_id, $group_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCourseContentGroupAsync($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a course content group
@@ -464,10 +472,10 @@ $tenant_id = 'tenant_id_example'; // string
 $group_id = 'group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCourseContentGroupAsync($tenant_id, $group_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCourseContentGroupAsync($tenant_id, $group_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseContentGroupsApi->patchCourseContentGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -482,7 +490,7 @@ try {
 | **group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

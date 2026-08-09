@@ -65,7 +65,9 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_time' => '\DateTime',
         'parent_journal_id' => 'string',
         'journal_type_id' => 'string',
-        'ledger_id' => 'string'
+        'ledger_id' => 'string',
+        'financial_book_id' => 'string',
+        'code' => 'string'
     ];
 
     /**
@@ -83,7 +85,9 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_time' => 'date-time',
         'parent_journal_id' => null,
         'journal_type_id' => null,
-        'ledger_id' => null
+        'ledger_id' => null,
+        'financial_book_id' => null,
+        'code' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_time' => false,
         'parent_journal_id' => true,
         'journal_type_id' => true,
-        'ledger_id' => true
+        'ledger_id' => true,
+        'financial_book_id' => true,
+        'code' => true
     ];
 
     /**
@@ -195,7 +201,9 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_time' => 'dateTime',
         'parent_journal_id' => 'parentJournalId',
         'journal_type_id' => 'journalTypeId',
-        'ledger_id' => 'ledgerId'
+        'ledger_id' => 'ledgerId',
+        'financial_book_id' => 'financialBookId',
+        'code' => 'code'
     ];
 
     /**
@@ -211,7 +219,9 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_time' => 'setDateTime',
         'parent_journal_id' => 'setParentJournalId',
         'journal_type_id' => 'setJournalTypeId',
-        'ledger_id' => 'setLedgerId'
+        'ledger_id' => 'setLedgerId',
+        'financial_book_id' => 'setFinancialBookId',
+        'code' => 'setCode'
     ];
 
     /**
@@ -227,7 +237,9 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_time' => 'getDateTime',
         'parent_journal_id' => 'getParentJournalId',
         'journal_type_id' => 'getJournalTypeId',
-        'ledger_id' => 'getLedgerId'
+        'ledger_id' => 'getLedgerId',
+        'financial_book_id' => 'getFinancialBookId',
+        'code' => 'getCode'
     ];
 
     /**
@@ -295,6 +307,8 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('parent_journal_id', $data ?? [], null);
         $this->setIfExists('journal_type_id', $data ?? [], null);
         $this->setIfExists('ledger_id', $data ?? [], null);
+        $this->setIfExists('financial_book_id', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
     }
 
     /**
@@ -365,6 +379,22 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['ledger_id']) && (mb_strlen($this->container['ledger_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'ledger_id', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['financial_book_id']) && (mb_strlen($this->container['financial_book_id']) > 36)) {
+            $invalidProperties[] = "invalid value for 'financial_book_id', the character length must be smaller than or equal to 36.";
+        }
+
+        if (!is_null($this->container['financial_book_id']) && (mb_strlen($this->container['financial_book_id']) < 0)) {
+            $invalidProperties[] = "invalid value for 'financial_book_id', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['code']) && (mb_strlen($this->container['code']) > 64)) {
+            $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['code']) && (mb_strlen($this->container['code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'code', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -657,6 +687,88 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['ledger_id'] = $ledger_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets financial_book_id
+     *
+     * @return string|null
+     */
+    public function getFinancialBookId()
+    {
+        return $this->container['financial_book_id'];
+    }
+
+    /**
+     * Sets financial_book_id
+     *
+     * @param string|null $financial_book_id financial_book_id
+     *
+     * @return self
+     */
+    public function setFinancialBookId($financial_book_id)
+    {
+        if (is_null($financial_book_id)) {
+            array_push($this->openAPINullablesSetToNull, 'financial_book_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('financial_book_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($financial_book_id) && (mb_strlen($financial_book_id) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $financial_book_id when calling JournalCreateDto., must be smaller than or equal to 36.');
+        }
+        if (!is_null($financial_book_id) && (mb_strlen($financial_book_id) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $financial_book_id when calling JournalCreateDto., must be bigger than or equal to 0.');
+        }
+
+        $this->container['financial_book_id'] = $financial_book_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code code
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($code) && (mb_strlen($code) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $code when calling JournalCreateDto., must be smaller than or equal to 64.');
+        }
+        if (!is_null($code) && (mb_strlen($code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $code when calling JournalCreateDto., must be bigger than or equal to 1.');
+        }
+
+        $this->container['code'] = $code;
 
         return $this;
     }

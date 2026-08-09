@@ -463,7 +463,7 @@ No authorization required
 ## `getVoyagePortCallsAsync()`
 
 ```php
-getVoyagePortCallsAsync($tenant_id, $voyage_id, $api_version, $x_api_version): \OpenAPI\Client\Model\VoyagePortCallDtoListEnvelope
+getVoyagePortCallsAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters): \OpenAPI\Client\Model\VoyagePortCallDtoListEnvelope
 ```
 
 Get voyage port calls
@@ -487,9 +487,10 @@ $tenant_id = 'tenant_id_example'; // string
 $voyage_id = 'voyage_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$voyage_port_call_dto_collection_query_parameters = new \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getVoyagePortCallsAsync($tenant_id, $voyage_id, $api_version, $x_api_version);
+    $result = $apiInstance->getVoyagePortCallsAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->getVoyagePortCallsAsync: ', $e->getMessage(), PHP_EOL;
@@ -504,6 +505,7 @@ try {
 | **voyage_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **voyage_port_call_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters**](../Model/VoyagePortCallDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -515,7 +517,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -525,7 +527,7 @@ No authorization required
 ## `getVoyagePortCallsCountAsync()`
 
 ```php
-getVoyagePortCallsCountAsync($tenant_id, $voyage_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getVoyagePortCallsCountAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get voyage port calls count
@@ -549,9 +551,10 @@ $tenant_id = 'tenant_id_example'; // string
 $voyage_id = 'voyage_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$voyage_port_call_dto_collection_query_parameters = new \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getVoyagePortCallsCountAsync($tenant_id, $voyage_id, $api_version, $x_api_version);
+    $result = $apiInstance->getVoyagePortCallsCountAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $voyage_port_call_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->getVoyagePortCallsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -566,6 +569,7 @@ try {
 | **voyage_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **voyage_port_call_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\VoyagePortCallDtoCollectionQueryParameters**](../Model/VoyagePortCallDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -577,7 +581,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -587,7 +591,7 @@ No authorization required
 ## `getVoyagesAsync()`
 
 ```php
-getVoyagesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\VoyageDtoListEnvelope
+getVoyagesAsync($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters): \OpenAPI\Client\Model\VoyageDtoListEnvelope
 ```
 
 Get all voyages
@@ -610,9 +614,10 @@ $apiInstance = new OpenAPI\Client\Api\VoyagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$voyage_dto_collection_query_parameters = new \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getVoyagesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getVoyagesAsync($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->getVoyagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -626,6 +631,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **voyage_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters**](../Model/VoyageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -637,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -647,7 +653,7 @@ No authorization required
 ## `getVoyagesCountAsync()`
 
 ```php
-getVoyagesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getVoyagesCountAsync($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get voyages count
@@ -670,9 +676,10 @@ $apiInstance = new OpenAPI\Client\Api\VoyagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$voyage_dto_collection_query_parameters = new \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getVoyagesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getVoyagesCountAsync($tenant_id, $api_version, $x_api_version, $voyage_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->getVoyagesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -686,6 +693,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **voyage_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\VoyageDtoCollectionQueryParameters**](../Model/VoyageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -697,7 +705,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -707,7 +715,7 @@ No authorization required
 ## `patchVoyageAsync()`
 
 ```php
-patchVoyageAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchVoyageAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a voyage
@@ -731,10 +739,10 @@ $tenant_id = 'tenant_id_example'; // string
 $voyage_id = 'voyage_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchVoyageAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchVoyageAsync($tenant_id, $voyage_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->patchVoyageAsync: ', $e->getMessage(), PHP_EOL;
@@ -749,7 +757,7 @@ try {
 | **voyage_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -771,7 +779,7 @@ No authorization required
 ## `patchVoyagePortCallAsync()`
 
 ```php
-patchVoyagePortCallAsync($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchVoyagePortCallAsync($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a voyage port call
@@ -796,10 +804,10 @@ $voyage_id = 'voyage_id_example'; // string
 $port_call_id = 'port_call_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchVoyagePortCallAsync($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchVoyagePortCallAsync($tenant_id, $voyage_id, $port_call_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VoyagesApi->patchVoyagePortCallAsync: ', $e->getMessage(), PHP_EOL;
@@ -815,7 +823,7 @@ try {
 | **port_call_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

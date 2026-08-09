@@ -196,7 +196,7 @@ No authorization required
 ## `getSystemPortals()`
 
 ```php
-getSystemPortals($api_version, $x_api_version): \OpenAPI\Client\Model\WebPortalDtoListEnvelope
+getSystemPortals($api_version, $x_api_version, $web_portal_dto_collection_query_parameters): \OpenAPI\Client\Model\WebPortalDtoListEnvelope
 ```
 
 Retrieve a list of system portals
@@ -218,9 +218,10 @@ $apiInstance = new OpenAPI\Client\Api\PortalsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_portal_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemPortals($api_version, $x_api_version);
+    $result = $apiInstance->getSystemPortals($api_version, $x_api_version, $web_portal_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortalsApi->getSystemPortals: ', $e->getMessage(), PHP_EOL;
@@ -233,6 +234,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_portal_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters**](../Model/WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -254,7 +256,7 @@ No authorization required
 ## `getSystemPortalsCount()`
 
 ```php
-getSystemPortalsCount($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSystemPortalsCount($api_version, $x_api_version, $web_portal_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of system portals
@@ -276,9 +278,10 @@ $apiInstance = new OpenAPI\Client\Api\PortalsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$web_portal_dto_collection_query_parameters = new \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSystemPortalsCount($api_version, $x_api_version);
+    $result = $apiInstance->getSystemPortalsCount($api_version, $x_api_version, $web_portal_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortalsApi->getSystemPortalsCount: ', $e->getMessage(), PHP_EOL;
@@ -291,6 +294,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **web_portal_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WebPortalDtoCollectionQueryParameters**](../Model/WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -302,7 +306,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -312,7 +316,7 @@ No authorization required
 ## `patchSystemPortal()`
 
 ```php
-patchSystemPortal($portal_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSystemPortal($portal_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially update a system portal
@@ -335,10 +339,10 @@ $apiInstance = new OpenAPI\Client\Api\PortalsApi(
 $portal_id = 'portal_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSystemPortal($portal_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSystemPortal($portal_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PortalsApi->patchSystemPortal: ', $e->getMessage(), PHP_EOL;
@@ -352,7 +356,7 @@ try {
 | **portal_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

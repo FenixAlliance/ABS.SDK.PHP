@@ -12,8 +12,10 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getAllTenants()**](TenantsApi.md#getAllTenants) | **GET** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance. |
 | [**getExtendedTenantsCount()**](TenantsApi.md#getExtendedTenantsCount) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance. |
 | [**getTenant()**](TenantsApi.md#getTenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID. |
+| [**getTenantModuleGrants()**](TenantsApi.md#getTenantModuleGrants) | **GET** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant. |
 | [**getTenantsCount()**](TenantsApi.md#getTenantsCount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance. |
 | [**patchTenant()**](TenantsApi.md#patchTenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID. |
+| [**setTenantModuleGrants()**](TenantsApi.md#setTenantModuleGrants) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant. |
 | [**updateTenant()**](TenantsApi.md#updateTenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID. |
 
 
@@ -262,7 +264,7 @@ No authorization required
 ## `getAllExtendedTenants()`
 
 ```php
-getAllExtendedTenants($api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedTenantDtoListEnvelope
+getAllExtendedTenants($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedTenantDtoListEnvelope
 ```
 
 Get all extended tenants available on this suite server instance.
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_tenant_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAllExtendedTenants($api_version, $x_api_version);
+    $result = $apiInstance->getAllExtendedTenants($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->getAllExtendedTenants: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_tenant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters**](../Model/ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `getAllTenants()`
 
 ```php
-getAllTenants($api_version, $x_api_version): \OpenAPI\Client\Model\TenantDtoListEnvelope
+getAllTenants($api_version, $x_api_version, $tenant_dto_collection_query_parameters): \OpenAPI\Client\Model\TenantDtoListEnvelope
 ```
 
 Get all tenants available on this suite server instance.
@@ -342,9 +346,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAllTenants($api_version, $x_api_version);
+    $result = $apiInstance->getAllTenants($api_version, $x_api_version, $tenant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->getAllTenants: ', $e->getMessage(), PHP_EOL;
@@ -357,6 +362,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantDtoCollectionQueryParameters**](../Model/TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -368,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -378,7 +384,7 @@ No authorization required
 ## `getExtendedTenantsCount()`
 
 ```php
-getExtendedTenantsCount($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getExtendedTenantsCount($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the total count of extended tenants available on this suite server instance.
@@ -400,9 +406,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_tenant_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedTenantsCount($api_version, $x_api_version);
+    $result = $apiInstance->getExtendedTenantsCount($api_version, $x_api_version, $extended_tenant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->getExtendedTenantsCount: ', $e->getMessage(), PHP_EOL;
@@ -415,6 +422,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_tenant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedTenantDtoCollectionQueryParameters**](../Model/ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -426,7 +434,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -493,10 +501,70 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getTenantModuleGrants()`
+
+```php
+getTenantModuleGrants($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ModuleGrantDtoListEnvelope
+```
+
+Get the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\TenantsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getTenantModuleGrants($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TenantsApi->getTenantModuleGrants: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ModuleGrantDtoListEnvelope**](../Model/ModuleGrantDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getTenantsCount()`
 
 ```php
-getTenantsCount($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getTenantsCount($api_version, $x_api_version, $tenant_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the total count of tenants available on this suite server instance.
@@ -518,9 +586,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$tenant_dto_collection_query_parameters = new \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\TenantDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getTenantsCount($api_version, $x_api_version);
+    $result = $apiInstance->getTenantsCount($api_version, $x_api_version, $tenant_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->getTenantsCount: ', $e->getMessage(), PHP_EOL;
@@ -533,6 +602,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **tenant_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\TenantDtoCollectionQueryParameters**](../Model/TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -544,7 +614,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -554,7 +624,7 @@ No authorization required
 ## `patchTenant()`
 
 ```php
-patchTenant($tenant_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchTenant($tenant_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Partially update a specific tenant by ID.
@@ -577,10 +647,10 @@ $apiInstance = new OpenAPI\Client\Api\TenantsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchTenant($tenant_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchTenant($tenant_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantsApi->patchTenant: ', $e->getMessage(), PHP_EOL;
@@ -594,7 +664,69 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setTenantModuleGrants()`
+
+```php
+setTenantModuleGrants($tenant_id, $api_version, $x_api_version, $module_grant_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Replace the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators. Grants supplement licensing.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\TenantsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$module_grant_dto = array(new \OpenAPI\Client\Model\ModuleGrantDto()); // \OpenAPI\Client\Model\ModuleGrantDto[]
+
+try {
+    $result = $apiInstance->setTenantModuleGrants($tenant_id, $api_version, $x_api_version, $module_grant_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TenantsApi->setTenantModuleGrants: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **module_grant_dto** | [**\OpenAPI\Client\Model\ModuleGrantDto[]**](../Model/ModuleGrantDto.md)|  | [optional] |
 
 ### Return type
 

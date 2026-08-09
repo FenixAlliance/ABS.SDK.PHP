@@ -84,9 +84,11 @@ class ItemAttributeOptionsApi
         ],
         'getItemAttributeOptionsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getItemAttributeOptionsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemAttributeOptionAsync' => [
             'application/json',
@@ -1266,15 +1268,16 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemAttributeOptionDtoListEnvelope
      */
-    public function getItemAttributeOptionsAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
+    public function getItemAttributeOptionsAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
     {
-        list($response) = $this->getItemAttributeOptionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemAttributeOptionsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1286,15 +1289,16 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemAttributeOptionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemAttributeOptionsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
+    public function getItemAttributeOptionsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
     {
-        $request = $this->getItemAttributeOptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemAttributeOptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1483,14 +1487,15 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAttributeOptionsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
+    public function getItemAttributeOptionsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
     {
-        return $this->getItemAttributeOptionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemAttributeOptionsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1506,15 +1511,16 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAttributeOptionsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
+    public function getItemAttributeOptionsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemAttributeOptionDtoListEnvelope';
-        $request = $this->getItemAttributeOptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemAttributeOptionsAsyncRequest($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1558,13 +1564,15 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemAttributeOptionsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
+    public function getItemAttributeOptionsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsAsync'][0])
     {
+
 
 
 
@@ -1610,7 +1618,14 @@ class ItemAttributeOptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_attribute_option_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_attribute_option_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_attribute_option_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1664,15 +1679,16 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getItemAttributeOptionsCountAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
+    public function getItemAttributeOptionsCountAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
     {
-        list($response) = $this->getItemAttributeOptionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemAttributeOptionsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1684,15 +1700,16 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemAttributeOptionsCountAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
+    public function getItemAttributeOptionsCountAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
     {
-        $request = $this->getItemAttributeOptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemAttributeOptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1881,14 +1898,15 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAttributeOptionsCountAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
+    public function getItemAttributeOptionsCountAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
     {
-        return $this->getItemAttributeOptionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemAttributeOptionsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1904,15 +1922,16 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAttributeOptionsCountAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
+    public function getItemAttributeOptionsCountAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getItemAttributeOptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemAttributeOptionsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $item_attribute_option_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1956,13 +1975,15 @@ class ItemAttributeOptionsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemAttributeOptionDtoCollectionQueryParameters $item_attribute_option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemAttributeOptionsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemAttributeOptionsCountAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
+    public function getItemAttributeOptionsCountAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_attribute_option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemAttributeOptionsCountAsync'][0])
     {
+
 
 
 
@@ -2008,7 +2029,14 @@ class ItemAttributeOptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_attribute_option_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_attribute_option_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_attribute_option_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2063,16 +2091,16 @@ class ItemAttributeOptionsApi
      * @param  string $item_attribute_option_id item_attribute_option_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemAttributeOptionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchItemAttributeOptionAsync($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
+    public function patchItemAttributeOptionAsync($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
     {
-        list($response) = $this->patchItemAttributeOptionAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchItemAttributeOptionAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2085,16 +2113,16 @@ class ItemAttributeOptionsApi
      * @param  string $item_attribute_option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemAttributeOptionAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemAttributeOptionAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
+    public function patchItemAttributeOptionAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
     {
-        $request = $this->patchItemAttributeOptionAsyncRequest($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemAttributeOptionAsyncRequest($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2284,15 +2312,15 @@ class ItemAttributeOptionsApi
      * @param  string $item_attribute_option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemAttributeOptionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemAttributeOptionAsyncAsync($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
+    public function patchItemAttributeOptionAsyncAsync($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
     {
-        return $this->patchItemAttributeOptionAsyncAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemAttributeOptionAsyncAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2309,16 +2337,16 @@ class ItemAttributeOptionsApi
      * @param  string $item_attribute_option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemAttributeOptionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemAttributeOptionAsyncAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
+    public function patchItemAttributeOptionAsyncAsyncWithHttpInfo($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchItemAttributeOptionAsyncRequest($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemAttributeOptionAsyncRequest($tenant_id, $item_attribute_option_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2363,13 +2391,13 @@ class ItemAttributeOptionsApi
      * @param  string $item_attribute_option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemAttributeOptionAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemAttributeOptionAsyncRequest($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
+    public function patchItemAttributeOptionAsyncRequest($tenant_id, $item_attribute_option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemAttributeOptionAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2438,12 +2466,12 @@ class ItemAttributeOptionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

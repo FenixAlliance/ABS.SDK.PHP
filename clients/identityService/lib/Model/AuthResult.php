@@ -65,7 +65,10 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'object',
         'correlation_id' => 'string',
         'scopes' => 'string[]',
-        'error' => 'string'
+        'error' => 'string',
+        'run_as' => 'string',
+        'principal_kind' => 'string',
+        'provenance' => '\OpenAPI\Client\Model\ExecutionProvenance'
     ];
 
     /**
@@ -83,7 +86,10 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'uuid',
         'correlation_id' => null,
         'scopes' => null,
-        'error' => null
+        'error' => null,
+        'run_as' => null,
+        'principal_kind' => null,
+        'provenance' => null
     ];
 
     /**
@@ -99,7 +105,10 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => false,
         'correlation_id' => true,
         'scopes' => true,
-        'error' => true
+        'error' => true,
+        'run_as' => false,
+        'principal_kind' => false,
+        'provenance' => false
     ];
 
     /**
@@ -195,7 +204,10 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'enrollmentId',
         'correlation_id' => 'correlationId',
         'scopes' => 'scopes',
-        'error' => 'error'
+        'error' => 'error',
+        'run_as' => 'runAs',
+        'principal_kind' => 'principalKind',
+        'provenance' => 'provenance'
     ];
 
     /**
@@ -211,7 +223,10 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'setEnrollmentId',
         'correlation_id' => 'setCorrelationId',
         'scopes' => 'setScopes',
-        'error' => 'setError'
+        'error' => 'setError',
+        'run_as' => 'setRunAs',
+        'principal_kind' => 'setPrincipalKind',
+        'provenance' => 'setProvenance'
     ];
 
     /**
@@ -227,7 +242,10 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'getEnrollmentId',
         'correlation_id' => 'getCorrelationId',
         'scopes' => 'getScopes',
-        'error' => 'getError'
+        'error' => 'getError',
+        'run_as' => 'getRunAs',
+        'principal_kind' => 'getPrincipalKind',
+        'provenance' => 'getProvenance'
     ];
 
     /**
@@ -271,6 +289,46 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const RUN_AS_INVOKER = 'Invoker';
+    public const RUN_AS_APPLICATION = 'Application';
+    public const RUN_AS_SYSTEM = 'System';
+    public const RUN_AS_SERVICE = 'Service';
+    public const PRINCIPAL_KIND_HUMAN = 'Human';
+    public const PRINCIPAL_KIND_AGENT = 'Agent';
+    public const PRINCIPAL_KIND_APPLICATION = 'Application';
+    public const PRINCIPAL_KIND_SERVICE = 'Service';
+    public const PRINCIPAL_KIND_SYSTEM = 'System';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRunAsAllowableValues()
+    {
+        return [
+            self::RUN_AS_INVOKER,
+            self::RUN_AS_APPLICATION,
+            self::RUN_AS_SYSTEM,
+            self::RUN_AS_SERVICE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPrincipalKindAllowableValues()
+    {
+        return [
+            self::PRINCIPAL_KIND_HUMAN,
+            self::PRINCIPAL_KIND_AGENT,
+            self::PRINCIPAL_KIND_APPLICATION,
+            self::PRINCIPAL_KIND_SERVICE,
+            self::PRINCIPAL_KIND_SYSTEM,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -295,6 +353,9 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('correlation_id', $data ?? [], null);
         $this->setIfExists('scopes', $data ?? [], null);
         $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('run_as', $data ?? [], null);
+        $this->setIfExists('principal_kind', $data ?? [], null);
+        $this->setIfExists('provenance', $data ?? [], null);
     }
 
     /**
@@ -323,6 +384,24 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getRunAsAllowableValues();
+        if (!is_null($this->container['run_as']) && !in_array($this->container['run_as'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'run_as', must be one of '%s'",
+                $this->container['run_as'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getPrincipalKindAllowableValues();
+        if (!is_null($this->container['principal_kind']) && !in_array($this->container['principal_kind'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'principal_kind', must be one of '%s'",
+                $this->container['principal_kind'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -572,6 +651,107 @@ class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets run_as
+     *
+     * @return string|null
+     */
+    public function getRunAs()
+    {
+        return $this->container['run_as'];
+    }
+
+    /**
+     * Sets run_as
+     *
+     * @param string|null $run_as run_as
+     *
+     * @return self
+     */
+    public function setRunAs($run_as)
+    {
+        if (is_null($run_as)) {
+            throw new \InvalidArgumentException('non-nullable run_as cannot be null');
+        }
+        $allowedValues = $this->getRunAsAllowableValues();
+        if (!in_array($run_as, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'run_as', must be one of '%s'",
+                    $run_as,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['run_as'] = $run_as;
+
+        return $this;
+    }
+
+    /**
+     * Gets principal_kind
+     *
+     * @return string|null
+     */
+    public function getPrincipalKind()
+    {
+        return $this->container['principal_kind'];
+    }
+
+    /**
+     * Sets principal_kind
+     *
+     * @param string|null $principal_kind principal_kind
+     *
+     * @return self
+     */
+    public function setPrincipalKind($principal_kind)
+    {
+        if (is_null($principal_kind)) {
+            throw new \InvalidArgumentException('non-nullable principal_kind cannot be null');
+        }
+        $allowedValues = $this->getPrincipalKindAllowableValues();
+        if (!in_array($principal_kind, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'principal_kind', must be one of '%s'",
+                    $principal_kind,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['principal_kind'] = $principal_kind;
+
+        return $this;
+    }
+
+    /**
+     * Gets provenance
+     *
+     * @return \OpenAPI\Client\Model\ExecutionProvenance|null
+     */
+    public function getProvenance()
+    {
+        return $this->container['provenance'];
+    }
+
+    /**
+     * Sets provenance
+     *
+     * @param \OpenAPI\Client\Model\ExecutionProvenance|null $provenance provenance
+     *
+     * @return self
+     */
+    public function setProvenance($provenance)
+    {
+        if (is_null($provenance)) {
+            throw new \InvalidArgumentException('non-nullable provenance cannot be null');
+        }
+        $this->container['provenance'] = $provenance;
 
         return $this;
     }

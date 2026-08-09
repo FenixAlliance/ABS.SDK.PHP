@@ -15,7 +15,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countMenuContextsAsync()`
 
 ```php
-countMenuContextsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countMenuContextsAsync($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count menu contexts
@@ -38,9 +38,10 @@ $apiInstance = new OpenAPI\Client\Api\MenuContextsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$menu_context_dto_collection_query_parameters = new \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countMenuContextsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countMenuContextsAsync($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MenuContextsApi->countMenuContextsAsync: ', $e->getMessage(), PHP_EOL;
@@ -54,6 +55,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **menu_context_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters**](../Model/MenuContextDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getMenuContextsAsync()`
 
 ```php
-getMenuContextsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MenuContextDtoListEnvelope
+getMenuContextsAsync($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters): \OpenAPI\Client\Model\MenuContextDtoListEnvelope
 ```
 
 Get menu contexts
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\MenuContextsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$menu_context_dto_collection_query_parameters = new \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getMenuContextsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getMenuContextsAsync($tenant_id, $api_version, $x_api_version, $menu_context_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MenuContextsApi->getMenuContextsAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **menu_context_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\MenuContextDtoCollectionQueryParameters**](../Model/MenuContextDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

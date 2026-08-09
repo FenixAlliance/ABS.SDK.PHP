@@ -439,7 +439,7 @@ No authorization required
 ## `getDealUnitLinesAsync()`
 
 ```php
-getDealUnitLinesAsync($tenant_id, $deal_unit_id, $item_id): \OpenAPI\Client\Model\DealUnitLineDtoListEnvelope
+getDealUnitLinesAsync($tenant_id, $deal_unit_id, $item_id, $deal_unit_line_dto_collection_query_parameters): \OpenAPI\Client\Model\DealUnitLineDtoListEnvelope
 ```
 
 Get deal unit lines
@@ -462,9 +462,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_id = 'deal_unit_id_example'; // string
 $item_id = 'item_id_example'; // string
+$deal_unit_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitLinesAsync($tenant_id, $deal_unit_id, $item_id);
+    $result = $apiInstance->getDealUnitLinesAsync($tenant_id, $deal_unit_id, $item_id, $deal_unit_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->getDealUnitLinesAsync: ', $e->getMessage(), PHP_EOL;
@@ -478,6 +479,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **deal_unit_id** | **string**|  | |
 | **item_id** | **string**|  | [optional] |
+| **deal_unit_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters**](../Model/DealUnitLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,7 +491,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -499,7 +501,7 @@ No authorization required
 ## `getDealUnitLinesCountAsync()`
 
 ```php
-getDealUnitLinesCountAsync($tenant_id, $deal_unit_id): \OpenAPI\Client\Model\Int32Envelope
+getDealUnitLinesCountAsync($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get deal unit lines count
@@ -521,9 +523,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_id = 'deal_unit_id_example'; // string
+$deal_unit_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitLinesCountAsync($tenant_id, $deal_unit_id);
+    $result = $apiInstance->getDealUnitLinesCountAsync($tenant_id, $deal_unit_id, $deal_unit_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->getDealUnitLinesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -536,6 +539,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **deal_unit_id** | **string**|  | |
+| **deal_unit_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitLineDtoCollectionQueryParameters**](../Model/DealUnitLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -547,7 +551,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -617,7 +621,7 @@ No authorization required
 ## `getDealUnitsAsync()`
 
 ```php
-getDealUnitsAsync($tenant_id): \OpenAPI\Client\Model\DealUnitDtoListEnvelope
+getDealUnitsAsync($tenant_id, $deal_unit_dto_collection_query_parameters): \OpenAPI\Client\Model\DealUnitDtoListEnvelope
 ```
 
 Get deal units
@@ -638,9 +642,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$deal_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitsAsync($tenant_id);
+    $result = $apiInstance->getDealUnitsAsync($tenant_id, $deal_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->getDealUnitsAsync: ', $e->getMessage(), PHP_EOL;
@@ -652,6 +657,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **deal_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters**](../Model/DealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -663,7 +669,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -673,7 +679,7 @@ No authorization required
 ## `getDealUnitsCountAsync()`
 
 ```php
-getDealUnitsCountAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getDealUnitsCountAsync($tenant_id, $deal_unit_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get deal units count
@@ -694,9 +700,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$deal_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDealUnitsCountAsync($tenant_id);
+    $result = $apiInstance->getDealUnitsCountAsync($tenant_id, $deal_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->getDealUnitsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -708,6 +715,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **deal_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\DealUnitDtoCollectionQueryParameters**](../Model/DealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -719,7 +727,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -787,7 +795,7 @@ No authorization required
 ## `getExtendedDealUnitsAsync()`
 
 ```php
-getExtendedDealUnitsAsync($tenant_id): \OpenAPI\Client\Model\ExtendedDealUnitDtoListEnvelope
+getExtendedDealUnitsAsync($tenant_id, $extended_deal_unit_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedDealUnitDtoListEnvelope
 ```
 
 Get extended deal units
@@ -808,9 +816,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$extended_deal_unit_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedDealUnitsAsync($tenant_id);
+    $result = $apiInstance->getExtendedDealUnitsAsync($tenant_id, $extended_deal_unit_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->getExtendedDealUnitsAsync: ', $e->getMessage(), PHP_EOL;
@@ -822,6 +831,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **extended_deal_unit_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedDealUnitDtoCollectionQueryParameters**](../Model/ExtendedDealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -833,7 +843,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -843,7 +853,7 @@ No authorization required
 ## `patchDealUnitAsync()`
 
 ```php
-patchDealUnitAsync($tenant_id, $deal_unit_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchDealUnitAsync($tenant_id, $deal_unit_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a deal unit
@@ -865,10 +875,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_id = 'deal_unit_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchDealUnitAsync($tenant_id, $deal_unit_id, $operation);
+    $result = $apiInstance->patchDealUnitAsync($tenant_id, $deal_unit_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->patchDealUnitAsync: ', $e->getMessage(), PHP_EOL;
@@ -881,7 +891,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **deal_unit_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -903,7 +913,7 @@ No authorization required
 ## `patchDealUnitLineAsync()`
 
 ```php
-patchDealUnitLineAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchDealUnitLineAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a deal unit line
@@ -926,10 +936,10 @@ $apiInstance = new OpenAPI\Client\Api\DealUnitsApi(
 $tenant_id = 'tenant_id_example'; // string
 $deal_unit_id = 'deal_unit_id_example'; // string
 $deal_unit_line_id = 'deal_unit_line_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchDealUnitLineAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $operation);
+    $result = $apiInstance->patchDealUnitLineAsync($tenant_id, $deal_unit_id, $deal_unit_line_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DealUnitsApi->patchDealUnitLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -943,7 +953,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **deal_unit_id** | **string**|  | |
 | **deal_unit_line_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

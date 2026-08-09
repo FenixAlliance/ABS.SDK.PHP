@@ -202,7 +202,7 @@ No authorization required
 ## `getJournalTypesAsync()`
 
 ```php
-getJournalTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\JournalTypeDtoIReadOnlyListEnvelope
+getJournalTypesAsync($tenant_id, $api_version, $x_api_version, $journal_type_dto_collection_query_parameters): \OpenAPI\Client\Model\JournalTypeDtoIReadOnlyListEnvelope
 ```
 
 Retrieves all journal types
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\JournalTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJournalTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJournalTypesAsync($tenant_id, $api_version, $x_api_version, $journal_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalTypesApi->getJournalTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalTypeDtoCollectionQueryParameters**](../Model/JournalTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getJournalTypesCountAsync()`
 
 ```php
-getJournalTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getJournalTypesCountAsync($tenant_id, $api_version, $x_api_version, $journal_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Counts journal types
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\JournalTypesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$journal_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\JournalTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JournalTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJournalTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJournalTypesCountAsync($tenant_id, $api_version, $x_api_version, $journal_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalTypesApi->getJournalTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **journal_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JournalTypeDtoCollectionQueryParameters**](../Model/JournalTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchJournalTypeAsync()`
 
 ```php
-patchJournalTypeAsync($tenant_id, $journal_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchJournalTypeAsync($tenant_id, $journal_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a journal type
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $journal_type_id = 'journal_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchJournalTypeAsync($tenant_id, $journal_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchJournalTypeAsync($tenant_id, $journal_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JournalTypesApi->patchJournalTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **journal_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

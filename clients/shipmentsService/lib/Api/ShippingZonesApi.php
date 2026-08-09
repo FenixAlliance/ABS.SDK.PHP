@@ -84,9 +84,11 @@ class ShippingZonesApi
         ],
         'getShippingZonesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getShippingZonesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchShippingZoneAsync' => [
             'application/json',
@@ -1076,15 +1078,16 @@ class ShippingZonesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShippingZoneDtoListEnvelope
      */
-    public function getShippingZonesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
+    public function getShippingZonesAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
     {
-        list($response) = $this->getShippingZonesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShippingZonesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1096,15 +1099,16 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShippingZoneDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShippingZonesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
+    public function getShippingZonesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
     {
-        $request = $this->getShippingZonesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingZonesAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1293,14 +1297,15 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingZonesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
+    public function getShippingZonesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
     {
-        return $this->getShippingZonesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShippingZonesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1316,15 +1321,16 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingZonesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
+    public function getShippingZonesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShippingZoneDtoListEnvelope';
-        $request = $this->getShippingZonesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingZonesAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1368,12 +1374,13 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShippingZonesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
+    public function getShippingZonesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1382,6 +1389,7 @@ class ShippingZonesApi
                 'Missing the required parameter $tenant_id when calling getShippingZonesAsync'
             );
         }
+
 
 
 
@@ -1426,7 +1434,14 @@ class ShippingZonesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($shipping_zone_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($shipping_zone_dto_collection_query_parameters));
+            } else {
+                $httpBody = $shipping_zone_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1480,15 +1495,16 @@ class ShippingZonesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShippingZonesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
+    public function getShippingZonesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
     {
-        list($response) = $this->getShippingZonesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShippingZonesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1500,15 +1516,16 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShippingZonesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
+    public function getShippingZonesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
     {
-        $request = $this->getShippingZonesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingZonesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1627,14 +1644,15 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingZonesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
+    public function getShippingZonesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
     {
-        return $this->getShippingZonesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShippingZonesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1650,15 +1668,16 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingZonesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
+    public function getShippingZonesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShippingZonesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShippingZonesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $shipping_zone_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1702,12 +1721,13 @@ class ShippingZonesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShippingZoneDtoCollectionQueryParameters $shipping_zone_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShippingZonesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShippingZonesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
+    public function getShippingZonesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $shipping_zone_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShippingZonesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1716,6 +1736,7 @@ class ShippingZonesApi
                 'Missing the required parameter $tenant_id when calling getShippingZonesCountAsync'
             );
         }
+
 
 
 
@@ -1760,7 +1781,14 @@ class ShippingZonesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($shipping_zone_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($shipping_zone_dto_collection_query_parameters));
+            } else {
+                $httpBody = $shipping_zone_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1815,16 +1843,16 @@ class ShippingZonesApi
      * @param  string $zone_id zone_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingZoneAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShippingZoneAsync($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
+    public function patchShippingZoneAsync($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
     {
-        list($response) = $this->patchShippingZoneAsyncWithHttpInfo($tenant_id, $zone_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShippingZoneAsyncWithHttpInfo($tenant_id, $zone_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1837,16 +1865,16 @@ class ShippingZonesApi
      * @param  string $zone_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingZoneAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShippingZoneAsyncWithHttpInfo($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
+    public function patchShippingZoneAsyncWithHttpInfo($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
     {
-        $request = $this->patchShippingZoneAsyncRequest($tenant_id, $zone_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShippingZoneAsyncRequest($tenant_id, $zone_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2071,15 +2099,15 @@ class ShippingZonesApi
      * @param  string $zone_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingZoneAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShippingZoneAsyncAsync($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
+    public function patchShippingZoneAsyncAsync($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
     {
-        return $this->patchShippingZoneAsyncAsyncWithHttpInfo($tenant_id, $zone_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShippingZoneAsyncAsyncWithHttpInfo($tenant_id, $zone_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2096,16 +2124,16 @@ class ShippingZonesApi
      * @param  string $zone_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingZoneAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShippingZoneAsyncAsyncWithHttpInfo($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
+    public function patchShippingZoneAsyncAsyncWithHttpInfo($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShippingZoneAsyncRequest($tenant_id, $zone_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShippingZoneAsyncRequest($tenant_id, $zone_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2150,13 +2178,13 @@ class ShippingZonesApi
      * @param  string $zone_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShippingZoneAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShippingZoneAsyncRequest($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
+    public function patchShippingZoneAsyncRequest($tenant_id, $zone_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShippingZoneAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2225,12 +2253,12 @@ class ShippingZonesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

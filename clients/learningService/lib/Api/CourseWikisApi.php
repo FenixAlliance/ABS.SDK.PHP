@@ -84,9 +84,11 @@ class CourseWikisApi
         ],
         'getCourseWikisAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseWikisCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCourseWikiAsync' => [
             'application/json',
@@ -1055,15 +1057,16 @@ class CourseWikisApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseWikiDto[]
      */
-    public function getCourseWikisAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
+    public function getCourseWikisAsync($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
     {
-        list($response) = $this->getCourseWikisAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseWikisAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1075,15 +1078,16 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseWikiDto[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseWikisAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
+    public function getCourseWikisAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
     {
-        $request = $this->getCourseWikisAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseWikisAsyncRequest($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1237,14 +1241,15 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseWikisAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
+    public function getCourseWikisAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
     {
-        return $this->getCourseWikisAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseWikisAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1260,15 +1265,16 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseWikisAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
+    public function getCourseWikisAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseWikiDto[]';
-        $request = $this->getCourseWikisAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseWikisAsyncRequest($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1312,12 +1318,13 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseWikisAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
+    public function getCourseWikisAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1326,6 +1333,7 @@ class CourseWikisApi
                 'Missing the required parameter $tenant_id when calling getCourseWikisAsync'
             );
         }
+
 
 
 
@@ -1370,7 +1378,14 @@ class CourseWikisApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_wiki_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_wiki_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_wiki_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1424,15 +1439,16 @@ class CourseWikisApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|int
      */
-    public function getCourseWikisCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
+    public function getCourseWikisCountAsync($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
     {
-        list($response) = $this->getCourseWikisCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseWikisCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1444,15 +1460,16 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|int, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseWikisCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
+    public function getCourseWikisCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
     {
-        $request = $this->getCourseWikisCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseWikisCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1606,14 +1623,15 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseWikisCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
+    public function getCourseWikisCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
     {
-        return $this->getCourseWikisCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseWikisCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1629,15 +1647,16 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseWikisCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
+    public function getCourseWikisCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getCourseWikisCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseWikisCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_wiki_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1681,12 +1700,13 @@ class CourseWikisApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseWikiDtoCollectionQueryParameters $course_wiki_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseWikisCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseWikisCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
+    public function getCourseWikisCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_wiki_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseWikisCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1695,6 +1715,7 @@ class CourseWikisApi
                 'Missing the required parameter $tenant_id when calling getCourseWikisCountAsync'
             );
         }
+
 
 
 
@@ -1739,7 +1760,14 @@ class CourseWikisApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_wiki_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_wiki_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_wiki_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1794,16 +1822,16 @@ class CourseWikisApi
      * @param  string $wiki_id wiki_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseWikiAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchCourseWikiAsync($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
+    public function patchCourseWikiAsync($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
     {
-        list($response) = $this->patchCourseWikiAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchCourseWikiAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1816,16 +1844,16 @@ class CourseWikisApi
      * @param  string $wiki_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseWikiAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseWikiAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
+    public function patchCourseWikiAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
     {
-        $request = $this->patchCourseWikiAsyncRequest($tenant_id, $wiki_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseWikiAsyncRequest($tenant_id, $wiki_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1980,15 +2008,15 @@ class CourseWikisApi
      * @param  string $wiki_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseWikiAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseWikiAsyncAsync($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
+    public function patchCourseWikiAsyncAsync($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
     {
-        return $this->patchCourseWikiAsyncAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseWikiAsyncAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2005,16 +2033,16 @@ class CourseWikisApi
      * @param  string $wiki_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseWikiAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseWikiAsyncAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
+    public function patchCourseWikiAsyncAsyncWithHttpInfo($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchCourseWikiAsyncRequest($tenant_id, $wiki_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseWikiAsyncRequest($tenant_id, $wiki_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2059,13 +2087,13 @@ class CourseWikisApi
      * @param  string $wiki_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseWikiAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseWikiAsyncRequest($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
+    public function patchCourseWikiAsyncRequest($tenant_id, $wiki_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseWikiAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2134,12 +2162,12 @@ class CourseWikisApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

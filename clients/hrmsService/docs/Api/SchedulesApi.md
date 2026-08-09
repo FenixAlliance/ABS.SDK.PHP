@@ -202,7 +202,7 @@ No authorization required
 ## `getSchedulesAsync()`
 
 ```php
-getSchedulesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ScheduleDtoListEnvelope
+getSchedulesAsync($tenant_id, $api_version, $x_api_version, $schedule_dto_collection_query_parameters): \OpenAPI\Client\Model\ScheduleDtoListEnvelope
 ```
 
 Get schedules
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SchedulesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$schedule_dto_collection_query_parameters = new \OpenAPI\Client\Model\ScheduleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ScheduleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSchedulesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSchedulesAsync($tenant_id, $api_version, $x_api_version, $schedule_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SchedulesApi->getSchedulesAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **schedule_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ScheduleDtoCollectionQueryParameters**](../Model/ScheduleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSchedulesCountAsync()`
 
 ```php
-getSchedulesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSchedulesCountAsync($tenant_id, $api_version, $x_api_version, $schedule_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count schedules
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SchedulesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$schedule_dto_collection_query_parameters = new \OpenAPI\Client\Model\ScheduleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ScheduleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSchedulesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSchedulesCountAsync($tenant_id, $api_version, $x_api_version, $schedule_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SchedulesApi->getSchedulesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **schedule_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ScheduleDtoCollectionQueryParameters**](../Model/ScheduleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchScheduleAsync()`
 
 ```php
-patchScheduleAsync($tenant_id, $schedule_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchScheduleAsync($tenant_id, $schedule_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a schedule
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $schedule_id = 'schedule_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchScheduleAsync($tenant_id, $schedule_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchScheduleAsync($tenant_id, $schedule_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SchedulesApi->patchScheduleAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **schedule_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

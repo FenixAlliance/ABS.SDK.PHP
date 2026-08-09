@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **tenant_id** | **string** |  | [optional]
 **enrollment_id** | **string** |  | [optional]
 **journal_entry_id** | **string** |  | [optional]
@@ -23,7 +24,6 @@ Name | Type | Description | Notes
 **forex_rates_snapshot** | **string** |  | [optional]
 **cost_centre_id** | **string** |  | [optional]
 **project_id** | **string** |  | [optional]
-**timestamp** | **\DateTime** |  | [optional]
 **debit** | **float** |  | [optional] [readonly]
 **credit** | **float** |  | [optional] [readonly]
 **amount** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]

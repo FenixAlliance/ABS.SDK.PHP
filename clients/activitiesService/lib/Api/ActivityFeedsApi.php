@@ -74,6 +74,7 @@ class ActivityFeedsApi
     public const contentTypes = [
         'countActivityTypesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createActivityAsync' => [
             'application/json',
@@ -91,9 +92,11 @@ class ActivityFeedsApi
         ],
         'getActivitiesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getActivitiesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getActivityAsync' => [
             'application/json',
@@ -103,18 +106,22 @@ class ActivityFeedsApi
         ],
         'getActivityFeedsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getActivityFeedsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getActivityRecordsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getActivityTypeByIdAsync' => [
             'application/json',
         ],
         'getActivityTypesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchActivityAsync' => [
             'application/json',
@@ -188,15 +195,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countActivityTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
+    public function countActivityTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
     {
-        list($response) = $this->countActivityTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countActivityTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -208,15 +216,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countActivityTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
+    public function countActivityTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
     {
-        $request = $this->countActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -405,14 +414,15 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countActivityTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
+    public function countActivityTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
     {
-        return $this->countActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -428,15 +438,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
+    public function countActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -480,12 +491,13 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countActivityTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
+    public function countActivityTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countActivityTypesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -494,6 +506,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $tenant_id when calling countActivityTypesAsync'
             );
         }
+
 
 
 
@@ -538,7 +551,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2315,15 +2335,16 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id activity_feed_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ActivityRecordDtoListEnvelope
      */
-    public function getActivitiesAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
+    public function getActivitiesAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
     {
-        list($response) = $this->getActivitiesAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getActivitiesAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2336,15 +2357,16 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ActivityRecordDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivitiesAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
+    public function getActivitiesAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
     {
-        $request = $this->getActivitiesAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivitiesAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2534,14 +2556,15 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivitiesAsyncAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
+    public function getActivitiesAsyncAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
     {
-        return $this->getActivitiesAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType)
+        return $this->getActivitiesAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2558,15 +2581,16 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivitiesAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
+    public function getActivitiesAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ActivityRecordDtoListEnvelope';
-        $request = $this->getActivitiesAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivitiesAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2611,12 +2635,13 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getActivitiesAsyncRequest($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
+    public function getActivitiesAsyncRequest($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2632,6 +2657,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $activity_feed_id when calling getActivitiesAsync'
             );
         }
+
 
 
 
@@ -2684,7 +2710,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2739,15 +2772,16 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id activity_feed_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getActivitiesCountAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
+    public function getActivitiesCountAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
     {
-        list($response) = $this->getActivitiesCountAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getActivitiesCountAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2760,15 +2794,16 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivitiesCountAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
+    public function getActivitiesCountAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
     {
-        $request = $this->getActivitiesCountAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivitiesCountAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2958,14 +2993,15 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivitiesCountAsyncAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
+    public function getActivitiesCountAsyncAsync($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
     {
-        return $this->getActivitiesCountAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType)
+        return $this->getActivitiesCountAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2982,15 +3018,16 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivitiesCountAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
+    public function getActivitiesCountAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getActivitiesCountAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivitiesCountAsyncRequest($tenant_id, $activity_feed_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3035,12 +3072,13 @@ class ActivityFeedsApi
      * @param  string $activity_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivitiesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getActivitiesCountAsyncRequest($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
+    public function getActivitiesCountAsyncRequest($tenant_id, $activity_feed_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivitiesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3056,6 +3094,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $activity_feed_id when calling getActivitiesCountAsync'
             );
         }
+
 
 
 
@@ -3108,7 +3147,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4030,15 +4076,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ActivityFeedDtoListEnvelope
      */
-    public function getActivityFeedsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
+    public function getActivityFeedsAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
     {
-        list($response) = $this->getActivityFeedsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getActivityFeedsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4050,15 +4097,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ActivityFeedDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivityFeedsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
+    public function getActivityFeedsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
     {
-        $request = $this->getActivityFeedsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityFeedsAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4247,14 +4295,15 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityFeedsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
+    public function getActivityFeedsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
     {
-        return $this->getActivityFeedsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getActivityFeedsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4270,15 +4319,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityFeedsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
+    public function getActivityFeedsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ActivityFeedDtoListEnvelope';
-        $request = $this->getActivityFeedsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityFeedsAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4322,12 +4372,13 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getActivityFeedsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
+    public function getActivityFeedsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4336,6 +4387,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $tenant_id when calling getActivityFeedsAsync'
             );
         }
+
 
 
 
@@ -4380,7 +4432,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_feed_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_feed_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_feed_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4434,15 +4493,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getActivityFeedsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
+    public function getActivityFeedsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
     {
-        list($response) = $this->getActivityFeedsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getActivityFeedsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4454,15 +4514,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivityFeedsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
+    public function getActivityFeedsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
     {
-        $request = $this->getActivityFeedsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityFeedsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4651,14 +4712,15 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityFeedsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
+    public function getActivityFeedsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
     {
-        return $this->getActivityFeedsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getActivityFeedsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4674,15 +4736,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityFeedsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
+    public function getActivityFeedsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getActivityFeedsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityFeedsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_feed_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4726,12 +4789,13 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityFeedDtoCollectionQueryParameters $activity_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityFeedsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getActivityFeedsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
+    public function getActivityFeedsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $activity_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityFeedsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4740,6 +4804,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $tenant_id when calling getActivityFeedsCountAsync'
             );
         }
+
 
 
 
@@ -4784,7 +4849,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_feed_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_feed_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_feed_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4838,15 +4910,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityRecordsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getActivityRecordsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
+    public function getActivityRecordsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
     {
-        list($response) = $this->getActivityRecordsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getActivityRecordsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4858,15 +4931,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityRecordsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivityRecordsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
+    public function getActivityRecordsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
     {
-        $request = $this->getActivityRecordsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityRecordsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5055,14 +5129,15 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityRecordsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityRecordsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
+    public function getActivityRecordsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
     {
-        return $this->getActivityRecordsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getActivityRecordsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5078,15 +5153,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityRecordsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityRecordsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
+    public function getActivityRecordsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getActivityRecordsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityRecordsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_record_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5130,12 +5206,13 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityRecordDtoCollectionQueryParameters $activity_record_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityRecordsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getActivityRecordsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
+    public function getActivityRecordsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $activity_record_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityRecordsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5144,6 +5221,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $tenant_id when calling getActivityRecordsCountAsync'
             );
         }
+
 
 
 
@@ -5188,7 +5266,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_record_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_record_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_record_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5666,15 +5751,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ActivityTypeDtoListEnvelope
      */
-    public function getActivityTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
+    public function getActivityTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
     {
-        list($response) = $this->getActivityTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getActivityTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5686,15 +5772,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ActivityTypeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getActivityTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
+    public function getActivityTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
     {
-        $request = $this->getActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5883,14 +5970,15 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
+    public function getActivityTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
     {
-        return $this->getActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5906,15 +5994,16 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
+    public function getActivityTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ActivityTypeDtoListEnvelope';
-        $request = $this->getActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getActivityTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5958,12 +6047,13 @@ class ActivityFeedsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters $activity_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActivityTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getActivityTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
+    public function getActivityTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $activity_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getActivityTypesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5972,6 +6062,7 @@ class ActivityFeedsApi
                 'Missing the required parameter $tenant_id when calling getActivityTypesAsync'
             );
         }
+
 
 
 
@@ -6016,7 +6107,14 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($activity_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activity_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $activity_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6072,16 +6170,16 @@ class ActivityFeedsApi
      * @param  string $activity_id activity_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchActivityAsync($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
+    public function patchActivityAsync($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
     {
-        list($response) = $this->patchActivityAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchActivityAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6095,16 +6193,16 @@ class ActivityFeedsApi
      * @param  string $activity_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchActivityAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
+    public function patchActivityAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
     {
-        $request = $this->patchActivityAsyncRequest($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchActivityAsyncRequest($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6295,15 +6393,15 @@ class ActivityFeedsApi
      * @param  string $activity_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchActivityAsyncAsync($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
+    public function patchActivityAsyncAsync($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
     {
-        return $this->patchActivityAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchActivityAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6321,16 +6419,16 @@ class ActivityFeedsApi
      * @param  string $activity_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchActivityAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
+    public function patchActivityAsyncAsyncWithHttpInfo($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchActivityAsyncRequest($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchActivityAsyncRequest($tenant_id, $activity_feed_id, $activity_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6376,13 +6474,13 @@ class ActivityFeedsApi
      * @param  string $activity_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchActivityAsyncRequest($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
+    public function patchActivityAsyncRequest($tenant_id, $activity_feed_id, $activity_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6466,12 +6564,12 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6528,16 +6626,16 @@ class ActivityFeedsApi
      * @param  string $activity_type_id activity_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchActivityTypeAsync($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
+    public function patchActivityTypeAsync($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
     {
-        list($response) = $this->patchActivityTypeAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchActivityTypeAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6550,16 +6648,16 @@ class ActivityFeedsApi
      * @param  string $activity_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchActivityTypeAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
+    public function patchActivityTypeAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
     {
-        $request = $this->patchActivityTypeAsyncRequest($tenant_id, $activity_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchActivityTypeAsyncRequest($tenant_id, $activity_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6749,15 +6847,15 @@ class ActivityFeedsApi
      * @param  string $activity_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchActivityTypeAsyncAsync($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
+    public function patchActivityTypeAsyncAsync($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
     {
-        return $this->patchActivityTypeAsyncAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchActivityTypeAsyncAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6774,16 +6872,16 @@ class ActivityFeedsApi
      * @param  string $activity_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchActivityTypeAsyncAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
+    public function patchActivityTypeAsyncAsyncWithHttpInfo($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchActivityTypeAsyncRequest($tenant_id, $activity_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchActivityTypeAsyncRequest($tenant_id, $activity_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6828,13 +6926,13 @@ class ActivityFeedsApi
      * @param  string $activity_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchActivityTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchActivityTypeAsyncRequest($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
+    public function patchActivityTypeAsyncRequest($tenant_id, $activity_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchActivityTypeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6903,12 +7001,12 @@ class ActivityFeedsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

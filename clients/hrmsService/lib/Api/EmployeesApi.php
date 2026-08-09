@@ -84,9 +84,11 @@ class EmployeesApi
         ],
         'getEmployeesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getEmployeesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchEmployeeAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class EmployeesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmployeeProfileDtoListEnvelope
      */
-    public function getEmployeesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
+    public function getEmployeesAsync($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
     {
-        list($response) = $this->getEmployeesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEmployeesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmployeeProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
+    public function getEmployeesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
     {
-        $request = $this->getEmployeesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmployeesAsyncRequest($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
+    public function getEmployeesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
     {
-        return $this->getEmployeesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getEmployeesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
+    public function getEmployeesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmployeeProfileDtoListEnvelope';
-        $request = $this->getEmployeesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmployeesAsyncRequest($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
+    public function getEmployeesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class EmployeesApi
                 'Missing the required parameter $tenant_id when calling getEmployeesAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class EmployeesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($employee_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $employee_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class EmployeesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getEmployeesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
+    public function getEmployeesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
     {
-        list($response) = $this->getEmployeesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getEmployeesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
+    public function getEmployeesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
     {
-        $request = $this->getEmployeesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmployeesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
+    public function getEmployeesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
     {
-        return $this->getEmployeesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getEmployeesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
+    public function getEmployeesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getEmployeesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getEmployeesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $employee_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class EmployeesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\EmployeeProfileDtoCollectionQueryParameters $employee_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEmployeesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmployeesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
+    public function getEmployeesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $employee_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getEmployeesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class EmployeesApi
                 'Missing the required parameter $tenant_id when calling getEmployeesCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class EmployeesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($employee_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($employee_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $employee_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class EmployeesApi
      * @param  string $employee_id employee_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmployeeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchEmployeeAsync($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
+    public function patchEmployeeAsync($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
     {
-        list($response) = $this->patchEmployeeAsyncWithHttpInfo($tenant_id, $employee_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchEmployeeAsyncWithHttpInfo($tenant_id, $employee_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class EmployeesApi
      * @param  string $employee_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmployeeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchEmployeeAsyncWithHttpInfo($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
+    public function patchEmployeeAsyncWithHttpInfo($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
     {
-        $request = $this->patchEmployeeAsyncRequest($tenant_id, $employee_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchEmployeeAsyncRequest($tenant_id, $employee_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class EmployeesApi
      * @param  string $employee_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmployeeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchEmployeeAsyncAsync($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
+    public function patchEmployeeAsyncAsync($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
     {
-        return $this->patchEmployeeAsyncAsyncWithHttpInfo($tenant_id, $employee_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchEmployeeAsyncAsyncWithHttpInfo($tenant_id, $employee_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class EmployeesApi
      * @param  string $employee_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmployeeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchEmployeeAsyncAsyncWithHttpInfo($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
+    public function patchEmployeeAsyncAsyncWithHttpInfo($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchEmployeeAsyncRequest($tenant_id, $employee_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchEmployeeAsyncRequest($tenant_id, $employee_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class EmployeesApi
      * @param  string $employee_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchEmployeeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchEmployeeAsyncRequest($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
+    public function patchEmployeeAsyncRequest($tenant_id, $employee_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchEmployeeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class EmployeesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

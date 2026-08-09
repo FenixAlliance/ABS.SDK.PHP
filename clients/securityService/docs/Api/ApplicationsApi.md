@@ -204,7 +204,7 @@ No authorization required
 ## `getBusinessApplicationsAsync()`
 
 ```php
-getBusinessApplicationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BusinessApplicationDtoListEnvelope
+getBusinessApplicationsAsync($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters): \OpenAPI\Client\Model\BusinessApplicationDtoListEnvelope
 ```
 
 Get all business applications
@@ -227,9 +227,10 @@ $apiInstance = new OpenAPI\Client\Api\ApplicationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_application_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessApplicationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessApplicationsAsync($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationsApi->getBusinessApplicationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -243,6 +244,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_application_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters**](../Model/BusinessApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -254,7 +256,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -264,7 +266,7 @@ No authorization required
 ## `getBusinessApplicationsCountAsync()`
 
 ```php
-getBusinessApplicationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBusinessApplicationsCountAsync($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get business applications count
@@ -287,9 +289,10 @@ $apiInstance = new OpenAPI\Client\Api\ApplicationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$business_application_dto_collection_query_parameters = new \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBusinessApplicationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBusinessApplicationsCountAsync($tenant_id, $api_version, $x_api_version, $business_application_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationsApi->getBusinessApplicationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -303,6 +306,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **business_application_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BusinessApplicationDtoCollectionQueryParameters**](../Model/BusinessApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -314,7 +318,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -448,7 +452,7 @@ No authorization required
 ## `patchBusinessApplicationAsync()`
 
 ```php
-patchBusinessApplicationAsync($tenant_id, $application_id, $operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+patchBusinessApplicationAsync($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an existing business application
@@ -470,12 +474,12 @@ $apiInstance = new OpenAPI\Client\Api\ApplicationsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $application_id = 'application_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->patchBusinessApplicationAsync($tenant_id, $application_id, $operation, $api_version, $x_api_version);
+    $result = $apiInstance->patchBusinessApplicationAsync($tenant_id, $application_id, $patch_operation, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationsApi->patchBusinessApplicationAsync: ', $e->getMessage(), PHP_EOL;
@@ -488,7 +492,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **application_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

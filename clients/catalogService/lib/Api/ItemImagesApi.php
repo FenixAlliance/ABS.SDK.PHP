@@ -84,6 +84,7 @@ class ItemImagesApi
         ],
         'getItemImagesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchItemImageAsync' => [
             'application/json',
@@ -1263,15 +1264,16 @@ class ItemImagesApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemImagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemImageDtoListEnvelope
      */
-    public function getItemImagesAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
+    public function getItemImagesAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
     {
-        list($response) = $this->getItemImagesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getItemImagesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1283,15 +1285,16 @@ class ItemImagesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemImagesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ItemImageDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemImagesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
+    public function getItemImagesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
     {
-        $request = $this->getItemImagesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemImagesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1480,14 +1483,15 @@ class ItemImagesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemImagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemImagesAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
+    public function getItemImagesAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
     {
-        return $this->getItemImagesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getItemImagesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1503,15 +1507,16 @@ class ItemImagesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemImagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemImagesAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
+    public function getItemImagesAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemImageDtoListEnvelope';
-        $request = $this->getItemImagesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getItemImagesAsyncRequest($tenant_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1555,13 +1560,15 @@ class ItemImagesApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters $item_image_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemImagesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemImagesAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
+    public function getItemImagesAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $item_image_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getItemImagesAsync'][0])
     {
+
 
 
 
@@ -1607,7 +1614,14 @@ class ItemImagesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($item_image_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_image_dto_collection_query_parameters));
+            } else {
+                $httpBody = $item_image_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1662,16 +1676,16 @@ class ItemImagesApi
      * @param  string $item_image_id item_image_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemImageAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchItemImageAsync($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
+    public function patchItemImageAsync($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
     {
-        $this->patchItemImageAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchItemImageAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1683,16 +1697,16 @@ class ItemImagesApi
      * @param  string $item_image_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemImageAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchItemImageAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
+    public function patchItemImageAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
     {
-        $request = $this->patchItemImageAsyncRequest($tenant_id, $item_image_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemImageAsyncRequest($tenant_id, $item_image_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1751,15 +1765,15 @@ class ItemImagesApi
      * @param  string $item_image_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemImageAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemImageAsyncAsync($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
+    public function patchItemImageAsyncAsync($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
     {
-        return $this->patchItemImageAsyncAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchItemImageAsyncAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1776,16 +1790,16 @@ class ItemImagesApi
      * @param  string $item_image_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemImageAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchItemImageAsyncAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
+    public function patchItemImageAsyncAsyncWithHttpInfo($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchItemImageAsyncRequest($tenant_id, $item_image_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchItemImageAsyncRequest($tenant_id, $item_image_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1817,13 +1831,13 @@ class ItemImagesApi
      * @param  string $item_image_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchItemImageAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchItemImageAsyncRequest($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
+    public function patchItemImageAsyncRequest($tenant_id, $item_image_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchItemImageAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1892,12 +1906,12 @@ class ItemImagesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

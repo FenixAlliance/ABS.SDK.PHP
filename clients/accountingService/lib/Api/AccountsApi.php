@@ -74,6 +74,7 @@ class AccountsApi
     public const contentTypes = [
         'aggregateAccountsBalanceAsync' => [
             'application/json',
+            'application/xml',
         ],
         'balanceAccountAsync' => [
             'application/json',
@@ -123,45 +124,56 @@ class AccountsApi
         ],
         'getAccountCreditsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountCreditsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountDebitsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountDebitsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountDetailsAsync' => [
             'application/json',
         ],
         'getAccountEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountEntryAsync' => [
             'application/json',
         ],
         'getAccountRelationsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountRelationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountTypeByIdAsync' => [
             'application/json',
         ],
         'getAccountTypesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountTypesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAccountsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getChartsOfAccountsAsync' => [
             'application/json',
@@ -171,12 +183,15 @@ class AccountsApi
         ],
         'getCreditAccountEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getDebitAccountEntriesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRootAccountsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchAccountAsync' => [
             'application/json',
@@ -271,15 +286,16 @@ class AccountsApi
      * @param  string $currency_id currency_id (optional, default to 'USD.USA')
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function aggregateAccountsBalanceAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
-        list($response) = $this->aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -292,15 +308,16 @@ class AccountsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
-        $request = $this->aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $contentType);
+        $request = $this->aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -490,14 +507,15 @@ class AccountsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateAccountsBalanceAsyncAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
-        return $this->aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $contentType)
+        return $this->aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -514,15 +532,16 @@ class AccountsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
-        $request = $this->aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $contentType);
+        $request = $this->aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -567,12 +586,13 @@ class AccountsApi
      * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -581,6 +601,7 @@ class AccountsApi
                 'Missing the required parameter $tenant_id when calling aggregateAccountsBalanceAsync'
             );
         }
+
 
 
 
@@ -635,7 +656,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6340,15 +6368,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
      */
-    public function getAccountCreditsAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
+    public function getAccountCreditsAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
     {
-        list($response) = $this->getAccountCreditsAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountCreditsAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6361,15 +6390,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountCreditsAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
+    public function getAccountCreditsAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
     {
-        $request = $this->getAccountCreditsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountCreditsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6559,14 +6589,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountCreditsAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
+    public function getAccountCreditsAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
     {
-        return $this->getAccountCreditsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountCreditsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6583,15 +6614,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountCreditsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
+    public function getAccountCreditsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope';
-        $request = $this->getAccountCreditsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountCreditsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6636,12 +6668,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountCreditsAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
+    public function getAccountCreditsAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6657,6 +6690,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountCreditsAsync'
             );
         }
+
 
 
 
@@ -6709,7 +6743,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6764,15 +6805,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAccountCreditsCountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
+    public function getAccountCreditsCountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
     {
-        list($response) = $this->getAccountCreditsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountCreditsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -6785,15 +6827,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountCreditsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
+    public function getAccountCreditsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
     {
-        $request = $this->getAccountCreditsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountCreditsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6983,14 +7026,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountCreditsCountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
+    public function getAccountCreditsCountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
     {
-        return $this->getAccountCreditsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountCreditsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7007,15 +7051,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountCreditsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
+    public function getAccountCreditsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAccountCreditsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountCreditsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7060,12 +7105,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountCreditsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountCreditsCountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
+    public function getAccountCreditsCountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountCreditsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7081,6 +7127,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountCreditsCountAsync'
             );
         }
+
 
 
 
@@ -7133,7 +7180,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7188,15 +7242,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
      */
-    public function getAccountDebitsAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
+    public function getAccountDebitsAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
     {
-        list($response) = $this->getAccountDebitsAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountDebitsAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7209,15 +7264,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountDebitsAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
+    public function getAccountDebitsAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
     {
-        $request = $this->getAccountDebitsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountDebitsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7407,14 +7463,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountDebitsAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
+    public function getAccountDebitsAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
     {
-        return $this->getAccountDebitsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountDebitsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7431,15 +7488,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountDebitsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
+    public function getAccountDebitsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope';
-        $request = $this->getAccountDebitsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountDebitsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7484,12 +7542,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountDebitsAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
+    public function getAccountDebitsAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7505,6 +7564,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountDebitsAsync'
             );
         }
+
 
 
 
@@ -7557,7 +7617,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7612,15 +7679,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAccountDebitsCountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
+    public function getAccountDebitsCountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
     {
-        list($response) = $this->getAccountDebitsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountDebitsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7633,15 +7701,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountDebitsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
+    public function getAccountDebitsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
     {
-        $request = $this->getAccountDebitsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountDebitsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7831,14 +7900,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountDebitsCountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
+    public function getAccountDebitsCountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
     {
-        return $this->getAccountDebitsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountDebitsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7855,15 +7925,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountDebitsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
+    public function getAccountDebitsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAccountDebitsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountDebitsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7908,12 +7979,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountDebitsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountDebitsCountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
+    public function getAccountDebitsCountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountDebitsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7929,6 +8001,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountDebitsCountAsync'
             );
         }
+
 
 
 
@@ -7981,7 +8054,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8460,15 +8540,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
      */
-    public function getAccountEntriesAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
+    public function getAccountEntriesAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
     {
-        list($response) = $this->getAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8481,15 +8562,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
+    public function getAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
     {
-        $request = $this->getAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8679,14 +8761,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountEntriesAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
+    public function getAccountEntriesAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
     {
-        return $this->getAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8703,15 +8786,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
+    public function getAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope';
-        $request = $this->getAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8756,12 +8840,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
+    public function getAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -8777,6 +8862,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountEntriesAsync'
             );
         }
+
 
 
 
@@ -8829,7 +8915,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9328,15 +9421,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountRelationDtoListEnvelope
      */
-    public function getAccountRelationsAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
+    public function getAccountRelationsAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
     {
-        list($response) = $this->getAccountRelationsAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountRelationsAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9349,15 +9443,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountRelationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountRelationsAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
+    public function getAccountRelationsAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
     {
-        $request = $this->getAccountRelationsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountRelationsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9547,14 +9642,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountRelationsAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
+    public function getAccountRelationsAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
     {
-        return $this->getAccountRelationsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountRelationsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9571,15 +9667,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountRelationsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
+    public function getAccountRelationsAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountRelationDtoListEnvelope';
-        $request = $this->getAccountRelationsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountRelationsAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9624,12 +9721,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountRelationsAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
+    public function getAccountRelationsAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9645,6 +9743,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountRelationsAsync'
             );
         }
+
 
 
 
@@ -9698,7 +9797,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_relation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_relation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_relation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -9753,15 +9859,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAccountRelationsCountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
+    public function getAccountRelationsCountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
     {
-        list($response) = $this->getAccountRelationsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountRelationsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -9774,15 +9881,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountRelationsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
+    public function getAccountRelationsCountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
     {
-        $request = $this->getAccountRelationsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountRelationsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9972,14 +10080,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountRelationsCountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
+    public function getAccountRelationsCountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
     {
-        return $this->getAccountRelationsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountRelationsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9996,15 +10105,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountRelationsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
+    public function getAccountRelationsCountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAccountRelationsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountRelationsCountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10049,12 +10159,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters $account_relation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountRelationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountRelationsCountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
+    public function getAccountRelationsCountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $account_relation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountRelationsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -10070,6 +10181,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getAccountRelationsCountAsync'
             );
         }
+
 
 
 
@@ -10123,7 +10235,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_relation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_relation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_relation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10601,15 +10720,16 @@ class AccountsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountTypeDtoListEnvelope
      */
-    public function getAccountTypesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
+    public function getAccountTypesAsync($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
     {
-        list($response) = $this->getAccountTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountTypesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -10621,15 +10741,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountTypeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
+    public function getAccountTypesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
     {
-        $request = $this->getAccountTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10818,14 +10939,15 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
+    public function getAccountTypesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
     {
-        return $this->getAccountTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10841,15 +10963,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
+    public function getAccountTypesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountTypeDtoListEnvelope';
-        $request = $this->getAccountTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountTypesAsyncRequest($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10893,12 +11016,13 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
+    public function getAccountTypesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -10907,6 +11031,7 @@ class AccountsApi
                 'Missing the required parameter $tenant_id when calling getAccountTypesAsync'
             );
         }
+
 
 
 
@@ -10951,7 +11076,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11005,15 +11137,16 @@ class AccountsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAccountTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
+    public function getAccountTypesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
     {
-        list($response) = $this->getAccountTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountTypesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11025,15 +11158,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
+    public function getAccountTypesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
     {
-        $request = $this->getAccountTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11222,14 +11356,15 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
+    public function getAccountTypesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
     {
-        return $this->getAccountTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11245,15 +11380,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
+    public function getAccountTypesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAccountTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountTypesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11297,12 +11433,13 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters $account_type_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountTypesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
+    public function getAccountTypesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $account_type_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountTypesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -11311,6 +11448,7 @@ class AccountsApi
                 'Missing the required parameter $tenant_id when calling getAccountTypesCountAsync'
             );
         }
+
 
 
 
@@ -11355,7 +11493,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_type_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_type_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_type_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11409,15 +11554,16 @@ class AccountsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountDtoListEnvelope
      */
-    public function getAccountsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
+    public function getAccountsAsync($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
     {
-        list($response) = $this->getAccountsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11429,15 +11575,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
+    public function getAccountsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
     {
-        $request = $this->getAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11626,14 +11773,15 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
+    public function getAccountsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
     {
-        return $this->getAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11649,15 +11797,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
+    public function getAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountDtoListEnvelope';
-        $request = $this->getAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11701,12 +11850,13 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
+    public function getAccountsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -11715,6 +11865,7 @@ class AccountsApi
                 'Missing the required parameter $tenant_id when calling getAccountsAsync'
             );
         }
+
 
 
 
@@ -11759,7 +11910,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -11813,15 +11971,16 @@ class AccountsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAccountsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
+    public function getAccountsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
     {
-        list($response) = $this->getAccountsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAccountsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -11833,15 +11992,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
+    public function getAccountsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
     {
-        $request = $this->getAccountsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12030,14 +12190,15 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
+    public function getAccountsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
     {
-        return $this->getAccountsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAccountsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12053,15 +12214,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
+    public function getAccountsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAccountsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAccountsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12105,12 +12267,13 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccountsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
+    public function getAccountsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAccountsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -12119,6 +12282,7 @@ class AccountsApi
                 'Missing the required parameter $tenant_id when calling getAccountsCountAsync'
             );
         }
+
 
 
 
@@ -12163,7 +12327,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13025,15 +13196,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
      */
-    public function getCreditAccountEntriesAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
+    public function getCreditAccountEntriesAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
     {
-        list($response) = $this->getCreditAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCreditAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13046,15 +13218,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
+    public function getCreditAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
     {
-        $request = $this->getCreditAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCreditAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13244,14 +13417,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditAccountEntriesAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
+    public function getCreditAccountEntriesAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
     {
-        return $this->getCreditAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getCreditAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13268,15 +13442,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
+    public function getCreditAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope';
-        $request = $this->getCreditAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCreditAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13321,12 +13496,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreditAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
+    public function getCreditAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCreditAccountEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -13342,6 +13518,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getCreditAccountEntriesAsync'
             );
         }
+
 
 
 
@@ -13394,7 +13571,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13449,15 +13633,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
      */
-    public function getDebitAccountEntriesAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
+    public function getDebitAccountEntriesAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
     {
-        list($response) = $this->getDebitAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getDebitAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13470,15 +13655,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDebitAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
+    public function getDebitAccountEntriesAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
     {
-        $request = $this->getDebitAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDebitAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13668,14 +13854,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDebitAccountEntriesAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
+    public function getDebitAccountEntriesAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
     {
-        return $this->getDebitAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $contentType)
+        return $this->getDebitAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13692,15 +13879,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDebitAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
+    public function getDebitAccountEntriesAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope';
-        $request = $this->getDebitAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getDebitAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13745,12 +13933,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters $accounting_entry_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDebitAccountEntriesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDebitAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
+    public function getDebitAccountEntriesAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $accounting_entry_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getDebitAccountEntriesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -13766,6 +13955,7 @@ class AccountsApi
                 'Missing the required parameter $account_id when calling getDebitAccountEntriesAsync'
             );
         }
+
 
 
 
@@ -13818,7 +14008,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($accounting_entry_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accounting_entry_dto_collection_query_parameters));
+            } else {
+                $httpBody = $accounting_entry_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13872,15 +14069,16 @@ class AccountsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRootAccountsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountDtoListEnvelope
      */
-    public function getRootAccountsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
+    public function getRootAccountsAsync($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
     {
-        list($response) = $this->getRootAccountsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRootAccountsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -13892,15 +14090,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRootAccountsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRootAccountsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
+    public function getRootAccountsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
     {
-        $request = $this->getRootAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRootAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14089,14 +14288,15 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRootAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRootAccountsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
+    public function getRootAccountsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
     {
-        return $this->getRootAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRootAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14112,15 +14312,16 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRootAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRootAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
+    public function getRootAccountsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountDtoListEnvelope';
-        $request = $this->getRootAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRootAccountsAsyncRequest($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14164,12 +14365,13 @@ class AccountsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters $account_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRootAccountsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRootAccountsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
+    public function getRootAccountsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $account_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRootAccountsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -14178,6 +14380,7 @@ class AccountsApi
                 'Missing the required parameter $tenant_id when calling getRootAccountsAsync'
             );
         }
+
 
 
 
@@ -14222,7 +14425,14 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($account_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_dto_collection_query_parameters));
+            } else {
+                $httpBody = $account_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -14277,16 +14487,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAccountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
+    public function patchAccountAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
     {
-        list($response) = $this->patchAccountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAccountAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -14299,16 +14509,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAccountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
+    public function patchAccountAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
     {
-        $request = $this->patchAccountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14498,15 +14708,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
+    public function patchAccountAsyncAsync($tenant_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
     {
-        return $this->patchAccountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAccountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14523,16 +14733,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
+    public function patchAccountAsyncAsyncWithHttpInfo($tenant_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAccountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountAsyncRequest($tenant_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14577,13 +14787,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAccountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
+    public function patchAccountAsyncRequest($tenant_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -14652,12 +14862,12 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -14715,16 +14925,16 @@ class AccountsApi
      * @param  string $entry_id entry_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAccountEntryAsync($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
+    public function patchAccountEntryAsync($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
     {
-        list($response) = $this->patchAccountEntryAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAccountEntryAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -14738,16 +14948,16 @@ class AccountsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAccountEntryAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
+    public function patchAccountEntryAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
     {
-        $request = $this->patchAccountEntryAsyncRequest($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountEntryAsyncRequest($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14938,15 +15148,15 @@ class AccountsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountEntryAsyncAsync($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
+    public function patchAccountEntryAsyncAsync($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
     {
-        return $this->patchAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14964,16 +15174,16 @@ class AccountsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
+    public function patchAccountEntryAsyncAsyncWithHttpInfo($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAccountEntryAsyncRequest($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountEntryAsyncRequest($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15019,13 +15229,13 @@ class AccountsApi
      * @param  string $entry_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountEntryAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAccountEntryAsyncRequest($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
+    public function patchAccountEntryAsyncRequest($tenant_id, $account_id, $entry_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountEntryAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -15109,12 +15319,12 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15172,16 +15382,16 @@ class AccountsApi
      * @param  string $account_id account_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountRelationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAccountRelationAsync($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
+    public function patchAccountRelationAsync($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
     {
-        list($response) = $this->patchAccountRelationAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAccountRelationAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -15195,16 +15405,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountRelationAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAccountRelationAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
+    public function patchAccountRelationAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
     {
-        $request = $this->patchAccountRelationAsyncRequest($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountRelationAsyncRequest($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15395,15 +15605,15 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountRelationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountRelationAsyncAsync($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
+    public function patchAccountRelationAsyncAsync($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
     {
-        return $this->patchAccountRelationAsyncAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAccountRelationAsyncAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15421,16 +15631,16 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountRelationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountRelationAsyncAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
+    public function patchAccountRelationAsyncAsyncWithHttpInfo($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAccountRelationAsyncRequest($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountRelationAsyncRequest($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15476,13 +15686,13 @@ class AccountsApi
      * @param  string $account_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountRelationAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAccountRelationAsyncRequest($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
+    public function patchAccountRelationAsyncRequest($tenant_id, $account_relation_id, $account_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountRelationAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -15567,12 +15777,12 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15629,16 +15839,16 @@ class AccountsApi
      * @param  string $account_type_id account_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAccountTypeAsync($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
+    public function patchAccountTypeAsync($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
     {
-        list($response) = $this->patchAccountTypeAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchAccountTypeAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -15651,16 +15861,16 @@ class AccountsApi
      * @param  string $account_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountTypeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAccountTypeAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
+    public function patchAccountTypeAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
     {
-        $request = $this->patchAccountTypeAsyncRequest($tenant_id, $account_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountTypeAsyncRequest($tenant_id, $account_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15850,15 +16060,15 @@ class AccountsApi
      * @param  string $account_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountTypeAsyncAsync($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
+    public function patchAccountTypeAsyncAsync($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
     {
-        return $this->patchAccountTypeAsyncAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchAccountTypeAsyncAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15875,16 +16085,16 @@ class AccountsApi
      * @param  string $account_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAccountTypeAsyncAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
+    public function patchAccountTypeAsyncAsyncWithHttpInfo($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAccountTypeAsyncRequest($tenant_id, $account_type_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchAccountTypeAsyncRequest($tenant_id, $account_type_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15929,13 +16139,13 @@ class AccountsApi
      * @param  string $account_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAccountTypeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAccountTypeAsyncRequest($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
+    public function patchAccountTypeAsyncRequest($tenant_id, $account_type_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchAccountTypeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -16004,12 +16214,12 @@ class AccountsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

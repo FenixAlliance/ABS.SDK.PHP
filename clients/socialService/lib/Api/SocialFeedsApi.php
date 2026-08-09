@@ -81,21 +81,25 @@ class SocialFeedsApi
         ],
         'getFeedNotifications' => [
             'application/json',
+            'application/xml',
         ],
         'getFeedPostAsync' => [
             'application/json',
         ],
         'getFeedPostsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getFeedPostsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getNotificationAsync' => [
             'application/json',
         ],
         'getNotificationsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchFeedPostAsync' => [
             'application/json',
@@ -167,7 +171,7 @@ class SocialFeedsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\StringEnvelope
      */
     public function createFeedPostAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_create_dto = null, string $contentType = self::contentTypes['createFeedPostAsync'][0])
     {
@@ -189,7 +193,7 @@ class SocialFeedsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\StringEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFeedPostAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_create_dto = null, string $contentType = self::contentTypes['createFeedPostAsync'][0])
     {
@@ -273,12 +277,12 @@ class SocialFeedsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 201:
-                    if ('\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope' === '\SplFileObject') {
+                case 200:
+                    if ('\OpenAPI\Client\Model\StringEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\StringEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -296,7 +300,7 @@ class SocialFeedsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\StringEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -315,7 +319,7 @@ class SocialFeedsApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope';
+            $returnType = '\OpenAPI\Client\Model\StringEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -361,10 +365,10 @@ class SocialFeedsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope',
+                        '\OpenAPI\Client\Model\StringEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -416,7 +420,7 @@ class SocialFeedsApi
      */
     public function createFeedPostAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_create_dto = null, string $contentType = self::contentTypes['createFeedPostAsync'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SocialFeedPostDtoEnvelope';
+        $returnType = '\OpenAPI\Client\Model\StringEnvelope';
         $request = $this->createFeedPostAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_create_dto, $contentType);
 
         return $this->client
@@ -1042,15 +1046,16 @@ class SocialFeedsApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedNotifications'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialFeedDtoListEnvelope
      */
-    public function getFeedNotifications($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
+    public function getFeedNotifications($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
     {
-        list($response) = $this->getFeedNotificationsWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFeedNotificationsWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1062,15 +1067,16 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedNotifications'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialFeedDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedNotificationsWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
+    public function getFeedNotificationsWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
     {
-        $request = $this->getFeedNotificationsRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFeedNotificationsRequest($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1259,14 +1265,15 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedNotifications'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedNotificationsAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
+    public function getFeedNotificationsAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
     {
-        return $this->getFeedNotificationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getFeedNotificationsAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1282,15 +1289,16 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedNotifications'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedNotificationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
+    public function getFeedNotificationsAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialFeedDtoListEnvelope';
-        $request = $this->getFeedNotificationsRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFeedNotificationsRequest($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1334,12 +1342,13 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedNotifications'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFeedNotificationsRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
+    public function getFeedNotificationsRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedNotifications'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -1348,6 +1357,7 @@ class SocialFeedsApi
                 'Missing the required parameter $social_profile_id when calling getFeedNotifications'
             );
         }
+
 
 
 
@@ -1392,7 +1402,14 @@ class SocialFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_feed_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_feed_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_feed_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1908,16 @@ class SocialFeedsApi
      * @param  string $social_feed_id social_feed_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialFeedPostDtoListEnvelope
      */
-    public function getFeedPostsAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
+    public function getFeedPostsAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
     {
-        list($response) = $this->getFeedPostsAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFeedPostsAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1912,15 +1930,16 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SocialFeedPostDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedPostsAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
+    public function getFeedPostsAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
     {
-        $request = $this->getFeedPostsAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFeedPostsAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2110,14 +2129,15 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedPostsAsyncAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
+    public function getFeedPostsAsyncAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
     {
-        return $this->getFeedPostsAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType)
+        return $this->getFeedPostsAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2134,15 +2154,16 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedPostsAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
+    public function getFeedPostsAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SocialFeedPostDtoListEnvelope';
-        $request = $this->getFeedPostsAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFeedPostsAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2187,12 +2208,13 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFeedPostsAsyncRequest($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
+    public function getFeedPostsAsyncRequest($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -2208,6 +2230,7 @@ class SocialFeedsApi
                 'Missing the required parameter $social_feed_id when calling getFeedPostsAsync'
             );
         }
+
 
 
 
@@ -2260,7 +2283,14 @@ class SocialFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_feed_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_feed_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_feed_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2315,15 +2345,16 @@ class SocialFeedsApi
      * @param  string $social_feed_id social_feed_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getFeedPostsCountAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
+    public function getFeedPostsCountAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
     {
-        list($response) = $this->getFeedPostsCountAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getFeedPostsCountAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2336,15 +2367,16 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedPostsCountAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
+    public function getFeedPostsCountAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
     {
-        $request = $this->getFeedPostsCountAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFeedPostsCountAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2534,14 +2566,15 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedPostsCountAsyncAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
+    public function getFeedPostsCountAsyncAsync($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
     {
-        return $this->getFeedPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType)
+        return $this->getFeedPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2558,15 +2591,16 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
+    public function getFeedPostsCountAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getFeedPostsCountAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getFeedPostsCountAsyncRequest($social_profile_id, $social_feed_id, $api_version, $x_api_version, $social_feed_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2611,12 +2645,13 @@ class SocialFeedsApi
      * @param  string $social_feed_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedPostDtoCollectionQueryParameters $social_feed_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedPostsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFeedPostsCountAsyncRequest($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
+    public function getFeedPostsCountAsyncRequest($social_profile_id, $social_feed_id, $api_version = null, $x_api_version = null, $social_feed_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getFeedPostsCountAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -2632,6 +2667,7 @@ class SocialFeedsApi
                 'Missing the required parameter $social_feed_id when calling getFeedPostsCountAsync'
             );
         }
+
 
 
 
@@ -2684,7 +2720,14 @@ class SocialFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_feed_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_feed_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_feed_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3162,15 +3205,16 @@ class SocialFeedsApi
      * @param  string $social_profile_id social_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getNotificationsCountAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
+    public function getNotificationsCountAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
     {
-        list($response) = $this->getNotificationsCountAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getNotificationsCountAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3182,15 +3226,16 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotificationsCountAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
+    public function getNotificationsCountAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
     {
-        $request = $this->getNotificationsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNotificationsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3379,14 +3424,15 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationsCountAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
+    public function getNotificationsCountAsyncAsync($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
     {
-        return $this->getNotificationsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $contentType)
+        return $this->getNotificationsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3402,15 +3448,16 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
+    public function getNotificationsCountAsyncAsyncWithHttpInfo($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getNotificationsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getNotificationsCountAsyncRequest($social_profile_id, $api_version, $x_api_version, $social_feed_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3454,12 +3501,13 @@ class SocialFeedsApi
      * @param  string $social_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SocialFeedDtoCollectionQueryParameters $social_feed_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNotificationsCountAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
+    public function getNotificationsCountAsyncRequest($social_profile_id, $api_version = null, $x_api_version = null, $social_feed_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getNotificationsCountAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -3468,6 +3516,7 @@ class SocialFeedsApi
                 'Missing the required parameter $social_profile_id when calling getNotificationsCountAsync'
             );
         }
+
 
 
 
@@ -3512,7 +3561,14 @@ class SocialFeedsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($social_feed_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($social_feed_dto_collection_query_parameters));
+            } else {
+                $httpBody = $social_feed_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3568,16 +3624,16 @@ class SocialFeedsApi
      * @param  string $feed_post_id feed_post_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFeedPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchFeedPostAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
+    public function patchFeedPostAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
     {
-        list($response) = $this->patchFeedPostAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchFeedPostAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3591,16 +3647,16 @@ class SocialFeedsApi
      * @param  string $feed_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFeedPostAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchFeedPostAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
+    public function patchFeedPostAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
     {
-        $request = $this->patchFeedPostAsyncRequest($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFeedPostAsyncRequest($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3791,15 +3847,15 @@ class SocialFeedsApi
      * @param  string $feed_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFeedPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFeedPostAsyncAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
+    public function patchFeedPostAsyncAsync($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
     {
-        return $this->patchFeedPostAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchFeedPostAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3817,16 +3873,16 @@ class SocialFeedsApi
      * @param  string $feed_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFeedPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchFeedPostAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
+    public function patchFeedPostAsyncAsyncWithHttpInfo($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchFeedPostAsyncRequest($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchFeedPostAsyncRequest($social_profile_id, $social_feed_id, $feed_post_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3872,13 +3928,13 @@ class SocialFeedsApi
      * @param  string $feed_post_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchFeedPostAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchFeedPostAsyncRequest($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
+    public function patchFeedPostAsyncRequest($social_profile_id, $social_feed_id, $feed_post_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchFeedPostAsync'][0])
     {
 
         // verify the required parameter 'social_profile_id' is set
@@ -3962,12 +4018,12 @@ class SocialFeedsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -200,7 +200,7 @@ No authorization required
 ## `getProductionPlansAsync()`
 
 ```php
-getProductionPlansAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProductionPlanDtoListEnvelope
+getProductionPlansAsync($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters): \OpenAPI\Client\Model\ProductionPlanDtoListEnvelope
 ```
 
 Get all production plans
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductionPlansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$production_plan_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProductionPlansAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProductionPlansAsync($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductionPlansApi->getProductionPlansAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **production_plan_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters**](../Model/ProductionPlanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getProductionPlansCountAsync()`
 
 ```php
-getProductionPlansCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getProductionPlansCountAsync($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get production plans count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductionPlansApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$production_plan_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProductionPlansCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProductionPlansCountAsync($tenant_id, $api_version, $x_api_version, $production_plan_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductionPlansApi->getProductionPlansCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **production_plan_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProductionPlanDtoCollectionQueryParameters**](../Model/ProductionPlanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchProductionPlanAsync()`
 
 ```php
-patchProductionPlanAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchProductionPlanAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a production plan
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchProductionPlanAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchProductionPlanAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductionPlansApi->patchProductionPlanAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

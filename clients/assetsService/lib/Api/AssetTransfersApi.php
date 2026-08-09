@@ -84,9 +84,11 @@ class AssetTransfersApi
         ],
         'getAssetTransfersAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getAssetTransfersCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchAssetTransferAsync' => [
             'application/json',
@@ -1340,15 +1342,16 @@ class AssetTransfersApi
      * Gets a list of asset transfers
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AssetTransferDtoListEnvelope
      */
-    public function getAssetTransfersAsync($tenant_id, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
+    public function getAssetTransfersAsync($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
     {
-        list($response) = $this->getAssetTransfersAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getAssetTransfersAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1358,15 +1361,16 @@ class AssetTransfersApi
      * Gets a list of asset transfers
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AssetTransferDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAssetTransfersAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
+    public function getAssetTransfersAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
     {
-        $request = $this->getAssetTransfersAsyncRequest($tenant_id, $contentType);
+        $request = $this->getAssetTransfersAsyncRequest($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1553,14 +1557,15 @@ class AssetTransfersApi
      * Gets a list of asset transfers
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetTransfersAsyncAsync($tenant_id, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
+    public function getAssetTransfersAsyncAsync($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
     {
-        return $this->getAssetTransfersAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getAssetTransfersAsyncAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1574,15 +1579,16 @@ class AssetTransfersApi
      * Gets a list of asset transfers
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetTransfersAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
+    public function getAssetTransfersAsyncAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AssetTransferDtoListEnvelope';
-        $request = $this->getAssetTransfersAsyncRequest($tenant_id, $contentType);
+        $request = $this->getAssetTransfersAsyncRequest($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1624,12 +1630,13 @@ class AssetTransfersApi
      * Create request for operation 'getAssetTransfersAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAssetTransfersAsyncRequest($tenant_id, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
+    public function getAssetTransfersAsyncRequest($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1638,6 +1645,7 @@ class AssetTransfersApi
                 'Missing the required parameter $tenant_id when calling getAssetTransfersAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/AssetsService/AssetTransfers';
@@ -1667,7 +1675,14 @@ class AssetTransfersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($asset_transfer_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($asset_transfer_dto_collection_query_parameters));
+            } else {
+                $httpBody = $asset_transfer_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1719,15 +1734,16 @@ class AssetTransfersApi
      * Gets the count of asset transfers
      *
      * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getAssetTransfersCountAsync($tenant_id, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
+    public function getAssetTransfersCountAsync($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
     {
-        list($response) = $this->getAssetTransfersCountAsyncWithHttpInfo($tenant_id, $contentType);
+        list($response) = $this->getAssetTransfersCountAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1737,15 +1753,16 @@ class AssetTransfersApi
      * Gets the count of asset transfers
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAssetTransfersCountAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
+    public function getAssetTransfersCountAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
     {
-        $request = $this->getAssetTransfersCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getAssetTransfersCountAsyncRequest($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1932,14 +1949,15 @@ class AssetTransfersApi
      * Gets the count of asset transfers
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetTransfersCountAsyncAsync($tenant_id, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
+    public function getAssetTransfersCountAsyncAsync($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
     {
-        return $this->getAssetTransfersCountAsyncAsyncWithHttpInfo($tenant_id, $contentType)
+        return $this->getAssetTransfersCountAsyncAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1953,15 +1971,16 @@ class AssetTransfersApi
      * Gets the count of asset transfers
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAssetTransfersCountAsyncAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
+    public function getAssetTransfersCountAsyncAsyncWithHttpInfo($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getAssetTransfersCountAsyncRequest($tenant_id, $contentType);
+        $request = $this->getAssetTransfersCountAsyncRequest($tenant_id, $asset_transfer_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2003,12 +2022,13 @@ class AssetTransfersApi
      * Create request for operation 'getAssetTransfersCountAsync'
      *
      * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\AssetTransferDtoCollectionQueryParameters $asset_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAssetTransfersCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAssetTransfersCountAsyncRequest($tenant_id, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
+    public function getAssetTransfersCountAsyncRequest($tenant_id, $asset_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAssetTransfersCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2017,6 +2037,7 @@ class AssetTransfersApi
                 'Missing the required parameter $tenant_id when calling getAssetTransfersCountAsync'
             );
         }
+
 
 
         $resourcePath = '/api/v2/AssetsService/AssetTransfers/Count';
@@ -2046,7 +2067,14 @@ class AssetTransfersApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($asset_transfer_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($asset_transfer_dto_collection_query_parameters));
+            } else {
+                $httpBody = $asset_transfer_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2099,16 +2127,16 @@ class AssetTransfersApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $transfer_id transfer_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetTransferAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchAssetTransferAsync($tenant_id, $transfer_id, $operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
+    public function patchAssetTransferAsync($tenant_id, $transfer_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
     {
-        list($response) = $this->patchAssetTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $operation, $contentType);
+        list($response) = $this->patchAssetTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2119,16 +2147,16 @@ class AssetTransfersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $transfer_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetTransferAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchAssetTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
+    public function patchAssetTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
     {
-        $request = $this->patchAssetTransferAsyncRequest($tenant_id, $transfer_id, $operation, $contentType);
+        $request = $this->patchAssetTransferAsyncRequest($tenant_id, $transfer_id, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2386,15 +2414,15 @@ class AssetTransfersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $transfer_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetTransferAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAssetTransferAsyncAsync($tenant_id, $transfer_id, $operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
+    public function patchAssetTransferAsyncAsync($tenant_id, $transfer_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
     {
-        return $this->patchAssetTransferAsyncAsyncWithHttpInfo($tenant_id, $transfer_id, $operation, $contentType)
+        return $this->patchAssetTransferAsyncAsyncWithHttpInfo($tenant_id, $transfer_id, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2409,16 +2437,16 @@ class AssetTransfersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $transfer_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetTransferAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchAssetTransferAsyncAsyncWithHttpInfo($tenant_id, $transfer_id, $operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
+    public function patchAssetTransferAsyncAsyncWithHttpInfo($tenant_id, $transfer_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchAssetTransferAsyncRequest($tenant_id, $transfer_id, $operation, $contentType);
+        $request = $this->patchAssetTransferAsyncRequest($tenant_id, $transfer_id, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2461,13 +2489,13 @@ class AssetTransfersApi
      *
      * @param  string $tenant_id (required)
      * @param  string $transfer_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchAssetTransferAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchAssetTransferAsyncRequest($tenant_id, $transfer_id, $operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
+    public function patchAssetTransferAsyncRequest($tenant_id, $transfer_id, $patch_operation = null, string $contentType = self::contentTypes['patchAssetTransferAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2521,12 +2549,12 @@ class AssetTransfersApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

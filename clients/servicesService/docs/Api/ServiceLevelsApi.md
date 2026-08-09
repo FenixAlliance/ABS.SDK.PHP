@@ -18,7 +18,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countAllServiceLevelsAsync()`
 
 ```php
-countAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get all service levels count
@@ -41,9 +41,10 @@ $apiInstance = new OpenAPI\Client\Api\ServiceLevelsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_level_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelsApi->countAllServiceLevelsAsync: ', $e->getMessage(), PHP_EOL;
@@ -57,6 +58,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_level_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters**](../Model/ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -206,7 +208,7 @@ No authorization required
 ## `getAllServiceLevelsAsync()`
 
 ```php
-getAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope
+getAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters): \OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope
 ```
 
 Get all service levels
@@ -229,9 +231,10 @@ $apiInstance = new OpenAPI\Client\Api\ServiceLevelsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_level_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAllServiceLevelsAsync($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelsApi->getAllServiceLevelsAsync: ', $e->getMessage(), PHP_EOL;
@@ -245,6 +248,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_level_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters**](../Model/ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -256,7 +260,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -330,7 +334,7 @@ No authorization required
 ## `getServiceLevelsAsync()`
 
 ```php
-getServiceLevelsAsync($tenant_id, $service_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope
+getServiceLevelsAsync($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters): \OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope
 ```
 
 Get all service levels
@@ -354,9 +358,10 @@ $tenant_id = 'tenant_id_example'; // string
 $service_id = 'service_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_level_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getServiceLevelsAsync($tenant_id, $service_id, $api_version, $x_api_version);
+    $result = $apiInstance->getServiceLevelsAsync($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelsApi->getServiceLevelsAsync: ', $e->getMessage(), PHP_EOL;
@@ -371,6 +376,7 @@ try {
 | **service_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_level_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters**](../Model/ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -382,7 +388,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -392,7 +398,7 @@ No authorization required
 ## `getServiceLevelsCountAsync()`
 
 ```php
-getServiceLevelsCountAsync($tenant_id, $service_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getServiceLevelsCountAsync($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get service levels count
@@ -416,9 +422,10 @@ $tenant_id = 'tenant_id_example'; // string
 $service_id = 'service_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$service_level_dto_collection_query_parameters = new \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getServiceLevelsCountAsync($tenant_id, $service_id, $api_version, $x_api_version);
+    $result = $apiInstance->getServiceLevelsCountAsync($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelsApi->getServiceLevelsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -433,6 +440,7 @@ try {
 | **service_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **service_level_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters**](../Model/ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -444,7 +452,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -454,7 +462,7 @@ No authorization required
 ## `patchServiceLevelAsync()`
 
 ```php
-patchServiceLevelAsync($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\Envelope
+patchServiceLevelAsync($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\Envelope
 ```
 
 Patch a service level
@@ -479,10 +487,10 @@ $service_id = 'service_id_example'; // string
 $service_level_id = 'service_level_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchServiceLevelAsync($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchServiceLevelAsync($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLevelsApi->patchServiceLevelAsync: ', $e->getMessage(), PHP_EOL;
@@ -498,7 +506,7 @@ try {
 | **service_level_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

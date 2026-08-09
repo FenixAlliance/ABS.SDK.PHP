@@ -200,7 +200,7 @@ No authorization required
 ## `getItemImagesAsync()`
 
 ```php
-getItemImagesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemImageDtoListEnvelope
+getItemImagesAsync($tenant_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters): \OpenAPI\Client\Model\ItemImageDtoListEnvelope
 ```
 
 Get all item images
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\ItemImagesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$item_image_dto_collection_query_parameters = new \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getItemImagesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemImagesAsync($tenant_id, $api_version, $x_api_version, $item_image_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemImagesApi->getItemImagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **item_image_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ItemImageDtoCollectionQueryParameters**](../Model/ItemImageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `patchItemImageAsync()`
 
 ```php
-patchItemImageAsync($tenant_id, $item_image_id, $api_version, $x_api_version, $operation)
+patchItemImageAsync($tenant_id, $item_image_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch an item image
@@ -284,10 +286,10 @@ $tenant_id = 'tenant_id_example'; // string
 $item_image_id = 'item_image_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchItemImageAsync($tenant_id, $item_image_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchItemImageAsync($tenant_id, $item_image_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling ItemImagesApi->patchItemImageAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -301,7 +303,7 @@ try {
 | **item_image_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

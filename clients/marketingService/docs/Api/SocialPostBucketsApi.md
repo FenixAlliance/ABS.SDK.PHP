@@ -202,7 +202,7 @@ No authorization required
 ## `getSocialPostBucketsCountAsync()`
 
 ```php
-getSocialPostBucketsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSocialPostBucketsCountAsync($tenant_id, $api_version, $x_api_version, $social_post_bucket_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get social post buckets count
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostBucketsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_bucket_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostBucketDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostBucketDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostBucketsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostBucketsCountAsync($tenant_id, $api_version, $x_api_version, $social_post_bucket_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostBucketsApi->getSocialPostBucketsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_bucket_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostBucketDtoCollectionQueryParameters**](../Model/SocialPostBucketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getSocialPostBucketsODataAsync()`
 
 ```php
-getSocialPostBucketsODataAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SocialPostBucketDtoListEnvelope
+getSocialPostBucketsODataAsync($tenant_id, $api_version, $x_api_version, $social_post_bucket_dto_collection_query_parameters): \OpenAPI\Client\Model\SocialPostBucketDtoListEnvelope
 ```
 
 Get social post buckets
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\SocialPostBucketsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$social_post_bucket_dto_collection_query_parameters = new \OpenAPI\Client\Model\SocialPostBucketDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SocialPostBucketDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSocialPostBucketsODataAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSocialPostBucketsODataAsync($tenant_id, $api_version, $x_api_version, $social_post_bucket_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostBucketsApi->getSocialPostBucketsODataAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **social_post_bucket_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SocialPostBucketDtoCollectionQueryParameters**](../Model/SocialPostBucketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchSocialPostBucketAsync()`
 
 ```php
-patchSocialPostBucketAsync($tenant_id, $socialpostbucket_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSocialPostBucketAsync($tenant_id, $socialpostbucket_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a social post bucket
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $socialpostbucket_id = 'socialpostbucket_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSocialPostBucketAsync($tenant_id, $socialpostbucket_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSocialPostBucketAsync($tenant_id, $socialpostbucket_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialPostBucketsApi->patchSocialPostBucketAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **socialpostbucket_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

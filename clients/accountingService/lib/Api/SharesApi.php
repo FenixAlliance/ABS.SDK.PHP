@@ -105,21 +105,26 @@ class SharesApi
         ],
         'getShareClasses' => [
             'application/json',
+            'application/xml',
         ],
         'getShareClassesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getShareIssuance' => [
             'application/json',
         ],
         'getShareIssuances' => [
             'application/json',
+            'application/xml',
         ],
         'getShareIssuancesCount' => [
             'application/json',
+            'application/xml',
         ],
         'getShareIssuancesSum' => [
             'application/json',
+            'application/xml',
         ],
         'getShareTransfer' => [
             'application/json',
@@ -129,15 +134,19 @@ class SharesApi
         ],
         'getShareTransferReasons' => [
             'application/json',
+            'application/xml',
         ],
         'getShareTransferReasonsCount' => [
             'application/json',
+            'application/xml',
         ],
         'getShareTransfers' => [
             'application/json',
+            'application/xml',
         ],
         'getShareTransfersCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchShareClass' => [
             'application/json',
@@ -3642,15 +3651,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClasses'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareClassDtoListEnvelope
      */
-    public function getShareClasses($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClasses'][0])
+    public function getShareClasses($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClasses'][0])
     {
-        list($response) = $this->getShareClassesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareClassesWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3662,15 +3672,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClasses'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareClassDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareClassesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClasses'][0])
+    public function getShareClassesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClasses'][0])
     {
-        $request = $this->getShareClassesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareClassesRequest($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3859,14 +3870,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClasses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareClassesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClasses'][0])
+    public function getShareClassesAsync($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClasses'][0])
     {
-        return $this->getShareClassesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareClassesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3882,15 +3894,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClasses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareClassesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClasses'][0])
+    public function getShareClassesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClasses'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShareClassDtoListEnvelope';
-        $request = $this->getShareClassesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareClassesRequest($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3934,12 +3947,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClasses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareClassesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClasses'][0])
+    public function getShareClassesRequest($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClasses'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3948,6 +3962,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareClasses'
             );
         }
+
 
 
 
@@ -3992,7 +4007,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_class_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_class_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_class_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4046,15 +4068,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClassesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShareClassesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
+    public function getShareClassesCount($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
     {
-        list($response) = $this->getShareClassesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareClassesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4066,15 +4089,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClassesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareClassesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
+    public function getShareClassesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
     {
-        $request = $this->getShareClassesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareClassesCountRequest($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4263,14 +4287,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClassesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareClassesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
+    public function getShareClassesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
     {
-        return $this->getShareClassesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareClassesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4286,15 +4311,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClassesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareClassesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
+    public function getShareClassesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShareClassesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareClassesCountRequest($tenant_id, $api_version, $x_api_version, $share_class_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4338,12 +4364,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareClassDtoCollectionQueryParameters $share_class_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareClassesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareClassesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
+    public function getShareClassesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $share_class_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareClassesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4352,6 +4379,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareClassesCount'
             );
         }
+
 
 
 
@@ -4396,7 +4424,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_class_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_class_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_class_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4909,15 +4944,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuances'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareIssuanceDtoListEnvelope
      */
-    public function getShareIssuances($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuances'][0])
+    public function getShareIssuances($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuances'][0])
     {
-        list($response) = $this->getShareIssuancesWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareIssuancesWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4929,15 +4965,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuances'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareIssuanceDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareIssuancesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuances'][0])
+    public function getShareIssuancesWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuances'][0])
     {
-        $request = $this->getShareIssuancesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareIssuancesRequest($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5126,14 +5163,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuances'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareIssuancesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuances'][0])
+    public function getShareIssuancesAsync($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuances'][0])
     {
-        return $this->getShareIssuancesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareIssuancesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5149,15 +5187,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuances'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareIssuancesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuances'][0])
+    public function getShareIssuancesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuances'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShareIssuanceDtoListEnvelope';
-        $request = $this->getShareIssuancesRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareIssuancesRequest($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5201,12 +5240,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuances'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareIssuancesRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuances'][0])
+    public function getShareIssuancesRequest($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuances'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5215,6 +5255,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareIssuances'
             );
         }
+
 
 
 
@@ -5259,7 +5300,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_issuance_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_issuance_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_issuance_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5313,15 +5361,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShareIssuancesCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
+    public function getShareIssuancesCount($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
     {
-        list($response) = $this->getShareIssuancesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareIssuancesCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5333,15 +5382,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareIssuancesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
+    public function getShareIssuancesCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
     {
-        $request = $this->getShareIssuancesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareIssuancesCountRequest($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5530,14 +5580,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareIssuancesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
+    public function getShareIssuancesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
     {
-        return $this->getShareIssuancesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareIssuancesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5553,15 +5604,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareIssuancesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
+    public function getShareIssuancesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShareIssuancesCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareIssuancesCountRequest($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5605,12 +5657,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareIssuancesCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
+    public function getShareIssuancesCountRequest($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5619,6 +5672,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareIssuancesCount'
             );
         }
+
 
 
 
@@ -5663,7 +5717,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_issuance_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_issuance_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_issuance_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5717,15 +5778,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesSum'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DecimalEnvelope
      */
-    public function getShareIssuancesSum($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
+    public function getShareIssuancesSum($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
     {
-        list($response) = $this->getShareIssuancesSumWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareIssuancesSumWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5737,15 +5799,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesSum'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DecimalEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareIssuancesSumWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
+    public function getShareIssuancesSumWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
     {
-        $request = $this->getShareIssuancesSumRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareIssuancesSumRequest($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5934,14 +5997,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareIssuancesSumAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
+    public function getShareIssuancesSumAsync($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
     {
-        return $this->getShareIssuancesSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareIssuancesSumAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5957,15 +6021,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareIssuancesSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
+    public function getShareIssuancesSumAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
-        $request = $this->getShareIssuancesSumRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareIssuancesSumRequest($tenant_id, $api_version, $x_api_version, $share_issuance_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6009,12 +6074,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareIssuanceDtoCollectionQueryParameters $share_issuance_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareIssuancesSum'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareIssuancesSumRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
+    public function getShareIssuancesSumRequest($tenant_id, $api_version = null, $x_api_version = null, $share_issuance_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareIssuancesSum'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6023,6 +6089,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareIssuancesSum'
             );
         }
+
 
 
 
@@ -6067,7 +6134,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_issuance_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_issuance_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_issuance_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7039,15 +7113,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasons'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareTransferReasonDtoListEnvelope
      */
-    public function getShareTransferReasons($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
+    public function getShareTransferReasons($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
     {
-        list($response) = $this->getShareTransferReasonsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareTransferReasonsWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7059,15 +7134,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasons'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareTransferReasonDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareTransferReasonsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
+    public function getShareTransferReasonsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
     {
-        $request = $this->getShareTransferReasonsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransferReasonsRequest($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7256,14 +7332,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasons'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransferReasonsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
+    public function getShareTransferReasonsAsync($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
     {
-        return $this->getShareTransferReasonsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareTransferReasonsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7279,15 +7356,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasons'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransferReasonsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
+    public function getShareTransferReasonsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShareTransferReasonDtoListEnvelope';
-        $request = $this->getShareTransferReasonsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransferReasonsRequest($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7331,12 +7409,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasons'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareTransferReasonsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
+    public function getShareTransferReasonsRequest($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasons'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7345,6 +7424,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareTransferReasons'
             );
         }
+
 
 
 
@@ -7389,7 +7469,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_transfer_reason_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_transfer_reason_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_transfer_reason_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7443,15 +7530,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasonsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShareTransferReasonsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
+    public function getShareTransferReasonsCount($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
     {
-        list($response) = $this->getShareTransferReasonsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareTransferReasonsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7463,15 +7551,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasonsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareTransferReasonsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
+    public function getShareTransferReasonsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
     {
-        $request = $this->getShareTransferReasonsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransferReasonsCountRequest($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7660,14 +7749,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasonsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransferReasonsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
+    public function getShareTransferReasonsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
     {
-        return $this->getShareTransferReasonsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareTransferReasonsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7683,15 +7773,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasonsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransferReasonsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
+    public function getShareTransferReasonsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShareTransferReasonsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransferReasonsCountRequest($tenant_id, $api_version, $x_api_version, $share_transfer_reason_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7735,12 +7826,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferReasonDtoCollectionQueryParameters $share_transfer_reason_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransferReasonsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareTransferReasonsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
+    public function getShareTransferReasonsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_reason_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransferReasonsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -7749,6 +7841,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareTransferReasonsCount'
             );
         }
+
 
 
 
@@ -7793,7 +7886,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_transfer_reason_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_transfer_reason_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_transfer_reason_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -7847,15 +7947,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareTransferDtoListEnvelope
      */
-    public function getShareTransfers($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfers'][0])
+    public function getShareTransfers($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfers'][0])
     {
-        list($response) = $this->getShareTransfersWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareTransfersWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -7867,15 +7968,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ShareTransferDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareTransfersWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfers'][0])
+    public function getShareTransfersWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfers'][0])
     {
-        $request = $this->getShareTransfersRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransfersRequest($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8064,14 +8166,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransfersAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfers'][0])
+    public function getShareTransfersAsync($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfers'][0])
     {
-        return $this->getShareTransfersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareTransfersAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8087,15 +8190,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransfersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfers'][0])
+    public function getShareTransfersAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfers'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ShareTransferDtoListEnvelope';
-        $request = $this->getShareTransfersRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransfersRequest($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8139,12 +8243,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareTransfersRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfers'][0])
+    public function getShareTransfersRequest($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfers'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -8153,6 +8258,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareTransfers'
             );
         }
+
 
 
 
@@ -8197,7 +8303,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_transfer_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_transfer_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_transfer_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8251,15 +8364,16 @@ class SharesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfersCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getShareTransfersCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
+    public function getShareTransfersCount($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
     {
-        list($response) = $this->getShareTransfersCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getShareTransfersCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -8271,15 +8385,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfersCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareTransfersCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
+    public function getShareTransfersCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
     {
-        $request = $this->getShareTransfersCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransfersCountRequest($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8468,14 +8583,15 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfersCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransfersCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
+    public function getShareTransfersCountAsync($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
     {
-        return $this->getShareTransfersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getShareTransfersCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8491,15 +8607,16 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfersCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareTransfersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
+    public function getShareTransfersCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getShareTransfersCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getShareTransfersCountRequest($tenant_id, $api_version, $x_api_version, $share_transfer_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8543,12 +8660,13 @@ class SharesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ShareTransferDtoCollectionQueryParameters $share_transfer_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShareTransfersCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShareTransfersCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
+    public function getShareTransfersCountRequest($tenant_id, $api_version = null, $x_api_version = null, $share_transfer_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getShareTransfersCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -8557,6 +8675,7 @@ class SharesApi
                 'Missing the required parameter $tenant_id when calling getShareTransfersCount'
             );
         }
+
 
 
 
@@ -8601,7 +8720,14 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($share_transfer_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($share_transfer_dto_collection_query_parameters));
+            } else {
+                $httpBody = $share_transfer_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -8656,16 +8782,16 @@ class SharesApi
      * @param  string $share_class_id share_class_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareClass'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShareClass($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
+    public function patchShareClass($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
     {
-        list($response) = $this->patchShareClassWithHttpInfo($tenant_id, $share_class_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShareClassWithHttpInfo($tenant_id, $share_class_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -8678,16 +8804,16 @@ class SharesApi
      * @param  string $share_class_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareClass'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShareClassWithHttpInfo($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
+    public function patchShareClassWithHttpInfo($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
     {
-        $request = $this->patchShareClassRequest($tenant_id, $share_class_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareClassRequest($tenant_id, $share_class_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8877,15 +9003,15 @@ class SharesApi
      * @param  string $share_class_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareClass'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareClassAsync($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
+    public function patchShareClassAsync($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
     {
-        return $this->patchShareClassAsyncWithHttpInfo($tenant_id, $share_class_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShareClassAsyncWithHttpInfo($tenant_id, $share_class_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8902,16 +9028,16 @@ class SharesApi
      * @param  string $share_class_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareClass'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareClassAsyncWithHttpInfo($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
+    public function patchShareClassAsyncWithHttpInfo($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShareClassRequest($tenant_id, $share_class_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareClassRequest($tenant_id, $share_class_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8956,13 +9082,13 @@ class SharesApi
      * @param  string $share_class_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareClass'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShareClassRequest($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
+    public function patchShareClassRequest($tenant_id, $share_class_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareClass'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9031,12 +9157,12 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9093,16 +9219,16 @@ class SharesApi
      * @param  string $issuance_id issuance_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareIssuance'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShareIssuance($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
+    public function patchShareIssuance($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
     {
-        list($response) = $this->patchShareIssuanceWithHttpInfo($tenant_id, $issuance_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShareIssuanceWithHttpInfo($tenant_id, $issuance_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -9115,16 +9241,16 @@ class SharesApi
      * @param  string $issuance_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareIssuance'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShareIssuanceWithHttpInfo($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
+    public function patchShareIssuanceWithHttpInfo($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
     {
-        $request = $this->patchShareIssuanceRequest($tenant_id, $issuance_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareIssuanceRequest($tenant_id, $issuance_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9314,15 +9440,15 @@ class SharesApi
      * @param  string $issuance_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareIssuance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareIssuanceAsync($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
+    public function patchShareIssuanceAsync($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
     {
-        return $this->patchShareIssuanceAsyncWithHttpInfo($tenant_id, $issuance_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShareIssuanceAsyncWithHttpInfo($tenant_id, $issuance_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9339,16 +9465,16 @@ class SharesApi
      * @param  string $issuance_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareIssuance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareIssuanceAsyncWithHttpInfo($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
+    public function patchShareIssuanceAsyncWithHttpInfo($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShareIssuanceRequest($tenant_id, $issuance_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareIssuanceRequest($tenant_id, $issuance_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9393,13 +9519,13 @@ class SharesApi
      * @param  string $issuance_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareIssuance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShareIssuanceRequest($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
+    public function patchShareIssuanceRequest($tenant_id, $issuance_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareIssuance'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9468,12 +9594,12 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9530,16 +9656,16 @@ class SharesApi
      * @param  string $transfer_id transfer_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransfer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShareTransfer($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
+    public function patchShareTransfer($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
     {
-        list($response) = $this->patchShareTransferWithHttpInfo($tenant_id, $transfer_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShareTransferWithHttpInfo($tenant_id, $transfer_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -9552,16 +9678,16 @@ class SharesApi
      * @param  string $transfer_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransfer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShareTransferWithHttpInfo($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
+    public function patchShareTransferWithHttpInfo($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
     {
-        $request = $this->patchShareTransferRequest($tenant_id, $transfer_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareTransferRequest($tenant_id, $transfer_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9751,15 +9877,15 @@ class SharesApi
      * @param  string $transfer_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransfer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareTransferAsync($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
+    public function patchShareTransferAsync($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
     {
-        return $this->patchShareTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShareTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9776,16 +9902,16 @@ class SharesApi
      * @param  string $transfer_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransfer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
+    public function patchShareTransferAsyncWithHttpInfo($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShareTransferRequest($tenant_id, $transfer_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareTransferRequest($tenant_id, $transfer_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9830,13 +9956,13 @@ class SharesApi
      * @param  string $transfer_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransfer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShareTransferRequest($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
+    public function patchShareTransferRequest($tenant_id, $transfer_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransfer'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -9905,12 +10031,12 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9967,16 +10093,16 @@ class SharesApi
      * @param  string $reason_id reason_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransferReason'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchShareTransferReason($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
+    public function patchShareTransferReason($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
     {
-        list($response) = $this->patchShareTransferReasonWithHttpInfo($tenant_id, $reason_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchShareTransferReasonWithHttpInfo($tenant_id, $reason_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -9989,16 +10115,16 @@ class SharesApi
      * @param  string $reason_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransferReason'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchShareTransferReasonWithHttpInfo($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
+    public function patchShareTransferReasonWithHttpInfo($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
     {
-        $request = $this->patchShareTransferReasonRequest($tenant_id, $reason_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareTransferReasonRequest($tenant_id, $reason_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10188,15 +10314,15 @@ class SharesApi
      * @param  string $reason_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransferReason'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareTransferReasonAsync($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
+    public function patchShareTransferReasonAsync($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
     {
-        return $this->patchShareTransferReasonAsyncWithHttpInfo($tenant_id, $reason_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchShareTransferReasonAsyncWithHttpInfo($tenant_id, $reason_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10213,16 +10339,16 @@ class SharesApi
      * @param  string $reason_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransferReason'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchShareTransferReasonAsyncWithHttpInfo($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
+    public function patchShareTransferReasonAsyncWithHttpInfo($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchShareTransferReasonRequest($tenant_id, $reason_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchShareTransferReasonRequest($tenant_id, $reason_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10267,13 +10393,13 @@ class SharesApi
      * @param  string $reason_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchShareTransferReason'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchShareTransferReasonRequest($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
+    public function patchShareTransferReasonRequest($tenant_id, $reason_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchShareTransferReason'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -10342,12 +10468,12 @@ class SharesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

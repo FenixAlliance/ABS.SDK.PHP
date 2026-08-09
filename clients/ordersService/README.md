@@ -76,7 +76,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -119,6 +118,7 @@ Class | Method | HTTP request | Description
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExtendedOrderDto](docs/Model/ExtendedOrderDto.md)
+- [ExtendedOrderDtoCollectionQueryParameters](docs/Model/ExtendedOrderDtoCollectionQueryParameters.md)
 - [ExtendedOrderDtoListEnvelope](docs/Model/ExtendedOrderDtoListEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
@@ -126,17 +126,19 @@ Class | Method | HTTP request | Description
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
-- [Operation](docs/Model/Operation.md)
 - [OrderCreateDto](docs/Model/OrderCreateDto.md)
 - [OrderDto](docs/Model/OrderDto.md)
+- [OrderDtoCollectionQueryParameters](docs/Model/OrderDtoCollectionQueryParameters.md)
 - [OrderDtoEnvelope](docs/Model/OrderDtoEnvelope.md)
 - [OrderDtoListEnvelope](docs/Model/OrderDtoListEnvelope.md)
 - [OrderLineCreateDto](docs/Model/OrderLineCreateDto.md)
 - [OrderLineDto](docs/Model/OrderLineDto.md)
+- [OrderLineDtoCollectionQueryParameters](docs/Model/OrderLineDtoCollectionQueryParameters.md)
 - [OrderLineDtoEnvelope](docs/Model/OrderLineDtoEnvelope.md)
 - [OrderLineDtoListEnvelope](docs/Model/OrderLineDtoListEnvelope.md)
 - [OrderLineUpdateDto](docs/Model/OrderLineUpdateDto.md)
 - [OrderUpdateDto](docs/Model/OrderUpdateDto.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)

@@ -84,9 +84,11 @@ class LicenseAttributesApi
         ],
         'getLicenseAttributesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getLicenseAttributesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchLicenseAttributeAsync' => [
             'application/json',
@@ -1127,15 +1129,16 @@ class LicenseAttributesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LicenseAttributeDtoListEnvelope
      */
-    public function getLicenseAttributesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
+    public function getLicenseAttributesAsync($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
     {
-        list($response) = $this->getLicenseAttributesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLicenseAttributesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1147,15 +1150,16 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\LicenseAttributeDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLicenseAttributesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
+    public function getLicenseAttributesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
     {
-        $request = $this->getLicenseAttributesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLicenseAttributesAsyncRequest($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,14 +1313,15 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLicenseAttributesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
+    public function getLicenseAttributesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
     {
-        return $this->getLicenseAttributesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLicenseAttributesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,15 +1337,16 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLicenseAttributesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
+    public function getLicenseAttributesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LicenseAttributeDtoListEnvelope';
-        $request = $this->getLicenseAttributesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLicenseAttributesAsyncRequest($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1384,12 +1390,13 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLicenseAttributesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
+    public function getLicenseAttributesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1398,6 +1405,7 @@ class LicenseAttributesApi
                 'Missing the required parameter $tenant_id when calling getLicenseAttributesAsync'
             );
         }
+
 
 
 
@@ -1442,7 +1450,14 @@ class LicenseAttributesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($license_attribute_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($license_attribute_dto_collection_query_parameters));
+            } else {
+                $httpBody = $license_attribute_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1496,15 +1511,16 @@ class LicenseAttributesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getLicenseAttributesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
+    public function getLicenseAttributesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
     {
-        list($response) = $this->getLicenseAttributesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getLicenseAttributesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1516,15 +1532,16 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLicenseAttributesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
+    public function getLicenseAttributesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
     {
-        $request = $this->getLicenseAttributesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLicenseAttributesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1678,14 +1695,15 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLicenseAttributesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
+    public function getLicenseAttributesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
     {
-        return $this->getLicenseAttributesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getLicenseAttributesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,15 +1719,16 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLicenseAttributesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
+    public function getLicenseAttributesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getLicenseAttributesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getLicenseAttributesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $license_attribute_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,12 +1772,13 @@ class LicenseAttributesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\LicenseAttributeDtoCollectionQueryParameters $license_attribute_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLicenseAttributesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLicenseAttributesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
+    public function getLicenseAttributesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $license_attribute_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getLicenseAttributesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1767,6 +1787,7 @@ class LicenseAttributesApi
                 'Missing the required parameter $tenant_id when calling getLicenseAttributesCountAsync'
             );
         }
+
 
 
 
@@ -1811,7 +1832,14 @@ class LicenseAttributesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($license_attribute_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($license_attribute_dto_collection_query_parameters));
+            } else {
+                $httpBody = $license_attribute_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1866,16 +1894,16 @@ class LicenseAttributesApi
      * @param  string $id id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLicenseAttributeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchLicenseAttributeAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
+    public function patchLicenseAttributeAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
     {
-        list($response) = $this->patchLicenseAttributeAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchLicenseAttributeAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -1888,16 +1916,16 @@ class LicenseAttributesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLicenseAttributeAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchLicenseAttributeAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
+    public function patchLicenseAttributeAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
     {
-        $request = $this->patchLicenseAttributeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLicenseAttributeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2087,15 +2115,15 @@ class LicenseAttributesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLicenseAttributeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLicenseAttributeAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
+    public function patchLicenseAttributeAsyncAsync($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
     {
-        return $this->patchLicenseAttributeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchLicenseAttributeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,16 +2140,16 @@ class LicenseAttributesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLicenseAttributeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchLicenseAttributeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
+    public function patchLicenseAttributeAsyncAsyncWithHttpInfo($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchLicenseAttributeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchLicenseAttributeAsyncRequest($tenant_id, $id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2166,13 +2194,13 @@ class LicenseAttributesApi
      * @param  string $id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchLicenseAttributeAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchLicenseAttributeAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
+    public function patchLicenseAttributeAsyncRequest($tenant_id, $id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchLicenseAttributeAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2241,12 +2269,12 @@ class LicenseAttributesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

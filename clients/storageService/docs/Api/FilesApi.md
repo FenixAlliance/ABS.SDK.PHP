@@ -377,7 +377,7 @@ No authorization required
 ## `getFilesAsync()`
 
 ```php
-getFilesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FileUploadDtoEnvelope
+getFilesAsync($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty): \OpenAPI\Client\Model\FileUploadDtoEnvelope
 ```
 
 
@@ -398,9 +398,18 @@ $apiInstance = new OpenAPI\Client\Api\FilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$top = 56; // int
+$skip = 56; // int
+$count = True; // bool
+$filter = 'filter_example'; // string
+$order_by = 'order_by_example'; // string
+$search = 'search_example'; // string
+$select = 'select_example'; // string
+$expand = 'expand_example'; // string
+$is_empty = True; // bool
 
 try {
-    $result = $apiInstance->getFilesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFilesAsync($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->getFilesAsync: ', $e->getMessage(), PHP_EOL;
@@ -414,6 +423,15 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **top** | **int**|  | [optional] |
+| **skip** | **int**|  | [optional] |
+| **count** | **bool**|  | [optional] |
+| **filter** | **string**|  | [optional] |
+| **order_by** | **string**|  | [optional] |
+| **search** | **string**|  | [optional] |
+| **select** | **string**|  | [optional] |
+| **expand** | **string**|  | [optional] |
+| **is_empty** | **bool**|  | [optional] |
 
 ### Return type
 
@@ -425,7 +443,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`, `image/png`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -435,7 +453,7 @@ No authorization required
 ## `getFilesCountAsync()`
 
 ```php
-getFilesCountAsync($tenant_id, $api_version, $x_api_version): int
+getFilesCountAsync($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty): int
 ```
 
 
@@ -456,9 +474,18 @@ $apiInstance = new OpenAPI\Client\Api\FilesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$top = 56; // int
+$skip = 56; // int
+$count = True; // bool
+$filter = 'filter_example'; // string
+$order_by = 'order_by_example'; // string
+$search = 'search_example'; // string
+$select = 'select_example'; // string
+$expand = 'expand_example'; // string
+$is_empty = True; // bool
 
 try {
-    $result = $apiInstance->getFilesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFilesCountAsync($tenant_id, $api_version, $x_api_version, $top, $skip, $count, $filter, $order_by, $search, $select, $expand, $is_empty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->getFilesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -472,6 +499,15 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **top** | **int**|  | [optional] |
+| **skip** | **int**|  | [optional] |
+| **count** | **bool**|  | [optional] |
+| **filter** | **string**|  | [optional] |
+| **order_by** | **string**|  | [optional] |
+| **search** | **string**|  | [optional] |
+| **select** | **string**|  | [optional] |
+| **expand** | **string**|  | [optional] |
+| **is_empty** | **bool**|  | [optional] |
 
 ### Return type
 
@@ -483,7 +519,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`, `image/png`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

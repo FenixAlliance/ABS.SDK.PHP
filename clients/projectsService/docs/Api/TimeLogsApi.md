@@ -19,7 +19,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countProjectPeriodTimeLogsAsync()`
 
 ```php
-countProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of project period time logs
@@ -43,9 +43,10 @@ $tenant_id = 'tenant_id_example'; // string
 $project_period_id = 'project_period_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$project_time_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version);
+    $result = $apiInstance->countProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeLogsApi->countProjectPeriodTimeLogsAsync: ', $e->getMessage(), PHP_EOL;
@@ -60,6 +61,7 @@ try {
 | **project_period_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **project_time_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters**](../Model/ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -203,7 +205,7 @@ No authorization required
 ## `getProjectPeriodTimeLogsAsync()`
 
 ```php
-getProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
+getProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
 ```
 
 Retrieve project period time logs
@@ -227,9 +229,10 @@ $tenant_id = 'tenant_id_example'; // string
 $project_period_id = 'project_period_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$project_time_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version);
+    $result = $apiInstance->getProjectPeriodTimeLogsAsync($tenant_id, $project_period_id, $api_version, $x_api_version, $project_time_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TimeLogsApi->getProjectPeriodTimeLogsAsync: ', $e->getMessage(), PHP_EOL;
@@ -244,6 +247,7 @@ try {
 | **project_period_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **project_time_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ProjectTimeLogDtoCollectionQueryParameters**](../Model/ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -255,7 +259,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -513,7 +517,7 @@ No authorization required
 ## `patchProjectTimeLogAsync()`
 
 ```php
-patchProjectTimeLogAsync($time_log_id, $tenant_id, $api_version, $x_api_version, $operation)
+patchProjectTimeLogAsync($time_log_id, $tenant_id, $api_version, $x_api_version, $patch_operation)
 ```
 
 Patch a project time log
@@ -537,10 +541,10 @@ $time_log_id = 'time_log_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $apiInstance->patchProjectTimeLogAsync($time_log_id, $tenant_id, $api_version, $x_api_version, $operation);
+    $apiInstance->patchProjectTimeLogAsync($time_log_id, $tenant_id, $api_version, $x_api_version, $patch_operation);
 } catch (Exception $e) {
     echo 'Exception when calling TimeLogsApi->patchProjectTimeLogAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -554,7 +558,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

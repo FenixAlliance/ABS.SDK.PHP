@@ -86,9 +86,11 @@ class InvitationsApi
         ],
         'getTenantInvitations' => [
             'application/json',
+            'application/xml',
         ],
         'getTenantInvitationsCount' => [
             'application/json',
+            'application/xml',
         ],
         'sendTenantInvitation' => [
             'application/json',
@@ -1804,15 +1806,16 @@ class InvitationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitations'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantInvitationDtoListEnvelope
      */
-    public function getTenantInvitations($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
+    public function getTenantInvitations($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
     {
-        list($response) = $this->getTenantInvitationsWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantInvitationsWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1824,15 +1827,16 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitations'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TenantInvitationDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantInvitationsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
+    public function getTenantInvitationsWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
     {
-        $request = $this->getTenantInvitationsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantInvitationsRequest($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2021,14 +2025,15 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantInvitationsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
+    public function getTenantInvitationsAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
     {
-        return $this->getTenantInvitationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantInvitationsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2044,15 +2049,16 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantInvitationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
+    public function getTenantInvitationsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TenantInvitationDtoListEnvelope';
-        $request = $this->getTenantInvitationsRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantInvitationsRequest($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2096,12 +2102,13 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantInvitationsRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
+    public function getTenantInvitationsRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitations'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2110,6 +2117,7 @@ class InvitationsApi
                 'Missing the required parameter $tenant_id when calling getTenantInvitations'
             );
         }
+
 
 
 
@@ -2154,7 +2162,14 @@ class InvitationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_invitation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_invitation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_invitation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2208,15 +2223,16 @@ class InvitationsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitationsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTenantInvitationsCount($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
+    public function getTenantInvitationsCount($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
     {
-        list($response) = $this->getTenantInvitationsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTenantInvitationsCountWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2228,15 +2244,16 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitationsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTenantInvitationsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
+    public function getTenantInvitationsCountWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
     {
-        $request = $this->getTenantInvitationsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantInvitationsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2425,14 +2442,15 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitationsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantInvitationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
+    public function getTenantInvitationsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
     {
-        return $this->getTenantInvitationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTenantInvitationsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2448,15 +2466,16 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitationsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTenantInvitationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
+    public function getTenantInvitationsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTenantInvitationsCountRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTenantInvitationsCountRequest($tenant_id, $api_version, $x_api_version, $tenant_invitation_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2500,12 +2519,13 @@ class InvitationsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TenantInvitationDtoCollectionQueryParameters $tenant_invitation_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInvitationsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTenantInvitationsCountRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
+    public function getTenantInvitationsCountRequest($tenant_id, $api_version = null, $x_api_version = null, $tenant_invitation_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTenantInvitationsCount'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2514,6 +2534,7 @@ class InvitationsApi
                 'Missing the required parameter $tenant_id when calling getTenantInvitationsCount'
             );
         }
+
 
 
 
@@ -2558,7 +2579,14 @@ class InvitationsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($tenant_invitation_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenant_invitation_dto_collection_query_parameters));
+            } else {
+                $httpBody = $tenant_invitation_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

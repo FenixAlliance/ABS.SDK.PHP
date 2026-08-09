@@ -102,12 +102,14 @@ class RolesApi
         ],
         'getRolesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRolesByEnrollmentAsync' => [
             'application/json',
         ],
         'getRolesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchRoleAsync' => [
             'application/json',
@@ -4232,15 +4234,16 @@ class RolesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SecurityRoleDtoListEnvelope
      */
-    public function getRolesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesAsync'][0])
+    public function getRolesAsync($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesAsync'][0])
     {
-        list($response) = $this->getRolesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRolesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4252,15 +4255,16 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SecurityRoleDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRolesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesAsync'][0])
+    public function getRolesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesAsync'][0])
     {
-        $request = $this->getRolesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRolesAsyncRequest($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4449,14 +4453,15 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRolesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesAsync'][0])
+    public function getRolesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesAsync'][0])
     {
-        return $this->getRolesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRolesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4472,15 +4477,16 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRolesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesAsync'][0])
+    public function getRolesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SecurityRoleDtoListEnvelope';
-        $request = $this->getRolesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRolesAsyncRequest($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4524,12 +4530,13 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRolesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesAsync'][0])
+    public function getRolesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4538,6 +4545,7 @@ class RolesApi
                 'Missing the required parameter $tenant_id when calling getRolesAsync'
             );
         }
+
 
 
 
@@ -4582,7 +4590,14 @@ class RolesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($security_role_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($security_role_dto_collection_query_parameters));
+            } else {
+                $httpBody = $security_role_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5060,15 +5075,16 @@ class RolesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRolesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
+    public function getRolesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
     {
-        list($response) = $this->getRolesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRolesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5080,15 +5096,16 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRolesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
+    public function getRolesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
     {
-        $request = $this->getRolesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRolesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5277,14 +5294,15 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRolesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
+    public function getRolesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
     {
-        return $this->getRolesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRolesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5300,15 +5318,16 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRolesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
+    public function getRolesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRolesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRolesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $security_role_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5352,12 +5371,13 @@ class RolesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SecurityRoleDtoCollectionQueryParameters $security_role_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRolesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRolesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
+    public function getRolesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $security_role_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRolesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5366,6 +5386,7 @@ class RolesApi
                 'Missing the required parameter $tenant_id when calling getRolesCountAsync'
             );
         }
+
 
 
 
@@ -5410,7 +5431,14 @@ class RolesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($security_role_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($security_role_dto_collection_query_parameters));
+            } else {
+                $httpBody = $security_role_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5463,7 +5491,7 @@ class RolesApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $security_role_id security_role_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoleAsync'] to see the possible values for this operation
@@ -5472,9 +5500,9 @@ class RolesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRoleAsync($tenant_id, $security_role_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
+    public function patchRoleAsync($tenant_id, $security_role_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
     {
-        list($response) = $this->patchRoleAsyncWithHttpInfo($tenant_id, $security_role_id, $operation, $api_version, $x_api_version, $contentType);
+        list($response) = $this->patchRoleAsyncWithHttpInfo($tenant_id, $security_role_id, $patch_operation, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -5485,7 +5513,7 @@ class RolesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_role_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoleAsync'] to see the possible values for this operation
@@ -5494,9 +5522,9 @@ class RolesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRoleAsyncWithHttpInfo($tenant_id, $security_role_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
+    public function patchRoleAsyncWithHttpInfo($tenant_id, $security_role_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
     {
-        $request = $this->patchRoleAsyncRequest($tenant_id, $security_role_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchRoleAsyncRequest($tenant_id, $security_role_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5719,7 +5747,7 @@ class RolesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_role_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoleAsync'] to see the possible values for this operation
@@ -5727,9 +5755,9 @@ class RolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoleAsyncAsync($tenant_id, $security_role_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
+    public function patchRoleAsyncAsync($tenant_id, $security_role_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
     {
-        return $this->patchRoleAsyncAsyncWithHttpInfo($tenant_id, $security_role_id, $operation, $api_version, $x_api_version, $contentType)
+        return $this->patchRoleAsyncAsyncWithHttpInfo($tenant_id, $security_role_id, $patch_operation, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5744,7 +5772,7 @@ class RolesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_role_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoleAsync'] to see the possible values for this operation
@@ -5752,10 +5780,10 @@ class RolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoleAsyncAsyncWithHttpInfo($tenant_id, $security_role_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
+    public function patchRoleAsyncAsyncWithHttpInfo($tenant_id, $security_role_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRoleAsyncRequest($tenant_id, $security_role_id, $operation, $api_version, $x_api_version, $contentType);
+        $request = $this->patchRoleAsyncRequest($tenant_id, $security_role_id, $patch_operation, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5798,7 +5826,7 @@ class RolesApi
      *
      * @param  string $tenant_id (required)
      * @param  string $security_role_id (required)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (required)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoleAsync'] to see the possible values for this operation
@@ -5806,7 +5834,7 @@ class RolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRoleAsyncRequest($tenant_id, $security_role_id, $operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
+    public function patchRoleAsyncRequest($tenant_id, $security_role_id, $patch_operation, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['patchRoleAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5823,10 +5851,10 @@ class RolesApi
             );
         }
 
-        // verify the required parameter 'operation' is set
-        if ($operation === null || (is_array($operation) && count($operation) === 0)) {
+        // verify the required parameter 'patch_operation' is set
+        if ($patch_operation === null || (is_array($patch_operation) && count($patch_operation) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $operation when calling patchRoleAsync'
+                'Missing the required parameter $patch_operation when calling patchRoleAsync'
             );
         }
 
@@ -5881,12 +5909,12 @@ class RolesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

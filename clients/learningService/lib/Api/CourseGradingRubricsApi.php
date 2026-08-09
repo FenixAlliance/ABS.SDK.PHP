@@ -84,9 +84,11 @@ class CourseGradingRubricsApi
         ],
         'getCourseGradingRubricsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getCourseGradingRubricsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchCourseGradingRubricAsync' => [
             'application/json',
@@ -1055,15 +1057,16 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseGradingRubricDto[]
      */
-    public function getCourseGradingRubricsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
+    public function getCourseGradingRubricsAsync($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
     {
-        list($response) = $this->getCourseGradingRubricsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseGradingRubricsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1075,15 +1078,16 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseGradingRubricDto[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseGradingRubricsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
+    public function getCourseGradingRubricsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
     {
-        $request = $this->getCourseGradingRubricsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseGradingRubricsAsyncRequest($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1237,14 +1241,15 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseGradingRubricsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
+    public function getCourseGradingRubricsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
     {
-        return $this->getCourseGradingRubricsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseGradingRubricsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1260,15 +1265,16 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseGradingRubricsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
+    public function getCourseGradingRubricsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseGradingRubricDto[]';
-        $request = $this->getCourseGradingRubricsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseGradingRubricsAsyncRequest($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1312,12 +1318,13 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseGradingRubricsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
+    public function getCourseGradingRubricsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1326,6 +1333,7 @@ class CourseGradingRubricsApi
                 'Missing the required parameter $tenant_id when calling getCourseGradingRubricsAsync'
             );
         }
+
 
 
 
@@ -1370,7 +1378,14 @@ class CourseGradingRubricsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_grading_rubric_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_grading_rubric_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_grading_rubric_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1424,15 +1439,16 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|int
      */
-    public function getCourseGradingRubricsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
+    public function getCourseGradingRubricsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
     {
-        list($response) = $this->getCourseGradingRubricsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseGradingRubricsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1444,15 +1460,16 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|int, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseGradingRubricsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
+    public function getCourseGradingRubricsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
     {
-        $request = $this->getCourseGradingRubricsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseGradingRubricsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1606,14 +1623,15 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseGradingRubricsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
+    public function getCourseGradingRubricsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
     {
-        return $this->getCourseGradingRubricsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseGradingRubricsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1629,15 +1647,16 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseGradingRubricsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
+    public function getCourseGradingRubricsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
     {
         $returnType = 'int';
-        $request = $this->getCourseGradingRubricsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseGradingRubricsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $course_grading_rubric_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1681,12 +1700,13 @@ class CourseGradingRubricsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\CourseGradingRubricDtoCollectionQueryParameters $course_grading_rubric_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseGradingRubricsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseGradingRubricsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
+    public function getCourseGradingRubricsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $course_grading_rubric_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getCourseGradingRubricsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1695,6 +1715,7 @@ class CourseGradingRubricsApi
                 'Missing the required parameter $tenant_id when calling getCourseGradingRubricsCountAsync'
             );
         }
+
 
 
 
@@ -1739,7 +1760,14 @@ class CourseGradingRubricsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($course_grading_rubric_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($course_grading_rubric_dto_collection_query_parameters));
+            } else {
+                $httpBody = $course_grading_rubric_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1794,16 +1822,16 @@ class CourseGradingRubricsApi
      * @param  string $rubric_id rubric_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseGradingRubricAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchCourseGradingRubricAsync($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
+    public function patchCourseGradingRubricAsync($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
     {
-        $this->patchCourseGradingRubricAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version, $x_api_version, $operation, $contentType);
+        $this->patchCourseGradingRubricAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version, $x_api_version, $patch_operation, $contentType);
     }
 
     /**
@@ -1815,16 +1843,16 @@ class CourseGradingRubricsApi
      * @param  string $rubric_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseGradingRubricAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCourseGradingRubricAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
+    public function patchCourseGradingRubricAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
     {
-        $request = $this->patchCourseGradingRubricAsyncRequest($tenant_id, $rubric_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseGradingRubricAsyncRequest($tenant_id, $rubric_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1875,15 +1903,15 @@ class CourseGradingRubricsApi
      * @param  string $rubric_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseGradingRubricAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseGradingRubricAsyncAsync($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
+    public function patchCourseGradingRubricAsyncAsync($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
     {
-        return $this->patchCourseGradingRubricAsyncAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchCourseGradingRubricAsyncAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1900,16 +1928,16 @@ class CourseGradingRubricsApi
      * @param  string $rubric_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseGradingRubricAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCourseGradingRubricAsyncAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
+    public function patchCourseGradingRubricAsyncAsyncWithHttpInfo($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
     {
         $returnType = '';
-        $request = $this->patchCourseGradingRubricAsyncRequest($tenant_id, $rubric_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchCourseGradingRubricAsyncRequest($tenant_id, $rubric_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1941,13 +1969,13 @@ class CourseGradingRubricsApi
      * @param  string $rubric_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCourseGradingRubricAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCourseGradingRubricAsyncRequest($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
+    public function patchCourseGradingRubricAsyncRequest($tenant_id, $rubric_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchCourseGradingRubricAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2016,12 +2044,12 @@ class CourseGradingRubricsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

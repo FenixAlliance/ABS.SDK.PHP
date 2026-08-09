@@ -84,9 +84,11 @@ class PayrollsApi
         ],
         'getPayrollsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPayrollsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchPayrollAsync' => [
             'application/json',
@@ -1487,15 +1489,16 @@ class PayrollsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PayrollDtoListEnvelope
      */
-    public function getPayrollsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
+    public function getPayrollsAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
     {
-        list($response) = $this->getPayrollsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPayrollsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1507,15 +1510,16 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PayrollDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPayrollsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
+    public function getPayrollsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
     {
-        $request = $this->getPayrollsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollsAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1704,14 +1708,15 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
+    public function getPayrollsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
     {
-        return $this->getPayrollsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPayrollsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1727,15 +1732,16 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
+    public function getPayrollsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PayrollDtoListEnvelope';
-        $request = $this->getPayrollsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollsAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,12 +1785,13 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPayrollsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
+    public function getPayrollsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1793,6 +1800,7 @@ class PayrollsApi
                 'Missing the required parameter $tenant_id when calling getPayrollsAsync'
             );
         }
+
 
 
 
@@ -1837,7 +1845,14 @@ class PayrollsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payroll_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payroll_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payroll_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1891,15 +1906,16 @@ class PayrollsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPayrollsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
+    public function getPayrollsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
     {
-        list($response) = $this->getPayrollsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPayrollsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1911,15 +1927,16 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPayrollsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
+    public function getPayrollsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
     {
-        $request = $this->getPayrollsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2108,14 +2125,15 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
+    public function getPayrollsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
     {
-        return $this->getPayrollsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPayrollsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2131,15 +2149,16 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
+    public function getPayrollsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPayrollsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2183,12 +2202,13 @@ class PayrollsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollDtoCollectionQueryParameters $payroll_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPayrollsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
+    public function getPayrollsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $payroll_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2197,6 +2217,7 @@ class PayrollsApi
                 'Missing the required parameter $tenant_id when calling getPayrollsCountAsync'
             );
         }
+
 
 
 
@@ -2241,7 +2262,14 @@ class PayrollsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payroll_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payroll_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payroll_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2296,16 +2324,16 @@ class PayrollsApi
      * @param  string $payroll_id payroll_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPayrollAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchPayrollAsync($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
+    public function patchPayrollAsync($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
     {
-        list($response) = $this->patchPayrollAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchPayrollAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2318,16 +2346,16 @@ class PayrollsApi
      * @param  string $payroll_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPayrollAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchPayrollAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
+    public function patchPayrollAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
     {
-        $request = $this->patchPayrollAsyncRequest($tenant_id, $payroll_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchPayrollAsyncRequest($tenant_id, $payroll_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2552,15 +2580,15 @@ class PayrollsApi
      * @param  string $payroll_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPayrollAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPayrollAsyncAsync($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
+    public function patchPayrollAsyncAsync($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
     {
-        return $this->patchPayrollAsyncAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchPayrollAsyncAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2577,16 +2605,16 @@ class PayrollsApi
      * @param  string $payroll_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPayrollAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchPayrollAsyncAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
+    public function patchPayrollAsyncAsyncWithHttpInfo($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchPayrollAsyncRequest($tenant_id, $payroll_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchPayrollAsyncRequest($tenant_id, $payroll_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2631,13 +2659,13 @@ class PayrollsApi
      * @param  string $payroll_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchPayrollAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchPayrollAsyncRequest($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
+    public function patchPayrollAsyncRequest($tenant_id, $payroll_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchPayrollAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2706,12 +2734,12 @@ class PayrollsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

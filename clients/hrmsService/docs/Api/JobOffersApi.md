@@ -332,7 +332,7 @@ No authorization required
 ## `getJobOffersAsync()`
 
 ```php
-getJobOffersAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\JobOfferDtoListEnvelope
+getJobOffersAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters): \OpenAPI\Client\Model\JobOfferDtoListEnvelope
 ```
 
 Get job offers
@@ -355,9 +355,10 @@ $apiInstance = new OpenAPI\Client\Api\JobOffersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$job_offer_dto_collection_query_parameters = new \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJobOffersAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJobOffersAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobOffersApi->getJobOffersAsync: ', $e->getMessage(), PHP_EOL;
@@ -371,6 +372,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **job_offer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters**](../Model/JobOfferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -382,7 +384,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -392,7 +394,7 @@ No authorization required
 ## `getJobOffersCountAsync()`
 
 ```php
-getJobOffersCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getJobOffersCountAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count job offers
@@ -415,9 +417,10 @@ $apiInstance = new OpenAPI\Client\Api\JobOffersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$job_offer_dto_collection_query_parameters = new \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getJobOffersCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getJobOffersCountAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobOffersApi->getJobOffersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -431,6 +434,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **job_offer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters**](../Model/JobOfferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -442,7 +446,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -514,7 +518,7 @@ No authorization required
 ## `getPublicJobOffersAsync()`
 
 ```php
-getPublicJobOffersAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\JobOfferDtoListEnvelope
+getPublicJobOffersAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters): \OpenAPI\Client\Model\JobOfferDtoListEnvelope
 ```
 
 Get public job offers
@@ -537,9 +541,10 @@ $apiInstance = new OpenAPI\Client\Api\JobOffersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$job_offer_dto_collection_query_parameters = new \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPublicJobOffersAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPublicJobOffersAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobOffersApi->getPublicJobOffersAsync: ', $e->getMessage(), PHP_EOL;
@@ -553,6 +558,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **job_offer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters**](../Model/JobOfferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -564,7 +570,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -574,7 +580,7 @@ No authorization required
 ## `getPublicJobOffersCountAsync()`
 
 ```php
-getPublicJobOffersCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPublicJobOffersCountAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count public job offers
@@ -597,9 +603,10 @@ $apiInstance = new OpenAPI\Client\Api\JobOffersApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$job_offer_dto_collection_query_parameters = new \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPublicJobOffersCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPublicJobOffersCountAsync($tenant_id, $api_version, $x_api_version, $job_offer_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobOffersApi->getPublicJobOffersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -613,6 +620,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **job_offer_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\JobOfferDtoCollectionQueryParameters**](../Model/JobOfferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -624,7 +632,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -634,7 +642,7 @@ No authorization required
 ## `patchJobOfferAsync()`
 
 ```php
-patchJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a job offer
@@ -658,10 +666,10 @@ $tenant_id = 'tenant_id_example'; // string
 $job_offer_id = 'job_offer_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobOffersApi->patchJobOfferAsync: ', $e->getMessage(), PHP_EOL;
@@ -676,7 +684,7 @@ try {
 | **job_offer_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

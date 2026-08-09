@@ -202,7 +202,7 @@ No authorization required
 ## `getEmployeeAppraisalSessionsAsync()`
 
 ```php
-getEmployeeAppraisalSessionsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmployeeAppraisalSessionDtoListEnvelope
+getEmployeeAppraisalSessionsAsync($tenant_id, $api_version, $x_api_version, $employee_appraisal_session_dto_collection_query_parameters): \OpenAPI\Client\Model\EmployeeAppraisalSessionDtoListEnvelope
 ```
 
 Get employee appraisal sessions
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployeeAppraisalSessionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$employee_appraisal_session_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmployeeAppraisalSessionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmployeeAppraisalSessionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmployeeAppraisalSessionsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmployeeAppraisalSessionsAsync($tenant_id, $api_version, $x_api_version, $employee_appraisal_session_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeAppraisalSessionsApi->getEmployeeAppraisalSessionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **employee_appraisal_session_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmployeeAppraisalSessionDtoCollectionQueryParameters**](../Model/EmployeeAppraisalSessionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getEmployeeAppraisalSessionsCountAsync()`
 
 ```php
-getEmployeeAppraisalSessionsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getEmployeeAppraisalSessionsCountAsync($tenant_id, $api_version, $x_api_version, $employee_appraisal_session_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count employee appraisal sessions
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\EmployeeAppraisalSessionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$employee_appraisal_session_dto_collection_query_parameters = new \OpenAPI\Client\Model\EmployeeAppraisalSessionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\EmployeeAppraisalSessionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEmployeeAppraisalSessionsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmployeeAppraisalSessionsCountAsync($tenant_id, $api_version, $x_api_version, $employee_appraisal_session_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeAppraisalSessionsApi->getEmployeeAppraisalSessionsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **employee_appraisal_session_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\EmployeeAppraisalSessionDtoCollectionQueryParameters**](../Model/EmployeeAppraisalSessionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchEmployeeAppraisalSessionAsync()`
 
 ```php
-patchEmployeeAppraisalSessionAsync($tenant_id, $session_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchEmployeeAppraisalSessionAsync($tenant_id, $session_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an employee appraisal session
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $session_id = 'session_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchEmployeeAppraisalSessionAsync($tenant_id, $session_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchEmployeeAppraisalSessionAsync($tenant_id, $session_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployeeAppraisalSessionsApi->patchEmployeeAppraisalSessionAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **session_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -503,7 +503,7 @@ No authorization required
 ## `getExtendedQuotes()`
 
 ```php
-getExtendedQuotes($tenant_id): \OpenAPI\Client\Model\ExtendedQuoteDtoListEnvelope
+getExtendedQuotes($tenant_id, $extended_quote_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedQuoteDtoListEnvelope
 ```
 
 Get a list of extended quotes.
@@ -524,9 +524,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$extended_quote_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getExtendedQuotes($tenant_id);
+    $result = $apiInstance->getExtendedQuotes($tenant_id, $extended_quote_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->getExtendedQuotes: ', $e->getMessage(), PHP_EOL;
@@ -538,6 +539,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **extended_quote_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedQuoteDtoCollectionQueryParameters**](../Model/ExtendedQuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -549,7 +551,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -677,7 +679,7 @@ No authorization required
 ## `getQuoteLines()`
 
 ```php
-getQuoteLines($tenant_id, $quote_id, $item_id): \OpenAPI\Client\Model\QuoteLineDtoListEnvelope
+getQuoteLines($tenant_id, $quote_id, $item_id, $quote_line_dto_collection_query_parameters): \OpenAPI\Client\Model\QuoteLineDtoListEnvelope
 ```
 
 Get quote lines for a quote.
@@ -700,9 +702,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
 $tenant_id = 'tenant_id_example'; // string
 $quote_id = 'quote_id_example'; // string
 $item_id = 'item_id_example'; // string
+$quote_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getQuoteLines($tenant_id, $quote_id, $item_id);
+    $result = $apiInstance->getQuoteLines($tenant_id, $quote_id, $item_id, $quote_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->getQuoteLines: ', $e->getMessage(), PHP_EOL;
@@ -716,6 +719,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **quote_id** | **string**|  | |
 | **item_id** | **string**|  | [optional] |
+| **quote_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters**](../Model/QuoteLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -727,7 +731,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -737,7 +741,7 @@ No authorization required
 ## `getQuoteLinesCount()`
 
 ```php
-getQuoteLinesCount($tenant_id, $quote_id): \OpenAPI\Client\Model\Int32Envelope
+getQuoteLinesCount($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of quote lines.
@@ -759,9 +763,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $quote_id = 'quote_id_example'; // string
+$quote_line_dto_collection_query_parameters = new \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getQuoteLinesCount($tenant_id, $quote_id);
+    $result = $apiInstance->getQuoteLinesCount($tenant_id, $quote_id, $quote_line_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->getQuoteLinesCount: ', $e->getMessage(), PHP_EOL;
@@ -774,6 +779,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **quote_id** | **string**|  | |
+| **quote_line_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\QuoteLineDtoCollectionQueryParameters**](../Model/QuoteLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -785,7 +791,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -795,7 +801,7 @@ No authorization required
 ## `getQuotes()`
 
 ```php
-getQuotes($tenant_id): \OpenAPI\Client\Model\QuoteDtoListEnvelope
+getQuotes($tenant_id, $quote_dto_collection_query_parameters): \OpenAPI\Client\Model\QuoteDtoListEnvelope
 ```
 
 Get a list of quotes.
@@ -816,9 +822,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$quote_dto_collection_query_parameters = new \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getQuotes($tenant_id);
+    $result = $apiInstance->getQuotes($tenant_id, $quote_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->getQuotes: ', $e->getMessage(), PHP_EOL;
@@ -830,6 +837,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **quote_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters**](../Model/QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -841,7 +849,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -851,7 +859,7 @@ No authorization required
 ## `getQuotesCount()`
 
 ```php
-getQuotesCount($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+getQuotesCount($tenant_id, $quote_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of quotes.
@@ -872,9 +880,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$quote_dto_collection_query_parameters = new \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getQuotesCount($tenant_id);
+    $result = $apiInstance->getQuotesCount($tenant_id, $quote_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->getQuotesCount: ', $e->getMessage(), PHP_EOL;
@@ -886,6 +895,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **quote_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters**](../Model/QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -897,7 +907,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -907,7 +917,7 @@ No authorization required
 ## `patchQuoteAsync()`
 
 ```php
-patchQuoteAsync($tenant_id, $quote_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchQuoteAsync($tenant_id, $quote_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an existing quote.
@@ -929,10 +939,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $quote_id = 'quote_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchQuoteAsync($tenant_id, $quote_id, $operation);
+    $result = $apiInstance->patchQuoteAsync($tenant_id, $quote_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->patchQuoteAsync: ', $e->getMessage(), PHP_EOL;
@@ -945,7 +955,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **quote_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -967,7 +977,7 @@ No authorization required
 ## `patchQuoteLineAsync()`
 
 ```php
-patchQuoteLineAsync($tenant_id, $quote_id, $quote_line_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchQuoteLineAsync($tenant_id, $quote_id, $quote_line_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a quote line.
@@ -990,10 +1000,10 @@ $apiInstance = new OpenAPI\Client\Api\QuotesApi(
 $tenant_id = 'tenant_id_example'; // string
 $quote_id = 'quote_id_example'; // string
 $quote_line_id = 'quote_line_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchQuoteLineAsync($tenant_id, $quote_id, $quote_line_id, $operation);
+    $result = $apiInstance->patchQuoteLineAsync($tenant_id, $quote_id, $quote_line_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QuotesApi->patchQuoteLineAsync: ', $e->getMessage(), PHP_EOL;
@@ -1007,7 +1017,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **quote_id** | **string**|  | |
 | **quote_line_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

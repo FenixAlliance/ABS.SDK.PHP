@@ -84,9 +84,11 @@ class PayrollPeriodsApi
         ],
         'getPayrollPeriodsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getPayrollPeriodsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'updatePayrollPeriodAsync' => [
             'application/json',
@@ -1483,15 +1485,16 @@ class PayrollPeriodsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PayrollPeriodDtoListEnvelope
      */
-    public function getPayrollPeriodsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
+    public function getPayrollPeriodsAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
     {
-        list($response) = $this->getPayrollPeriodsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPayrollPeriodsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1503,15 +1506,16 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\PayrollPeriodDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPayrollPeriodsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
+    public function getPayrollPeriodsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
     {
-        $request = $this->getPayrollPeriodsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollPeriodsAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1700,14 +1704,15 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollPeriodsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
+    public function getPayrollPeriodsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
     {
-        return $this->getPayrollPeriodsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPayrollPeriodsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1723,15 +1728,16 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollPeriodsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
+    public function getPayrollPeriodsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PayrollPeriodDtoListEnvelope';
-        $request = $this->getPayrollPeriodsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollPeriodsAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1775,12 +1781,13 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPayrollPeriodsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
+    public function getPayrollPeriodsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1789,6 +1796,7 @@ class PayrollPeriodsApi
                 'Missing the required parameter $tenant_id when calling getPayrollPeriodsAsync'
             );
         }
+
 
 
 
@@ -1833,7 +1841,14 @@ class PayrollPeriodsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payroll_period_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payroll_period_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payroll_period_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1887,15 +1902,16 @@ class PayrollPeriodsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getPayrollPeriodsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
+    public function getPayrollPeriodsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
     {
-        list($response) = $this->getPayrollPeriodsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getPayrollPeriodsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1907,15 +1923,16 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPayrollPeriodsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
+    public function getPayrollPeriodsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
     {
-        $request = $this->getPayrollPeriodsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollPeriodsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2104,14 +2121,15 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollPeriodsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
+    public function getPayrollPeriodsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
     {
-        return $this->getPayrollPeriodsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getPayrollPeriodsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2127,15 +2145,16 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPayrollPeriodsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
+    public function getPayrollPeriodsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getPayrollPeriodsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getPayrollPeriodsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $payroll_period_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2179,12 +2198,13 @@ class PayrollPeriodsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\PayrollPeriodDtoCollectionQueryParameters $payroll_period_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayrollPeriodsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPayrollPeriodsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
+    public function getPayrollPeriodsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $payroll_period_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getPayrollPeriodsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2193,6 +2213,7 @@ class PayrollPeriodsApi
                 'Missing the required parameter $tenant_id when calling getPayrollPeriodsCountAsync'
             );
         }
+
 
 
 
@@ -2237,7 +2258,14 @@ class PayrollPeriodsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($payroll_period_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($payroll_period_dto_collection_query_parameters));
+            } else {
+                $httpBody = $payroll_period_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

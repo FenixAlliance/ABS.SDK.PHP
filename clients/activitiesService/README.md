@@ -59,9 +59,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityFeedsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$activity_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ActivityTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countActivityTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countActivityTypesAsync($tenant_id, $api_version, $x_api_version, $activity_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityFeedsApi->countActivityTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -97,7 +98,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -116,15 +116,18 @@ Class | Method | HTTP request | Description
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [ActivityFeedDto](docs/Model/ActivityFeedDto.md)
+- [ActivityFeedDtoCollectionQueryParameters](docs/Model/ActivityFeedDtoCollectionQueryParameters.md)
 - [ActivityFeedDtoEnvelope](docs/Model/ActivityFeedDtoEnvelope.md)
 - [ActivityFeedDtoListEnvelope](docs/Model/ActivityFeedDtoListEnvelope.md)
 - [ActivityRecordCreateDto](docs/Model/ActivityRecordCreateDto.md)
 - [ActivityRecordDto](docs/Model/ActivityRecordDto.md)
+- [ActivityRecordDtoCollectionQueryParameters](docs/Model/ActivityRecordDtoCollectionQueryParameters.md)
 - [ActivityRecordDtoEnvelope](docs/Model/ActivityRecordDtoEnvelope.md)
 - [ActivityRecordDtoListEnvelope](docs/Model/ActivityRecordDtoListEnvelope.md)
 - [ActivityRecordUpdateDto](docs/Model/ActivityRecordUpdateDto.md)
 - [ActivityTypeCreateDto](docs/Model/ActivityTypeCreateDto.md)
 - [ActivityTypeDto](docs/Model/ActivityTypeDto.md)
+- [ActivityTypeDtoCollectionQueryParameters](docs/Model/ActivityTypeDtoCollectionQueryParameters.md)
 - [ActivityTypeDtoEnvelope](docs/Model/ActivityTypeDtoEnvelope.md)
 - [ActivityTypeDtoListEnvelope](docs/Model/ActivityTypeDtoListEnvelope.md)
 - [ActivityTypeUpdateDto](docs/Model/ActivityTypeUpdateDto.md)
@@ -137,7 +140,7 @@ Class | Method | HTTP request | Description
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
-- [Operation](docs/Model/Operation.md)
+- [PatchOperation](docs/Model/PatchOperation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)

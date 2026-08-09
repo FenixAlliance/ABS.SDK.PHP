@@ -201,7 +201,7 @@ No authorization required
 ## `getNewsletterSubscriptionsAsync()`
 
 ```php
-getNewsletterSubscriptionsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\NewsletterSubscriptionDtoListEnvelope
+getNewsletterSubscriptionsAsync($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters): \OpenAPI\Client\Model\NewsletterSubscriptionDtoListEnvelope
 ```
 
 Get newsletter subscriptions
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\NewsletterSubscriptionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$newsletter_subscription_dto_collection_query_parameters = new \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNewsletterSubscriptionsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNewsletterSubscriptionsAsync($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewsletterSubscriptionsApi->getNewsletterSubscriptionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **newsletter_subscription_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters**](../Model/NewsletterSubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getNewsletterSubscriptionsCountAsync()`
 
 ```php
-getNewsletterSubscriptionsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getNewsletterSubscriptionsCountAsync($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get newsletter subscriptions count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\NewsletterSubscriptionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$newsletter_subscription_dto_collection_query_parameters = new \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getNewsletterSubscriptionsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getNewsletterSubscriptionsCountAsync($tenant_id, $api_version, $x_api_version, $newsletter_subscription_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewsletterSubscriptionsApi->getNewsletterSubscriptionsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **newsletter_subscription_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\NewsletterSubscriptionDtoCollectionQueryParameters**](../Model/NewsletterSubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

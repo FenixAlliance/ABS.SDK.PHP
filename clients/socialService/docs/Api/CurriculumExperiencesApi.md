@@ -214,7 +214,7 @@ No authorization required
 ## `getCurriculumExperiencesAsync()`
 
 ```php
-getCurriculumExperiencesAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CurriculumExperienceDtoListEnvelope
+getCurriculumExperiencesAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters): \OpenAPI\Client\Model\CurriculumExperienceDtoListEnvelope
 ```
 
 Get curriculum experiences
@@ -239,9 +239,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$curriculum_experience_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurriculumExperiencesAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCurriculumExperiencesAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurriculumExperiencesApi->getCurriculumExperiencesAsync: ', $e->getMessage(), PHP_EOL;
@@ -257,6 +258,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **curriculum_experience_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters**](../Model/CurriculumExperienceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -268,7 +270,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -278,7 +280,7 @@ No authorization required
 ## `getCurriculumExperiencesCountAsync()`
 
 ```php
-getCurriculumExperiencesCountAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getCurriculumExperiencesCountAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count curriculum experiences
@@ -303,9 +305,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$curriculum_experience_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCurriculumExperiencesCountAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCurriculumExperiencesCountAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurriculumExperiencesApi->getCurriculumExperiencesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -321,6 +324,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **curriculum_experience_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurriculumExperienceDtoCollectionQueryParameters**](../Model/CurriculumExperienceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -332,7 +336,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -342,7 +346,7 @@ No authorization required
 ## `patchCurriculumExperienceAsync()`
 
 ```php
-patchCurriculumExperienceAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCurriculumExperienceAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a curriculum experience
@@ -368,10 +372,10 @@ $social_profile_id = 'social_profile_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCurriculumExperienceAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCurriculumExperienceAsync($curriculum_id, $experience_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurriculumExperiencesApi->patchCurriculumExperienceAsync: ', $e->getMessage(), PHP_EOL;
@@ -388,7 +392,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

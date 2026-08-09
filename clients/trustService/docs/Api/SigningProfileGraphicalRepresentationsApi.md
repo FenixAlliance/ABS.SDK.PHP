@@ -200,7 +200,7 @@ No authorization required
 ## `getSigningProfileGraphicalRepresentationsAsync()`
 
 ```php
-getSigningProfileGraphicalRepresentationsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoListEnvelope
+getSigningProfileGraphicalRepresentationsAsync($tenant_id, $api_version, $x_api_version, $signing_profile_graphical_representation_dto_collection_query_parameters): \OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoListEnvelope
 ```
 
 Get all signature representations
@@ -223,9 +223,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningProfileGraphicalRepresentationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signing_profile_graphical_representation_dto_collection_query_parameters = new \OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSigningProfileGraphicalRepresentationsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSigningProfileGraphicalRepresentationsAsync($tenant_id, $api_version, $x_api_version, $signing_profile_graphical_representation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningProfileGraphicalRepresentationsApi->getSigningProfileGraphicalRepresentationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signing_profile_graphical_representation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoCollectionQueryParameters**](../Model/SigningProfileGraphicalRepresentationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -250,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -260,7 +262,7 @@ No authorization required
 ## `getSigningProfileGraphicalRepresentationsCountAsync()`
 
 ```php
-getSigningProfileGraphicalRepresentationsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSigningProfileGraphicalRepresentationsCountAsync($tenant_id, $api_version, $x_api_version, $signing_profile_graphical_representation_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get signature representations count
@@ -283,9 +285,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningProfileGraphicalRepresentationsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signing_profile_graphical_representation_dto_collection_query_parameters = new \OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSigningProfileGraphicalRepresentationsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSigningProfileGraphicalRepresentationsCountAsync($tenant_id, $api_version, $x_api_version, $signing_profile_graphical_representation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningProfileGraphicalRepresentationsApi->getSigningProfileGraphicalRepresentationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signing_profile_graphical_representation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SigningProfileGraphicalRepresentationDtoCollectionQueryParameters**](../Model/SigningProfileGraphicalRepresentationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -310,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -320,7 +324,7 @@ No authorization required
 ## `patchSigningProfileGraphicalRepresentationAsync()`
 
 ```php
-patchSigningProfileGraphicalRepresentationAsync($tenant_id, $id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchSigningProfileGraphicalRepresentationAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a signature representation
@@ -344,10 +348,10 @@ $tenant_id = 'tenant_id_example'; // string
 $id = 'id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchSigningProfileGraphicalRepresentationAsync($tenant_id, $id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchSigningProfileGraphicalRepresentationAsync($tenant_id, $id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningProfileGraphicalRepresentationsApi->patchSigningProfileGraphicalRepresentationAsync: ', $e->getMessage(), PHP_EOL;
@@ -362,7 +366,7 @@ try {
 | **id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

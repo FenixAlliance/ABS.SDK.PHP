@@ -94,15 +94,19 @@ class RoadWaybillsApi
         ],
         'getRoadWaybillLinesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRoadWaybillLinesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRoadWaybillsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getRoadWaybillsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'issueRoadWaybillAsync' => [
             'application/json',
@@ -2529,15 +2533,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id waybill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope
      */
-    public function getRoadWaybillLinesAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
+    public function getRoadWaybillLinesAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
     {
-        list($response) = $this->getRoadWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRoadWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2550,15 +2555,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\WaybillLineDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoadWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
+    public function getRoadWaybillLinesAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
     {
-        $request = $this->getRoadWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2713,14 +2719,15 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillLinesAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
+    public function getRoadWaybillLinesAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
     {
-        return $this->getRoadWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType)
+        return $this->getRoadWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2737,15 +2744,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
+    public function getRoadWaybillLinesAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\WaybillLineDtoListEnvelope';
-        $request = $this->getRoadWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2790,12 +2798,13 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRoadWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
+    public function getRoadWaybillLinesAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2811,6 +2820,7 @@ class RoadWaybillsApi
                 'Missing the required parameter $waybill_id when calling getRoadWaybillLinesAsync'
             );
         }
+
 
 
 
@@ -2863,7 +2873,14 @@ class RoadWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2918,15 +2935,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id waybill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRoadWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
+    public function getRoadWaybillLinesCountAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
     {
-        list($response) = $this->getRoadWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRoadWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2939,15 +2957,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoadWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
+    public function getRoadWaybillLinesCountAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
     {
-        $request = $this->getRoadWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3102,14 +3121,15 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillLinesCountAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
+    public function getRoadWaybillLinesCountAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
     {
-        return $this->getRoadWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType)
+        return $this->getRoadWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3126,15 +3146,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
+    public function getRoadWaybillLinesCountAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRoadWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $waybill_line_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3179,12 +3200,13 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\WaybillLineDtoCollectionQueryParameters $waybill_line_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillLinesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRoadWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
+    public function getRoadWaybillLinesCountAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $waybill_line_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillLinesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3200,6 +3222,7 @@ class RoadWaybillsApi
                 'Missing the required parameter $waybill_id when calling getRoadWaybillLinesCountAsync'
             );
         }
+
 
 
 
@@ -3252,7 +3275,14 @@ class RoadWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($waybill_line_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($waybill_line_dto_collection_query_parameters));
+            } else {
+                $httpBody = $waybill_line_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3306,15 +3336,16 @@ class RoadWaybillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\RoadWaybillDtoListEnvelope
      */
-    public function getRoadWaybillsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
+    public function getRoadWaybillsAsync($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
     {
-        list($response) = $this->getRoadWaybillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRoadWaybillsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3326,15 +3357,16 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\RoadWaybillDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoadWaybillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
+    public function getRoadWaybillsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
     {
-        $request = $this->getRoadWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3523,14 +3555,15 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
+    public function getRoadWaybillsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
     {
-        return $this->getRoadWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRoadWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3546,15 +3579,16 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
+    public function getRoadWaybillsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RoadWaybillDtoListEnvelope';
-        $request = $this->getRoadWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillsAsyncRequest($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3598,12 +3632,13 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRoadWaybillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
+    public function getRoadWaybillsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3612,6 +3647,7 @@ class RoadWaybillsApi
                 'Missing the required parameter $tenant_id when calling getRoadWaybillsAsync'
             );
         }
+
 
 
 
@@ -3656,7 +3692,14 @@ class RoadWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($road_waybill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($road_waybill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $road_waybill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3710,15 +3753,16 @@ class RoadWaybillsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getRoadWaybillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
+    public function getRoadWaybillsCountAsync($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
     {
-        list($response) = $this->getRoadWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getRoadWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -3730,15 +3774,16 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRoadWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
+    public function getRoadWaybillsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
     {
-        $request = $this->getRoadWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3892,14 +3937,15 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
+    public function getRoadWaybillsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
     {
-        return $this->getRoadWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getRoadWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3915,15 +3961,16 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRoadWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
+    public function getRoadWaybillsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getRoadWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getRoadWaybillsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $road_waybill_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3967,12 +4014,13 @@ class RoadWaybillsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\RoadWaybillDtoCollectionQueryParameters $road_waybill_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRoadWaybillsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRoadWaybillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
+    public function getRoadWaybillsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $road_waybill_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getRoadWaybillsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3981,6 +4029,7 @@ class RoadWaybillsApi
                 'Missing the required parameter $tenant_id when calling getRoadWaybillsCountAsync'
             );
         }
+
 
 
 
@@ -4025,7 +4074,14 @@ class RoadWaybillsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($road_waybill_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($road_waybill_dto_collection_query_parameters));
+            } else {
+                $httpBody = $road_waybill_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5247,16 +5303,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id waybill_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRoadWaybillAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
+    public function patchRoadWaybillAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
     {
-        list($response) = $this->patchRoadWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchRoadWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5269,16 +5325,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRoadWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
+    public function patchRoadWaybillAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
     {
-        $request = $this->patchRoadWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRoadWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5433,15 +5489,15 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoadWaybillAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
+    public function patchRoadWaybillAsyncAsync($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
     {
-        return $this->patchRoadWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchRoadWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5458,16 +5514,16 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoadWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
+    public function patchRoadWaybillAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRoadWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRoadWaybillAsyncRequest($tenant_id, $waybill_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5512,13 +5568,13 @@ class RoadWaybillsApi
      * @param  string $waybill_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRoadWaybillAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
+    public function patchRoadWaybillAsyncRequest($tenant_id, $waybill_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5587,12 +5643,12 @@ class RoadWaybillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5650,16 +5706,16 @@ class RoadWaybillsApi
      * @param  string $line_id line_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchRoadWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
+    public function patchRoadWaybillLineAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
     {
-        list($response) = $this->patchRoadWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchRoadWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5673,16 +5729,16 @@ class RoadWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRoadWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
+    public function patchRoadWaybillLineAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
     {
-        $request = $this->patchRoadWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRoadWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5838,15 +5894,15 @@ class RoadWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoadWaybillLineAsyncAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
+    public function patchRoadWaybillLineAsyncAsync($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
     {
-        return $this->patchRoadWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchRoadWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5864,16 +5920,16 @@ class RoadWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRoadWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
+    public function patchRoadWaybillLineAsyncAsyncWithHttpInfo($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchRoadWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchRoadWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5919,13 +5975,13 @@ class RoadWaybillsApi
      * @param  string $line_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRoadWaybillLineAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRoadWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
+    public function patchRoadWaybillLineAsyncRequest($tenant_id, $waybill_id, $line_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchRoadWaybillLineAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6009,12 +6065,12 @@ class RoadWaybillsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

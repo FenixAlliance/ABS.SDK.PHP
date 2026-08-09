@@ -84,9 +84,11 @@ class UserOptionsApi
         ],
         'getSystemUserOptions' => [
             'application/json',
+            'application/xml',
         ],
         'getSystemUserOptionsCount' => [
             'application/json',
+            'application/xml',
         ],
         'patchSystemUserOption' => [
             'application/json',
@@ -1451,15 +1453,16 @@ class UserOptionsApi
      * @param  string $portal_id portal_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OptionDtoListEnvelope
      */
-    public function getSystemUserOptions($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
+    public function getSystemUserOptions($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
     {
-        list($response) = $this->getSystemUserOptionsWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemUserOptionsWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1472,15 +1475,16 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\OptionDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemUserOptionsWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
+    public function getSystemUserOptionsWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
     {
-        $request = $this->getSystemUserOptionsRequest($user_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemUserOptionsRequest($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1670,14 +1674,15 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemUserOptionsAsync($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
+    public function getSystemUserOptionsAsync($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
     {
-        return $this->getSystemUserOptionsAsyncWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $contentType)
+        return $this->getSystemUserOptionsAsyncWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1694,15 +1699,16 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemUserOptionsAsyncWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
+    public function getSystemUserOptionsAsyncWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
     {
         $returnType = '\OpenAPI\Client\Model\OptionDtoListEnvelope';
-        $request = $this->getSystemUserOptionsRequest($user_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemUserOptionsRequest($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1747,12 +1753,13 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemUserOptionsRequest($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
+    public function getSystemUserOptionsRequest($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptions'][0])
     {
 
         // verify the required parameter 'user_id' is set
@@ -1761,6 +1768,7 @@ class UserOptionsApi
                 'Missing the required parameter $user_id when calling getSystemUserOptions'
             );
         }
+
 
 
 
@@ -1814,7 +1822,14 @@ class UserOptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($option_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($option_dto_collection_query_parameters));
+            } else {
+                $httpBody = $option_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1869,15 +1884,16 @@ class UserOptionsApi
      * @param  string $portal_id portal_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptionsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSystemUserOptionsCount($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
+    public function getSystemUserOptionsCount($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
     {
-        list($response) = $this->getSystemUserOptionsCountWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSystemUserOptionsCountWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1890,15 +1906,16 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptionsCount'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSystemUserOptionsCountWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
+    public function getSystemUserOptionsCountWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
     {
-        $request = $this->getSystemUserOptionsCountRequest($user_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemUserOptionsCountRequest($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2088,14 +2105,15 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemUserOptionsCountAsync($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
+    public function getSystemUserOptionsCountAsync($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
     {
-        return $this->getSystemUserOptionsCountAsyncWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $contentType)
+        return $this->getSystemUserOptionsCountAsyncWithHttpInfo($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2112,15 +2130,16 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSystemUserOptionsCountAsyncWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
+    public function getSystemUserOptionsCountAsyncWithHttpInfo($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSystemUserOptionsCountRequest($user_id, $portal_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSystemUserOptionsCountRequest($user_id, $portal_id, $api_version, $x_api_version, $option_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2165,12 +2184,13 @@ class UserOptionsApi
      * @param  string $portal_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\OptionDtoCollectionQueryParameters $option_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSystemUserOptionsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSystemUserOptionsCountRequest($user_id, $portal_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
+    public function getSystemUserOptionsCountRequest($user_id, $portal_id = null, $api_version = null, $x_api_version = null, $option_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSystemUserOptionsCount'][0])
     {
 
         // verify the required parameter 'user_id' is set
@@ -2179,6 +2199,7 @@ class UserOptionsApi
                 'Missing the required parameter $user_id when calling getSystemUserOptionsCount'
             );
         }
+
 
 
 
@@ -2232,7 +2253,14 @@ class UserOptionsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($option_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($option_dto_collection_query_parameters));
+            } else {
+                $httpBody = $option_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2287,16 +2315,16 @@ class UserOptionsApi
      * @param  string $option_id option_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemUserOption'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSystemUserOption($user_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
+    public function patchSystemUserOption($user_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
     {
-        list($response) = $this->patchSystemUserOptionWithHttpInfo($user_id, $option_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSystemUserOptionWithHttpInfo($user_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2309,16 +2337,16 @@ class UserOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemUserOption'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSystemUserOptionWithHttpInfo($user_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
+    public function patchSystemUserOptionWithHttpInfo($user_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
     {
-        $request = $this->patchSystemUserOptionRequest($user_id, $option_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSystemUserOptionRequest($user_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2508,15 +2536,15 @@ class UserOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemUserOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSystemUserOptionAsync($user_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
+    public function patchSystemUserOptionAsync($user_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
     {
-        return $this->patchSystemUserOptionAsyncWithHttpInfo($user_id, $option_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSystemUserOptionAsyncWithHttpInfo($user_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2533,16 +2561,16 @@ class UserOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemUserOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSystemUserOptionAsyncWithHttpInfo($user_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
+    public function patchSystemUserOptionAsyncWithHttpInfo($user_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSystemUserOptionRequest($user_id, $option_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSystemUserOptionRequest($user_id, $option_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2587,13 +2615,13 @@ class UserOptionsApi
      * @param  string $option_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSystemUserOption'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSystemUserOptionRequest($user_id, $option_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
+    public function patchSystemUserOptionRequest($user_id, $option_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSystemUserOption'][0])
     {
 
         // verify the required parameter 'user_id' is set
@@ -2661,12 +2689,12 @@ class UserOptionsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

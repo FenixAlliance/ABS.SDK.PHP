@@ -248,7 +248,7 @@ No authorization required
 ## `getPaymentsAsync()`
 
 ```php
-getPaymentsAsync($tenant_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getPaymentsAsync($tenant_id, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
 Retrieves all payments
@@ -269,9 +269,10 @@ $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentsAsync($tenant_id);
+    $result = $apiInstance->getPaymentsAsync($tenant_id, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentsApi->getPaymentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -283,6 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -294,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -304,7 +306,7 @@ No authorization required
 ## `patchPaymentAsync()`
 
 ```php
-patchPaymentAsync($tenant_id, $payment_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPaymentAsync($tenant_id, $payment_id, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a payment
@@ -326,10 +328,10 @@ $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $payment_id = 'payment_id_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPaymentAsync($tenant_id, $payment_id, $operation);
+    $result = $apiInstance->patchPaymentAsync($tenant_id, $payment_id, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentsApi->patchPaymentAsync: ', $e->getMessage(), PHP_EOL;
@@ -342,7 +344,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **payment_id** | **string**|  | |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -51,7 +51,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `aggregateAccountsBalanceAsync()`
 
 ```php
-aggregateAccountsBalanceAsync($tenant_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateAccountsBalanceAsync($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto_collection_query_parameters): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate accounts balance
@@ -75,9 +75,10 @@ $tenant_id = 'tenant_id_example'; // string
 $currency_id = 'USD.USA'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->aggregateAccountsBalanceAsync($tenant_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->aggregateAccountsBalanceAsync($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->aggregateAccountsBalanceAsync: ', $e->getMessage(), PHP_EOL;
@@ -92,6 +93,7 @@ try {
 | **currency_id** | **string**|  | [optional] [default to &#39;USD.USA&#39;] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountDtoCollectionQueryParameters**](../Model/AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -103,7 +105,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -931,7 +933,7 @@ No authorization required
 ## `getAccountCreditsAsync()`
 
 ```php
-getAccountCreditsAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
+getAccountCreditsAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
 ```
 
 Get account credits
@@ -955,9 +957,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountCreditsAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountCreditsAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountCreditsAsync: ', $e->getMessage(), PHP_EOL;
@@ -972,6 +975,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -983,7 +987,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -993,7 +997,7 @@ No authorization required
 ## `getAccountCreditsCountAsync()`
 
 ```php
-getAccountCreditsCountAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountCreditsCountAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get account credits count
@@ -1017,9 +1021,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountCreditsCountAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountCreditsCountAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountCreditsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1034,6 +1039,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1045,7 +1051,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1055,7 +1061,7 @@ No authorization required
 ## `getAccountDebitsAsync()`
 
 ```php
-getAccountDebitsAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
+getAccountDebitsAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
 ```
 
 Get account debits
@@ -1079,9 +1085,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountDebitsAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountDebitsAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountDebitsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1096,6 +1103,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1107,7 +1115,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1117,7 +1125,7 @@ No authorization required
 ## `getAccountDebitsCountAsync()`
 
 ```php
-getAccountDebitsCountAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountDebitsCountAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get account debits count
@@ -1141,9 +1149,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountDebitsCountAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountDebitsCountAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountDebitsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1158,6 +1167,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1169,7 +1179,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1241,7 +1251,7 @@ No authorization required
 ## `getAccountEntriesAsync()`
 
 ```php
-getAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
+getAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
 ```
 
 Get account entries
@@ -1265,9 +1275,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1282,6 +1293,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1293,7 +1305,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1367,7 +1379,7 @@ No authorization required
 ## `getAccountRelationsAsync()`
 
 ```php
-getAccountRelationsAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountRelationDtoListEnvelope
+getAccountRelationsAsync($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountRelationDtoListEnvelope
 ```
 
 Get account relations
@@ -1391,9 +1403,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_relation_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountRelationsAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountRelationsAsync($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountRelationsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1408,6 +1421,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_relation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters**](../Model/AccountRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1419,7 +1433,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1429,7 +1443,7 @@ No authorization required
 ## `getAccountRelationsCountAsync()`
 
 ```php
-getAccountRelationsCountAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountRelationsCountAsync($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get account relations count
@@ -1453,9 +1467,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_relation_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountRelationsCountAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountRelationsCountAsync($tenant_id, $account_id, $api_version, $x_api_version, $account_relation_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountRelationsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1470,6 +1485,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_relation_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountRelationDtoCollectionQueryParameters**](../Model/AccountRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1481,7 +1497,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1553,7 +1569,7 @@ No authorization required
 ## `getAccountTypesAsync()`
 
 ```php
-getAccountTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountTypeDtoListEnvelope
+getAccountTypesAsync($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountTypeDtoListEnvelope
 ```
 
 Get account types
@@ -1576,9 +1592,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountTypesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountTypesAsync($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1592,6 +1609,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters**](../Model/AccountTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1603,7 +1621,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1613,7 +1631,7 @@ No authorization required
 ## `getAccountTypesCountAsync()`
 
 ```php
-getAccountTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountTypesCountAsync($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get account types count
@@ -1636,9 +1654,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_type_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountTypesCountAsync($tenant_id, $api_version, $x_api_version, $account_type_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1652,6 +1671,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_type_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountTypeDtoCollectionQueryParameters**](../Model/AccountTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1663,7 +1683,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1673,7 +1693,7 @@ No authorization required
 ## `getAccountsAsync()`
 
 ```php
-getAccountsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountDtoListEnvelope
+getAccountsAsync($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountDtoListEnvelope
 ```
 
 Creates a new account
@@ -1696,9 +1716,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountsAsync($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1712,6 +1733,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountDtoCollectionQueryParameters**](../Model/AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1723,7 +1745,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1733,7 +1755,7 @@ No authorization required
 ## `getAccountsCountAsync()`
 
 ```php
-getAccountsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountsCountAsync($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the number of accounts
@@ -1756,9 +1778,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountsCountAsync($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1772,6 +1795,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountDtoCollectionQueryParameters**](../Model/AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1783,7 +1807,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1913,7 +1937,7 @@ No authorization required
 ## `getCreditAccountEntriesAsync()`
 
 ```php
-getCreditAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
+getCreditAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
 ```
 
 Get credit account entries
@@ -1937,9 +1961,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCreditAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCreditAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getCreditAccountEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1954,6 +1979,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1965,7 +1991,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1975,7 +2001,7 @@ No authorization required
 ## `getDebitAccountEntriesAsync()`
 
 ```php
-getDebitAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
+getDebitAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
 ```
 
 Get debit account entries
@@ -1999,9 +2025,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_entry_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getDebitAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->getDebitAccountEntriesAsync($tenant_id, $account_id, $api_version, $x_api_version, $accounting_entry_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getDebitAccountEntriesAsync: ', $e->getMessage(), PHP_EOL;
@@ -2016,6 +2043,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_entry_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingEntryDtoCollectionQueryParameters**](../Model/AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2027,7 +2055,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2037,7 +2065,7 @@ No authorization required
 ## `getRootAccountsAsync()`
 
 ```php
-getRootAccountsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountDtoListEnvelope
+getRootAccountsAsync($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountDtoListEnvelope
 ```
 
 Get root accounts
@@ -2060,9 +2088,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getRootAccountsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getRootAccountsAsync($tenant_id, $api_version, $x_api_version, $account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getRootAccountsAsync: ', $e->getMessage(), PHP_EOL;
@@ -2076,6 +2105,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountDtoCollectionQueryParameters**](../Model/AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2087,7 +2117,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2097,7 +2127,7 @@ No authorization required
 ## `patchAccountAsync()`
 
 ```php
-patchAccountAsync($tenant_id, $account_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountAsync($tenant_id, $account_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an account
@@ -2121,10 +2151,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountAsync($tenant_id, $account_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountAsync($tenant_id, $account_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->patchAccountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2139,7 +2169,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2161,7 +2191,7 @@ No authorization required
 ## `patchAccountEntryAsync()`
 
 ```php
-patchAccountEntryAsync($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountEntryAsync($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch account entry
@@ -2186,10 +2216,10 @@ $account_id = 'account_id_example'; // string
 $entry_id = 'entry_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountEntryAsync($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountEntryAsync($tenant_id, $account_id, $entry_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->patchAccountEntryAsync: ', $e->getMessage(), PHP_EOL;
@@ -2205,7 +2235,7 @@ try {
 | **entry_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2227,7 +2257,7 @@ No authorization required
 ## `patchAccountRelationAsync()`
 
 ```php
-patchAccountRelationAsync($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountRelationAsync($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch account relation
@@ -2252,10 +2282,10 @@ $account_relation_id = 'account_relation_id_example'; // string
 $account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountRelationAsync($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountRelationAsync($tenant_id, $account_relation_id, $account_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->patchAccountRelationAsync: ', $e->getMessage(), PHP_EOL;
@@ -2271,7 +2301,7 @@ try {
 | **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2293,7 +2323,7 @@ No authorization required
 ## `patchAccountTypeAsync()`
 
 ```php
-patchAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch account type
@@ -2317,10 +2347,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_type_id = 'account_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->patchAccountTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -2335,7 +2365,7 @@ try {
 | **account_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

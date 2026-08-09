@@ -446,7 +446,7 @@ No authorization required
 ## `getSigningRequestsAsync()`
 
 ```php
-getSigningRequestsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SigningRequestDtoListEnvelope
+getSigningRequestsAsync($tenant_id, $api_version, $x_api_version, $signing_request_dto_collection_query_parameters): \OpenAPI\Client\Model\SigningRequestDtoListEnvelope
 ```
 
 Get all signing requests
@@ -467,9 +467,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signing_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\SigningRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SigningRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSigningRequestsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSigningRequestsAsync($tenant_id, $api_version, $x_api_version, $signing_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningRequestsApi->getSigningRequestsAsync: ', $e->getMessage(), PHP_EOL;
@@ -483,6 +484,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signing_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SigningRequestDtoCollectionQueryParameters**](../Model/SigningRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -494,7 +496,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -504,7 +506,7 @@ No authorization required
 ## `getSigningRequestsCountAsync()`
 
 ```php
-getSigningRequestsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSigningRequestsCountAsync($tenant_id, $api_version, $x_api_version, $signing_request_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get signing requests count
@@ -525,9 +527,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signing_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\SigningRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SigningRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSigningRequestsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSigningRequestsCountAsync($tenant_id, $api_version, $x_api_version, $signing_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningRequestsApi->getSigningRequestsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -541,6 +544,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signing_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SigningRequestDtoCollectionQueryParameters**](../Model/SigningRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -552,7 +556,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

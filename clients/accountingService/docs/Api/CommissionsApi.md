@@ -333,7 +333,7 @@ No authorization required
 ## `getCommissionsAsync()`
 
 ```php
-getCommissionsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CommissionDtoListEnvelope
+getCommissionsAsync($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters): \OpenAPI\Client\Model\CommissionDtoListEnvelope
 ```
 
 Get all commissions for a tenant
@@ -356,9 +356,10 @@ $apiInstance = new OpenAPI\Client\Api\CommissionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$commission_dto_collection_query_parameters = new \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCommissionsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCommissionsAsync($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommissionsApi->getCommissionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -372,6 +373,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **commission_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters**](../Model/CommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -383,7 +385,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -393,7 +395,7 @@ No authorization required
 ## `getCommissionsCountAsync()`
 
 ```php
-getCommissionsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getCommissionsCountAsync($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of commissions for a tenant
@@ -416,9 +418,10 @@ $apiInstance = new OpenAPI\Client\Api\CommissionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$commission_dto_collection_query_parameters = new \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getCommissionsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCommissionsCountAsync($tenant_id, $api_version, $x_api_version, $commission_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommissionsApi->getCommissionsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -432,6 +435,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **commission_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CommissionDtoCollectionQueryParameters**](../Model/CommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -443,7 +447,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -515,7 +519,7 @@ No authorization required
 ## `getPaymentCommissionsAsync()`
 
 ```php
-getPaymentCommissionsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentCommissionDtoListEnvelope
+getPaymentCommissionsAsync($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentCommissionDtoListEnvelope
 ```
 
 Get all payment commissions for a tenant
@@ -538,9 +542,10 @@ $apiInstance = new OpenAPI\Client\Api\CommissionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_commission_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentCommissionsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPaymentCommissionsAsync($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommissionsApi->getPaymentCommissionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -554,6 +559,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_commission_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters**](../Model/PaymentCommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -565,7 +571,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -575,7 +581,7 @@ No authorization required
 ## `getPaymentCommissionsCountAsync()`
 
 ```php
-getPaymentCommissionsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getPaymentCommissionsCountAsync($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of payment commissions for a tenant
@@ -598,9 +604,10 @@ $apiInstance = new OpenAPI\Client\Api\CommissionsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_commission_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getPaymentCommissionsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPaymentCommissionsCountAsync($tenant_id, $api_version, $x_api_version, $payment_commission_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommissionsApi->getPaymentCommissionsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -614,6 +621,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_commission_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentCommissionDtoCollectionQueryParameters**](../Model/PaymentCommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -625,7 +633,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -635,7 +643,7 @@ No authorization required
 ## `patchCommissionAsync()`
 
 ```php
-patchCommissionAsync($tenant_id, $commission_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchCommissionAsync($tenant_id, $commission_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a commission
@@ -659,10 +667,10 @@ $tenant_id = 'tenant_id_example'; // string
 $commission_id = 'commission_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchCommissionAsync($tenant_id, $commission_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchCommissionAsync($tenant_id, $commission_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommissionsApi->patchCommissionAsync: ', $e->getMessage(), PHP_EOL;
@@ -677,7 +685,7 @@ try {
 | **commission_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -699,7 +707,7 @@ No authorization required
 ## `patchPaymentCommissionAsync()`
 
 ```php
-patchPaymentCommissionAsync($tenant_id, $payment_commission_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchPaymentCommissionAsync($tenant_id, $payment_commission_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a payment commission
@@ -723,10 +731,10 @@ $tenant_id = 'tenant_id_example'; // string
 $payment_commission_id = 'payment_commission_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchPaymentCommissionAsync($tenant_id, $payment_commission_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchPaymentCommissionAsync($tenant_id, $payment_commission_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommissionsApi->patchPaymentCommissionAsync: ', $e->getMessage(), PHP_EOL;
@@ -741,7 +749,7 @@ try {
 | **payment_commission_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

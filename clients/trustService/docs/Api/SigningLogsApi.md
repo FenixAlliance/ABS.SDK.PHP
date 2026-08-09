@@ -74,7 +74,7 @@ No authorization required
 ## `getSigningLogsAsync()`
 
 ```php
-getSigningLogsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SigningLogDtoListEnvelope
+getSigningLogsAsync($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters): \OpenAPI\Client\Model\SigningLogDtoListEnvelope
 ```
 
 Get all signing logs
@@ -97,9 +97,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningLogsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signing_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSigningLogsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSigningLogsAsync($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningLogsApi->getSigningLogsAsync: ', $e->getMessage(), PHP_EOL;
@@ -113,6 +114,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signing_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters**](../Model/SigningLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -124,7 +126,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -134,7 +136,7 @@ No authorization required
 ## `getSigningLogsCountAsync()`
 
 ```php
-getSigningLogsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getSigningLogsCountAsync($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get signing logs count
@@ -157,9 +159,10 @@ $apiInstance = new OpenAPI\Client\Api\SigningLogsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$signing_log_dto_collection_query_parameters = new \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getSigningLogsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSigningLogsCountAsync($tenant_id, $api_version, $x_api_version, $signing_log_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SigningLogsApi->getSigningLogsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -173,6 +176,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **signing_log_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\SigningLogDtoCollectionQueryParameters**](../Model/SigningLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -184,7 +188,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

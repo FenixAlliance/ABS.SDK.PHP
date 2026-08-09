@@ -201,7 +201,7 @@ No authorization required
 ## `getAccountGroups()`
 
 ```php
-getAccountGroups($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountGroupDtoListEnvelope
+getAccountGroups($tenant_id, $api_version, $x_api_version, $account_group_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountGroupDtoListEnvelope
 ```
 
 Gets the current tenant account groups
@@ -224,9 +224,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountGroups($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountGroups($tenant_id, $api_version, $x_api_version, $account_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountGroupsApi->getAccountGroups: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountGroupDtoCollectionQueryParameters**](../Model/AccountGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -261,7 +263,7 @@ No authorization required
 ## `getAccountGroupsCountAsync()`
 
 ```php
-getAccountGroupsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountGroupsCountAsync($tenant_id, $api_version, $x_api_version, $account_group_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant accounts count
@@ -284,9 +286,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountGroupsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$account_group_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountGroupDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountGroupDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountGroupsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountGroupsCountAsync($tenant_id, $api_version, $x_api_version, $account_group_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountGroupsApi->getAccountGroupsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +303,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **account_group_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountGroupDtoCollectionQueryParameters**](../Model/AccountGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -321,7 +325,7 @@ No authorization required
 ## `patchAccountGroupAsync()`
 
 ```php
-patchAccountGroupAsync($tenant_id, $account_group_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountGroupAsync($tenant_id, $account_group_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an account group
@@ -345,10 +349,10 @@ $tenant_id = 'tenant_id_example'; // string
 $account_group_id = 'account_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountGroupAsync($tenant_id, $account_group_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountGroupAsync($tenant_id, $account_group_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountGroupsApi->patchAccountGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -363,7 +367,7 @@ try {
 | **account_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

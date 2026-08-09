@@ -196,7 +196,7 @@ No authorization required
 ## `getKnowledgeArticlesAsync()`
 
 ```php
-getKnowledgeArticlesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\KnowledgeArticleDtoListEnvelope
+getKnowledgeArticlesAsync($tenant_id, $api_version, $x_api_version, $knowledge_article_dto_collection_query_parameters): \OpenAPI\Client\Model\KnowledgeArticleDtoListEnvelope
 ```
 
 Retrieve knowledge articles
@@ -217,9 +217,10 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeArticlesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$knowledge_article_dto_collection_query_parameters = new \OpenAPI\Client\Model\KnowledgeArticleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\KnowledgeArticleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getKnowledgeArticlesAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getKnowledgeArticlesAsync($tenant_id, $api_version, $x_api_version, $knowledge_article_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KnowledgeArticlesApi->getKnowledgeArticlesAsync: ', $e->getMessage(), PHP_EOL;
@@ -233,6 +234,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **knowledge_article_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\KnowledgeArticleDtoCollectionQueryParameters**](../Model/KnowledgeArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -254,7 +256,7 @@ No authorization required
 ## `getKnowledgeArticlesCountAsync()`
 
 ```php
-getKnowledgeArticlesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getKnowledgeArticlesCountAsync($tenant_id, $api_version, $x_api_version, $knowledge_article_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get knowledge articles count
@@ -275,9 +277,10 @@ $apiInstance = new OpenAPI\Client\Api\KnowledgeArticlesApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$knowledge_article_dto_collection_query_parameters = new \OpenAPI\Client\Model\KnowledgeArticleDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\KnowledgeArticleDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getKnowledgeArticlesCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getKnowledgeArticlesCountAsync($tenant_id, $api_version, $x_api_version, $knowledge_article_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KnowledgeArticlesApi->getKnowledgeArticlesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -291,6 +294,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **knowledge_article_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\KnowledgeArticleDtoCollectionQueryParameters**](../Model/KnowledgeArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -302,7 +306,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -312,7 +316,7 @@ No authorization required
 ## `patchKnowledgeArticleAsync()`
 
 ```php
-patchKnowledgeArticleAsync($tenant_id, $knowledge_article_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchKnowledgeArticleAsync($tenant_id, $knowledge_article_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a knowledge article
@@ -336,10 +340,10 @@ $tenant_id = 'tenant_id_example'; // string
 $knowledge_article_id = 'knowledge_article_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchKnowledgeArticleAsync($tenant_id, $knowledge_article_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchKnowledgeArticleAsync($tenant_id, $knowledge_article_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KnowledgeArticlesApi->patchKnowledgeArticleAsync: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +358,7 @@ try {
 | **knowledge_article_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

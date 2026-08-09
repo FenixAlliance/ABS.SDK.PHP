@@ -13,6 +13,7 @@ docs/Model/AccessTokenResponse.md
 docs/Model/AuthResult.md
 docs/Model/AuthResultEnvelope.md
 docs/Model/ErrorEnvelope.md
+docs/Model/ExecutionProvenance.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
 docs/Model/InfoRequest.md
@@ -52,6 +53,7 @@ lib/Model/AccessTokenResponse.php
 lib/Model/AuthResult.php
 lib/Model/AuthResultEnvelope.php
 lib/Model/ErrorEnvelope.php
+lib/Model/ExecutionProvenance.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
 lib/Model/InfoRequest.php
@@ -80,3 +82,4 @@ lib/Model/UserCreateDto.php
 lib/Model/UserCreateDtoEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ExecutionProvenanceTest.php

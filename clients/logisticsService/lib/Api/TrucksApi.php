@@ -106,15 +106,19 @@ class TrucksApi
         ],
         'getTruckTripsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTruckTripsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTrucksAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getTrucksCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchTruckAsync' => [
             'application/json',
@@ -4205,15 +4209,16 @@ class TrucksApi
      * @param  string $truck_id truck_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TruckTripDtoListEnvelope
      */
-    public function getTruckTripsAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
+    public function getTruckTripsAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
     {
-        list($response) = $this->getTruckTripsAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTruckTripsAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4226,15 +4231,16 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TruckTripDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTruckTripsAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
+    public function getTruckTripsAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
     {
-        $request = $this->getTruckTripsAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckTripsAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4389,14 +4395,15 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckTripsAsyncAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
+    public function getTruckTripsAsyncAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
     {
-        return $this->getTruckTripsAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $contentType)
+        return $this->getTruckTripsAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4413,15 +4420,16 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckTripsAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
+    public function getTruckTripsAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TruckTripDtoListEnvelope';
-        $request = $this->getTruckTripsAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckTripsAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4466,12 +4474,13 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTruckTripsAsyncRequest($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
+    public function getTruckTripsAsyncRequest($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4487,6 +4496,7 @@ class TrucksApi
                 'Missing the required parameter $truck_id when calling getTruckTripsAsync'
             );
         }
+
 
 
 
@@ -4539,7 +4549,14 @@ class TrucksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($truck_trip_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($truck_trip_dto_collection_query_parameters));
+            } else {
+                $httpBody = $truck_trip_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4594,15 +4611,16 @@ class TrucksApi
      * @param  string $truck_id truck_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTruckTripsCountAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
+    public function getTruckTripsCountAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
     {
-        list($response) = $this->getTruckTripsCountAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTruckTripsCountAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -4615,15 +4633,16 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTruckTripsCountAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
+    public function getTruckTripsCountAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
     {
-        $request = $this->getTruckTripsCountAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckTripsCountAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4778,14 +4797,15 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckTripsCountAsyncAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
+    public function getTruckTripsCountAsyncAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
     {
-        return $this->getTruckTripsCountAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $contentType)
+        return $this->getTruckTripsCountAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4802,15 +4822,16 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTruckTripsCountAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
+    public function getTruckTripsCountAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTruckTripsCountAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTruckTripsCountAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $truck_trip_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4855,12 +4876,13 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckTripDtoCollectionQueryParameters $truck_trip_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTruckTripsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTruckTripsCountAsyncRequest($tenant_id, $truck_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
+    public function getTruckTripsCountAsyncRequest($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $truck_trip_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTruckTripsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -4876,6 +4898,7 @@ class TrucksApi
                 'Missing the required parameter $truck_id when calling getTruckTripsCountAsync'
             );
         }
+
 
 
 
@@ -4928,7 +4951,14 @@ class TrucksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($truck_trip_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($truck_trip_dto_collection_query_parameters));
+            } else {
+                $httpBody = $truck_trip_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -4982,15 +5012,16 @@ class TrucksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TruckDtoListEnvelope
      */
-    public function getTrucksAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
+    public function getTrucksAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
     {
-        list($response) = $this->getTrucksAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTrucksAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5002,15 +5033,16 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\TruckDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrucksAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
+    public function getTrucksAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
     {
-        $request = $this->getTrucksAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTrucksAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5199,14 +5231,15 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrucksAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
+    public function getTrucksAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
     {
-        return $this->getTrucksAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTrucksAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5222,15 +5255,16 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrucksAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
+    public function getTrucksAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\TruckDtoListEnvelope';
-        $request = $this->getTrucksAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTrucksAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5274,12 +5308,13 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTrucksAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
+    public function getTrucksAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5288,6 +5323,7 @@ class TrucksApi
                 'Missing the required parameter $tenant_id when calling getTrucksAsync'
             );
         }
+
 
 
 
@@ -5332,7 +5368,14 @@ class TrucksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($truck_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($truck_dto_collection_query_parameters));
+            } else {
+                $httpBody = $truck_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5386,15 +5429,16 @@ class TrucksApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getTrucksCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
+    public function getTrucksCountAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
     {
-        list($response) = $this->getTrucksCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getTrucksCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -5406,15 +5450,16 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrucksCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
+    public function getTrucksCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
     {
-        $request = $this->getTrucksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTrucksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5568,14 +5613,15 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrucksCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
+    public function getTrucksCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
     {
-        return $this->getTrucksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getTrucksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5591,15 +5637,16 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrucksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
+    public function getTrucksCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getTrucksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getTrucksCountAsyncRequest($tenant_id, $api_version, $x_api_version, $truck_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5643,12 +5690,13 @@ class TrucksApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\TruckDtoCollectionQueryParameters $truck_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrucksCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTrucksCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
+    public function getTrucksCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $truck_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getTrucksCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5657,6 +5705,7 @@ class TrucksApi
                 'Missing the required parameter $tenant_id when calling getTrucksCountAsync'
             );
         }
+
 
 
 
@@ -5701,7 +5750,14 @@ class TrucksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($truck_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($truck_dto_collection_query_parameters));
+            } else {
+                $httpBody = $truck_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5756,16 +5812,16 @@ class TrucksApi
      * @param  string $truck_id truck_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTruckAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
+    public function patchTruckAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
     {
-        list($response) = $this->patchTruckAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTruckAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -5778,16 +5834,16 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTruckAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
+    public function patchTruckAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
     {
-        $request = $this->patchTruckAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTruckAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6012,15 +6068,15 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTruckAsyncAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
+    public function patchTruckAsyncAsync($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
     {
-        return $this->patchTruckAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTruckAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6037,16 +6093,16 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTruckAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
+    public function patchTruckAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTruckAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTruckAsyncRequest($tenant_id, $truck_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6091,13 +6147,13 @@ class TrucksApi
      * @param  string $truck_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTruckAsyncRequest($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
+    public function patchTruckAsyncRequest($tenant_id, $truck_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6166,12 +6222,12 @@ class TrucksApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6229,16 +6285,16 @@ class TrucksApi
      * @param  string $trip_id trip_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckTripAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchTruckTripAsync($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
+    public function patchTruckTripAsync($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
     {
-        list($response) = $this->patchTruckTripAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchTruckTripAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -6252,16 +6308,16 @@ class TrucksApi
      * @param  string $trip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckTripAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTruckTripAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
+    public function patchTruckTripAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
     {
-        $request = $this->patchTruckTripAsyncRequest($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTruckTripAsyncRequest($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6487,15 +6543,15 @@ class TrucksApi
      * @param  string $trip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckTripAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTruckTripAsyncAsync($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
+    public function patchTruckTripAsyncAsync($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
     {
-        return $this->patchTruckTripAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchTruckTripAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6513,16 +6569,16 @@ class TrucksApi
      * @param  string $trip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckTripAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTruckTripAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
+    public function patchTruckTripAsyncAsyncWithHttpInfo($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchTruckTripAsyncRequest($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchTruckTripAsyncRequest($tenant_id, $truck_id, $trip_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6568,13 +6624,13 @@ class TrucksApi
      * @param  string $trip_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTruckTripAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTruckTripAsyncRequest($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
+    public function patchTruckTripAsyncRequest($tenant_id, $truck_id, $trip_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchTruckTripAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -6658,12 +6714,12 @@ class TrucksApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

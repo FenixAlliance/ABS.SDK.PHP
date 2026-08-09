@@ -12,7 +12,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countCurrenciesAsync()`
 
 ```php
-countCurrenciesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countCurrenciesAsync($api_version, $x_api_version, $currency_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count currencies
@@ -34,9 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\CurrenciesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$currency_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countCurrenciesAsync($api_version, $x_api_version);
+    $result = $apiInstance->countCurrenciesAsync($api_version, $x_api_version, $currency_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurrenciesApi->countCurrenciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +50,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **currency_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters**](../Model/CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -60,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -130,7 +132,7 @@ No authorization required
 ## `getEnabledCurrenciesAsync()`
 
 ```php
-getEnabledCurrenciesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CurrencyDtoListEnvelope
+getEnabledCurrenciesAsync($api_version, $x_api_version, $currency_dto_collection_query_parameters): \OpenAPI\Client\Model\CurrencyDtoListEnvelope
 ```
 
 Get all currencies
@@ -152,9 +154,10 @@ $apiInstance = new OpenAPI\Client\Api\CurrenciesApi(
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$currency_dto_collection_query_parameters = new \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getEnabledCurrenciesAsync($api_version, $x_api_version);
+    $result = $apiInstance->getEnabledCurrenciesAsync($api_version, $x_api_version, $currency_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CurrenciesApi->getEnabledCurrenciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +170,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **currency_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\CurrencyDtoCollectionQueryParameters**](../Model/CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -178,7 +182,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

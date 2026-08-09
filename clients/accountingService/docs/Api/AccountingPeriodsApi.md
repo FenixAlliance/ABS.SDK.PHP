@@ -202,7 +202,7 @@ No authorization required
 ## `getAccountingPeriods()`
 
 ```php
-getAccountingPeriods($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountingPeriodDtoListEnvelope
+getAccountingPeriods($tenant_id, $api_version, $x_api_version, $accounting_period_dto_collection_query_parameters): \OpenAPI\Client\Model\AccountingPeriodDtoListEnvelope
 ```
 
 Get all accounting periods for a tenant
@@ -225,9 +225,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountingPeriodsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_period_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingPeriodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingPeriodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountingPeriods($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountingPeriods($tenant_id, $api_version, $x_api_version, $accounting_period_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingPeriodsApi->getAccountingPeriods: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +242,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_period_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingPeriodDtoCollectionQueryParameters**](../Model/AccountingPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -262,7 +264,7 @@ No authorization required
 ## `getAccountingPeriodsCountAsync()`
 
 ```php
-getAccountingPeriodsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountingPeriodsCountAsync($tenant_id, $api_version, $x_api_version, $accounting_period_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Gets the current tenant accounting periods count
@@ -285,9 +287,10 @@ $apiInstance = new OpenAPI\Client\Api\AccountingPeriodsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$accounting_period_dto_collection_query_parameters = new \OpenAPI\Client\Model\AccountingPeriodDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\AccountingPeriodDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getAccountingPeriodsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountingPeriodsCountAsync($tenant_id, $api_version, $x_api_version, $accounting_period_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingPeriodsApi->getAccountingPeriodsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **accounting_period_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\AccountingPeriodDtoCollectionQueryParameters**](../Model/AccountingPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -312,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -322,7 +326,7 @@ No authorization required
 ## `patchAccountingPeriodAsync()`
 
 ```php
-patchAccountingPeriodAsync($tenant_id, $accounting_period_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchAccountingPeriodAsync($tenant_id, $accounting_period_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch an accounting period
@@ -346,10 +350,10 @@ $tenant_id = 'tenant_id_example'; // string
 $accounting_period_id = 'accounting_period_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchAccountingPeriodAsync($tenant_id, $accounting_period_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchAccountingPeriodAsync($tenant_id, $accounting_period_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingPeriodsApi->patchAccountingPeriodAsync: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,7 @@ try {
 | **accounting_period_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

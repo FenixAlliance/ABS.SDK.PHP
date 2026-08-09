@@ -553,7 +553,7 @@ No authorization required
 ## `getIncomingPaymentsAsync()`
 
 ```php
-getIncomingPaymentsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getIncomingPaymentsAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
 Get Incoming Payments
@@ -576,9 +576,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getIncomingPaymentsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getIncomingPaymentsAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getIncomingPaymentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -592,6 +593,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -603,7 +605,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -613,7 +615,7 @@ No authorization required
 ## `getIncomingPaymentsCountAsync()`
 
 ```php
-getIncomingPaymentsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getIncomingPaymentsCountAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Incoming Payments Count
@@ -636,9 +638,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getIncomingPaymentsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getIncomingPaymentsCountAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getIncomingPaymentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -652,6 +655,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -663,7 +667,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -673,7 +677,7 @@ No authorization required
 ## `getIncomingWalletInvoicesAsync()`
 
 ```php
-getIncomingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
+getIncomingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
 ```
 
 Get Incoming Wallet Invoices
@@ -696,9 +700,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getIncomingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getIncomingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getIncomingWalletInvoicesAsync: ', $e->getMessage(), PHP_EOL;
@@ -712,6 +717,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -723,7 +729,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -733,7 +739,7 @@ No authorization required
 ## `getIncomingWalletInvoicesCountAsync()`
 
 ```php
-getIncomingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getIncomingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Incoming Wallet Invoices Count
@@ -756,9 +762,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getIncomingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getIncomingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getIncomingWalletInvoicesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -772,6 +779,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -783,7 +791,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -855,7 +863,7 @@ No authorization required
 ## `getLocationsForWalletAsync()`
 
 ```php
-getLocationsForWalletAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\LocationDtoListEnvelope
+getLocationsForWalletAsync($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters): \OpenAPI\Client\Model\LocationDtoListEnvelope
 ```
 
 Get Wallet Locations
@@ -878,9 +886,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$location_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLocationsForWalletAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLocationsForWalletAsync($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getLocationsForWalletAsync: ', $e->getMessage(), PHP_EOL;
@@ -894,6 +903,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **location_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocationDtoCollectionQueryParameters**](../Model/LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -905,7 +915,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -915,7 +925,7 @@ No authorization required
 ## `getLocationsForWalletCountAsync()`
 
 ```php
-getLocationsForWalletCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getLocationsForWalletCountAsync($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Locations Count
@@ -938,9 +948,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$location_dto_collection_query_parameters = new \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\LocationDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getLocationsForWalletCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLocationsForWalletCountAsync($wallet_id, $api_version, $x_api_version, $location_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getLocationsForWalletCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -954,6 +965,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **location_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\LocationDtoCollectionQueryParameters**](../Model/LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -965,7 +977,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -975,7 +987,7 @@ No authorization required
 ## `getOutgoingPaymentsAsync()`
 
 ```php
-getOutgoingPaymentsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getOutgoingPaymentsAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
 Get Outgoing Payments
@@ -998,9 +1010,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOutgoingPaymentsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getOutgoingPaymentsAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getOutgoingPaymentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1014,6 +1027,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1025,7 +1039,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1035,7 +1049,7 @@ No authorization required
 ## `getOutgoingPaymentsCountAsync()`
 
 ```php
-getOutgoingPaymentsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getOutgoingPaymentsCountAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Outgoing Payments Count
@@ -1058,9 +1072,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOutgoingPaymentsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getOutgoingPaymentsCountAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getOutgoingPaymentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1074,6 +1089,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1085,7 +1101,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1095,7 +1111,7 @@ No authorization required
 ## `getOutgoingWalletInvoicesAsync()`
 
 ```php
-getOutgoingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
+getOutgoingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
 ```
 
 Get Outgoing Wallet Invoices
@@ -1118,9 +1134,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOutgoingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getOutgoingWalletInvoicesAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getOutgoingWalletInvoicesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1134,6 +1151,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1145,7 +1163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1155,7 +1173,7 @@ No authorization required
 ## `getOutgoingWalletInvoicesCountAsync()`
 
 ```php
-getOutgoingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getOutgoingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Outgoing Wallet Invoices Count
@@ -1178,9 +1196,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getOutgoingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getOutgoingWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getOutgoingWalletInvoicesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1194,6 +1213,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1205,7 +1225,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1277,7 +1297,7 @@ No authorization required
 ## `getWalletBankAccountsAsync()`
 
 ```php
-getWalletBankAccountsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BankAccountDtoListEnvelope
+getWalletBankAccountsAsync($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters): \OpenAPI\Client\Model\BankAccountDtoListEnvelope
 ```
 
 Get Wallet Bank Accounts
@@ -1300,9 +1320,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_account_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletBankAccountsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletBankAccountsAsync($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletBankAccountsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1316,6 +1337,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters**](../Model/BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1327,7 +1349,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1337,7 +1359,7 @@ No authorization required
 ## `getWalletBankAccountsCountAsync()`
 
 ```php
-getWalletBankAccountsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletBankAccountsCountAsync($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Bank Accounts Count
@@ -1360,9 +1382,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$bank_account_dto_collection_query_parameters = new \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletBankAccountsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletBankAccountsCountAsync($wallet_id, $api_version, $x_api_version, $bank_account_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletBankAccountsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1376,6 +1399,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **bank_account_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BankAccountDtoCollectionQueryParameters**](../Model/BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1387,7 +1411,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1397,7 +1421,7 @@ No authorization required
 ## `getWalletChargebacksAsync()`
 
 ```php
-getWalletChargebacksAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentChargebackDtoListEnvelope
+getWalletChargebacksAsync($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentChargebackDtoListEnvelope
 ```
 
 Get Wallet Chargebacks
@@ -1420,9 +1444,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_chargeback_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletChargebacksAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletChargebacksAsync($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletChargebacksAsync: ', $e->getMessage(), PHP_EOL;
@@ -1436,6 +1461,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_chargeback_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters**](../Model/PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1447,7 +1473,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1457,7 +1483,7 @@ No authorization required
 ## `getWalletChargebacksCountAsync()`
 
 ```php
-getWalletChargebacksCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletChargebacksCountAsync($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Chargebacks Count
@@ -1480,9 +1506,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_chargeback_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletChargebacksCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletChargebacksCountAsync($wallet_id, $api_version, $x_api_version, $payment_chargeback_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletChargebacksCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1496,6 +1523,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_chargeback_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentChargebackDtoCollectionQueryParameters**](../Model/PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1507,7 +1535,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1577,7 +1605,7 @@ No authorization required
 ## `getWalletExtendedOrdersAsync()`
 
 ```php
-getWalletExtendedOrdersAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope
+getWalletExtendedOrdersAsync($wallet_id, $api_version, $x_api_version, $extended_order_dto_collection_query_parameters): \OpenAPI\Client\Model\ExtendedOrderDtoListEnvelope
 ```
 
 Get Wallet Extended Orders
@@ -1600,9 +1628,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$extended_order_dto_collection_query_parameters = new \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletExtendedOrdersAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletExtendedOrdersAsync($wallet_id, $api_version, $x_api_version, $extended_order_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletExtendedOrdersAsync: ', $e->getMessage(), PHP_EOL;
@@ -1616,6 +1645,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **extended_order_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ExtendedOrderDtoCollectionQueryParameters**](../Model/ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1627,7 +1657,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1637,7 +1667,7 @@ No authorization required
 ## `getWalletInvoicesAsync()`
 
 ```php
-getWalletInvoicesAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
+getWalletInvoicesAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\InvoiceDtoListEnvelope
 ```
 
 Get Wallet Invoices
@@ -1660,9 +1690,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletInvoicesAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletInvoicesAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletInvoicesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1676,6 +1707,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1687,7 +1719,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1697,7 +1729,7 @@ No authorization required
 ## `getWalletInvoicesCountAsync()`
 
 ```php
-getWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Invoices Count
@@ -1720,9 +1752,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$invoice_dto_collection_query_parameters = new \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletInvoicesCountAsync($wallet_id, $api_version, $x_api_version, $invoice_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletInvoicesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1736,6 +1769,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **invoice_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\InvoiceDtoCollectionQueryParameters**](../Model/InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1747,7 +1781,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1757,7 +1791,7 @@ No authorization required
 ## `getWalletOrdersAsync()`
 
 ```php
-getWalletOrdersAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\OrderDtoListEnvelope
+getWalletOrdersAsync($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters): \OpenAPI\Client\Model\OrderDtoListEnvelope
 ```
 
 Get Wallet Orders
@@ -1780,9 +1814,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$order_dto_collection_query_parameters = new \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletOrdersAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletOrdersAsync($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletOrdersAsync: ', $e->getMessage(), PHP_EOL;
@@ -1796,6 +1831,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **order_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OrderDtoCollectionQueryParameters**](../Model/OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1807,7 +1843,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1817,7 +1853,7 @@ No authorization required
 ## `getWalletOrdersCountAsync()`
 
 ```php
-getWalletOrdersCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletOrdersCountAsync($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Orders Count
@@ -1840,9 +1876,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$order_dto_collection_query_parameters = new \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\OrderDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletOrdersCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletOrdersCountAsync($wallet_id, $api_version, $x_api_version, $order_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletOrdersCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1856,6 +1893,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **order_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\OrderDtoCollectionQueryParameters**](../Model/OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1867,7 +1905,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1877,7 +1915,7 @@ No authorization required
 ## `getWalletPaymentsAsync()`
 
 ```php
-getWalletPaymentsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getWalletPaymentsAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
 Get Wallet Payments
@@ -1900,9 +1938,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletPaymentsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletPaymentsAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletPaymentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -1916,6 +1955,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1927,7 +1967,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1937,7 +1977,7 @@ No authorization required
 ## `getWalletPaymentsCountAsync()`
 
 ```php
-getWalletPaymentsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletPaymentsCountAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Payments Count
@@ -1960,9 +2000,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletPaymentsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletPaymentsCountAsync($wallet_id, $api_version, $x_api_version, $payment_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletPaymentsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1976,6 +2017,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentDtoCollectionQueryParameters**](../Model/PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1987,7 +2029,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1997,7 +2039,7 @@ No authorization required
 ## `getWalletQuotesAsync()`
 
 ```php
-getWalletQuotesAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\QuoteDtoListEnvelope
+getWalletQuotesAsync($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters): \OpenAPI\Client\Model\QuoteDtoListEnvelope
 ```
 
 Get Wallet Quotes
@@ -2020,9 +2062,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$quote_dto_collection_query_parameters = new \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletQuotesAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletQuotesAsync($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletQuotesAsync: ', $e->getMessage(), PHP_EOL;
@@ -2036,6 +2079,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **quote_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters**](../Model/QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2047,7 +2091,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2057,7 +2101,7 @@ No authorization required
 ## `getWalletQuotesCountAsync()`
 
 ```php
-getWalletQuotesCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletQuotesCountAsync($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Quotes Count
@@ -2080,9 +2124,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$quote_dto_collection_query_parameters = new \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletQuotesCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletQuotesCountAsync($wallet_id, $api_version, $x_api_version, $quote_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletQuotesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2096,6 +2141,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **quote_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\QuoteDtoCollectionQueryParameters**](../Model/QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2107,7 +2153,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2117,7 +2163,7 @@ No authorization required
 ## `getWalletRefundsAsync()`
 
 ```php
-getWalletRefundsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentRefundDtoListEnvelope
+getWalletRefundsAsync($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentRefundDtoListEnvelope
 ```
 
 Get Wallet Refunds
@@ -2140,9 +2186,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_refund_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletRefundsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletRefundsAsync($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletRefundsAsync: ', $e->getMessage(), PHP_EOL;
@@ -2156,6 +2203,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_refund_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters**](../Model/PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2167,7 +2215,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2177,7 +2225,7 @@ No authorization required
 ## `getWalletRefundsCountAsync()`
 
 ```php
-getWalletRefundsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletRefundsCountAsync($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Refunds Count
@@ -2200,9 +2248,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_refund_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletRefundsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletRefundsCountAsync($wallet_id, $api_version, $x_api_version, $payment_refund_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletRefundsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2216,6 +2265,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_refund_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentRefundDtoCollectionQueryParameters**](../Model/PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2227,7 +2277,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2299,7 +2349,7 @@ No authorization required
 ## `getWalletTokensAsync()`
 
 ```php
-getWalletTokensAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PaymentTokenDtoListEnvelope
+getWalletTokensAsync($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters): \OpenAPI\Client\Model\PaymentTokenDtoListEnvelope
 ```
 
 Get Wallet Tokens
@@ -2322,9 +2372,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_token_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletTokensAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletTokensAsync($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletTokensAsync: ', $e->getMessage(), PHP_EOL;
@@ -2338,6 +2389,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_token_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters**](../Model/PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2349,7 +2401,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2359,7 +2411,7 @@ No authorization required
 ## `getWalletTokensCountAsync()`
 
 ```php
-getWalletTokensCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletTokensCountAsync($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Tokens Count
@@ -2382,9 +2434,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$payment_token_dto_collection_query_parameters = new \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletTokensCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletTokensCountAsync($wallet_id, $api_version, $x_api_version, $payment_token_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletTokensCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2398,6 +2451,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **payment_token_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\PaymentTokenDtoCollectionQueryParameters**](../Model/PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2409,7 +2463,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2419,7 +2473,7 @@ No authorization required
 ## `getWalletWithdrawRequestsAsync()`
 
 ```php
-getWalletWithdrawRequestsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WalletWithdrawRequestDtoListEnvelope
+getWalletWithdrawRequestsAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters): \OpenAPI\Client\Model\WalletWithdrawRequestDtoListEnvelope
 ```
 
 Get Wallet Withdraw Requests
@@ -2442,9 +2496,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$wallet_withdraw_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletWithdrawRequestsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletWithdrawRequestsAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletWithdrawRequestsAsync: ', $e->getMessage(), PHP_EOL;
@@ -2458,6 +2513,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **wallet_withdraw_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters**](../Model/WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2469,7 +2525,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2479,7 +2535,7 @@ No authorization required
 ## `getWalletWithdrawRequestsCountAsync()`
 
 ```php
-getWalletWithdrawRequestsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletWithdrawRequestsCountAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Withdraw Requests Count
@@ -2502,9 +2558,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$wallet_withdraw_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletWithdrawRequestsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletWithdrawRequestsCountAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletWithdrawRequestsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2518,6 +2575,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **wallet_withdraw_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WalletWithdrawRequestDtoCollectionQueryParameters**](../Model/WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2529,7 +2587,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2539,7 +2597,7 @@ No authorization required
 ## `getWalletWithdrawsAsync()`
 
 ```php
-getWalletWithdrawsAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WalletWithdrawDtoListEnvelope
+getWalletWithdrawsAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters): \OpenAPI\Client\Model\WalletWithdrawDtoListEnvelope
 ```
 
 Get Wallet Withdraws
@@ -2562,9 +2620,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$wallet_withdraw_dto_collection_query_parameters = new \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletWithdrawsAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletWithdrawsAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletWithdrawsAsync: ', $e->getMessage(), PHP_EOL;
@@ -2578,6 +2637,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **wallet_withdraw_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters**](../Model/WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2589,7 +2649,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2599,7 +2659,7 @@ No authorization required
 ## `getWalletWithdrawsCountAsync()`
 
 ```php
-getWalletWithdrawsCountAsync($wallet_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWalletWithdrawsCountAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get Wallet Withdraws Count
@@ -2622,9 +2682,10 @@ $apiInstance = new OpenAPI\Client\Api\WalletsApi(
 $wallet_id = 'wallet_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$wallet_withdraw_dto_collection_query_parameters = new \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getWalletWithdrawsCountAsync($wallet_id, $api_version, $x_api_version);
+    $result = $apiInstance->getWalletWithdrawsCountAsync($wallet_id, $api_version, $x_api_version, $wallet_withdraw_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->getWalletWithdrawsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2638,6 +2699,7 @@ try {
 | **wallet_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **wallet_withdraw_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\WalletWithdrawDtoCollectionQueryParameters**](../Model/WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2649,7 +2711,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2659,7 +2721,7 @@ No authorization required
 ## `patchWalletBankAccountAsync()`
 
 ```php
-patchWalletBankAccountAsync($wallet_id, $bank_account_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWalletBankAccountAsync($wallet_id, $bank_account_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch Wallet Bank Account
@@ -2683,10 +2745,10 @@ $wallet_id = 'wallet_id_example'; // string
 $bank_account_id = 'bank_account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWalletBankAccountAsync($wallet_id, $bank_account_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchWalletBankAccountAsync($wallet_id, $bank_account_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->patchWalletBankAccountAsync: ', $e->getMessage(), PHP_EOL;
@@ -2701,7 +2763,7 @@ try {
 | **bank_account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2723,7 +2785,7 @@ No authorization required
 ## `patchWalletTokenAsync()`
 
 ```php
-patchWalletTokenAsync($wallet_id, $token_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchWalletTokenAsync($wallet_id, $token_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch Wallet Token
@@ -2747,10 +2809,10 @@ $wallet_id = 'wallet_id_example'; // string
 $token_id = 'token_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchWalletTokenAsync($wallet_id, $token_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchWalletTokenAsync($wallet_id, $token_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WalletsApi->patchWalletTokenAsync: ', $e->getMessage(), PHP_EOL;
@@ -2765,7 +2827,7 @@ try {
 | **token_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

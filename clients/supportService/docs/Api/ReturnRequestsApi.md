@@ -196,7 +196,7 @@ No authorization required
 ## `getReturnRequestsAsync()`
 
 ```php
-getReturnRequestsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ReturnRequestDtoListEnvelope
+getReturnRequestsAsync($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters): \OpenAPI\Client\Model\ReturnRequestDtoListEnvelope
 ```
 
 Retrieve return requests
@@ -217,9 +217,10 @@ $apiInstance = new OpenAPI\Client\Api\ReturnRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$return_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getReturnRequestsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getReturnRequestsAsync($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnRequestsApi->getReturnRequestsAsync: ', $e->getMessage(), PHP_EOL;
@@ -233,6 +234,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **return_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters**](../Model/ReturnRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -254,7 +256,7 @@ No authorization required
 ## `getReturnRequestsCountAsync()`
 
 ```php
-getReturnRequestsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getReturnRequestsCountAsync($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get return requests count
@@ -275,9 +277,10 @@ $apiInstance = new OpenAPI\Client\Api\ReturnRequestsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$return_request_dto_collection_query_parameters = new \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getReturnRequestsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getReturnRequestsCountAsync($tenant_id, $api_version, $x_api_version, $return_request_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnRequestsApi->getReturnRequestsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -291,6 +294,7 @@ try {
 | **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **return_request_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\ReturnRequestDtoCollectionQueryParameters**](../Model/ReturnRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -302,7 +306,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -312,7 +316,7 @@ No authorization required
 ## `patchReturnRequestAsync()`
 
 ```php
-patchReturnRequestAsync($tenant_id, $return_request_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+patchReturnRequestAsync($tenant_id, $return_request_id, $api_version, $x_api_version, $patch_operation): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Patch a return request
@@ -336,10 +340,10 @@ $tenant_id = 'tenant_id_example'; // string
 $return_request_id = 'return_request_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+$patch_operation = array(new \OpenAPI\Client\Model\PatchOperation()); // \OpenAPI\Client\Model\PatchOperation[]
 
 try {
-    $result = $apiInstance->patchReturnRequestAsync($tenant_id, $return_request_id, $api_version, $x_api_version, $operation);
+    $result = $apiInstance->patchReturnRequestAsync($tenant_id, $return_request_id, $api_version, $x_api_version, $patch_operation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnRequestsApi->patchReturnRequestAsync: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +358,7 @@ try {
 | **return_request_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+| **patch_operation** | [**\OpenAPI\Client\Model\PatchOperation[]**](../Model/PatchOperation.md)|  | [optional] |
 
 ### Return type
 

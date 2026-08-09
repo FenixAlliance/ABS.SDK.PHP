@@ -74,6 +74,7 @@ class ServiceLevelsApi
     public const contentTypes = [
         'countAllServiceLevelsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'createServiceLevelAsync' => [
             'application/json',
@@ -84,15 +85,18 @@ class ServiceLevelsApi
         ],
         'getAllServiceLevelsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getServiceLevelByIdAsync' => [
             'application/json',
         ],
         'getServiceLevelsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getServiceLevelsCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchServiceLevelAsync' => [
             'application/json',
@@ -158,15 +162,16 @@ class ServiceLevelsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countAllServiceLevelsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
+    public function countAllServiceLevelsAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
     {
-        list($response) = $this->countAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -178,15 +183,16 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
+    public function countAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
     {
-        $request = $this->countAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -375,14 +381,15 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countAllServiceLevelsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
+    public function countAllServiceLevelsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
     {
-        return $this->countAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->countAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -398,15 +405,16 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
+    public function countAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -450,12 +458,13 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countAllServiceLevelsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
+    public function countAllServiceLevelsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countAllServiceLevelsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -464,6 +473,7 @@ class ServiceLevelsApi
                 'Missing the required parameter $tenant_id when calling countAllServiceLevelsAsync'
             );
         }
+
 
 
 
@@ -508,7 +518,14 @@ class ServiceLevelsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($service_level_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($service_level_dto_collection_query_parameters));
+            } else {
+                $httpBody = $service_level_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1443,15 +1460,16 @@ class ServiceLevelsApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope
      */
-    public function getAllServiceLevelsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
+    public function getAllServiceLevelsAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
     {
-        list($response) = $this->getAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1463,15 +1481,16 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
+    public function getAllServiceLevelsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
     {
-        $request = $this->getAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1660,14 +1679,15 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllServiceLevelsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
+    public function getAllServiceLevelsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
     {
-        return $this->getAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1683,15 +1703,16 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
+    public function getAllServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope';
-        $request = $this->getAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getAllServiceLevelsAsyncRequest($tenant_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1735,12 +1756,13 @@ class ServiceLevelsApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllServiceLevelsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
+    public function getAllServiceLevelsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getAllServiceLevelsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1749,6 +1771,7 @@ class ServiceLevelsApi
                 'Missing the required parameter $tenant_id when calling getAllServiceLevelsAsync'
             );
         }
+
 
 
 
@@ -1793,7 +1816,14 @@ class ServiceLevelsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($service_level_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($service_level_dto_collection_query_parameters));
+            } else {
+                $httpBody = $service_level_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2292,15 +2322,16 @@ class ServiceLevelsApi
      * @param  string $service_id service_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope
      */
-    public function getServiceLevelsAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
+    public function getServiceLevelsAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
     {
-        list($response) = $this->getServiceLevelsAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getServiceLevelsAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2313,15 +2344,16 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getServiceLevelsAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
+    public function getServiceLevelsAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
     {
-        $request = $this->getServiceLevelsAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelsAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2511,14 +2543,15 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelsAsyncAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
+    public function getServiceLevelsAsyncAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
     {
-        return $this->getServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $contentType)
+        return $this->getServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2535,15 +2568,16 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
+    public function getServiceLevelsAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ServiceLevelDtoIReadOnlyListEnvelope';
-        $request = $this->getServiceLevelsAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelsAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2588,12 +2622,13 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getServiceLevelsAsyncRequest($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
+    public function getServiceLevelsAsyncRequest($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2609,6 +2644,7 @@ class ServiceLevelsApi
                 'Missing the required parameter $service_id when calling getServiceLevelsAsync'
             );
         }
+
 
 
 
@@ -2661,7 +2697,14 @@ class ServiceLevelsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($service_level_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($service_level_dto_collection_query_parameters));
+            } else {
+                $httpBody = $service_level_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2716,15 +2759,16 @@ class ServiceLevelsApi
      * @param  string $service_id service_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getServiceLevelsCountAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
+    public function getServiceLevelsCountAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
     {
-        list($response) = $this->getServiceLevelsCountAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getServiceLevelsCountAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -2737,15 +2781,16 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getServiceLevelsCountAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
+    public function getServiceLevelsCountAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
     {
-        $request = $this->getServiceLevelsCountAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelsCountAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2935,14 +2980,15 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelsCountAsyncAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
+    public function getServiceLevelsCountAsyncAsync($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
     {
-        return $this->getServiceLevelsCountAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $contentType)
+        return $this->getServiceLevelsCountAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2959,15 +3005,16 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getServiceLevelsCountAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
+    public function getServiceLevelsCountAsyncAsyncWithHttpInfo($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getServiceLevelsCountAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getServiceLevelsCountAsyncRequest($tenant_id, $service_id, $api_version, $x_api_version, $service_level_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3012,12 +3059,13 @@ class ServiceLevelsApi
      * @param  string $service_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ServiceLevelDtoCollectionQueryParameters $service_level_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getServiceLevelsCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getServiceLevelsCountAsyncRequest($tenant_id, $service_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
+    public function getServiceLevelsCountAsyncRequest($tenant_id, $service_id, $api_version = null, $x_api_version = null, $service_level_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getServiceLevelsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3033,6 +3081,7 @@ class ServiceLevelsApi
                 'Missing the required parameter $service_id when calling getServiceLevelsCountAsync'
             );
         }
+
 
 
 
@@ -3085,7 +3134,14 @@ class ServiceLevelsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($service_level_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($service_level_dto_collection_query_parameters));
+            } else {
+                $httpBody = $service_level_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3141,16 +3197,16 @@ class ServiceLevelsApi
      * @param  string $service_level_id service_level_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Envelope
      */
-    public function patchServiceLevelAsync($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
+    public function patchServiceLevelAsync($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
     {
-        list($response) = $this->patchServiceLevelAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchServiceLevelAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -3164,16 +3220,16 @@ class ServiceLevelsApi
      * @param  string $service_level_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchServiceLevelAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
+    public function patchServiceLevelAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
     {
-        $request = $this->patchServiceLevelAsyncRequest($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchServiceLevelAsyncRequest($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3364,15 +3420,15 @@ class ServiceLevelsApi
      * @param  string $service_level_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchServiceLevelAsyncAsync($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
+    public function patchServiceLevelAsyncAsync($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
     {
-        return $this->patchServiceLevelAsyncAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchServiceLevelAsyncAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3390,16 +3446,16 @@ class ServiceLevelsApi
      * @param  string $service_level_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchServiceLevelAsyncAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
+    public function patchServiceLevelAsyncAsyncWithHttpInfo($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Envelope';
-        $request = $this->patchServiceLevelAsyncRequest($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchServiceLevelAsyncRequest($tenant_id, $service_id, $service_level_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3445,13 +3501,13 @@ class ServiceLevelsApi
      * @param  string $service_level_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchServiceLevelAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchServiceLevelAsyncRequest($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
+    public function patchServiceLevelAsyncRequest($tenant_id, $service_id, $service_level_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchServiceLevelAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3535,12 +3591,12 @@ class ServiceLevelsApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

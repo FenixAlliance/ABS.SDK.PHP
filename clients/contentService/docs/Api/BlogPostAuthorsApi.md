@@ -13,7 +13,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countBlogPostsByAuthorAsync()`
 
 ```php
-countBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count blog posts by author
@@ -36,9 +36,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostAuthorsApi(
 $author_id = 'author_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$blog_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->countBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version);
+    $result = $apiInstance->countBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostAuthorsApi->countBlogPostsByAuthorAsync: ', $e->getMessage(), PHP_EOL;
@@ -52,6 +53,7 @@ try {
 | **author_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **blog_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters**](../Model/BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -63,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -133,7 +135,7 @@ No authorization required
 ## `getBlogAuthorsAsync()`
 
 ```php
-getBlogAuthorsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BlogAuthorDtoListEnvelope
+getBlogAuthorsAsync($tenant_id, $api_version, $x_api_version, $blog_author_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogAuthorDtoListEnvelope
 ```
 
 Get blog authors
@@ -156,9 +158,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostAuthorsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$blog_author_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBlogAuthorsAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBlogAuthorsAsync($tenant_id, $api_version, $x_api_version, $blog_author_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostAuthorsApi->getBlogAuthorsAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,6 +175,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **blog_author_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters**](../Model/BlogAuthorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -183,7 +187,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -193,7 +197,7 @@ No authorization required
 ## `getBlogPostsByAuthorAsync()`
 
 ```php
-getBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BlogPostDtoListEnvelope
+getBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters): \OpenAPI\Client\Model\BlogPostDtoListEnvelope
 ```
 
 Get blog posts by author
@@ -216,9 +220,10 @@ $apiInstance = new OpenAPI\Client\Api\BlogPostAuthorsApi(
 $author_id = 'author_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$blog_post_dto_collection_query_parameters = new \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters(); // \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters
 
 try {
-    $result = $apiInstance->getBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version);
+    $result = $apiInstance->getBlogPostsByAuthorAsync($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlogPostAuthorsApi->getBlogPostsByAuthorAsync: ', $e->getMessage(), PHP_EOL;
@@ -232,6 +237,7 @@ try {
 | **author_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **blog_post_dto_collection_query_parameters** | [**\OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters**](../Model/BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -243,7 +249,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

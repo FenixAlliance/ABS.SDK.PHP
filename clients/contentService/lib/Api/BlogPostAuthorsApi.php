@@ -74,15 +74,18 @@ class BlogPostAuthorsApi
     public const contentTypes = [
         'countBlogPostsByAuthorAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBlogAuthorByIdAsync' => [
             'application/json',
         ],
         'getBlogAuthorsAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getBlogPostsByAuthorAsync' => [
             'application/json',
+            'application/xml',
         ],
     ];
 
@@ -140,15 +143,16 @@ class BlogPostAuthorsApi
      * @param  string $author_id author_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function countBlogPostsByAuthorAsync($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
+    public function countBlogPostsByAuthorAsync($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
     {
-        list($response) = $this->countBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->countBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -160,15 +164,16 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function countBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
+    public function countBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
     {
-        $request = $this->countBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -322,14 +327,15 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countBlogPostsByAuthorAsyncAsync($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
+    public function countBlogPostsByAuthorAsyncAsync($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
     {
-        return $this->countBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $contentType)
+        return $this->countBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -345,15 +351,16 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function countBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
+    public function countBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->countBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $contentType);
+        $request = $this->countBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -397,12 +404,13 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['countBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function countBlogPostsByAuthorAsyncRequest($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
+    public function countBlogPostsByAuthorAsyncRequest($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['countBlogPostsByAuthorAsync'][0])
     {
 
         // verify the required parameter 'author_id' is set
@@ -411,6 +419,7 @@ class BlogPostAuthorsApi
                 'Missing the required parameter $author_id when calling countBlogPostsByAuthorAsync'
             );
         }
+
 
 
 
@@ -454,7 +463,14 @@ class BlogPostAuthorsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -876,15 +892,16 @@ class BlogPostAuthorsApi
      * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters $blog_author_dto_collection_query_parameters blog_author_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogAuthorsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogAuthorDtoListEnvelope
      */
-    public function getBlogAuthorsAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
+    public function getBlogAuthorsAsync($tenant_id = null, $api_version = null, $x_api_version = null, $blog_author_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
     {
-        list($response) = $this->getBlogAuthorsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBlogAuthorsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $blog_author_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -896,15 +913,16 @@ class BlogPostAuthorsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters $blog_author_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogAuthorsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogAuthorDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlogAuthorsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
+    public function getBlogAuthorsAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $blog_author_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
     {
-        $request = $this->getBlogAuthorsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlogAuthorsAsyncRequest($tenant_id, $api_version, $x_api_version, $blog_author_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1058,14 +1076,15 @@ class BlogPostAuthorsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters $blog_author_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogAuthorsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogAuthorsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
+    public function getBlogAuthorsAsyncAsync($tenant_id = null, $api_version = null, $x_api_version = null, $blog_author_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
     {
-        return $this->getBlogAuthorsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getBlogAuthorsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $blog_author_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1081,15 +1100,16 @@ class BlogPostAuthorsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters $blog_author_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogAuthorsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogAuthorsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
+    public function getBlogAuthorsAsyncAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, $blog_author_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogAuthorDtoListEnvelope';
-        $request = $this->getBlogAuthorsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlogAuthorsAsyncRequest($tenant_id, $api_version, $x_api_version, $blog_author_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1133,13 +1153,15 @@ class BlogPostAuthorsApi
      * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogAuthorDtoCollectionQueryParameters $blog_author_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogAuthorsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlogAuthorsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
+    public function getBlogAuthorsAsyncRequest($tenant_id = null, $api_version = null, $x_api_version = null, $blog_author_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogAuthorsAsync'][0])
     {
+
 
 
 
@@ -1185,7 +1207,14 @@ class BlogPostAuthorsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_author_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_author_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_author_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1239,15 +1268,16 @@ class BlogPostAuthorsApi
      * @param  string $author_id author_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostDtoListEnvelope
      */
-    public function getBlogPostsByAuthorAsync($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
+    public function getBlogPostsByAuthorAsync($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
     {
-        list($response) = $this->getBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1259,15 +1289,16 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlogPostDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
+    public function getBlogPostsByAuthorAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
     {
-        $request = $this->getBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1421,14 +1452,15 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogPostsByAuthorAsyncAsync($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
+    public function getBlogPostsByAuthorAsyncAsync($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
     {
-        return $this->getBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $contentType)
+        return $this->getBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1444,15 +1476,16 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
+    public function getBlogPostsByAuthorAsyncAsyncWithHttpInfo($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlogPostDtoListEnvelope';
-        $request = $this->getBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlogPostsByAuthorAsyncRequest($author_id, $api_version, $x_api_version, $blog_post_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1496,12 +1529,13 @@ class BlogPostAuthorsApi
      * @param  string $author_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\BlogPostDtoCollectionQueryParameters $blog_post_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlogPostsByAuthorAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlogPostsByAuthorAsyncRequest($author_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
+    public function getBlogPostsByAuthorAsyncRequest($author_id, $api_version = null, $x_api_version = null, $blog_post_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getBlogPostsByAuthorAsync'][0])
     {
 
         // verify the required parameter 'author_id' is set
@@ -1510,6 +1544,7 @@ class BlogPostAuthorsApi
                 'Missing the required parameter $author_id when calling getBlogPostsByAuthorAsync'
             );
         }
+
 
 
 
@@ -1553,7 +1588,14 @@ class BlogPostAuthorsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($blog_post_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($blog_post_dto_collection_query_parameters));
+            } else {
+                $httpBody = $blog_post_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -84,9 +84,11 @@ class SupplierProfilesApi
         ],
         'getSupplierProfilesAsync' => [
             'application/json',
+            'application/xml',
         ],
         'getSupplierProfilesCountAsync' => [
             'application/json',
+            'application/xml',
         ],
         'patchSupplierProfileAsync' => [
             'application/json',
@@ -1312,15 +1314,16 @@ class SupplierProfilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupplierProfileDtoListEnvelope
      */
-    public function getSupplierProfilesAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
+    public function getSupplierProfilesAsync($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
     {
-        list($response) = $this->getSupplierProfilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupplierProfilesAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1332,15 +1335,16 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SupplierProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupplierProfilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
+    public function getSupplierProfilesAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
     {
-        $request = $this->getSupplierProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupplierProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1529,14 +1533,15 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplierProfilesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
+    public function getSupplierProfilesAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
     {
-        return $this->getSupplierProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupplierProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1552,15 +1557,16 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplierProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
+    public function getSupplierProfilesAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SupplierProfileDtoListEnvelope';
-        $request = $this->getSupplierProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupplierProfilesAsyncRequest($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1604,12 +1610,13 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupplierProfilesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
+    public function getSupplierProfilesAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1618,6 +1625,7 @@ class SupplierProfilesApi
                 'Missing the required parameter $tenant_id when calling getSupplierProfilesAsync'
             );
         }
+
 
 
 
@@ -1662,7 +1670,14 @@ class SupplierProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($supplier_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($supplier_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $supplier_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1716,15 +1731,16 @@ class SupplierProfilesApi
      * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getSupplierProfilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
+    public function getSupplierProfilesCountAsync($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
     {
-        list($response) = $this->getSupplierProfilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getSupplierProfilesCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType);
         return $response;
     }
 
@@ -1736,15 +1752,16 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupplierProfilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
+    public function getSupplierProfilesCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
     {
-        $request = $this->getSupplierProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupplierProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1898,14 +1915,15 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplierProfilesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
+    public function getSupplierProfilesCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
     {
-        return $this->getSupplierProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
+        return $this->getSupplierProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1921,15 +1939,16 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplierProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
+    public function getSupplierProfilesCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getSupplierProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getSupplierProfilesCountAsyncRequest($tenant_id, $api_version, $x_api_version, $supplier_profile_dto_collection_query_parameters, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1973,12 +1992,13 @@ class SupplierProfilesApi
      * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\SupplierProfileDtoCollectionQueryParameters $supplier_profile_dto_collection_query_parameters (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSupplierProfilesCountAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSupplierProfilesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
+    public function getSupplierProfilesCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, $supplier_profile_dto_collection_query_parameters = null, string $contentType = self::contentTypes['getSupplierProfilesCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1987,6 +2007,7 @@ class SupplierProfilesApi
                 'Missing the required parameter $tenant_id when calling getSupplierProfilesCountAsync'
             );
         }
+
 
 
 
@@ -2031,7 +2052,14 @@ class SupplierProfilesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($supplier_profile_dto_collection_query_parameters)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($supplier_profile_dto_collection_query_parameters));
+            } else {
+                $httpBody = $supplier_profile_dto_collection_query_parameters;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2086,16 +2114,16 @@ class SupplierProfilesApi
      * @param  string $supplier_profile_id supplier_profile_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupplierProfileAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function patchSupplierProfileAsync($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
+    public function patchSupplierProfileAsync($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
     {
-        list($response) = $this->patchSupplierProfileAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        list($response) = $this->patchSupplierProfileAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
         return $response;
     }
 
@@ -2108,16 +2136,16 @@ class SupplierProfilesApi
      * @param  string $supplier_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupplierProfileAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchSupplierProfileAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
+    public function patchSupplierProfileAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
     {
-        $request = $this->patchSupplierProfileAsyncRequest($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupplierProfileAsyncRequest($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2272,15 +2300,15 @@ class SupplierProfilesApi
      * @param  string $supplier_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupplierProfileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupplierProfileAsyncAsync($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
+    public function patchSupplierProfileAsyncAsync($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
     {
-        return $this->patchSupplierProfileAsyncAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $operation, $contentType)
+        return $this->patchSupplierProfileAsyncAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $patch_operation, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2297,16 +2325,16 @@ class SupplierProfilesApi
      * @param  string $supplier_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupplierProfileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchSupplierProfileAsyncAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
+    public function patchSupplierProfileAsyncAsyncWithHttpInfo($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->patchSupplierProfileAsyncRequest($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $operation, $contentType);
+        $request = $this->patchSupplierProfileAsyncRequest($tenant_id, $supplier_profile_id, $api_version, $x_api_version, $patch_operation, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2351,13 +2379,13 @@ class SupplierProfilesApi
      * @param  string $supplier_profile_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  \OpenAPI\Client\Model\PatchOperation[] $patch_operation (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchSupplierProfileAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchSupplierProfileAsyncRequest($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
+    public function patchSupplierProfileAsyncRequest($tenant_id, $supplier_profile_id, $api_version = null, $x_api_version = null, $patch_operation = null, string $contentType = self::contentTypes['patchSupplierProfileAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2426,12 +2454,12 @@ class SupplierProfilesApi
         );
 
         // for model (json/xml)
-        if (isset($operation)) {
+        if (isset($patch_operation)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_operation));
             } else {
-                $httpBody = $operation;
+                $httpBody = $patch_operation;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

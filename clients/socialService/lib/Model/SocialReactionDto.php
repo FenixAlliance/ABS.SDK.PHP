@@ -64,7 +64,8 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reaction_value' => 'string',
         'social_profile_id' => 'string',
         'social_profile_name' => 'string',
-        'social_profile_avatar_url' => 'string'
+        'social_profile_avatar_url' => 'string',
+        'social_profile_type' => 'string'
     ];
 
     /**
@@ -81,7 +82,8 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reaction_value' => null,
         'social_profile_id' => null,
         'social_profile_name' => null,
-        'social_profile_avatar_url' => null
+        'social_profile_avatar_url' => null,
+        'social_profile_type' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reaction_value' => true,
         'social_profile_id' => true,
         'social_profile_name' => true,
-        'social_profile_avatar_url' => true
+        'social_profile_avatar_url' => true,
+        'social_profile_type' => true
     ];
 
     /**
@@ -191,7 +194,8 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reaction_value' => 'reactionValue',
         'social_profile_id' => 'socialProfileId',
         'social_profile_name' => 'socialProfileName',
-        'social_profile_avatar_url' => 'socialProfileAvatarUrl'
+        'social_profile_avatar_url' => 'socialProfileAvatarUrl',
+        'social_profile_type' => 'socialProfileType'
     ];
 
     /**
@@ -206,7 +210,8 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reaction_value' => 'setReactionValue',
         'social_profile_id' => 'setSocialProfileId',
         'social_profile_name' => 'setSocialProfileName',
-        'social_profile_avatar_url' => 'setSocialProfileAvatarUrl'
+        'social_profile_avatar_url' => 'setSocialProfileAvatarUrl',
+        'social_profile_type' => 'setSocialProfileType'
     ];
 
     /**
@@ -221,7 +226,8 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'reaction_value' => 'getReactionValue',
         'social_profile_id' => 'getSocialProfileId',
         'social_profile_name' => 'getSocialProfileName',
-        'social_profile_avatar_url' => 'getSocialProfileAvatarUrl'
+        'social_profile_avatar_url' => 'getSocialProfileAvatarUrl',
+        'social_profile_type' => 'getSocialProfileType'
     ];
 
     /**
@@ -273,6 +279,9 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const REACTION_ANGRY = 'Angry';
     public const REACTION_WOW = 'Wow';
     public const REACTION_AFRAID = 'Afraid';
+    public const SOCIAL_PROFILE_TYPE_USER = 'User';
+    public const SOCIAL_PROFILE_TYPE_TENANT = 'Tenant';
+    public const SOCIAL_PROFILE_TYPE_CONTACT = 'Contact';
 
     /**
      * Gets allowable values of the enum
@@ -290,6 +299,20 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::REACTION_ANGRY,
             self::REACTION_WOW,
             self::REACTION_AFRAID,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSocialProfileTypeAllowableValues()
+    {
+        return [
+            self::SOCIAL_PROFILE_TYPE_USER,
+            self::SOCIAL_PROFILE_TYPE_TENANT,
+            self::SOCIAL_PROFILE_TYPE_CONTACT,
         ];
     }
 
@@ -315,6 +338,7 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('social_profile_id', $data ?? [], null);
         $this->setIfExists('social_profile_name', $data ?? [], null);
         $this->setIfExists('social_profile_avatar_url', $data ?? [], null);
+        $this->setIfExists('social_profile_type', $data ?? [], null);
     }
 
     /**
@@ -349,6 +373,15 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'reaction', must be one of '%s'",
                 $this->container['reaction'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSocialProfileTypeAllowableValues();
+        if (!is_null($this->container['social_profile_type']) && !in_array($this->container['social_profile_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'social_profile_type', must be one of '%s'",
+                $this->container['social_profile_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -605,6 +638,50 @@ class SocialReactionDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['social_profile_avatar_url'] = $social_profile_avatar_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets social_profile_type
+     *
+     * @return string|null
+     */
+    public function getSocialProfileType()
+    {
+        return $this->container['social_profile_type'];
+    }
+
+    /**
+     * Sets social_profile_type
+     *
+     * @param string|null $social_profile_type social_profile_type
+     *
+     * @return self
+     */
+    public function setSocialProfileType($social_profile_type)
+    {
+        if (is_null($social_profile_type)) {
+            array_push($this->openAPINullablesSetToNull, 'social_profile_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('social_profile_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSocialProfileTypeAllowableValues();
+        if (!is_null($social_profile_type) && !in_array($social_profile_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'social_profile_type', must be one of '%s'",
+                    $social_profile_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['social_profile_type'] = $social_profile_type;
 
         return $this;
     }
