@@ -288,7 +288,7 @@ class CompletionsApi
 
 
 
-        $resourcePath = '/api/v2/AiService/Completions/Complete';
+        $resourcePath = '/api/v2/IntelligenceService/Completions/Complete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
